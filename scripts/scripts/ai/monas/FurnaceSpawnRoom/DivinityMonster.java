@@ -1,12 +1,12 @@
 package ai.monas.FurnaceSpawnRoom;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ai.DefaultAI;
-import l2mv.gameserver.data.xml.holder.EventHolder;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.entity.events.EventType;
-import l2mv.gameserver.model.entity.events.impl.MonasteryFurnaceEvent;
-import l2mv.gameserver.model.instances.NpcInstance;
+import premium.commons.util.Rnd;
+import premium.gameserver.ai.DefaultAI;
+import premium.gameserver.data.xml.holder.EventHolder;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.entity.events.EventType;
+import premium.gameserver.model.entity.events.impl.MonasteryFurnaceEvent;
+import premium.gameserver.model.instances.NpcInstance;
 
 /**
  * @author PaInKiLlEr - AI Monster 22798, 22799, 22800.  * - AI for spawning braziers room.  * - There is a 5% chance that the spawn to death four braziers unlikely.  * - AI is tested and works.

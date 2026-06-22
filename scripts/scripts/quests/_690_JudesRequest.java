@@ -1,12 +1,12 @@
 package quests;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.commons.util.Rnd;
+import premium.gameserver.Config;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.scripts.ScriptFile;
 
 /**
  * User: Keiichi Date: 08.10.2008 Time: 16:00:35 Hellbound Isle Quest 690 22399 Greater Evil

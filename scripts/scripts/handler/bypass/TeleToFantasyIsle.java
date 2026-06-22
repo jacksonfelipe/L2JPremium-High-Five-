@@ -1,12 +1,12 @@
 package handler.bypass;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.handler.bypass.BypassHandler;
-import l2mv.gameserver.handler.bypass.IBypassHandler;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.utils.Location;
+import premium.commons.util.Rnd;
+import premium.gameserver.handler.bypass.BypassHandler;
+import premium.gameserver.handler.bypass.IBypassHandler;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.utils.Location;
 
 public class TeleToFantasyIsle implements ScriptFile, IBypassHandler
 {

@@ -3,14 +3,14 @@ package quests;
 import java.util.HashMap;
 import java.util.Map;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Summon;
-import l2mv.gameserver.model.base.ClassId;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.commons.util.Rnd;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Summon;
+import premium.gameserver.model.base.ClassId;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.scripts.ScriptFile;
 
 public class _230_TestOfSummoner extends Quest implements ScriptFile
 {

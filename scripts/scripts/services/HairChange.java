@@ -1,15 +1,15 @@
 package services;
 
-import l2mv.gameserver.Config;
-import l2mv.gameserver.listener.actor.player.OnAnswerListener;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.network.serverpackets.ConfirmDlg;
-import l2mv.gameserver.network.serverpackets.MagicSkillUse;
-import l2mv.gameserver.network.serverpackets.NpcHtmlMessage;
-import l2mv.gameserver.network.serverpackets.components.CustomMessage;
-import l2mv.gameserver.network.serverpackets.components.SystemMsg;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.utils.Util;
+import premium.gameserver.Config;
+import premium.gameserver.listener.actor.player.OnAnswerListener;
+import premium.gameserver.model.Player;
+import premium.gameserver.network.serverpackets.ConfirmDlg;
+import premium.gameserver.network.serverpackets.MagicSkillUse;
+import premium.gameserver.network.serverpackets.NpcHtmlMessage;
+import premium.gameserver.network.serverpackets.components.CustomMessage;
+import premium.gameserver.network.serverpackets.components.SystemMsg;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.utils.Util;
 
 public class HairChange extends Functions
 {

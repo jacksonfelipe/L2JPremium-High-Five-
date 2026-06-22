@@ -1,18 +1,18 @@
 package npc.model;
 
 import instances.KamalokaNightmare;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.instancemanager.MapRegionManager;
-import l2mv.gameserver.instancemanager.ReflectionManager;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.Reflection;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.templates.InstantZone;
-import l2mv.gameserver.templates.StatsSet;
-import l2mv.gameserver.templates.mapregion.DomainArea;
-import l2mv.gameserver.templates.npc.NpcTemplate;
-import l2mv.gameserver.utils.ReflectionUtils;
+import premium.gameserver.Config;
+import premium.gameserver.instancemanager.MapRegionManager;
+import premium.gameserver.instancemanager.ReflectionManager;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.Reflection;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.templates.InstantZone;
+import premium.gameserver.templates.StatsSet;
+import premium.gameserver.templates.mapregion.DomainArea;
+import premium.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.utils.ReflectionUtils;
 
 public class PathfinderInstance extends NpcInstance
 {

@@ -1,7 +1,7 @@
 package handler.petition;
 
-import l2mv.gameserver.handler.petition.IPetitionHandler;
-import l2mv.gameserver.model.Player;
+import premium.gameserver.handler.petition.IPetitionHandler;
+import premium.gameserver.model.Player;
 
 /**
  * @author VISTALL

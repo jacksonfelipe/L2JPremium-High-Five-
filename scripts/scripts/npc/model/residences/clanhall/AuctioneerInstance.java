@@ -13,22 +13,22 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import l2mv.commons.dao.JdbcEntityState;
-import l2mv.gameserver.dao.SiegeClanDAO;
-import l2mv.gameserver.data.xml.holder.ResidenceHolder;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.events.impl.ClanHallAuctionEvent;
-import l2mv.gameserver.model.entity.events.objects.AuctionSiegeClanObject;
-import l2mv.gameserver.model.entity.events.objects.SiegeClanObject;
-import l2mv.gameserver.model.entity.residence.ClanHall;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.pledge.Clan;
-import l2mv.gameserver.model.pledge.Privilege;
-import l2mv.gameserver.network.serverpackets.NpcHtmlMessage;
-import l2mv.gameserver.network.serverpackets.components.SystemMsg;
-import l2mv.gameserver.templates.item.ItemTemplate;
-import l2mv.gameserver.templates.npc.NpcTemplate;
-import l2mv.gameserver.utils.HtmlUtils;
+import premium.commons.dao.JdbcEntityState;
+import premium.gameserver.dao.SiegeClanDAO;
+import premium.gameserver.data.xml.holder.ResidenceHolder;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.events.impl.ClanHallAuctionEvent;
+import premium.gameserver.model.entity.events.objects.AuctionSiegeClanObject;
+import premium.gameserver.model.entity.events.objects.SiegeClanObject;
+import premium.gameserver.model.entity.residence.ClanHall;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.pledge.Clan;
+import premium.gameserver.model.pledge.Privilege;
+import premium.gameserver.network.serverpackets.NpcHtmlMessage;
+import premium.gameserver.network.serverpackets.components.SystemMsg;
+import premium.gameserver.templates.item.ItemTemplate;
+import premium.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.utils.HtmlUtils;
 
 public class AuctioneerInstance extends NpcInstance
 {

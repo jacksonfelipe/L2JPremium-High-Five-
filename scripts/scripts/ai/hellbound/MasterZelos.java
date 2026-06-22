@@ -1,11 +1,11 @@
 package ai.hellbound;
 
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Zone;
-import l2mv.gameserver.model.instances.DoorInstance;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.utils.ReflectionUtils;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Zone;
+import premium.gameserver.model.instances.DoorInstance;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.utils.ReflectionUtils;
 
 public class MasterZelos extends Fighter
 {

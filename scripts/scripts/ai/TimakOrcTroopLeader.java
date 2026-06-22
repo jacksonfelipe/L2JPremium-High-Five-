@@ -3,15 +3,15 @@ package ai;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ai.CtrlEvent;
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.data.xml.holder.NpcHolder;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.instances.MonsterInstance;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.components.NpcString;
-import l2mv.gameserver.scripts.Functions;
+import premium.commons.util.Rnd;
+import premium.gameserver.ai.CtrlEvent;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.data.xml.holder.NpcHolder;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.instances.MonsterInstance;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.components.NpcString;
+import premium.gameserver.scripts.Functions;
 
 /**
  * AI для Timak Orc Troop Leader ID: 20767, кричащего и призывающего братьев по клану при ударе.

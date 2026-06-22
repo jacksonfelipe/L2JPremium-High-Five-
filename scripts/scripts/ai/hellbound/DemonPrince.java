@@ -1,11 +1,11 @@
 package ai.hellbound;
 
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Skill;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.tables.SkillTable;
-import l2mv.gameserver.utils.Location;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Skill;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.tables.SkillTable;
+import premium.gameserver.utils.Location;
 
 public class DemonPrince extends Fighter
 {

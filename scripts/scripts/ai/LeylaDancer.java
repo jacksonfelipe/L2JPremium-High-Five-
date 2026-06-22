@@ -1,11 +1,11 @@
 package ai;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.ai.DefaultAI;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.SocialAction;
-import l2mv.gameserver.utils.Location;
+import premium.commons.util.Rnd;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.ai.DefaultAI;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.SocialAction;
+import premium.gameserver.utils.Location;
 
 /**
  * @author claww - AI for Dancers (32424, 32425, 32426, 32427, 32428, 32432). - Indicates the social sphere, and shout in the chat. - AI is tested and works.

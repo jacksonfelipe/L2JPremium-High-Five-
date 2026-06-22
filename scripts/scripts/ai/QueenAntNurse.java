@@ -1,14 +1,14 @@
 package ai;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.ai.Priest;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Skill;
-import l2mv.gameserver.model.instances.MinionInstance;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.MagicSkillUse;
-import l2mv.gameserver.utils.Location;
+import premium.commons.util.Rnd;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.ai.Priest;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Skill;
+import premium.gameserver.model.instances.MinionInstance;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.MagicSkillUse;
+import premium.gameserver.utils.Location;
 import npc.model.QueenAntInstance;
 
 public class QueenAntNurse extends Priest

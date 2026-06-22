@@ -2,9 +2,9 @@ package ai.monastery_of_silence;
 
 import java.util.List;
 
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.instancemanager.SpawnManager;
-import l2mv.gameserver.model.instances.NpcInstance;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.instancemanager.SpawnManager;
+import premium.gameserver.model.instances.NpcInstance;
 
 /**
  * @author Bonux

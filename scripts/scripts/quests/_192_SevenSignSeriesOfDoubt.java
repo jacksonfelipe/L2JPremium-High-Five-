@@ -1,11 +1,11 @@
 package quests;
 
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.network.serverpackets.ExStartScenePlayer;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.network.serverpackets.ExStartScenePlayer;
+import premium.gameserver.scripts.ScriptFile;
 
 public class _192_SevenSignSeriesOfDoubt extends Quest implements ScriptFile
 {

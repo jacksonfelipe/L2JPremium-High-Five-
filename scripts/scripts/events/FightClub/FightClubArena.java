@@ -7,25 +7,25 @@ import java.util.concurrent.ScheduledFuture;
 import org.napile.primitive.maps.IntObjectMap;
 import org.napile.primitive.maps.impl.HashIntObjectMap;
 
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.listener.actor.OnDeathListener;
-import l2mv.gameserver.listener.actor.player.OnPlayerExitListener;
-import l2mv.gameserver.listener.zone.OnZoneEnterLeaveListener;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.Zone;
-import l2mv.gameserver.model.actor.listener.CharListenerList;
-import l2mv.gameserver.model.base.TeamType;
-import l2mv.gameserver.model.entity.Reflection;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.templates.DoorTemplate;
-import l2mv.gameserver.templates.ZoneTemplate;
-import l2mv.gameserver.utils.ItemFunctions;
-import l2mv.gameserver.utils.Location;
-import l2mv.gameserver.utils.PositionUtils;
-import l2mv.gameserver.utils.ReflectionUtils;
+import premium.commons.threading.RunnableImpl;
+import premium.gameserver.Config;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.listener.actor.OnDeathListener;
+import premium.gameserver.listener.actor.player.OnPlayerExitListener;
+import premium.gameserver.listener.zone.OnZoneEnterLeaveListener;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.Zone;
+import premium.gameserver.model.actor.listener.CharListenerList;
+import premium.gameserver.model.base.TeamType;
+import premium.gameserver.model.entity.Reflection;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.templates.DoorTemplate;
+import premium.gameserver.templates.ZoneTemplate;
+import premium.gameserver.utils.ItemFunctions;
+import premium.gameserver.utils.Location;
+import premium.gameserver.utils.PositionUtils;
+import premium.gameserver.utils.ReflectionUtils;
 
 public class FightClubArena extends FightClubManager implements OnDeathListener, OnPlayerExitListener
 {

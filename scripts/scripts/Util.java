@@ -1,34 +1,34 @@
-import l2mv.gameserver.Config;
-import l2mv.gameserver.cache.Msg;
-import l2mv.gameserver.data.xml.holder.BuyListHolder;
-import l2mv.gameserver.data.xml.holder.EventHolder;
-import l2mv.gameserver.data.xml.holder.MultiSellHolder;
-import l2mv.gameserver.data.xml.holder.ResidenceHolder;
-import l2mv.gameserver.handler.bbs.CommunityBoardManager;
-import l2mv.gameserver.instancemanager.ReflectionManager;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.SubClass;
-import l2mv.gameserver.model.base.ClassId;
-import l2mv.gameserver.model.entity.SevenSigns;
-import l2mv.gameserver.model.entity.events.EventType;
-import l2mv.gameserver.model.entity.events.fightclubmanager.FightClubEventManager;
-import l2mv.gameserver.model.entity.events.impl.AbstractFightClub;
-import l2mv.gameserver.model.entity.olympiad.Olympiad;
-import l2mv.gameserver.model.entity.residence.Castle;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.network.serverpackets.ExBuySellList;
-import l2mv.gameserver.network.serverpackets.ExShowVariationCancelWindow;
-import l2mv.gameserver.network.serverpackets.ExShowVariationMakeWindow;
-import l2mv.gameserver.network.serverpackets.HennaEquipList;
-import l2mv.gameserver.network.serverpackets.HennaUnequipList;
-import l2mv.gameserver.network.serverpackets.HideBoard;
-import l2mv.gameserver.network.serverpackets.SystemMessage2;
-import l2mv.gameserver.network.serverpackets.components.CustomMessage;
-import l2mv.gameserver.network.serverpackets.components.SystemMsg;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.utils.Location;
-import l2mv.gameserver.utils.WarehouseFunctions;
+import premium.gameserver.Config;
+import premium.gameserver.cache.Msg;
+import premium.gameserver.data.xml.holder.BuyListHolder;
+import premium.gameserver.data.xml.holder.EventHolder;
+import premium.gameserver.data.xml.holder.MultiSellHolder;
+import premium.gameserver.data.xml.holder.ResidenceHolder;
+import premium.gameserver.handler.bbs.CommunityBoardManager;
+import premium.gameserver.instancemanager.ReflectionManager;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.SubClass;
+import premium.gameserver.model.base.ClassId;
+import premium.gameserver.model.entity.SevenSigns;
+import premium.gameserver.model.entity.events.EventType;
+import premium.gameserver.model.entity.events.fightclubmanager.FightClubEventManager;
+import premium.gameserver.model.entity.events.impl.AbstractFightClub;
+import premium.gameserver.model.entity.olympiad.Olympiad;
+import premium.gameserver.model.entity.residence.Castle;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.network.serverpackets.ExBuySellList;
+import premium.gameserver.network.serverpackets.ExShowVariationCancelWindow;
+import premium.gameserver.network.serverpackets.ExShowVariationMakeWindow;
+import premium.gameserver.network.serverpackets.HennaEquipList;
+import premium.gameserver.network.serverpackets.HennaUnequipList;
+import premium.gameserver.network.serverpackets.HideBoard;
+import premium.gameserver.network.serverpackets.SystemMessage2;
+import premium.gameserver.network.serverpackets.components.CustomMessage;
+import premium.gameserver.network.serverpackets.components.SystemMsg;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.utils.Location;
+import premium.gameserver.utils.WarehouseFunctions;
 
 public class Util extends Functions
 {
@@ -147,7 +147,7 @@ public class Util extends Functions
 	{
 		if (param.length < 4)
 		{
-			System.out.println("Wrong CommunityGatekeeper Bypass: " + l2mv.gameserver.utils.Util.joinArrayWithCharacter(param, " "));
+			System.out.println("Wrong CommunityGatekeeper Bypass: " + premium.gameserver.utils.Util.joinArrayWithCharacter(param, " "));
 			throw new IllegalArgumentException();
 		}
 		

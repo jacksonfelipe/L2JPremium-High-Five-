@@ -2,17 +2,17 @@ package handler.voicecommands;
 
 import java.util.List;
 
-import l2mv.gameserver.Config;
-import l2mv.gameserver.data.htm.HtmCache;
-import l2mv.gameserver.data.xml.holder.ItemHolder;
-import l2mv.gameserver.database.mysql;
-import l2mv.gameserver.handler.voicecommands.IVoicedCommandHandler;
-import l2mv.gameserver.handler.voicecommands.VoicedCommandHandler;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.pledge.Clan;
-import l2mv.gameserver.model.pledge.UnitMember;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.gameserver.Config;
+import premium.gameserver.data.htm.HtmCache;
+import premium.gameserver.data.xml.holder.ItemHolder;
+import premium.gameserver.database.mysql;
+import premium.gameserver.handler.voicecommands.IVoicedCommandHandler;
+import premium.gameserver.handler.voicecommands.VoicedCommandHandler;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.pledge.Clan;
+import premium.gameserver.model.pledge.UnitMember;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.scripts.ScriptFile;
 
 public class CWHPrivileges implements IVoicedCommandHandler, ScriptFile
 {

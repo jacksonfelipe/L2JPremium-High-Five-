@@ -2,13 +2,13 @@ package events.KoreanStyle;
 
 import java.util.List;
 
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.Skill;
-import l2mv.gameserver.model.entity.Reflection;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.utils.Location;
+import premium.commons.threading.RunnableImpl;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.Skill;
+import premium.gameserver.model.entity.Reflection;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.utils.Location;
 
 public class KoreanStyle extends Functions /* implements ScriptFile, OnDeathListener, OnTeleportListener, OnPlayerExitListener, OnCurrentHpDamageListener */
 {

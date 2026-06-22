@@ -1,9 +1,9 @@
 package ai;
 
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.entity.Reflection;
-import l2mv.gameserver.model.instances.NpcInstance;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.entity.Reflection;
+import premium.gameserver.model.instances.NpcInstance;
 
 public class Aenkinel extends Fighter
 {

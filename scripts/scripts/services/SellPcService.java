@@ -3,12 +3,12 @@ package services;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import l2mv.gameserver.data.xml.holder.ItemHolder;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.templates.item.ItemTemplate;
+import premium.gameserver.data.xml.holder.ItemHolder;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.templates.item.ItemTemplate;
 
 /**
  * @author Buemo

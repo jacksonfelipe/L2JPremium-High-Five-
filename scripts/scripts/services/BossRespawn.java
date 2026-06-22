@@ -8,12 +8,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import bosses.EpicBossState.State;
-import l2mv.commons.dbutils.DbUtils;
-import l2mv.gameserver.data.xml.holder.NpcHolder;
-import l2mv.gameserver.database.DatabaseFactory;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.utils.TimeUtils;
+import premium.commons.dbutils.DbUtils;
+import premium.gameserver.data.xml.holder.NpcHolder;
+import premium.gameserver.database.DatabaseFactory;
+import premium.gameserver.model.Player;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.utils.TimeUtils;
 
 /**
  * @date 2016

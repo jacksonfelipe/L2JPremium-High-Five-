@@ -3,9 +3,9 @@ package ai.seedofdestruction;
 import java.util.ArrayList;
 import java.util.List;
 
-import l2mv.gameserver.ai.DefaultAI;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.instances.NpcInstance;
+import premium.gameserver.ai.DefaultAI;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.instances.NpcInstance;
 
 /**
  * AI Dimension Moving Device в Seed of Destruction: Trap spawn cast with a delay of 3 seconds through 5 seconds after spawn in the following sequence: Dragon Steed Troop Commander White Dragon Leader Dragon Steed Troop Healer (not off-like) Dragon Steed Troop Magic Leader Dragon Steed Troop Javelin

@@ -4,10 +4,10 @@ import java.util.List;
 
 import org.apache.commons.lang3.ArrayUtils;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.SocialAction;
+import premium.commons.util.Rnd;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.SocialAction;
 
 public class DrillSergeant extends Fighter
 {

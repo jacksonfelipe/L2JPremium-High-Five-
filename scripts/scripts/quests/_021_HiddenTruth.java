@@ -1,13 +1,13 @@
 package quests;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.instancemanager.ReflectionManager;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.utils.Location;
+import premium.commons.util.Rnd;
+import premium.gameserver.instancemanager.ReflectionManager;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.utils.Location;
 
 public class _021_HiddenTruth extends Quest implements ScriptFile
 {

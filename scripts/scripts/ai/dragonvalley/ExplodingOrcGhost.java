@@ -1,11 +1,11 @@
 package ai.dragonvalley;
 
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.Skill;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.tables.SkillTable;
+import premium.commons.threading.RunnableImpl;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.Skill;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.tables.SkillTable;
 
 /**
  * @author FandC AI mob 22818. After spawn explode after 3 seconds damage.

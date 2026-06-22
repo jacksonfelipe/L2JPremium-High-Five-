@@ -1,11 +1,11 @@
 package ai;
 
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.ai.DefaultAI;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.tables.SkillTable;
+import premium.commons.threading.RunnableImpl;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.ai.DefaultAI;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.tables.SkillTable;
 
 /**
  * @author pchayka Не факт, что работает полностью верно. Судя по описнию тотем производит ауру, а не бафает.

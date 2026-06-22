@@ -7,24 +7,24 @@ import java.util.Map;
 
 import bosses.BaylorManager;
 import gnu.trove.map.hash.TIntObjectHashMap;
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.ai.CtrlEvent;
-import l2mv.gameserver.instancemanager.ReflectionManager;
-import l2mv.gameserver.model.GameObjectsStorage;
-import l2mv.gameserver.model.Party;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.Skill;
-import l2mv.gameserver.model.entity.Reflection;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.stats.Stats;
-import l2mv.gameserver.stats.funcs.FuncMul;
-import l2mv.gameserver.utils.GCSArray;
-import l2mv.gameserver.utils.Location;
-import l2mv.gameserver.utils.ReflectionUtils;
+import premium.commons.util.Rnd;
+import premium.gameserver.Config;
+import premium.gameserver.ai.CtrlEvent;
+import premium.gameserver.instancemanager.ReflectionManager;
+import premium.gameserver.model.GameObjectsStorage;
+import premium.gameserver.model.Party;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.Skill;
+import premium.gameserver.model.entity.Reflection;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.stats.Stats;
+import premium.gameserver.stats.funcs.FuncMul;
+import premium.gameserver.utils.GCSArray;
+import premium.gameserver.utils.Location;
+import premium.gameserver.utils.ReflectionUtils;
 
 public class _1202_CrystalCaverns extends Quest implements ScriptFile
 {

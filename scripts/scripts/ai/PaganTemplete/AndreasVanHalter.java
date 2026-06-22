@@ -2,21 +2,21 @@ package ai.PaganTemplete;
 
 import java.util.concurrent.ScheduledFuture;
 
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.GameObjectsStorage;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.World;
-import l2mv.gameserver.model.instances.DoorInstance;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.PlaySound;
-import l2mv.gameserver.network.serverpackets.SocialAction;
-import l2mv.gameserver.tables.SkillTable;
-import l2mv.gameserver.utils.Location;
-import l2mv.gameserver.utils.NpcUtils;
-import l2mv.gameserver.utils.ReflectionUtils;
+import premium.commons.threading.RunnableImpl;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.GameObjectsStorage;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.World;
+import premium.gameserver.model.instances.DoorInstance;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.PlaySound;
+import premium.gameserver.network.serverpackets.SocialAction;
+import premium.gameserver.tables.SkillTable;
+import premium.gameserver.utils.Location;
+import premium.gameserver.utils.NpcUtils;
+import premium.gameserver.utils.ReflectionUtils;
 
 /**
  * @author FandC - AI for Rabe Boss Andreas Van Halter (29062). - All the information about the AI ​​painted. - AI is tested and works.

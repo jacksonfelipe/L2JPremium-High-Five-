@@ -1,11 +1,11 @@
 package npc.model;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.templates.npc.NpcTemplate;
-import l2mv.gameserver.utils.ItemFunctions;
-import l2mv.gameserver.utils.NpcUtils;
+import premium.commons.util.Rnd;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.utils.ItemFunctions;
+import premium.gameserver.utils.NpcUtils;
 
 /**
  * @author FandC
@@ -71,13 +71,13 @@ public final class DragonVortexInstance extends NpcInstance
 
 // package npc.model;
 //
-// import l2mv.commons.util.Rnd;
-// import l2mv.gameserver.ThreadPoolManager;
-// import l2mv.gameserver.model.Player;
-// import l2mv.gameserver.model.instances.NpcInstance;
-// import l2mv.gameserver.templates.npc.NpcTemplate;
-// import l2mv.gameserver.utils.ItemFunctions;
-// import l2mv.gameserver.utils.NpcUtils;
+// import premium.commons.util.Rnd;
+// import premium.gameserver.ThreadPoolManager;
+// import premium.gameserver.model.Player;
+// import premium.gameserver.model.instances.NpcInstance;
+// import premium.gameserver.templates.npc.NpcTemplate;
+// import premium.gameserver.utils.ItemFunctions;
+// import premium.gameserver.utils.NpcUtils;
 //
 ///**
 // * @author FandC

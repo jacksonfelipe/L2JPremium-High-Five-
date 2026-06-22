@@ -1,9 +1,9 @@
 package npc.model.birthday;
 
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.templates.npc.NpcTemplate;
-import l2mv.gameserver.utils.ItemFunctions;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.utils.ItemFunctions;
 
 /**
  * @author claww

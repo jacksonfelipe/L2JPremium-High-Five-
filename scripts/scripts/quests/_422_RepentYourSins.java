@@ -1,13 +1,13 @@
 package quests;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.model.Summon;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.tables.PetDataTable;
+import premium.commons.util.Rnd;
+import premium.gameserver.model.Summon;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.tables.PetDataTable;
 
 public class _422_RepentYourSins extends Quest implements ScriptFile
 {

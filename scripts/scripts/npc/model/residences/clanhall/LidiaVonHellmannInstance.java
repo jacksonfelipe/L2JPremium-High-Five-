@@ -3,14 +3,14 @@ package npc.model.residences.clanhall;
 import java.util.HashMap;
 import java.util.Map;
 
-import l2mv.gameserver.model.AggroList;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Playable;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.events.impl.ClanHallSiegeEvent;
-import l2mv.gameserver.model.entity.events.impl.SiegeEvent;
-import l2mv.gameserver.model.pledge.Clan;
-import l2mv.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.model.AggroList;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Playable;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.events.impl.ClanHallSiegeEvent;
+import premium.gameserver.model.entity.events.impl.SiegeEvent;
+import premium.gameserver.model.pledge.Clan;
+import premium.gameserver.templates.npc.NpcTemplate;
 import npc.model.residences.SiegeGuardInstance;
 
 /**

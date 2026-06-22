@@ -5,13 +5,13 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ai.Mystic;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Effect;
-import l2mv.gameserver.model.Skill;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.tables.SkillTable;
+import premium.commons.util.Rnd;
+import premium.gameserver.ai.Mystic;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Effect;
+import premium.gameserver.model.Skill;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.tables.SkillTable;
 
 /**
  * AI for: Hot Springs Atrox (id 21321) Hot Springs Atroxspawn (id 21317) Hot Springs Bandersnatch (id 21322) Hot Springs Bandersnatchling (id 21314) Hot Springs Flava (id 21316) Hot Springs Nepenthes (id 21319)

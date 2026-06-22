@@ -5,14 +5,14 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
 
-import l2mv.gameserver.data.xml.holder.EventHolder;
-import l2mv.gameserver.model.Party;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.events.EventType;
-import l2mv.gameserver.model.entity.events.impl.UndergroundColiseumEvent;
-import l2mv.gameserver.network.serverpackets.NpcHtmlMessage;
-import l2mv.gameserver.templates.npc.NpcTemplate;
-import l2mv.gameserver.utils.Util;
+import premium.gameserver.data.xml.holder.EventHolder;
+import premium.gameserver.model.Party;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.events.EventType;
+import premium.gameserver.model.entity.events.impl.UndergroundColiseumEvent;
+import premium.gameserver.network.serverpackets.NpcHtmlMessage;
+import premium.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.utils.Util;
 
 /**
  * @author VISTALL

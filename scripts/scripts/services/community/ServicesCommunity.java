@@ -4,18 +4,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javolution.text.TextBuilder;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.ServicesConfig;
-import l2mv.gameserver.data.htm.HtmCache;
-import l2mv.gameserver.handler.bbs.CommunityBoardManager;
-import l2mv.gameserver.handler.bbs.ICommunityBoardHandler;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.base.Experience;
-import l2mv.gameserver.network.serverpackets.ShowBoard;
-import l2mv.gameserver.network.serverpackets.components.SystemMsg;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.utils.ItemFunctions;
+import premium.gameserver.Config;
+import premium.gameserver.ServicesConfig;
+import premium.gameserver.data.htm.HtmCache;
+import premium.gameserver.handler.bbs.CommunityBoardManager;
+import premium.gameserver.handler.bbs.ICommunityBoardHandler;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.base.Experience;
+import premium.gameserver.network.serverpackets.ShowBoard;
+import premium.gameserver.network.serverpackets.components.SystemMsg;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.utils.ItemFunctions;
 
 public class ServicesCommunity extends Functions implements ScriptFile, ICommunityBoardHandler
 {

@@ -2,11 +2,11 @@ package ai;
 
 import java.util.List;
 
-import l2mv.gameserver.ai.CtrlEvent;
-import l2mv.gameserver.ai.DefaultAI;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.scripts.Functions;
+import premium.gameserver.ai.CtrlEvent;
+import premium.gameserver.ai.DefaultAI;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.scripts.Functions;
 
 public class FieldMachine extends DefaultAI
 {

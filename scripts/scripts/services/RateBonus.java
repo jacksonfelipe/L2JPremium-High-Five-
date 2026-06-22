@@ -1,16 +1,16 @@
 // package services;
 //
-// import l2mv.gameserver.Config;
-// import l2mv.gameserver.data.htm.HtmCache;
-// import l2mv.gameserver.data.xml.holder.ItemHolder;
-// import l2mv.gameserver.model.Player;
-// import l2mv.gameserver.model.actor.instances.player.Bonus;
-// import l2mv.gameserver.network.loginservercon.AuthServerCommunication;
-// import l2mv.gameserver.network.loginservercon.gspackets.BonusRequest;
-// import l2mv.gameserver.network.serverpackets.ExBR_PremiumState;
-// import l2mv.gameserver.network.serverpackets.components.SystemMsg;
-// import l2mv.gameserver.scripts.Functions;
-// import l2mv.gameserver.utils.Log;
+// import premium.gameserver.Config;
+// import premium.gameserver.data.htm.HtmCache;
+// import premium.gameserver.data.xml.holder.ItemHolder;
+// import premium.gameserver.model.Player;
+// import premium.gameserver.model.actor.instances.player.Bonus;
+// import premium.gameserver.network.loginservercon.AuthServerCommunication;
+// import premium.gameserver.network.loginservercon.gspackets.BonusRequest;
+// import premium.gameserver.network.serverpackets.ExBR_PremiumState;
+// import premium.gameserver.network.serverpackets.components.SystemMsg;
+// import premium.gameserver.scripts.Functions;
+// import premium.gameserver.utils.Log;
 //
 // import java.util.Date;
 //

@@ -1,12 +1,12 @@
 package services;
 
-import l2mv.gameserver.Config;
-import l2mv.gameserver.cache.Msg;
-import l2mv.gameserver.data.xml.holder.ItemHolder;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.network.serverpackets.components.SystemMsg;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.templates.item.ItemTemplate;
+import premium.gameserver.Config;
+import premium.gameserver.cache.Msg;
+import premium.gameserver.data.xml.holder.ItemHolder;
+import premium.gameserver.model.Player;
+import premium.gameserver.network.serverpackets.components.SystemMsg;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.templates.item.ItemTemplate;
 
 public class ExpandCWH extends Functions
 {

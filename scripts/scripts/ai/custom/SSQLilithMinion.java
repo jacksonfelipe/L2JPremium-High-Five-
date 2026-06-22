@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.apache.commons.lang3.ArrayUtils;
 
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.ai.CtrlEvent;
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.instances.NpcInstance;
+import premium.commons.threading.RunnableImpl;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.ai.CtrlEvent;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.instances.NpcInstance;
 
 public class SSQLilithMinion extends Fighter
 {

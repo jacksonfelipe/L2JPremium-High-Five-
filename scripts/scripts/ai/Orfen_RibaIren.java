@@ -1,9 +1,9 @@
 package ai;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.instances.NpcInstance;
+import premium.commons.util.Rnd;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.instances.NpcInstance;
 
 public class Orfen_RibaIren extends Fighter
 {

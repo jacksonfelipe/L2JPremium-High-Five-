@@ -5,23 +5,23 @@ import java.util.StringTokenizer;
 
 import org.apache.commons.lang3.StringUtils;
 
-import l2mv.commons.collections.CollectionUtils;
-import l2mv.gameserver.dao.SiegeClanDAO;
-import l2mv.gameserver.dao.SiegePlayerDAO;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.events.impl.ClanHallTeamBattleEvent;
-import l2mv.gameserver.model.entity.events.objects.CTBSiegeClanObject;
-import l2mv.gameserver.model.entity.events.objects.SiegeClanObject;
-import l2mv.gameserver.model.entity.residence.ClanHall;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.pledge.Clan;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.network.serverpackets.NpcHtmlMessage;
-import l2mv.gameserver.network.serverpackets.components.NpcString;
-import l2mv.gameserver.network.serverpackets.components.SystemMsg;
-import l2mv.gameserver.templates.item.ItemTemplate;
-import l2mv.gameserver.templates.npc.NpcTemplate;
-import l2mv.gameserver.utils.TimeUtils;
+import premium.commons.collections.CollectionUtils;
+import premium.gameserver.dao.SiegeClanDAO;
+import premium.gameserver.dao.SiegePlayerDAO;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.events.impl.ClanHallTeamBattleEvent;
+import premium.gameserver.model.entity.events.objects.CTBSiegeClanObject;
+import premium.gameserver.model.entity.events.objects.SiegeClanObject;
+import premium.gameserver.model.entity.residence.ClanHall;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.pledge.Clan;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.network.serverpackets.NpcHtmlMessage;
+import premium.gameserver.network.serverpackets.components.NpcString;
+import premium.gameserver.network.serverpackets.components.SystemMsg;
+import premium.gameserver.templates.item.ItemTemplate;
+import premium.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.utils.TimeUtils;
 import quests._504_CompetitionForTheBanditStronghold;
 
 /**

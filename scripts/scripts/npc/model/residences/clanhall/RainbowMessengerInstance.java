@@ -1,18 +1,18 @@
 package npc.model.residences.clanhall;
 
-import l2mv.gameserver.dao.SiegeClanDAO;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.events.impl.ClanHallMiniGameEvent;
-import l2mv.gameserver.model.entity.events.objects.CMGSiegeClanObject;
-import l2mv.gameserver.model.entity.events.objects.SiegeClanObject;
-import l2mv.gameserver.model.entity.residence.ClanHall;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.pledge.Clan;
-import l2mv.gameserver.network.serverpackets.NpcHtmlMessage;
-import l2mv.gameserver.network.serverpackets.components.SystemMsg;
-import l2mv.gameserver.templates.npc.NpcTemplate;
-import l2mv.gameserver.utils.ItemFunctions;
-import l2mv.gameserver.utils.TimeUtils;
+import premium.gameserver.dao.SiegeClanDAO;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.events.impl.ClanHallMiniGameEvent;
+import premium.gameserver.model.entity.events.objects.CMGSiegeClanObject;
+import premium.gameserver.model.entity.events.objects.SiegeClanObject;
+import premium.gameserver.model.entity.residence.ClanHall;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.pledge.Clan;
+import premium.gameserver.network.serverpackets.NpcHtmlMessage;
+import premium.gameserver.network.serverpackets.components.SystemMsg;
+import premium.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.utils.ItemFunctions;
+import premium.gameserver.utils.TimeUtils;
 
 /**
  * @author VISTALL

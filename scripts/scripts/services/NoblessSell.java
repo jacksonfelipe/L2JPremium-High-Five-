@@ -1,16 +1,16 @@
 package services;
 
-import l2mv.gameserver.Config;
-import l2mv.gameserver.instancemanager.QuestManager;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.base.Race;
-import l2mv.gameserver.model.entity.olympiad.Olympiad;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.network.serverpackets.L2GameServerPacket;
-import l2mv.gameserver.network.serverpackets.MagicSkillUse;
-import l2mv.gameserver.network.serverpackets.SkillList;
-import l2mv.gameserver.scripts.Functions;
+import premium.gameserver.Config;
+import premium.gameserver.instancemanager.QuestManager;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.base.Race;
+import premium.gameserver.model.entity.olympiad.Olympiad;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.network.serverpackets.L2GameServerPacket;
+import premium.gameserver.network.serverpackets.MagicSkillUse;
+import premium.gameserver.network.serverpackets.SkillList;
+import premium.gameserver.scripts.Functions;
 import quests._234_FatesWhisper;
 
 public class NoblessSell extends Functions

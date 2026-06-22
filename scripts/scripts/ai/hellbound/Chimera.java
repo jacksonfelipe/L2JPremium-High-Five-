@@ -1,11 +1,11 @@
 package ai.hellbound;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.instancemanager.HellboundManager;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Skill;
-import l2mv.gameserver.model.instances.NpcInstance;
+import premium.commons.util.Rnd;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.instancemanager.HellboundManager;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Skill;
+import premium.gameserver.model.instances.NpcInstance;
 
 public class Chimera extends Fighter
 {

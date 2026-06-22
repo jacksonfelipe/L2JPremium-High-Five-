@@ -1,12 +1,12 @@
 package services;
 
-import l2mv.gameserver.Config;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.base.Experience;
-import l2mv.gameserver.network.serverpackets.components.CustomMessage;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.utils.Util;
+import premium.gameserver.Config;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.base.Experience;
+import premium.gameserver.network.serverpackets.components.CustomMessage;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.utils.Util;
 
 public class Delevel extends Functions implements ScriptFile
 {

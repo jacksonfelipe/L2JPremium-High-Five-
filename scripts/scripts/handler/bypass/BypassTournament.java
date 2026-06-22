@@ -10,24 +10,24 @@ import java.util.StringTokenizer;
 
 import org.apache.commons.lang3.ArrayUtils;
 
-import l2mv.gameserver.ConfigHolder;
-import l2mv.gameserver.cache.ImagesCache;
-import l2mv.gameserver.data.htm.HtmCache;
-import l2mv.gameserver.data.xml.holder.ItemHolder;
-import l2mv.gameserver.handler.bypass.BypassHandler;
-import l2mv.gameserver.handler.bypass.IBypassHandler;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.tournament.ActiveBattleManager;
-import l2mv.gameserver.model.entity.tournament.BattleInstance;
-import l2mv.gameserver.model.entity.tournament.BattleRecord;
-import l2mv.gameserver.model.entity.tournament.BattleScheduleManager;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.instances.SchemeBufferInstance;
-import l2mv.gameserver.network.serverpackets.TutorialCloseHtml;
-import l2mv.gameserver.network.serverpackets.TutorialEnableClientEvent;
-import l2mv.gameserver.network.serverpackets.TutorialShowHtml;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.templates.item.ItemTemplate;
+import premium.gameserver.ConfigHolder;
+import premium.gameserver.cache.ImagesCache;
+import premium.gameserver.data.htm.HtmCache;
+import premium.gameserver.data.xml.holder.ItemHolder;
+import premium.gameserver.handler.bypass.BypassHandler;
+import premium.gameserver.handler.bypass.IBypassHandler;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.tournament.ActiveBattleManager;
+import premium.gameserver.model.entity.tournament.BattleInstance;
+import premium.gameserver.model.entity.tournament.BattleRecord;
+import premium.gameserver.model.entity.tournament.BattleScheduleManager;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.instances.SchemeBufferInstance;
+import premium.gameserver.network.serverpackets.TutorialCloseHtml;
+import premium.gameserver.network.serverpackets.TutorialEnableClientEvent;
+import premium.gameserver.network.serverpackets.TutorialShowHtml;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.templates.item.ItemTemplate;
 
 /**
  * Bypass support for tournament system

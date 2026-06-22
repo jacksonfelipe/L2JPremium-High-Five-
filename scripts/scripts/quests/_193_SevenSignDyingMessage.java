@@ -3,15 +3,15 @@ package quests;
 import java.util.HashMap;
 import java.util.Map;
 
-import l2mv.gameserver.ai.CtrlEvent;
-import l2mv.gameserver.model.GameObjectsStorage;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.network.serverpackets.ExStartScenePlayer;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.gameserver.ai.CtrlEvent;
+import premium.gameserver.model.GameObjectsStorage;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.network.serverpackets.ExStartScenePlayer;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.scripts.ScriptFile;
 
 public class _193_SevenSignDyingMessage extends Quest implements ScriptFile
 {

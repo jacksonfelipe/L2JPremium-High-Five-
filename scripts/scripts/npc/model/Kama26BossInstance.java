@@ -2,15 +2,15 @@ package npc.model;
 
 import java.util.concurrent.ScheduledFuture;
 
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.listener.reflection.OnReflectionCollapseListener;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.entity.Reflection;
-import l2mv.gameserver.model.instances.MinionInstance;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.templates.npc.MinionData;
-import l2mv.gameserver.templates.npc.NpcTemplate;
+import premium.commons.threading.RunnableImpl;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.listener.reflection.OnReflectionCollapseListener;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.entity.Reflection;
+import premium.gameserver.model.instances.MinionInstance;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.templates.npc.MinionData;
+import premium.gameserver.templates.npc.NpcTemplate;
 
 public class Kama26BossInstance extends KamalokaBossInstance
 {

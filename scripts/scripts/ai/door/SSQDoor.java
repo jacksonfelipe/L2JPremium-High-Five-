@@ -2,12 +2,12 @@ package ai.door;
 
 import org.apache.commons.lang3.ArrayUtils;
 
-import l2mv.commons.geometry.Rectangle;
-import l2mv.gameserver.ai.DoorAI;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.Territory;
-import l2mv.gameserver.model.instances.DoorInstance;
-import l2mv.gameserver.model.instances.NpcInstance;
+import premium.commons.geometry.Rectangle;
+import premium.gameserver.ai.DoorAI;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.Territory;
+import premium.gameserver.model.instances.DoorInstance;
+import premium.gameserver.model.instances.NpcInstance;
 
 public class SSQDoor extends DoorAI
 {

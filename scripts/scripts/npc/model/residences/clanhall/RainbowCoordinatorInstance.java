@@ -2,15 +2,15 @@ package npc.model.residences.clanhall;
 
 import java.util.List;
 
-import l2mv.gameserver.model.Party;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.events.impl.ClanHallMiniGameEvent;
-import l2mv.gameserver.model.entity.events.objects.CMGSiegeClanObject;
-import l2mv.gameserver.model.entity.events.objects.SpawnExObject;
-import l2mv.gameserver.model.entity.residence.ClanHall;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.templates.npc.NpcTemplate;
-import l2mv.gameserver.utils.Location;
+import premium.gameserver.model.Party;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.events.impl.ClanHallMiniGameEvent;
+import premium.gameserver.model.entity.events.objects.CMGSiegeClanObject;
+import premium.gameserver.model.entity.events.objects.SpawnExObject;
+import premium.gameserver.model.entity.residence.ClanHall;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.utils.Location;
 
 /**
  * @author VISTALL

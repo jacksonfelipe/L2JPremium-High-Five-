@@ -1,14 +1,14 @@
 package handler.items;
 
 import gnu.trove.map.hash.TIntObjectHashMap;
-import l2mv.gameserver.cache.Msg;
-import l2mv.gameserver.handler.items.ItemHandler;
-import l2mv.gameserver.model.Playable;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.network.serverpackets.SystemMessage;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.gameserver.cache.Msg;
+import premium.gameserver.handler.items.ItemHandler;
+import premium.gameserver.model.Playable;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.network.serverpackets.SystemMessage;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.scripts.ScriptFile;
 
 public class PathfinderEquipment extends SimpleItemHandler implements ScriptFile
 {

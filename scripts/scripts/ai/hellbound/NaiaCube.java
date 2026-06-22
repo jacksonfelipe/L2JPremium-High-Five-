@@ -1,11 +1,11 @@
 package ai.hellbound;
 
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.ai.DefaultAI;
-import l2mv.gameserver.instancemanager.naia.NaiaCoreManager;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.utils.ReflectionUtils;
+import premium.commons.threading.RunnableImpl;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.ai.DefaultAI;
+import premium.gameserver.instancemanager.naia.NaiaCoreManager;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.utils.ReflectionUtils;
 
 public class NaiaCube extends DefaultAI
 {

@@ -2,13 +2,13 @@ package npc.model.residences.fortress.peace;
 
 import java.util.List;
 
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.events.impl.FortressSiegeEvent;
-import l2mv.gameserver.model.entity.events.impl.SiegeEvent;
-import l2mv.gameserver.model.entity.events.objects.DoorObject;
-import l2mv.gameserver.model.entity.residence.Fortress;
-import l2mv.gameserver.model.pledge.Clan;
-import l2mv.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.events.impl.FortressSiegeEvent;
+import premium.gameserver.model.entity.events.impl.SiegeEvent;
+import premium.gameserver.model.entity.events.objects.DoorObject;
+import premium.gameserver.model.entity.residence.Fortress;
+import premium.gameserver.model.pledge.Clan;
+import premium.gameserver.templates.npc.NpcTemplate;
 import npc.model.residences.fortress.FacilityManagerInstance;
 
 /**

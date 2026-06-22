@@ -1,12 +1,12 @@
 package npc.model.residences.fortress;
 
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.residence.Residence;
-import l2mv.gameserver.model.pledge.Clan;
-import l2mv.gameserver.network.serverpackets.NpcHtmlMessage;
-import l2mv.gameserver.templates.npc.NpcTemplate;
-import l2mv.gameserver.utils.Location;
-import l2mv.gameserver.utils.ReflectionUtils;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.residence.Residence;
+import premium.gameserver.model.pledge.Clan;
+import premium.gameserver.network.serverpackets.NpcHtmlMessage;
+import premium.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.utils.Location;
+import premium.gameserver.utils.ReflectionUtils;
 
 /**
  * @author VISTALL

@@ -6,19 +6,19 @@ import java.util.StringTokenizer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import l2mv.gameserver.Config;
-import l2mv.gameserver.ConfigHolder;
-import l2mv.gameserver.data.htm.HtmCache;
-import l2mv.gameserver.handler.bbs.CommunityBoardManager;
-import l2mv.gameserver.handler.bbs.ICommunityBoardHandler;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.events.fightclubmanager.FightClubEventManager;
-import l2mv.gameserver.model.entity.events.fightclubmanager.FightClubLastPlayerStats;
-import l2mv.gameserver.model.entity.events.fightclubmanager.FightClubLastStatsManager;
-import l2mv.gameserver.model.entity.events.impl.AbstractFightClub;
-import l2mv.gameserver.network.serverpackets.ShowBoard;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.utils.Util;
+import premium.gameserver.Config;
+import premium.gameserver.ConfigHolder;
+import premium.gameserver.data.htm.HtmCache;
+import premium.gameserver.handler.bbs.CommunityBoardManager;
+import premium.gameserver.handler.bbs.ICommunityBoardHandler;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.events.fightclubmanager.FightClubEventManager;
+import premium.gameserver.model.entity.events.fightclubmanager.FightClubLastPlayerStats;
+import premium.gameserver.model.entity.events.fightclubmanager.FightClubLastStatsManager;
+import premium.gameserver.model.entity.events.impl.AbstractFightClub;
+import premium.gameserver.network.serverpackets.ShowBoard;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.utils.Util;
 
 public class CommunityEvents implements ScriptFile, ICommunityBoardHandler
 {

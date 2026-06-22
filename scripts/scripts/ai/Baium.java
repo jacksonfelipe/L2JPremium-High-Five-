@@ -5,11 +5,11 @@ import java.util.Map;
 
 import bosses.BaiumManager;
 import gnu.trove.map.hash.TIntObjectHashMap;
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ai.DefaultAI;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Skill;
-import l2mv.gameserver.model.instances.NpcInstance;
+import premium.commons.util.Rnd;
+import premium.gameserver.ai.DefaultAI;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Skill;
+import premium.gameserver.model.instances.NpcInstance;
 
 public class Baium extends DefaultAI
 {

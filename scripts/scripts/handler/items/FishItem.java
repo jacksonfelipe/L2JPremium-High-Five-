@@ -2,18 +2,18 @@ package handler.items;
 
 import java.util.List;
 
-import l2mv.gameserver.Config;
-import l2mv.gameserver.cache.Msg;
-import l2mv.gameserver.handler.items.ItemHandler;
-import l2mv.gameserver.model.Playable;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.model.reward.RewardData;
-import l2mv.gameserver.network.serverpackets.components.SystemMsg;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.tables.FishTable;
-import l2mv.gameserver.utils.ItemFunctions;
-import l2mv.gameserver.utils.Util;
+import premium.gameserver.Config;
+import premium.gameserver.cache.Msg;
+import premium.gameserver.handler.items.ItemHandler;
+import premium.gameserver.model.Playable;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.model.reward.RewardData;
+import premium.gameserver.network.serverpackets.components.SystemMsg;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.tables.FishTable;
+import premium.gameserver.utils.ItemFunctions;
+import premium.gameserver.utils.Util;
 
 public class FishItem extends ScriptItemHandler implements ScriptFile
 {

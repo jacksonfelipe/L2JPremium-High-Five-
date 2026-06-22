@@ -2,16 +2,16 @@ package services;
 
 import java.util.Calendar;
 
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.model.GameObjectTasks;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.World;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.PlaySound;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.utils.ItemFunctions;
-import l2mv.gameserver.utils.NpcUtils;
-import l2mv.gameserver.utils.PositionUtils;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.model.GameObjectTasks;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.World;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.PlaySound;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.utils.ItemFunctions;
+import premium.gameserver.utils.NpcUtils;
+import premium.gameserver.utils.PositionUtils;
 
 /**
  * @author claww High Five: Exchanges Explorer Hat for Birthday Hat

@@ -1,13 +1,13 @@
 package npc.model;
 
 import ai.hellbound.NaiaLock;
-import l2mv.gameserver.cache.Msg;
-import l2mv.gameserver.instancemanager.naia.NaiaTowerManager;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.MagicSkillUse;
-import l2mv.gameserver.network.serverpackets.SystemMessage;
-import l2mv.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.cache.Msg;
+import premium.gameserver.instancemanager.naia.NaiaTowerManager;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.MagicSkillUse;
+import premium.gameserver.network.serverpackets.SystemMessage;
+import premium.gameserver.templates.npc.NpcTemplate;
 
 /**
  * @author pchayka

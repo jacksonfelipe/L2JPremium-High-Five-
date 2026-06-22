@@ -5,18 +5,18 @@ import java.util.ArrayList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import l2mv.gameserver.Announcements;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.data.xml.holder.NpcHolder;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Spawner;
-import l2mv.gameserver.model.Zone;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.utils.Location;
-import l2mv.gameserver.utils.NpcUtils;
-import l2mv.gameserver.utils.ReflectionUtils;
+import premium.gameserver.Announcements;
+import premium.gameserver.Config;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.data.xml.holder.NpcHolder;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Spawner;
+import premium.gameserver.model.Zone;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.utils.Location;
+import premium.gameserver.utils.NpcUtils;
+import premium.gameserver.utils.ReflectionUtils;
 
 public class BossRandom extends Functions implements ScriptFile
 {

@@ -5,25 +5,25 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.ai.CtrlIntention;
-import l2mv.gameserver.cache.Msg;
-import l2mv.gameserver.data.xml.holder.NpcHolder;
-import l2mv.gameserver.instancemanager.ServerVariables;
-import l2mv.gameserver.listener.zone.OnZoneEnterLeaveListener;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.Zone;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.tables.SkillTable;
-import l2mv.gameserver.templates.npc.NpcTemplate;
-import l2mv.gameserver.utils.Location;
-import l2mv.gameserver.utils.ReflectionUtils;
+import premium.commons.threading.RunnableImpl;
+import premium.commons.util.Rnd;
+import premium.gameserver.Config;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.ai.CtrlIntention;
+import premium.gameserver.cache.Msg;
+import premium.gameserver.data.xml.holder.NpcHolder;
+import premium.gameserver.instancemanager.ServerVariables;
+import premium.gameserver.listener.zone.OnZoneEnterLeaveListener;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.Zone;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.tables.SkillTable;
+import premium.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.utils.Location;
+import premium.gameserver.utils.ReflectionUtils;
 
 public class SeedOfAnnihilation extends Functions implements ScriptFile
 {

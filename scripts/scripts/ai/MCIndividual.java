@@ -1,9 +1,9 @@
 package ai;
 
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.ai.DefaultAI;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.SocialAction;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.ai.DefaultAI;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.SocialAction;
 
 /**
  * @author claww - AI for individual monsters (32439, 32440, 32441). - Indicates social programs. - AI is tested and works.

@@ -1,12 +1,12 @@
 package ai.PaganTemplete;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.World;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.utils.Location;
+import premium.commons.util.Rnd;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.World;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.utils.Location;
 
 /**
  * @author PaInKiLlEr - AI for the monster Triols Layperson (22142). - If you see a player in a range of 500 when its party composes more than 4 Membury. - Then throw on a random coordinates of the first who saw the player. - AI is tested and works.

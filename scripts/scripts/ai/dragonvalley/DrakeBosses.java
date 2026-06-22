@@ -2,16 +2,16 @@ package ai.dragonvalley;
 
 import java.util.Map;
 
-import l2mv.gameserver.Config;
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.AggroList.HateInfo;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Playable;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.PlayerGroup;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.utils.NpcUtils;
+import premium.gameserver.Config;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.AggroList.HateInfo;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Playable;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.PlayerGroup;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.utils.NpcUtils;
 import quests._456_DontKnowDontCare;
 
 /**

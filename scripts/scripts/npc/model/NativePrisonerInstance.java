@@ -2,12 +2,12 @@ package npc.model;
 
 import java.util.StringTokenizer;
 
-import l2mv.gameserver.instancemanager.HellboundManager;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.skills.AbnormalEffect;
-import l2mv.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.instancemanager.HellboundManager;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.skills.AbnormalEffect;
+import premium.gameserver.templates.npc.NpcTemplate;
 
 /**
  * Данный инстанс используется в городе-инстансе на Hellbound

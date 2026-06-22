@@ -1,10 +1,10 @@
 package ai;
 
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.utils.Location;
-import l2mv.gameserver.utils.NpcUtils;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.utils.Location;
+import premium.gameserver.utils.NpcUtils;
 
 public class EtisEtina extends Fighter
 {

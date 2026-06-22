@@ -1,20 +1,20 @@
 package npc.model;
 
-import l2mv.gameserver.Config;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.model.pledge.Clan;
-import l2mv.gameserver.network.serverpackets.InventoryUpdate;
-import l2mv.gameserver.network.serverpackets.NpcHtmlMessage;
-import l2mv.gameserver.network.serverpackets.PledgeShowInfoUpdate;
-import l2mv.gameserver.network.serverpackets.PledgeStatusChanged;
-import l2mv.gameserver.network.serverpackets.SystemMessage2;
-import l2mv.gameserver.network.serverpackets.components.CustomMessage;
-import l2mv.gameserver.network.serverpackets.components.SystemMsg;
-import l2mv.gameserver.templates.npc.NpcTemplate;
-import l2mv.gameserver.utils.HtmlUtils;
-import l2mv.gameserver.utils.ItemFunctions;
+import premium.gameserver.Config;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.model.pledge.Clan;
+import premium.gameserver.network.serverpackets.InventoryUpdate;
+import premium.gameserver.network.serverpackets.NpcHtmlMessage;
+import premium.gameserver.network.serverpackets.PledgeShowInfoUpdate;
+import premium.gameserver.network.serverpackets.PledgeStatusChanged;
+import premium.gameserver.network.serverpackets.SystemMessage2;
+import premium.gameserver.network.serverpackets.components.CustomMessage;
+import premium.gameserver.network.serverpackets.components.SystemMsg;
+import premium.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.utils.HtmlUtils;
+import premium.gameserver.utils.ItemFunctions;
 
 public final class ClanPromotionInstance extends NpcInstance
 {

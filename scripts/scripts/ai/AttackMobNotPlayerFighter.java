@@ -2,13 +2,13 @@ package ai;
 
 import java.util.List;
 
-import l2mv.gameserver.ai.CtrlIntention;
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.QuestEventType;
-import l2mv.gameserver.model.quest.QuestState;
+import premium.gameserver.ai.CtrlIntention;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.QuestEventType;
+import premium.gameserver.model.quest.QuestState;
 
 public class AttackMobNotPlayerFighter extends Fighter
 {

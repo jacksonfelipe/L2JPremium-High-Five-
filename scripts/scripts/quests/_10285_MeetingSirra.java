@@ -1,19 +1,19 @@
 package quests;
 
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.Spawner;
-import l2mv.gameserver.model.entity.Reflection;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.network.serverpackets.ExStartScenePlayer;
-import l2mv.gameserver.network.serverpackets.SystemMessage;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.utils.Location;
-import l2mv.gameserver.utils.ReflectionUtils;
+import premium.commons.threading.RunnableImpl;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.Spawner;
+import premium.gameserver.model.entity.Reflection;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.network.serverpackets.ExStartScenePlayer;
+import premium.gameserver.network.serverpackets.SystemMessage;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.utils.Location;
+import premium.gameserver.utils.ReflectionUtils;
 
 /**
  * @author pchayka

@@ -8,30 +8,30 @@ import java.util.TreeSet;
 
 import org.apache.commons.lang3.StringUtils;
 
-import l2mv.gameserver.Config;
-import l2mv.gameserver.data.htm.HtmCache;
-import l2mv.gameserver.handler.admincommands.impl.AdminEditChar;
-import l2mv.gameserver.model.AggroList.HateComparator;
-import l2mv.gameserver.model.AggroList.HateInfo;
-import l2mv.gameserver.model.Effect;
-import l2mv.gameserver.model.GameObject;
-import l2mv.gameserver.model.GameObjectsStorage;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.Skill;
-import l2mv.gameserver.model.base.Element;
-import l2mv.gameserver.model.entity.events.GlobalEvent;
-import l2mv.gameserver.model.instances.DoorInstance;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.instances.PetInstance;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestEventType;
-import l2mv.gameserver.network.serverpackets.components.NpcString;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.stats.Stats;
-import l2mv.gameserver.utils.HtmlUtils;
-import l2mv.gameserver.utils.PositionUtils;
-import l2mv.gameserver.utils.Util;
+import premium.gameserver.Config;
+import premium.gameserver.data.htm.HtmCache;
+import premium.gameserver.handler.admincommands.impl.AdminEditChar;
+import premium.gameserver.model.AggroList.HateComparator;
+import premium.gameserver.model.AggroList.HateInfo;
+import premium.gameserver.model.Effect;
+import premium.gameserver.model.GameObject;
+import premium.gameserver.model.GameObjectsStorage;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.Skill;
+import premium.gameserver.model.base.Element;
+import premium.gameserver.model.entity.events.GlobalEvent;
+import premium.gameserver.model.instances.DoorInstance;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.instances.PetInstance;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestEventType;
+import premium.gameserver.network.serverpackets.components.NpcString;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.stats.Stats;
+import premium.gameserver.utils.HtmlUtils;
+import premium.gameserver.utils.PositionUtils;
+import premium.gameserver.utils.Util;
 
 public class OnActionShift extends Functions
 {

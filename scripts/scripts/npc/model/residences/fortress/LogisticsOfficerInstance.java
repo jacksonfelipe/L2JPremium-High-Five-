@@ -3,15 +3,15 @@ package npc.model.residences.fortress;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import l2mv.commons.dao.JdbcEntityState;
-import l2mv.gameserver.data.xml.holder.NpcHolder;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.residence.Fortress;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.NpcHtmlMessage;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.templates.npc.NpcTemplate;
-import l2mv.gameserver.utils.Location;
+import premium.commons.dao.JdbcEntityState;
+import premium.gameserver.data.xml.holder.NpcHolder;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.residence.Fortress;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.NpcHtmlMessage;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.utils.Location;
 
 /**
  * @author VISTALL

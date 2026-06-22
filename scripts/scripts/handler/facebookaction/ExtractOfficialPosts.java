@@ -12,14 +12,14 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import l2mv.gameserver.multverso.facebook.ActionsExtractingManager;
-import l2mv.gameserver.multverso.facebook.ActionsExtractor;
-import l2mv.gameserver.multverso.facebook.FacebookDatabaseHandler;
-import l2mv.gameserver.multverso.facebook.FacebookProfile;
-import l2mv.gameserver.multverso.facebook.FacebookProfilesHolder;
-import l2mv.gameserver.multverso.facebook.OfficialPost;
-import l2mv.gameserver.multverso.facebook.OfficialPostsHolder;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.gameserver.multverso.facebook.ActionsExtractingManager;
+import premium.gameserver.multverso.facebook.ActionsExtractor;
+import premium.gameserver.multverso.facebook.FacebookDatabaseHandler;
+import premium.gameserver.multverso.facebook.FacebookProfile;
+import premium.gameserver.multverso.facebook.FacebookProfilesHolder;
+import premium.gameserver.multverso.facebook.OfficialPost;
+import premium.gameserver.multverso.facebook.OfficialPostsHolder;
+import premium.gameserver.scripts.ScriptFile;
 
 public class ExtractOfficialPosts implements ScriptFile, ActionsExtractor
 {

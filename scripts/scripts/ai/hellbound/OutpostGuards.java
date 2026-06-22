@@ -1,7 +1,7 @@
 package ai.hellbound;
 
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.instances.NpcInstance;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.instances.NpcInstance;
 
 public class OutpostGuards extends Fighter
 {

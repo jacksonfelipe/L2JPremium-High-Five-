@@ -12,19 +12,19 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import l2mv.commons.annotations.Nullable;
-import l2mv.gameserver.multverso.facebook.ActionsAwaitingOwner;
-import l2mv.gameserver.multverso.facebook.ActionsExtractingManager;
-import l2mv.gameserver.multverso.facebook.ActionsExtractor;
-import l2mv.gameserver.multverso.facebook.CompletedTasksHistory;
-import l2mv.gameserver.multverso.facebook.FacebookAction;
-import l2mv.gameserver.multverso.facebook.FacebookActionType;
-import l2mv.gameserver.multverso.facebook.FacebookProfile;
-import l2mv.gameserver.multverso.facebook.FacebookProfilesHolder;
-import l2mv.gameserver.multverso.facebook.OfficialPost;
-import l2mv.gameserver.multverso.facebook.OfficialPostsHolder;
-import l2mv.gameserver.multverso.facebook.action.Comment;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.commons.annotations.Nullable;
+import premium.gameserver.multverso.facebook.ActionsAwaitingOwner;
+import premium.gameserver.multverso.facebook.ActionsExtractingManager;
+import premium.gameserver.multverso.facebook.ActionsExtractor;
+import premium.gameserver.multverso.facebook.CompletedTasksHistory;
+import premium.gameserver.multverso.facebook.FacebookAction;
+import premium.gameserver.multverso.facebook.FacebookActionType;
+import premium.gameserver.multverso.facebook.FacebookProfile;
+import premium.gameserver.multverso.facebook.FacebookProfilesHolder;
+import premium.gameserver.multverso.facebook.OfficialPost;
+import premium.gameserver.multverso.facebook.OfficialPostsHolder;
+import premium.gameserver.multverso.facebook.action.Comment;
+import premium.gameserver.scripts.ScriptFile;
 
 public class ExtractComments implements ScriptFile, ActionsExtractor
 {

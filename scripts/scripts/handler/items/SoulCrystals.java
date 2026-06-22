@@ -1,21 +1,21 @@
 package handler.items;
 
 import gnu.trove.set.hash.TIntHashSet;
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.cache.Msg;
-import l2mv.gameserver.data.xml.holder.SoulCrystalHolder;
-import l2mv.gameserver.handler.items.ItemHandler;
-import l2mv.gameserver.model.Playable;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.instances.MonsterInstance;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.network.serverpackets.ActionFail;
-import l2mv.gameserver.network.serverpackets.MagicSkillUse;
-import l2mv.gameserver.network.serverpackets.SetupGauge;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.tables.SkillTable;
-import l2mv.gameserver.templates.SoulCrystal;
+import premium.commons.threading.RunnableImpl;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.cache.Msg;
+import premium.gameserver.data.xml.holder.SoulCrystalHolder;
+import premium.gameserver.handler.items.ItemHandler;
+import premium.gameserver.model.Playable;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.instances.MonsterInstance;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.network.serverpackets.ActionFail;
+import premium.gameserver.network.serverpackets.MagicSkillUse;
+import premium.gameserver.network.serverpackets.SetupGauge;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.tables.SkillTable;
+import premium.gameserver.templates.SoulCrystal;
 
 public class SoulCrystals extends ScriptItemHandler implements ScriptFile
 {

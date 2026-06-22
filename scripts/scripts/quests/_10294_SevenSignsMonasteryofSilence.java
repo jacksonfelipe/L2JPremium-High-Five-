@@ -2,14 +2,14 @@ package quests;
 
 import java.util.StringTokenizer;
 
-import l2mv.commons.lang.ArrayUtils;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.network.serverpackets.ExStartScenePlayer;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.utils.Location;
+import premium.commons.lang.ArrayUtils;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.network.serverpackets.ExStartScenePlayer;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.utils.Location;
 
 /**
  * @author pchayka

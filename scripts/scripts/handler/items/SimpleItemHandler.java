@@ -1,10 +1,10 @@
 package handler.items;
 
-import l2mv.gameserver.model.Playable;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.network.serverpackets.SystemMessage;
-import l2mv.gameserver.network.serverpackets.components.SystemMsg;
+import premium.gameserver.model.Playable;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.network.serverpackets.SystemMessage;
+import premium.gameserver.network.serverpackets.components.SystemMsg;
 
 abstract class SimpleItemHandler extends ScriptItemHandler
 {

@@ -4,12 +4,12 @@ import instances.ErosionHallAttack;
 import instances.ErosionHallDefence;
 import instances.SufferingHallAttack;
 import instances.SufferingHallDefence;
-import l2mv.gameserver.instancemanager.SoIManager;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.Reflection;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.templates.npc.NpcTemplate;
-import l2mv.gameserver.utils.ReflectionUtils;
+import premium.gameserver.instancemanager.SoIManager;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.Reflection;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.utils.ReflectionUtils;
 
 /**
  * @author pchayka

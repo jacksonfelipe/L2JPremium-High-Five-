@@ -1,11 +1,11 @@
 package ai.residences.castle;
 
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.components.NpcString;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.utils.NpcUtils;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.components.NpcString;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.utils.NpcUtils;
 
 /**
  * @author VISTALL

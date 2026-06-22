@@ -1,14 +1,14 @@
 package quests;
 
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.model.base.Race;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.commons.threading.RunnableImpl;
+import premium.commons.util.Rnd;
+import premium.gameserver.Config;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.model.base.Race;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.scripts.ScriptFile;
 
 public class _236_SeedsOfChaos extends Quest implements ScriptFile
 {

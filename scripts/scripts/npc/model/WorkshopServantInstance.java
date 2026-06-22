@@ -1,18 +1,18 @@
 package npc.model;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ai.CtrlEvent;
-import l2mv.gameserver.cache.Msg;
-import l2mv.gameserver.model.Party;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.World;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.MagicSkillUse;
-import l2mv.gameserver.network.serverpackets.NpcHtmlMessage;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.tables.SkillTable;
-import l2mv.gameserver.templates.npc.NpcTemplate;
-import l2mv.gameserver.utils.Location;
+import premium.commons.util.Rnd;
+import premium.gameserver.ai.CtrlEvent;
+import premium.gameserver.cache.Msg;
+import premium.gameserver.model.Party;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.World;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.MagicSkillUse;
+import premium.gameserver.network.serverpackets.NpcHtmlMessage;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.tables.SkillTable;
+import premium.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.utils.Location;
 
 /**
  * 3 Служебных НПЦ на 5, 6м этаже Tully Workshop

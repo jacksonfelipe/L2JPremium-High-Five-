@@ -1,12 +1,12 @@
 package handler.items;
 
-import l2mv.gameserver.handler.items.IItemHandler;
-import l2mv.gameserver.model.Playable;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.CCPHelpers.itemLogs.ItemActionType;
-import l2mv.gameserver.model.entity.CCPHelpers.itemLogs.ItemLogHandler;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.utils.Location;
+import premium.gameserver.handler.items.IItemHandler;
+import premium.gameserver.model.Playable;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.CCPHelpers.itemLogs.ItemActionType;
+import premium.gameserver.model.entity.CCPHelpers.itemLogs.ItemLogHandler;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.utils.Location;
 
 public abstract class ScriptItemHandler implements IItemHandler
 {

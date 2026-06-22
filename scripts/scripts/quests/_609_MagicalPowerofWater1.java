@@ -1,10 +1,10 @@
 package quests;
 
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.tables.SkillTable;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.tables.SkillTable;
 
 public class _609_MagicalPowerofWater1 extends Quest implements ScriptFile
 {

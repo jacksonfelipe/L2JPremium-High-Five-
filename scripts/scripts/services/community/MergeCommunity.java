@@ -11,22 +11,22 @@
 // import org.slf4j.Logger;
 // import org.slf4j.LoggerFactory;
 //
-// import l2mv.gameserver.Config;
-// import l2mv.gameserver.ConfigHolder;
-// import l2mv.gameserver.cache.ImagesCache;
-// import l2mv.gameserver.dao.CharacterDAO;
-// import l2mv.gameserver.data.HtmPropHolder;
-// import l2mv.gameserver.data.HtmPropList;
-// import l2mv.gameserver.data.htm.HtmCache;
-// import l2mv.gameserver.database.DatabaseFactory;
-// import l2mv.gameserver.database.merge.MergeAuthDatabaseFactory;
-// import l2mv.gameserver.database.merge.MergeDatabaseFactory;
-// import l2mv.gameserver.handler.bbs.CommunityBoardManager;
-// import l2mv.gameserver.handler.bbs.ICommunityBoardHandler;
-// import l2mv.gameserver.model.Player;
-// import l2mv.gameserver.model.pledge.Clan;
-// import l2mv.gameserver.network.serverpackets.ShowBoard;
-// import l2mv.gameserver.scripts.ScriptFile;
+// import premium.gameserver.Config;
+// import premium.gameserver.ConfigHolder;
+// import premium.gameserver.cache.ImagesCache;
+// import premium.gameserver.dao.CharacterDAO;
+// import premium.gameserver.data.HtmPropHolder;
+// import premium.gameserver.data.HtmPropList;
+// import premium.gameserver.data.htm.HtmCache;
+// import premium.gameserver.database.DatabaseFactory;
+// import premium.gameserver.database.merge.MergeAuthDatabaseFactory;
+// import premium.gameserver.database.merge.MergeDatabaseFactory;
+// import premium.gameserver.handler.bbs.CommunityBoardManager;
+// import premium.gameserver.handler.bbs.ICommunityBoardHandler;
+// import premium.gameserver.model.Player;
+// import premium.gameserver.model.pledge.Clan;
+// import premium.gameserver.network.serverpackets.ShowBoard;
+// import premium.gameserver.scripts.ScriptFile;
 //
 // public class MergeCommunity implements ScriptFile, ICommunityBoardHandler
 // {

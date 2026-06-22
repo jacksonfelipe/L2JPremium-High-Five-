@@ -1,12 +1,12 @@
 package ai.Zone.LairOfAntharas;
 
 import gnu.trove.map.hash.TIntIntHashMap;
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ai.CtrlEvent;
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.data.xml.holder.NpcHolder;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.instances.NpcInstance;
+import premium.commons.util.Rnd;
+import premium.gameserver.ai.CtrlEvent;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.data.xml.holder.NpcHolder;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.instances.NpcInstance;
 
 /**
  * @author FandC Bloody Kariks after death can spawn another 5 same Kariks, but after death they spawn no one, although they have the same npcId.

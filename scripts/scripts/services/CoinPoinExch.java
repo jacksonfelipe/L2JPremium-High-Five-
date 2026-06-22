@@ -1,9 +1,9 @@
 package services;
 
-import l2mv.gameserver.Config;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.network.serverpackets.ExBR_GamePoint;
-import l2mv.gameserver.scripts.Functions;
+import premium.gameserver.Config;
+import premium.gameserver.model.Player;
+import premium.gameserver.network.serverpackets.ExBR_GamePoint;
+import premium.gameserver.scripts.Functions;
 
 public class CoinPoinExch extends Functions
 {

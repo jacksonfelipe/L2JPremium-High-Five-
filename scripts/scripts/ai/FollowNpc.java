@@ -5,16 +5,16 @@ import java.util.concurrent.ScheduledFuture;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.ai.CtrlIntention;
-import l2mv.gameserver.ai.DefaultAI;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.instances.MonsterInstance;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.utils.Location;
+import premium.commons.threading.RunnableImpl;
+import premium.commons.util.Rnd;
+import premium.gameserver.Config;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.ai.CtrlIntention;
+import premium.gameserver.ai.DefaultAI;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.instances.MonsterInstance;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.utils.Location;
 
 public class FollowNpc extends DefaultAI
 {

@@ -3,16 +3,16 @@ package npc.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Skill;
-import l2mv.gameserver.model.instances.MonsterInstance;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.MagicSkillUse;
-import l2mv.gameserver.tables.SkillTable;
-import l2mv.gameserver.templates.npc.NpcTemplate;
-import l2mv.gameserver.utils.Location;
+import premium.commons.threading.RunnableImpl;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Skill;
+import premium.gameserver.model.instances.MonsterInstance;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.MagicSkillUse;
+import premium.gameserver.tables.SkillTable;
+import premium.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.utils.Location;
 
 public class MushroomInstance extends MonsterInstance
 {

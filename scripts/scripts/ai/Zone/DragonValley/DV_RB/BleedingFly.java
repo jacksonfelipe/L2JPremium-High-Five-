@@ -1,7 +1,7 @@
 package ai.Zone.DragonValley.DV_RB;
 
-import l2mv.gameserver.ai.Mystic;
-import l2mv.gameserver.model.instances.NpcInstance;
+import premium.gameserver.ai.Mystic;
+import premium.gameserver.model.instances.NpcInstance;
 
 /**
  * @author FandC PTS http://www.youtube.com/watch?v=PiuIeRkqdJc

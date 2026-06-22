@@ -3,17 +3,17 @@ package ai;
 import java.util.ArrayList;
 import java.util.List;
 
-import l2mv.commons.lang.reference.HardReference;
-import l2mv.commons.lang.reference.HardReferences;
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ai.CtrlEvent;
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.MinionList;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.World;
-import l2mv.gameserver.model.instances.MinionInstance;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.scripts.Functions;
+import premium.commons.lang.reference.HardReference;
+import premium.commons.lang.reference.HardReferences;
+import premium.commons.util.Rnd;
+import premium.gameserver.ai.CtrlEvent;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.MinionList;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.World;
+import premium.gameserver.model.instances.MinionInstance;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.scripts.Functions;
 
 public class Kama56Boss extends Fighter
 {

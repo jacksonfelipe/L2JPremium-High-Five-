@@ -3,19 +3,19 @@ package services;
 import java.util.ArrayList;
 import java.util.List;
 
-import l2mv.commons.dao.JdbcEntityState;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.dao.CharacterDAO;
-import l2mv.gameserver.data.htm.HtmCache;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.CCPHelpers.itemLogs.ItemActionType;
-import l2mv.gameserver.model.entity.CCPHelpers.itemLogs.ItemLogHandler;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.model.items.ItemInstance.ItemLocation;
-import l2mv.gameserver.model.mail.Mail;
-import l2mv.gameserver.network.serverpackets.components.SystemMsg;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.utils.ItemFunctions;
+import premium.commons.dao.JdbcEntityState;
+import premium.gameserver.Config;
+import premium.gameserver.dao.CharacterDAO;
+import premium.gameserver.data.htm.HtmCache;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.CCPHelpers.itemLogs.ItemActionType;
+import premium.gameserver.model.entity.CCPHelpers.itemLogs.ItemLogHandler;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.model.items.ItemInstance.ItemLocation;
+import premium.gameserver.model.mail.Mail;
+import premium.gameserver.network.serverpackets.components.SystemMsg;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.utils.ItemFunctions;
 
 /**
  * Service to transfer pvp and augmented weapons to another character

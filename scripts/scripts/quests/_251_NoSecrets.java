@@ -2,10 +2,10 @@ package quests;
 
 import org.apache.commons.lang3.ArrayUtils;
 
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.scripts.ScriptFile;
 
 public class _251_NoSecrets extends Quest implements ScriptFile
 {

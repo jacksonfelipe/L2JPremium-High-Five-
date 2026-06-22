@@ -1,11 +1,11 @@
 package ai;
 
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.ai.CharacterAI;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.World;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.PlaySound;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.ai.CharacterAI;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.World;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.PlaySound;
 
 /**
  * - AI for Music Box (32437). - Plays music. - AI has been tested and works.

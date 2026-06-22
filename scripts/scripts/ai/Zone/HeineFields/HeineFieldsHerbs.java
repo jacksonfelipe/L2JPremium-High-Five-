@@ -4,14 +4,14 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ScheduledFuture;
 
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.idfactory.IdFactory;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.utils.Location;
+import premium.commons.threading.RunnableImpl;
+import premium.commons.util.Rnd;
+import premium.gameserver.Config;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.idfactory.IdFactory;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.utils.Location;
 
 public class HeineFieldsHerbs implements ScriptFile
 {

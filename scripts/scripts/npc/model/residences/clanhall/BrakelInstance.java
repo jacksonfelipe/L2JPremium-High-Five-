@@ -1,12 +1,12 @@
 package npc.model.residences.clanhall;
 
-import l2mv.gameserver.data.xml.holder.ResidenceHolder;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.residence.ClanHall;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.NpcHtmlMessage;
-import l2mv.gameserver.templates.npc.NpcTemplate;
-import l2mv.gameserver.utils.TimeUtils;
+import premium.gameserver.data.xml.holder.ResidenceHolder;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.residence.ClanHall;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.NpcHtmlMessage;
+import premium.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.utils.TimeUtils;
 
 /**
  * @author VISTALL

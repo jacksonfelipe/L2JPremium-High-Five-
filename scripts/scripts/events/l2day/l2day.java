@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import l2mv.gameserver.model.reward.RewardData;
+import premium.gameserver.model.reward.RewardData;
 
 @SuppressWarnings("unused")
 public class l2day extends LettersCollection

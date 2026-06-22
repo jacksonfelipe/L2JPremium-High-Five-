@@ -1,8 +1,8 @@
 package ai;
 
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.tables.SkillTable;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.tables.SkillTable;
 
 /**
  * @author pchayka

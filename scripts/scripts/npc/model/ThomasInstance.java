@@ -1,10 +1,10 @@
 package npc.model;
 
 import events.SavingSnowman.SavingSnowman;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Skill;
-import l2mv.gameserver.model.instances.MonsterInstance;
-import l2mv.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Skill;
+import premium.gameserver.model.instances.MonsterInstance;
+import premium.gameserver.templates.npc.NpcTemplate;
 
 /**
  * Данный инстанс используется мобом Thomas D. Turkey в эвенте Saving Snowman

@@ -2,10 +2,10 @@ package ai;
 
 import java.util.List;
 
-import l2mv.gameserver.ai.CtrlEvent;
-import l2mv.gameserver.ai.Priest;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.instances.NpcInstance;
+import premium.gameserver.ai.CtrlEvent;
+import premium.gameserver.ai.Priest;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.instances.NpcInstance;
 
 /**
  * @author Diamond

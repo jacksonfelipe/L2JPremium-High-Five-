@@ -1,7 +1,7 @@
 package ai.dragonvalley;
 
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.utils.Location;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.utils.Location;
 
 public class DragonTracker extends Patrollers
 {

@@ -1,12 +1,12 @@
 package services;
 
-import l2mv.gameserver.Config;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.network.serverpackets.ExShowScreenMessage;
-import l2mv.gameserver.network.serverpackets.components.CustomMessage;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.utils.DeclensionKey;
-import l2mv.gameserver.utils.Util;
+import premium.gameserver.Config;
+import premium.gameserver.model.Player;
+import premium.gameserver.network.serverpackets.ExShowScreenMessage;
+import premium.gameserver.network.serverpackets.components.CustomMessage;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.utils.DeclensionKey;
+import premium.gameserver.utils.Util;
 
 public class ClearPK extends Functions
 {

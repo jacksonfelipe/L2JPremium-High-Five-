@@ -4,14 +4,14 @@ import java.util.concurrent.Future;
 
 import bosses.FourSepulchersManager;
 import bosses.FourSepulchersSpawn;
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.instances.RaidBossInstance;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.templates.npc.NpcTemplate;
+import premium.commons.threading.RunnableImpl;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.instances.RaidBossInstance;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.templates.npc.NpcTemplate;
 
 public class SepulcherRaidInstance extends RaidBossInstance
 {

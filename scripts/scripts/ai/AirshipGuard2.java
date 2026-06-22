@@ -1,10 +1,10 @@
 package ai;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ai.Guard;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.utils.Location;
+import premium.commons.util.Rnd;
+import premium.gameserver.ai.Guard;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.utils.Location;
 
 public class AirshipGuard2 extends Guard
 {

@@ -6,17 +6,17 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import l2mv.gameserver.model.GameObjectsStorage;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.base.Experience;
-import l2mv.gameserver.model.base.Race;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.network.serverpackets.NpcHtmlMessage;
-import l2mv.gameserver.network.serverpackets.PlaySound;
-import l2mv.gameserver.network.serverpackets.RadarControl;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.model.GameObjectsStorage;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.base.Experience;
+import premium.gameserver.model.base.Race;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.network.serverpackets.NpcHtmlMessage;
+import premium.gameserver.network.serverpackets.PlaySound;
+import premium.gameserver.network.serverpackets.RadarControl;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.templates.npc.NpcTemplate;
 
 public class NewbieGuideInstance extends NpcInstance
 {

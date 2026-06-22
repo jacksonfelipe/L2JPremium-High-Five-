@@ -1,10 +1,10 @@
 package npc.model.residences.castle;
 
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.residence.Castle;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.CastleSiegeInfo;
-import l2mv.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.residence.Castle;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.CastleSiegeInfo;
+import premium.gameserver.templates.npc.NpcTemplate;
 
 public class CastleMessengerInstance extends NpcInstance
 {

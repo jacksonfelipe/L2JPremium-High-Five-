@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Future;
 
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.data.xml.holder.NpcHolder;
-import l2mv.gameserver.idfactory.IdFactory;
-import l2mv.gameserver.model.GameObject;
-import l2mv.gameserver.model.GameObjectsStorage;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.Spawner;
-import l2mv.gameserver.model.entity.Reflection;
-import l2mv.gameserver.network.serverpackets.SystemMessage;
-import l2mv.gameserver.templates.InstantZone;
-import l2mv.gameserver.utils.Location;
+import premium.commons.threading.RunnableImpl;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.data.xml.holder.NpcHolder;
+import premium.gameserver.idfactory.IdFactory;
+import premium.gameserver.model.GameObject;
+import premium.gameserver.model.GameObjectsStorage;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.Spawner;
+import premium.gameserver.model.entity.Reflection;
+import premium.gameserver.network.serverpackets.SystemMessage;
+import premium.gameserver.templates.InstantZone;
+import premium.gameserver.utils.Location;
 import npc.model.PathfinderInstance;
 
 public class KamalokaNightmare extends Reflection

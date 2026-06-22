@@ -1,0 +1,52 @@
+package premium.gameserver.skills.effects;
+
+import premium.gameserver.model.Effect;
+import premium.gameserver.network.serverpackets.SystemMessage2;
+import premium.gameserver.network.serverpackets.components.SystemMsg;
+import premium.gameserver.stats.Env;
+import premium.gameserver.stats.Stats;
+
+public class EffectSummonManaHealPercent extends Effect
+{
+	private final boolean _ignoreMpEff;
+	
+	public EffectSummonManaHealPercent(Env env, EffectTemplate template)
+	{
+		super(env, template);
+		_ignoreMpEff = template.getParam().getBool("ignoreMpEff", true);
+	}
+	
+	public EffectSummonManaHealPercent(Effect effect)
+	{
+		super(effect);
+		_ignoreMpEff = getTemplate().getParam().getBool("ignoreMpEff", true);
+	}
+	
+	@Override
+	public void onStart()
+	{
+		super.onStart();
+		
+		if (_effected.isHealBlocked())
+		{
+			return;
+		}
+		
+		double mp = calc() * _effected.getMaxMp() / 100.;
+		double newMp = mp * (!_ignoreMpEff ? _effected.calcStat(Stats.MANAHEAL_EFFECTIVNESS, 100., _effector, getSkill()) : 100.) / 100.;
+		double addToMp = Math.max(0, Math.min(newMp, _effected.calcStat(Stats.MP_LIMIT, null, null) * _effected.getMaxMp() / 100. - _effected.getCurrentMp()));
+		
+		_effected.sendPacket(new SystemMessage2(SystemMsg.S1_MP_HAS_BEEN_RESTORED).addInteger(Math.round(addToMp)));
+		
+		if (addToMp > 0)
+		{
+			_effected.setCurrentMp(addToMp + _effected.getCurrentMp());
+		}
+	}
+	
+	@Override
+	public boolean onActionTime()
+	{
+		return false;
+	}
+}

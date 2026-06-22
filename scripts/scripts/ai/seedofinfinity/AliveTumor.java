@@ -2,10 +2,10 @@ package ai.seedofinfinity;
 
 import org.apache.commons.lang3.ArrayUtils;
 
-import l2mv.gameserver.ai.DefaultAI;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.tables.SkillTable;
+import premium.gameserver.ai.DefaultAI;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.tables.SkillTable;
 
 public class AliveTumor extends DefaultAI
 {

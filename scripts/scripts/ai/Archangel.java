@@ -3,16 +3,16 @@ package ai;
 import java.util.ArrayList;
 import java.util.List;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ai.CtrlIntention;
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.geodata.GeoEngine;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Zone;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.MagicSkillUse;
-import l2mv.gameserver.utils.Location;
-import l2mv.gameserver.utils.ReflectionUtils;
+import premium.commons.util.Rnd;
+import premium.gameserver.ai.CtrlIntention;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.geodata.GeoEngine;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Zone;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.MagicSkillUse;
+import premium.gameserver.utils.Location;
+import premium.gameserver.utils.ReflectionUtils;
 
 /**
  * @author PaInKiLlEr - AI Archangel (29021).

@@ -1,14 +1,14 @@
 package quests;
 
-import l2mv.gameserver.model.base.Race;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.network.serverpackets.ExShowScreenMessage;
-import l2mv.gameserver.network.serverpackets.ExShowScreenMessage.ScreenMessageAlign;
-import l2mv.gameserver.network.serverpackets.SystemMessage2;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.gameserver.model.base.Race;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.network.serverpackets.ExShowScreenMessage;
+import premium.gameserver.network.serverpackets.ExShowScreenMessage.ScreenMessageAlign;
+import premium.gameserver.network.serverpackets.SystemMessage2;
+import premium.gameserver.scripts.ScriptFile;
 
 public class _104_SpiritOfMirror extends Quest implements ScriptFile
 {

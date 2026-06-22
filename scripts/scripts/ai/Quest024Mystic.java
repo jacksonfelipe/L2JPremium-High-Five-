@@ -1,12 +1,12 @@
 package ai;
 
-import l2mv.gameserver.ai.Mystic;
-import l2mv.gameserver.instancemanager.QuestManager;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.World;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
+import premium.gameserver.ai.Mystic;
+import premium.gameserver.instancemanager.QuestManager;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.World;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
 import quests._024_InhabitantsOfTheForestOfTheDead;
 
 /**

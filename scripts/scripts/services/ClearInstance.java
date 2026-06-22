@@ -3,14 +3,14 @@ package services;
 import java.util.ArrayList;
 import java.util.List;
 
-import l2mv.gameserver.Config;
-import l2mv.gameserver.data.htm.HtmCache;
-import l2mv.gameserver.instancemanager.ReflectionManager;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.Reflection;
-import l2mv.gameserver.network.serverpackets.ExShowScreenMessage;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.utils.Util;
+import premium.gameserver.Config;
+import premium.gameserver.data.htm.HtmCache;
+import premium.gameserver.instancemanager.ReflectionManager;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.Reflection;
+import premium.gameserver.network.serverpackets.ExShowScreenMessage;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.utils.Util;
 
 /**
  * Service that clears a certain instance reuse for players

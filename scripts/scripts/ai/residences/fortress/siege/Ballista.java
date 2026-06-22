@@ -1,13 +1,13 @@
 package ai.residences.fortress.siege;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ai.DefaultAI;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.Skill;
-import l2mv.gameserver.model.entity.events.impl.FortressSiegeEvent;
-import l2mv.gameserver.model.entity.events.impl.SiegeEvent;
-import l2mv.gameserver.model.instances.NpcInstance;
+import premium.commons.util.Rnd;
+import premium.gameserver.ai.DefaultAI;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.Skill;
+import premium.gameserver.model.entity.events.impl.FortressSiegeEvent;
+import premium.gameserver.model.entity.events.impl.SiegeEvent;
+import premium.gameserver.model.instances.NpcInstance;
 
 /**
  * Данный AI используется NPC Ballista на осадах фортов - может быть уничтожена с использованием Ballista Bomb(1-5 штук) - не использует random walk - не отвечает на атаки

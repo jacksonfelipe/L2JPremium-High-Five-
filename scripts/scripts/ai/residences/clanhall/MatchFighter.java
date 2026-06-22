@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import l2mv.gameserver.Config;
-import l2mv.gameserver.ai.CtrlIntention;
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.geodata.GeoEngine;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.World;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.instances.residences.clanhall.CTBBossInstance;
-import l2mv.gameserver.utils.Location;
+import premium.gameserver.Config;
+import premium.gameserver.ai.CtrlIntention;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.geodata.GeoEngine;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.World;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.instances.residences.clanhall.CTBBossInstance;
+import premium.gameserver.utils.Location;
 
 /**
  * @author VISTALL

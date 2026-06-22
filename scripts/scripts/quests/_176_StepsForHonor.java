@@ -1,14 +1,14 @@
 package quests;
 
-import l2mv.gameserver.data.xml.holder.EventHolder;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.events.EventType;
-import l2mv.gameserver.model.entity.events.impl.DominionSiegeEvent;
-import l2mv.gameserver.model.entity.events.impl.DominionSiegeRunnerEvent;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.gameserver.data.xml.holder.EventHolder;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.events.EventType;
+import premium.gameserver.model.entity.events.impl.DominionSiegeEvent;
+import premium.gameserver.model.entity.events.impl.DominionSiegeRunnerEvent;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.scripts.ScriptFile;
 
 /**
  * @author pchayka

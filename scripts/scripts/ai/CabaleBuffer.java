@@ -2,17 +2,17 @@ package ai;
 
 import java.util.List;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ai.DefaultAI;
-import l2mv.gameserver.model.Effect;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.Skill;
-import l2mv.gameserver.model.World;
-import l2mv.gameserver.model.entity.SevenSigns;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.components.NpcString;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.tables.SkillTable;
+import premium.commons.util.Rnd;
+import premium.gameserver.ai.DefaultAI;
+import premium.gameserver.model.Effect;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.Skill;
+import premium.gameserver.model.World;
+import premium.gameserver.model.entity.SevenSigns;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.components.NpcString;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.tables.SkillTable;
 
 public class CabaleBuffer extends DefaultAI
 {

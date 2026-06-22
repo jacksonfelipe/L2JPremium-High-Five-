@@ -18,23 +18,23 @@ import java.util.concurrent.ScheduledFuture;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import l2mv.commons.dbutils.DbUtils;
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.database.DatabaseFactory;
-import l2mv.gameserver.handler.voicecommands.IVoicedCommandHandler;
-import l2mv.gameserver.handler.voicecommands.VoicedCommandHandler;
-import l2mv.gameserver.instancemanager.ServerVariables;
-import l2mv.gameserver.listener.actor.player.OnPlayerEnterListener;
-import l2mv.gameserver.model.GameObjectsStorage;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.actor.listener.CharListenerList;
-import l2mv.gameserver.network.serverpackets.Say2;
-import l2mv.gameserver.network.serverpackets.components.ChatType;
-import l2mv.gameserver.network.serverpackets.components.CustomMessage;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.commons.dbutils.DbUtils;
+import premium.commons.util.Rnd;
+import premium.gameserver.Config;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.database.DatabaseFactory;
+import premium.gameserver.handler.voicecommands.IVoicedCommandHandler;
+import premium.gameserver.handler.voicecommands.VoicedCommandHandler;
+import premium.gameserver.instancemanager.ServerVariables;
+import premium.gameserver.listener.actor.player.OnPlayerEnterListener;
+import premium.gameserver.model.GameObjectsStorage;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.actor.listener.CharListenerList;
+import premium.gameserver.network.serverpackets.Say2;
+import premium.gameserver.network.serverpackets.components.ChatType;
+import premium.gameserver.network.serverpackets.components.CustomMessage;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.scripts.ScriptFile;
 
 public class TriviaEvent extends Functions implements ScriptFile, IVoicedCommandHandler, OnPlayerEnterListener
 {

@@ -10,27 +10,27 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javolution.util.FastList;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.ConfigHolder;
-import l2mv.gameserver.cache.ImagesCache;
-import l2mv.gameserver.data.htm.HtmCache;
-import l2mv.gameserver.data.xml.holder.ItemHolder;
-import l2mv.gameserver.handler.bbs.CommunityBoardManager;
-import l2mv.gameserver.handler.bbs.ICommunityBoardHandler;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.forum.ForumBoard;
-import l2mv.gameserver.model.entity.forum.ForumBoardType;
-import l2mv.gameserver.model.entity.forum.ForumHandler;
-import l2mv.gameserver.model.entity.forum.ForumMember;
-import l2mv.gameserver.model.entity.forum.ForumMemberGroup;
-import l2mv.gameserver.model.entity.forum.ForumMembersHolder;
-import l2mv.gameserver.model.entity.forum.ForumPost;
-import l2mv.gameserver.model.entity.forum.ForumTopic;
-import l2mv.gameserver.network.serverpackets.Say2;
-import l2mv.gameserver.network.serverpackets.ShowBoard;
-import l2mv.gameserver.network.serverpackets.components.ChatType;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.utils.Util;
+import premium.gameserver.Config;
+import premium.gameserver.ConfigHolder;
+import premium.gameserver.cache.ImagesCache;
+import premium.gameserver.data.htm.HtmCache;
+import premium.gameserver.data.xml.holder.ItemHolder;
+import premium.gameserver.handler.bbs.CommunityBoardManager;
+import premium.gameserver.handler.bbs.ICommunityBoardHandler;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.forum.ForumBoard;
+import premium.gameserver.model.entity.forum.ForumBoardType;
+import premium.gameserver.model.entity.forum.ForumHandler;
+import premium.gameserver.model.entity.forum.ForumMember;
+import premium.gameserver.model.entity.forum.ForumMemberGroup;
+import premium.gameserver.model.entity.forum.ForumMembersHolder;
+import premium.gameserver.model.entity.forum.ForumPost;
+import premium.gameserver.model.entity.forum.ForumTopic;
+import premium.gameserver.network.serverpackets.Say2;
+import premium.gameserver.network.serverpackets.ShowBoard;
+import premium.gameserver.network.serverpackets.components.ChatType;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.utils.Util;
 
 public class CommunityForum implements ScriptFile, ICommunityBoardHandler
 {

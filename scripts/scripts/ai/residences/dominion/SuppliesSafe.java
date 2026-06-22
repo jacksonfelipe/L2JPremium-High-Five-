@@ -3,20 +3,20 @@ package ai.residences.dominion;
 import org.napile.primitive.maps.IntObjectMap;
 import org.napile.primitive.maps.impl.HashIntObjectMap;
 
-import l2mv.gameserver.Config;
-import l2mv.gameserver.ai.DefaultAI;
-import l2mv.gameserver.instancemanager.QuestManager;
-import l2mv.gameserver.listener.actor.player.OnPlayerEnterListener;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.GameObjectsStorage;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.actor.listener.PlayerListenerList;
-import l2mv.gameserver.model.entity.events.impl.DominionSiegeEvent;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.network.serverpackets.ExShowScreenMessage;
-import l2mv.gameserver.network.serverpackets.components.NpcString;
+import premium.gameserver.Config;
+import premium.gameserver.ai.DefaultAI;
+import premium.gameserver.instancemanager.QuestManager;
+import premium.gameserver.listener.actor.player.OnPlayerEnterListener;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.GameObjectsStorage;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.actor.listener.PlayerListenerList;
+import premium.gameserver.model.entity.events.impl.DominionSiegeEvent;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.network.serverpackets.ExShowScreenMessage;
+import premium.gameserver.network.serverpackets.components.NpcString;
 import quests._730_ProtectTheSuppliesSafe;
 
 /**

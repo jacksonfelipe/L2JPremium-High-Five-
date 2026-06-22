@@ -2,15 +2,15 @@ package ai.custom;
 
 import org.apache.commons.lang3.ArrayUtils;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ai.DefaultAI;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.GameObject;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.Skill;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.components.NpcString;
-import l2mv.gameserver.scripts.Functions;
+import premium.commons.util.Rnd;
+import premium.gameserver.ai.DefaultAI;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.GameObject;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.Skill;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.components.NpcString;
+import premium.gameserver.scripts.Functions;
 
 public class FreyaEventAI extends DefaultAI
 {

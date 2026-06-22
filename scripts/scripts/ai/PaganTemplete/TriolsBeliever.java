@@ -1,12 +1,12 @@
 package ai.PaganTemplete;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ai.Mystic;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.World;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.utils.Location;
+import premium.commons.util.Rnd;
+import premium.gameserver.ai.Mystic;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.World;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.utils.Location;
 
 /**
  * @author claww - AI for Rabe Boss Andreas Van Halter (29062). - All the information about the AI ​​painted. - AI is tested and works.

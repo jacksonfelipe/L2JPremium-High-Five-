@@ -3,13 +3,13 @@ package events.TheFlowOfTheHorror;
 import java.util.ArrayList;
 import java.util.List;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ai.CtrlIntention;
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.GameObjectsStorage;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.utils.Location;
+import premium.commons.util.Rnd;
+import premium.gameserver.ai.CtrlIntention;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.GameObjectsStorage;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.utils.Location;
 
 public class MonstersAI extends Fighter
 {

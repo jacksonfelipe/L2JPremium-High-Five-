@@ -1,6 +1,6 @@
 package quests;
 
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.gameserver.scripts.ScriptFile;
 
 public class _090_SagaOfTheStormScreamer extends SagasSuperclass implements ScriptFile
 {

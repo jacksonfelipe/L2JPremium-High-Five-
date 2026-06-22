@@ -1,12 +1,12 @@
 package ai.custom;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ai.Mystic;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.entity.Reflection;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.MagicSkillUse;
-import l2mv.gameserver.scripts.Functions;
+import premium.commons.util.Rnd;
+import premium.gameserver.ai.Mystic;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.entity.Reflection;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.MagicSkillUse;
+import premium.gameserver.scripts.Functions;
 
 public class SSQLilith extends Mystic
 {

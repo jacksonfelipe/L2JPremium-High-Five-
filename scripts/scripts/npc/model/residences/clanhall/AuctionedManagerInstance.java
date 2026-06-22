@@ -1,9 +1,9 @@
 package npc.model.residences.clanhall;
 
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.residence.Residence;
-import l2mv.gameserver.model.pledge.Clan;
-import l2mv.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.residence.Residence;
+import premium.gameserver.model.pledge.Clan;
+import premium.gameserver.templates.npc.NpcTemplate;
 
 /**
  * @author VISTALL

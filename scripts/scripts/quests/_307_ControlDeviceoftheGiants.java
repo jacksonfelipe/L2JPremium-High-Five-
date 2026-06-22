@@ -1,12 +1,12 @@
 package quests;
 
-import l2mv.gameserver.instancemanager.ServerVariables;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.network.serverpackets.RadarControl;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.utils.Location;
+import premium.gameserver.instancemanager.ServerVariables;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.network.serverpackets.RadarControl;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.utils.Location;
 
 /**
  * @author: pchayka

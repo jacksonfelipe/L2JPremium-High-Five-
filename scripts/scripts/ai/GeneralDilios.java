@@ -2,11 +2,11 @@ package ai;
 
 import java.util.List;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ai.DefaultAI;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.SocialAction;
-import l2mv.gameserver.scripts.Functions;
+import premium.commons.util.Rnd;
+import premium.gameserver.ai.DefaultAI;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.SocialAction;
+import premium.gameserver.scripts.Functions;
 
 /**
  * Dilios AI

@@ -4,15 +4,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ScheduledFuture;
 
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.gameserver.GameTimeController;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.PlaySound;
-import l2mv.gameserver.network.serverpackets.SocialAction;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.utils.Location;
+import premium.commons.threading.RunnableImpl;
+import premium.gameserver.GameTimeController;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.PlaySound;
+import premium.gameserver.network.serverpackets.SocialAction;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.utils.Location;
 
 public class FantasyIsle extends Functions implements ScriptFile
 {

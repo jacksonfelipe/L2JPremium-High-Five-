@@ -3,11 +3,11 @@ package ai.seedofdestruction;
 import java.util.ArrayList;
 import java.util.List;
 
-import l2mv.gameserver.ai.DefaultAI;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.World;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.ExStartScenePlayer;
+import premium.gameserver.ai.DefaultAI;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.World;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.ExStartScenePlayer;
 
 public class TiatCamera extends DefaultAI
 {

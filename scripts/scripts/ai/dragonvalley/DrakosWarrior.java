@@ -1,12 +1,12 @@
 package ai.dragonvalley;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.ai.CtrlEvent;
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.utils.NpcUtils;
+import premium.commons.util.Rnd;
+import premium.gameserver.Config;
+import premium.gameserver.ai.CtrlEvent;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.utils.NpcUtils;
 
 /**
  * @author FandC Drakos Warrior(22822) Spawns a pack of four Drakos Assassin (22823) when attacked.

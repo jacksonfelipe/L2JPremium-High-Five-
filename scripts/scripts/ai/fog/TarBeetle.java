@@ -2,19 +2,19 @@ package ai.fog;
 
 import java.util.List;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.ai.DefaultAI;
-import l2mv.gameserver.geodata.GeoEngine;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Effect;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.Skill;
-import l2mv.gameserver.model.World;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.MagicSkillUse;
-import l2mv.gameserver.tables.SkillTable;
-import l2mv.gameserver.utils.Location;
+import premium.commons.util.Rnd;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.ai.DefaultAI;
+import premium.gameserver.geodata.GeoEngine;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Effect;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.Skill;
+import premium.gameserver.model.World;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.MagicSkillUse;
+import premium.gameserver.tables.SkillTable;
+import premium.gameserver.utils.Location;
 
 public class TarBeetle extends DefaultAI
 {

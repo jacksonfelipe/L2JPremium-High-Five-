@@ -1,12 +1,12 @@
 package services;
 
-import l2mv.gameserver.ConfigHolder;
-import l2mv.gameserver.data.htm.HtmCache;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.base.ClassId;
-import l2mv.gameserver.model.pledge.Clan;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.tables.ClanTable;
+import premium.gameserver.ConfigHolder;
+import premium.gameserver.data.htm.HtmCache;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.base.ClassId;
+import premium.gameserver.model.pledge.Clan;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.tables.ClanTable;
 
 public class ClanPanel extends Functions
 {

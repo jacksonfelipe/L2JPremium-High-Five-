@@ -9,25 +9,25 @@ import java.util.concurrent.ScheduledFuture;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.data.xml.holder.NpcHolder;
-import l2mv.gameserver.instancemanager.ServerVariables;
-import l2mv.gameserver.listener.zone.OnZoneEnterLeaveListener;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.Zone;
-import l2mv.gameserver.model.instances.MonsterInstance;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.instances.RaidBossInstance;
-import l2mv.gameserver.network.serverpackets.components.CustomMessage;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.templates.npc.NpcTemplate;
-import l2mv.gameserver.utils.Location;
-import l2mv.gameserver.utils.PositionUtils;
-import l2mv.gameserver.utils.ReflectionUtils;
+import premium.commons.threading.RunnableImpl;
+import premium.gameserver.Config;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.data.xml.holder.NpcHolder;
+import premium.gameserver.instancemanager.ServerVariables;
+import premium.gameserver.listener.zone.OnZoneEnterLeaveListener;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.Zone;
+import premium.gameserver.model.instances.MonsterInstance;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.instances.RaidBossInstance;
+import premium.gameserver.network.serverpackets.components.CustomMessage;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.utils.Location;
+import premium.gameserver.utils.PositionUtils;
+import premium.gameserver.utils.ReflectionUtils;
 
 public class BelethManager extends Functions implements ScriptFile
 {

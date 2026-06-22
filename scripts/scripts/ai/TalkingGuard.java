@@ -1,16 +1,16 @@
 package ai;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.ai.CtrlIntention;
-import l2mv.gameserver.ai.Guard;
-import l2mv.gameserver.geodata.GeoEngine;
-import l2mv.gameserver.model.AggroList;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Playable;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.scripts.Functions;
+import premium.commons.util.Rnd;
+import premium.gameserver.Config;
+import premium.gameserver.ai.CtrlIntention;
+import premium.gameserver.ai.Guard;
+import premium.gameserver.geodata.GeoEngine;
+import premium.gameserver.model.AggroList;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Playable;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.scripts.Functions;
 
 public class TalkingGuard extends Guard
 {

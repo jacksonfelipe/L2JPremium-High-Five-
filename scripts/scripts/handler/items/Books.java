@@ -1,12 +1,12 @@
 package handler.items;
 
-import l2mv.gameserver.handler.items.ItemHandler;
-import l2mv.gameserver.model.Playable;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.network.serverpackets.SSQStatus;
-import l2mv.gameserver.network.serverpackets.ShowXMasSeal;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.gameserver.handler.items.ItemHandler;
+import premium.gameserver.model.Playable;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.network.serverpackets.SSQStatus;
+import premium.gameserver.network.serverpackets.ShowXMasSeal;
+import premium.gameserver.scripts.ScriptFile;
 
 public class Books extends SimpleItemHandler implements ScriptFile
 {

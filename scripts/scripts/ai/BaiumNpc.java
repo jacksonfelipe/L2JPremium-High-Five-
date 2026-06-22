@@ -2,11 +2,11 @@ package ai;
 
 import java.util.List;
 
-import l2mv.gameserver.ai.DefaultAI;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.Earthquake;
-import l2mv.gameserver.network.serverpackets.L2GameServerPacket;
+import premium.gameserver.ai.DefaultAI;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.Earthquake;
+import premium.gameserver.network.serverpackets.L2GameServerPacket;
 
 public class BaiumNpc extends DefaultAI
 {

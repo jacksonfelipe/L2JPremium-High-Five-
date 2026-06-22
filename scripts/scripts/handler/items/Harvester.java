@@ -1,15 +1,15 @@
 package handler.items;
 
-import l2mv.gameserver.handler.items.ItemHandler;
-import l2mv.gameserver.model.GameObject;
-import l2mv.gameserver.model.Playable;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.Skill;
-import l2mv.gameserver.model.instances.MonsterInstance;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.network.serverpackets.components.SystemMsg;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.tables.SkillTable;
+import premium.gameserver.handler.items.ItemHandler;
+import premium.gameserver.model.GameObject;
+import premium.gameserver.model.Playable;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.Skill;
+import premium.gameserver.model.instances.MonsterInstance;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.network.serverpackets.components.SystemMsg;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.tables.SkillTable;
 
 public class Harvester extends SimpleItemHandler implements ScriptFile
 {

@@ -1,14 +1,14 @@
 package npc.model;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Party;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.instances.RaidBossInstance;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.network.serverpackets.SystemMessage;
-import l2mv.gameserver.templates.npc.NpcTemplate;
+import premium.commons.util.Rnd;
+import premium.gameserver.Config;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Party;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.instances.RaidBossInstance;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.network.serverpackets.SystemMessage;
+import premium.gameserver.templates.npc.NpcTemplate;
 
 public class CannibalisticStakatoChiefInstance extends RaidBossInstance
 {

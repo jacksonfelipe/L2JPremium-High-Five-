@@ -6,10 +6,10 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.SimpleSpawner;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.SimpleSpawner;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.scripts.ScriptFile;
 
 public class PcCafePointsExchange extends Functions implements ScriptFile
 {

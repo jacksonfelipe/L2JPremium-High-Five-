@@ -6,13 +6,13 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import l2mv.gameserver.Announcements;
-import l2mv.gameserver.listener.actor.player.OnPlayerEnterListener;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.SimpleSpawner;
-import l2mv.gameserver.model.actor.listener.CharListenerList;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.gameserver.Announcements;
+import premium.gameserver.listener.actor.player.OnPlayerEnterListener;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.SimpleSpawner;
+import premium.gameserver.model.actor.listener.CharListenerList;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.scripts.ScriptFile;
 
 /**
  * Autor: Bonux Date: 30.08.09 Time: 17:49 http://www.lineage2.com/archive/2009/06/master_of_encha.html

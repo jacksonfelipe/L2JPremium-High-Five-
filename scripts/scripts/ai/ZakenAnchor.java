@@ -1,7 +1,7 @@
 package ai;
 
-import l2mv.gameserver.ai.DefaultAI;
-import l2mv.gameserver.model.instances.NpcInstance;
+import premium.gameserver.ai.DefaultAI;
+import premium.gameserver.model.instances.NpcInstance;
 
 public class ZakenAnchor extends DefaultAI
 {

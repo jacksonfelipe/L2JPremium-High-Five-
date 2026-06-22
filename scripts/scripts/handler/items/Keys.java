@@ -1,19 +1,19 @@
 package handler.items;
 
 import gnu.trove.set.hash.TIntHashSet;
-import l2mv.gameserver.cache.Msg;
-import l2mv.gameserver.data.xml.holder.DoorHolder;
-import l2mv.gameserver.handler.items.ItemHandler;
-import l2mv.gameserver.model.GameObject;
-import l2mv.gameserver.model.Playable;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.instances.DoorInstance;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.network.serverpackets.SystemMessage2;
-import l2mv.gameserver.network.serverpackets.components.CustomMessage;
-import l2mv.gameserver.network.serverpackets.components.SystemMsg;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.templates.DoorTemplate;
+import premium.gameserver.cache.Msg;
+import premium.gameserver.data.xml.holder.DoorHolder;
+import premium.gameserver.handler.items.ItemHandler;
+import premium.gameserver.model.GameObject;
+import premium.gameserver.model.Playable;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.instances.DoorInstance;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.network.serverpackets.SystemMessage2;
+import premium.gameserver.network.serverpackets.components.CustomMessage;
+import premium.gameserver.network.serverpackets.components.SystemMsg;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.templates.DoorTemplate;
 
 public class Keys extends ScriptItemHandler implements ScriptFile
 {
@@ -92,7 +92,7 @@ public class Keys extends ScriptItemHandler implements ScriptFile
 			return false;
 		}
 		player.sendPacket(SystemMessage2.removeItems(item.getItemId(), 1));
-		player.sendMessage(new CustomMessage("l2mv.gameserver.skills.skillclasses.Unlock.Success", player));
+		player.sendMessage(new CustomMessage("premium.gameserver.skills.skillclasses.Unlock.Success", player));
 		door.openMe(player, true);
 		return true;
 	}

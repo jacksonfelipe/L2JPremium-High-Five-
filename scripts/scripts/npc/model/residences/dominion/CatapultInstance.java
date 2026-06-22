@@ -4,21 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.ai.CtrlEvent;
-import l2mv.gameserver.model.AggroList;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.GameObjectTasks;
-import l2mv.gameserver.model.Playable;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.events.impl.DominionSiegeEvent;
-import l2mv.gameserver.model.instances.residences.SiegeToggleNpcInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestEventType;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.templates.npc.NpcTemplate;
+import premium.commons.util.Rnd;
+import premium.gameserver.Config;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.ai.CtrlEvent;
+import premium.gameserver.model.AggroList;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.GameObjectTasks;
+import premium.gameserver.model.Playable;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.events.impl.DominionSiegeEvent;
+import premium.gameserver.model.instances.residences.SiegeToggleNpcInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestEventType;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.templates.npc.NpcTemplate;
 
 /**
  * @author VISTALL

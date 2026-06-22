@@ -1,13 +1,13 @@
 package ai;
 
-import l2mv.commons.text.PrintfFormat;
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Skill;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.utils.Location;
+import premium.commons.text.PrintfFormat;
+import premium.commons.util.Rnd;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Skill;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.utils.Location;
 import npc.model.OrfenInstance;
 
 public class Orfen extends Fighter

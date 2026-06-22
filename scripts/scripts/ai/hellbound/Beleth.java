@@ -1,13 +1,13 @@
 package ai.hellbound;
 
 import bosses.BelethManager;
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ai.CtrlEvent;
-import l2mv.gameserver.ai.Mystic;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Playable;
-import l2mv.gameserver.model.World;
-import l2mv.gameserver.model.instances.NpcInstance;
+import premium.commons.util.Rnd;
+import premium.gameserver.ai.CtrlEvent;
+import premium.gameserver.ai.Mystic;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Playable;
+import premium.gameserver.model.World;
+import premium.gameserver.model.instances.NpcInstance;
 
 public class Beleth extends Mystic
 {

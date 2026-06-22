@@ -1,6 +1,6 @@
 package ai.residences;
 
-import l2mv.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.instances.NpcInstance;
 
 public class SiegeGuardPriest extends SiegeGuard
 {

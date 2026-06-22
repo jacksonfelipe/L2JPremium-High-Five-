@@ -1,15 +1,15 @@
 package ai.groups;
 
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.ai.CtrlEvent;
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.SimpleSpawner;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.utils.Location;
-import l2mv.gameserver.utils.PositionUtils;
+import premium.commons.threading.RunnableImpl;
+import premium.commons.util.Rnd;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.ai.CtrlEvent;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.SimpleSpawner;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.utils.Location;
+import premium.gameserver.utils.PositionUtils;
 
 public class PavelRuins extends Fighter
 {

@@ -1,18 +1,18 @@
 package ai.freya;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ai.CtrlEvent;
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Effect;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.Reflection;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.ExShowScreenMessage;
-import l2mv.gameserver.network.serverpackets.ExShowScreenMessage.ScreenMessageAlign;
-import l2mv.gameserver.network.serverpackets.components.CustomMessage;
-import l2mv.gameserver.network.serverpackets.components.NpcString;
-import l2mv.gameserver.tables.SkillTable;
+import premium.commons.util.Rnd;
+import premium.gameserver.ai.CtrlEvent;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Effect;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.Reflection;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.ExShowScreenMessage;
+import premium.gameserver.network.serverpackets.ExShowScreenMessage.ScreenMessageAlign;
+import premium.gameserver.network.serverpackets.components.CustomMessage;
+import premium.gameserver.network.serverpackets.components.NpcString;
+import premium.gameserver.tables.SkillTable;
 
 public class FreyaStandNormal extends Fighter
 {

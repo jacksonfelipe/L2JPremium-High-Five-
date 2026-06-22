@@ -3,14 +3,14 @@ package npc.model;
 import java.util.List;
 
 import instances.HeartInfinityAttack;
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.ExShowScreenMessage;
-import l2mv.gameserver.network.serverpackets.components.NpcString;
-import l2mv.gameserver.templates.npc.NpcTemplate;
-import l2mv.gameserver.utils.ItemFunctions;
-import l2mv.gameserver.utils.Location;
+import premium.commons.util.Rnd;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.ExShowScreenMessage;
+import premium.gameserver.network.serverpackets.components.NpcString;
+import premium.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.utils.ItemFunctions;
+import premium.gameserver.utils.Location;
 
 /**
  * @author pchayka

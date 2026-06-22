@@ -1,8 +1,8 @@
 package ai.seedofinfinity;
 
-import l2mv.gameserver.ai.DefaultAI;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.instances.NpcInstance;
+import premium.gameserver.ai.DefaultAI;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.instances.NpcInstance;
 
 public class SymbolofCohemenes extends DefaultAI
 {

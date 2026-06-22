@@ -2,9 +2,9 @@ package ai.freya;
 
 import java.util.List;
 
-import l2mv.gameserver.ai.CtrlEvent;
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.instances.NpcInstance;
+import premium.gameserver.ai.CtrlEvent;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.instances.NpcInstance;
 
 public class SolinaKnight extends Fighter
 {

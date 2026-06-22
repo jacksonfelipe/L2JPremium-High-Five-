@@ -1,15 +1,15 @@
 package ai.monas.FurnaceSpawnRoom;
 
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.ai.DefaultAI;
-import l2mv.gameserver.data.xml.holder.EventHolder;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.entity.events.EventType;
-import l2mv.gameserver.model.entity.events.impl.MonasteryFurnaceEvent;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.components.NpcString;
-import l2mv.gameserver.scripts.Functions;
+import premium.commons.threading.RunnableImpl;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.ai.DefaultAI;
+import premium.gameserver.data.xml.holder.EventHolder;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.entity.events.EventType;
+import premium.gameserver.model.entity.events.impl.MonasteryFurnaceEvent;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.components.NpcString;
+import premium.gameserver.scripts.Functions;
 
 public class FurnaceProtection extends DefaultAI
 {

@@ -4,22 +4,22 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.data.xml.holder.NpcHolder;
-import l2mv.gameserver.data.xml.holder.SoulCrystalHolder;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.instances.MonsterInstance;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.network.serverpackets.SystemMessage2;
-import l2mv.gameserver.network.serverpackets.components.SystemMsg;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.templates.SoulCrystal;
-import l2mv.gameserver.templates.npc.AbsorbInfo;
-import l2mv.gameserver.templates.npc.NpcTemplate;
+import premium.commons.util.Rnd;
+import premium.gameserver.Config;
+import premium.gameserver.data.xml.holder.NpcHolder;
+import premium.gameserver.data.xml.holder.SoulCrystalHolder;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.instances.MonsterInstance;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.network.serverpackets.SystemMessage2;
+import premium.gameserver.network.serverpackets.components.SystemMsg;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.templates.SoulCrystal;
+import premium.gameserver.templates.npc.AbsorbInfo;
+import premium.gameserver.templates.npc.NpcTemplate;
 
 public class _350_EnhanceYourWeapon extends Quest implements ScriptFile
 {

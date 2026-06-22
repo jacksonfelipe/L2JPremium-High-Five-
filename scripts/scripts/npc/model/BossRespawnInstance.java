@@ -1,15 +1,15 @@
 package npc.model;
 
-import l2mv.gameserver.Config;
-import l2mv.gameserver.ai.CtrlIntention;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.ActionFail;
-import l2mv.gameserver.network.serverpackets.MyTargetSelected;
-import l2mv.gameserver.network.serverpackets.StatusUpdate;
-import l2mv.gameserver.network.serverpackets.ValidateLocation;
-import l2mv.gameserver.scripts.Events;
-import l2mv.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.Config;
+import premium.gameserver.ai.CtrlIntention;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.ActionFail;
+import premium.gameserver.network.serverpackets.MyTargetSelected;
+import premium.gameserver.network.serverpackets.StatusUpdate;
+import premium.gameserver.network.serverpackets.ValidateLocation;
+import premium.gameserver.scripts.Events;
+import premium.gameserver.templates.npc.NpcTemplate;
 
 public final class BossRespawnInstance extends NpcInstance
 {

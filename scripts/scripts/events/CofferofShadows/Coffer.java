@@ -5,17 +5,17 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import handler.items.ScriptItemHandler;
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.handler.items.ItemHandler;
-import l2mv.gameserver.model.Playable;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.model.reward.RewardData;
-import l2mv.gameserver.model.reward.RewardList;
-import l2mv.gameserver.network.serverpackets.SystemMessage2;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.utils.ItemFunctions;
+import premium.commons.util.Rnd;
+import premium.gameserver.Config;
+import premium.gameserver.handler.items.ItemHandler;
+import premium.gameserver.model.Playable;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.model.reward.RewardData;
+import premium.gameserver.model.reward.RewardList;
+import premium.gameserver.network.serverpackets.SystemMessage2;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.utils.ItemFunctions;
 
 public class Coffer extends ScriptItemHandler implements ScriptFile
 {

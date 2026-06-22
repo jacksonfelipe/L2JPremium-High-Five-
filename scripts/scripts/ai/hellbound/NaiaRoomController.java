@@ -2,12 +2,12 @@ package ai.hellbound;
 
 import java.util.List;
 
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.ai.DefaultAI;
-import l2mv.gameserver.instancemanager.naia.NaiaTowerManager;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.utils.ReflectionUtils;
+import premium.commons.threading.RunnableImpl;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.ai.DefaultAI;
+import premium.gameserver.instancemanager.naia.NaiaTowerManager;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.utils.ReflectionUtils;
 
 public class NaiaRoomController extends DefaultAI
 {

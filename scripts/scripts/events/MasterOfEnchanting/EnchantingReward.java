@@ -1,11 +1,11 @@
 package events.MasterOfEnchanting;
 
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.items.Inventory;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.network.serverpackets.SystemMessage;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.items.Inventory;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.network.serverpackets.SystemMessage;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.scripts.ScriptFile;
 
 /**
  * Autor: Bonux Date: 30.08.09 Time: 17:49 http://www.lineage2.com/archive/2009/06/master_of_encha.html

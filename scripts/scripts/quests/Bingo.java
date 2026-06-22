@@ -3,7 +3,7 @@ package quests;
 import java.util.ArrayList;
 import java.util.List;
 
-import l2mv.commons.util.Rnd;
+import premium.commons.util.Rnd;
 
 public class Bingo
 {

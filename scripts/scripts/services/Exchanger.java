@@ -3,23 +3,23 @@ package services;
 import java.util.ArrayList;
 import java.util.List;
 
-import l2mv.commons.dao.JdbcEntityState;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.cache.Msg;
-import l2mv.gameserver.data.htm.HtmCache;
-import l2mv.gameserver.data.xml.holder.ExchangeItemHolder;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.base.Element;
-import l2mv.gameserver.model.exchange.Change;
-import l2mv.gameserver.model.exchange.Variant;
-import l2mv.gameserver.model.items.ItemAttributes;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.model.items.PcInventory;
-import l2mv.gameserver.network.serverpackets.NpcHtmlMessage;
-import l2mv.gameserver.network.serverpackets.components.CustomMessage;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.utils.ItemFunctions;
-import l2mv.gameserver.utils.Util;
+import premium.commons.dao.JdbcEntityState;
+import premium.gameserver.Config;
+import premium.gameserver.cache.Msg;
+import premium.gameserver.data.htm.HtmCache;
+import premium.gameserver.data.xml.holder.ExchangeItemHolder;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.base.Element;
+import premium.gameserver.model.exchange.Change;
+import premium.gameserver.model.exchange.Variant;
+import premium.gameserver.model.items.ItemAttributes;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.model.items.PcInventory;
+import premium.gameserver.network.serverpackets.NpcHtmlMessage;
+import premium.gameserver.network.serverpackets.components.CustomMessage;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.utils.ItemFunctions;
+import premium.gameserver.utils.Util;
 
 public class Exchanger extends Functions
 {

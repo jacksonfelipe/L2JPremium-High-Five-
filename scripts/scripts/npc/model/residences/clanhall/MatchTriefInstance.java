@@ -1,11 +1,11 @@
 package npc.model.residences.clanhall;
 
 import ai.residences.clanhall.MatchTrief;
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Skill;
-import l2mv.gameserver.model.instances.residences.clanhall.CTBBossInstance;
-import l2mv.gameserver.templates.npc.NpcTemplate;
+import premium.commons.util.Rnd;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Skill;
+import premium.gameserver.model.instances.residences.clanhall.CTBBossInstance;
+import premium.gameserver.templates.npc.NpcTemplate;
 
 /**
  * @author VISTALL

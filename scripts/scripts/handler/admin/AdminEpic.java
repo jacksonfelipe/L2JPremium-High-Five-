@@ -8,16 +8,16 @@ import java.util.StringTokenizer;
 import bosses.BaiumManager;
 import bosses.EpicBossState;
 import bosses.EpicBossState.State;
-import l2mv.gameserver.data.htm.HtmCache;
-import l2mv.gameserver.data.xml.holder.NpcHolder;
-import l2mv.gameserver.handler.admincommands.AdminCommandHandler;
-import l2mv.gameserver.handler.admincommands.IAdminCommandHandler;
-import l2mv.gameserver.model.GameObjectsStorage;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.NpcHtmlMessage;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.data.htm.HtmCache;
+import premium.gameserver.data.xml.holder.NpcHolder;
+import premium.gameserver.handler.admincommands.AdminCommandHandler;
+import premium.gameserver.handler.admincommands.IAdminCommandHandler;
+import premium.gameserver.model.GameObjectsStorage;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.NpcHtmlMessage;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.templates.npc.NpcTemplate;
 
 public class AdminEpic implements IAdminCommandHandler, ScriptFile
 {

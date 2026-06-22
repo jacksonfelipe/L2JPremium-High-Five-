@@ -1,6 +1,6 @@
 /*
- * package services.community; import l2mv.commons.dbutils.DbUtils; import l2mv.gameserver.Config; import l2mv.gameserver.data.htm.HtmCache; import l2mv.gameserver.database.DatabaseFactory; import l2mv.gameserver.handler.bbs.CommunityBoardManager; import
- * l2mv.gameserver.handler.bbs.ICommunityBoardHandler; import l2mv.gameserver.model.Player; import l2mv.gameserver.network.serverpackets.ShowBoard; import l2mv.gameserver.scripts.ScriptFile; import org.slf4j.Logger; import org.slf4j.LoggerFactory; import java.sql.Connection; import
+ * package services.community; import premium.commons.dbutils.DbUtils; import premium.gameserver.Config; import premium.gameserver.data.htm.HtmCache; import premium.gameserver.database.DatabaseFactory; import premium.gameserver.handler.bbs.CommunityBoardManager; import
+ * premium.gameserver.handler.bbs.ICommunityBoardHandler; import premium.gameserver.model.Player; import premium.gameserver.network.serverpackets.ShowBoard; import premium.gameserver.scripts.ScriptFile; import org.slf4j.Logger; import org.slf4j.LoggerFactory; import java.sql.Connection; import
  * java.sql.PreparedStatement; import java.sql.ResultSet; import java.text.SimpleDateFormat; import java.util.Date; public class StatManager implements ScriptFile, ICommunityBoardHandler { private static final Logger _log = LoggerFactory.getLogger(StatManager.class);
  *//**
 	 * Ð˜Ð¼Ð¿Ð»ÐµÐ¼ÐµÐ½Ñ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ñ‹Ðµ Ð¼ÐµÑ‚Ð¾Ð´Ñ‹ Ñ�ÐºÑ€Ð¸Ð¿Ñ‚Ð¾Ð²

@@ -1,9 +1,9 @@
 package npc.model.fightClub;
 
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.pledge.Clan;
-import l2mv.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.pledge.Clan;
+import premium.gameserver.templates.npc.NpcTemplate;
 
 public class LifeControlTowerInstance extends NpcInstance
 {

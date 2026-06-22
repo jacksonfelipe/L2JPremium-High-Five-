@@ -1,6 +1,6 @@
 package bosses;
 
-import static l2mv.gameserver.ai.CtrlIntention.AI_INTENTION_ACTIVE;
+import static premium.gameserver.ai.CtrlIntention.AI_INTENTION_ACTIVE;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,31 +12,31 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import bosses.EpicBossState.State;
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.data.xml.holder.NpcHolder;
-import l2mv.gameserver.listener.actor.OnDeathListener;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.SimpleSpawner;
-import l2mv.gameserver.model.Skill;
-import l2mv.gameserver.model.Zone;
-import l2mv.gameserver.model.actor.listener.CharListenerList;
-import l2mv.gameserver.model.instances.BossInstance;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.Earthquake;
-import l2mv.gameserver.network.serverpackets.PlaySound;
-import l2mv.gameserver.network.serverpackets.SocialAction;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.tables.SkillTable;
-import l2mv.gameserver.templates.npc.NpcTemplate;
-import l2mv.gameserver.utils.Location;
-import l2mv.gameserver.utils.Log;
-import l2mv.gameserver.utils.ReflectionUtils;
-import l2mv.gameserver.utils.TimeUtils;
+import premium.commons.threading.RunnableImpl;
+import premium.commons.util.Rnd;
+import premium.gameserver.Config;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.data.xml.holder.NpcHolder;
+import premium.gameserver.listener.actor.OnDeathListener;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.SimpleSpawner;
+import premium.gameserver.model.Skill;
+import premium.gameserver.model.Zone;
+import premium.gameserver.model.actor.listener.CharListenerList;
+import premium.gameserver.model.instances.BossInstance;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.Earthquake;
+import premium.gameserver.network.serverpackets.PlaySound;
+import premium.gameserver.network.serverpackets.SocialAction;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.tables.SkillTable;
+import premium.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.utils.Location;
+import premium.gameserver.utils.Log;
+import premium.gameserver.utils.ReflectionUtils;
+import premium.gameserver.utils.TimeUtils;
 
 public class BaiumManager extends Functions implements ScriptFile, OnDeathListener
 {

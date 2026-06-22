@@ -1,12 +1,12 @@
 package ai.den_of_evil;
 
-import l2mv.gameserver.ai.DefaultAI;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.World;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.components.NpcString;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.taskmanager.AiTaskManager;
+import premium.gameserver.ai.DefaultAI;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.World;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.components.NpcString;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.taskmanager.AiTaskManager;
 
 /**
  * @author claww

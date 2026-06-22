@@ -1,14 +1,14 @@
 package quests;
 
-import l2mv.gameserver.cache.Msg;
-import l2mv.gameserver.model.Effect;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.network.serverpackets.ExStartScenePlayer;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.tables.SkillTable;
+import premium.gameserver.cache.Msg;
+import premium.gameserver.model.Effect;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.network.serverpackets.ExStartScenePlayer;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.tables.SkillTable;
 
 public class _194_SevenSignsMammonsContract extends Quest implements ScriptFile
 {

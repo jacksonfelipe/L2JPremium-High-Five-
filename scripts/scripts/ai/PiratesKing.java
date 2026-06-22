@@ -1,14 +1,14 @@
 package ai;
 
 import events.PiratesTreasure.PiratesTreasure;
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.gameserver.Announcements;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Playable;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.utils.ItemFunctions;
+import premium.commons.threading.RunnableImpl;
+import premium.gameserver.Announcements;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Playable;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.utils.ItemFunctions;
 
 /**
  * @author l2f.Team

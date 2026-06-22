@@ -1,9 +1,9 @@
 package ai.hellbound;
 
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.instancemanager.naia.NaiaCoreManager;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.instances.NpcInstance;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.instancemanager.naia.NaiaCoreManager;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.instances.NpcInstance;
 
 public class Epidos extends Fighter
 {

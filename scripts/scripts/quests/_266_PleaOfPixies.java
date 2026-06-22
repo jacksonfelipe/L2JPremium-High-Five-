@@ -1,11 +1,11 @@
 package quests;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.model.base.Race;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.commons.util.Rnd;
+import premium.gameserver.model.base.Race;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.scripts.ScriptFile;
 
 public class _266_PleaOfPixies extends Quest implements ScriptFile
 {

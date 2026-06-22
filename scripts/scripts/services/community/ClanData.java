@@ -1,15 +1,15 @@
 // package services.community;
 //
-// import l2mv.gameserver.cache.Msg;
-// import l2mv.gameserver.data.ClanRequest;
-// import l2mv.gameserver.model.GameObjectsStorage;
-// import l2mv.gameserver.model.Player;
-// import l2mv.gameserver.model.pledge.Clan;
-// import l2mv.gameserver.model.pledge.UnitMember;
-// import l2mv.gameserver.network.serverpackets.ExShowScreenMessage;
-// import l2mv.gameserver.network.serverpackets.ExShowScreenMessage.ScreenMessageAlign;
-// import l2mv.gameserver.tables.ClanTable;
-// import l2mv.gameserver.utils.HtmlUtils;
+// import premium.gameserver.cache.Msg;
+// import premium.gameserver.data.ClanRequest;
+// import premium.gameserver.model.GameObjectsStorage;
+// import premium.gameserver.model.Player;
+// import premium.gameserver.model.pledge.Clan;
+// import premium.gameserver.model.pledge.UnitMember;
+// import premium.gameserver.network.serverpackets.ExShowScreenMessage;
+// import premium.gameserver.network.serverpackets.ExShowScreenMessage.ScreenMessageAlign;
+// import premium.gameserver.tables.ClanTable;
+// import premium.gameserver.utils.HtmlUtils;
 //
 // public class ClanData
 // {

@@ -1,18 +1,18 @@
 package ai;
 
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.ai.DefaultAI;
-import l2mv.gameserver.geodata.GeoEngine;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Playable;
-import l2mv.gameserver.model.Skill;
-import l2mv.gameserver.model.World;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.tables.SkillTable;
-import l2mv.gameserver.utils.Location;
-import l2mv.gameserver.utils.PositionUtils;
+import premium.commons.threading.RunnableImpl;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.ai.DefaultAI;
+import premium.gameserver.geodata.GeoEngine;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Playable;
+import premium.gameserver.model.Skill;
+import premium.gameserver.model.World;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.tables.SkillTable;
+import premium.gameserver.utils.Location;
+import premium.gameserver.utils.PositionUtils;
 
 /**
  * AI NPC для SSQ Dungeon - Если находят чара в радиусе 300, то кричат в чат и отправляют на точку старта - Не видят, кто находится в хайде - Никогда и никого не атакуют

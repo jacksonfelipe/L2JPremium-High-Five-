@@ -1,10 +1,10 @@
 package services.community;
 
-import l2mv.gameserver.Config;
-import l2mv.gameserver.data.htm.HtmCache;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.gameserver.Config;
+import premium.gameserver.data.htm.HtmCache;
+import premium.gameserver.model.Player;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.scripts.ScriptFile;
 
 /**
  * info_folder = папка для категорий страниц - String info_page = имя файла, название страницы - String Вызов всплывающего окна у НПС - [scripts_services.ShowInfo:show info_folder info_page|Имя папки, Имя страницы] Вызов всплывающего окна из комьюнити - [bypass

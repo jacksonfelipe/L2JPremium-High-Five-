@@ -3,16 +3,16 @@ package services;
 import java.util.ArrayList;
 import java.util.List;
 
-import l2mv.gameserver.Config;
-import l2mv.gameserver.data.htm.HtmCache;
-import l2mv.gameserver.data.xml.holder.ItemHolder;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.Hero;
-import l2mv.gameserver.model.entity.olympiad.Olympiad;
-import l2mv.gameserver.network.serverpackets.SocialAction;
-import l2mv.gameserver.network.serverpackets.components.SystemMsg;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.templates.StatsSet;
+import premium.gameserver.Config;
+import premium.gameserver.data.htm.HtmCache;
+import premium.gameserver.data.xml.holder.ItemHolder;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.Hero;
+import premium.gameserver.model.entity.olympiad.Olympiad;
+import premium.gameserver.network.serverpackets.SocialAction;
+import premium.gameserver.network.serverpackets.components.SystemMsg;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.templates.StatsSet;
 
 public class BuyHero extends Functions
 {

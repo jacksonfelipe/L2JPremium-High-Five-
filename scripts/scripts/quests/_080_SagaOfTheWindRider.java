@@ -1,6 +1,6 @@
 package quests;
 
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.gameserver.scripts.ScriptFile;
 
 public class _080_SagaOfTheWindRider extends SagasSuperclass implements ScriptFile
 {

@@ -7,50 +7,50 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-import l2mv.gameserver.Config;
-import l2mv.gameserver.ConfigHolder;
-import l2mv.gameserver.data.htm.HtmCache;
-import l2mv.gameserver.data.xml.holder.ItemHolder;
-import l2mv.gameserver.handler.bbs.CommunityBoardManager;
-import l2mv.gameserver.handler.bbs.ICommunityBoardHandler;
-import l2mv.gameserver.hwid.HwidGamer;
-import l2mv.gameserver.listener.actor.player.OnPlayerEnterListener;
-import l2mv.gameserver.model.GameObjectsStorage;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.actor.instances.player.ShortCut;
-import l2mv.gameserver.model.actor.listener.CharListenerList;
-import l2mv.gameserver.model.base.ClassId;
-import l2mv.gameserver.model.base.Race;
-import l2mv.gameserver.model.entity.ChangeLogManager;
-import l2mv.gameserver.model.entity.CCPHelpers.CCPSecondaryPassword;
-import l2mv.gameserver.model.entity.forum.ForumBoard;
-import l2mv.gameserver.model.entity.forum.ForumBoardType;
-import l2mv.gameserver.model.entity.forum.ForumHandler;
-import l2mv.gameserver.model.entity.forum.ForumPost;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.instances.SchemeBufferInstance;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.model.mail.Mail;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.network.serverpackets.ExShowScreenMessage;
-import l2mv.gameserver.network.serverpackets.MagicSkillUse;
-import l2mv.gameserver.network.serverpackets.RadarControl;
-import l2mv.gameserver.network.serverpackets.Say2;
-import l2mv.gameserver.network.serverpackets.ShortCutRegister;
-import l2mv.gameserver.network.serverpackets.ShowBoard;
-import l2mv.gameserver.network.serverpackets.SystemMessage2;
-import l2mv.gameserver.network.serverpackets.TutorialShowHtml;
-import l2mv.gameserver.network.serverpackets.components.ChatType;
-import l2mv.gameserver.network.serverpackets.components.SystemMsg;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.taskmanager.GlobalPvPZoneTaskManager;
-import l2mv.gameserver.templates.item.ItemTemplate;
-import l2mv.gameserver.templates.item.ItemTemplate.Grade;
-import l2mv.gameserver.templates.item.WeaponTemplate;
-import l2mv.gameserver.templates.item.WeaponTemplate.WeaponType;
-import l2mv.gameserver.utils.ItemFunctions;
-import l2mv.gameserver.utils.Util;
+import premium.gameserver.Config;
+import premium.gameserver.ConfigHolder;
+import premium.gameserver.data.htm.HtmCache;
+import premium.gameserver.data.xml.holder.ItemHolder;
+import premium.gameserver.handler.bbs.CommunityBoardManager;
+import premium.gameserver.handler.bbs.ICommunityBoardHandler;
+import premium.gameserver.hwid.HwidGamer;
+import premium.gameserver.listener.actor.player.OnPlayerEnterListener;
+import premium.gameserver.model.GameObjectsStorage;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.actor.instances.player.ShortCut;
+import premium.gameserver.model.actor.listener.CharListenerList;
+import premium.gameserver.model.base.ClassId;
+import premium.gameserver.model.base.Race;
+import premium.gameserver.model.entity.ChangeLogManager;
+import premium.gameserver.model.entity.CCPHelpers.CCPSecondaryPassword;
+import premium.gameserver.model.entity.forum.ForumBoard;
+import premium.gameserver.model.entity.forum.ForumBoardType;
+import premium.gameserver.model.entity.forum.ForumHandler;
+import premium.gameserver.model.entity.forum.ForumPost;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.instances.SchemeBufferInstance;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.model.mail.Mail;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.network.serverpackets.ExShowScreenMessage;
+import premium.gameserver.network.serverpackets.MagicSkillUse;
+import premium.gameserver.network.serverpackets.RadarControl;
+import premium.gameserver.network.serverpackets.Say2;
+import premium.gameserver.network.serverpackets.ShortCutRegister;
+import premium.gameserver.network.serverpackets.ShowBoard;
+import premium.gameserver.network.serverpackets.SystemMessage2;
+import premium.gameserver.network.serverpackets.TutorialShowHtml;
+import premium.gameserver.network.serverpackets.components.ChatType;
+import premium.gameserver.network.serverpackets.components.SystemMsg;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.taskmanager.GlobalPvPZoneTaskManager;
+import premium.gameserver.templates.item.ItemTemplate;
+import premium.gameserver.templates.item.ItemTemplate.Grade;
+import premium.gameserver.templates.item.WeaponTemplate;
+import premium.gameserver.templates.item.WeaponTemplate.WeaponType;
+import premium.gameserver.utils.ItemFunctions;
+import premium.gameserver.utils.Util;
 
 public class _255_Tutorial extends Quest implements ScriptFile, OnPlayerEnterListener
 {
@@ -1580,7 +1580,7 @@ public class _255_Tutorial extends Quest implements ScriptFile, OnPlayerEnterLis
 	}
 	
 	/**
-	 * If {@link #canChangeClass(l2mv.gameserver.model.Player, int) canChangeClass}, showing Tutorial Page with next Classes that player can advance to
+	 * If {@link #canChangeClass(premium.gameserver.model.Player, int) canChangeClass}, showing Tutorial Page with next Classes that player can advance to
 	 * @param st
 	 * @return
 	 */

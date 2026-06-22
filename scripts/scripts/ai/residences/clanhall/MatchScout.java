@@ -1,6 +1,6 @@
 package ai.residences.clanhall;
 
-import l2mv.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.instances.NpcInstance;
 
 /**
  * @author VISTALL

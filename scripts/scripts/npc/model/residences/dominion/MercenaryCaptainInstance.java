@@ -2,13 +2,13 @@ package npc.model.residences.dominion;
 
 import java.util.StringTokenizer;
 
-import l2mv.gameserver.data.xml.holder.MultiSellHolder;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.residence.Castle;
-import l2mv.gameserver.model.entity.residence.Dominion;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.ExShowDominionRegistry;
-import l2mv.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.data.xml.holder.MultiSellHolder;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.residence.Castle;
+import premium.gameserver.model.entity.residence.Dominion;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.ExShowDominionRegistry;
+import premium.gameserver.templates.npc.NpcTemplate;
 
 public class MercenaryCaptainInstance extends NpcInstance
 {

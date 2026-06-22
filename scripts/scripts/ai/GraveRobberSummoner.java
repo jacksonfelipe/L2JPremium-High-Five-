@@ -1,14 +1,14 @@
 package ai;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ai.Mystic;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.instances.MonsterInstance;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.stats.Env;
-import l2mv.gameserver.stats.Stats;
-import l2mv.gameserver.stats.funcs.Func;
-import l2mv.gameserver.templates.npc.MinionData;
+import premium.commons.util.Rnd;
+import premium.gameserver.ai.Mystic;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.instances.MonsterInstance;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.stats.Env;
+import premium.gameserver.stats.Stats;
+import premium.gameserver.stats.funcs.Func;
+import premium.gameserver.templates.npc.MinionData;
 
 /**
  * При спавне саммонят случайную охрану. Защита прямо пропорциональна количеству охранников.

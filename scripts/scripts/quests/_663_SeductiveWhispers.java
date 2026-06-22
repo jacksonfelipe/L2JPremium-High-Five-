@@ -3,13 +3,13 @@ package quests;
 import java.util.HashMap;
 import java.util.Map;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.model.base.Experience;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.commons.util.Rnd;
+import premium.gameserver.Config;
+import premium.gameserver.model.base.Experience;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.scripts.ScriptFile;
 
 public class _663_SeductiveWhispers extends Quest implements ScriptFile
 {

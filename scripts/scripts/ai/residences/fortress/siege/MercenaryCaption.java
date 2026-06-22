@@ -3,12 +3,12 @@ package ai.residences.fortress.siege;
 import java.util.Collections;
 import java.util.List;
 
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.entity.events.impl.FortressSiegeEvent;
-import l2mv.gameserver.model.entity.residence.Fortress;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.utils.Location;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.entity.events.impl.FortressSiegeEvent;
+import premium.gameserver.model.entity.residence.Fortress;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.utils.Location;
 import npc.model.residences.fortress.siege.MercenaryCaptionInstance;
 
 /**

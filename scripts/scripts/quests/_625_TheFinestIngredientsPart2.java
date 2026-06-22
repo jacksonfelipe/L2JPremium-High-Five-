@@ -1,20 +1,20 @@
 package quests;
 
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.data.xml.holder.NpcHolder;
-import l2mv.gameserver.instancemanager.ServerVariables;
-import l2mv.gameserver.listener.actor.OnDeathListener;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.GameObjectsStorage;
-import l2mv.gameserver.model.SimpleSpawner;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.templates.npc.NpcTemplate;
+import premium.commons.threading.RunnableImpl;
+import premium.commons.util.Rnd;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.data.xml.holder.NpcHolder;
+import premium.gameserver.instancemanager.ServerVariables;
+import premium.gameserver.listener.actor.OnDeathListener;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.GameObjectsStorage;
+import premium.gameserver.model.SimpleSpawner;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.templates.npc.NpcTemplate;
 
 public class _625_TheFinestIngredientsPart2 extends Quest implements ScriptFile
 {

@@ -5,18 +5,18 @@ import java.util.ArrayList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.Announcements;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.listener.actor.OnDeathListener;
-import l2mv.gameserver.listener.actor.player.OnPlayerEnterListener;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.SimpleSpawner;
-import l2mv.gameserver.model.actor.listener.CharListenerList;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.commons.util.Rnd;
+import premium.gameserver.Announcements;
+import premium.gameserver.Config;
+import premium.gameserver.listener.actor.OnDeathListener;
+import premium.gameserver.listener.actor.player.OnPlayerEnterListener;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.SimpleSpawner;
+import premium.gameserver.model.actor.listener.CharListenerList;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.scripts.ScriptFile;
 
 /**
  * Trick Of Transmutation Event

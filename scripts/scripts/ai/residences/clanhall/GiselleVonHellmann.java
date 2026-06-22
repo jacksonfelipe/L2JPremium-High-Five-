@@ -1,18 +1,18 @@
 package ai.residences.clanhall;
 
 import ai.residences.SiegeGuardMystic;
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Skill;
-import l2mv.gameserver.model.Zone;
-import l2mv.gameserver.model.entity.events.impl.ClanHallSiegeEvent;
-import l2mv.gameserver.model.entity.events.objects.SpawnExObject;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.components.NpcString;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.tables.SkillTable;
-import l2mv.gameserver.utils.PositionUtils;
-import l2mv.gameserver.utils.ReflectionUtils;
+import premium.commons.util.Rnd;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Skill;
+import premium.gameserver.model.Zone;
+import premium.gameserver.model.entity.events.impl.ClanHallSiegeEvent;
+import premium.gameserver.model.entity.events.objects.SpawnExObject;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.components.NpcString;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.tables.SkillTable;
+import premium.gameserver.utils.PositionUtils;
+import premium.gameserver.utils.ReflectionUtils;
 
 /**
  * @author VISTALL

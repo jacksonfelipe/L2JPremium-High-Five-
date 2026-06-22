@@ -1,13 +1,13 @@
 package npc.model;
 
-import l2mv.gameserver.data.xml.holder.NpcHolder;
-import l2mv.gameserver.idfactory.IdFactory;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.entity.Reflection;
-import l2mv.gameserver.model.instances.ReflectionBossInstance;
-import l2mv.gameserver.templates.InstantZone;
-import l2mv.gameserver.templates.npc.NpcTemplate;
-import l2mv.gameserver.utils.Location;
+import premium.gameserver.data.xml.holder.NpcHolder;
+import premium.gameserver.idfactory.IdFactory;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.entity.Reflection;
+import premium.gameserver.model.instances.ReflectionBossInstance;
+import premium.gameserver.templates.InstantZone;
+import premium.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.utils.Location;
 
 public class LostCaptainInstance extends ReflectionBossInstance
 {

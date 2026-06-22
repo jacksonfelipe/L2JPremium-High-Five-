@@ -1,11 +1,11 @@
 package quests;
 
-import l2mv.gameserver.model.entity.olympiad.Olympiad;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.network.serverpackets.SkillList;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.gameserver.model.entity.olympiad.Olympiad;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.network.serverpackets.SkillList;
+import premium.gameserver.scripts.ScriptFile;
 
 public class _247_PossessorOfaPreciousSoul4 extends Quest implements ScriptFile
 {

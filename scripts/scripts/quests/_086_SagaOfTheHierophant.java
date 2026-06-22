@@ -1,6 +1,6 @@
 package quests;
 
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.gameserver.scripts.ScriptFile;
 
 public class _086_SagaOfTheHierophant extends SagasSuperclass implements ScriptFile
 {

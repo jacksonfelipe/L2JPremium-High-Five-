@@ -5,16 +5,16 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ai.CtrlEvent;
-import l2mv.gameserver.ai.DefaultAI;
-import l2mv.gameserver.data.xml.holder.NpcHolder;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.SimpleSpawner;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.utils.Location;
+import premium.commons.util.Rnd;
+import premium.gameserver.ai.CtrlEvent;
+import premium.gameserver.ai.DefaultAI;
+import premium.gameserver.data.xml.holder.NpcHolder;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.SimpleSpawner;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.utils.Location;
 
 /**
  * AI 18811 Guardian of the Altar - Спавит рандомных охранников если атакован - если у игрока есть Protection Souls Pendant 14848 - спавнит мини-рб - не использует random walk - не отвечает на атаки

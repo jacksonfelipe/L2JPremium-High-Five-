@@ -1,11 +1,11 @@
 package ai;
 
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.ai.DefaultAI;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.PlaySound;
-import l2mv.gameserver.network.serverpackets.SocialAction;
-import l2mv.gameserver.utils.Location;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.ai.DefaultAI;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.PlaySound;
+import premium.gameserver.network.serverpackets.SocialAction;
+import premium.gameserver.utils.Location;
 
 /**
  * @author claww - AI for Leyla Mira (32431). - Indicates the social sphere, proigrovaet music. - AI is tested and works.

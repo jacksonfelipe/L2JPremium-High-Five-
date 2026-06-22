@@ -1,18 +1,18 @@
 package handler.items;
 
 import gnu.trove.set.hash.TIntHashSet;
-import l2mv.gameserver.ai.PlayableAI.nextAction;
-import l2mv.gameserver.cache.Msg;
-import l2mv.gameserver.data.xml.holder.ItemHolder;
-import l2mv.gameserver.handler.items.ItemHandler;
-import l2mv.gameserver.model.Playable;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.network.serverpackets.L2GameServerPacket;
-import l2mv.gameserver.network.serverpackets.SystemMessage;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.templates.item.ItemTemplate;
-import l2mv.gameserver.utils.ItemFunctions;
+import premium.gameserver.ai.PlayableAI.nextAction;
+import premium.gameserver.cache.Msg;
+import premium.gameserver.data.xml.holder.ItemHolder;
+import premium.gameserver.handler.items.ItemHandler;
+import premium.gameserver.model.Playable;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.network.serverpackets.L2GameServerPacket;
+import premium.gameserver.network.serverpackets.SystemMessage;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.templates.item.ItemTemplate;
+import premium.gameserver.utils.ItemFunctions;
 
 public class EquipableItem extends ScriptItemHandler implements ScriptFile
 {

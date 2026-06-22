@@ -3,20 +3,20 @@ package events.SummerMeleons;
 import java.util.List;
 import java.util.concurrent.ScheduledFuture;
 
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.data.xml.holder.NpcHolder;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.SimpleSpawner;
-import l2mv.gameserver.model.Skill;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.reward.RewardData;
-import l2mv.gameserver.model.reward.RewardItem;
-import l2mv.gameserver.network.serverpackets.MagicSkillUse;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.utils.Log;
+import premium.commons.threading.RunnableImpl;
+import premium.commons.util.Rnd;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.data.xml.holder.NpcHolder;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.SimpleSpawner;
+import premium.gameserver.model.Skill;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.reward.RewardData;
+import premium.gameserver.model.reward.RewardItem;
+import premium.gameserver.network.serverpackets.MagicSkillUse;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.utils.Log;
 import npc.model.MeleonInstance;
 
 public class MeleonAI extends Fighter

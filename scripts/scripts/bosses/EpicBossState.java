@@ -13,8 +13,8 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import l2mv.commons.dbutils.DbUtils;
-import l2mv.gameserver.database.DatabaseFactory;
+import premium.commons.dbutils.DbUtils;
+import premium.gameserver.database.DatabaseFactory;
 
 public class EpicBossState
 {

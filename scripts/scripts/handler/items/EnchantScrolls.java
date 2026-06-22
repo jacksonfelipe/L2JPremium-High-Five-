@@ -5,15 +5,15 @@ import java.util.List;
 import org.napile.primitive.sets.IntSet;
 import org.napile.primitive.sets.impl.HashIntSet;
 
-import l2mv.gameserver.data.xml.holder.EnchantItemHolder;
-import l2mv.gameserver.handler.items.ItemHandler;
-import l2mv.gameserver.model.Playable;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.instances.WarehouseInstance;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.network.serverpackets.ChooseInventoryItem;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.gameserver.data.xml.holder.EnchantItemHolder;
+import premium.gameserver.handler.items.ItemHandler;
+import premium.gameserver.model.Playable;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.instances.WarehouseInstance;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.network.serverpackets.ChooseInventoryItem;
+import premium.gameserver.scripts.ScriptFile;
 
 public class EnchantScrolls extends ScriptItemHandler implements ScriptFile
 {

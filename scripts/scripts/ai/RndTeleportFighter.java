@@ -1,15 +1,15 @@
 package ai;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.geodata.GeoEngine;
-import l2mv.gameserver.model.Territory;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.MagicSkillUse;
-import l2mv.gameserver.templates.spawn.SpawnRange;
-import l2mv.gameserver.utils.Location;
+import premium.commons.util.Rnd;
+import premium.gameserver.Config;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.geodata.GeoEngine;
+import premium.gameserver.model.Territory;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.MagicSkillUse;
+import premium.gameserver.templates.spawn.SpawnRange;
+import premium.gameserver.utils.Location;
 
 /**
  * Моб использует телепортацию вместо рандом валка.

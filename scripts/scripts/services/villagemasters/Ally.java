@@ -1,7 +1,7 @@
 package services.villagemasters;
 
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.scripts.Functions;
+import premium.gameserver.model.Player;
+import premium.gameserver.scripts.Functions;
 
 public class Ally extends Functions
 {

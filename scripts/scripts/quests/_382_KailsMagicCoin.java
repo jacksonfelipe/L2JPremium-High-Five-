@@ -3,12 +3,12 @@ package quests;
 import java.util.HashMap;
 import java.util.Map;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.data.xml.holder.MultiSellHolder;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.commons.util.Rnd;
+import premium.gameserver.data.xml.holder.MultiSellHolder;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.scripts.ScriptFile;
 
 public class _382_KailsMagicCoin extends Quest implements ScriptFile
 {

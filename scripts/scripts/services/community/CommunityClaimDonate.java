@@ -7,17 +7,17 @@ import java.sql.SQLException;
 import java.util.StringTokenizer;
 import java.util.concurrent.locks.ReentrantLock;
 
-import l2mv.commons.dbutils.DbUtils;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.data.htm.HtmCache;
-import l2mv.gameserver.database.DatabaseFactory;
-import l2mv.gameserver.handler.bbs.CommunityBoardManager;
-import l2mv.gameserver.handler.bbs.ICommunityBoardHandler;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.network.serverpackets.ShowBoard;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.utils.BbsUtil;
+import premium.commons.dbutils.DbUtils;
+import premium.gameserver.Config;
+import premium.gameserver.data.htm.HtmCache;
+import premium.gameserver.database.DatabaseFactory;
+import premium.gameserver.handler.bbs.CommunityBoardManager;
+import premium.gameserver.handler.bbs.ICommunityBoardHandler;
+import premium.gameserver.model.Player;
+import premium.gameserver.network.serverpackets.ShowBoard;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.utils.BbsUtil;
 
 /**
  * @author claww

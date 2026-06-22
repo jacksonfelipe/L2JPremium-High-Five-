@@ -3,20 +3,20 @@ package npc.model;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.data.xml.holder.MultiSellHolder;
-import l2mv.gameserver.instancemanager.HellboundManager;
-import l2mv.gameserver.instancemanager.ServerVariables;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.Reflection;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.NpcHtmlMessage;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.templates.npc.NpcTemplate;
-import l2mv.gameserver.utils.Location;
-import l2mv.gameserver.utils.ReflectionUtils;
-import l2mv.gameserver.utils.Util;
+import premium.commons.threading.RunnableImpl;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.data.xml.holder.MultiSellHolder;
+import premium.gameserver.instancemanager.HellboundManager;
+import premium.gameserver.instancemanager.ServerVariables;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.Reflection;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.NpcHtmlMessage;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.utils.Location;
+import premium.gameserver.utils.ReflectionUtils;
+import premium.gameserver.utils.Util;
 
 /**
  * @author pchayka

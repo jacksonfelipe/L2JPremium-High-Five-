@@ -3,19 +3,19 @@ package services;
 import java.util.ArrayList;
 import java.util.List;
 
-import l2mv.gameserver.Config;
-import l2mv.gameserver.instancemanager.ReflectionManager;
-import l2mv.gameserver.listener.zone.OnZoneEnterLeaveListener;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.SimpleSpawner;
-import l2mv.gameserver.model.Zone;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.utils.Location;
-import l2mv.gameserver.utils.PositionUtils;
-import l2mv.gameserver.utils.ReflectionUtils;
+import premium.gameserver.Config;
+import premium.gameserver.instancemanager.ReflectionManager;
+import premium.gameserver.listener.zone.OnZoneEnterLeaveListener;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.SimpleSpawner;
+import premium.gameserver.model.Zone;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.utils.Location;
+import premium.gameserver.utils.PositionUtils;
+import premium.gameserver.utils.ReflectionUtils;
 
 public class TeleToGH extends Functions implements ScriptFile
 {

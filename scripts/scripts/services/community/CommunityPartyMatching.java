@@ -6,24 +6,24 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import l2mv.gameserver.Config;
-import l2mv.gameserver.data.htm.HtmCache;
-import l2mv.gameserver.handler.bbs.CommunityBoardManager;
-import l2mv.gameserver.handler.bbs.ICommunityBoardHandler;
-import l2mv.gameserver.listener.actor.player.OnAnswerListener;
-import l2mv.gameserver.model.GameObjectsStorage;
-import l2mv.gameserver.model.Party;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.SubClass;
-import l2mv.gameserver.model.base.ClassId;
-import l2mv.gameserver.model.base.Experience;
-import l2mv.gameserver.network.serverpackets.ConfirmDlg;
-import l2mv.gameserver.network.serverpackets.JoinParty;
-import l2mv.gameserver.network.serverpackets.ShowBoard;
-import l2mv.gameserver.network.serverpackets.components.SystemMsg;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.utils.Util;
+import premium.gameserver.Config;
+import premium.gameserver.data.htm.HtmCache;
+import premium.gameserver.handler.bbs.CommunityBoardManager;
+import premium.gameserver.handler.bbs.ICommunityBoardHandler;
+import premium.gameserver.listener.actor.player.OnAnswerListener;
+import premium.gameserver.model.GameObjectsStorage;
+import premium.gameserver.model.Party;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.SubClass;
+import premium.gameserver.model.base.ClassId;
+import premium.gameserver.model.base.Experience;
+import premium.gameserver.network.serverpackets.ConfirmDlg;
+import premium.gameserver.network.serverpackets.JoinParty;
+import premium.gameserver.network.serverpackets.ShowBoard;
+import premium.gameserver.network.serverpackets.components.SystemMsg;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.utils.Util;
 
 public class CommunityPartyMatching extends Functions implements ScriptFile, ICommunityBoardHandler
 {

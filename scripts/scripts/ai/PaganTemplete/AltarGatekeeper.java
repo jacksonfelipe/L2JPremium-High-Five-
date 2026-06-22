@@ -1,11 +1,11 @@
 package ai.PaganTemplete;
 
-import l2mv.gameserver.ai.DefaultAI;
-import l2mv.gameserver.model.instances.DoorInstance;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.components.NpcString;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.utils.ReflectionUtils;
+import premium.gameserver.ai.DefaultAI;
+import premium.gameserver.model.instances.DoorInstance;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.components.NpcString;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.utils.ReflectionUtils;
 
 /**
  * @author claww - AI for NPCs Altar Gatekeeper (32051). - Controllers doors. - AI is tested and works.

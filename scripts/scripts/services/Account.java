@@ -5,12 +5,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import l2mv.gameserver.Config;
-import l2mv.gameserver.data.xml.holder.ItemHolder;
-import l2mv.gameserver.database.DatabaseFactory;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.gameserver.Config;
+import premium.gameserver.data.xml.holder.ItemHolder;
+import premium.gameserver.database.DatabaseFactory;
+import premium.gameserver.model.Player;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.scripts.ScriptFile;
 
 public class Account extends Functions implements ScriptFile
 {

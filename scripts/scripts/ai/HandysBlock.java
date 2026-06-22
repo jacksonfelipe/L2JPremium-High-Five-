@@ -1,20 +1,20 @@
 package ai;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ai.DefaultAI;
-import l2mv.gameserver.instancemanager.games.HandysBlockCheckerManager;
-import l2mv.gameserver.instancemanager.games.HandysBlockCheckerManager.ArenaParticipantsHolder;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.Skill;
-import l2mv.gameserver.model.entity.BlockCheckerEngine;
-import l2mv.gameserver.model.instances.BlockInstance;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.network.serverpackets.ExCubeGameChangePoints;
-import l2mv.gameserver.network.serverpackets.ExCubeGameExtendedChangePoints;
-import l2mv.gameserver.utils.ItemFunctions;
-import l2mv.gameserver.utils.Location;
+import premium.commons.util.Rnd;
+import premium.gameserver.ai.DefaultAI;
+import premium.gameserver.instancemanager.games.HandysBlockCheckerManager;
+import premium.gameserver.instancemanager.games.HandysBlockCheckerManager.ArenaParticipantsHolder;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.Skill;
+import premium.gameserver.model.entity.BlockCheckerEngine;
+import premium.gameserver.model.instances.BlockInstance;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.network.serverpackets.ExCubeGameChangePoints;
+import premium.gameserver.network.serverpackets.ExCubeGameExtendedChangePoints;
+import premium.gameserver.utils.ItemFunctions;
+import premium.gameserver.utils.Location;
 
 /**
  * @author n0nam3

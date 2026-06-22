@@ -1,13 +1,13 @@
 package services.community;
 
-import l2mv.gameserver.Config;
-import l2mv.gameserver.data.htm.HtmCache;
-import l2mv.gameserver.data.xml.holder.FoundationHolder;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.base.Element;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.network.serverpackets.components.CustomMessage;
-import l2mv.gameserver.templates.item.ItemTemplate;
+import premium.gameserver.Config;
+import premium.gameserver.data.htm.HtmCache;
+import premium.gameserver.data.xml.holder.FoundationHolder;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.base.Element;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.network.serverpackets.components.CustomMessage;
+import premium.gameserver.templates.item.ItemTemplate;
 
 public class ForgeElement
 {

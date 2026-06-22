@@ -1,11 +1,11 @@
 package services.villagemasters;
 
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.base.ClassId;
-import l2mv.gameserver.model.base.Race;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.instances.VillageMasterInstance;
-import l2mv.gameserver.scripts.Functions;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.base.ClassId;
+import premium.gameserver.model.base.Race;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.instances.VillageMasterInstance;
+import premium.gameserver.scripts.Functions;
 
 public class Occupation extends Functions
 {

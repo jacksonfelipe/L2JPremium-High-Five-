@@ -1,9 +1,9 @@
 package quests;
 
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.scripts.ScriptFile;
 
 /**
  * User: Keiichi Date: 06.10.2008 Time: 11:31:36 Info: Один из 2х квестов для прохода на остров Hellbound. Info: Пройдя его ведьма Galate открывает ТП до Beleth's stronghold on Hellbound Island

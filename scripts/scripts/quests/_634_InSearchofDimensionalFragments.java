@@ -1,10 +1,10 @@
 package quests;
 
-import l2mv.gameserver.model.base.Experience;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.gameserver.model.base.Experience;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.scripts.ScriptFile;
 
 public class _634_InSearchofDimensionalFragments extends Quest implements ScriptFile
 {

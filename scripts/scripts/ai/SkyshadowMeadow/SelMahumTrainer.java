@@ -3,16 +3,16 @@ package ai.SkyshadowMeadow;
 import java.util.ArrayList;
 import java.util.List;
 
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.ai.CtrlEvent;
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.SocialAction;
-import l2mv.gameserver.network.serverpackets.components.NpcString;
-import l2mv.gameserver.scripts.Functions;
+import premium.commons.threading.RunnableImpl;
+import premium.commons.util.Rnd;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.ai.CtrlEvent;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.SocialAction;
+import premium.gameserver.network.serverpackets.components.NpcString;
+import premium.gameserver.scripts.Functions;
 
 /**
  * @author claww - AI for mobs Sel Mahum Drill Sergeant (22775), Sel Mahum Training Officer (22,776), Sel Mahum Drill Sergeant (22778). - If the attack swears to chat, Agrita Coaches mobs. - He uses a random Social Networks and makes Coaches mobs to repeat after him three times. - AI is tested and

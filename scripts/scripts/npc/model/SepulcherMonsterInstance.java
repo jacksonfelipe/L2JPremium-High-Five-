@@ -3,17 +3,17 @@ package npc.model;
 import java.util.concurrent.Future;
 
 import bosses.FourSepulchersSpawn;
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.Skill;
-import l2mv.gameserver.model.instances.MonsterInstance;
-import l2mv.gameserver.network.serverpackets.NpcSay;
-import l2mv.gameserver.network.serverpackets.components.ChatType;
-import l2mv.gameserver.tables.SkillTable;
-import l2mv.gameserver.templates.npc.NpcTemplate;
-import l2mv.gameserver.utils.ItemFunctions;
+import premium.commons.threading.RunnableImpl;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.Skill;
+import premium.gameserver.model.instances.MonsterInstance;
+import premium.gameserver.network.serverpackets.NpcSay;
+import premium.gameserver.network.serverpackets.components.ChatType;
+import premium.gameserver.tables.SkillTable;
+import premium.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.utils.ItemFunctions;
 
 public class SepulcherMonsterInstance extends MonsterInstance
 {

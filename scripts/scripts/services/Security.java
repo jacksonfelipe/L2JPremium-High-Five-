@@ -1,16 +1,16 @@
 // package services;
 //
-// import l2mv.commons.dbutils.DbUtils;
-// import l2mv.commons.lang.ArrayUtils;
-// import l2mv.gameserver.Config;
-// import l2mv.gameserver.database.DatabaseFactory;
-// import l2mv.gameserver.model.Player;
-// import l2mv.gameserver.network.GameClient;
-// import l2mv.gameserver.network.loginservercon.AuthServerCommunication;
-// import l2mv.gameserver.network.loginservercon.gspackets.ChangeAllowedHwid;
-// import l2mv.gameserver.network.loginservercon.gspackets.ChangeAllowedIp;
-// import l2mv.gameserver.network.serverpackets.MagicSkillUse;
-// import l2mv.gameserver.network.serverpackets.components.CustomMessage;
+// import premium.commons.dbutils.DbUtils;
+// import premium.commons.lang.ArrayUtils;
+// import premium.gameserver.Config;
+// import premium.gameserver.database.DatabaseFactory;
+// import premium.gameserver.model.Player;
+// import premium.gameserver.network.GameClient;
+// import premium.gameserver.network.loginservercon.AuthServerCommunication;
+// import premium.gameserver.network.loginservercon.gspackets.ChangeAllowedHwid;
+// import premium.gameserver.network.loginservercon.gspackets.ChangeAllowedIp;
+// import premium.gameserver.network.serverpackets.MagicSkillUse;
+// import premium.gameserver.network.serverpackets.components.CustomMessage;
 //
 // import java.sql.Connection;
 // import java.sql.PreparedStatement;

@@ -1,8 +1,8 @@
 package npc.model.residences.clanhall;
 
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Skill;
-import l2mv.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Skill;
+import premium.gameserver.templates.npc.NpcTemplate;
 
 /**
  * @author VISTALL

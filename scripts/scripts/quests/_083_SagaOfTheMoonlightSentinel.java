@@ -1,6 +1,6 @@
 package quests;
 
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.gameserver.scripts.ScriptFile;
 
 public class _083_SagaOfTheMoonlightSentinel extends SagasSuperclass implements ScriptFile
 {

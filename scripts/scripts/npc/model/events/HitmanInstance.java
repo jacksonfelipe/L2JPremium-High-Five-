@@ -7,13 +7,13 @@ import java.util.StringTokenizer;
 import org.apache.commons.lang3.StringUtils;
 
 import events.Hitman.Hitman;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.database.DatabaseFactory;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.NpcHtmlMessage;
-import l2mv.gameserver.templates.npc.NpcTemplate;
-import l2mv.gameserver.utils.ItemFunctions;
+import premium.gameserver.Config;
+import premium.gameserver.database.DatabaseFactory;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.NpcHtmlMessage;
+import premium.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.utils.ItemFunctions;
 
 /**
  * Developer: FandC Date: 24.11.12 Time: 13:42

@@ -2,18 +2,18 @@ package ai.freya;
 
 import java.util.List;
 
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Skill;
-import l2mv.gameserver.model.Zone.ZoneType;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.ExShowScreenMessage;
-import l2mv.gameserver.network.serverpackets.ExShowScreenMessage.ScreenMessageAlign;
-import l2mv.gameserver.network.serverpackets.components.NpcString;
-import l2mv.gameserver.tables.SkillTable;
+import premium.commons.threading.RunnableImpl;
+import premium.commons.util.Rnd;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Skill;
+import premium.gameserver.model.Zone.ZoneType;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.ExShowScreenMessage;
+import premium.gameserver.network.serverpackets.ExShowScreenMessage.ScreenMessageAlign;
+import premium.gameserver.network.serverpackets.components.NpcString;
+import premium.gameserver.tables.SkillTable;
 
 public class Maguen extends Fighter
 {

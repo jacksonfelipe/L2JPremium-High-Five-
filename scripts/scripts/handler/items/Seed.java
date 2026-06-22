@@ -1,21 +1,21 @@
 package handler.items;
 
-import l2mv.gameserver.cache.Msg;
-import l2mv.gameserver.handler.items.ItemHandler;
-import l2mv.gameserver.instancemanager.MapRegionManager;
-import l2mv.gameserver.model.Manor;
-import l2mv.gameserver.model.Playable;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.Skill;
-import l2mv.gameserver.model.instances.ChestInstance;
-import l2mv.gameserver.model.instances.MinionInstance;
-import l2mv.gameserver.model.instances.MonsterInstance;
-import l2mv.gameserver.model.instances.RaidBossInstance;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.network.serverpackets.components.SystemMsg;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.tables.SkillTable;
-import l2mv.gameserver.templates.mapregion.DomainArea;
+import premium.gameserver.cache.Msg;
+import premium.gameserver.handler.items.ItemHandler;
+import premium.gameserver.instancemanager.MapRegionManager;
+import premium.gameserver.model.Manor;
+import premium.gameserver.model.Playable;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.Skill;
+import premium.gameserver.model.instances.ChestInstance;
+import premium.gameserver.model.instances.MinionInstance;
+import premium.gameserver.model.instances.MonsterInstance;
+import premium.gameserver.model.instances.RaidBossInstance;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.network.serverpackets.components.SystemMsg;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.tables.SkillTable;
+import premium.gameserver.templates.mapregion.DomainArea;
 
 public class Seed extends ScriptItemHandler implements ScriptFile
 {

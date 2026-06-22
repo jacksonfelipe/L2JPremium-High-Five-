@@ -1,12 +1,12 @@
 package npc.model.residences.fortress;
 
-import l2mv.commons.dao.JdbcEntityState;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.residence.Fortress;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.pledge.Clan;
-import l2mv.gameserver.templates.item.ItemTemplate;
-import l2mv.gameserver.templates.npc.NpcTemplate;
+import premium.commons.dao.JdbcEntityState;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.residence.Fortress;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.pledge.Clan;
+import premium.gameserver.templates.item.ItemTemplate;
+import premium.gameserver.templates.npc.NpcTemplate;
 
 /**
  * @author VISTALL

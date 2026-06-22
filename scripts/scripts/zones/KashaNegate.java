@@ -6,26 +6,26 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Future;
 
-import l2mv.commons.threading.RunnableImpl;
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.cache.Msg;
-import l2mv.gameserver.listener.zone.OnZoneEnterLeaveListener;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Effect;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.Skill;
-import l2mv.gameserver.model.World;
-import l2mv.gameserver.model.Zone;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.DeleteObject;
-import l2mv.gameserver.network.serverpackets.L2GameServerPacket;
-import l2mv.gameserver.network.serverpackets.MagicSkillUse;
-import l2mv.gameserver.network.serverpackets.NpcInfo;
-import l2mv.gameserver.network.serverpackets.StatusUpdate;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.tables.SkillTable;
-import l2mv.gameserver.utils.ReflectionUtils;
+import premium.commons.threading.RunnableImpl;
+import premium.commons.util.Rnd;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.cache.Msg;
+import premium.gameserver.listener.zone.OnZoneEnterLeaveListener;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Effect;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.Skill;
+import premium.gameserver.model.World;
+import premium.gameserver.model.Zone;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.DeleteObject;
+import premium.gameserver.network.serverpackets.L2GameServerPacket;
+import premium.gameserver.network.serverpackets.MagicSkillUse;
+import premium.gameserver.network.serverpackets.NpcInfo;
+import premium.gameserver.network.serverpackets.StatusUpdate;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.tables.SkillTable;
+import premium.gameserver.utils.ReflectionUtils;
 
 /**
  * @author n0nam3

@@ -1,9 +1,9 @@
 package ai.hellbound;
 
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.instancemanager.naia.NaiaTowerManager;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.instances.NpcInstance;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.instancemanager.naia.NaiaTowerManager;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.instances.NpcInstance;
 
 public class NaiaSpore extends Fighter
 {

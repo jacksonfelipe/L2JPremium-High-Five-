@@ -19,25 +19,25 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import actions.RewardListInfo;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.ConfigHolder;
-import l2mv.gameserver.cache.ImagesCache;
-import l2mv.gameserver.data.htm.HtmCache;
-import l2mv.gameserver.data.xml.holder.NpcHolder;
-import l2mv.gameserver.handler.bbs.CommunityBoardManager;
-import l2mv.gameserver.handler.bbs.ICommunityBoardHandler;
-import l2mv.gameserver.instancemanager.RaidBossSpawnManager;
-import l2mv.gameserver.model.GameObjectsStorage;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.olympiad.Olympiad;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.RadarControl;
-import l2mv.gameserver.network.serverpackets.ShowBoard;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.templates.StatsSet;
-import l2mv.gameserver.templates.npc.MinionData;
-import l2mv.gameserver.templates.npc.NpcTemplate;
-import l2mv.gameserver.utils.HtmlUtils;
+import premium.gameserver.Config;
+import premium.gameserver.ConfigHolder;
+import premium.gameserver.cache.ImagesCache;
+import premium.gameserver.data.htm.HtmCache;
+import premium.gameserver.data.xml.holder.NpcHolder;
+import premium.gameserver.handler.bbs.CommunityBoardManager;
+import premium.gameserver.handler.bbs.ICommunityBoardHandler;
+import premium.gameserver.instancemanager.RaidBossSpawnManager;
+import premium.gameserver.model.GameObjectsStorage;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.olympiad.Olympiad;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.RadarControl;
+import premium.gameserver.network.serverpackets.ShowBoard;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.templates.StatsSet;
+import premium.gameserver.templates.npc.MinionData;
+import premium.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.utils.HtmlUtils;
 
 public class CommunityBosses implements ScriptFile, ICommunityBoardHandler
 {

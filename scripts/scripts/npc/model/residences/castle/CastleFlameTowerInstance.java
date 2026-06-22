@@ -3,11 +3,11 @@ package npc.model.residences.castle;
 import java.util.List;
 import java.util.Set;
 
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.entity.events.impl.CastleSiegeEvent;
-import l2mv.gameserver.model.entity.events.objects.CastleDamageZoneObject;
-import l2mv.gameserver.model.instances.residences.SiegeToggleNpcInstance;
-import l2mv.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.entity.events.impl.CastleSiegeEvent;
+import premium.gameserver.model.entity.events.objects.CastleDamageZoneObject;
+import premium.gameserver.model.instances.residences.SiegeToggleNpcInstance;
+import premium.gameserver.templates.npc.NpcTemplate;
 
 /**
  * @author VISTALL

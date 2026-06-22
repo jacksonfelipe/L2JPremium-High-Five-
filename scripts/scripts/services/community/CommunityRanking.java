@@ -16,27 +16,27 @@ import java.util.concurrent.Future;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import l2mv.gameserver.Config;
-import l2mv.gameserver.ThreadPoolManager;
-import l2mv.gameserver.data.htm.HtmCache;
-import l2mv.gameserver.database.DatabaseFactory;
-import l2mv.gameserver.handler.bbs.CommunityBoardManager;
-import l2mv.gameserver.handler.bbs.ICommunityBoardHandler;
-import l2mv.gameserver.idfactory.IdFactory;
-import l2mv.gameserver.instancemanager.ServerVariables;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.World;
-import l2mv.gameserver.model.base.ClassId;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.model.items.ItemInstance.ItemLocation;
-import l2mv.gameserver.model.mail.Mail;
-import l2mv.gameserver.model.pledge.Clan;
-import l2mv.gameserver.network.serverpackets.ExNoticePostArrived;
-import l2mv.gameserver.network.serverpackets.ShowBoard;
-import l2mv.gameserver.network.serverpackets.components.SystemMsg;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.tables.ClanTable;
-import l2mv.gameserver.utils.Util;
+import premium.gameserver.Config;
+import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.data.htm.HtmCache;
+import premium.gameserver.database.DatabaseFactory;
+import premium.gameserver.handler.bbs.CommunityBoardManager;
+import premium.gameserver.handler.bbs.ICommunityBoardHandler;
+import premium.gameserver.idfactory.IdFactory;
+import premium.gameserver.instancemanager.ServerVariables;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.World;
+import premium.gameserver.model.base.ClassId;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.model.items.ItemInstance.ItemLocation;
+import premium.gameserver.model.mail.Mail;
+import premium.gameserver.model.pledge.Clan;
+import premium.gameserver.network.serverpackets.ExNoticePostArrived;
+import premium.gameserver.network.serverpackets.ShowBoard;
+import premium.gameserver.network.serverpackets.components.SystemMsg;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.tables.ClanTable;
+import premium.gameserver.utils.Util;
 
 /**
  * Custom ranking community system

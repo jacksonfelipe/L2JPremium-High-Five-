@@ -5,14 +5,14 @@ import java.util.Collection;
 import java.util.List;
 
 import instances.Frintezza;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.model.Party;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.Reflection;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.templates.npc.NpcTemplate;
-import l2mv.gameserver.utils.ItemFunctions;
-import l2mv.gameserver.utils.ReflectionUtils;
+import premium.gameserver.Config;
+import premium.gameserver.model.Party;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.Reflection;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.utils.ItemFunctions;
+import premium.gameserver.utils.ReflectionUtils;
 
 /**
  * @author pchayka

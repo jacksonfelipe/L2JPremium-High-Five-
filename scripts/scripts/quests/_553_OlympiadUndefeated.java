@@ -1,12 +1,12 @@
 package quests;
 
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.olympiad.OlympiadGame;
-import l2mv.gameserver.model.entity.olympiad.OlympiadTeam;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.olympiad.OlympiadGame;
+import premium.gameserver.model.entity.olympiad.OlympiadTeam;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.scripts.ScriptFile;
 
 public class _553_OlympiadUndefeated extends Quest implements ScriptFile
 {

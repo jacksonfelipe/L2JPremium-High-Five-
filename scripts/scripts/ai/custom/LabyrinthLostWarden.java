@@ -1,12 +1,12 @@
 package ai.custom;
 
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.entity.Reflection;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.instances.ReflectionBossInstance;
-import l2mv.gameserver.stats.Stats;
-import l2mv.gameserver.stats.funcs.FuncSet;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.entity.Reflection;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.instances.ReflectionBossInstance;
+import premium.gameserver.stats.Stats;
+import premium.gameserver.stats.funcs.FuncSet;
 
 public class LabyrinthLostWarden extends Fighter
 {

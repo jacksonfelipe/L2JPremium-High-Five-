@@ -3,17 +3,17 @@ package npc.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.data.xml.holder.NpcHolder;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.SimpleSpawner;
-import l2mv.gameserver.model.instances.BossInstance;
-import l2mv.gameserver.model.instances.MinionInstance;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.PlaySound;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.templates.npc.NpcTemplate;
-import l2mv.gameserver.utils.Location;
+import premium.commons.util.Rnd;
+import premium.gameserver.data.xml.holder.NpcHolder;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.SimpleSpawner;
+import premium.gameserver.model.instances.BossInstance;
+import premium.gameserver.model.instances.MinionInstance;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.PlaySound;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.utils.Location;
 
 public class QueenAntInstance extends BossInstance
 {

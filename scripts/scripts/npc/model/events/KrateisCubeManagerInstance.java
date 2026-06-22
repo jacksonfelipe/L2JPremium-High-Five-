@@ -3,17 +3,17 @@ package npc.model.events;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import l2mv.gameserver.data.xml.holder.EventHolder;
-import l2mv.gameserver.instancemanager.games.HandysBlockCheckerManager;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.events.EventType;
-import l2mv.gameserver.model.entity.events.impl.KrateisCubeEvent;
-import l2mv.gameserver.model.entity.events.impl.KrateisCubeRunnerEvent;
-import l2mv.gameserver.model.entity.events.objects.KrateisCubePlayerObject;
-import l2mv.gameserver.model.entity.olympiad.Olympiad;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.components.SystemMsg;
-import l2mv.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.data.xml.holder.EventHolder;
+import premium.gameserver.instancemanager.games.HandysBlockCheckerManager;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.events.EventType;
+import premium.gameserver.model.entity.events.impl.KrateisCubeEvent;
+import premium.gameserver.model.entity.events.impl.KrateisCubeRunnerEvent;
+import premium.gameserver.model.entity.events.objects.KrateisCubePlayerObject;
+import premium.gameserver.model.entity.olympiad.Olympiad;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.components.SystemMsg;
+import premium.gameserver.templates.npc.NpcTemplate;
 
 /**
  * @author VISTALL

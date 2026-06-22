@@ -1,8 +1,8 @@
 package npc.model;
 
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.instances.MonsterInstance;
-import l2mv.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.instances.MonsterInstance;
+import premium.gameserver.templates.npc.NpcTemplate;
 
 /**
  * Моб при смерти дропает херб "Fiery Demon Blood"

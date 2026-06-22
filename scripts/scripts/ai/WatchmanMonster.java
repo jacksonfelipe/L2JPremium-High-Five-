@@ -1,13 +1,13 @@
 package ai;
 
-import l2mv.commons.lang.reference.HardReference;
-import l2mv.commons.lang.reference.HardReferences;
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ai.CtrlEvent;
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.scripts.Functions;
+import premium.commons.lang.reference.HardReference;
+import premium.commons.lang.reference.HardReferences;
+import premium.commons.util.Rnd;
+import premium.gameserver.ai.CtrlEvent;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.scripts.Functions;
 
 /**
  * AI для ищущих помощи при HP < 50%

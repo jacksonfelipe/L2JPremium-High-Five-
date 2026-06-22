@@ -1,18 +1,18 @@
 package services;
 
-import l2mv.gameserver.Config;
-import l2mv.gameserver.data.xml.holder.ItemHolder;
-import l2mv.gameserver.data.xml.holder.MultiSellHolder;
-import l2mv.gameserver.data.xml.holder.MultiSellHolder.MultiSellListContainer;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.base.MultiSellEntry;
-import l2mv.gameserver.model.base.MultiSellIngredient;
-import l2mv.gameserver.model.entity.residence.Castle;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.items.Inventory;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.templates.item.ItemTemplate;
+import premium.gameserver.Config;
+import premium.gameserver.data.xml.holder.ItemHolder;
+import premium.gameserver.data.xml.holder.MultiSellHolder;
+import premium.gameserver.data.xml.holder.MultiSellHolder.MultiSellListContainer;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.base.MultiSellEntry;
+import premium.gameserver.model.base.MultiSellIngredient;
+import premium.gameserver.model.entity.residence.Castle;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.items.Inventory;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.templates.item.ItemTemplate;
 
 public class Pushkin extends Functions
 {

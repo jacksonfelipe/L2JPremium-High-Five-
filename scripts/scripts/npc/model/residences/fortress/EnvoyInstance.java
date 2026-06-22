@@ -1,16 +1,16 @@
 package npc.model.residences.fortress;
 
-import l2mv.commons.dao.JdbcEntityState;
-import l2mv.gameserver.data.xml.holder.ResidenceHolder;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.events.impl.FortressSiegeEvent;
-import l2mv.gameserver.model.entity.residence.Castle;
-import l2mv.gameserver.model.entity.residence.Fortress;
-import l2mv.gameserver.model.entity.residence.Residence;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.pledge.Clan;
-import l2mv.gameserver.network.serverpackets.NpcHtmlMessage;
-import l2mv.gameserver.templates.npc.NpcTemplate;
+import premium.commons.dao.JdbcEntityState;
+import premium.gameserver.data.xml.holder.ResidenceHolder;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.events.impl.FortressSiegeEvent;
+import premium.gameserver.model.entity.residence.Castle;
+import premium.gameserver.model.entity.residence.Fortress;
+import premium.gameserver.model.entity.residence.Residence;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.pledge.Clan;
+import premium.gameserver.network.serverpackets.NpcHtmlMessage;
+import premium.gameserver.templates.npc.NpcTemplate;
 
 /**
  * @author VISTALL

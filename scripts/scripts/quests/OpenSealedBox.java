@@ -3,9 +3,9 @@ package quests;
 import java.util.HashMap;
 import java.util.Map;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.model.quest.QuestState;
+import premium.commons.util.Rnd;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.model.quest.QuestState;
 
 /**
  * @author Drin награды полностью отпарсены с C4PTS

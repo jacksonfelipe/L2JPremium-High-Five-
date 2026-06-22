@@ -1,15 +1,15 @@
 package quests;
 
-import l2mv.gameserver.data.xml.holder.ResidenceHolder;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.events.impl.SiegeEvent;
-import l2mv.gameserver.model.entity.residence.ClanHall;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.pledge.Clan;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.utils.TimeUtils;
+import premium.gameserver.data.xml.holder.ResidenceHolder;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.events.impl.SiegeEvent;
+import premium.gameserver.model.entity.residence.ClanHall;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.pledge.Clan;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.utils.TimeUtils;
 
 /**
  * @author VISTALL

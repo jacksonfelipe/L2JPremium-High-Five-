@@ -1,14 +1,14 @@
 package quests;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.instancemanager.ServerVariables;
-import l2mv.gameserver.listener.actor.OnDeathListener;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.GameObjectsStorage;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.commons.util.Rnd;
+import premium.gameserver.instancemanager.ServerVariables;
+import premium.gameserver.listener.actor.OnDeathListener;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.GameObjectsStorage;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.scripts.ScriptFile;
 
 public class _610_MagicalPowerofWater2 extends Quest implements ScriptFile
 {

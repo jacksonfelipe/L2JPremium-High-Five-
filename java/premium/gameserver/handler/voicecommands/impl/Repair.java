@@ -1,0 +1,27 @@
+package premium.gameserver.handler.voicecommands.impl;
+
+import premium.gameserver.handler.voicecommands.IVoicedCommandHandler;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.CCPHelpers.CCPRepair;
+import premium.gameserver.scripts.Functions;
+
+public class Repair extends Functions implements IVoicedCommandHandler
+{
+	private static final String[] COMMANDS =
+	{
+		"repair"
+	};
+	
+	@Override
+	public boolean useVoicedCommand(String command, Player activeChar, String target)
+	{
+		CCPRepair.repairChar(activeChar, target);
+		return false;
+	}
+	
+	@Override
+	public String[] getVoicedCommandList()
+	{
+		return COMMANDS;
+	}
+}

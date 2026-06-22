@@ -1,12 +1,12 @@
 package ai;
 
-import l2mv.gameserver.ai.CtrlIntention;
-import l2mv.gameserver.ai.Mystic;
-import l2mv.gameserver.geodata.GeoEngine;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Playable;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.scripts.Functions;
+import premium.gameserver.ai.CtrlIntention;
+import premium.gameserver.ai.Mystic;
+import premium.gameserver.geodata.GeoEngine;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Playable;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.scripts.Functions;
 
 /**
  * AI охраны входа в Pagan Temple.<br>

@@ -1,13 +1,13 @@
 package quests;
 
-import l2mv.gameserver.Config;
-import l2mv.gameserver.model.base.Race;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.model.quest.QuestState;
-import l2mv.gameserver.network.serverpackets.ExShowScreenMessage;
-import l2mv.gameserver.network.serverpackets.ExShowScreenMessage.ScreenMessageAlign;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.gameserver.Config;
+import premium.gameserver.model.base.Race;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.network.serverpackets.ExShowScreenMessage;
+import premium.gameserver.network.serverpackets.ExShowScreenMessage.ScreenMessageAlign;
+import premium.gameserver.scripts.ScriptFile;
 
 /**
  * Рейты не учитываются, награда не стекуемая

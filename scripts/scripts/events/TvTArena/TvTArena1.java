@@ -7,24 +7,24 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import l2mv.gameserver.Announcements;
-import l2mv.gameserver.data.htm.HtmCache;
-import l2mv.gameserver.data.xml.holder.NpcHolder;
-import l2mv.gameserver.instancemanager.ServerVariables;
-import l2mv.gameserver.listener.actor.OnDeathListener;
-import l2mv.gameserver.listener.actor.player.OnPlayerExitListener;
-import l2mv.gameserver.listener.actor.player.OnTeleportListener;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.SimpleSpawner;
-import l2mv.gameserver.model.actor.listener.CharListenerList;
-import l2mv.gameserver.model.entity.Reflection;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.templates.npc.NpcTemplate;
-import l2mv.gameserver.utils.Location;
-import l2mv.gameserver.utils.ReflectionUtils;
+import premium.gameserver.Announcements;
+import premium.gameserver.data.htm.HtmCache;
+import premium.gameserver.data.xml.holder.NpcHolder;
+import premium.gameserver.instancemanager.ServerVariables;
+import premium.gameserver.listener.actor.OnDeathListener;
+import premium.gameserver.listener.actor.player.OnPlayerExitListener;
+import premium.gameserver.listener.actor.player.OnTeleportListener;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.SimpleSpawner;
+import premium.gameserver.model.actor.listener.CharListenerList;
+import premium.gameserver.model.entity.Reflection;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.templates.npc.NpcTemplate;
+import premium.gameserver.utils.Location;
+import premium.gameserver.utils.ReflectionUtils;
 
 public class TvTArena1 extends Functions implements ScriptFile, OnDeathListener, OnTeleportListener, OnPlayerExitListener
 {

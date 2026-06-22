@@ -1,11 +1,11 @@
 package services;
 
-import l2mv.gameserver.cache.Msg;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.instances.DoorInstance;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.utils.ReflectionUtils;
+import premium.gameserver.cache.Msg;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.instances.DoorInstance;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.utils.ReflectionUtils;
 
 /**
  * Используется в локации Pagan Temple

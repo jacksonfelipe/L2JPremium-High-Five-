@@ -2,11 +2,11 @@ package ai;
 
 import java.util.List;
 
-import l2mv.gameserver.ai.CtrlEvent;
-import l2mv.gameserver.ai.CtrlIntention;
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.instances.NpcInstance;
+import premium.gameserver.ai.CtrlEvent;
+import premium.gameserver.ai.CtrlIntention;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.instances.NpcInstance;
 
 /**
  * AI Kanadis Follower и минионов для Rim Pailaka

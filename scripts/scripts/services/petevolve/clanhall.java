@@ -1,16 +1,16 @@
 package services.petevolve;
 
-import l2mv.commons.dao.JdbcEntityState;
-import l2mv.gameserver.data.xml.holder.NpcHolder;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.model.instances.PetInstance;
-import l2mv.gameserver.model.items.ItemInstance;
-import l2mv.gameserver.network.serverpackets.SystemMessage2;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.tables.PetDataTable;
-import l2mv.gameserver.tables.PetDataTable.L2Pet;
-import l2mv.gameserver.templates.npc.NpcTemplate;
+import premium.commons.dao.JdbcEntityState;
+import premium.gameserver.data.xml.holder.NpcHolder;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.model.instances.PetInstance;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.network.serverpackets.SystemMessage2;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.tables.PetDataTable;
+import premium.gameserver.tables.PetDataTable.L2Pet;
+import premium.gameserver.templates.npc.NpcTemplate;
 
 public class clanhall extends Functions
 {

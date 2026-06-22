@@ -1,15 +1,15 @@
 package instances;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.listener.actor.OnDeathListener;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.entity.Reflection;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.network.serverpackets.ExSendUIEvent;
-import l2mv.gameserver.network.serverpackets.components.NpcString;
-import l2mv.gameserver.utils.ItemFunctions;
-import l2mv.gameserver.utils.Location;
+import premium.commons.util.Rnd;
+import premium.gameserver.listener.actor.OnDeathListener;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.entity.Reflection;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.network.serverpackets.ExSendUIEvent;
+import premium.gameserver.network.serverpackets.components.NpcString;
+import premium.gameserver.utils.ItemFunctions;
+import premium.gameserver.utils.Location;
 
 /**
  * Класс контролирует высшего дневного Закена

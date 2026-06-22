@@ -1,10 +1,10 @@
 package quests;
 
-import l2mv.gameserver.data.xml.holder.EventHolder;
-import l2mv.gameserver.model.entity.events.EventType;
-import l2mv.gameserver.model.entity.events.impl.DominionSiegeRunnerEvent;
-import l2mv.gameserver.model.quest.Quest;
-import l2mv.gameserver.scripts.ScriptFile;
+import premium.gameserver.data.xml.holder.EventHolder;
+import premium.gameserver.model.entity.events.EventType;
+import premium.gameserver.model.entity.events.impl.DominionSiegeRunnerEvent;
+import premium.gameserver.model.quest.Quest;
+import premium.gameserver.scripts.ScriptFile;
 
 /**
  * @author VISTALL

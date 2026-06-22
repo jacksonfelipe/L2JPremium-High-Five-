@@ -7,21 +7,21 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.Announcements;
-import l2mv.gameserver.Config;
-import l2mv.gameserver.cache.Msg;
-import l2mv.gameserver.data.xml.holder.MultiSellHolder;
-import l2mv.gameserver.listener.actor.OnDeathListener;
-import l2mv.gameserver.listener.actor.player.OnPlayerEnterListener;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.SimpleSpawner;
-import l2mv.gameserver.model.actor.listener.CharListenerList;
-import l2mv.gameserver.model.instances.MonsterInstance;
-import l2mv.gameserver.scripts.Functions;
-import l2mv.gameserver.scripts.ScriptFile;
-import l2mv.gameserver.utils.Util;
+import premium.commons.util.Rnd;
+import premium.gameserver.Announcements;
+import premium.gameserver.Config;
+import premium.gameserver.cache.Msg;
+import premium.gameserver.data.xml.holder.MultiSellHolder;
+import premium.gameserver.listener.actor.OnDeathListener;
+import premium.gameserver.listener.actor.player.OnPlayerEnterListener;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.SimpleSpawner;
+import premium.gameserver.model.actor.listener.CharListenerList;
+import premium.gameserver.model.instances.MonsterInstance;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.scripts.ScriptFile;
+import premium.gameserver.utils.Util;
 
 /**
  * User: darkevil Date: 26.02.2008 Time: 1:17:42

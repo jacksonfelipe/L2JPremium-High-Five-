@@ -1,13 +1,13 @@
 package ai.PaganTemplete;
 
-import l2mv.commons.util.Rnd;
-import l2mv.gameserver.ai.Fighter;
-import l2mv.gameserver.model.Creature;
-import l2mv.gameserver.model.Player;
-import l2mv.gameserver.model.World;
-import l2mv.gameserver.model.instances.NpcInstance;
-import l2mv.gameserver.tables.SkillTable;
-import l2mv.gameserver.utils.Location;
+import premium.commons.util.Rnd;
+import premium.gameserver.ai.Fighter;
+import premium.gameserver.model.Creature;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.World;
+import premium.gameserver.model.instances.NpcInstance;
+import premium.gameserver.tables.SkillTable;
+import premium.gameserver.utils.Location;
 
 /**
  * @author claww - AI for the monster Andreas Captain Royal Guard (22175). - If you see a player in a range of 500 when its party composes more than 9 Membury. - Then throw on a random coordinates of the first who saw the player. - If the attack when HP is below 70%, throw a debuff and die. - AI is
