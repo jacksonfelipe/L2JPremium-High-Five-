@@ -1,0 +1,263 @@
+package l2mv.gameserver.cache;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.apache.commons.io.FilenameUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import l2mv.gameserver.Config;
+import l2mv.gameserver.idfactory.IdFactory;
+import l2mv.gameserver.model.Player;
+import l2mv.gameserver.network.serverpackets.PledgeCrest;
+import l2mv.gameserver.utils.Util;
+import l2mv.gameserver.vote.DDSConverter;
+
+/**
+ * Class containing Map of Images sent from Server to Client Images are located in ./data/images/id_by_name They are sent to client by PledgeCrest packet
+ */
+public class ImagesCache
+{
+	private static final Logger _log = LoggerFactory.getLogger(ImagesCache.class);
+	
+	private final ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
+	private final Lock readLock = lock.readLock();
+ 
+	private static final String CREST_IMAGE_KEY_WORD = "Crest.crest_";
+	public static final Pattern HTML_PATTERN = Pattern.compile("%image:(.*?)%", 32);
+	
+	private final Map<Integer, byte[]> _images = new HashMap<>();
+	private final Map<String, Integer> _imagesId = new HashMap<>();
+	
+	public ImagesCache()
+	{
+		loadImages();
+	}
+	
+	/**
+	 * Loading all the images from ./data/images/id_by_name Path and adding them to images map
+	 */
+	private void loadImages()
+	{
+		final Map<Integer, File> imagesToLoad = getImagesToLoad();
+		for (Map.Entry<Integer, File> image : imagesToLoad.entrySet())
+		{
+			File file = image.getValue();
+			byte[] data = DDSConverter.convertToDDS(file).array();
+			_images.put(image.getKey(), data);
+			_imagesId.put(file.getName().toLowerCase(), image.getKey());
+		}
+		
+		_log.info("Loaded " + imagesToLoad.size() + " Images!");
+	}
+	
+	/**
+	 * Getting Map<Id, File> of all .png files from ./data/images/id_by_name Path
+	 * @return Getting map of all images
+	 */
+	private static Map<Integer, File> getImagesToLoad()
+	{
+		final Map<Integer, File> files = new HashMap<>();
+		
+		final File folder = new File(Config.DATAPACK_ROOT + "/data/images");
+		if (!folder.exists())
+		{
+			_log.error("Path \"./data/images\" doesn't exist!", new FileNotFoundException());
+			return files;
+		}
+		
+		for (File file : folder.listFiles())
+		{
+			for (File newFile : (file.isDirectory() ? file.listFiles() : new File[]
+			{
+				file
+			}))
+			{
+				if ((newFile.getName().endsWith(".jpg") || newFile.getName().endsWith(".png") || newFile.getName().endsWith(".bmp")))
+				{
+					// newFile = resizeImage(newFile);
+					
+					int id = -1;
+					try
+					{
+						final String name = FilenameUtils.getBaseName(newFile.getName());
+						id = Integer.parseInt(name);
+					}
+					catch (Exception e)
+					{
+						id = IdFactory.getInstance().getNextId();
+					}
+					
+					if (id != -1)
+					{
+						files.put(id, newFile);
+					}
+				}
+			}
+		}
+		
+		return files;
+	}
+	
+	/**
+	 * Sending All Images that are needed to open HTML to the player
+	 * @param html page that may contain images
+	 * @param player that will receive images
+	 * @return Returns true if images were sent to the player
+	 */
+	public String sendUsedImages(String html, Player player)
+	{
+		if (!Config.ALLOW_SENDING_IMAGES || player == null || player.getNetConnection() == null || player.isPhantom())
+		{
+			return html;
+		}
+		
+		// We must also replace all the crests_1 on the html to fit the current player serverid, or he wont be able to see the images
+		html = html.replaceAll("Crest.crest_1_", "Crest.crest_" + +player.getNetConnection().getServerId() + "_");
+		
+		// We must first replace all the images to crests format, things like %image:serverImage% to Crest.crest_1_32423
+		Matcher m = HTML_PATTERN.matcher(html);
+		while (m.find())
+		{
+			final String imageName = m.group(1);
+			final int imageId = _imagesId.get(imageName);
+			html = html.replaceAll("%image:" + imageName + "%", "Crest.crest_" + player.getNetConnection().getServerId() + "_" + imageId);
+		}
+		
+		final char[] charArray = html.toCharArray();
+		int lastIndex = 0;
+	 
+		// Then we look for crests in the html and send them
+		while (lastIndex != -1)
+		{
+			lastIndex = html.indexOf(CREST_IMAGE_KEY_WORD, lastIndex);
+			
+			if (lastIndex != -1)
+			{
+				final int start = lastIndex + CREST_IMAGE_KEY_WORD.length() + 2;
+				final int end = getFileNameEnd(charArray, start);
+				final int imageId = Integer.parseInt(html.substring(start, end));
+				
+				// Send the image to the player
+				if (sendImageToPlayer(player, imageId))
+				{
+				 
+				}
+				lastIndex = end;
+			}
+		}
+		
+		// Synerge - To differenciate sent crests we add a CREST in the beggining of the html
+		/*
+		 * if (hasSentImages) html = "CREST" + html;
+		 */
+		
+		return html;
+	}
+	
+	public Map<Integer, byte[]> get_images()
+	{
+		return _images;
+	}
+	
+	public Map<String, Integer> get_imagesId()
+	{
+		return _imagesId;
+	}
+	
+	/**
+	 * Getting end of Image File Name(name is always numbers)
+	 * @param charArray whole text
+	 * @param start place
+	 * @return whole name
+	 */
+	private static int getFileNameEnd(char[] charArray, int start)
+	{
+		int stop = start;
+		for (; stop < charArray.length; stop++)
+		{
+			if (!Util.isInteger(charArray[stop]))
+			{
+				return stop;
+			}
+		}
+		return stop;
+	}
+	
+	/**
+	 * Sending Image as PledgeCrest to a player If image was already sent once to the player, it's skipping this part Saved images data is in player Quick Vars as Key: "Image"+imageId Value: true
+	 * @param player that will receive image
+	 * @param imageId Id of the image
+	 * @return Returns true if the image was sent
+	 */
+	public boolean sendImageToPlayer(Player player, int imageId)
+	{
+		if (!Config.ALLOW_SENDING_IMAGES || player.wasImageLoaded(imageId))
+		{
+			return false;
+		}
+		
+		if (_images.containsKey(imageId))
+		{
+			player.addLoadedImage(imageId);
+			player.sendPacket(new PledgeCrest(imageId, _images.get(imageId)));
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public static ImagesCache getInstance()
+	{
+		return ImagesCacheHolder.instance;
+	}
+	
+	private static class ImagesCacheHolder
+	{
+		protected static final ImagesCache instance = new ImagesCache();
+	}
+	
+	public int getImageId(String val)
+	{
+		int imageId = -1;
+		
+		readLock.lock();
+		try
+		{
+			if (_imagesId.get(val.toLowerCase()) != null)
+			{
+				imageId = _imagesId.get(val.toLowerCase());
+			}
+		}
+		finally
+		{
+			readLock.unlock();
+		}
+		
+		return imageId;
+	}
+	
+	public byte[] getImage(int imageId)
+	{
+		byte[] image = null;
+		
+		readLock.lock();
+		try
+		{
+			image = _images.get(imageId);
+		}
+		finally
+		{
+			readLock.unlock();
+		}
+		
+		return image;
+	}
+}

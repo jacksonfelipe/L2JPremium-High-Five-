@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+	<!--
+	category = Best 		2
+	category = Event		1
+	category = Enchant		1
+	category = Supplies		2
+	category = Decorating	3
+	category = Package		4
+	category = Others		5
+	Base Parameters: <product id="0" name="" category="5" price="0" is_event="false" is_best="false" is_new="false" on_sale="false" sale_start_date="1980/01/01 08:00" sale_end_date="2037/06/01 08:00" on_sale="true">
+	-->
+	<!-- Other -->
+	<product id="1050021" category="2" points="3" item="22025" count="1" /> <!-- Powerful Healing Potion -->
+	<product id="1050022" category="2" points="1" item="22026" count="1" /> <!-- High-grade Healing Potion -->
+	<product id="1080001" category="2" points="200" item="22000" count="1" /> <!-- Small fortuna box -->
+	<product id="1080002" category="2" points="270" item="22001" count="1" /> <!-- Middle fortuna box -->
+	<product id="1080003" category="2" points="405" item="22002" count="1" /> <!-- Large fortuna box -->
+	<product id="1080004" category="2" points="81" item="22003" count="1" /> <!-- Small fortuna cube -->
+	<product id="1080005" category="2" points="216" item="22004" count="1" /> <!-- Middle fortuna cube -->
+	<product id="1080006" category="2" points="324" item="22005" count="1" /> <!-- Large fortuna cube -->
+	
+</list>

@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+	<config showall="true" notax="true" ignoreprice="true" keepenchanted="false" />
+	
+	<!-- Twilight Heavy -->
+	<item>
+		<production id="43065" count="1"/>
+		<production id="43069" count="1"/>
+		<production id="43066" count="1"/>
+		<production id="43067" count="1"/>
+		<production id="43068" count="1"/>
+		<ingredient id="43330" count="90"/>
+		<ingredient id="15572" count="1"/>
+		<ingredient id="15575" count="1"/>
+		<ingredient id="15578" count="1"/>
+		<ingredient id="15584" count="1"/>
+		<ingredient id="15581" count="1"/>
+	</item>
+	<item>
+		<production id="43069" count="1"/>
+		<ingredient id="43330" count="18"/>
+		<ingredient id="15572" count="1"/>
+	</item>
+	<item>
+		<production id="43065" count="1"/>
+		<ingredient id="43330" count="18"/>
+		<ingredient id="15575" count="1"/>
+	</item>
+	<item>
+		<production id="43066" count="1"/>
+		<ingredient id="43330" count="18"/>
+		<ingredient id="15578" count="1"/>
+	</item>
+	<item>
+		<production id="43067" count="1"/>
+		<ingredient id="43330" count="18"/>
+		<ingredient id="15581" count="1"/>
+	</item>
+	<item>
+		<production id="43068" count="1"/>
+		<ingredient id="43330" count="18"/>
+		<ingredient id="15584" count="1"/>
+	</item>
+	
+	<!-- Twilight Leather -->
+	<item>
+		<production id="43070" count="1"/>
+		<production id="43074" count="1"/>
+		<production id="43071" count="1"/>
+		<production id="43072" count="1"/>
+		<production id="43073" count="1"/>
+		<ingredient id="43330" count="100"/>
+		<ingredient id="15576" count="1"/>
+		<ingredient id="15573" count="1"/>
+		<ingredient id="15579" count="1"/>
+		<ingredient id="15582" count="1"/>
+		<ingredient id="15585" count="1"/>
+	</item>
+	<item>
+		<production id="43074" count="1"/>
+		<ingredient id="43330" count="20"/>
+		<ingredient id="15573" count="1"/>
+	</item>
+	<item>
+		<production id="43070" count="1"/>
+		<ingredient id="43330" count="20"/>
+		<ingredient id="15576" count="1"/>
+	</item>
+	<item>
+		<production id="43071" count="1"/>
+		<ingredient id="43330" count="20"/>
+		<ingredient id="15579" count="1"/>
+	</item>
+	<item>
+		<production id="43072" count="1"/>
+		<ingredient id="43330" count="20"/>
+		<ingredient id="15582" count="1"/>
+	</item>
+	<item>
+		<production id="43073" count="1"/>
+		<ingredient id="43330" count="20"/>
+		<ingredient id="15585" count="1"/>
+	</item>
+	<!-- Twilight Robe -->
+	<item>
+		<production id="43075" count="1"/>
+		<production id="43079" count="1"/>
+		<production id="43076" count="1"/>
+		<production id="43077" count="1"/>
+		<production id="43078" count="1"/>
+		<ingredient id="43330" count="120"/>
+		<ingredient id="15577" count="1"/>
+		<ingredient id="15574" count="1"/>
+		<ingredient id="15580" count="1"/>
+		<ingredient id="15583" count="1"/>
+		<ingredient id="15586" count="1"/>
+	</item>
+	<item>
+		<production id="43079" count="1"/>
+		<ingredient id="43330" count="24"/>
+		<ingredient id="15574" count="1"/>
+	</item>
+	<item>
+		<production id="43075" count="1"/>
+		<ingredient id="43330" count="24"/>
+		<ingredient id="15577" count="1"/>
+	</item>
+	<item>
+		<production id="43076" count="1"/>
+		<ingredient id="43330" count="24"/>
+		<ingredient id="15580" count="1"/>
+	</item>
+	<item>
+		<production id="43077" count="1"/>
+		<ingredient id="43330" count="24"/>
+		<ingredient id="15583" count="1"/>
+	</item>
+	<item>
+		<production id="43078" count="1"/>
+		<ingredient id="43330" count="24"/>
+		<ingredient id="15586" count="1"/>
+	</item>
+</list>

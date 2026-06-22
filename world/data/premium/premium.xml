@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE list SYSTEM "premium.dtd">
+<list>
+	<premium id="1" name="Exp" icon="icon.etc_exp_point_i00">
+		<rate type="EXP" value="2."/>
+		<rate type="SP" value="2."/>
+		<rate type="SIEGE" value="1."/>
+		<rate type="ADENA" value="1."/>
+		<rate type="DROP" value="1."/>
+		<rate type="SPOIL" value="1."/>
+		<rate type="WEIGHT_LIMIT" value="1."/>
+		<rate type="CRAFT" value="3"/>
+		<rate type="MASTERWORK_CRAFT" value="1"/>
+		<rate type="ATTRIBUTE" value="10"/>
+		<gifts>
+			<gift id="20970" count="1" removable="true"/>
+			<gift id="20340" count="1" removable="false"/>
+			<gift id="20346" count="1" removable="false"/>
+		</gifts>
+		<time days="7" hours="0" minutes="0"/>
+		<price id="37000" count="10"/>
+	</premium>
+	<premium id="2" name="Farm" icon="branchsys2.s_g_fantastic_magic">
+		<rate type="EXP" value="1."/>
+		<rate type="SP" value="1."/>
+		<rate type="SIEGE" value="1."/>
+		<rate type="ADENA" value="2."/>
+		<rate type="DROP" value="2."/>
+		<rate type="SPOIL" value="2."/>
+		<rate type="WEIGHT_LIMIT" value="1.25"/>
+		<rate type="CRAFT" value="3"/>
+		<rate type="MASTERWORK_CRAFT" value="1"/>
+		<rate type="ATTRIBUTE" value="10"/>
+		<gifts>
+			<gift id="20970" count="1" removable="true"/>
+		</gifts>
+		<time days="7" hours="0" minutes="0"/>
+		<price id="37000" count="15"/>
+	</premium>
+	<premium id="3" name="Exp + Farm" icon="branchsys2.skill20006">
+		<rate type="EXP" value="2."/>
+		<rate type="SP" value="2."/>
+		<rate type="SIEGE" value="2."/>
+		<rate type="ADENA" value="2."/>
+		<rate type="DROP" value="2."/>
+		<rate type="SPOIL" value="2."/>
+		<rate type="WEIGHT_LIMIT" value="1.40"/>
+		<rate type="CRAFT" value="6"/>
+		<rate type="MASTERWORK_CRAFT" value="3"/>
+		<rate type="ATTRIBUTE" value="10"/>
+		<gifts>
+			<gift id="20970" count="1" removable="true"/>
+			<gift id="6577" count="1" removable="false"/>
+			<gift id="6578" count="1" removable="false"/>
+		</gifts>
+		<time days="7" hours="0" minutes="0"/>
+		<price id="37000" count="20"/>
+	</premium>
+	<premium id="4" name="Basic Mensal" icon="branchsys2.br_skill1561">
+		<rate type="EXP" value="2."/>
+		<rate type="SP" value="2."/>
+		<rate type="SIEGE" value="2."/>
+		<rate type="ADENA" value="2."/>
+		<rate type="DROP" value="2."/>
+		<rate type="SPOIL" value="2."/>
+		<rate type="WEIGHT_LIMIT" value="1.50"/>
+		<rate type="CRAFT" value="8"/>
+		<rate type="MASTERWORK_CRAFT" value="5"/>
+		<rate type="ATTRIBUTE" value="10"/>
+		<gifts>
+			<gift id="20970" count="1" removable="true"/>
+			<gift id="6577" count="3" removable="false"/>
+			<gift id="6578" count="3" removable="false"/>
+		</gifts>
+		<time days="30" hours="0" minutes="0"/>
+		<price id="37000" count="35"/>
+	</premium>
+	<premium id="5" name="Full Premium" icon="branchsys2.br_vitality_day_i00">
+		<rate type="EXP" value="2.55"/>
+		<rate type="SP" value="2.55"/>
+		<rate type="SIEGE" value="2.35"/>
+		<rate type="ADENA" value="2.40"/>
+		<rate type="DROP" value="2.45"/>
+		<rate type="SPOIL" value="2.29"/>
+		<rate type="WEIGHT_LIMIT" value="2.60"/>
+		<rate type="CRAFT" value="10"/>
+		<rate type="MASTERWORK_CRAFT" value="11"/>
+		<rate type="ATTRIBUTE" value="10"/>
+		<gifts>
+			<gift id="20970" count="1" removable="true"/>
+			<gift id="6577" count="7" removable="false"/>
+			<gift id="6578" count="7" removable="false"/>
+		</gifts>
+		<time days="30" hours="0" minutes="0"/>
+		<price id="37000" count="50"/>
+	</premium>
+</list>

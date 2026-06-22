@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="L2JPremium" default="dist-local" basedir=".">
+	<property name="build.version" value="2.0" />
+	<property name="src" location="java" />
+	<property name="src-scripts" location="scripts/scripts" />
+	<property name="src-lib" location="libs" />
+
+	<property name="build" location="build" />
+	<property name="build.classes" location="${build}/classes" />
+	<property name="build.scripts.classes" location="${build}/scripts-classes" />
+
+	<property name="core.jar" location="${src-lib}/L2JPremium.jar" />
+	<property name="scripts.jar" location="${src-lib}/scripts.jar" />
+
+	<path id="lib.classpath">
+		<fileset dir="${src-lib}">
+			<include name="**/*.jar" />
+			<exclude name="L2JPremium.jar" />
+			<exclude name="scripts.jar" />
+		</fileset>
+	</path>
+
+	<path id="core.classpath">
+		<path refid="lib.classpath" />
+	</path>
+
+	<path id="scripts.classpath">
+		<pathelement location="${build.classes}" />
+		<path refid="lib.classpath" />
+	</path>
+
+	<target name="clean">
+		<delete dir="${build}" />
+		<delete file="${core.jar}" />
+		<delete file="${scripts.jar}" />
+	</target>
+
+	<target name="init">
+		<mkdir dir="${build}" />
+		<mkdir dir="${build.classes}" />
+		<mkdir dir="${build.scripts.classes}" />
+	</target>
+
+	<target name="compile-core" depends="init">
+		<javac srcdir="${src}" destdir="${build.classes}" includeantruntime="false" optimize="on" debug="on" release="11" encoding="UTF-8" nowarn="off">
+
+			<classpath refid="core.classpath" />
+		</javac>
+	</target>
+
+	<target name="compile-scripts" depends="compile-core">
+		<javac srcdir="${src-scripts}" destdir="${build.scripts.classes}" includeantruntime="false" optimize="on" debug="on" release="11" encoding="UTF-8" nowarn="off">
+
+			<classpath refid="scripts.classpath" />
+		</javac>
+	</target>
+
+	<target name="jar-core" depends="compile-core">
+		<jar destfile="${core.jar}">
+			<fileset dir="${build.classes}" />
+		</jar>
+	</target>
+
+	<target name="jar-scripts" depends="compile-scripts">
+		<jar destfile="${scripts.jar}">
+			<fileset dir="${build.scripts.classes}" />
+		</jar>
+	</target>
+
+	<target name="jar" depends="jar-core,jar-scripts" />
+
+	<target name="dist-local" depends="clean,jar">
+		<delete dir="${build}" />
+	</target>
+
+</project>

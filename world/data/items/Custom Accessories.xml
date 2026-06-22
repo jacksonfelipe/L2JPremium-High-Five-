@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE list SYSTEM "item.dtd">
+<list>
+	<armor id="51364" name="The Robot Mask">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="EisenCustom.Icons.Armor"/>
+		<set name="price" value="0"/>
+		<set name="dropable" value="0"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="10"/>
+		<equip>
+			<slot id="HAIR_ALL"/>
+		</equip>
+	</armor>
+	<armor id="52267" name="Halloween Purple Helmet">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="LineageSuit_TheBattleClubPHalloween_byNevesOma.icons.cap_i00"/>
+		<set name="price" value="0"/>
+		<set name="dropable" value="0"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="10"/>
+		<equip>
+			<slot id="HAIR_ALL"/>
+		</equip>
+	</armor>
+	<armor id="51730" name="Eisen Helmet">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="LineageACC_Aegis_Uniques_byNevesOma.icons.i00"/>
+		<set name="price" value="0"/>
+		<set name="dropable" value="0"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="10"/>
+		<equip>
+			<slot id="HAIR_ALL"/>
+		</equip>
+	</armor>
+	<armor id="72171" name="Accessory - Aegis Horn">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="LineageACC_Aegis_Uniques_byNevesOma.icons.i00"/>
+		<set name="price" value="0"/>
+		<set name="dropable" value="0"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="10"/>
+		<equip>
+			<slot id="HAIR_ALL"/>
+		</equip>
+	</armor>
+	<armor id="94701" name="Valakas Ultimate Mask">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="EisenUValakas.Icons.UValakas_FullArms"/>
+		<set name="price" value="0"/>
+		<set name="dropable" value="0"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="10"/>
+		<equip>
+			<slot id="HAIR_ALL"/>
+		</equip>
+	</armor>
+	<armor id="72189" name="Constructor Helmet">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="LineageArmor_RankerFire_byNevesOma.icons.i01"/>
+		<set name="price" value="0"/>
+		<set name="dropable" value="0"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="10"/>
+		<equip>
+			<slot id="HAIR_ALL"/>
+		</equip>
+	</armor>
+	<armor id="72191" name="Demolisher Helmet">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="LineageArmor_RankerOrc_byNevesOma.icons.i01"/>
+		<set name="price" value="0"/>
+		<set name="dropable" value="0"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="10"/>
+		<equip>
+			<slot id="HAIR_ALL"/>
+		</equip>
+	</armor>
+	<armor id="60000" name="Akamanah Accessories">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="CostumeZaricheAkamanaf.icons.aka_head_i00"/>
+		<set name="price" value="0"/>
+		<set name="dropable" value="0"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="10"/>
+		<equip>
+			<slot id="HAIR_ALL"/>
+		</equip>
+	</armor>
+	<armor id="60001" name="Zariche Accessories">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="CostumeZaricheAkamanaf.icons.zar_head_i00"/>
+		<set name="price" value="0"/>
+		<set name="dropable" value="0"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="10"/>
+		<equip>
+			<slot id="HAIR_ALL"/>
+		</equip>
+	</armor>
+	<armor id="72290" name="Accessory - Fire Death Knight Skull">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="LineageSuit_L2Nemeziz_DKFire_byNevesOma.icons.fire_i01"/>
+		<set name="price" value="0"/>
+		<set name="dropable" value="0"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="10"/>
+		<equip>
+			<slot id="HAIR_ALL"/>
+		</equip>
+	</armor>
+	<armor id="72292" name="Accessory - Blue Death Knight Skull">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="LineageSuit_L2Nemeziz_DKBlue_byNevesOma.icons.blue_i01"/>
+		<set name="price" value="0"/>
+		<set name="dropable" value="0"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="10"/>
+		<equip>
+			<slot id="HAIR_ALL"/>
+		</equip>
+	</armor>
+	<armor id="72294" name="Accessory - Purple Death Knight Skull">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="LineageSuit_L2Nemeziz_DKBlue_byNevesOma.icons.blue_i01"/>
+		<set name="price" value="0"/>
+		<set name="dropable" value="0"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="10"/>
+		<equip>
+			<slot id="HAIR_ALL"/>
+		</equip>
+	</armor>
+	<armor id="72301" name="Death Knight Outfit Hat">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="LineageSuit_L2Nemeziz_DKPurple_byNevesOma.icons.purple_i01"/>
+		<set name="price" value="0"/>
+		<set name="dropable" value="0"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="10"/>
+		<equip>
+			<slot id="HAIR_ALL"/>
+		</equip>
+	</armor>
+	<armor id="57691" name="Golden Noble Circlet">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="LineageAccessory5.accessory_noblesse2_tiara_i00"/>
+		<set name="price" value="0"/>
+		<set name="dropable" value="0"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="10"/>
+		<equip>
+			<slot id="HAIR_ALL"/>
+		</equip>
+	</armor>
+	<armor id="57692" name="General Hat">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="LineageAccessory5.g_hair_peakless_cap_m_i00"/>
+		<set name="price" value="0"/>
+		<set name="dropable" value="0"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="10"/>
+		<equip>
+			<slot id="HAIR_ALL"/>
+		</equip>
+	</armor>
+	<armor id="57693" name="Flowers Hat">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="LineageAccessory5.pi_flowerhat_for_lady"/>
+		<set name="price" value="0"/>
+		<set name="dropable" value="0"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="10"/>
+		<equip>
+			<slot id="HAIR_ALL"/>
+		</equip>
+	</armor>
+	<armor id="57694" name="Badass Cap">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="LineageAccessory5.g_beach_cap"/>
+		<set name="price" value="0"/>
+		<set name="dropable" value="0"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="10"/>
+		<equip>
+			<slot id="HAIR_ALL"/>
+		</equip>
+	</armor>
+	<armor id="57695" name="Admiral Hat">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="LineageAccessory5.pi_navy_cap"/>
+		<set name="price" value="0"/>
+		<set name="dropable" value="0"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="10"/>
+		<equip>
+			<slot id="HAIR_ALL"/>
+		</equip>
+	</armor>
+	<armor id="57696" name="Flower Crown">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="LineageAccessory5.pi_forgetmenot_cap"/>
+		<set name="price" value="0"/>
+		<set name="dropable" value="0"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="10"/>
+		<equip>
+			<slot id="HAIR_ALL"/>
+		</equip>
+	</armor>
+	<armor id="57697" name="Archer Hat">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="LineageAccessory5.pi_silverchaperon"/>
+		<set name="price" value="0"/>
+		<set name="dropable" value="0"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="10"/>
+		<equip>
+			<slot id="HAIR_ALL"/>
+		</equip>
+	</armor>
+	<armor id="57698" name="Frintezza Crown">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="LineageAccessory5.freya_hair_accessary"/>
+		<set name="price" value="0"/>
+		<set name="dropable" value="0"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="10"/>
+		<equip>
+			<slot id="HAIR_ALL"/>
+		</equip>
+	</armor>
+	<armor id="32735" name="Baium Hat">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="LineageNPCs_L2Rampage00.viRUS_Icon.viRUS_02_h_i00"/>
+		<set name="price" value="0"/>
+		<set name="dropable" value="0"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="10"/>
+		<equip>
+			<slot id="HAIR_ALL"/>
+		</equip>
+	</armor>
+	<armor id="32740" name="Alice Wonderland Hat">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="L2RampagePack00.viRUS_Icon.viRUS_096_h_i00"/>
+		<set name="price" value="0"/>
+		<set name="dropable" value="0"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="10"/>
+		<equip>
+			<slot id="HAIR_ALL"/>
+		</equip>
+	</armor>
+	<armor id="32749" name="Covid19 MASK">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="L2Ashenvale.viRUS_Icon.viRUS_07_h_i00"/>
+		<set name="price" value="0"/>
+		<set name="dropable" value="0"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="10"/>
+		<equip>
+			<slot id="HAIR_ALL"/>
+		</equip>
+	</armor>
+</list>

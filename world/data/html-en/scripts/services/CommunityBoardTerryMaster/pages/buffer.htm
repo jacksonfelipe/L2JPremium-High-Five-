@@ -1,0 +1,203 @@
+<html noscrollbar>
+<title>THEBATTLE.CLUB</title>
+<body>
+<table cellpadding=0 cellspacing=0 width=500 height=500 background="battle_news.bg_new">
+<tr>
+<td>
+<br>
+<table>
+<tr>
+<td align=center width=500>
+<br>
+<table width=505 bgcolor=0e0d0d>
+<tr>
+<td align=center>
+<button value="На главную" action="bypass -h _bbstop;index" back="battle_news.btn_buff_home" fore="battle_news.btn_buff_home" width=133 height=42>
+</td>
+<td align=left width=174>
+<font color="FFFFFF"> Выберите цель</font><font color="749d39">*</font><br1><br>
+<font color="FFFFFF"> Введите название схемы</font><font color="ef3d2e">*</font>
+</td>
+<td align=center width=80>
+<combobox width=61 var="tvari" list="Player;Pet"><br1>
+<edit var="name" width=62 length=8 height=11>
+</td>
+<td align=center>
+<button value="Создать схему" action="" back="battle_news.btn_buff_prof" fore="battle_news.btn_buff_prof" width=133 height=42>
+</td>
+</tr>
+</table>
+<table width=530 height=42 cellspacing=0 cellpadding=0>
+<tr>
+<td align=center>
+<font color="fec751">Описание баффера:</font> › <font color="5f5a50">Цена за 1 Бафф:</font> 50000 Адена. › <font color="5f5a50">Время:</font> 60 мин. › <font color="5f5a50">Бесплатно до</font> 80.
+</td>
+</tr>
+</table>
+<table width=500 bgcolor=0e0d0d>
+<tr>
+<td align=center>
+<table cellspacing=0 cellpadding=0>
+<tr>
+<td width=36 align=center>
+<img src="battle_news.icon_buff_1" width=36 height=36>
+</td>
+</tr>
+</table>
+</td>
+<td width=326 align=left>
+<font color="95db4e">Стандартные баффы для персонажа.</font><br1>
+<font color="5a5449">Позволяет вам создать перс. схемы.</font>
+</td>
+<td align=right>
+<button value="Открыть" action="" back="battle_news.btn_buff_mini" fore="battle_news.btn_buff_mini" width=80 height=36>
+</td>
+<td align=right>
+<button value="Премиум" action="" back="battle_news.btn_buff_mini" fore="battle_news.btn_buff_mini" width=80 height=36>
+</td>
+</tr>
+</table>
+<img src="l2ui.SquareBlank" width=1 height=5>
+<table width=530 bgcolor=0e0d0d>
+<tr>
+<td align=center>
+<table cellspacing=0 cellpadding=0>
+<tr>
+<td width=36 align=center>
+<img src="battle_news.icon_buff_2" width=36 height=36>
+</td>
+</tr>
+</table>
+</td>
+<td width=418 align=left>
+<font color="45a48f">Стандартные баффы для питомца.</font><br1>
+<font color="5a5449">Позволяет вам создать перс. схемы.</font>
+</td>
+<td align=right>
+<button value="Открыть" action="" back="battle_news.btn_buff_mini" fore="battle_news.btn_buff_mini" width=80 height=36>
+</td>
+</tr>
+</table>
+<img src="l2ui.SquareBlank" width=1 height=5>
+<table width=530 bgcolor=0e0d0d>
+<tr>
+<td align=center>
+<table cellspacing=0 cellpadding=0>
+<tr>
+<td width=36 align=center>
+<img src="battle_news.icon_buff_3" width=36 height=36>
+</td>
+</tr>
+</table>
+</td>
+<td width=358 align=left>
+<font color="f3be4e">Восстановить HP/MP/CP.*</font><br1>
+<font color="5a5449">Функция регенерации всех параметров.*</font>
+</td>
+<td align=right>
+<button value="CP" action="" back="battle_news.btn_buff_mini" fore="battle_news.btn_buff_mini" width=40 height=36>
+</td>
+<td align=right>
+<button value="HP" action="" back="battle_news.btn_buff_mini" fore="battle_news.btn_buff_mini" width=40 height=36>
+</td>
+<td align=right>
+<button value="MP" action="" back="battle_news.btn_buff_mini" fore="battle_news.btn_buff_mini" width=40 height=36>
+</td>
+</tr>
+</table>
+<img src="l2ui.SquareBlank" width=1 height=5>
+<table width=530 bgcolor=0e0d0d>
+<tr>
+<td align=center>
+<table cellspacing=0 cellpadding=0>
+<tr>
+<td width=36 align=center>
+<img src="battle_news.icon_buff_4" width=36 height=36>
+</td>
+</tr>
+</table>
+</td>
+<td width=418 align=left>
+<font color="4699da">Снять все бафы.*</font><br1>
+<font color="5a5449">Функция отмены всех наложенных эффектов.*</font>
+</td>
+<td align=right>
+<button value="Снять" action="" back="battle_news.btn_buff_mini" fore="battle_news.btn_buff_mini" width=80 height=36>
+</td>
+</tr>
+</table>
+<br>
+<table width=505 height=42 cellspacing=0 cellpadding=0>
+<tr>
+<td align=left>
+<font color="749d39">*</font> » <font color="FFFFFF">Цель действия! Player = Игрок; Pet = Питомец\Саммон!</font><br1>
+<font color="ef3d2e">*</font> » <font color="FFFFFF">Название для вашей схемы бафов.</font><br1>
+<font color="fec751">*</font> » <font color="FFFFFF">Бесплатные функции.</font>
+%schemePart%
+</td>
+</tr>
+</table>
+</td>
+<td width=240 align=center>
+<br>
+<table cellspacing=0 cellpadding=0 height=112>
+<tr>
+<td align=center valign=top>
+<table cellspacing=0 cellpadding=0 width=230 height=500 bgcolor=0e0d0d>
+<tr>
+<td align=center>
+<img src="l2ui.SquareBlank" width=1 height=5>
+<table cellspacing=0 cellpadding=0 width=230>
+<tr>
+<td align=center>
+<font color="f1bf4e">‹ Готовые наборы ›</font>
+<button value="Для воина" action="" back="battle_news.btn_buff_fighter" fore="battle_news.btn_buff_fighter" width=180 height=30>
+<font color="5a5449">Цена бафа:</font> <font color="b0aea7">1000000 Aden
+</td>
+</tr>
+</table>
+<img src="l2ui.SquareBlank" width=1 height=3>
+<table>
+<tr>
+<td align=left>
+<img src="l2ui.squaregray" width="210" height="1">
+</td>
+</tr>
+</table>
+<br>
+<table cellspacing=0 cellpadding=0 width=230>
+<tr>
+<td align=center>
+<button value="Для мага" action="" back="battle_news.btn_buff_mage" fore="battle_news.btn_buff_mage" width=180 height=30>
+<font color="5a5449">Цена бафа:</font> <font color="b0aea7">1000000 Aden
+</td>
+</tr>
+</table>
+<br>
+<table cellspacing=0 cellpadding=0 width=230 height=30>
+<tr>
+<td align=center>
+<font color="f1bf4e">‹ Esquemas Prontos ›</font>
+</td>
+</tr>
+</table>
+<button value="Free Mage" action="bypass _bbsbufferbypass_giveBuffSet mage 0 0" back="battle_news.btn_profile" fore="battle_news.btn_profile" width=140 height=30>
+<button value="Free Fighter" action="" back="battle_news.btn_profile" fore="battle_news.btn_profile" width=140 height=30>
+<button value="Free Dagger" action="" back="battle_news.btn_profile" fore="battle_news.btn_profile" width=140 height=30>
+<button value="Free Archer" action="" back="battle_news.btn_profile" fore="battle_news.btn_profile" width=140 height=30>
+<button value="Free Tank" action="" back="battle_news.btn_profile" fore="battle_news.btn_profile" width=140 height=30>
+<button value="Free Support" action="" back="battle_news.btn_profile" fore="battle_news.btn_profile" width=140 height=30>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>

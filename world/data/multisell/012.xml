@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<list>
+	<!-- Hair Accesories-->
+	<item>
+		<ingredient count="3500000" id="57"/> 
+		<production count="1" id="9178"/> 
+	</item>
+	<item>
+		<ingredient count="3500000" id="57"/> 
+		<production count="1" id="9184"/> 
+	</item>
+	<item>
+		<ingredient count="3500000" id="57"/> 
+		<production count="1" id="9193"/> 
+	</item>
+</list>

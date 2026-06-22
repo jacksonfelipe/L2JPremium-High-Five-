@@ -1,0 +1,131 @@
+<html noscrollbar="1">
+   <title>Inertia (%name%)</title>
+   <body>
+      <center>
+		<table background="l2ui_ct1.Windows_DF_TooltipBG" cellspacing=1 cellpadding=1 width=280>
+			 <tr>
+                <td align=center width=100%>
+                    <font name="hs12" color="LEVEL">Status</font>
+                </td>
+             </tr>
+			<tr>
+				<td align=center>
+					<table align=center width=100% cellspacing=2 cellpadding=2>
+					    <tr>
+						   %state%
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td align=center>
+					<font color="e3e3e3">Tempo Restante: </font><font color="d2a679">%time%</font>
+				</td>
+			</tr>
+			<tr>
+				<td align=center>
+					<font color="999999" name="hs10">Reset Diário às 14:00</font>
+				</td>
+			</tr>
+			<tr>
+				<td align=center>
+					<button value="Comprar Créditos" action="bypass inertia_buy_credits_page %id%" width=130 height=20 back="L2UI_ct1.button_df" fore="L2UI_ct1.button_df">
+				</td>
+			</tr>
+			<tr>
+				<td align=center>
+					<button value="Configurar Caminhos" action="bypass inertia_panel_path_editor %id% renderpaths" width=130 height=20 back="L2UI_ct1.button_df" fore="L2UI_ct1.button_df">
+				</td>
+			</tr>
+        </table>
+	    
+		<img height=4>
+
+        <table background="l2ui_ct1.Windows_DF_TooltipBG" width=280 cellspacing=1 cellpadding=1>
+			<tr>
+				<td align=center width=100%>
+                    <font name="hs12" color="LEVEL">Comportamento</font>
+                </td>
+			</tr>
+			<tr>
+				<td>
+					<table width=100% cellspacing=1 cellpadding=1>
+					    <tr>
+						   <td align=right width=110>
+							  <font color="e3e3e3" name="hs11">Ataque:</font>
+						   </td>
+						   <td align=center width=100>
+							  <combobox width=100 var="attack" list="%attack%">
+						   </td>
+						   <td align=center>
+							  <button value="Definir" action="bypass inertia_attack_type %id% $attack" width=55 height=21 back="L2UI_ct1.button_df" fore="L2UI_ct1.button_df">
+						   </td>
+						</tr>
+						<tr>
+						   <td align=right width=110>
+							  <font color="e3e3e3" name="hs11">Alvo:</font>
+						   </td>
+						   <td align=center width=100>
+							  <combobox width=100 var="target_t" list="%target_type%">
+						   </td>
+						   <td align=center>
+							  <button value="Definir" action="bypass inertia_target_type %id% $target_t" width=55 height=21 back="L2UI_ct1.button_df" fore="L2UI_ct1.button_df">
+						   </td>
+						</tr>
+						<tr>
+						   <td align=right width=110>
+							  <font color="e3e3e3" name="hs11">Range:</font>
+						   </td>
+						   <td align=center width=100>
+							  <combobox width=100 var="range_v" list="%range%">
+						   </td>
+						   <td align=center>
+							  <button value="Definir" action="bypass inertia_range_set %id% $range_v" width=55 height=21 back="L2UI_ct1.button_df" fore="L2UI_ct1.button_df">
+						   </td>
+						</tr>
+						<tr>
+						   <td align=right width=110>
+							  <font color="e3e3e3" name="hs11">Movimento:</font>
+						   </td>
+						   <td align=center width=100>
+							  <combobox width=100 var="move_v" list="%move%">
+						   </td>
+						   <td align=center>
+							  <button value="Definir" action="bypass inertia_move_type %id% $move_v" width=55 height=21 back="L2UI_ct1.button_df" fore="L2UI_ct1.button_df">
+						   </td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+         </table>
+		 
+		 <img height=4>
+
+		<table width=280 background="l2ui_ct1.Windows_DF_TooltipBG" cellspacing=1 cellpadding=1>
+			<tr>
+			   <td align=center width=100%>
+				  <font name="hs12" color="LEVEL">Habilidades Automáticas</font>
+			   </td>
+			</tr>
+			<tr>
+				<td>
+					<table align=center cellspacing=1 cellpadding=1>
+						<tr>
+							%ask%
+						</tr>
+						<tr>
+							<td align=center><font name=hs10 color=LEVEL>1</font></td>
+							<td align=center><font name=hs10 color=LEVEL>2</font></td>
+							<td align=center><font name=hs10 color=LEVEL>3</font></td>
+							<td align=center><font name=hs10 color=LEVEL>4</font></td>
+							<td align=center><font name=hs10 color=LEVEL>5</font></td>
+							<td align=center><font name=hs10 color=LEVEL>6</font></td>
+							<td align=center><font name=hs10 color=LEVEL>7</font></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+      </center>
+   </body>
+</html>

@@ -1,0 +1,108 @@
+<html noscrollbar>
+<title>Special Shop</title>
+<body>
+<br>
+<table width=755>
+	<tr>
+		<td align=center valign="top">
+			<table border=0 cellpadding=0 cellspacing=0 width=766 height=480 background="L2UI_CT1.Tab_DF_bg">
+				<tr>
+					<td align=center>
+						<table  border=0 cellspacing=3 cellpadding=0 height=30 width=766 background="l2ui_ct1.ListCTRL_DF_Decoration"><br>
+											<tr>
+												<td width=240 height=40 align=center background="l2ui_ct1.ListCTRL_DF_Decoration">
+													<br>
+													<font color=FFFFFF name=hs14>EVENT STORE</font>
+												</td>
+											</tr>
+										</table>
+						<table border=0 width=720>
+							<tr>
+								<td width=720 height=350 valign="top" align="center"><br>
+									<table border=0 width=720 >
+										<tr>
+											<td width=50 height=55 align=center><br><img src="Icon.etc_coin_of_fair_i00" width=32 height=32></td>
+											<td width=480 height=30 valign="top" align="left"><br>
+												<font name=hs12 color=FFFFFF> EVENT COIN SHOP</font> <br1> &nbsp;<font color=00ff55>Acessórios, Enchants, GC's, Crystals, Bracelets, Shirt, etc....</font>
+											</td>
+											<td width=200 height=30 align="center">
+												<br>
+												<button value="TROCAR RECOMPENSAS" action="bypass -h scripts_Util:CommunityMultisell 370151" width=200 height=30 back="L2UI_CT1.OlympiadWnd_DF_Reward_Down" fore="L2UI_ct1.OlympiadWnd_DF_Reward">
+											</td>
+										</tr>
+									</table>
+								<br1>
+									<table border=0 width=720>
+										<tr>
+											<td width=50 height=55 align=center><br><img src="Icon.skilltransform2" width=32 height=32></td>
+											<td width=480 height=30 valign="top" align="left"><br>
+												<font name=hs12 color=FFFFFF> REMOVER PONTOS DE KARMA</font> <br1> &nbsp;<font color=00FF55>Não arrisque dropar seus items</font>
+											</td>
+											<td width=200 height=30 align="center">
+											<br>
+												<button value="REMOVER PK" action="bypass -h scripts_services.BuyWashPk:list" width=200 height=30 back="L2UI_CT1.OlympiadWnd_DF_Apply_Down" fore="L2UI_ct1.OlympiadWnd_DF_Apply">
+											</td>
+										</tr>
+									</table>
+								<br1>
+									<table border=0 width=720 >
+										<tr>
+											<td width=50 height=55 align=center><br><img src="Icon.color_name_i00" width=32 height=32></td>
+											<td width=480 height=30 valign="top" align="left"><br>
+												<font name=hs12 color=FFFFFF> TROCA COR DO TÍTULO</font> <br1> &nbsp;<font color="00FF55">Preco: 50 Event Coin!</font>
+											</td>
+											<td width=200 height=30 align="center">
+											<br>
+												<button value="TROCAR COR" action="bypass -h scripts_services.TitleColor:list 1" width=200 height=30 back="L2UI_CT1.OlympiadWnd_DF_Apply_Down" fore="L2UI_ct1.OlympiadWnd_DF_Apply">
+											</td>
+										</tr>
+									</table>
+								<br1>
+									<table border=0 width=720 >
+										<tr>
+											<td width=50 height=55 align=center><br><img src="Icon.skill5243" width=32 height=32></td>
+											<td width=480 height=30 valign="top" align="left"><br>
+												<font name=hs12 color=FFFFFF> TROCAR CABELO</font> <br1> &nbsp;<font color="00FF55">Preco: 50 Event Coin!</font>
+											</td>
+											<td width=200 height=30 align="center">
+											<br>
+												<button value="TROCAR CABELO" action="bypass -h scripts_services.HairChange:show" width=200 height=30 back="L2UI_CT1.OlympiadWnd_DF_Apply_Down" fore="L2UI_ct1.OlympiadWnd_DF_Apply">
+											</td>
+										</tr>
+									</table>
+								<br1>
+									<table width=720 height=50 >
+									<tr>
+										<td fixwidth=50 height=40 align=center><img src=br_cashtex.item.br_cash_rune_of_feather_i00 width=33 height=32></td>
+										<td fixwidth=450><font name=hs12 color=FFFFFF>TROCAR NICK NAME</font><br1><font color=0099ff>Troque seu nome por: </font><font color=00ff55>50 Event Coins!</font></td>
+										<td valign=center height=40>
+										<br>
+										<multiedit var="newName" width=140 height=20 maxlength=16>
+										</td>
+										<td align=center><br><button value="TROCAR" action="bypass _changeNick_ $newName" width=80 height=27 back=L2UI_CT1.Button_DF_Down fore=L2UI_CT1.Button_DF></td>
+									</tr>
+									</table>
+								<br1>
+									<table width=720 height=50 >
+									<tr>
+										<td fixwidth=50 height=40 align=center><img src=L2UI_CH3.bloodhood_icon02 width=33 height=32></td>
+										<td fixwidth=450><font name=hs12 color=FFFFFF>TROCAR NOME DO CLAN</font><br1><font color=0099ff>Troque o nome do seu clan por: </font><font color=00ff55>250 Event Coins!</font></td>
+										<td valign=center height=40>
+										<br>
+										<multiedit var="newClanName" width=140 height=20 maxlength=16>
+										</td>
+										<td align=center><br><button value="TROCAR" action="bypass _changeClanName_ $newClanName" width=80 height=27 back=L2UI_CT1.Button_DF_Down fore=L2UI_CT1.Button_DF></td>
+									</tr>
+									</table>
+								<br>
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

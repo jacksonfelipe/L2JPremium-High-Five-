@@ -1,0 +1,5 @@
+0	    Bem-Vindo ao Lineage II Imperium
+0	    ==================================
+0	- Alt + B: Community Board
+0	- No shop voce pode adquirir os Itens Iniciais Free
+0	==================================

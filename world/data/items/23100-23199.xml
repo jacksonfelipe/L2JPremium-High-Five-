@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE list SYSTEM "item.dtd">
+
+<list>
+	<!-- Костюмы тату -->
+	<armor id="23110" name="tattoo suit">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="BranchSys3.icon1.g_co_tatu"/>
+		<set name="freightable" value="True"/>
+		<set name="sellable" value="False"/>
+		<set name="tradeable" value="False"/>
+		<set name="dropable" value="False"/>
+		<set name="price" value="5000000"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="1000"/>
+		<equip>
+			<slot id="FORMAL_WEAR"/>
+		</equip>
+	</armor>
+	<armor id="23111" name="tattoo suit 2">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="BranchSys3.icon1.g_co_tatu"/>
+		<set name="freightable" value="True"/>
+		<set name="sellable" value="False"/>
+		<set name="tradeable" value="False"/>
+		<set name="dropable" value="False"/>
+		<set name="price" value="5000000"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="1000"/>
+		<equip>
+			<slot id="FORMAL_WEAR"/>
+		</equip>
+	</armor>
+	<armor id="23112" name="tattoo suit 3">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="BranchSys3.icon1.g_co_tatu"/>
+		<set name="freightable" value="True"/>
+		<set name="sellable" value="False"/>
+		<set name="tradeable" value="False"/>
+		<set name="dropable" value="False"/>
+		<set name="price" value="5000000"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="1000"/>
+		<equip>
+			<slot id="FORMAL_WEAR"/>
+		</equip>
+	</armor>
+	<armor id="23125" name="Underwear">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="BranchFighter.g_mfighter_underwear1_u"/>
+		<set name="freightable" value="True"/>
+		<set name="sellable" value="False"/>
+		<set name="tradeable" value="False"/>
+		<set name="dropable" value="False"/>
+		<set name="price" value="5000000"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="1000"/>
+		<equip>
+			<slot id="FORMAL_WEAR"/>
+		</equip>
+	</armor>
+	<armor id="23126" name="Underwear 2">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="BranchFighter.g_mfighter_underwear1_u"/>
+		<set name="freightable" value="True"/>
+		<set name="sellable" value="False"/>
+		<set name="tradeable" value="False"/>
+		<set name="dropable" value="False"/>
+		<set name="price" value="5000000"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="1000"/>
+		<equip>
+			<slot id="FORMAL_WEAR"/>
+		</equip>
+	</armor>
+	<armor id="23127" name="Underwear 3">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="BranchFighter.g_mfighter_underwear1_u"/>
+		<set name="freightable" value="True"/>
+		<set name="sellable" value="False"/>
+		<set name="tradeable" value="False"/>
+		<set name="dropable" value="False"/>
+		<set name="price" value="5000000"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="1000"/>
+		<equip>
+			<slot id="FORMAL_WEAR"/>
+		</equip>
+	</armor>
+	<armor id="23128" name="Underwear 4">
+		<set name="crystal_type" value="NONE"/>
+		<set name="icon" value="BranchFighter.g_mfighter_underwear1_u"/>
+		<set name="freightable" value="True"/>
+		<set name="sellable" value="False"/>
+		<set name="tradeable" value="False"/>
+		<set name="dropable" value="False"/>
+		<set name="price" value="5000000"/>
+		<set name="type" value="NONE"/>
+		<set name="weight" value="1000"/>
+		<equip>
+			<slot id="FORMAL_WEAR"/>
+		</equip>
+	</armor>
+</list>

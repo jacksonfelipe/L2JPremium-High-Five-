@@ -1,0 +1,757 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE list SYSTEM "weapon.dtd">
+<list>
+	<weapon id="51820" name="Baium Thrower" type="Bow">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51813" name="Baium Shaper" type="Dagger">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51814" name="Baium Cutter" type="Sword">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51815" name="Baium Slasher" type="Big Sword">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51816" name="Baium Avenger" type="Blunt">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51817" name="Baium Retributer" type="Big Blunt">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51818" name="Baium Fighter" type="Dual Fist">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51819" name="Baium Stormer" type="Pole">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51821" name="Baium Buster" type="Sword">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51822" name="Baium Caster" type="Blunt">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51823" name="Baium Singer" type="Big Blunt">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51824" name="Baium Pincer" type="Rapier">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51825" name="Baium Nagan" type="Ancient Sword">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51826" name="Baium Shooter" type="Crossbow">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51827" name="Baium Dual Sword" type="Dual Sword">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51828" name="Baium Dual Dagger" type="Dual Dagger">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51804" name="Zariche Thrower" type="Bow">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51797" name="Zariche Shaper" type="Dagger">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51798" name="Zariche Cutter" type="Sword">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51799" name="Zariche Slasher" type="Big Sword">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51800" name="Zariche Avenger" type="Blunt">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51802" name="Zariche Retributer" type="Big Blunt">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51801" name="Zariche Fighter" type="Dual Fist">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51803" name="Zariche Stormer" type="Pole">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51805" name="Zariche Buster" type="Sword">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51806" name="Zariche Caster" type="Blunt">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51807" name="Zariche Singer" type="Big Blunt">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51808" name="Zariche Pincer" type="Rapier">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51809" name="Zariche Nagan" type="Ancient Sword">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51810" name="Zariche Shooter" type="Crossbow">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51811" name="Zariche Dual Sword" type="Dual Sword">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="51812" name="Zariche Dual Dagger" type="Dual Dagger">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="90600" name="Krishna R110 Shaper" type="Dagger">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="90601" name="Krishna R110 Cutter" type="Sword">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="90602" name="Krishna R110 Avenger" type="Blunt">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="90603" name="Krishna R110 Dual Dagger" type="Dual Dagger">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="90604" name="Krishna R110 Dual Sword" type="Dual Sword">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="90606" name="Krishna R110 Slice" type="Sword">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="90607" name="Krishna R110 Dual Enchanter" type="Blunt">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="90608" name="Krishna R110 Magic Staff" type="Big Blunt">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="90609" name="Krishna R110 Sword" type="Big Sword">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="90610" name="Krishna R110 Crusher" type="Big Blunt">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="90611" name="Krishna R110 Warrior" type="Dual Fist">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="90612" name="Krishna R110 Stormcloak" type="Pole">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="90613" name="Krishna R110 Thrower" type="Bow">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="90614" name="Krishna R110 Grin" type="Ancient Sword">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="90615" name="Krishna R110 Sting" type="Rapier">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="90616" name="Krishna R110 Guardian" type="Crossbow">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="32802" name="Immortal Avenger" type="Blunt">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="32805" name="Immortal Cutter" type="Sword">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="32808" name="Immortal Fighter" type="Dual Fist">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="32811" name="Immortal Two Hand Staff" type="Big Blunt">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="32814" name="Immortal Dagger" type="Dagger">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="32817" name="Immortal Stormer" type="Pole">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="32820" name="Immortal Buster" type="Sword">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="32823" name="Immortal Thrower" type="Bow">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="32826" name="Immortal Caster" type="Blunt">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="32829" name="Immortal Slasher" type="Big Sword">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="32832" name="Immortal Blade" type="Ancient Sword">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="32835" name="Immortal Rapier" type="Rapier">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="32838" name="Immortal Crossbow" type="Crossbow">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="32841" name="Immortal Dual Sword" type="Dual Sword">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="32844" name="Immortal Dual Daggers" type="Dual Dagger">
+		<price id="37000" count="60" />
+	</weapon>
+	<weapon id="100000" name="Sunderer of the Fallen" type="Sword">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="100001" name="Twin Axes of the Fallen" type="Big Blunt">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="100002" name="Spearhead of the Fallen" type="Dagger">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="100003" name="Separator of the Fallen" type="Big Sword">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="101000" name="Fallen Impaler" type="Rapier">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="101001" name="Summoner of the Fallen" type="Blunt">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="101002" name="Retribution of the Fallen" type="Big Blunt">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="101003" name="Sword of the Fallen" type="Ancient Sword">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="102000" name="Fallen Cutter" type="Sword">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="102001" name="Fallen Twin Daggers" type="Dual Dagger">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="102002" name="Guardian of the Fallen" type="Crossbow">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="102003" name="Throw the Fallen" type="Bow">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="103000" name="Avenger of the Fallen" type="Blunt">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="103001" name="Warrior of the Fallen" type="Dual Fist">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="103002" name="Stormy Petrel of the Fallen" type="Pole">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="103003" name="Twin Swords of the Fallen" type="Dual Sword">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51549" name="Colt 45 Pistol" type="Crossbow">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51548" name="Wolverine Claw" type="Dual Fist">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="56158" name="Kain Dual Sword" type="Dual Sword">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="52293" name="Halloween Purple Burster" type="Sword">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="52294" name="Halloween Purple Cutter" type="Sword">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="52295" name="Halloween Purple Slasher" type="Big Sword">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="52296" name="Halloween Purple Slasher" type="Dagger">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="52297" name="Halloween Purple First" type="Dual Fist">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="52298" name="Halloween Purple Avenger" type="Blunt">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="52299" name="Halloween Purple Stormer" type="Pole">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="52300" name="Halloween Purple Thrower" type="Bow">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="52301" name="Halloween Purple Caster" type="Blunt">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="52302" name="Halloween Purple Caster" type="Big Blunt">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="52303" name="Halloween Purple Dual Burster" type="Dual Sword">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="52304" name="Halloween Purple Dual Shaper" type="Dual Dagger">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="52305" name="Halloween Purple Crossbow" type="Crossbow">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="52309" name="Halloween Purple Gun" type="Crossbow">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="52308" name="Halloween Purple Rapier" type="Rapier">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="52310" name="Halloween Purple Ancient" type="Ancient Sword">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="52311" name="Halloween Purple Magic Blunt" type="Big Blunt">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51502" name="Death Knight Fire Blade" type="Sword">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51503" name="Death Knight Fire Slasher" type="Big Sword">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51504" name="Death Knight Fire Shaper" type="Dagger">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51505" name="Death Knight Fire Fists" type="Dual Fist">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51506" name="Death Knight Fire Avenger" type="Blunt">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51507" name="Death Knight Fire Stormer" type="Pole">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51508" name="Death Knight Fire Thrower" type="Bow">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51509" name="Death Knight Fire Caster" type="Blunt">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51510" name="Death Knight Fire Retributer" type="Big Blunt">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51511" name="Death Knight Fire Dual" type="Dual Sword">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51512" name="Death Knight Fire Crossbow" type="Crossbow">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51515" name="Death Knight Fire Rapier" type="Rapier">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51516" name="Death Knight Fire Gun" type="Crossbow">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51517" name="Death Knight Soul Blade" type="Sword">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51518" name="Death Knight Soul Slasher" type="Big Sword">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51519" name="Death Knight Soul Shaper" type="Dagger">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51520" name="Death Knight Soul Fists" type="Dual Fist">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51521" name="Death Knight Soul Avenger" type="Blunt">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51522" name="Death Knight Soul Stormer" type="Pole">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51524" name="Death Knight Soul Thrower" type="Bow">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51525" name="Death Knight Soul Caster" type="Blunt">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51526" name="Death Knight Soul Retributer" type="Big Blunt">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51527" name="Death Knight Soul Dual" type="Dual Sword">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51528" name="Death Knight Soul Crossbow" type="Crossbow">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51531" name="Death Knight Soul Rapier" type="Rapier">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51532" name="Death Knight Soul Gun" type="Crossbow">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51533" name="Death Knight Elemental Blade" type="Sword">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51534" name="Death Knight Elemental Slasher" type="Big Sword">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51535" name="Death Knight Elemental Shaper" type="Dagger">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51536" name="Death Knight Elemental Fists" type="Dual Fist">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51537" name="Death Knight Elemental Avenger" type="Blunt">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51538" name="Death Knight Elemental Stormer" type="Pole">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51539" name="Death Knight Elemental Thrower" type="Bow">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51540" name="Death Knight Elemental Caster" type="Blunt">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51541" name="Death Knight Elemental Retributer" type="Big Blunt">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51542" name="Death Knight Elemental Dual" type="Dual Sword">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51543" name="Death Knight Elemental Crossbow" type="Crossbow">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51546" name="Death Knight Elemental Rapier" type="Rapier">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="51547" name="Death Knight Elemental Gun" type="Crossbow">
+		<price id="37000" count="50" />
+	</weapon>
+	<weapon id="54130" name="Fafurion Avenger" type="Blunt">
+		<price id="37000" count="40" />
+	</weapon>
+	<weapon id="54131" name="Fafurion Cutter" type="Sword">
+		<price id="37000" count="40" />
+	</weapon>
+	<weapon id="54132" name="Fafurion Fighter" type="Dual Fist">
+		<price id="37000" count="40" />
+	</weapon>
+	<weapon id="54133" name="Fafurion Singer" type="Big Blunt">
+		<price id="37000" count="40" />
+	</weapon>
+	<weapon id="54134" name="Fafurion Shaper" type="Dagger">
+		<price id="37000" count="40" />
+	</weapon>
+	<weapon id="54135" name="Fafurion Stormer" type="Pole">
+		<price id="37000" count="40" />
+	</weapon>
+	<weapon id="54136" name="Fafurion Dual Sword" type="Dual Sword">
+		<price id="37000" count="40" />
+	</weapon>
+	<weapon id="54137" name="Fafurion Dual Dagger" type="Dual Dagger">
+		<price id="37000" count="40" />
+	</weapon>
+	<weapon id="18050" name="Shunaiman's Blade" type="Dagger">
+		<price id="37000" count="40" />
+	</weapon>
+	<weapon id="18051" name="Rezak Shunaimana" type="Sword">
+		<price id="37000" count="40" />
+	</weapon>
+	<weapon id="18052" name="Shunaiman's Avenger" type="Blunt">
+		<price id="37000" count="40" />
+	</weapon>
+	<weapon id="18053" name="Shunaiman's Dual Dagger" type="Dual Dagger">
+		<price id="37000" count="40" />
+	</weapon>
+	<weapon id="18054" name="Shunaiman's Dual Sword" type="Dual Sword">
+		<price id="37000" count="40" />
+	</weapon>
+	<weapon id="18056" name="Shunaiman's Dismemberer" type="Sword">
+		<price id="37000" count="40" />
+	</weapon>
+	<weapon id="18057" name="Shunaiman's Summoner" type="Blunt">
+		<price id="37000" count="40" />
+	</weapon>
+	<weapon id="18058" name="Shunaiman's Magic Retribution" type="Big Blunt">
+		<price id="37000" count="40" />
+	</weapon>
+	<weapon id="18059" name="Expadon Shunaimana" type="Big Sword">
+		<price id="37000" count="40" />
+	</weapon>
+	<weapon id="18060" name="Shunaiman Crusher" type="Big Blunt">
+		<price id="37000" count="40" />
+	</weapon>
+	<weapon id="18061" name="Shunaiman's Warrior" type="Dual Fist">
+		<price id="37000" count="40" />
+	</weapon>
+	<weapon id="18062" name="Shunaiman Stormtrooper" type="Pole">
+		<price id="37000" count="40" />
+	</weapon>
+	<weapon id="18063" name="Shunaiman's Thrower" type="Bow">
+		<price id="37000" count="40" />
+	</weapon>
+	<weapon id="18064" name="Shunaiman's Grin" type="Ancient Sword">
+		<price id="37000" count="40" />
+	</weapon>
+	<weapon id="18065" name="Shunaiman's Sting" type="Rapier">
+		<price id="37000" count="40" />
+	</weapon>
+	<weapon id="18066" name="Shunaiman's Guard" type="Crossbow">
+		<price id="37000" count="40" />
+	</weapon>
+	<weapon id="33346" name="Effect Ice Invoke Cutter" type="Sword">
+		<price id="37000" count="35" />
+	</weapon>
+	<weapon id="33347" name="Effect Ice Invoke Slasher" type="Big Sword">
+		<price id="37000" count="35" />
+	</weapon>
+	<weapon id="33348" name="Effect Ice Invoke Shaper" type="Dagger">
+		<price id="37000" count="35" />
+	</weapon>
+	<weapon id="33349" name="Effect Ice Invoke Fighter" type="Dual Fist">
+		<price id="37000" count="35" />
+	</weapon>
+	<weapon id="33350" name="Effect Ice Invoke Stormer" type="Pole">
+		<price id="37000" count="35" />
+	</weapon>
+	<weapon id="33351" name="Effect Ice Invoke Avenger" type="Blunt">
+		<price id="37000" count="35" />
+	</weapon>
+	<weapon id="33352" name="Effect Ice Invoke Caster" type="Sword">
+		<price id="37000" count="35" />
+	</weapon>
+	<weapon id="33353" name="Effect Ice Invoke Singer" type="Big Blunt">
+		<price id="37000" count="35" />
+	</weapon>
+	<weapon id="33354" name="Effect Ice Invoke Singer" type="Bow">
+		<price id="37000" count="35" />
+	</weapon>
+	<weapon id="33355" name="Effect Ice Invoke Rapier" type="Rapier">
+		<price id="37000" count="35" />
+	</weapon>
+	<weapon id="33356" name="Effect Ice Invoke Shooter" type="Crossbow">
+		<price id="37000" count="35" />
+	</weapon>
+	<weapon id="33357" name="Effect Ice Invoke Nagan" type="Ancient Sword">
+		<price id="37000" count="35" />
+	</weapon>
+	<weapon id="33359" name="Effect Ice Invoke Dual Sword" type="Dual Sword">
+		<price id="37000" count="35" />
+	</weapon>
+	<weapon id="33358" name="Effect Ice Invoke Dual Dagger" type="Dual Dagger">
+		<price id="37000" count="35" />
+	</weapon>
+	<weapon id="33330" name="Ice Invoke Cutter" type="Sword">
+		<price id="37000" count="30" />
+	</weapon>
+	<weapon id="33331" name="Ice Invoke Slasher" type="Big Sword">
+		<price id="37000" count="30" />
+	</weapon>
+	<weapon id="33332" name="Ice Invoke Shaper" type="Dagger">
+		<price id="37000" count="30" />
+	</weapon>
+	<weapon id="33333" name="Ice Invoke Fighter" type="Dual Fist">
+		<price id="37000" count="30" />
+	</weapon>
+	<weapon id="33334" name="Ice Invoke Stormer" type="Pole">
+		<price id="37000" count="30" />
+	</weapon>
+	<weapon id="33335" name="Ice Invoke Avenger" type="Blunt">
+		<price id="37000" count="30" />
+	</weapon>
+	<weapon id="33336" name="Ice Invoke Caster" type="Blunt">
+		<price id="37000" count="30" />
+	</weapon>
+	<weapon id="33337" name="Ice Invoke Singer" type="Big Blunt">
+		<price id="37000" count="30" />
+	</weapon>
+	<weapon id="33338" name="Ice Invoke Thrower" type="Bow">
+		<price id="37000" count="30" />
+	</weapon>
+	<weapon id="33339" name="Ice Invoke Rapier" type="Rapier">
+		<price id="37000" count="30" />
+	</weapon>
+	<weapon id="33340" name="Ice Invoke Shooter" type="Crossbow">
+		<price id="37000" count="30" />
+	</weapon>
+	<weapon id="33341" name="Ice Invoke Nagan" type="Ancient Sword">
+		<price id="37000" count="30" />
+	</weapon>
+	<weapon id="33343" name="Ice Invoke Dual Daggers" type="Dual Dagger">
+		<price id="37000" count="30" />
+	</weapon>
+	<weapon id="33344" name="Ice Invoke Dual Dual Sword" type="Dual Sword">
+		<price id="37000" count="30" />
+	</weapon>
+	<weapon id="10004" name="Dynasty Dual Sword" type="Dual Sword">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="10215" name="Icarus Sawsword" type="Sword">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="10216" name="Icarus Disperser" type="Dagger">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="10217" name="Icarus Spirit" type="Sword">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="10218" name="Icarus Heavy Arms" type="Big Sword">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="10219" name="Icarus Trident" type="Pole">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="10220" name="Icarus Hammer" type="Blunt">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="10221" name="Icarus Hand" type="Dual Fist">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="10222" name="Icarus Hall" type="Blunt">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="10223" name="Icarus Spitter" type="Bow">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="10224" name="Icarus Stinger" type="Rapier">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="10225" name="Icarus Wingblade" type="Ancient Sword">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="10226" name="Icarus Shooter" type="Crossbow">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="10252" name="Dynasty Staff" type="Big Blunt">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="10253" name="Dynasty Crusher" type="Big Blunt">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="10415" name="Icarus Dual Sword" type="Dual Sword">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="11243" name="Dynasty Ancient Sword - Great Gale" type="Ancient Sword">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="11247" name="Dynasty Knife - Great Gale" type="Dagger">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="11251" name="Dynasty Dual Sword - Earth" type="Dual Sword">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="11252" name="Dynasty Rapier - Earth" type="Rapier">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="11256" name="Dynasty Mace - Earth" type="Blunt">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="11260" name="Dynasty Bagh-Nakh - Great Gale" type="Dual Fist">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="11264" name="Dynasty Bow - Great Gale" type="Bow">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="11268" name="Dynasty Blade - Great Gale" type="Big Sword">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="11272" name="Dynasty Sword - Earth" type="Sword">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="11276" name="Dynasty Staff - Holy Spirit" type="Big Blunt">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="11280" name="Dynasty Cudgel - Landslide" type="Blunt">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="11284" name="Dynasty Crusher - Great Gale" type="Big Blunt">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="11288" name="Dynasty Crossbow - Great Gale" type="Crossbow">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="11292" name="Dynasty Phantom - Nature" type="Sword">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="11296" name="Dynasty Halberd - Earth" type="Pole">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="11300" name="Icarus Dual Sword - Destruction" type="Dual Sword">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="11301" name="Icarus Disperser - Confusion" type="Dagger">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="11305" name="Icarus Sawsword - Destruction" type="Sword">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="11309" name="Icarus Shooter - Concentration" type="Crossbow">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="11313" name="Icarus Stinger - Destruction" type="Rapier">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="11317" name="Icarus Spirit - Nature" type="Sword">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="11321" name="Icarus Spitter - Concentration" type="Bow">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="11325" name="Icarus Wingblade - Lightning" type="Ancient Sword">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="11329" name="Icarus Trident - Thunder" type="Pole">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="11333" name="Icarus Hammer - Earth" type="Blunt">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="11337" name="Icarus Hand - Destruction" type="Dual Fist">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="11341" name="Icarus Heavy Arms - Lightning" type="Big Sword">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="11345" name="Icarus Hall - Hail" type="Blunt">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="13882" name="Dynasty Dual Daggers" type="Dual Dagger">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="13883" name="Icarus Dual Daggers" type="Dual Dagger">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="14526" name="Dynasty Dual Daggers - Great Gale" type="Dual Dagger">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="14527" name="Icarus Dual Daggers - Confusion" type="Dual Dagger">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="9376" name="Dynasty Rapier" type="Rapier">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="9380" name="Dynasty Ancient Sword" type="Ancient Sword">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="9384" name="Dynasty Crossbow" type="Crossbow">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="9442" name="Dynasty Sword" type="Sword">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="9443" name="Dynasty Blade" type="Big Sword">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="9444" name="Dynasty Phantom" type="Sword">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="9445" name="Dynasty Bow" type="Bow">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="9446" name="Dynasty Knife" type="Dagger">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="9447" name="Dynasty Halberd" type="Pole">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="9448" name="Dynasty Cudgel" type="Blunt">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="9449" name="Dynasty Mace" type="Blunt">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="9450" name="Dynasty Bagh-Nakh" type="Dual Fist">
+		<price id="37000" count="20" />
+	</weapon>
+	<weapon id="9813" name="Orc Officer" type="Dual Sword">
+		<price id="37000" count="20" />
+	</weapon>
+</list>

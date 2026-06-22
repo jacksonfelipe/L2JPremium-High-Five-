@@ -1,0 +1,99 @@
+<html noscrollbar="1">
+	<title>Priority %priority% Skill</title>
+	<body>
+	<center>
+	<font name=hs11 color=LEVEL>Available Class Skills</font>
+	<table cellspacing=2 cellpadding=2 background=L2UI_CT1.Windows.Windows_DF_TooltipBG width=280>
+	<tr>
+		%ask%
+	</tr>
+	</table>
+	
+	<img height=3 />
+	
+	<table width=290 align=center>
+	<tr>
+		%pages1%		
+	</tr>
+	</table>
+	
+	<img height=3 />
+	
+	<table width=280 background=L2UI_CT1.Windows_DF_TooltipBG cellspacing=1 cellpadding=1>
+		<tr>
+			<td>
+				<table width=100%>
+					<tr>
+						<td width=36>
+							<img width=32 height=32 src="%sic%" />
+						</td>
+						<td>
+							<table width=100%>
+							<tr>
+								<td height=16><font name=hs9 color=LEVEL>Selected Skill (Priority %priority% )</font></td>
+							</tr>
+							<tr>
+								<td height=16>
+									<font color=white name=hs11>%sna%</font>
+								</td>
+							</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	
+	<img height=3 />
+	
+	<table width=280 cellspacing=2 cellpadding=1 background=L2UI_CT1.Windows_DF_TooltipBG>
+		<tr>
+			<td height=22 width=95><font name=hs11 color=c269b4>Priority:</font></td>
+			<td width=110><combobox width=105 var="pr" list="%pr%"></td>
+			<td width=65 align=right><button value="Set" action="bypass inertia_slot_set %id% %slot% $pr" width=60 height=21 back="L2UI_ct1.button_df" fore="L2UI_ct1.button_df"></td>
+		</tr>
+		<tr>
+			<td height=22 width=95><font name=hs11 color=69c2b4>Reuse (sec):</font></td>
+			<td width=110>
+				<table width=100%>
+					<tr>
+						<td width=40><font name=hs11 color=LEVEL>%reu%</font></td>
+						<td><edit var="reu" width=60 height=15 type="number"/></td>
+					</tr>
+				</table>
+			</td>
+			<td width=65 align=right><button value="Set" action="bypass inertia_reuse_set %id% %slot% $reu" width=60 height=21 back="L2UI_ct1.button_df" fore="L2UI_ct1.button_df"></td>
+		</tr>
+		<tr>
+			<td height=22 width=95><font name=hs11 color=c26964>Your HP (%):</font></td>
+			<td width=110>
+				<table width=100%>
+					<tr>
+						<td width=40><font name=hs11 color=LEVEL>%hpp%</font></td>
+						<td><edit var="hpp" width=60 height=15 type="number"/></td>
+					</tr>
+				</table>
+			</td>
+			<td width=65 align=right><button value="Set" action="bypass inertia_hpp_set %id% %slot% $hpp" width=60 height=21 back="L2UI_ct1.button_df" fore="L2UI_ct1.button_df"></td>
+		</tr>
+		<tr>
+			<td height=22 width=95><font name=hs11 color=c26964>Target HP (%):</font></td>
+			<td width=110>
+				<table width=100%>
+					<tr>
+						<td width=40><font name=hs11 color=LEVEL>%tpp%</font></td>
+						<td><edit var="tpp" width=60 height=15 type="number"/></td>
+					</tr>
+				</table>
+			</td>
+			<td width=65 align=right><button value="Set" action="bypass inertia_tpp_set %id% %slot% $tpp" width=60 height=21 back="L2UI_ct1.button_df" fore="L2UI_ct1.button_df"></td>
+		</tr>
+	</table>
+	
+	<img height=4>
+	
+    <button value="Voltar" action="bypass inertia_refresh %id%" width=60 height=22 back="L2UI_ct1.button_df" fore="L2UI_ct1.button_df">
+	</center>
+   </body>
+</html>

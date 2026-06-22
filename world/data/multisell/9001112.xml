@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+	<config showall="true" notax="true" ignoreprice="true" keepenchanted="false" />
+	<!-- Gree Seal Stone -> Ancient Adena -->
+	<item>
+        <ingredient id="6361" count="1" />
+        <production id="5575" count="3" />
+    </item>
+
+    <!-- Green Seal Stone -> Ancient Adena -->
+    <item>
+        <ingredient id="6360" count="1" />
+        <production id="5575" count="5" />
+    </item>
+
+    <!-- Red Seal Stone -> Ancient Adena -->
+    <item>
+        <ingredient id="6362" count="1" />
+        <production id="5575" count="10" />
+    </item>
+
+    <!-- Pacotes maiores (opcional) -->
+    <item>
+        <ingredient id="6361" count="10" />
+        <production id="5575" count="30" />
+    </item>
+
+    <item>
+        <ingredient id="6360" count="10" />
+        <production id="5575" count="50" />
+    </item>
+
+    <item>
+        <ingredient id="6362" count="10" />
+        <production id="5575" count="100" />
+    </item>
+</list>

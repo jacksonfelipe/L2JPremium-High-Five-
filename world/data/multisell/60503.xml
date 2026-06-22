@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+	<config showall="true" notax="true" ignoreprice="true" keepenchanted="false" />
+	
+	<!-- Leviathan Heavy -->
+	<item>
+		<production id="45575" count="1"/>
+		<production id="45572" count="1"/>
+		<production id="45578" count="1"/>
+		<production id="45581" count="1"/>
+		<production id="45584" count="1"/>
+		<ingredient id="43330" count="90"/>
+		<ingredient id="15572" count="1"/>
+		<ingredient id="15575" count="1"/>
+		<ingredient id="15578" count="1"/>
+		<ingredient id="15584" count="1"/>
+		<ingredient id="15581" count="1"/>
+	</item>
+	<item>
+		<production id="45572" count="1"/>
+		<ingredient id="43330" count="18"/>
+		<ingredient id="15572" count="1"/>
+	</item>
+	<item>
+		<production id="45575" count="1"/>
+		<ingredient id="43330" count="18"/>
+		<ingredient id="15575" count="1"/>
+	</item>
+	<item>
+		<production id="45578" count="1"/>
+		<ingredient id="43330" count="18"/>
+		<ingredient id="15578" count="1"/>
+	</item>
+	<item>
+		<production id="45581" count="1"/>
+		<ingredient id="43330" count="18"/>
+		<ingredient id="15581" count="1"/>
+	</item>
+	<item>
+		<production id="45584" count="1"/>
+		<ingredient id="43330" count="18"/>
+		<ingredient id="15584" count="1"/>
+	</item>
+	
+	<!-- Leviathan Leather -->
+	<item>
+		<production id="45576" count="1"/>
+		<production id="45573" count="1"/>
+		<production id="45580" count="1"/>
+		<production id="45582" count="1"/>
+		<production id="45585" count="1"/>
+		<ingredient id="43330" count="100"/>
+		<ingredient id="15576" count="1"/>
+		<ingredient id="15573" count="1"/>
+		<ingredient id="15579" count="1"/>
+		<ingredient id="15582" count="1"/>
+		<ingredient id="15585" count="1"/>
+	</item>
+	<item>
+		<production id="45573" count="1"/>
+		<ingredient id="43330" count="20"/>
+		<ingredient id="15573" count="1"/>
+	</item>
+	<item>
+		<production id="45576" count="1"/>
+		<ingredient id="43330" count="20"/>
+		<ingredient id="15576" count="1"/>
+	</item>
+	<item>
+		<production id="45580" count="1"/>
+		<ingredient id="43330" count="20"/>
+		<ingredient id="15579" count="1"/>
+	</item>
+	<item>
+		<production id="45582" count="1"/>
+		<ingredient id="43330" count="20"/>
+		<ingredient id="15582" count="1"/>
+	</item>
+	<item>
+		<production id="45585" count="1"/>
+		<ingredient id="43330" count="20"/>
+		<ingredient id="15585" count="1"/>
+	</item>
+	<!-- Leviathan Robe -->
+	<item>
+		<production id="45577" count="1"/>
+		<production id="45574" count="1"/>
+		<production id="45580" count="1"/>
+		<production id="45583" count="1"/>
+		<production id="45586" count="1"/>
+		<ingredient id="43330" count="120"/>
+		<ingredient id="15577" count="1"/>
+		<ingredient id="15574" count="1"/>
+		<ingredient id="15580" count="1"/>
+		<ingredient id="15583" count="1"/>
+		<ingredient id="15586" count="1"/>
+	</item>
+	<item>
+		<production id="45574" count="1"/>
+		<ingredient id="43330" count="24"/>
+		<ingredient id="15574" count="1"/>
+	</item>
+	<item>
+		<production id="45577" count="1"/>
+		<ingredient id="43330" count="24"/>
+		<ingredient id="15577" count="1"/>
+	</item>
+	<item>
+		<production id="45580" count="1"/>
+		<ingredient id="43330" count="24"/>
+		<ingredient id="15580" count="1"/>
+	</item>
+	<item>
+		<production id="45583" count="1"/>
+		<ingredient id="43330" count="24"/>
+		<ingredient id="15583" count="1"/>
+	</item>
+	<item>
+		<production id="45586" count="1"/>
+		<ingredient id="43330" count="24"/>
+		<ingredient id="15586" count="1"/>
+	</item>
+</list>

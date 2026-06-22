@@ -1,0 +1,9 @@
+# L2J Runtime / Generated
+/world/log/
+/auth/log/
+/bin/
+/build/
+*.cs
+git_commands.md
+
+

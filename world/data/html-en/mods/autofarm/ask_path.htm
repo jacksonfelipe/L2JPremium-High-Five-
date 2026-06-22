@@ -1,0 +1,49 @@
+<html noscrollbar="1">
+   <title>Inertia - Caminho Ativo</title>
+   <body>
+      <center>
+         <table background="l2ui_ct1.Windows_DF_TooltipBG" cellspacing=1 cellpadding=1 width=280>
+            <tr>
+               <td align=center width=100%>
+                  <font name="hs12" color="LEVEL">Caminho Ativo Detectado</font>
+               </td>
+            </tr>
+            <tr>
+               <td align=center>
+                  <font color="e3e3e3">Você possui pontos de caminho ativos.</font><br>
+                  <font color="999999">Como deseja que o autofarm se comporte?</font>
+               </td>
+            </tr>
+         </table>
+         <img height=10>
+         <table width=280 cellspacing=3 cellpadding=3>
+            <tr>
+               <td align=center>
+                  <button value="Seguir Linha / Caminho" action="bypass inertia_start_path %id% line" width=220 height=26 back="L2UI_ct1.button_df" fore="L2UI_ct1.button_df">
+               </td>
+            </tr>
+            <tr>
+               <td align=center>
+                  <font color="808080" name="hs10">Farmar seguindo a linha de pontos. Ao limpar os monstros do range, retorna para a linha e avança para o próximo ponto.</font>
+               </td>
+            </tr>
+            <tr>
+               <td align=center>
+                  <button value="Deixar Livre o Farm" action="bypass inertia_start_path %id% free" width=220 height=26 back="L2UI_ct1.button_df" fore="L2UI_ct1.button_df">
+               </td>
+            </tr>
+            <tr>
+               <td align=center>
+                  <font color="808080" name="hs10">Ignora os pontos e farma livremente na área atual do personagem.</font>
+               </td>
+            </tr>
+            <tr>
+               <td align=center>
+                  <img height=10>
+                  <button value="Voltar" action="bypass inertia_main %id%" width=100 height=22 back="L2UI_ct1.button_df" fore="L2UI_ct1.button_df">
+               </td>
+            </tr>
+         </table>
+      </center>
+   </body>
+</html>

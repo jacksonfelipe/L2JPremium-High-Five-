@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<list>
+	<!-- Hair Accesories-->
+	<item>
+		<ingredient count="50000000" id="57"/> 
+		<production count="1" id="5808"/> 
+	</item>
+	<item>
+		<ingredient count="50000000" id="57"/> 
+		<production count="1" id="6394"/>		
+	</item>
+	<item>
+		<ingredient count="50000000" id="57"/> 
+		<production count="1" id="6842"/>		
+	</item>
+	<item>
+		<ingredient count="50000000" id="57"/> 
+		<production count="1" id="6843"/>		
+	</item>
+	<item>
+		<ingredient count="50000000" id="57"/> 
+		<production count="1" id="6844"/>		
+	</item>
+	<item>
+		<ingredient count="50000000" id="57"/> 
+		<production count="1" id="6845"/>		
+	</item>
+	<item>
+		<ingredient count="50000000" id="57"/> 
+		<production count="1" id="6846"/>		
+	</item>
+	<item>
+		<ingredient count="50000000" id="57"/> 
+		<production count="1" id="7059"/>		
+	</item>
+	<item>
+		<ingredient count="50000000" id="57"/> 
+		<production count="1" id="7060"/>		
+	</item>
+	<item>
+		<ingredient count="50000000" id="57"/> 
+		<production count="1" id="7680"/>		
+	</item>
+	<item>
+		<ingredient count="50000000" id="57"/> 
+		<production count="1" id="7681"/>		
+	</item>
+	<item>
+		<ingredient count="50000000" id="57"/> 
+		<production count="1" id="7682"/>		
+	</item>
+	<item>
+		<ingredient count="50000000" id="57"/> 
+		<production count="1" id="7683"/>		
+	</item>
+	<item>
+		<ingredient count="50000000" id="57"/> 
+		<production count="1" id="7695"/>		
+	</item>
+	<item>
+		<ingredient count="50000000" id="57"/> 
+		<production count="1" id="7696"/>		
+	</item>
+	<item>
+		<ingredient count="50000000" id="57"/> 
+		<production count="1" id="7836"/>		
+	</item>
+	<item>
+		<ingredient count="50000000" id="57"/> 
+		<production count="1" id="7837"/>		
+	</item>
+	<item>
+		<ingredient count="50000000" id="57"/> 
+		<production count="1" id="7839"/>		
+	</item>
+</list>

@@ -1,0 +1,25 @@
+<html noscrollbar="1">
+   <title>Inertia Drop Tracker</title>
+
+   <body>
+		<center>
+			<table width=100%>
+				<tr>
+					<td width=280 align="center">
+						<table cellpadding=2 cellspacing=2 width=90%>
+							%drops%
+						</table>
+					</td>
+				</tr>
+			</table>
+			<br>
+			<table>
+				<tr>
+					<td><button value="Refresh" action="bypass inertia_panel_drops_tracker %id% render" width=60 height=25 back="L2UI_ct1.button_df" fore="L2UI_ct1.button_df"></td>
+					<td><button value="Reset" action="bypass inertia_panel_drops_tracker %id% reset" width=60 height=25 back="L2UI_ct1.button_df" fore="L2UI_ct1.button_df"></td>
+					<td><button value="Back" action="bypass inertia_refresh %id%" width=60 height=25 back="L2UI_ct1.button_df" fore="L2UI_ct1.button_df"></td>
+				</tr>
+			</table>
+      </center>
+   </body>
+</html>

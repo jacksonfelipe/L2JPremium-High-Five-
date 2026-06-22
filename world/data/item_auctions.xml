@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<list>
+	<instance id="32320" schedule="0 17 * * tue">
+		<!--SOUL CRYSTALS-->
+		<item auctionItemId="1" itemId="15542" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Red Soul Crystal - Stage 17-->
+		<item auctionItemId="2" itemId="15543" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Blue Soul Crystal - Stage 17-->
+		<item auctionItemId="3" itemId="15541" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Green Soul Crystal - Stage 17-->
+		<item auctionItemId="4" itemId="13071" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Red Soul Crystal - Stage 16-->
+		<item auctionItemId="5" itemId="13072" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Blue Soul Crystal - Stage 16-->
+		<item auctionItemId="6" itemId="13073" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Green Soul Crystal - Stage 16-->
+		<!--SEMI TOP WEAPONS-->
+		<item auctionItemId="7" itemId="15561" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Devilish Maul-->
+		<item auctionItemId="8" itemId="15569" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Gemtail Rapier-->
+		<item auctionItemId="9" itemId="15571" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Dominion Crossbow-->
+		<item auctionItemId="10" itemId="15568" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Skull Carnium Bow-->
+		<item auctionItemId="11" itemId="15559" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Skull Edge-->
+		<item auctionItemId="12" itemId="15562" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Feather Eye Blade-->
+		<item auctionItemId="13" itemId="15570" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Finale Blade-->
+		<item auctionItemId="14" itemId="15563" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Octo Claw-->
+		<item auctionItemId="15" itemId="15567" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Veniplant Sword-->
+		<item auctionItemId="16" itemId="15565" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Rising Star-->
+		<item auctionItemId="17" itemId="15566" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Black Visage-->
+		<!--SEALED VORPAL ARMORS-->
+		<item auctionItemId="18" itemId="15743" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Helmet-->
+		<item auctionItemId="19" itemId="15744" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Leather Helmet-->
+		<item auctionItemId="20" itemId="15745" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Circlet-->
+		<item auctionItemId="21" itemId="15746" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Breastplate-->
+		<item auctionItemId="22" itemId="15747" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Leather Breastplate-->
+		<item auctionItemId="23" itemId="15748" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Tunic-->
+		<item auctionItemId="24" itemId="15749" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Gaiter-->
+		<item auctionItemId="25" itemId="15750" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Leather Legging-->
+		<item auctionItemId="26" itemId="15751" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Stockings-->
+		<item auctionItemId="27" itemId="15752" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Gauntlet-->
+		<item auctionItemId="28" itemId="15753" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Leather Gloves-->
+		<item auctionItemId="29" itemId="15754" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Gloves-->
+		<item auctionItemId="30" itemId="15755" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Boots-->
+		<item auctionItemId="31" itemId="15756" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Leather Boots-->
+		<item auctionItemId="32" itemId="15757" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Shoes-->
+		<item auctionItemId="33" itemId="15758" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Shield-->
+		<item auctionItemId="34" itemId="15759" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed VOrpal Sigil-->
+		<!--VORPAL AND BOSS IMPROVED JEWELS-->
+		<item auctionItemId="35" itemId="15763" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Ring-->
+		<item auctionItemId="36" itemId="15764" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Earring-->
+		<item auctionItemId="37" itemId="15765" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Necklace-->
+		<item auctionItemId="38" itemId="22173" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Improved Ring of Baium-->	
+	</instance>
+	<instance id="32321" schedule="0 17 * * thu">
+		<!--SOUL CRYSTALS-->
+		<item auctionItemId="1" itemId="5580" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Red Soul Crystal - Stage 12-->
+		<item auctionItemId="2" itemId="5581" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Blue Soul Crystal - Stage 12-->
+		<item auctionItemId="3" itemId="5582" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Green Soul Crystal - Stage 12-->
+		<item auctionItemId="4" itemId="5908" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Red Soul Crystal - Stage 13-->
+		<item auctionItemId="5" itemId="5911" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Blue Soul Crystal - Stage 13-->
+		<item auctionItemId="6" itemId="5914" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Green Soul Crystal - Stage 13-->
+		<!--SEMI TOP WEAPONS-->
+		<item auctionItemId="7" itemId="21977" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Mardil's Fan-->
+		<item auctionItemId="8" itemId="21957" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Blades of Delusion-->
+		<item auctionItemId="9" itemId="21966" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Blood Brother-->
+		<item auctionItemId="10" itemId="21937" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Butcher Blades-->
+		<item auctionItemId="11" itemId="21927" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Hellblade-->
+		<item auctionItemId="12" itemId="21947" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Claw of Destruction-->
+		<item auctionItemId="13" itemId="16309" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Vesper Noble Breastplate Found-->
+		<item auctionItemId="14" itemId="16310" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Vesper Noble Leather Breastplate Found-->
+		<item auctionItemId="15" itemId="16311" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Vesper Noble Tunic Found-->
+		<item auctionItemId="16" itemId="21989" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Warm Bear Hat-->
+		<item auctionItemId="17" itemId="21990" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Warm Bear Paws-->
+		<!--SEALED VORPAL ARMORS-->
+		<item auctionItemId="18" itemId="15743" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Helmet-->
+		<item auctionItemId="19" itemId="15744" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Leather Helmet-->
+		<item auctionItemId="20" itemId="15745" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Circlet-->
+		<item auctionItemId="21" itemId="15746" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Breastplate-->
+		<item auctionItemId="22" itemId="15747" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Leather Breastplate-->
+		<item auctionItemId="23" itemId="15748" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Tunic-->
+		<item auctionItemId="24" itemId="15749" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Gaiter-->
+		<item auctionItemId="25" itemId="15750" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Leather Legging-->
+		<item auctionItemId="26" itemId="15751" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Stockings-->
+		<item auctionItemId="27" itemId="15752" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Gauntlet-->
+		<item auctionItemId="28" itemId="15753" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Leather Gloves-->
+		<item auctionItemId="29" itemId="15754" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Gloves-->
+		<item auctionItemId="30" itemId="15755" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Boots-->
+		<item auctionItemId="31" itemId="15756" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Leather Boots-->
+		<item auctionItemId="32" itemId="15757" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Shoes-->
+		<item auctionItemId="33" itemId="15758" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Shield-->
+		<item auctionItemId="34" itemId="15759" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed VOrpal Sigil-->
+		<!--VORPAL AND BOSS IMPROVED JEWELS-->
+		<item auctionItemId="35" itemId="15763" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Ring-->
+		<item auctionItemId="36" itemId="15764" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Earring-->
+		<item auctionItemId="37" itemId="15765" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Sealed Vorpal Necklace-->
+		<item auctionItemId="38" itemId="22175" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Improved Blessed Earring of Zaken-->
+	</instance>
+	<instance id="32322" schedule="0 17 * * sat">
+		<!--SOUL CRYSTALS-->
+		<item auctionItemId="1" itemId="10480" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Red Soul Crystal - Stage 15-->
+		<item auctionItemId="2" itemId="10481" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Blue Soul Crystal - Stage 15-->
+		<item auctionItemId="3" itemId="10482" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Green Soul Crystal - Stage 15-->
+		<item auctionItemId="4" itemId="9570" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Red Soul Crystal - Stage 14-->
+		<item auctionItemId="5" itemId="9572" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Blue Soul Crystal - Stage 14-->
+		<item auctionItemId="6" itemId="9571" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Green Soul Crystal - Stage 14-->
+		<!--VESPER WEAPONS-->
+		<item auctionItemId="7" itemId="13457" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Devilish Maul-->
+		<item auctionItemId="8" itemId="13458" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Gemtail Rapier-->
+		<item auctionItemId="9" itemId="13459" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Dominion Crossbow-->
+		<item auctionItemId="10" itemId="13460" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Skull Carnium Bow-->
+		<item auctionItemId="11" itemId="13461" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Skull Edge-->
+		<item auctionItemId="12" itemId="13462" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Feather Eye Blade-->
+		<item auctionItemId="13" itemId="13463" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Finale Blade-->
+		<item auctionItemId="14" itemId="13464" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Octo Claw-->
+		<item auctionItemId="15" itemId="13465" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Veniplant Sword-->
+		<item auctionItemId="16" itemId="13466" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Rising Star-->
+		<item auctionItemId="17" itemId="13467" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Black Visage-->
+		<!--VESPER ARMORS-->
+		<item auctionItemId="18" itemId="13146" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Thorne Crossbow-->
+		<item auctionItemId="19" itemId="13147" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Eversor Mace-->
+		<item auctionItemId="20" itemId="13148" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Mamba Edge-->
+		<item auctionItemId="21" itemId="13887" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Pyseal Blade-->
+		<item auctionItemId="22" itemId="17006" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Recurve Thorne Bow-->
+		<item auctionItemId="23" itemId="17007" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Archangel Sword-->
+		<item auctionItemId="24" itemId="17008" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Eternal Core Sword-->
+		<item auctionItemId="25" itemId="17009" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Contristo Hammer-->
+		<item auctionItemId="26" itemId="17010" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Jade Claw-->
+		<item auctionItemId="27" itemId="17011" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Demitelum-->
+		<item auctionItemId="28" itemId="17012" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Lava Saw-->
+		<item auctionItemId="29" itemId="17013" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Heavenstare Rapier-->
+		<item auctionItemId="30" itemId="17014" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Sacredium-->
+		<item auctionItemId="31" itemId="17015" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Cyclic Cane-->
+		<item auctionItemId="32" itemId="17016" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Cyclic Cane-->
+		<item auctionItemId="33" itemId="17017" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Cyclic Cane-->
+		<item auctionItemId="34" itemId="14111" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Cyclic Cane-->
+		<!--VESPER JEWELS-->
+		<item auctionItemId="35" itemId="14160" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Sealed Elegia Circlet-->
+		<item auctionItemId="36" itemId="14161" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Sealed Elegia Breastplate-->
+		<item auctionItemId="37" itemId="14162" itemCount="1" altByItem="false" auctionInitBid="100000" auctionLenght="300"/>	<!--Sealed Elegia Leather Breastplate-->
+		<item auctionItemId="48" itemId="22174" itemCount="1" altByItem="false" auctionInitBid="500000000" auctionLenght="300"/>	<!--Improved Ring of Queen Ant-->
+	</instance>
+</list>

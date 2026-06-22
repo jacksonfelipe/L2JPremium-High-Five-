@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE list SYSTEM "armor.dtd">
+<list>
+	<dress id="1" name="Death Knight Apocalypse">
+		<set chest="72300" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="70" />
+	</dress>
+	<dress id="2" name="Death Knight Abyssal">
+		<set chest="72297" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="65" />
+	</dress>
+	<dress id="3" name="Death Knight LvL 2">
+		<set chest="72299" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="60" />
+	</dress>
+	<dress id="4" name="Death Knight LvL 1">
+		<set chest="72298" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="60" />
+	</dress>
+	<dress id="5" name="Demolisher Outfit">
+		<set chest="72190" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="60" />
+	</dress>
+	<dress id="6" name="Constructor Outfit">
+		<set chest="72188" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="60" />
+	</dress>
+	<dress id="7" name="Fire Lich King">
+		<set chest="72289" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="60" />
+	</dress>
+	<dress id="8" name="Blue Lich King">
+		<set chest="72291" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="60" />
+	</dress>
+	<dress id="9" name="Purple Lich King">
+		<set chest="72293" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="60" />
+	</dress>
+	<dress id="10" name="Gold Dragon AS + Cloak 1">
+		<set chest="45651" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="60" />
+	</dress>
+	<dress id="11" name="Gold Dragon AS + Cloak 2">
+		<set chest="45652" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="60" />
+	</dress>
+	<dress id="12" name="Gold Dragon AS + Cloak 3">
+		<set chest="45653" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="60" />
+	</dress>
+	<dress id="13" name="Gold Dragon AS">
+		<set chest="58300" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="50" />
+	</dress>
+	<dress id="14" name="Valakas Ultimate Armor">
+		<set chest="94700" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="50" />
+	</dress>
+	<dress id="15" name="Aegis Outfit">
+		<set chest="72170" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="50" />
+	</dress>
+	<dress id="16" name="Hunter Heavy">
+		<set chest="36575" legs="36578" gloves="36581" feet="36584" />
+		<price id="37000" count="50" />
+	</dress>
+	<dress id="17" name="Hunter Leather">
+		<set chest="36576" legs="36579" gloves="36582" feet="36585" />
+		<price id="37000" count="50" />
+	</dress>
+	<dress id="18" name="Hunter Robe">
+		<set chest="52897" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="50" />
+	</dress>
+	<dress id="19" name="Leviathan Heavy">
+		<set chest="45575" legs="45578" gloves="45581" feet="45584" />
+		<price id="37000" count="50" />
+	</dress>
+	<dress id="20" name="Leviathan Leather">
+		<set chest="45576" legs="45579" gloves="45582" feet="45585" />
+		<price id="37000" count="50" />
+	</dress>
+	<dress id="21" name="Leviathan Robe">
+		<set chest="45577" legs="45580" gloves="45583" feet="45586" />
+		<price id="37000" count="50" />
+	</dress>
+	<dress id="22" name="Akamanah Costume">
+		<set chest="50000" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="40" />
+	</dress>
+	<dress id="23" name="Zariche Costume">
+		<set chest="50001" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="40" />
+	</dress>
+	<dress id="24" name="Alaska Costume">
+		<set chest="52755" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="40" />
+	</dress>
+	<dress id="25" name="Freya Costume">
+		<set chest="51361" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="40" />
+	</dress>
+	<dress id="26" name="Eisen Dress">
+		<set chest="51729" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="40" />
+	</dress>
+	<dress id="27" name="Beleth Suit">
+		<set chest="32034" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="40" />
+	</dress>
+	<dress id="28" name="Grand Vampire Suit">
+		<set chest="32709" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="40" />
+	</dress>
+	<dress id="29" name="Feline Suit">
+		<set chest="32711" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="40" />
+	</dress>
+	<dress id="30" name="Grand Zaken Suit">
+		<set chest="32712" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="40" />
+	</dress>
+	<dress id="31" name="Dragon Knight Suit">
+		<set chest="32713" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="40" />
+	</dress>
+	<dress id="32" name="Alice Wonderland Suit">
+		<set chest="32716" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="40" />
+	</dress>
+	<dress id="33" name="Demon Windged Suit">
+		<set chest="32717" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="40" />
+	</dress>
+	<dress id="34" name="Clown Suit">
+		<set chest="32718" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="40" />
+	</dress>
+	<dress id="35" name="CatLike Suit">
+		<set chest="32719" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="40" />
+	</dress>
+	<dress id="36" name="Halloween Costume Purple">
+		<set chest="52266" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="30" />
+	</dress>
+	<dress id="37" name="Christmas Fortnite Costume">
+		<set chest="52754" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="2" />
+	</dress>
+	<dress id="38" name="Dark Assassin Suit">
+		<set chest="57012" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="30" />
+	</dress>
+	<dress id="39" name="White Assassin Suit">
+		<set chest="32020" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="30" />
+	</dress>
+	<dress id="40" name="Vampire Hunter">
+		<set chest="51731" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="20" />
+	</dress>
+	<dress id="41" name="Gucci Suite">
+		<set chest="100220" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="20" />
+	</dress>
+	<dress id="42" name="Swimsuit Seduction">
+		<set chest="53021" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="20" />
+	</dress>
+	<dress id="43" name="The Robot Costume">
+		<set chest="51364" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="20" />
+	</dress>
+	<dress id="44" name="Army Costume">
+		<set chest="51366" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="20" />
+	</dress>
+	<dress id="45" name="School Uniform">
+		<set chest="51368" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="20" />
+	</dress>
+	<dress id="46" name="Suit Graduate">
+		<set chest="51369" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="20" />
+	</dress>
+	<dress id="47" name="Maid Suit">
+		<set chest="32004" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="20" />
+	</dress>
+	<dress id="48" name="Cowboy Suit">
+		<set chest="32028" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="20" />
+	</dress>
+	<dress id="49" name="Track Suit">
+		<set chest="32035" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="20" />
+	</dress>
+	<dress id="50" name="Fancy Suit">
+		<set chest="32038" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="20" />
+	</dress>
+	<dress id="51" name="Cat Suit">
+		<set chest="32042" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="20" />
+	</dress>
+	<dress id="52" name="White Knight Suit">
+		<set chest="32701" legs="-1" gloves="-1" feet="-1" />
+		<price id="37000" count="20" />
+	</dress>
+</list>

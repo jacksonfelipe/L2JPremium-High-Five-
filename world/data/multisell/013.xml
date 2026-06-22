@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<list>
+	<!-- Hair Accesories-->
+	<item>
+		<ingredient count="500000" id="57"/> 
+		<production count="1" id="956"/> 
+	</item>
+	<item>
+		<ingredient count="500000" id="57"/> 
+		<production count="1" id="955"/> 
+	</item>
+	<item>
+		<ingredient count="500000" id="57"/> 
+		<production count="1" id="952"/> 
+	</item>
+		<item>
+		<ingredient count="500000" id="57"/> 
+		<production count="1" id="951"/> 
+	</item>
+		<item>
+		<ingredient count="500000" id="57"/> 
+		<production count="1" id="948"/> 
+	</item>
+		<item>
+		<ingredient count="500000" id="57"/> 
+		<production count="1" id="947"/> 
+	</item>
+</list>
