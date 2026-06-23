@@ -170,7 +170,7 @@ public class _147_PathToBecomingAnEliteMercenary extends Quest implements Script
 		return null;
 	}
 	
-	private boolean isValidKill(Player killed, Player killer)
+	public boolean isValidKill(Player killed, Player killer)
 	{
 		DominionSiegeEvent killedSiegeEvent = killed.getEvent(DominionSiegeEvent.class);
 		DominionSiegeEvent killerSiegeEvent = killer.getEvent(DominionSiegeEvent.class);
@@ -182,7 +182,7 @@ public class _147_PathToBecomingAnEliteMercenary extends Quest implements Script
 		return true;
 	}
 	
-	private boolean isValidNpcKill(Player killer, NpcInstance npc)
+	public boolean isValidNpcKill(Player killer, NpcInstance npc)
 	{
 		DominionSiegeEvent npcSiegeEvent = npc.getEvent(DominionSiegeEvent.class);
 		DominionSiegeEvent killerSiegeEvent = killer.getEvent(DominionSiegeEvent.class);

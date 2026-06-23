@@ -18,6 +18,7 @@ import premium.gameserver.utils.Location;
 
 public final class DeadTumorInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private long warpTimer = 0;
 	
 	public DeadTumorInstance(int objectId, NpcTemplate template)

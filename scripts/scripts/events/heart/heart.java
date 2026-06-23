@@ -34,8 +34,8 @@ public class heart extends Functions implements ScriptFile, OnDeathListener, OnP
 {
 	private static final Logger _log = LoggerFactory.getLogger(heart.class);
 	private static boolean _active = false;
-	private static final List<SimpleSpawner> _spawns = new ArrayList<SimpleSpawner>();
-	private static final Map<Integer, Integer> Guesses = new HashMap<Integer, Integer>();
+	private static final List<SimpleSpawner> _spawns = new ArrayList<>();
+	private static final Map<Integer, Integer> Guesses = new HashMap<>();
 	private static String links_en = "", links_ru = "";
 	private static final String[][] variants =
 	{
@@ -240,7 +240,7 @@ public class heart extends Functions implements ScriptFile, OnDeathListener, OnP
 		zeroGuesses(player);
 	}
 	
-	private void reward(Player player, int guesses)
+	public void reward(Player player, int guesses)
 	{
 		switch (guesses)
 		{
@@ -287,17 +287,17 @@ public class heart extends Functions implements ScriptFile, OnDeathListener, OnP
 		return link(s.replaceFirst("Player", player.getName()).replaceFirst("%var_payer%", variants[var_player][rus ? 1 : 0]).replaceFirst("%var_cat%", variants[var_cat][rus ? 1 : 0]), rus);
 	}
 	
-	private boolean isRus(Player player)
+	public boolean isRus(Player player)
 	{
 		return player.isLangRus();
 	}
 	
-	private String link(String s, boolean rus)
+	public String link(String s, boolean rus)
 	{
 		return s.replaceFirst("%links%", rus ? links_ru : links_en);
 	}
 	
-	private boolean playerWins(int var_player, int var_cat)
+	public boolean playerWins(int var_player, int var_cat)
 	{
 		switch (var_player)
 		{
@@ -313,12 +313,12 @@ public class heart extends Functions implements ScriptFile, OnDeathListener, OnP
 		return false;
 	}
 	
-	private int getGuesses(Player player)
+	public int getGuesses(Player player)
 	{
 		return Guesses.containsKey(player.getObjectId()) ? Guesses.get(player.getObjectId()) : 0;
 	}
 	
-	private void incGuesses(Player player)
+	public void incGuesses(Player player)
 	{
 		int val = 1;
 		if (Guesses.containsKey(player.getObjectId()))
@@ -328,7 +328,7 @@ public class heart extends Functions implements ScriptFile, OnDeathListener, OnP
 		Guesses.put(player.getObjectId(), val);
 	}
 	
-	private void zeroGuesses(Player player)
+	public void zeroGuesses(Player player)
 	{
 		if (Guesses.containsKey(player.getObjectId()))
 		{
@@ -336,7 +336,7 @@ public class heart extends Functions implements ScriptFile, OnDeathListener, OnP
 		}
 	}
 	
-	private void takeHeartsSet(Player player)
+	public void takeHeartsSet(Player player)
 	{
 		for (int heart_id : hearts)
 		{
@@ -344,7 +344,7 @@ public class heart extends Functions implements ScriptFile, OnDeathListener, OnP
 		}
 	}
 	
-	private boolean haveAllHearts(Player player)
+	public boolean haveAllHearts(Player player)
 	{
 		for (int heart_id : hearts)
 		{
@@ -379,7 +379,7 @@ public class heart extends Functions implements ScriptFile, OnDeathListener, OnP
 		return IsActive("heart");
 	}
 	
-	private void spawnEventManagers()
+	public void spawnEventManagers()
 	{
 		final int EVENT_MANAGERS[][] =
 		{
@@ -442,7 +442,7 @@ public class heart extends Functions implements ScriptFile, OnDeathListener, OnP
 		SpawnNPCs(EVENT_MANAGER_ID, EVENT_MANAGERS, _spawns);
 	}
 	
-	private void unSpawnEventManagers()
+	public void unSpawnEventManagers()
 	{
 		deSpawnNPCs(_spawns);
 	}

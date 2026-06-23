@@ -22,8 +22,9 @@ import premium.gameserver.utils.Util;
 
 public final class DPSTestInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final DecimalFormat FORMAT = new DecimalFormat("0.000");
-	Map<Integer, DPSTest> _dpsMap = new HashMap<Integer, DPSTest>();
+	Map<Integer, DPSTest> _dpsMap = new HashMap<>();
 	
 	public DPSTestInstance(int objectId, NpcTemplate template)
 	{
@@ -149,7 +150,7 @@ public final class DPSTestInstance extends NpcInstance
 		{
 			damage = 0;
 			hitCount = 0;
-			skillsUsed = new TreeMap<Integer, Integer>(Collections.reverseOrder());
+			skillsUsed = new TreeMap<>(Collections.reverseOrder());
 			isBlocked = false;
 			testTime = testTimeInSecs * 1000;
 		}

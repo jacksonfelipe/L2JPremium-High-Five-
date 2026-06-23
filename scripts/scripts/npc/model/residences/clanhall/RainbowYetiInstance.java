@@ -27,6 +27,7 @@ import premium.gameserver.utils.ItemFunctions;
  */
 public class RainbowYetiInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final int ItemA = 8035;
 	private static final int ItemB = 8036;
 	private static final int ItemC = 8037;
@@ -73,7 +74,7 @@ public class RainbowYetiInstance extends NpcInstance
 	private class GenerateTask extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			_generated = Rnd.get(WORLD_LIST.length);
 			Word word = WORLD_LIST[_generated];
@@ -317,7 +318,7 @@ public class RainbowYetiInstance extends NpcInstance
 		});
 	}
 	
-	private List<GameObject> _mobs = new ArrayList<GameObject>();
+	private List<GameObject> _mobs = new ArrayList<>();
 	private int _generated = -1;
 	private Future<?> _task = null;
 	

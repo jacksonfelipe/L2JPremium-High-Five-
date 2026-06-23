@@ -49,8 +49,8 @@ public class TrickOfTrans extends Functions implements ScriptFile, OnDeathListen
 	
 	private static boolean _active = false;
 	
-	private static final ArrayList<SimpleSpawner> _em_spawns = new ArrayList<SimpleSpawner>();
-	private static final ArrayList<SimpleSpawner> _ch_spawns = new ArrayList<SimpleSpawner>();
+	private static final ArrayList<SimpleSpawner> _em_spawns = new ArrayList<>();
+	private static final ArrayList<SimpleSpawner> _ch_spawns = new ArrayList<>();
 	
 	// Ингридиенты
 	private static int PhilosophersStoneOre = 9168; // Philosopher''s Stone Ore
@@ -164,7 +164,7 @@ public class TrickOfTrans extends Functions implements ScriptFile, OnDeathListen
 	/**
 	 * Спавнит эвент менеджеров
 	 */
-	private void spawnEventManagers()
+	public void spawnEventManagers()
 	{
 		// Эвент Менеджер
 		final int EVENT_MANAGERS[][] = //
@@ -363,7 +363,7 @@ public class TrickOfTrans extends Functions implements ScriptFile, OnDeathListen
 	/**
 	 * Удаляет спавн эвент менеджеров
 	 */
-	private void unSpawnEventManagers()
+	public void unSpawnEventManagers()
 	{
 		deSpawnNPCs(_em_spawns);
 		deSpawnNPCs(_ch_spawns);

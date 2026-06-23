@@ -385,60 +385,57 @@ public class _120_PavelsResearch extends Quest implements ScriptFile
 				{
 					return htmltext;
 				}
-				else
+				switch (cond)
 				{
-					switch (cond)
-					{
-						case 0:
-							if (st.getPlayer().getLevel() >= 70 && q.isCompleted())
-							{
-								htmltext = "32046-01.htm";
-							}
-							else
-							{
-								htmltext = "32046-00.htm";
-								st.exitCurrentQuest(true);
-							}
-							break;
-						case 1:
-							htmltext = "32046-06.htm";
-							break;
-						case 2:
-							htmltext = "32046-09.htm";
-							break;
-						case 5:
-							htmltext = "32046-10.htm";
-							break;
-						case 6:
-							htmltext = "32046-13.htm";
-							break;
-						case 9:
-							htmltext = "32046-14.htm";
-							break;
-						case 10:
-							htmltext = "32046-23.htm";
-							break;
-						case 12:
-							htmltext = "32046-26.htm";
-							break;
-						case 13:
-							htmltext = "32046-30.htm";
-							break;
-						case 19:
-							htmltext = "32046-31.htm";
-							break;
-						case 20:
-							htmltext = "32046-36.htm";
-							break;
-						case 22:
-							htmltext = "32046-37.htm";
-							break;
-						case 23:
-							htmltext = "32046-39.htm";
-							break;
-						default:
-							break;
-					}
+					case 0:
+						if (st.getPlayer().getLevel() >= 70 && q.isCompleted())
+						{
+							htmltext = "32046-01.htm";
+						}
+						else
+						{
+							htmltext = "32046-00.htm";
+							st.exitCurrentQuest(true);
+						}
+						break;
+					case 1:
+						htmltext = "32046-06.htm";
+						break;
+					case 2:
+						htmltext = "32046-09.htm";
+						break;
+					case 5:
+						htmltext = "32046-10.htm";
+						break;
+					case 6:
+						htmltext = "32046-13.htm";
+						break;
+					case 9:
+						htmltext = "32046-14.htm";
+						break;
+					case 10:
+						htmltext = "32046-23.htm";
+						break;
+					case 12:
+						htmltext = "32046-26.htm";
+						break;
+					case 13:
+						htmltext = "32046-30.htm";
+						break;
+					case 19:
+						htmltext = "32046-31.htm";
+						break;
+					case 20:
+						htmltext = "32046-36.htm";
+						break;
+					case 22:
+						htmltext = "32046-37.htm";
+						break;
+					case 23:
+						htmltext = "32046-39.htm";
+						break;
+					default:
+						break;
 				}
 				break;
 			}

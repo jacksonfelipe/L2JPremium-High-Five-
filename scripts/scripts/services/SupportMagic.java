@@ -247,21 +247,18 @@ public class SupportMagic extends Functions
 			show("default/newbie_nosupport_servitor.htm", player, npc);
 			return;
 		}
-		else
+		if (lvl < minSupLvl)
 		{
-			if (lvl < minSupLvl)
-			{
-				show("default/newbie_nosupport_min.htm", player, npc);
-				return;
-			}
-			if (lvl > maxSupLvl)
-			{
-				show("default/newbie_nosupport_max.htm", player, npc);
-				return;
-			}
+			show("default/newbie_nosupport_min.htm", player, npc);
+			return;
+		}
+		if (lvl > maxSupLvl)
+		{
+			show("default/newbie_nosupport_max.htm", player, npc);
+			return;
 		}
 		
-		List<Creature> target = new ArrayList<Creature>();
+		List<Creature> target = new ArrayList<>();
 		
 		if (servitor)
 		{

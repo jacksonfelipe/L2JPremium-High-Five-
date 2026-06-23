@@ -27,8 +27,8 @@ public class Bingo
 	};
 	protected int lines;
 	private final String _template_choice;
-	private final List<Integer> board = new ArrayList<Integer>();
-	private final List<Integer> guesses = new ArrayList<Integer>();
+	private final List<Integer> board = new ArrayList<>();
+	private final List<Integer> guesses = new ArrayList<>();
 	
 	public Bingo(String template_choice)
 	{

@@ -72,7 +72,7 @@ public class _232_TestOfLord extends Quest implements ScriptFile
 	private static int MARTANKUS_CHARM = 3413;
 	private static int IMMORTAL_FLAME = 3416;
 	
-	private static Map<Integer, Drop> DROPLIST = new HashMap<Integer, Drop>();
+	private static Map<Integer, Drop> DROPLIST = new HashMap<>();
 	
 	public _232_TestOfLord()
 	{
@@ -608,7 +608,7 @@ public class _232_TestOfLord extends Quest implements ScriptFile
 		return "noquest";
 	}
 	
-	private boolean cond1Complete(QuestState st)
+	public boolean cond1Complete(QuestState st)
 	{
 		long HUGE_ORC_FANG_COUNT = st.getQuestItemsCount(HUGE_ORC_FANG);
 		long SWORD_INTO_SKULL_COUNT = st.getQuestItemsCount(SWORD_INTO_SKULL);

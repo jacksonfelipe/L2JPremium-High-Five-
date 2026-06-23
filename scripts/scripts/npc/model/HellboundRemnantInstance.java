@@ -7,6 +7,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class HellboundRemnantInstance extends MonsterInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public HellboundRemnantInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

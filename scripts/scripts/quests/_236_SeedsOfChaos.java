@@ -406,7 +406,7 @@ public class _236_SeedsOfChaos extends Quest implements ScriptFile
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			if (_SUBJ_KATENAR)
 			{

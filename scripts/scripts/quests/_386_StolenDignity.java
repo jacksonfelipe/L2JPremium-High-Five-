@@ -17,8 +17,8 @@ public class _386_StolenDignity extends Quest implements ScriptFile
 	private final static int Stolen_Infernium_Ore = 6363;
 	
 	private final static int Required_Stolen_Infernium_Ore = 100;
-	private final static Map<Integer, Integer> dropchances = new HashMap<Integer, Integer>();
-	private final static Map<Integer, Bingo> bingos = new HashMap<Integer, Bingo>();
+	private final static Map<Integer, Integer> dropchances = new HashMap<>();
+	private final static Map<Integer, Bingo> bingos = new HashMap<>();
 	
 	private final static int[][] Rewards_Win =
 	{

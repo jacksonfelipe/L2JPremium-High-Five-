@@ -15,6 +15,8 @@ import premium.gameserver.utils.Util;
 
 public class PriestOfBlessingInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	private static class Hourglass
 	{
 		public int minLevel;
@@ -31,7 +33,7 @@ public class PriestOfBlessingInstance extends NpcInstance
 		}
 	}
 	
-	private static List<Hourglass> hourglassList = new ArrayList<Hourglass>();
+	private static List<Hourglass> hourglassList = new ArrayList<>();
 	static
 	{
 		hourglassList.add(new Hourglass(1, 19, 4000, new int[]
@@ -159,13 +161,13 @@ public class PriestOfBlessingInstance extends NpcInstance
 		return id;
 	}
 	
-	private void buyLimitedItem(Player player, String var, int itemId, int price, boolean isGlobalVar)
+	public void buyLimitedItem(Player player, String var, int itemId, int price, boolean isGlobalVar)
 	{
 		long _remaining_time;
 		long _reuse_time = 20 * 60 * 60 * 1000;
 		long _curr_time = System.currentTimeMillis();
 		String _last_use_time = player.getVar(var);
-		// TODO: Тупая заглушка, для ограничения покупки итема на одном аккаунте
+		 
 		if (isGlobalVar)
 		{
 			Map<Integer, String> chars = player.getAccountChars();

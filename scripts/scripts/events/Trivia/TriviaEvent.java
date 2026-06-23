@@ -49,10 +49,10 @@ public class TriviaEvent extends Functions implements ScriptFile, IVoicedCommand
 		"t",
 		"to"
 	};
-	private final ArrayList<String> questions = new ArrayList<String>();
-	private static ArrayList<Player> playerList = new ArrayList<Player>();
+	private final ArrayList<String> questions = new ArrayList<>();
+	private static ArrayList<Player> playerList = new ArrayList<>();
 	static ScheduledFuture<?> _taskTriviaStart;
-	private static ArrayList<RewardList> _items = new ArrayList<RewardList>();
+	private static ArrayList<RewardList> _items = new ArrayList<>();
 	static ScheduledFuture<?> _taskStartQuestion;
 	static ScheduledFuture<?> _taskStopQuestion;
 	long _timeStopTrivia = 0;
@@ -325,10 +325,7 @@ public class TriviaEvent extends Functions implements ScriptFile, IVoicedCommand
 			_log.info("Continue Trivia: " + _timeStartTrivia.getTime() + "| Stop Trivia: " + _timeStopTrivia.getTime());
 		}
 	}
-	
-	/**
-	 * Запуск викторины в ручную!! запускается на время указанное в настройках.
-	 */
+ 
 	public void ForseStart(String[] var)
 	{
 		final Player player = getSelf();
@@ -406,7 +403,7 @@ public class TriviaEvent extends Functions implements ScriptFile, IVoicedCommand
 		}
 	}
 	
-	private void announceToAll(String text, ChatType type)
+	public void announceToAll(String text, ChatType type)
 	{
 		final Say2 cs = new Say2(0, type, "Trivia", text);
 		for (final Player player : GameObjectsStorage.getAllPlayersForIterate())
@@ -822,7 +819,7 @@ public class TriviaEvent extends Functions implements ScriptFile, IVoicedCommand
 	 * @param first
 	 * @return
 	 */
-	private boolean giveItemByChance(Player player, boolean first)
+	public boolean giveItemByChance(Player player, boolean first)
 	{
 		int chancesumm = 0;
 		int productId = 0;
@@ -894,7 +891,7 @@ public class TriviaEvent extends Functions implements ScriptFile, IVoicedCommand
 		}
 	}
 	
-	private boolean isStatus()
+	public boolean isStatus()
 	{
 		return status;
 	}
@@ -904,17 +901,13 @@ public class TriviaEvent extends Functions implements ScriptFile, IVoicedCommand
 		return status;
 	}
 	
-	private void setStatus(boolean status)
+	public void setStatus(boolean status)
 	{
 		TriviaEvent.status = status;
 	}
 	
-	/**
-	 * Возвращаем имя чара по его obj_Id
-	 * @param char_id
-	 * @return
-	 */
-	private String getName(int char_id)
+ 
+	public String getName(int char_id)
 	{
 		String name = null;
 		Connection con = null;
@@ -948,7 +941,7 @@ public class TriviaEvent extends Functions implements ScriptFile, IVoicedCommand
 	 */
 	private List<Scores> getList(final boolean first)
 	{
-		final List<Scores> names = new ArrayList<Scores>();
+		final List<Scores> names = new ArrayList<>();
 		Connection con = null;
 		PreparedStatement statement = null;
 		ResultSet rset = null;

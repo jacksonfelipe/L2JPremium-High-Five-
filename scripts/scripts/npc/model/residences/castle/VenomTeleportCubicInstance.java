@@ -12,6 +12,7 @@ import premium.gameserver.utils.Location;
  */
 public class VenomTeleportCubicInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	public static final Location[] LOCS = new Location[]
 	{
 		new Location(11913, -48851, -1088),

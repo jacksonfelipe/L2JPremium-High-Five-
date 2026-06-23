@@ -30,17 +30,17 @@ public class TheFlowOfTheHorror extends Functions implements ScriptFile
 	
 	private static int _stage = 1;
 	
-	private static List<MonsterInstance> _spawns = new ArrayList<MonsterInstance>();
+	private static List<MonsterInstance> _spawns = new ArrayList<>();
 	
-	private static List<Location> points11 = new ArrayList<Location>();
-	private static List<Location> points12 = new ArrayList<Location>();
-	private static List<Location> points13 = new ArrayList<Location>();
-	private static List<Location> points21 = new ArrayList<Location>();
-	private static List<Location> points22 = new ArrayList<Location>();
-	private static List<Location> points23 = new ArrayList<Location>();
-	private static List<Location> points31 = new ArrayList<Location>();
-	private static List<Location> points32 = new ArrayList<Location>();
-	private static List<Location> points33 = new ArrayList<Location>();
+	private static List<Location> points11 = new ArrayList<>();
+	private static List<Location> points12 = new ArrayList<>();
+	private static List<Location> points13 = new ArrayList<>();
+	private static List<Location> points21 = new ArrayList<>();
+	private static List<Location> points22 = new ArrayList<>();
+	private static List<Location> points23 = new ArrayList<>();
+	private static List<Location> points31 = new ArrayList<>();
+	private static List<Location> points32 = new ArrayList<>();
+	private static List<Location> points33 = new ArrayList<>();
 	
 	@Override
 	public void onLoad()
@@ -166,7 +166,7 @@ public class TheFlowOfTheHorror extends Functions implements ScriptFile
 		_spawns.add(monster);
 	}
 	
-	private void activateAI()
+	public void activateAI()
 	{
 		NpcInstance target = GameObjectsStorage.getByNpcId(Gilmore);
 		if (target != null)
@@ -185,7 +185,7 @@ public class TheFlowOfTheHorror extends Functions implements ScriptFile
 		}
 	}
 	
-	private void deactivateAI()
+	public void deactivateAI()
 	{
 		for (MonsterInstance monster : _spawns)
 		{

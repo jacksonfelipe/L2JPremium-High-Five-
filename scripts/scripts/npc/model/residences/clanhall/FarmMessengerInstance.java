@@ -29,6 +29,8 @@ import quests._655_AGrandPlanForTamingWildBeasts;
  */
 public class FarmMessengerInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public FarmMessengerInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);
@@ -103,7 +105,7 @@ public class FarmMessengerInstance extends NpcInstance
 				}
 				
 				siegeClan.getPlayers().add(player.getObjectId());
-				SiegePlayerDAO.getInstance().insert(clanHall, clan.getClanId(), player.getObjectId());
+				SiegePlayerDAO.insert(clanHall, clan.getClanId(), player.getObjectId());
 				showChatWindow(player, "residence2/clanhall/farm_kel_mahum_messenger_9.htm");
 			}
 		}
@@ -210,7 +212,7 @@ public class FarmMessengerInstance extends NpcInstance
 		siegeEvent.addObject(ClanHallTeamBattleEvent.ATTACKERS, siegeClan);
 		
 		SiegeClanDAO.getInstance().insert(clanHall, siegeClan);
-		SiegePlayerDAO.getInstance().insert(clanHall, clan.getClanId(), player.getObjectId());
+		SiegePlayerDAO.insert(clanHall, clan.getClanId(), player.getObjectId());
 		
 		List<CTBSiegeClanObject> siegeClans = siegeEvent.getObjects(ClanHallTeamBattleEvent.ATTACKERS);
 		
@@ -243,7 +245,7 @@ public class FarmMessengerInstance extends NpcInstance
 		showChatWindow(player, file);
 	}
 	
-	private String npcDialog(SiegeClanObject siegeClanObject)
+	public String npcDialog(SiegeClanObject siegeClanObject)
 	{
 		String file = null;
 		switch ((int) siegeClanObject.getParam())

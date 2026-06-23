@@ -1,6 +1,7 @@
 package events.SummerMeleons;
 
 import handler.items.ScriptItemHandler;
+import npc.model.MeleonInstance;
 import premium.commons.threading.RunnableImpl;
 import premium.gameserver.ThreadPoolManager;
 import premium.gameserver.data.xml.holder.NpcHolder;
@@ -14,7 +15,6 @@ import premium.gameserver.model.items.ItemInstance;
 import premium.gameserver.scripts.ScriptFile;
 import premium.gameserver.templates.npc.NpcTemplate;
 import premium.gameserver.utils.Location;
-import npc.model.MeleonInstance;
 
 public class MeleonSeed extends ScriptItemHandler implements ScriptFile
 {
@@ -28,7 +28,7 @@ public class MeleonSeed extends ScriptItemHandler implements ScriptFile
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			spawnedPlant.deleteAll();
 		}

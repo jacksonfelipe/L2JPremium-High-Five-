@@ -7,6 +7,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class LifeControlTowerInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public LifeControlTowerInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

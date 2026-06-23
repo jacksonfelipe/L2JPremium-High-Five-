@@ -1,8 +1,5 @@
 package npc.model.residences.fortress;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import premium.commons.dao.JdbcEntityState;
 import premium.gameserver.data.xml.holder.NpcHolder;
 import premium.gameserver.model.Player;
@@ -18,7 +15,7 @@ import premium.gameserver.utils.Location;
  */
 public class LogisticsOfficerInstance extends FacilityManagerInstance
 {
-	private static final Logger LOG = LoggerFactory.getLogger(LogisticsOfficerInstance.class);
+	 
 	private static final long serialVersionUID = 1L;
 	
 	private static final int[] SUPPLY_NPC = new int[]

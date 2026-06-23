@@ -14,6 +14,7 @@ import premium.gameserver.utils.ReflectionUtils;
 
 public final class PailakaGatekeeperInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final int rimIzId = 80;
 	
 	public PailakaGatekeeperInstance(int objectId, NpcTemplate template)
@@ -58,7 +59,7 @@ public final class PailakaGatekeeperInstance extends NpcInstance
 		}
 	}
 	
-	private boolean checkGroup(Player p)
+	private static boolean checkGroup(Player p)
 	{
 		if (!p.isInParty())
 		{

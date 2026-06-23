@@ -230,10 +230,7 @@ public class _111_ElrokianHuntersProof extends Quest implements ScriptFile
 						st.setCond(5);
 						return null;
 					}
-					else
-					{
-						st.playSound(SOUND_ITEMGET);
-					}
+					st.playSound(SOUND_ITEMGET);
 				}
 			}
 		}

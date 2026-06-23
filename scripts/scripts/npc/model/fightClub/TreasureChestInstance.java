@@ -12,6 +12,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class TreasureChestInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public TreasureChestInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);
@@ -34,7 +36,7 @@ public class TreasureChestInstance extends NpcInstance
 			return;
 		}
 		
-		if (!isInRange(player, (long) INTERACTION_DISTANCE))
+		if (!isInRange(player, INTERACTION_DISTANCE))
 		{
 			if (player.getAI().getIntention() != CtrlIntention.AI_INTENTION_INTERACT)
 			{

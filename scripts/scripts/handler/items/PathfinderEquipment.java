@@ -12,7 +12,7 @@ import premium.gameserver.scripts.ScriptFile;
 
 public class PathfinderEquipment extends SimpleItemHandler implements ScriptFile
 {
-	private static TIntObjectHashMap<int[][]> rewards = new TIntObjectHashMap<int[][]>();
+	private static TIntObjectHashMap<int[][]> rewards = new TIntObjectHashMap<>();
 	static
 	{
 		rewards.put(12824, new int[][]

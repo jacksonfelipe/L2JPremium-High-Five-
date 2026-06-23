@@ -45,11 +45,11 @@ public class GmHunter extends Functions implements ScriptFile, OnDeathListener, 
 {
 	private static final Logger _log = LoggerFactory.getLogger(GmHunter.class);
 	private static boolean _active = false;
-	private static final List<SimpleSpawner> _spawns = new ArrayList<SimpleSpawner>();
+	private static final List<SimpleSpawner> _spawns = new ArrayList<>();
 	
 	private static final int EVENT_MANAGER_ID = 10003; // Event manager..
 	
-	private static FastMap<String, Location> _gminfo = new FastMap<String, Location>();
+	private static FastMap<String, Location> _gminfo = new FastMap<>();
 	
 	public void startEvent()
 	{
@@ -187,7 +187,7 @@ public class GmHunter extends Functions implements ScriptFile, OnDeathListener, 
 		return IsActive("GmHunter");
 	}
 	
-	private void spawnEventManagers()
+	public void spawnEventManagers()
 	{
 		final int EVENT_MANAGERS[][] =
 		{
@@ -250,7 +250,7 @@ public class GmHunter extends Functions implements ScriptFile, OnDeathListener, 
 		SpawnNPCs(EVENT_MANAGER_ID, EVENT_MANAGERS, _spawns);
 	}
 	
-	private void unSpawnEventManagers()
+	public void unSpawnEventManagers()
 	{
 		deSpawnNPCs(_spawns);
 	}
@@ -339,7 +339,7 @@ public class GmHunter extends Functions implements ScriptFile, OnDeathListener, 
 			gmname = data.getKey();
 		}
 		
-		if (gmname.isEmpty() || gmname == null)
+		if (gmname.isEmpty())
 		{
 			return;
 		}

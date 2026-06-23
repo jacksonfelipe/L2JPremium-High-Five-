@@ -24,7 +24,7 @@ import premium.gameserver.utils.ReflectionUtils;
 public class TeleToParnassus extends Functions implements ScriptFile
 {
 	private static final Logger _log = LoggerFactory.getLogger(TeleToParnassus.class);
-	private static List<SimpleSpawner> _spawns = new ArrayList<SimpleSpawner>();
+	private static List<SimpleSpawner> _spawns = new ArrayList<>();
 	private static Zone _zone = ReflectionUtils.getZone("[parnassus_offshore]");
 	private static ZoneListener _zoneListener;
 	

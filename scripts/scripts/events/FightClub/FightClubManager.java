@@ -8,6 +8,7 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import npc.model.events.FightClubManagerInstance.Rate;
 import premium.commons.threading.RunnableImpl;
 import premium.gameserver.Announcements;
 import premium.gameserver.Config;
@@ -33,7 +34,6 @@ import premium.gameserver.scripts.ScriptFile;
 import premium.gameserver.skills.AbnormalEffect;
 import premium.gameserver.utils.ItemFunctions;
 import premium.gameserver.utils.Location;
-import npc.model.events.FightClubManagerInstance.Rate;
 
 public class FightClubManager extends Functions implements ScriptFile, OnPlayerExitListener, OnTeleportListener
 {
@@ -61,14 +61,14 @@ public class FightClubManager extends Functions implements ScriptFile, OnPlayerE
 		
 		CharListenerList.addGlobal(this);
 		
-		_ratesMap = new HashMap<Long, Rate>();
-		_fights = new ArrayList<FightClubArena>();
-		_restoreCoord = new HashMap<Long, Location>();
-		_inBattle = new ArrayList<Long>();
-		_inList = new ArrayList<Long>();
+		_ratesMap = new HashMap<>();
+		_fights = new ArrayList<>();
+		_restoreCoord = new HashMap<>();
+		_inBattle = new ArrayList<>();
+		_inList = new ArrayList<>();
 		_reflectionManager = ReflectionManager.getInstance();
 		_itemsList = new StringBuilder();
-		_allowedItems = new HashMap<String, Integer>();
+		_allowedItems = new HashMap<>();
 		_player1loc = new Location(-80696, -44296, -11496);
 		_player2loc = new Location(-82536, -47032, -11504);
 		
@@ -699,7 +699,7 @@ public class FightClubManager extends Functions implements ScriptFile, OnPlayerE
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			player.teleToLocation(location);
 			player.unblock();

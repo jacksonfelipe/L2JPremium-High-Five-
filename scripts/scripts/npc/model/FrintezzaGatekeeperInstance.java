@@ -20,6 +20,7 @@ import premium.gameserver.utils.ReflectionUtils;
 
 public final class FrintezzaGatekeeperInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final int INSTANCE_ID = 136;
 	private static final int QUEST_ITEM_ID = 8073;
 	

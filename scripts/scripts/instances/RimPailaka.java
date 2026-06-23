@@ -58,7 +58,7 @@ public class RimPailaka extends Reflection
 	public class InvestigatorsSpawn extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			Location ranger = new Location(49192, -12232, -9384, 0);
 			Location mage = new Location(49192, -12456, -9392, 0);
@@ -74,7 +74,7 @@ public class RimPailaka extends Reflection
 	public class FirstWave extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			List<Player> who = getPlayers();
 			if (who != null && !who.isEmpty())
@@ -98,7 +98,7 @@ public class RimPailaka extends Reflection
 	public class SecondWave extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			List<Player> who = getPlayers();
 			if (who != null && !who.isEmpty())
@@ -122,7 +122,7 @@ public class RimPailaka extends Reflection
 	public class ThirdWave extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			List<Player> who = getPlayers();
 			if (who != null && !who.isEmpty())
@@ -153,7 +153,7 @@ public class RimPailaka extends Reflection
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			List<Player> who = getPlayers();
 			if (who != null && !who.isEmpty())

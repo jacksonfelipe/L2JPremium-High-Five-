@@ -67,7 +67,7 @@ public class _713_PathToBecomingALordAden extends Quest implements ScriptFile
 	{
 		String htmltext = "noquest";
 		int npcId = npc.getNpcId();
-		int id = st.getState();
+		 
 		int cond = st.getCond();
 		Castle castle = ResidenceHolder.getInstance().getResidence(AdenCastle);
 		if (castle.getOwner() == null)

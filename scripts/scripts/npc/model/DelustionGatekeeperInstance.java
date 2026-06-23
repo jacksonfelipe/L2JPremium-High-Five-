@@ -19,6 +19,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public final class DelustionGatekeeperInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public DelustionGatekeeperInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

@@ -69,7 +69,7 @@ public class _662_AGameOfCards extends Quest implements ScriptFile
 	// Chances
 	private final static int drop_chance = 35;
 	
-	private final static Map<Integer, CardGame> Games = new ConcurrentHashMap<Integer, CardGame>();
+	private final static Map<Integer, CardGame> Games = new ConcurrentHashMap<>();
 	
 	public _662_AGameOfCards()
 	{
@@ -249,7 +249,7 @@ public class _662_AGameOfCards extends Quest implements ScriptFile
 		private String finish(QuestState st)
 		{
 			String result = html_header + table_header;
-			Map<String, Integer> matches = new HashMap<String, Integer>();
+			Map<String, Integer> matches = new HashMap<>();
 			for (String card : cards)
 			{
 				int count = matches.containsKey(card) ? matches.remove(card) : 0;

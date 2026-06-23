@@ -14,6 +14,7 @@ import premium.gameserver.utils.ReflectionUtils;
  */
 public class DoormanInstance extends npc.model.residences.DoormanInstance
 {
+	private static final long serialVersionUID = 1L;
 	private Location _loc;
 	
 	public DoormanInstance(int objectId, NpcTemplate template)

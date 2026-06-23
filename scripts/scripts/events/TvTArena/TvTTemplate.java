@@ -1020,7 +1020,7 @@ public abstract class TvTTemplate extends Functions
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			target.unblock();
 			target.teleToLocation(loc);
@@ -1039,9 +1039,9 @@ public abstract class TvTTemplate extends Functions
 		}
 	}
 	
-	private List<Player> getPlayers(List<Long> list)
+	public List<Player> getPlayers(List<Long> list)
 	{
-		List<Player> result = new ArrayList<Player>();
+		List<Player> result = new ArrayList<>();
 		for (Long storeId : list)
 		{
 			Player player = GameObjectsStorage.getAsPlayer(storeId);

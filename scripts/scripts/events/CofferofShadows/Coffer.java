@@ -180,7 +180,7 @@ public class Coffer extends ScriptItemHandler implements ScriptFile
 			return false;
 		}
 		
-		Map<Integer, Long> items = new HashMap<Integer, Long>();
+		Map<Integer, Long> items = new HashMap<>();
 		long count = 0;
 		do
 		{

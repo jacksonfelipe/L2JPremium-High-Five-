@@ -1,5 +1,6 @@
 package npc.model.residences.fortress;
 
+import npc.model.residences.ResidenceManager;
 import premium.gameserver.data.xml.holder.EventHolder;
 import premium.gameserver.model.Player;
 import premium.gameserver.model.entity.events.EventType;
@@ -12,10 +13,10 @@ import premium.gameserver.network.serverpackets.NpcHtmlMessage;
 import premium.gameserver.network.serverpackets.components.NpcString;
 import premium.gameserver.templates.npc.NpcTemplate;
 import premium.gameserver.utils.HtmlUtils;
-import npc.model.residences.ResidenceManager;
 
 public class ManagerInstance extends ResidenceManager
 {
+	private static final long serialVersionUID = 1L;
 	private static final long REWARD_CYCLE = 6 * 60 * 60; // каждых 6 часов
 	
 	public ManagerInstance(int objectId, NpcTemplate template)
@@ -86,15 +87,9 @@ public class ManagerInstance extends ResidenceManager
 			{
 				return COND_SIEGE;
 			}
-			else
-			{
-				return COND_OWNER;
-			}
+			return COND_OWNER;
 		}
-		else
-		{
-			return COND_FAIL;
-		}
+		return COND_FAIL;
 	}
 	
 	@Override

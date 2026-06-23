@@ -39,17 +39,17 @@ public class TvTArena1 extends Functions implements ScriptFile, OnDeathListener,
 			_className = "TvTArena1";
 			_status = 0;
 			
-			_team1list = new CopyOnWriteArrayList<Long>();
-			_team2list = new CopyOnWriteArrayList<Long>();
-			_team1live = new CopyOnWriteArrayList<Long>();
-			_team2live = new CopyOnWriteArrayList<Long>();
+			_team1list = new CopyOnWriteArrayList<>();
+			_team2list = new CopyOnWriteArrayList<>();
+			_team1live = new CopyOnWriteArrayList<>();
+			_team2live = new CopyOnWriteArrayList<>();
 			
 			_zoneListener = new ZoneListener();
 			_zone = ReflectionUtils.getZone("[tvt_arena1]");
 			_zone.addListener(_zoneListener);
 			
-			_team1points = new ArrayList<Location>();
-			_team2points = new ArrayList<Location>();
+			_team1points = new ArrayList<>();
+			_team2points = new ArrayList<>();
 			
 			_team1points.add(new Location(-81806, -44865, -11418));
 			_team1points.add(new Location(-81617, -44893, -11418));
@@ -207,13 +207,10 @@ public class TvTArena1 extends Functions implements ScriptFile, OnDeathListener,
 		getInstance().template_timeOut();
 	}
 	
-	private List<NpcInstance> _spawns = new ArrayList<NpcInstance>();
+	private List<NpcInstance> _spawns = new ArrayList<>();
 	
-	/**
-	 * Читает статус эвента из базы.
-	 * @return
-	 */
-	private boolean isActive()
+ 
+	public boolean isActive()
 	{
 		return IsActive("TvT Arena 1");
 	}

@@ -23,7 +23,7 @@ public class _369_CollectorOfJewels extends Quest implements ScriptFile
 	private static int FLARE_SHARD = 5882;
 	private static int FREEZING_SHARD = 5883;
 	
-	private final Map<Integer, int[]> DROPLIST = new HashMap<Integer, int[]>();
+	private final Map<Integer, int[]> DROPLIST = new HashMap<>();
 	
 	public _369_CollectorOfJewels()
 	{

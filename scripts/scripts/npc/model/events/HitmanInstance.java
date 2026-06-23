@@ -228,7 +228,7 @@ public class HitmanInstance extends NpcInstance
 		player.sendPacket(html);
 	}
 	
-	private int getPagesCount(int tasksCount)
+	public int getPagesCount(int tasksCount)
 	{
 		if (tasksCount % Config.EVENT_HITMAN_TASKS_PER_PAGE > 0)
 		{

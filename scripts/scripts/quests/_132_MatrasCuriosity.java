@@ -5,9 +5,7 @@ import premium.gameserver.model.quest.Quest;
 import premium.gameserver.model.quest.QuestState;
 import premium.gameserver.scripts.ScriptFile;
 
-/**
- * @see http://www.linedia.ru/wiki/Matras'_Curiosity
- */
+ 
 public class _132_MatrasCuriosity extends Quest implements ScriptFile
 {
 	// npc

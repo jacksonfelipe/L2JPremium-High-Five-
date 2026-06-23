@@ -29,7 +29,7 @@ public class _193_SevenSignDyingMessage extends Quest implements ScriptFile
 	private static int DeadmansHerb = 13813;
 	private static int SculptureofDoubt = 14352;
 	
-	private static Map<Integer, Integer> spawns = new HashMap<Integer, Integer>();
+	private static Map<Integer, Integer> spawns = new HashMap<>();
 	
 	public _193_SevenSignDyingMessage()
 	{
@@ -150,10 +150,7 @@ public class _193_SevenSignDyingMessage extends Quest implements ScriptFile
 					{
 						return "32569-08.htm";
 					}
-					else
-					{
-						return "32569-09.htm";
-					}
+					return "32569-09.htm";
 				}
 				case 5:
 					return "32569-10.htm";

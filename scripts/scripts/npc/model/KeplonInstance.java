@@ -12,6 +12,8 @@ import premium.gameserver.utils.ItemFunctions;
 
 public final class KeplonInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public KeplonInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);
@@ -32,11 +34,8 @@ public final class KeplonInstance extends NpcInstance
 				ItemFunctions.addItem(player, 4401, 1, true, "KeplonInstance");
 				return;
 			}
-			else
-			{
-				player.sendPacket(Msg.YOU_DO_NOT_HAVE_ENOUGH_ADENA);
-				return;
-			}
+			player.sendPacket(Msg.YOU_DO_NOT_HAVE_ENOUGH_ADENA);
+			return;
 		}
 		else if (command.startsWith("buyblue"))
 		{
@@ -45,11 +44,8 @@ public final class KeplonInstance extends NpcInstance
 				ItemFunctions.addItem(player, 4402, 1, true, "KeplonInstance");
 				return;
 			}
-			else
-			{
-				player.sendPacket(Msg.YOU_DO_NOT_HAVE_ENOUGH_ADENA);
-				return;
-			}
+			player.sendPacket(Msg.YOU_DO_NOT_HAVE_ENOUGH_ADENA);
+			return;
 		}
 		else if (command.startsWith("buyred"))
 		{
@@ -58,11 +54,8 @@ public final class KeplonInstance extends NpcInstance
 				ItemFunctions.addItem(player, 4403, 1, true, "KeplonInstance");
 				return;
 			}
-			else
-			{
-				player.sendPacket(Msg.YOU_DO_NOT_HAVE_ENOUGH_ADENA);
-				return;
-			}
+			player.sendPacket(Msg.YOU_DO_NOT_HAVE_ENOUGH_ADENA);
+			return;
 		}
 		else
 		{

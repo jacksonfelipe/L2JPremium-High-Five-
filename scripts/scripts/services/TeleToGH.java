@@ -19,7 +19,7 @@ import premium.gameserver.utils.ReflectionUtils;
 
 public class TeleToGH extends Functions implements ScriptFile
 {
-	private static List<SimpleSpawner> _spawns = new ArrayList<SimpleSpawner>();
+	private static List<SimpleSpawner> _spawns = new ArrayList<>();
 	
 	private static Zone _zone = ReflectionUtils.getZone("[giran_harbor_offshore]");
 	private static ZoneListener _zoneListener;

@@ -13,6 +13,7 @@ import premium.gameserver.templates.npc.NpcTemplate;
  */
 public class RainbowChestInstance extends MonsterInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final int ItemA = 8035;
 	private static final int ItemB = 8036;
 	private static final int ItemC = 8037;

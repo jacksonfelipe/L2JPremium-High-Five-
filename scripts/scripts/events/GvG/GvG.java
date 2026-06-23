@@ -7,17 +7,11 @@ import premium.gameserver.scripts.ScriptFile;
 
 public class GvG extends Functions implements ScriptFile
 {
-	/*
-	 * private static final Logger _log = LoggerFactory.getLogger(GvG.class); public static final Location TEAM1_LOC = new Location(139736, 145832, -15264); // Team location after teleportation public static final Location TEAM2_LOC = new Location(139736, 139832, -15264); public static final
-	 * Location RETURN_LOC = new Location(43816, -48232, -822); public static final int[] everydayStartTime = { 21, 30, 00 }; private static boolean _active = false; private static boolean _isRegistrationActive = false; private static int _minLevel = 76; private static int _maxLevel = 85; private
-	 * static int _groupsLimit = 100; // Limit of groups can register private static int _minPartyMembers = 6; // self-explanatory private static long regActiveTime = 10 * 60 * 1000L; // Timelimit for registration private static ScheduledFuture<?> _globalTask; private static ScheduledFuture<?>
-	 * _regTask; private static ScheduledFuture<?> _countdownTask1; private static ScheduledFuture<?> _countdownTask2; private static ScheduledFuture<?> _countdownTask3; private static List<HardReference<Player>> leaderList = new CopyOnWriteArrayList<HardReference<Player>>();
-	 */
-	
+	 
 	public static class RegTask extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			// prepare();
 		}
@@ -33,7 +27,7 @@ public class GvG extends Functions implements ScriptFile
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			// Announcements.getInstance().announceToAll("GvG: Until the end of the applications for the tournament remains " + Integer.toString(_timer) + " min.");
 		}

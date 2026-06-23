@@ -25,7 +25,7 @@ public class SummerMeleons extends Functions implements ScriptFile, OnDeathListe
 {
 	private static final Logger _log = LoggerFactory.getLogger(SummerMeleons.class);
 	private static int EVENT_MANAGER_ID = 32636;
-	private static List<SimpleSpawner> _spawns = new ArrayList<SimpleSpawner>();
+	private static List<SimpleSpawner> _spawns = new ArrayList<>();
 	
 	private static boolean _active = false;
 	private static boolean MultiSellLoaded = false;
@@ -115,7 +115,7 @@ public class SummerMeleons extends Functions implements ScriptFile, OnDeathListe
 	/**
 	 * Спавнит эвент менеджеров
 	 */
-	private void spawnEventManagers()
+	public void spawnEventManagers()
 	{
 		final int EVENT_MANAGERS[][] =
 		{
@@ -199,7 +199,7 @@ public class SummerMeleons extends Functions implements ScriptFile, OnDeathListe
 	/**
 	 * Удаляет спавн эвент менеджеров
 	 */
-	private void unSpawnEventManagers()
+	public void unSpawnEventManagers()
 	{
 		deSpawnNPCs(_spawns);
 	}

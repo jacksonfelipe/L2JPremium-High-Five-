@@ -14,6 +14,8 @@ import premium.gameserver.utils.TimeUtils;
  */
 public class BrakelInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public BrakelInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

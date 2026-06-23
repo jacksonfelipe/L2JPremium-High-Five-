@@ -6,6 +6,7 @@ import java.util.StringTokenizer;
 
 import org.napile.primitive.maps.IntObjectMap;
 
+import npc.model.residences.ResidenceManager;
 import premium.gameserver.dao.CastleDamageZoneDAO;
 import premium.gameserver.dao.CastleDoorUpgradeDAO;
 import premium.gameserver.data.xml.holder.ResidenceHolder;
@@ -41,7 +42,6 @@ import premium.gameserver.templates.npc.NpcTemplate;
 import premium.gameserver.utils.HtmlUtils;
 import premium.gameserver.utils.ItemFunctions;
 import premium.gameserver.utils.ReflectionUtils;
-import npc.model.residences.ResidenceManager;
 
 public class ChamberlainInstance extends ResidenceManager
 {
@@ -490,6 +490,7 @@ public class ChamberlainInstance extends ResidenceManager
 				}
 			}
 			
+			@SuppressWarnings("null")
 			DoorInstance door = targetDoorObject.getDoor();
 			int upgradeHp = (door.getMaxHp() - door.getUpgradeHp()) * level - door.getMaxHp();
 			
@@ -716,7 +717,7 @@ public class ChamberlainInstance extends ResidenceManager
 		return COND_FAIL;
 	}
 	
-	private NpcString getSealOwner(int seal)
+	public NpcString getSealOwner(int seal)
 	{
 		switch (SevenSigns.getInstance().getSealOwner(seal))
 		{
@@ -729,7 +730,7 @@ public class ChamberlainInstance extends ResidenceManager
 		}
 	}
 	
-	private long getDoorCost(int type, int level)
+	public long getDoorCost(int type, int level)
 	{
 		int price = 0;
 		

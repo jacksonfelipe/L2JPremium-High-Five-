@@ -156,7 +156,7 @@ public class _727_HopewithintheDarkness extends Quest implements ScriptFile
 		return true;
 	}
 	
-	private boolean check(Player player)
+	public boolean check(Player player)
 	{
 		Castle castle = ResidenceHolder.getInstance().getResidenceByObject(Castle.class, player);
 		if (castle == null)

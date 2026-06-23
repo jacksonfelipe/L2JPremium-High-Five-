@@ -8,6 +8,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class YehanBrotherInstance extends RaidBossInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public YehanBrotherInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

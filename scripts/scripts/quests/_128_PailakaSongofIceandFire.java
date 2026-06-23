@@ -359,7 +359,7 @@ public class _128_PailakaSongofIceandFire extends Quest implements ScriptFile
 		return null;
 	}
 	
-	private void enterInstance(Player player)
+	public void enterInstance(Player player)
 	{
 		Reflection r = player.getActiveReflection();
 		if (r != null)

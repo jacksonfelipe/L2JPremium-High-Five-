@@ -185,7 +185,7 @@ public class FreyaNormal extends Reflection
 	private class StartNormalFreya extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			_entryLocked = true;
 			closeDoor(23140101);
@@ -205,7 +205,7 @@ public class FreyaNormal extends Reflection
 	private class PreStage extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			manageDamageZone(1, false);
 			// screen message
@@ -225,7 +225,7 @@ public class FreyaNormal extends Reflection
 	private class FirstStage extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			manageCastleController(1);
 			manageDamageZone(2, false);
@@ -254,7 +254,7 @@ public class FreyaNormal extends Reflection
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			switch (_mode)
 			{
@@ -306,7 +306,7 @@ public class FreyaNormal extends Reflection
 	private class PreSecondStage extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			firstStageGuardSpawn.cancel(true);
 			for (NpcInstance n : getNpcs())
@@ -328,7 +328,7 @@ public class FreyaNormal extends Reflection
 	private class TimerToSecondStage extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			for (Player p : getPlayers())
 			{
@@ -341,7 +341,7 @@ public class FreyaNormal extends Reflection
 	private class SecondStage extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			manageCastleController(3);
 			manageDamageZone(3, false);
@@ -357,7 +357,7 @@ public class FreyaNormal extends Reflection
 	private class KnightCaptainSpawnMovie extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			for (NpcInstance n : getNpcs())
 			{
@@ -374,7 +374,7 @@ public class FreyaNormal extends Reflection
 	private class KnightCaptainSpawn extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			manageDamageZone(4, false);
 			for (NpcInstance n : getNpcs())
@@ -389,7 +389,7 @@ public class FreyaNormal extends Reflection
 	private class PreThirdStage extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			for (Player p : getPlayers())
 			{
@@ -410,7 +410,7 @@ public class FreyaNormal extends Reflection
 	private class PreThirdStageM extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			for (Player p : getPlayers())
 			{
@@ -423,7 +423,7 @@ public class FreyaNormal extends Reflection
 	private class ThirdStage extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			manageCastleController(4);
 			manageAttackUpZone(false);
@@ -444,7 +444,7 @@ public class FreyaNormal extends Reflection
 	private class PreForthStage extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			for (NpcInstance n : getNpcs())
 			{
@@ -462,7 +462,7 @@ public class FreyaNormal extends Reflection
 	private class ForthStage extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			for (NpcInstance n : getNpcs())
 			{
@@ -482,7 +482,7 @@ public class FreyaNormal extends Reflection
 	private class FreyaDeathStage extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			setReenterTime(System.currentTimeMillis());
 			// Guard spawn task cancellation
@@ -513,7 +513,7 @@ public class FreyaNormal extends Reflection
 	private class ConclusionMovie extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			for (Player p : getPlayers())
 			{
@@ -526,7 +526,7 @@ public class FreyaNormal extends Reflection
 	private class InstanceConclusion extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			startCollapseTimer(5 * 60 * 1000L);
 			doCleanup();

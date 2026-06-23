@@ -162,9 +162,9 @@ public class _144_PailakaInjuredDragon extends Quest implements ScriptFile
 		addQuestItem(STAGE1, STAGE2, SPEAR, ENCHSPEAR, LASTSPEAR, 13033, 13032);
 	}
 	
-	private void makeBuff(NpcInstance npc, Player player, int skillId, int level)
+	public void makeBuff(NpcInstance npc, Player player, int skillId, int level)
 	{
-		List<Creature> target = new ArrayList<Creature>();
+		List<Creature> target = new ArrayList<>();
 		target.add(player);
 		npc.broadcastPacket(new MagicSkillUse(npc, player, skillId, level, 0, 0));
 		npc.callSkill(SkillTable.getInstance().getInfo(skillId, level), target, true);
@@ -493,7 +493,7 @@ public class _144_PailakaInjuredDragon extends Quest implements ScriptFile
 		return null;
 	}
 	
-	private void enterInstance(Player player)
+	public void enterInstance(Player player)
 	{
 		Reflection r = player.getActiveReflection();
 		if (r != null)

@@ -15,6 +15,7 @@ import premium.gameserver.utils.ReflectionUtils;
 
 public final class AbyssGazeInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final int ekimusIzId = 121;
 	private static final int hoidefIzId = 122;
 	

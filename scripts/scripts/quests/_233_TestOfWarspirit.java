@@ -499,7 +499,7 @@ public class _233_TestOfWarspirit extends Quest implements ScriptFile
 		}
 		else if ((npcId == Noble_Ant || npcId == Noble_Ant_Leader) && qs.getQuestItemsCount(RACOYS_TOTEM) > 0)
 		{
-			List<Integer> drops = new ArrayList<Integer>();
+			List<Integer> drops = new ArrayList<>();
 			for (int drop_id : Noble_Ant_Drops)
 			{
 				if (qs.getQuestItemsCount(drop_id) == 0)
@@ -518,7 +518,7 @@ public class _233_TestOfWarspirit extends Quest implements ScriptFile
 		}
 		else if ((npcId == Leto_Lizardman_Shaman || npcId == Leto_Lizardman_Overlord) && qs.getQuestItemsCount(PEKIRONS_TOTEM) > 0)
 		{
-			List<Integer> drops = new ArrayList<Integer>();
+			List<Integer> drops = new ArrayList<>();
 			for (int drop_id : Leto_Lizardman_Drops)
 			{
 				if (qs.getQuestItemsCount(drop_id) == 0)
@@ -537,7 +537,7 @@ public class _233_TestOfWarspirit extends Quest implements ScriptFile
 		}
 		else if (npcId == Medusa && qs.getQuestItemsCount(MANAKIAS_TOTEM) > 0)
 		{
-			List<Integer> drops = new ArrayList<Integer>();
+			List<Integer> drops = new ArrayList<>();
 			for (int drop_id : Medusa_Drops)
 			{
 				if (qs.getQuestItemsCount(drop_id) == 0)

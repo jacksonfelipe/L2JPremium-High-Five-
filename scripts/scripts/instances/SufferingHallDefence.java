@@ -63,7 +63,7 @@ public class SufferingHallDefence extends Reflection
 		coffinSpawnTask = ThreadPoolManager.getInstance().scheduleAtFixedRate(new RunnableImpl()
 		{
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl() 
 			{
 				addSpawnWithoutRespawn(RegenerationCoffin, new Location(-173704, 218092, -9562, Location.getRandomHeading()), 250);
 			}
@@ -71,7 +71,7 @@ public class SufferingHallDefence extends Reflection
 		monstersSpawnTask = ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 		{
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl() 
 			{
 				spawnMonsters();
 			}
@@ -96,7 +96,7 @@ public class SufferingHallDefence extends Reflection
 				monstersSpawnTask = ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 				{
 					@Override
-					public void runImpl() throws Exception
+					public void runImpl() 
 					{
 						spawnMonsters();
 					}
@@ -114,7 +114,7 @@ public class SufferingHallDefence extends Reflection
 				ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 				{
 					@Override
-					public void runImpl() throws Exception
+					public void runImpl() 
 					{
 						if (monstersSpawnTask != null)
 						{

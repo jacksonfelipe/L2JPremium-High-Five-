@@ -8,6 +8,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
  */
 public final class SpecialMinionInstance extends MonsterInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public SpecialMinionInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

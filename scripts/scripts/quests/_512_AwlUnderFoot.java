@@ -30,7 +30,7 @@ public class _512_AwlUnderFoot extends Quest implements ScriptFile
 	private final static int RewardMarksCount = 1500;
 	private final static int KnightsEpaulette = 9912;
 	
-	private static final Map<Integer, Prison> _prisons = new ConcurrentHashMap<Integer, Prison>();
+	private static final Map<Integer, Prison> _prisons = new ConcurrentHashMap<>();
 	
 	private static final int RhiannaTheTraitor = 25546;
 	private static final int TeslaTheDeceiver = 25549;
@@ -113,10 +113,7 @@ public class _512_AwlUnderFoot extends Quest implements ScriptFile
 			{
 				return "gludio_prison_keeper_q0512_01a.htm";
 			}
-			else
-			{
-				return enterPrison(st.getPlayer(), wardens.getOrDefault(npc.getNpcId(), -1));
-			}
+			return enterPrison(st.getPlayer(), wardens.getOrDefault(npc.getNpcId(), -1));
 		}
 		return event;
 	}
@@ -199,7 +196,7 @@ public class _512_AwlUnderFoot extends Quest implements ScriptFile
 		return null;
 	}
 	
-	private boolean check(Player player, int castle_id)
+	public boolean check(Player player, int castle_id)
 	{
 		/*
 		 * Castle castle = ResidenceHolder.getInstance().getResidenceByObject(Castle.class, player); if (castle == null) return false; Clan clan = player.getClan(); if (clan == null) return false; if (clan.getClanId() != castle.getOwnerId()) return false;
@@ -295,7 +292,7 @@ public class _512_AwlUnderFoot extends Quest implements ScriptFile
 			}
 			
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl()  
 			{
 				addSpawnToInstance(_npcId, new Location(12152, -49272, -3008, 25958), 0, _reflectionId);
 			}
@@ -338,7 +335,7 @@ public class _512_AwlUnderFoot extends Quest implements ScriptFile
 		}
 	}
 	
-	private boolean areMembersSameClan(Player player)
+	public boolean areMembersSameClan(Player player)
 	{
 		if (player.getParty() == null)
 		{

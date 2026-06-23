@@ -96,7 +96,7 @@ public class _712_PathToBecomingALordOren extends Quest implements ScriptFile
 	{
 		String htmltext = "noquest";
 		int npcId = npc.getNpcId();
-		int id = st.getState();
+		 
 		int cond = st.getCond();
 		Castle castle = ResidenceHolder.getInstance().getResidence(OrenCastle);
 		if (castle.getOwner() == null)

@@ -17,6 +17,7 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public final class BelethCoffinInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final int RING = 10314;
 	
 	public BelethCoffinInstance(int objectId, NpcTemplate template)

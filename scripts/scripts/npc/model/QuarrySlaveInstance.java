@@ -11,6 +11,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public final class QuarrySlaveInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public QuarrySlaveInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

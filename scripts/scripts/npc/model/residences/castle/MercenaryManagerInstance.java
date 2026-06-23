@@ -9,6 +9,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
  */
 public class MercenaryManagerInstance extends MerchantInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public MercenaryManagerInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

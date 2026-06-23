@@ -7,6 +7,7 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public final class ZakenCandleInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final int OHS_Weapon = 15280; // spark
 	private static final int THS_Weapon = 15281; // red
 	private static final int BOW_Weapon = 15302; // blue

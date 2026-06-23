@@ -45,7 +45,7 @@ import premium.gameserver.utils.Util;
 public class SavingSnowman extends Functions implements ScriptFile, OnDeathListener, OnPlayerEnterListener
 {
 	private static final Logger _log = LoggerFactory.getLogger(SavingSnowman.class);
-	private static List<SimpleSpawner> _spawns = new ArrayList<SimpleSpawner>();
+	private static List<SimpleSpawner> _spawns = new ArrayList<>();
 	
 	private static ScheduledFuture<?> _snowmanShoutTask;
 	private static ScheduledFuture<?> _saveTask;
@@ -289,7 +289,7 @@ public class SavingSnowman extends Functions implements ScriptFile, OnDeathListe
 	/**
 	 * Спавнит эвент менеджеров и рядом ёлки
 	 */
-	private void spawnEventManagers()
+	public void spawnEventManagers()
 	{
 		final int EVENT_MANAGERS[][] =
 		{
@@ -450,7 +450,7 @@ public class SavingSnowman extends Functions implements ScriptFile, OnDeathListe
 	/**
 	 * Удаляет спавн эвент менеджеров
 	 */
-	private void unSpawnEventManagers()
+	public void unSpawnEventManagers()
 	{
 		deSpawnNPCs(_spawns);
 	}
@@ -489,7 +489,7 @@ public class SavingSnowman extends Functions implements ScriptFile, OnDeathListe
 			Player pKiller = killer.getPlayer();
 			if (pKiller != null && SimpleCheckDrop(cha, killer) && Rnd.get(1000) < Config.EVENT_SAVING_SNOWMAN_REWARDER_CHANCE)
 			{
-				List<Player> players = new ArrayList<Player>();
+				List<Player> players = new ArrayList<>();
 				if (pKiller.isInParty())
 				{
 					players = pKiller.getParty().getMembers();

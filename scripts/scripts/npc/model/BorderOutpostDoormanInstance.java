@@ -12,6 +12,8 @@ import premium.gameserver.utils.ReflectionUtils;
  */
 public class BorderOutpostDoormanInstance extends GuardInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public BorderOutpostDoormanInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

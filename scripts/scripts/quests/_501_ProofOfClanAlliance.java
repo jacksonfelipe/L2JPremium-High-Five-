@@ -260,7 +260,7 @@ public class _501_ProofOfClanAlliance extends Quest implements ScriptFile
 		// STATUE_OF_OFFERING
 		else if (event.equalsIgnoreCase("30757-04.htm"))
 		{
-			List<String> deadlist = new ArrayList<String>();
+			List<String> deadlist = new ArrayList<>();
 			deadlist.addAll(Arrays.asList(leader.get("dead_list").split(" ")));
 			deadlist.add(st.getPlayer().getName());
 			String deadstr = "";

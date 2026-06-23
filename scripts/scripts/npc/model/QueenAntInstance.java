@@ -17,9 +17,11 @@ import premium.gameserver.utils.Location;
 
 public class QueenAntInstance extends BossInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	private static final int Queen_Ant_Larva = 29002;
 	
-	private final List<SimpleSpawner> _spawns = new ArrayList<SimpleSpawner>();
+	private final List<SimpleSpawner> _spawns = new ArrayList<>();
 	private NpcInstance Larva = null;
 	
 	public QueenAntInstance(int objectId, NpcTemplate template)

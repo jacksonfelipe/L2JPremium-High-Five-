@@ -71,7 +71,7 @@ public class _999_T1Tutorial extends Quest implements ScriptFile
 		}
 	}
 	
-	private static Map<String, Event> events = new HashMap<String, Event>();
+	private static Map<String, Event> events = new HashMap<>();
 	
 	static
 	{
@@ -90,7 +90,7 @@ public class _999_T1Tutorial extends Quest implements ScriptFile
 		events.put("30573_04", new Event("30573-04.htm", -45067, -113549, -235, 0, 0x31, 0, 0, 0x2c, 0, 0));
 	}
 	
-	private static Map<Integer, Talk> talks = new HashMap<Integer, Talk>();
+	private static Map<Integer, Talk> talks = new HashMap<>();
 	
 	static
 	{
@@ -294,7 +294,7 @@ public class _999_T1Tutorial extends Quest implements ScriptFile
 	public String onEvent(String event, final QuestState st, NpcInstance npc)
 	{
 		QuestState qs = st.getPlayer().getQuestState(_255_Tutorial.class);
-		if (qs == null || st == null)
+		if (qs == null  )
 		{
 			return null;
 		}
@@ -389,7 +389,7 @@ public class _999_T1Tutorial extends Quest implements ScriptFile
 				ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 				{
 					@Override
-					public void runImpl() throws Exception
+					public void runImpl()  
 					{
 						st.addRadarWithMap(e.radarX, e.radarY, e.radarZ);
 					}
@@ -562,7 +562,7 @@ public class _999_T1Tutorial extends Quest implements ScriptFile
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			if (_st != null && _npc != null)
 			{

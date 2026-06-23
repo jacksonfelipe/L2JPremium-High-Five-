@@ -32,7 +32,7 @@ public class _340_SubjugationofLizardmen extends Quest implements ScriptFile
 	private static int TRADE_CARGO = 4255;
 	private static int EVIL_SPIRIT_OF_DARKNESS = 7190;
 	
-	private static Map<Integer, Drop> DROPLIST = new HashMap<Integer, Drop>();
+	private static Map<Integer, Drop> DROPLIST = new HashMap<>();
 	
 	public _340_SubjugationofLizardmen()
 	{

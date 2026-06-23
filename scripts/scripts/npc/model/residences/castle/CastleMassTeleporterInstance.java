@@ -23,10 +23,12 @@ import premium.gameserver.utils.Location;
  */
 public class CastleMassTeleporterInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	private class TeleportTask extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			Functions.npcShout(CastleMassTeleporterInstance.this, NpcString.THE_DEFENDERS_OF_S1_CASTLE_WILL_BE_TELEPORTED_TO_THE_INNER_CASTLE, "#" + getCastle().getNpcStringName().getId());
 			
@@ -96,6 +98,7 @@ public class CastleMassTeleporterInstance extends NpcInstance
 		return String.valueOf(_teleportTask.getDelay(TimeUnit.SECONDS));
 	}
 	
+	@SuppressWarnings("rawtypes")
 	private boolean isAllTowersDead()
 	{
 		SiegeEvent siegeEvent = getEvent(SiegeEvent.class);

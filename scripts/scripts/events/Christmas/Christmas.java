@@ -45,13 +45,10 @@ public class Christmas extends Functions implements ScriptFile, OnDeathListener,
 			5559,
 			5
 		}, // Flower Pot 0.5%
-		/*
-		 * // Музыкальные кристаллы 0.2% { 5562, 2 }, { 5563, 2 }, { 5564, 2 }, { 5565, 2 }, { 5566, 2 }, { 5583, 2 }, { 5584, 2 }, { 5585, 2 }, { 5586, 2 }, { 5587, 2 }, { 4411, 2 }, { 4412, 2 }, { 4413, 2 }, { 4414, 2 }, { 4415, 2 }, { 4416, 2 }, { 4417, 2 }, { 5010, 2 }, { 7061, 2 }, { 7062, 2 },
-		 * { 6903, 2 }, { 8555, 2 }
-		 */
+	 
 	};
 	
-	private static List<SimpleSpawner> _spawns = new ArrayList<SimpleSpawner>();
+	private static List<SimpleSpawner> _spawns = new ArrayList<>();
 	
 	private static boolean _active = false;
 	
@@ -132,11 +129,8 @@ public class Christmas extends Functions implements ScriptFile, OnDeathListener,
 		
 		show("admin/events/events.htm", player);
 	}
-	
-	/**
-	 * Спавнит эвент менеджеров и рядом ёлки
-	 */
-	private void spawnEventManagers()
+ 
+	public void spawnEventManagers()
 	{
 		final int EVENT_MANAGERS[][] =
 		{
@@ -294,10 +288,8 @@ public class Christmas extends Functions implements ScriptFile, OnDeathListener,
 		SpawnNPCs(CTREE_ID, CTREES, _spawns);
 	}
 	
-	/**
-	 * Удаляет спавн эвент менеджеров
-	 */
-	private void unSpawnEventManagers()
+	
+	public void unSpawnEventManagers()
 	{
 		deSpawnNPCs(_spawns);
 	}

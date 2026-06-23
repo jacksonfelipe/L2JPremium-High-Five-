@@ -126,7 +126,7 @@ public class _281_HeadForTheHills extends Quest implements ScriptFile
 		return htmltext;
 	}
 	
-	private void tryGiveOneTimeRevard(QuestState st)
+	public void tryGiveOneTimeRevard(QuestState st)
 	{
 		if (st.getPlayer().getClassId().getLevel() == 1 && !st.getPlayer().getVarB("p1q2"))
 		{

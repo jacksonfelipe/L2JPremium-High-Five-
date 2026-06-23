@@ -70,7 +70,7 @@ public class NewYearTimer implements ScriptFile
 		ThreadPoolManager.getInstance().schedule(new NewYearAnnouncer("5"), getDelay(c));
 	}
 	
-	private long getDelay(Calendar c)
+	public long getDelay(Calendar c)
 	{
 		return c.getTime().getTime() - System.currentTimeMillis();
 	}
@@ -118,7 +118,7 @@ public class NewYearTimer implements ScriptFile
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			Announcements.getInstance().announceToAll(message);
 			

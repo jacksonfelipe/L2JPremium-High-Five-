@@ -9,6 +9,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
  */
 public class CleftVortexGateInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public CleftVortexGateInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

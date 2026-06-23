@@ -45,7 +45,7 @@ public class _457_LostAndFound extends Quest implements ScriptFile
 	public String onEvent(String event, QuestState st, NpcInstance npc)
 	{
 		Player player = st.getPlayer();
-		String htmltext = event;
+		 
 		if (event.equalsIgnoreCase("lost_villager_q0457_06.htm"))
 		{
 			st.setCond(1);

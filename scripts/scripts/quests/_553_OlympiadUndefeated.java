@@ -48,10 +48,7 @@ public class _553_OlympiadUndefeated extends Quest implements ScriptFile
 					{
 						return "olympiad_operator_q0553_01.htm";
 					}
-					else
-					{
-						return "olympiad_operator_q0553_06.htm";
-					}
+					return "olympiad_operator_q0553_06.htm";
 				}
 				else if (st.isStarted())
 				{
@@ -71,10 +68,7 @@ public class _553_OlympiadUndefeated extends Quest implements ScriptFile
 						st.exitCurrentQuest(this);
 						return "olympiad_operator_q0553_07.htm";
 					}
-					else
-					{
-						return "olympiad_operator_q0553_05.htm";
-					}
+					return "olympiad_operator_q0553_05.htm";
 				}
 				break;
 		}

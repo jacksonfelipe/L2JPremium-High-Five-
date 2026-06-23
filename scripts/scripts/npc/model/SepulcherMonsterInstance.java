@@ -17,6 +17,8 @@ import premium.gameserver.utils.ItemFunctions;
 
 public class SepulcherMonsterInstance extends MonsterInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public int mysteriousBoxId = 0;
 	
 	private Future<?> _victimShout = null;
@@ -244,7 +246,7 @@ public class SepulcherMonsterInstance extends MonsterInstance
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			if (_activeChar.isDead() || !_activeChar.isVisible())
 			{
@@ -265,7 +267,7 @@ public class SepulcherMonsterInstance extends MonsterInstance
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			if (_activeChar.isDead() || !_activeChar.isVisible())
 			{
@@ -292,7 +294,7 @@ public class SepulcherMonsterInstance extends MonsterInstance
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			switch (_activeChar.getNpcId())
 			{
@@ -389,14 +391,14 @@ public class SepulcherMonsterInstance extends MonsterInstance
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			Skill fp = SkillTable.getInstance().getInfo(4616, 1); // Invulnerable by petrification
 			fp.getEffects(activeChar, activeChar, false, false);
 		}
 	}
 	
-	private boolean hasPartyAKey(Player player)
+	public boolean hasPartyAKey(Player player)
 	{
 		for (Player m : player.getParty().getMembers())
 		{

@@ -22,7 +22,7 @@ public class MasterOfEnchanting extends Functions implements ScriptFile, OnPlaye
 	private static final Logger _log = LoggerFactory.getLogger(MasterOfEnchanting.class);
 	private static final String EVENT_NAME = "MasterOfEnchanting";
 	private static int EVENT_MANAGER_ID = 32599;
-	private static List<SimpleSpawner> _spawns = new ArrayList<SimpleSpawner>();
+	private static List<SimpleSpawner> _spawns = new ArrayList<>();
 	private static boolean _active = false;
 	@SuppressWarnings("unused")
 	private static final int[][] _herbdrop =
@@ -43,9 +43,9 @@ public class MasterOfEnchanting extends Functions implements ScriptFile, OnPlaye
 			20003,
 			100
 		}
-	}; // Sweet-and-Sour White Kimchee
-	@SuppressWarnings("unused")
-	private static final int[][] _energydrop =
+	};  
+	 
+	public static final int[][] _energydrop =
 	{
 		{
 			20004,
@@ -57,10 +57,8 @@ public class MasterOfEnchanting extends Functions implements ScriptFile, OnPlaye
 		}
 	}; // Energy Red Ginseng
 	
-	/**
-	 * ??????? ????? ??????????
-	 */
-	private void spawnEventManagers()
+ 
+	public void spawnEventManagers()
 	{
 		final int EVENT_MANAGERS[][] =
 		{
@@ -81,26 +79,18 @@ public class MasterOfEnchanting extends Functions implements ScriptFile, OnPlaye
 		SpawnNPCs(EVENT_MANAGER_ID, EVENT_MANAGERS, _spawns);
 	}
 	
-	/**
-	 * ??????? ????? ????? ??????????
-	 */
-	private void unSpawnEventManagers()
+ 
+	public void unSpawnEventManagers()
 	{
 		deSpawnNPCs(_spawns);
 	}
 	
-	/**
-	 * ?????? ?????? ?????? ?? ????.
-	 * @return
-	 */
+ 
 	private static boolean isActive()
 	{
 		return IsActive(EVENT_NAME);
 	}
-	
-	/**
-	 * ????????? ?????
-	 */
+	 
 	public void startEvent()
 	{
 		Player player = getSelf();

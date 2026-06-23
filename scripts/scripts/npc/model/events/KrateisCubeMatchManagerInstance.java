@@ -16,7 +16,8 @@ import premium.gameserver.utils.Location;
  */
 public class KrateisCubeMatchManagerInstance extends NpcInstance
 {
-	private static final int[] SKILL_IDS =
+	private static final long serialVersionUID = 1L;
+	public static final int[] SKILL_IDS =
 	{
 		1086,
 		1204,
@@ -30,7 +31,7 @@ public class KrateisCubeMatchManagerInstance extends NpcInstance
 		1062,
 		5739
 	};
-	private static final int[] SKILL_LEVEL =
+	public static final int[] SKILL_LEVEL =
 	{
 		2,
 		2,

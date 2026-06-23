@@ -21,6 +21,7 @@ import premium.gameserver.utils.ReflectionUtils;
  */
 public class NaiaRoomControllerInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final Territory _room1territory = new Territory().add(new Rectangle(-46652, 245576, -45735, 246648).setZmin(-9175).setZmax(-9075));
 	private static final Territory _room3territory = new Territory().add(new Rectangle(-52088, 245667, -51159, 246609).setZmin(-10037).setZmax(-9837));
 	private static final Territory _room5territory = new Territory().add(new Rectangle(-46652, 245596, -45737, 246626).setZmin(-10032).setZmax(-9832));
@@ -85,11 +86,8 @@ public class NaiaRoomControllerInstance extends NpcInstance
 					}
 					return;
 				}
-				else
-				{
-					player.teleToLocation(kickLoc);
-					return;
-				}
+				player.teleToLocation(kickLoc);
+				return;
 			}
 			
 			int npcId = getNpcId();
@@ -105,7 +103,7 @@ public class NaiaRoomControllerInstance extends NpcInstance
 				case 18494:
 				{
 					ReflectionUtils.getDoor(18250001).closeMe();
-					_roomMobList = new ArrayList<NpcInstance>();
+					_roomMobList = new ArrayList<>();
 					spawnToRoom(22393, 3, _room1territory, npcId);
 					spawnToRoom(22394, 3, _room1territory, npcId);
 					NaiaTowerManager.lockRoom(npcId);
@@ -119,7 +117,7 @@ public class NaiaRoomControllerInstance extends NpcInstance
 				{
 					ReflectionUtils.getDoor(18250002).closeMe();
 					ReflectionUtils.getDoor(18250003).closeMe();
-					_roomMobList = new ArrayList<NpcInstance>();
+					_roomMobList = new ArrayList<>();
 					for (int i = 0; i < _room2locs.length; i++)
 					{
 						spawnExactToRoom(22439, _room2locs[i], npcId);
@@ -135,7 +133,7 @@ public class NaiaRoomControllerInstance extends NpcInstance
 				{
 					ReflectionUtils.getDoor(18250004).closeMe();
 					ReflectionUtils.getDoor(18250005).closeMe();
-					_roomMobList = new ArrayList<NpcInstance>();
+					_roomMobList = new ArrayList<>();
 					spawnToRoom(22441, 2, _room3territory, npcId);
 					spawnToRoom(22442, 2, _room3territory, npcId);
 					NaiaTowerManager.lockRoom(npcId);
@@ -149,7 +147,7 @@ public class NaiaRoomControllerInstance extends NpcInstance
 				{
 					ReflectionUtils.getDoor(18250006).closeMe();
 					ReflectionUtils.getDoor(18250007).closeMe();
-					_roomMobList = new ArrayList<NpcInstance>();
+					_roomMobList = new ArrayList<>();
 					for (int i = 0; i < _room4locs.length; i++)
 					{
 						spawnExactToRoom(22440, _room4locs[i], npcId);
@@ -165,7 +163,7 @@ public class NaiaRoomControllerInstance extends NpcInstance
 				{
 					ReflectionUtils.getDoor(18250008).closeMe();
 					ReflectionUtils.getDoor(18250009).closeMe();
-					_roomMobList = new ArrayList<NpcInstance>();
+					_roomMobList = new ArrayList<>();
 					spawnToRoom(22411, 2, _room5territory, npcId);
 					spawnToRoom(22393, 2, _room5territory, npcId);
 					spawnToRoom(22394, 2, _room5territory, npcId);
@@ -180,7 +178,7 @@ public class NaiaRoomControllerInstance extends NpcInstance
 				{
 					ReflectionUtils.getDoor(18250010).closeMe();
 					ReflectionUtils.getDoor(18250011).closeMe();
-					_roomMobList = new ArrayList<NpcInstance>();
+					_roomMobList = new ArrayList<>();
 					spawnToRoom(22395, 2, _room6territory, npcId);
 					NaiaTowerManager.lockRoom(npcId);
 					NaiaTowerManager.addRoomDone(npcId, player);
@@ -193,7 +191,7 @@ public class NaiaRoomControllerInstance extends NpcInstance
 				{
 					ReflectionUtils.getDoor(18250101).closeMe();
 					ReflectionUtils.getDoor(18250013).closeMe();
-					_roomMobList = new ArrayList<NpcInstance>();
+					_roomMobList = new ArrayList<>();
 					spawnToRoom(22393, 3, _room7territory, npcId);
 					spawnToRoom(22394, 3, _room7territory, npcId);
 					spawnToRoom(22412, 1, _room7territory, npcId);
@@ -208,7 +206,7 @@ public class NaiaRoomControllerInstance extends NpcInstance
 				{
 					ReflectionUtils.getDoor(18250014).closeMe();
 					ReflectionUtils.getDoor(18250015).closeMe();
-					_roomMobList = new ArrayList<NpcInstance>();
+					_roomMobList = new ArrayList<>();
 					spawnToRoom(22395, 2, _room8territory, npcId);
 					NaiaTowerManager.lockRoom(npcId);
 					NaiaTowerManager.addRoomDone(npcId, player);
@@ -221,7 +219,7 @@ public class NaiaRoomControllerInstance extends NpcInstance
 				{
 					ReflectionUtils.getDoor(18250102).closeMe();
 					ReflectionUtils.getDoor(18250017).closeMe();
-					_roomMobList = new ArrayList<NpcInstance>();
+					_roomMobList = new ArrayList<>();
 					spawnToRoom(22441, 2, _room9territory, npcId);
 					spawnToRoom(22442, 3, _room9territory, npcId);
 					NaiaTowerManager.lockRoom(npcId);
@@ -235,7 +233,7 @@ public class NaiaRoomControllerInstance extends NpcInstance
 				{
 					ReflectionUtils.getDoor(18250018).closeMe();
 					ReflectionUtils.getDoor(18250019).closeMe();
-					_roomMobList = new ArrayList<NpcInstance>();
+					_roomMobList = new ArrayList<>();
 					spawnToRoom(22395, 2, _room10territory, npcId);
 					NaiaTowerManager.lockRoom(npcId);
 					NaiaTowerManager.addRoomDone(npcId, player);
@@ -248,7 +246,7 @@ public class NaiaRoomControllerInstance extends NpcInstance
 				{
 					ReflectionUtils.getDoor(18250103).closeMe();
 					ReflectionUtils.getDoor(18250021).closeMe();
-					_roomMobList = new ArrayList<NpcInstance>();
+					_roomMobList = new ArrayList<>();
 					spawnToRoom(22413, 6, _room11territory, npcId);
 					NaiaTowerManager.lockRoom(npcId);
 					NaiaTowerManager.addRoomDone(npcId, player);
@@ -262,7 +260,7 @@ public class NaiaRoomControllerInstance extends NpcInstance
 				{
 					ReflectionUtils.getDoor(18250022).closeMe();
 					ReflectionUtils.getDoor(18250023).closeMe();
-					_roomMobList = new ArrayList<NpcInstance>();
+					_roomMobList = new ArrayList<>();
 					spawnToRoom(18490, 12, _room12territory, npcId);
 					NaiaTowerManager.lockRoom(npcId);
 					NaiaTowerManager.addRoomDone(npcId, player);
@@ -281,7 +279,7 @@ public class NaiaRoomControllerInstance extends NpcInstance
 		}
 	}
 	
-	private void spawnToRoom(int mobId, int count, Territory territory, int roomId)
+	public void spawnToRoom(int mobId, int count, Territory territory, int roomId)
 	{
 		for (int i = 0; i < count; i++)
 		{
@@ -300,7 +298,7 @@ public class NaiaRoomControllerInstance extends NpcInstance
 		}
 	}
 	
-	private void spawnExactToRoom(int mobId, Location loc, int roomId)
+	public void spawnExactToRoom(int mobId, Location loc, int roomId)
 	{
 		try
 		{

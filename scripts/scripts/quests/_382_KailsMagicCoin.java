@@ -17,7 +17,7 @@ public class _382_KailsMagicCoin extends Quest implements ScriptFile
 	// NPCs
 	private static int VERGARA = 30687;
 	// MOBs and CHANCES
-	private static final Map<Integer, int[]> MOBS = new HashMap<Integer, int[]>();
+	private static final Map<Integer, int[]> MOBS = new HashMap<>();
 	
 	static
 	{

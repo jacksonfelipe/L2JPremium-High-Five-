@@ -15,6 +15,7 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public final class ElcardiaAssistantInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private final static int[][] _elcardiaBuff = new int[][]
 	{
 		// ID, warrior = 0, mage = 1, both = 2
@@ -67,7 +68,7 @@ public final class ElcardiaAssistantInstance extends NpcInstance
 		if (command.equalsIgnoreCase("request_blessing"))
 		{
 			// temporary implementation
-			List<Creature> target = new ArrayList<Creature>();
+			List<Creature> target = new ArrayList<>();
 			target.add(player);
 			for (int[] buff : _elcardiaBuff)
 			{

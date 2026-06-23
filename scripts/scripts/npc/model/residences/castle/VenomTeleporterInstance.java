@@ -11,6 +11,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
  */
 public class VenomTeleporterInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public VenomTeleporterInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

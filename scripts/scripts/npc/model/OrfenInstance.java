@@ -11,6 +11,8 @@ import premium.gameserver.utils.Location;
 
 public class OrfenInstance extends BossInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public static final Location nest = new Location(43728, 17220, -4342);
 	
 	public static final Location[] locs = new Location[]

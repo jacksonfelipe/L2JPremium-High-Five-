@@ -197,7 +197,7 @@ public class _135_TempleExecutor extends Quest implements ScriptFile
 	{
 		if (qs.getState() == STARTED && qs.getCond() == 3)
 		{
-			List<Integer> drops = new ArrayList<Integer>();
+			List<Integer> drops = new ArrayList<>();
 			if (qs.getQuestItemsCount(Stolen_Cargo) < 10)
 			{
 				drops.add(Stolen_Cargo);

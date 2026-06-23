@@ -20,6 +20,7 @@ import premium.gameserver.templates.npc.NpcTemplate;
  */
 public class ArenaManagerInstance extends WarehouseInstance
 {
+	private static final long serialVersionUID = 1L;
 	private final static int[][] _arenaBuff = new int[][]
 	{
 		// ID, warrior = 0, mage = 1, both = 2
@@ -90,7 +91,7 @@ public class ArenaManagerInstance extends WarehouseInstance
 				return;
 			}
 			player.reduceAdena(neededmoney, true, "ArenaManagerInstance");
-			List<Creature> target = new ArrayList<Creature>();
+			List<Creature> target = new ArrayList<>();
 			target.add(player);
 			for (int[] buff : _arenaBuff)
 			{

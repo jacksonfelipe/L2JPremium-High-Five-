@@ -51,10 +51,10 @@ public class Viktorina extends Functions implements ScriptFile, IVoicedCommandHa
 		"vlolo",
 		"vololo"
 	};
-	private ArrayList<String> questions = new ArrayList<String>();
-	private static ArrayList<Player> playerList = new ArrayList<Player>();
+	private ArrayList<String> questions = new ArrayList<>();
+	private static ArrayList<Player> playerList = new ArrayList<>();
 	static ScheduledFuture<?> _taskViktorinaStart;
-	private static ArrayList<RewardList> _items = new ArrayList<RewardList>();
+	private static ArrayList<RewardList> _items = new ArrayList<>();
 	static ScheduledFuture<?> _taskStartQuestion;
 	static ScheduledFuture<?> _taskStopQuestion;
 	long _timeStopViktorina = 0;
@@ -823,14 +823,8 @@ public class Viktorina extends Functions implements ScriptFile, IVoicedCommandHa
 			_items.add(item);
 		}
 	}
-	
-	/**
-	 * Выдаем приз на каторую укажет шанс + определяем выдавать приз для первого или для остальных
-	 * @param player
-	 * @param first
-	 * @return
-	 */
-	private boolean giveItemByChance(Player player, boolean first)
+ 
+	public boolean giveItemByChance(Player player, boolean first)
 	{
 		int chancesumm = 0;
 		int productId = 0;
@@ -910,7 +904,7 @@ public class Viktorina extends Functions implements ScriptFile, IVoicedCommandHa
 		}
 	}
 	
-	private boolean isStatus()
+	public boolean isStatus()
 	{
 		return status;
 	}
@@ -926,12 +920,8 @@ public class Viktorina extends Functions implements ScriptFile, IVoicedCommandHa
 		this.status = status;
 	}
 	
-	/**
-	 * Возвращаем имя чара по его obj_Id
-	 * @param char_id
-	 * @return
-	 */
-	private String getName(int char_id)
+ 
+	public String getName(int char_id)
 	{
 		String name = null;
 		Connection con = null;
@@ -966,7 +956,7 @@ public class Viktorina extends Functions implements ScriptFile, IVoicedCommandHa
 	 */
 	private List<Scores> getList(final boolean first)
 	{
-		final List<Scores> names = new ArrayList<Scores>();
+		final List<Scores> names = new ArrayList<>();
 		
 		Connection con = null;
 		PreparedStatement statement = null;

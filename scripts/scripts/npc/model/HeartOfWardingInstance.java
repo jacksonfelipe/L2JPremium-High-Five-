@@ -11,6 +11,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public final class HeartOfWardingInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public HeartOfWardingInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);
@@ -29,9 +31,6 @@ public final class HeartOfWardingInstance extends NpcInstance
 			AntharasManager.enterTheLair(player);
 			return;
 		}
-		else
-		{
-			super.onBypassFeedback(player, command);
-		}
+		super.onBypassFeedback(player, command);
 	}
 }

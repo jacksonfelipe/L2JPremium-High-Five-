@@ -80,7 +80,7 @@ public class _690_JudesRequest extends Quest implements ScriptFile
 		return htmltext;
 	}
 	
-	private void giveReward(QuestState st, int item_id, long count)
+	public void giveReward(QuestState st, int item_id, long count)
 	{
 		st.giveItems(item_id, count);
 	}

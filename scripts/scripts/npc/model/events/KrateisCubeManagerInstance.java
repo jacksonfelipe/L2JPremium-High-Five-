@@ -21,6 +21,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
  */
 public class KrateisCubeManagerInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public KrateisCubeManagerInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

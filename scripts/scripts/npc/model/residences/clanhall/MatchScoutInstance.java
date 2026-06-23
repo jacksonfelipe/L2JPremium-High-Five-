@@ -12,6 +12,7 @@ import premium.gameserver.templates.npc.NpcTemplate;
  */
 public class MatchScoutInstance extends CTBBossInstance
 {
+	private static final long serialVersionUID = 1L;
 	private long _massiveDamage;
 	
 	public MatchScoutInstance(int objectId, NpcTemplate template)

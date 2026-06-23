@@ -18,8 +18,8 @@ public class _384_WarehouseKeepersPastime extends Quest implements ScriptFile
 	// Items
 	private final static int Warehouse_Keepers_Medal = 5964;
 	
-	private final static Map<Integer, Integer> Medal_Chances = new HashMap<Integer, Integer>();
-	private final static Map<Integer, Bingo> bingos = new HashMap<Integer, Bingo>();
+	private final static Map<Integer, Integer> Medal_Chances = new HashMap<>();
+	private final static Map<Integer, Bingo> bingos = new HashMap<>();
 	
 	private final static int[][] Rewards_Win =
 	{

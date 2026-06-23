@@ -30,8 +30,8 @@ public class _327_ReclaimTheLand extends Quest implements ScriptFile
 	// Chances
 	private static int Exchange_Chance = 80;
 	
-	private static Map<Integer, Drop> DROPLIST = new HashMap<Integer, Drop>();
-	private static Map<Integer, Integer> EXP = new HashMap<Integer, Integer>();
+	private static Map<Integer, Drop> DROPLIST = new HashMap<>();
+	private static Map<Integer, Integer> EXP = new HashMap<>();
 	
 	public _327_ReclaimTheLand()
 	{

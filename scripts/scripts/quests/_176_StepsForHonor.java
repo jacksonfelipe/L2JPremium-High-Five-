@@ -135,7 +135,7 @@ public class _176_StepsForHonor extends Quest implements ScriptFile
 		return htmltext;
 	}
 	
-	private boolean isValidKill(Player killed, Player killer)
+	public boolean isValidKill(Player killed, Player killer)
 	{
 		DominionSiegeEvent killedSiegeEvent = killed.getEvent(DominionSiegeEvent.class);
 		DominionSiegeEvent killerSiegeEvent = killer.getEvent(DominionSiegeEvent.class);

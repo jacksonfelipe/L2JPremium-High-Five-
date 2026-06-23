@@ -26,6 +26,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
  */
 public class CatapultInstance extends SiegeToggleNpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public CatapultInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);
@@ -56,7 +58,7 @@ public class CatapultInstance extends SiegeToggleNpcInstance
 			List<Player> players = null; // массив с игроками, которые могут быть заинтересованы в квестах
 			if (isRaid() && Config.ALT_NO_LASTHIT) // Для альта на ластхит берем всех игроков вокруг
 			{
-				players = new ArrayList<Player>();
+				players = new ArrayList<>();
 				for (Playable pl : aggroMap.keySet())
 				{
 					if (!pl.isDead() && (isInRangeZ(pl, Config.ALT_PARTY_DISTRIBUTION_RANGE) || killer.isInRangeZ(pl, Config.ALT_PARTY_DISTRIBUTION_RANGE)))
@@ -67,7 +69,7 @@ public class CatapultInstance extends SiegeToggleNpcInstance
 			}
 			else if (killer.getParty() != null) // если пати то собираем всех кто подходит
 			{
-				players = new ArrayList<Player>(killer.getParty().size());
+				players = new ArrayList<>(killer.getParty().size());
 				for (Player pl : killer.getParty().getMembers())
 				{
 					if (!pl.isDead() && (isInRangeZ(pl, Config.ALT_PARTY_DISTRIBUTION_RANGE) || killer.isInRangeZ(pl, Config.ALT_PARTY_DISTRIBUTION_RANGE)))
@@ -96,7 +98,7 @@ public class CatapultInstance extends SiegeToggleNpcInstance
 					}
 					else
 					{ // иначе выбираем одного
-						List<Player> interested = new ArrayList<Player>(players.size());
+						List<Player> interested = new ArrayList<>(players.size());
 						for (Player pl : players)
 						{
 							QuestState qs = pl.getQuestState(quest.getName());

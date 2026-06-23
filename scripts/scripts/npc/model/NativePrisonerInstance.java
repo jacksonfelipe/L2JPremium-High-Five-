@@ -15,6 +15,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
  */
 public final class NativePrisonerInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public NativePrisonerInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

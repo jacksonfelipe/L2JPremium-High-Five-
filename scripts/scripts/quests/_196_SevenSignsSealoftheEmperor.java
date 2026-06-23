@@ -270,7 +270,7 @@ public class _196_SevenSignsSealoftheEmperor extends Quest implements ScriptFile
 		return htmltext;
 	}
 	
-	private void enterInstance(Player player)
+	public void enterInstance(Player player)
 	{
 		Reflection r = player.getActiveReflection();
 		if (r != null)
@@ -296,7 +296,7 @@ public class _196_SevenSignsSealoftheEmperor extends Quest implements ScriptFile
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			if (_r != null)
 			{

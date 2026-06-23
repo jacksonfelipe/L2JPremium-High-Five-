@@ -14,6 +14,7 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class Kama26BossInstance extends KamalokaBossInstance
 {
+	private static final long serialVersionUID = 1L;
 	private ScheduledFuture<?> _spawner;
 	private ReflectionCollapseListener _refCollapseListener = new ReflectionCollapseListener();
 	

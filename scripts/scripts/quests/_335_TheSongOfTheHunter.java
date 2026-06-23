@@ -1002,8 +1002,8 @@ public class _335_TheSongOfTheHunter extends Quest implements ScriptFile
 	{
 		public final int request_id, request_item, request_count, reward_adena;
 		public final String text;
-		public final Map<Integer, Integer> droplist = new HashMap<Integer, Integer>();
-		public final Map<Integer, int[]> spawnlist = new HashMap<Integer, int[]>();
+		public final Map<Integer, Integer> droplist = new HashMap<>();
+		public final Map<Integer, int[]> spawnlist = new HashMap<>();
 		
 		public Request(int requestid, int requestitem, int requestcount, int rewardadena, String txt)
 		{

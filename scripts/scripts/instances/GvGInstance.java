@@ -57,9 +57,9 @@ public class GvGInstance extends Reflection
 	
 	private Party team1;
 	private Party team2;
-	private List<HardReference<Player>> bothTeams = new CopyOnWriteArrayList<HardReference<Player>>();
+	private List<HardReference<Player>> bothTeams = new CopyOnWriteArrayList<>();
 	
-	private TIntObjectHashMap<MutableInt> score = new TIntObjectHashMap<MutableInt>();
+	private TIntObjectHashMap<MutableInt> score = new TIntObjectHashMap<>();
 	private int team1Score = 0;
 	private int team2Score = 0;
 	
@@ -252,7 +252,7 @@ public class GvGInstance extends Reflection
 		peace2.setActive(false);
 	}
 	
-	private void reward(Party party)
+	public void reward(Party party)
 	{
 		for (Player member : party.getMembers())
 		{
@@ -466,10 +466,7 @@ public class GvGInstance extends Reflection
 		score.clear();
 	}
 	
-	/**
-	 * @param player
-	 * @param refId Called by onDeath. Handles the resurrection at the proper base.
-	 */
+ 
 	public void resurrectAtBase(Player player)
 	{
 		if (player.isDead())
@@ -481,13 +478,7 @@ public class GvGInstance extends Reflection
 		}
 		player.altOnMagicUseTimer(player, SkillTable.getInstance().getInfo(5660, 2)); // Battlefield Death Syndrome
 		
-		// Location pos;
-		// if(team1.containsMember(player))
-		// pos = Location.findPointToStay(GvG.TEAM1_LOC, 0, 150, getGeoIndex());
-		// else
-		// pos = Location.findPointToStay(GvG.TEAM2_LOC, 0, 150, getGeoIndex());
-		
-		// player.teleToLocation(pos, this);
+	 
 	}
 	
 	/**
@@ -510,9 +501,7 @@ public class GvGInstance extends Reflection
 		}
 	}
 	
-	/**
-	 * @param isRed Handles the team withdraw from the area of event. Can only be called when !isActive
-	 */
+ 
 	private void teamWithdraw(Party party)
 	{
 		if (party == team1)
@@ -553,7 +542,7 @@ public class GvGInstance extends Reflection
 	public class BossSpawn extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			broadCastPacketToBothTeams(new ExShowScreenMessage("There was a guard Treasure Herald", 5000, ScreenMessageAlign.MIDDLE_CENTER, true));
 			addSpawnWithoutRespawn(BOSS_ID, new Location(147304, 142824, -15864, 32768), 0);
@@ -564,7 +553,7 @@ public class GvGInstance extends Reflection
 	public class CountingDown extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			broadCastPacketToBothTeams(new ExShowScreenMessage("Until the end of the battle remained 1 minute", 4000, ScreenMessageAlign.MIDDLE_CENTER, true));
 		}
@@ -573,7 +562,7 @@ public class GvGInstance extends Reflection
 	public class BattleEnd extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			broadCastPacketToBothTeams(new ExShowScreenMessage("The battle has expired. Teleportation 1 minute.", 4000, ScreenMessageAlign.BOTTOM_RIGHT, true));
 			end();
@@ -583,19 +572,13 @@ public class GvGInstance extends Reflection
 	public class Finish extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			unParalyzePlayers();
 			cleanUp();
 		}
 	}
-	
-	/**
-	 * @param npcId
-	 * @param loc
-	 * @param randomOffset
-	 * @param refId Custom instanced spawn method
-	 */
+ 
 	@Override
 	public NpcInstance addSpawnWithoutRespawn(int npcId, Location loc, int randomOffset)
 	{

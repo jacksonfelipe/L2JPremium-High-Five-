@@ -24,6 +24,8 @@ import quests._236_SeedsOfChaos;
 
 public class TerritoryManagerInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public TerritoryManagerInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

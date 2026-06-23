@@ -217,7 +217,7 @@ public class _10296_SevenSignsPoweroftheSeal extends Quest implements ScriptFile
 		return null;
 	}
 	
-	private void teleportElcardia(Player player)
+	public void teleportElcardia(Player player)
 	{
 		for (NpcInstance n : player.getReflection().getNpcs())
 		{
@@ -232,7 +232,7 @@ public class _10296_SevenSignsPoweroftheSeal extends Quest implements ScriptFile
 		}
 	}
 	
-	private void teleportElcardia(Player player, Location loc)
+	public void teleportElcardia(Player player, Location loc)
 	{
 		for (NpcInstance n : player.getReflection().getNpcs())
 		{
@@ -254,7 +254,7 @@ public class _10296_SevenSignsPoweroftheSeal extends Quest implements ScriptFile
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			_player.teleToLocation(new Location(76736, -241021, -10832));
 			teleportElcardia(_player);
@@ -271,13 +271,13 @@ public class _10296_SevenSignsPoweroftheSeal extends Quest implements ScriptFile
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			teleportElcardia(_player);
 		}
 	}
 	
-	private void enterInstance(Player player, int instancedZoneId)
+	public void enterInstance(Player player, int instancedZoneId)
 	{
 		Reflection r = player.getActiveReflection();
 		if (r != null)

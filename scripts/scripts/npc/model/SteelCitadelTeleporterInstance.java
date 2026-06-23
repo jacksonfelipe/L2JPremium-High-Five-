@@ -12,6 +12,8 @@ import premium.gameserver.utils.ReflectionUtils;
  */
 public class SteelCitadelTeleporterInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public SteelCitadelTeleporterInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);
@@ -132,7 +134,7 @@ public class SteelCitadelTeleporterInstance extends NpcInstance
 		}
 	}
 	
-	private boolean rangeCheck(Player pl)
+	public boolean rangeCheck(Player pl)
 	{
 		for (Player m : pl.getParty().getMembers())
 		{
@@ -144,16 +146,13 @@ public class SteelCitadelTeleporterInstance extends NpcInstance
 		return true;
 	}
 	
-	private int getIz(int floor)
+	public int getIz(int floor)
 	{
 		if (floor == 5)
 		{
 			return 3;
 		}
-		else
-		{
-			return 4;
-		}
+		return 4;
 	}
 	
 	private void enterInstance(Player player, int floor)

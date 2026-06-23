@@ -40,7 +40,7 @@ public class BossRespawn extends Functions
 		show(append.toString(), player, null);
 	}
 	
-	private String epicBoss()
+	public String epicBoss()
 	{
 		long _respawnDate;
 		String _name;

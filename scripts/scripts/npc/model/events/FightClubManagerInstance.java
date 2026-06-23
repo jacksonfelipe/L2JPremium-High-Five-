@@ -265,7 +265,7 @@ public class FightClubManagerInstance extends NpcInstance
 		player.sendPacket(html);
 	}
 	
-	private int getPagesCount(int count)
+	public int getPagesCount(int count)
 	{
 		if (count % Config.PLAYERS_PER_PAGE > 0)
 		{
@@ -274,7 +274,7 @@ public class FightClubManagerInstance extends NpcInstance
 		return count / Config.PLAYERS_PER_PAGE;
 	}
 	
-	private Object callScripts(String methodName, Object[] args)
+	public Object callScripts(String methodName, Object[] args)
 	{
 		return Functions.callScripts("events.FightClub.FightClubManager", methodName, args);
 	}

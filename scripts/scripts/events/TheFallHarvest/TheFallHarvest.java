@@ -25,7 +25,7 @@ public class TheFallHarvest extends Functions implements ScriptFile, OnDeathList
 {
 	private static final Logger _log = LoggerFactory.getLogger(TheFallHarvest.class);
 	private static int EVENT_MANAGER_ID = 31255;
-	private static List<SimpleSpawner> _spawns = new ArrayList<SimpleSpawner>();
+	private static List<SimpleSpawner> _spawns = new ArrayList<>();
 	
 	private static boolean _active = false;
 	private static boolean MultiSellLoaded = false;
@@ -115,7 +115,7 @@ public class TheFallHarvest extends Functions implements ScriptFile, OnDeathList
 	/**
 	 * Спавнит эвент менеджеров
 	 */
-	private void spawnEventManagers()
+	public void spawnEventManagers()
 	{
 		final int EVENT_MANAGERS[][] =
 		{
@@ -199,7 +199,7 @@ public class TheFallHarvest extends Functions implements ScriptFile, OnDeathList
 	/**
 	 * Удаляет спавн эвент менеджеров
 	 */
-	private void unSpawnEventManagers()
+	public void unSpawnEventManagers()
 	{
 		deSpawnNPCs(_spawns);
 	}

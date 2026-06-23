@@ -148,21 +148,16 @@ public class Special extends SimpleItemHandler implements ScriptFile
 		}
 	}
 	
-	// Coin - PrimeShop Points adder
-	private boolean use4356(Player player, boolean ctrl)
+ 
+	public boolean use4356(Player player, boolean ctrl)
 	{
-		if (player == null || !(player instanceof Player))
-		{
-			player.sendPacket(SystemMsg.THAT_IS_AN_INCORRECT_TARGET);
-			return false;
-		}
-		int rnd = Rnd.get(1, 5);
+		if(player != null)
 		player.sendMessage("Not Working");
 		return true;
 	}
 	
 	// Wondrous Cubic 1 time use
-	private boolean use21106(Player player, boolean ctrl)
+	public boolean use21106(Player player, boolean ctrl)
 	{
 		Functions.removeItem(player, 21106, 1, "use21106");
 		
@@ -256,7 +251,7 @@ public class Special extends SimpleItemHandler implements ScriptFile
 		return true;
 	}
 	
-	private boolean use21107(Player player, boolean ctrl)
+	public boolean use21107(Player player, boolean ctrl)
 	{
 		Functions.removeItem(player, 21107, 1, "use21107");
 		
@@ -395,7 +390,7 @@ public class Special extends SimpleItemHandler implements ScriptFile
 	}
 	
 	// Key of Enigma
-	private boolean use8060(Player player, boolean ctrl)
+	public boolean use8060(Player player, boolean ctrl)
 	{
 		if (Functions.removeItem(player, 8058, 1, "use8060") == 1)
 		{
@@ -405,7 +400,7 @@ public class Special extends SimpleItemHandler implements ScriptFile
 		return false;
 	}
 	
-	private boolean use20630(Player player, boolean ctrl)
+	public boolean use20630(Player player, boolean ctrl)
 	{
 		Functions.addItem(player, 20602, 1, "use20630");
 		Functions.addItem(player, 20603, 1, "use20630");
@@ -413,7 +408,7 @@ public class Special extends SimpleItemHandler implements ScriptFile
 	}
 	
 	// Dewdrop of Destruction
-	private boolean use8556(Player player, boolean ctrl)
+	public boolean use8556(Player player, boolean ctrl)
 	{
 		int[] npcs =
 		{
@@ -439,7 +434,7 @@ public class Special extends SimpleItemHandler implements ScriptFile
 	}
 	
 	// DestroyedDarknessFragmentPowder -> DestroyedLightFragmentPowde
-	private boolean use13853(Player player, boolean ctrl)
+	public boolean use13853(Player player, boolean ctrl)
 	{
 		if (!player.isInZone(ZoneType.mother_tree))
 		{
@@ -452,7 +447,7 @@ public class Special extends SimpleItemHandler implements ScriptFile
 	}
 	
 	// Holy Water for SSQ 2nd quest
-	private boolean use13808(Player player, boolean ctrl)
+	public boolean use13808(Player player, boolean ctrl)
 	{
 		int[] allowedDoors =
 		{
@@ -488,13 +483,9 @@ public class Special extends SimpleItemHandler implements ScriptFile
 	}
 	
 	// My Teleport SpellBook (Capacity added + 3)
-	private boolean use13015(Player player, boolean ctrl)
+	public boolean use13015(Player player, boolean ctrl)
 	{
-		if (player == null || !(player instanceof Player))
-		{
-			player.sendPacket(SystemMsg.THAT_IS_AN_INCORRECT_TARGET);
-			return false;
-		}
+		 
 		if (player.bookmarks.getCapacity() >= 30)
 		{
 			player.sendPacket(new SystemMessage(SystemMessage.YOUR_NUMBER_OF_MY_TELEPORTS_SLOTS_HAS_REACHED_ITS_MAXIMUM_LIMIT));
@@ -507,7 +498,7 @@ public class Special extends SimpleItemHandler implements ScriptFile
 	}
 	
 	// Court Mag Staff for SSQ 2nd quest
-	private boolean use13809(Player player, boolean ctrl)
+	public boolean use13809(Player player, boolean ctrl)
 	{
 		int[] allowedDoors =
 		{
@@ -525,20 +516,14 @@ public class Special extends SimpleItemHandler implements ScriptFile
 				player.getReflection().openDoor(_door);
 				return false;
 			}
-			else
-			{
-				player.sendPacket(SystemMsg.THAT_IS_AN_INCORRECT_TARGET);
-				return false;
-			}
-		}
-		else
-		{
-			player.sendPacket(Msg.INVALID_TARGET);
+			player.sendPacket(SystemMsg.THAT_IS_AN_INCORRECT_TARGET);
 			return false;
 		}
+		player.sendPacket(Msg.INVALID_TARGET);
+		return false;
 	}
 	
-	private boolean use14835(Player player, boolean ctrl)
+	public boolean use14835(Player player, boolean ctrl)
 	{
 		// TODO [G1ta0] добавить кучу других проверок на возможность телепорта
 		if (player.isActionsDisabled() || player.isInOlympiadMode() || player.isInZone(ZoneType.no_escape))
@@ -554,7 +539,7 @@ public class Special extends SimpleItemHandler implements ScriptFile
 	}
 	
 	// Strongbox of Promise
-	private boolean use15537(Player player, boolean ctrl)
+	public boolean use15537(Player player, boolean ctrl)
 	{
 		QuestState qs = player.getQuestState(_464_Oath.class);
 		if (player.getLevel() >= 82 && qs == null)
@@ -576,7 +561,7 @@ public class Special extends SimpleItemHandler implements ScriptFile
 	}
 	
 	// Wondrous Cubic
-	private boolean use10632(Player player, boolean ctrl)
+	public boolean use10632(Player player, boolean ctrl)
 	{
 		Calendar currentTime = Calendar.getInstance();
 		if (currentTime.get(Calendar.HOUR_OF_DAY) == 6 && currentTime.get(Calendar.MINUTE) == 30)
@@ -632,7 +617,7 @@ public class Special extends SimpleItemHandler implements ScriptFile
 	}
 	
 	// Totem
-	private boolean use21899(Player player, boolean ctrl)
+	public boolean use21899(Player player, boolean ctrl)
 	{
 		if (!player.isInZone(AntharasManager.getZone()) && !player.isInZone(ValakasManager.getZone()))
 		{
@@ -644,7 +629,7 @@ public class Special extends SimpleItemHandler implements ScriptFile
 	}
 	
 	// Totem
-	private boolean use21900(Player player, boolean ctrl)
+	public boolean use21900(Player player, boolean ctrl)
 	{
 		if (!player.isInZone(AntharasManager.getZone()) && !player.isInZone(ValakasManager.getZone()))
 		{
@@ -656,7 +641,7 @@ public class Special extends SimpleItemHandler implements ScriptFile
 	}
 	
 	// Totem
-	private boolean use21901(Player player, boolean ctrl)
+	public boolean use21901(Player player, boolean ctrl)
 	{
 		if (!player.isInZone(AntharasManager.getZone()) && !player.isInZone(ValakasManager.getZone()))
 		{
@@ -668,7 +653,7 @@ public class Special extends SimpleItemHandler implements ScriptFile
 	}
 	
 	// Totem
-	private boolean use21902(Player player, boolean ctrl)
+	public boolean use21902(Player player, boolean ctrl)
 	{
 		if (!player.isInZone(AntharasManager.getZone()) && !player.isInZone(ValakasManager.getZone()))
 		{
@@ -680,7 +665,7 @@ public class Special extends SimpleItemHandler implements ScriptFile
 	}
 	
 	// Refined Red Dragon Blood
-	private boolean use21903(Player player, boolean ctrl)
+	public boolean use21903(Player player, boolean ctrl)
 	{
 		if (!player.isInZone(AntharasManager.getZone()) && !player.isInZone(ValakasManager.getZone()))
 		{
@@ -693,7 +678,7 @@ public class Special extends SimpleItemHandler implements ScriptFile
 	}
 	
 	// Refined Blue Dragon Blood
-	private boolean use21904(Player player, boolean ctrl)
+	public boolean use21904(Player player, boolean ctrl)
 	{
 		if (!player.isInZone(AntharasManager.getZone()) && !player.isInZone(ValakasManager.getZone()))
 		{
@@ -706,7 +691,7 @@ public class Special extends SimpleItemHandler implements ScriptFile
 	}
 	
 	// Antharas Blood Crystal
-	private boolean use17268(Player player, boolean ctrl)
+	public boolean use17268(Player player, boolean ctrl)
 	{
 		if (!player.isInZone(AntharasManager.getZone()))
 		{
@@ -718,7 +703,7 @@ public class Special extends SimpleItemHandler implements ScriptFile
 		return true;
 	}
 	
-	private static long useItem(Player player, int itemId, long count)
+	public static long useItem(Player player, int itemId, long count)
 	{
 		player.sendPacket(new SystemMessage(SystemMessage.YOU_USE_S1).addItemName(itemId));
 		return Functions.removeItem(player, itemId, count, "useItem");

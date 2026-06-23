@@ -13,6 +13,8 @@ import quests._10288_SecretMission;
 public class PriestAquilaniInstance extends NpcInstance
 {
 	
+	private static final long serialVersionUID = 1L;
+
 	public PriestAquilaniInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);
@@ -26,11 +28,8 @@ public class PriestAquilaniInstance extends NpcInstance
 			player.sendPacket(new NpcHtmlMessage(player, this, "default/32780-1.htm", val));
 			return;
 		}
-		else
-		{
-			player.sendPacket(new NpcHtmlMessage(player, this, "default/32780.htm", val));
-			return;
-		}
+		player.sendPacket(new NpcHtmlMessage(player, this, "default/32780.htm", val));
+		return;
 	}
 	
 	@Override
@@ -46,9 +45,6 @@ public class PriestAquilaniInstance extends NpcInstance
 			player.teleToLocation(new Location(118833, -80589, -2688));
 			return;
 		}
-		else
-		{
-			super.onBypassFeedback(player, command);
-		}
+		super.onBypassFeedback(player, command);
 	}
 }

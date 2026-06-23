@@ -6,6 +6,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public final class EnergySeedInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public EnergySeedInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

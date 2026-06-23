@@ -243,7 +243,7 @@ public class _344_1000YearsEndofLamentation extends Quest implements ScriptFile
 		return null;
 	}
 	
-	private boolean rewards(QuestState st, int npcId)
+	public boolean rewards(QuestState st, int npcId)
 	{
 		boolean state = false;
 		int chance = Rnd.get(100);

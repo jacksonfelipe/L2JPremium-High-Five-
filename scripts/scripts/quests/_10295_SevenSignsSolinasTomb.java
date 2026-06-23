@@ -58,38 +58,7 @@ public class _10295_SevenSignsSolinasTomb extends Quest implements ScriptFile
 		18959
 	};
 	
-	static
-	{
-		Location[] minions1 =
-		{
-			new Location(55672, -252120, -6760),
-			new Location(55752, -252120, -6760),
-			new Location(55656, -252216, -6760),
-			new Location(55736, -252216, -6760)
-		};
-		Location[] minions2 =
-		{
-			new Location(55672, -252728, -6760),
-			new Location(55752, -252840, -6760),
-			new Location(55768, -252840, -6760),
-			new Location(55752, -252712, -6760)
-		};
-		Location[] minions3 =
-		{
-			new Location(56504, -252840, -6760),
-			new Location(56504, -252728, -6760),
-			new Location(56392, -252728, -6760),
-			new Location(56408, -252840, -6760)
-		};
-		Location[] minions4 =
-		{
-			new Location(56520, -252232, -6760),
-			new Location(56520, -252104, -6760),
-			new Location(56424, -252104, -6760),
-			new Location(56440, -252216, -6760)
-		};
-	}
-	
+	 
 	public _10295_SevenSignsSolinasTomb()
 	{
 		super(false);
@@ -130,56 +99,44 @@ public class _10295_SevenSignsSolinasTomb extends Quest implements ScriptFile
 			if (st.getQuestItemsCount(StaffofBlessing) > 0)
 			{
 				st.takeAllItems(StaffofBlessing);
-				// TODO: remove glow from NPC
+				 
 				removeInvincibility(player, 18953);
 				return null;
 			}
-			else
-			{
-				htmltext = "powerful_q10295_0.htm";
-			}
+			htmltext = "powerful_q10295_0.htm";
 		}
 		else if (event.equalsIgnoreCase("use_book"))
 		{
 			if (st.getQuestItemsCount(ScrollofAbstinence) > 0)
 			{
 				st.takeAllItems(ScrollofAbstinence);
-				// TODO: remove glow from NPC
+				
 				removeInvincibility(player, 18954);
 				return null;
 			}
-			else
-			{
-				htmltext = "powerful_q10295_0.htm";
-			}
+			htmltext = "powerful_q10295_0.htm";
 		}
 		else if (event.equalsIgnoreCase("use_sword"))
 		{
 			if (st.getQuestItemsCount(SwordofHolySpirit) > 0)
 			{
 				st.takeAllItems(SwordofHolySpirit);
-				// TODO: remove glow from NPC
+				
 				removeInvincibility(player, 18955);
 				return null;
 			}
-			else
-			{
-				htmltext = "powerful_q10295_0.htm";
-			}
+			htmltext = "powerful_q10295_0.htm";
 		}
 		else if (event.equalsIgnoreCase("use_shield"))
 		{
 			if (st.getQuestItemsCount(ShieldofSacrifice) > 0)
 			{
 				st.takeAllItems(ShieldofSacrifice);
-				// TODO: remove glow from NPC
+				
 				removeInvincibility(player, 18952);
 				return null;
 			}
-			else
-			{
-				htmltext = "powerful_q10295_0.htm";
-			}
+			htmltext = "powerful_q10295_0.htm";
 		}
 		else if (event.equalsIgnoreCase("altarstaff_q10295_2.htm"))
 		{
@@ -420,7 +377,7 @@ public class _10295_SevenSignsSolinasTomb extends Quest implements ScriptFile
 		return null;
 	}
 	
-	private void teleportElcardia(Player player)
+	public void teleportElcardia(Player player)
 	{
 		for (NpcInstance n : player.getReflection().getNpcs())
 		{
@@ -431,7 +388,7 @@ public class _10295_SevenSignsSolinasTomb extends Quest implements ScriptFile
 		}
 	}
 	
-	private void removeInvincibility(Player player, int mobId)
+	public void removeInvincibility(Player player, int mobId)
 	{
 		for (NpcInstance n : player.getReflection().getNpcs())
 		{
@@ -448,7 +405,7 @@ public class _10295_SevenSignsSolinasTomb extends Quest implements ScriptFile
 		}
 	}
 	
-	private boolean checkGuardians(Player player, int[] npcIds)
+	public boolean checkGuardians(Player player, int[] npcIds)
 	{
 		for (NpcInstance n : player.getReflection().getNpcs())
 		{
@@ -460,7 +417,7 @@ public class _10295_SevenSignsSolinasTomb extends Quest implements ScriptFile
 		return true;
 	}
 	
-	private void activateTombGuards(Player player)
+	public void activateTombGuards(Player player)
 	{
 		Reflection r = player.getReflection();
 		if (r == null || r.isDefault())

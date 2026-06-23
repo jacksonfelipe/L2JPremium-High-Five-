@@ -13,7 +13,7 @@ public class _552_OlympiadVeteran extends Quest implements ScriptFile
 	private static final int OLYMPIAD_MANAGER = 31688;
 	
 	// Items
-	private static final int MEDAL_OF_GLORY = 21874;
+ 
 	private static final int OLYMPIAD_CHEST = 17169;
 	private static final int TEAM_CERTIFICATE = 17241;
 	private static final int CLASS_FREE_CERTIFICATE = 17242;
@@ -47,10 +47,7 @@ public class _552_OlympiadVeteran extends Quest implements ScriptFile
 					{
 						return "olympiad_operator_q0552_01.htm";
 					}
-					else
-					{
-						return "olympiad_operator_q0552_06.htm";
-					}
+					return "olympiad_operator_q0552_06.htm";
 				}
 				else if (st.isStarted())
 				{

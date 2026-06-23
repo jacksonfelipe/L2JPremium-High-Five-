@@ -45,7 +45,7 @@ public class Seed extends ScriptItemHandler implements ScriptFile
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			spawnedTree.deleteAll();
 		}

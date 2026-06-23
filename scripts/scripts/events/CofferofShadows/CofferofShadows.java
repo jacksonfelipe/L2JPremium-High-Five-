@@ -25,14 +25,12 @@ public class CofferofShadows extends Functions implements ScriptFile, OnPlayerEn
 	private static int COFFER_PRICE = 50000; // 50.000 adena at x1 servers
 	private static int COFFER_ID = 8659;
 	private static int EVENT_MANAGER_ID = 32091;
-	private static List<SimpleSpawner> _spawns = new ArrayList<SimpleSpawner>();
+	private static List<SimpleSpawner> _spawns = new ArrayList<>();
 	private static final Logger _log = LoggerFactory.getLogger(CofferofShadows.class);
 	private static boolean _active = false;
 	
-	/**
-	 * Спавнит эвент менеджеров
-	 */
-	private void spawnEventManagers()
+ 
+	public void spawnEventManagers()
 	{
 		final int EVENT_MANAGERS[][] =
 		{
@@ -107,10 +105,8 @@ public class CofferofShadows extends Functions implements ScriptFile, OnPlayerEn
 		SpawnNPCs(EVENT_MANAGER_ID, EVENT_MANAGERS, _spawns);
 	}
 	
-	/**
-	 * Удаляет спавн эвент менеджеров
-	 */
-	private void unSpawnEventManagers()
+ 
+	public void unSpawnEventManagers()
 	{
 		deSpawnNPCs(_spawns);
 	}

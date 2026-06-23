@@ -10,6 +10,10 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class TreasureChestInstance extends ChestInstance
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4263942502010833639L;
 	private static final int TREASURE_BOMB_ID = 4143;
 	
 	public TreasureChestInstance(int objectId, NpcTemplate template)

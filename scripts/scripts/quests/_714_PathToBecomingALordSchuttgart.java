@@ -75,7 +75,7 @@ public class _714_PathToBecomingALordSchuttgart extends Quest implements ScriptF
 	{
 		String htmltext = "noquest";
 		int npcId = npc.getNpcId();
-		int id = st.getState();
+		 
 		int cond = st.getCond();
 		Castle castle = ResidenceHolder.getInstance().getResidence(ShuttgartCastle);
 		if (castle.getOwner() == null)

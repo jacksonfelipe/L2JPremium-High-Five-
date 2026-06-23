@@ -74,7 +74,7 @@ public class ClanPanel extends Functions
 		}
 	}
 	
-	private String parseNavigate(Clan clan, int page)
+	public String parseNavigate(Clan clan, int page)
 	{
 		final StringBuilder pg = new StringBuilder();
 		final double size = clan.getOnlineMembers(0).size();

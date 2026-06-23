@@ -17,6 +17,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
  */
 public class HandysBlockCheckerInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public HandysBlockCheckerInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);
@@ -94,7 +96,7 @@ public class HandysBlockCheckerInstance extends NpcInstance
 		}
 	}
 	
-	private boolean eventIsFull(int arena)
+	public boolean eventIsFull(int arena)
 	{
 		if (HandysBlockCheckerManager.getInstance().getHolder(arena).getAllPlayers().size() == 12)
 		{

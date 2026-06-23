@@ -91,7 +91,7 @@ public class SufferingHallAttack extends Reflection
 				ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 				{
 					@Override
-					public void runImpl() throws Exception
+					public void runImpl()  
 					{
 						spawnRoom(7);
 						setReenterTime(System.currentTimeMillis());

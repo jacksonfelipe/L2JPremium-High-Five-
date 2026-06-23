@@ -190,7 +190,7 @@ public class FreyaHard extends Reflection
 	private class StartHardFreya extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			_entryLocked = true;
 			closeDoor(23140101);
@@ -206,7 +206,7 @@ public class FreyaHard extends Reflection
 	private class PreStage extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			manageDamageZone(4, false);
 			// screen message
@@ -226,7 +226,7 @@ public class FreyaHard extends Reflection
 	private class FirstStage extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			manageCastleController(1);
 			for (Player player : getPlayers())
@@ -254,7 +254,7 @@ public class FreyaHard extends Reflection
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			switch (_mode)
 			{

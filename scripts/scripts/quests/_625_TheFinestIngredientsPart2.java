@@ -255,7 +255,7 @@ public class _625_TheFinestIngredientsPart2 extends Quest implements ScriptFile
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			if (_spawn == null)
 			{

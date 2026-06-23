@@ -52,13 +52,13 @@ public class _348_ArrogantSearch extends Quest implements ScriptFile
 	private final static int HEALING_POTION = 1061;
 	
 	// ARK: [key, summon, no-key text, openning-with-key text, already-openned text, content item]
-	private final static Map<Integer, Integer[]> ARKS = new HashMap<Integer, Integer[]>();
-	private final static Map<Integer, String[]> ARKS_TEXT = new HashMap<Integer, String[]>();
+	private final static Map<Integer, Integer[]> ARKS = new HashMap<>();
+	private final static Map<Integer, String[]> ARKS_TEXT = new HashMap<>();
 	// npc: letter to take, item to check for, 1st time htm, return htm, completed part htm, [x,y,z of chest]
-	private final static Map<Integer, Integer[]> ARK_OWNERS = new HashMap<Integer, Integer[]>();
-	private final static Map<Integer, String[]> ARK_OWNERS_TEXT = new HashMap<Integer, String[]>();
+	private final static Map<Integer, Integer[]> ARK_OWNERS = new HashMap<>();
+	private final static Map<Integer, String[]> ARK_OWNERS_TEXT = new HashMap<>();
 	// mob: cond, giveItem, amount, chance%, takeItem (assumed to take only 1 of it)
-	private final static Map<Integer, Integer[]> DROPS = new HashMap<Integer, Integer[]>();
+	private final static Map<Integer, Integer[]> DROPS = new HashMap<>();
 	
 	static
 	{

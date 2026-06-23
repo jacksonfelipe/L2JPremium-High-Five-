@@ -30,6 +30,7 @@ import premium.gameserver.utils.WarehouseFunctions;
  */
 public abstract class ResidenceManager extends MerchantInstance
 {
+	private static final long serialVersionUID = 1L;
 	protected static final int COND_FAIL = 0;
 	protected static final int COND_SIEGE = 1;
 	protected static final int COND_OWNER = 2;
@@ -91,15 +92,9 @@ public abstract class ResidenceManager extends MerchantInstance
 			{
 				return COND_SIEGE;
 			}
-			else
-			{
-				return COND_OWNER;
-			}
+			return COND_OWNER;
 		}
-		else
-		{
-			return COND_FAIL;
-		}
+		return COND_FAIL;
 	}
 	
 	@Override

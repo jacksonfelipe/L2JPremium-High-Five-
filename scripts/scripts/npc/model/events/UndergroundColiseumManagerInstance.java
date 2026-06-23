@@ -20,6 +20,7 @@ import premium.gameserver.utils.Util;
  */
 public class UndergroundColiseumManagerInstance extends UndergroundColiseumHelperInstance
 {
+	private static final long serialVersionUID = 1L;
 	private final String _startHtm;
 	
 	public UndergroundColiseumManagerInstance(int objectId, NpcTemplate template)

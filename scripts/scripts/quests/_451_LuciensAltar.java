@@ -149,7 +149,7 @@ public class _451_LuciensAltar extends Quest implements ScriptFile
 		return htmltext;
 	}
 	
-	private void onAltarCheck(QuestState st)
+	public void onAltarCheck(QuestState st)
 	{
 		st.takeItems(REPLENISHED_BEAD, 1);
 		st.giveItems(DISCHARGED_BEAD, 1);

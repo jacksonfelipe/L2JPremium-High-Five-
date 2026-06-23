@@ -20,6 +20,7 @@ import premium.gameserver.utils.ReflectionUtils;
  */
 public class AuctionedDoormanInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private int[] _doors;
 	private boolean _elite;
 	

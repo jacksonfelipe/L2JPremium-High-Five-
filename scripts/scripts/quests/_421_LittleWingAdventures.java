@@ -70,7 +70,7 @@ public class _421_LittleWingAdventures extends Quest implements ScriptFile
 	
 	private static ItemInstance GetDragonflute(QuestState st)
 	{
-		List<ItemInstance> Dragonflutes = new ArrayList<ItemInstance>();
+		List<ItemInstance> Dragonflutes = new ArrayList<>();
 		for (ItemInstance item : st.getPlayer().getInventory().getItems())
 		{
 			if (item != null && (item.getItemId() == Dragonflute_of_Wind || item.getItemId() == Dragonflute_of_Star || item.getItemId() == Dragonflute_of_Twilight))
@@ -391,7 +391,7 @@ public class _421_LittleWingAdventures extends Quest implements ScriptFile
 				}
 				if (st.getPlayer().getParty() != null)
 				{
-					agressors_party = new ArrayList<String>();
+					agressors_party = new ArrayList<>();
 					for (Player _member : st.getPlayer().getParty().getMembers())
 					{
 						if (!_member.equals(st.getPlayer()))
@@ -438,7 +438,7 @@ public class _421_LittleWingAdventures extends Quest implements ScriptFile
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			if (_spawn == null)
 			{

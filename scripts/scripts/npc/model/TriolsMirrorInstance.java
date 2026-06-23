@@ -10,6 +10,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
  */
 public class TriolsMirrorInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public TriolsMirrorInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

@@ -58,7 +58,7 @@ public abstract class Dominion_KillSpecialUnitQuest extends Quest implements Scr
 			return null;
 		}
 		DominionSiegeEvent event2 = killed.getEvent(DominionSiegeEvent.class);
-		if (event1 == null || event2 == null || event2 == event1 || !ArrayUtils.contains(_classIds, killed.getClassId()))
+		if (event2 == null || event2 == event1 || !ArrayUtils.contains(_classIds, killed.getClassId()))
 		{
 			return null;
 		}

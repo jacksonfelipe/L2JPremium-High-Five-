@@ -230,7 +230,7 @@ public class BypassTournament implements ScriptFile, IBypassHandler
 	private static Collection<ItemTemplate> getWeaponsSingleSA()
 	{
 		final int[] ids = ConfigHolder.getIntArray("TournamentWeaponsToBeChosen");
-		final Map<String, ItemTemplate> itemsByName = new HashMap<String, ItemTemplate>(ids.length);
+		final Map<String, ItemTemplate> itemsByName = new HashMap<>(ids.length);
 		for (int id : ids)
 		{
 			final ItemTemplate template = ItemHolder.getInstance().getTemplate(id);
@@ -249,7 +249,7 @@ public class BypassTournament implements ScriptFile, IBypassHandler
 		{
 			return Collections.emptyList();
 		}
-		final List<ItemTemplate> weapons = new ArrayList<ItemTemplate>(3);
+		final List<ItemTemplate> weapons = new ArrayList<>(3);
 		for (int id : ConfigHolder.getIntArray("TournamentWeaponsToBeChosen"))
 		{
 			final ItemTemplate template = ItemHolder.getInstance().getTemplate(id);
@@ -264,7 +264,7 @@ public class BypassTournament implements ScriptFile, IBypassHandler
 	private static List<ItemTemplate> getChests()
 	{
 		final int[][] sets = ConfigHolder.getMultiIntArray("TournamentArmorsToBeChosen");
-		final List<ItemTemplate> setTemplates = new ArrayList<ItemTemplate>(sets.length);
+		final List<ItemTemplate> setTemplates = new ArrayList<>(sets.length);
 		for (int[] set : sets)
 		{
 			final int chestId = getChestId(set);

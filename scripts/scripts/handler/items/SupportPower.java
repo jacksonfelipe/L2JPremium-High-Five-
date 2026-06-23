@@ -57,8 +57,8 @@ public class SupportPower extends ScriptItemHandler implements ScriptFile
 		return ITEM_IDS;
 	}
 	
-	@SuppressWarnings("unused")
-	private int[] getClassIds()
+	 
+	public int[] getClassIds()
 	{
 		return CLASS_IDS;
 	}

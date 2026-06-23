@@ -13,6 +13,7 @@ import premium.gameserver.templates.npc.NpcTemplate;
  */
 public class MessengerInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private String _siegeDialog;
 	private String _ownerDialog;
 	

@@ -45,7 +45,7 @@ public class glitmedal extends Functions implements ScriptFile, OnDeathListener,
 	private static int Badge_of_Fox = 6401;
 	private static int Badge_of_Wolf = 6402;
 	
-	private static List<SimpleSpawner> _spawns = new ArrayList<SimpleSpawner>();
+	private static List<SimpleSpawner> _spawns = new ArrayList<>();
 	private static boolean _active = false;
 	private static boolean MultiSellLoaded = false;
 	
@@ -150,7 +150,7 @@ public class glitmedal extends Functions implements ScriptFile, OnDeathListener,
 	/**
 	 * Спавнит эвент менеджеров
 	 */
-	private void spawnEventManagers()
+	public void spawnEventManagers()
 	{
 		// 1й эвент кот
 		final int EVENT_MANAGERS1[][] =
@@ -349,7 +349,7 @@ public class glitmedal extends Functions implements ScriptFile, OnDeathListener,
 	/**
 	 * Удаляет спавн эвент менеджеров
 	 */
-	private void unSpawnEventManagers()
+	public void unSpawnEventManagers()
 	{
 		deSpawnNPCs(_spawns);
 	}

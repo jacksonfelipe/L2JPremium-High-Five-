@@ -233,7 +233,7 @@ public class _10293_SevenSignsForbiddenBook extends Quest implements ScriptFile
 		return htmltext;
 	}
 	
-	private void enterInstance(Player player, int instancedZoneId)
+	public void enterInstance(Player player, int instancedZoneId)
 	{
 		Reflection r = player.getActiveReflection();
 		if (r != null)
@@ -249,7 +249,7 @@ public class _10293_SevenSignsForbiddenBook extends Quest implements ScriptFile
 		}
 	}
 	
-	private void teleportElcardia(Player player)
+	public void teleportElcardia(Player player)
 	{
 		for (NpcInstance n : player.getReflection().getNpcs())
 		{

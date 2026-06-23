@@ -48,7 +48,7 @@ public class TeleportBookmark extends SimpleItemHandler implements ScriptFile
 	@Override
 	protected boolean useItemImpl(Player player, ItemInstance item, boolean ctrl)
 	{
-		if (player == null || item == null || !(player instanceof Player))
+		if (player == null || item == null )
 		{
 			return false;
 		}
@@ -58,13 +58,10 @@ public class TeleportBookmark extends SimpleItemHandler implements ScriptFile
 			player.sendPacket(SystemMsg.YOUR_NUMBER_OF_MY_TELEPORTS_SLOTS_HAS_REACHED_ITS_MAXIMUM_LIMIT);
 			return false;
 		}
-		else
-		{
-			player.getInventory().destroyItem(item, 1, "TeleportBookmark");
-			player.sendPacket(new SystemMessage2(SystemMsg.S1_HAS_DISAPPEARED).addItemName(item.getItemId()));
-			player.bookmarks.setCapacity(player.bookmarks.getCapacity() + 3);
-			player.sendPacket(SystemMsg.THE_NUMBER_OF_MY_TELEPORTS_SLOTS_HAS_BEEN_INCREASED);
-			return true;
-		}
+		player.getInventory().destroyItem(item, 1, "TeleportBookmark");
+		player.sendPacket(new SystemMessage2(SystemMsg.S1_HAS_DISAPPEARED).addItemName(item.getItemId()));
+		player.bookmarks.setCapacity(player.bookmarks.getCapacity() + 3);
+		player.sendPacket(SystemMsg.THE_NUMBER_OF_MY_TELEPORTS_SLOTS_HAS_BEEN_INCREASED);
+		return true;
 	}
 }

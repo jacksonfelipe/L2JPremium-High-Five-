@@ -38,7 +38,7 @@ public class HeartInfinityAttack extends Reflection
 	private static final int RegenerationCoffin = 18710;
 	private long tumorRespawnTime;
 	private NpcInstance ekimus;
-	private List<NpcInstance> hounds = new ArrayList<NpcInstance>(2);
+	private List<NpcInstance> hounds = new ArrayList<>(2);
 	private boolean houndBlocked = false;
 	private boolean conquestBegun = false;
 	private boolean conquestEnded = false;
@@ -72,7 +72,7 @@ public class HeartInfinityAttack extends Reflection
 		ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 		{
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl() 
 			{
 				for (Player p : getPlayers())
 				{
@@ -82,7 +82,7 @@ public class HeartInfinityAttack extends Reflection
 				ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 				{
 					@Override
-					public void runImpl() throws Exception
+					public void runImpl() 
 					{
 						conquestBegins();
 					}
@@ -184,7 +184,7 @@ public class HeartInfinityAttack extends Reflection
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			if (conquestEnded)
 			{
@@ -208,7 +208,7 @@ public class HeartInfinityAttack extends Reflection
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			if (conquestEnded)
 			{
@@ -224,7 +224,7 @@ public class HeartInfinityAttack extends Reflection
 	private class TimerTask extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			long time = (startTime + 25 * 60 * 1000L - System.currentTimeMillis()) / 60000;
 			if (time == 0)
@@ -425,7 +425,7 @@ public class HeartInfinityAttack extends Reflection
 		ekimusIdleTask = ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 		{
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl() 
 			{
 				conquestConclusion(false);
 			}
@@ -441,7 +441,7 @@ public class HeartInfinityAttack extends Reflection
 		ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 		{
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl() 
 			{
 				for (Player p : getPlayers())
 				{

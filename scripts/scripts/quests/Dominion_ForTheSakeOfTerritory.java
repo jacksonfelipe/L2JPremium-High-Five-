@@ -138,7 +138,7 @@ public abstract class Dominion_ForTheSakeOfTerritory extends Quest
 	
 	public abstract int getDominionId();
 	
-	private boolean isValidNpcKill(Player killer, NpcInstance npc)
+	public boolean isValidNpcKill(Player killer, NpcInstance npc)
 	{
 		DominionSiegeEvent npcSiegeEvent = npc.getEvent(DominionSiegeEvent.class);
 		DominionSiegeEvent killerSiegeEvent = killer.getEvent(DominionSiegeEvent.class);
@@ -150,7 +150,7 @@ public abstract class Dominion_ForTheSakeOfTerritory extends Quest
 		return true;
 	}
 	
-	private void handleReward(QuestState st)
+	public void handleReward(QuestState st)
 	{
 		Player player = st.getPlayer();
 		if (player == null)

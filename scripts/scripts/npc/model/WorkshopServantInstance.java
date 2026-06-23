@@ -21,6 +21,7 @@ import premium.gameserver.utils.Location;
 public class WorkshopServantInstance extends NpcInstance
 {
 	
+	private static final long serialVersionUID = 1L;
 	private static final int[] medals =
 	{
 		10427,
@@ -189,7 +190,7 @@ public class WorkshopServantInstance extends NpcInstance
 		return "default/" + pom + ".htm";
 	}
 	
-	private boolean hasItem(Party party, int itemId)
+	public boolean hasItem(Party party, int itemId)
 	{
 		for (Player p : party.getMembers())
 		{

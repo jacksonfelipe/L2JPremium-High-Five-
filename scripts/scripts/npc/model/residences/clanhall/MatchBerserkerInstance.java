@@ -11,6 +11,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
  */
 public class MatchBerserkerInstance extends CTBBossInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public MatchBerserkerInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

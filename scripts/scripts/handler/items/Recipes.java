@@ -95,10 +95,7 @@ public class Recipes extends ScriptItemHandler implements ScriptFile
 				player.sendPacket(new RecipeBookItemList(player, true));
 				return true;
 			}
-			else
-			{
-				player.sendPacket(Msg.YOU_ARE_NOT_AUTHORIZED_TO_REGISTER_A_RECIPE);
-			}
+			player.sendPacket(Msg.YOU_ARE_NOT_AUTHORIZED_TO_REGISTER_A_RECIPE);
 		}
 		else if (player.getCommonRecipeLimit() > 0)
 		{

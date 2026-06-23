@@ -22,6 +22,7 @@ import premium.gameserver.utils.NpcUtils;
  */
 public class RainbowGourdInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private CMGSiegeClanObject _winner;
 	
 	public RainbowGourdInstance(int objectId, NpcTemplate template)
@@ -131,7 +132,7 @@ public class RainbowGourdInstance extends NpcInstance
 		ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 		{
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl()  
 			{
 				List<Player> around = World.getAroundPlayers(npc, 750, 100);
 				

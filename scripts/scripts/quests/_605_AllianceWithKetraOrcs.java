@@ -153,7 +153,7 @@ public class _605_AllianceWithKetraOrcs extends Quest implements ScriptFile
 		st.takeItems(MARK_OF_KETRA_ALLIANCE5, -1);
 	}
 	
-	private void checkMarks(QuestState st)
+	public void checkMarks(QuestState st)
 	{
 		if (st.getCond() == 0)
 		{

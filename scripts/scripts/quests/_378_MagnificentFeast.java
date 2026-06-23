@@ -22,7 +22,7 @@ public class _378_MagnificentFeast extends Quest implements ScriptFile
 	private static int Jonass_Sauce_Recipe = 1456;
 	private static int Jonass_Steak_Recipe = 1457;
 	
-	private Map<Integer, int[]> rewards = new HashMap<Integer, int[]>();
+	private Map<Integer, int[]> rewards = new HashMap<>();
 	
 	public _378_MagnificentFeast()
 	{

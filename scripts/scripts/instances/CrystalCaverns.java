@@ -101,8 +101,8 @@ public class CrystalCaverns extends Reflection
 	private final DeathListener deathListener = new DeathListener();
 	private final ZoneListener zoneListener = new ZoneListener();
 	private ScheduledFuture<?> failureTimer = null;
-	private final Map<NpcInstance, Integer> protectorsIndex = new HashMap<NpcInstance, Integer>();
-	private final Map<Integer, List<Location>> protectorsLoc = new HashMap<Integer, List<Location>>();
+	private final Map<NpcInstance, Integer> protectorsIndex = new HashMap<>();
+	private final Map<Integer, List<Location>> protectorsLoc = new HashMap<>();
 	
 	private boolean golemSpawned = false;
 	private int golemsTrapped = 0;
@@ -123,25 +123,25 @@ public class CrystalCaverns extends Reflection
 		super.onCreate();
 		spawnByGroup("cry_cav_npc_main");
 		
-		List<Location> npc1 = new ArrayList<Location>();
+		List<Location> npc1 = new ArrayList<>();
 		npc1.add(new Location(147088, 152480, -12155, 32768));
 		npc1.add(new Location(149776, 152496, -12155, 32768));
 		npc1.add(new Location(152448, 152480, -12155, 32768));
 		protectorsLoc.put(32284, npc1);
 		
-		List<Location> npc2 = new ArrayList<Location>();
+		List<Location> npc2 = new ArrayList<>();
 		npc2.add(new Location(147088, 152560, -12155, 32768));
 		npc2.add(new Location(149776, 152576, -12155, 32768));
 		npc2.add(new Location(152448, 152560, -12155, 32768));
 		protectorsLoc.put(32285, npc2);
 		
-		List<Location> npc3 = new ArrayList<Location>();
+		List<Location> npc3 = new ArrayList<>();
 		npc3.add(new Location(147088, 152640, -12155, 32768));
 		npc3.add(new Location(149776, 152656, -12155, 32768));
 		npc3.add(new Location(152448, 152640, -12155, 32768));
 		protectorsLoc.put(32286, npc3);
 		
-		List<Location> npc4 = new ArrayList<Location>();
+		List<Location> npc4 = new ArrayList<>();
 		npc4.add(new Location(147088, 152720, -12155, 32768));
 		npc4.add(new Location(149776, 152736, -12155, 32768));
 		npc4.add(new Location(152448, 152720, -12155, 32768));
@@ -517,7 +517,7 @@ public class CrystalCaverns extends Reflection
 		}
 	}
 	
-	private boolean checkRoomWiped(Zone zone)
+	public boolean checkRoomWiped(Zone zone)
 	{
 		for (NpcInstance npc : zone.getInsideNpcs())
 		{
@@ -566,7 +566,7 @@ public class CrystalCaverns extends Reflection
 	private class FailureTimer extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			collapse();
 		}

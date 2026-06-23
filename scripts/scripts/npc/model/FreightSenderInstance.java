@@ -12,6 +12,8 @@ import premium.gameserver.utils.WarehouseFunctions;
  */
 public class FreightSenderInstance extends MerchantInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public FreightSenderInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

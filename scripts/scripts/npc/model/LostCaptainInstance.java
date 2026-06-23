@@ -11,6 +11,7 @@ import premium.gameserver.utils.Location;
 
 public class LostCaptainInstance extends ReflectionBossInstance
 {
+	private static final long serialVersionUID = -3233918101387760546L;
 	private static final int TELE_DEVICE_ID = 4314;
 	
 	public LostCaptainInstance(int objectId, NpcTemplate template)

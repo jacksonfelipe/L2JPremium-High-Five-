@@ -24,7 +24,9 @@ import premium.gameserver.utils.PositionUtils;
 
 public class SepulcherNpcInstance extends NpcInstance
 {
-	protected static Map<Integer, Integer> _hallGateKeepers = new HashMap<Integer, Integer>();
+	private static final long serialVersionUID = 1L;
+
+	protected static Map<Integer, Integer> _hallGateKeepers = new HashMap<>();
 	
 	protected Future<?> _closeTask = null, _spawnMonsterTask = null;
 	
@@ -202,7 +204,7 @@ public class SepulcherNpcInstance extends NpcInstance
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			if (state == 0)
 			{
@@ -235,7 +237,7 @@ public class SepulcherNpcInstance extends NpcInstance
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			FourSepulchersSpawn.spawnMonster(_NpcId);
 		}
@@ -275,7 +277,7 @@ public class SepulcherNpcInstance extends NpcInstance
 		player.sendPacket(html);
 	}
 	
-	private boolean hasPartyAKey(Player player)
+	public boolean hasPartyAKey(Player player)
 	{
 		for (Player m : player.getParty().getMembers())
 		{

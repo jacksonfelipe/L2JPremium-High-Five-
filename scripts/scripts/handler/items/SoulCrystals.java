@@ -110,7 +110,7 @@ public class SoulCrystals extends ScriptItemHandler implements ScriptFile
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			_activeChar.sendActionFailed();
 			_activeChar.clearCastVars();

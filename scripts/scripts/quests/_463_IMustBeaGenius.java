@@ -61,7 +61,7 @@ public class _463_IMustBeaGenius extends Quest implements ScriptFile
 	public String onEvent(String event, QuestState st, NpcInstance npc)
 	{
 		String htmltext = event;
-		Player player = st.getPlayer();
+		 
 		if (npc.getNpcId() == GUTENHAGEN)
 		{
 			if (event.equalsIgnoreCase("collecter_gutenhagen_q0463_05.htm"))

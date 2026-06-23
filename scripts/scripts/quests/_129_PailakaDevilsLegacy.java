@@ -268,7 +268,7 @@ public class _129_PailakaDevilsLegacy extends Quest implements ScriptFile
 		return null;
 	}
 	
-	private void enterInstance(Player player)
+	public void enterInstance(Player player)
 	{
 		Reflection r = player.getActiveReflection();
 		if (r != null)

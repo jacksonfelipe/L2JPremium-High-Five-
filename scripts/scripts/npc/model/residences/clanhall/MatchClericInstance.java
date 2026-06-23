@@ -13,6 +13,7 @@ import premium.gameserver.templates.npc.NpcTemplate;
  */
 public class MatchClericInstance extends CTBBossInstance
 {
+	private static final long serialVersionUID = 1L;
 	private long _massiveDamage;
 	
 	public MatchClericInstance(int objectId, NpcTemplate template)

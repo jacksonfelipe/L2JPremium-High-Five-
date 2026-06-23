@@ -1,15 +1,17 @@
 package npc.model.residences.clanhall;
 
+import npc.model.residences.ResidenceManager;
 import premium.gameserver.model.entity.residence.ClanHall;
 import premium.gameserver.model.entity.residence.Residence;
 import premium.gameserver.model.pledge.Clan;
 import premium.gameserver.network.serverpackets.AgitDecoInfo;
 import premium.gameserver.network.serverpackets.L2GameServerPacket;
 import premium.gameserver.templates.npc.NpcTemplate;
-import npc.model.residences.ResidenceManager;
 
 public class ManagerInstance extends ResidenceManager
 {
+	private static final long serialVersionUID = 1L;
+
 	public ManagerInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);
@@ -29,10 +31,7 @@ public class ManagerInstance extends ResidenceManager
 		{
 			return new AgitDecoInfo(clanHall);
 		}
-		else
-		{
-			return null;
-		}
+		return null;
 	}
 	
 	@Override

@@ -12,6 +12,8 @@ import premium.gameserver.utils.NpcUtils;
  */
 public final class MaguenTraderInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public MaguenTraderInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

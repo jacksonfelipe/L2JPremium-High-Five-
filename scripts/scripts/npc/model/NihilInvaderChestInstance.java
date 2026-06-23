@@ -7,6 +7,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public final class NihilInvaderChestInstance extends MonsterInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public NihilInvaderChestInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

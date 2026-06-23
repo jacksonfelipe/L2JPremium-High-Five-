@@ -279,19 +279,19 @@ public class _255_Tutorial extends Quest implements ScriptFile, OnPlayerEnterLis
 	};
 	
 	// table for Question Mark Clicked (24) newbie lvl [raceId, html]
-	public final Map<Integer, String> QMCb = new HashMap<Integer, String>();
+	public final Map<Integer, String> QMCb = new HashMap<>();
 	
 	// table for Question Mark Clicked (35) 1st class transfer [raceId, html]
-	public final Map<Integer, String> QMCc = new HashMap<Integer, String>();
+	public final Map<Integer, String> QMCc = new HashMap<>();
 	
 	// table for Tutorial Close Link (26) 2nd class transfer [raceId, html]
-	public final Map<Integer, String> TCLa = new HashMap<Integer, String>();
+	public final Map<Integer, String> TCLa = new HashMap<>();
 	
 	// table for Tutorial Close Link (23) 2nd class transfer [raceId, html]
-	public final Map<Integer, String> TCLb = new HashMap<Integer, String>();
+	public final Map<Integer, String> TCLb = new HashMap<>();
 	
 	// table for Tutorial Close Link (24) 2nd class transfer [raceId, html]
-	public final Map<Integer, String> TCLc = new HashMap<Integer, String>();
+	public final Map<Integer, String> TCLc = new HashMap<>();
 	
 	// private static TutorialShowListener _tutorialShowListener;
 	
@@ -526,27 +526,24 @@ public class _255_Tutorial extends Quest implements ScriptFile, OnPlayerEnterLis
 				
 				return null;
 			}
-			else
-			{
-				// Send a mail to the character telling that his account got a wrong secondary password
-				Mail mail = new Mail();
-				mail.setSenderId(1);
-				mail.setSenderName("System");
-				mail.setReceiverId(player.getObjectId());
-				mail.setReceiverName(player.getName());
-				mail.setTopic("Wrong Secondary Password");
-				mail.setBody("Someone wrote a wrong secondary password (" + pass + ") to enter to your character. This is a warning message, if you didnt entered this password then change it");
-				mail.setType(Mail.SenderType.NEWS_INFORMER);
-				mail.setUnread(true);
-				mail.setExpireTime(720 * 3600 + (int) (System.currentTimeMillis() / 1000L));
-				mail.save();
-				
-				// Logout the character
-				// player.stopAbnormalEffect(AbnormalEffect.FIREROOT_STUN);
-				player.logout();
-				
-				return null;
-			}
+			// Send a mail to the character telling that his account got a wrong secondary password
+			Mail mail = new Mail();
+			mail.setSenderId(1);
+			mail.setSenderName("System");
+			mail.setReceiverId(player.getObjectId());
+			mail.setReceiverName(player.getName());
+			mail.setTopic("Wrong Secondary Password");
+			mail.setBody("Someone wrote a wrong secondary password (" + pass + ") to enter to your character. This is a warning message, if you didnt entered this password then change it");
+			mail.setType(Mail.SenderType.NEWS_INFORMER);
+			mail.setUnread(true);
+			mail.setExpireTime(720 * 3600 + (int) (System.currentTimeMillis() / 1000L));
+			mail.save();
+			
+			// Logout the character
+			// player.stopAbnormalEffect(AbnormalEffect.FIREROOT_STUN);
+			player.logout();
+			
+			return null;
 		}
 		else if (event.equals("OpenClassMaster"))
 		{
@@ -1523,7 +1520,7 @@ public class _255_Tutorial extends Quest implements ScriptFile, OnPlayerEnterLis
 	private static void addToTutorialQueue(Player player, String pageToCheck)
 	{
 		@SuppressWarnings("unchecked")
-		Collection<String> tutorialsToSee = (List<String>) player.getQuickVarO("tutorialsToSee", new ArrayList<String>());
+		Collection<String> tutorialsToSee = (List<String>) player.getQuickVarO("tutorialsToSee", new ArrayList<>());
 		tutorialsToSee.add(pageToCheck);
 		if (!player.containsQuickVar("tutorialsToSee"))
 		{
@@ -1537,7 +1534,7 @@ public class _255_Tutorial extends Quest implements ScriptFile, OnPlayerEnterLis
 		if (player.containsQuickVar("tutorialsToSee"))
 		{
 			@SuppressWarnings("unchecked")
-			List<String> tutorialsToSee = (List<String>) player.getQuickVarO("tutorialsToSee", new ArrayList<String>());
+			List<String> tutorialsToSee = (List<String>) player.getQuickVarO("tutorialsToSee", new ArrayList<>());
 			String tutorialToSee = tutorialsToSee.remove(0);
 			if (tutorialsToSee.isEmpty())
 			{

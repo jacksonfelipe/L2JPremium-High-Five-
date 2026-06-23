@@ -5,9 +5,11 @@ import premium.gameserver.model.instances.NpcInstance;
 import premium.gameserver.templates.npc.NpcTemplate;
 import premium.gameserver.utils.Location;
 
-@SuppressWarnings("serial")
+ 
 public class TullyWorkShopTeleporterInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public TullyWorkShopTeleporterInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);
@@ -73,7 +75,7 @@ public class TullyWorkShopTeleporterInstance extends NpcInstance
 		}
 	}
 	
-	private boolean rangeCheck(Player pl)
+	public boolean rangeCheck(Player pl)
 	{
 		for (Player m : pl.getParty().getMembers())
 		{

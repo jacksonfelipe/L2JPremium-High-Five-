@@ -9,11 +9,11 @@ import premium.gameserver.scripts.ScriptFile;
 
 public class FightClub extends Functions implements ScriptFile
 {
-	private static final ArrayList<SimpleSpawner> _spawns_fight_club_manager = new ArrayList<SimpleSpawner>();
+	private static final ArrayList<SimpleSpawner> _spawns_fight_club_manager = new ArrayList<>();
 	
 	public static int FIGHT_CLUB_MANAGER = 32500;
 	
-	private void spawnFightClub()
+	public void spawnFightClub()
 	{
 		final int FIGHT_CLUB_MANAGER_SPAWN[][] =
 		{

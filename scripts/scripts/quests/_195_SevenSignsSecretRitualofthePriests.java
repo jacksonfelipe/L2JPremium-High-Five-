@@ -607,7 +607,7 @@ public class _195_SevenSignsSecretRitualofthePriests extends Quest implements Sc
 		return htmltext;
 	}
 	
-	private void enterInstance(Player player)
+	public void enterInstance(Player player)
 	{
 		Reflection r = player.getActiveReflection();
 		if (r != null)
@@ -653,7 +653,7 @@ public class _195_SevenSignsSecretRitualofthePriests extends Quest implements Sc
 		}
 	}
 	
-	private void negateSpeedBuffs(Player p)
+	public void negateSpeedBuffs(Player p)
 	{
 		for (Effect e : p.getEffectList().getAllEffects())
 		{

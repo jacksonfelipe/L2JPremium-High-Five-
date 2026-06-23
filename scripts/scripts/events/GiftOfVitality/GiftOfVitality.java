@@ -23,7 +23,7 @@ public class GiftOfVitality extends Functions implements ScriptFile
 	private static final String EVENT_NAME = "GiftOfVitality";
 	private static final int REUSE_HOURS = 6; // reuse
 	private static final int EVENT_MANAGER_ID = 109; // npc id
-	private static List<SimpleSpawner> _spawns = new ArrayList<SimpleSpawner>();
+	private static List<SimpleSpawner> _spawns = new ArrayList<>();
 	private static final Logger _log = LoggerFactory.getLogger(GiftOfVitality.class);
 	
 	private final static int[][] _mageBuff = new int[][]
@@ -148,7 +148,7 @@ public class GiftOfVitality extends Functions implements ScriptFile
 	/**
 	 * Спавнит эвент менеджеров
 	 */
-	private void spawnEventManagers()
+	public void spawnEventManagers()
 	{
 		final int EVENT_MANAGERS[][] =
 		{
@@ -262,7 +262,7 @@ public class GiftOfVitality extends Functions implements ScriptFile
 	/**
 	 * Удаляет спавн эвент менеджеров
 	 */
-	private void unSpawnEventManagers()
+	public void unSpawnEventManagers()
 	{
 		deSpawnNPCs(_spawns);
 	}
@@ -364,10 +364,8 @@ public class GiftOfVitality extends Functions implements ScriptFile
 			case VITALITY:
 				if (var != null && Long.parseLong(var) > System.currentTimeMillis())
 				{
-					if (var != null)
-					{
-						_reuse = Long.parseLong(var);
-					}
+					
+					_reuse = Long.parseLong(var);
 					
 					long remainingTime = (_reuse - System.currentTimeMillis()) / 1000;
 					int hours = (int) (remainingTime / 3600);

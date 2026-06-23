@@ -14,6 +14,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
  */
 public abstract class FacilityManagerInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public FacilityManagerInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);
@@ -50,10 +52,7 @@ public abstract class FacilityManagerInstance extends NpcInstance
 			showChatWindow(player, "residence2/fortress/fortress_supply_officer006.htm");
 			return true;
 		}
-		else
-		{
-			showChatWindow(player, "residence2/fortress/fortress_not_enough_money.htm");
-			return false;
-		}
+		showChatWindow(player, "residence2/fortress/fortress_not_enough_money.htm");
+		return false;
 	}
 }

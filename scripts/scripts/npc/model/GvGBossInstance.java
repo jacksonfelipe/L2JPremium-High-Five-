@@ -6,6 +6,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public final class GvGBossInstance extends MonsterInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public GvGBossInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

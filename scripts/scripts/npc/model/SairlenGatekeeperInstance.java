@@ -12,6 +12,7 @@ import premium.gameserver.utils.ItemFunctions;
 
 public final class SairlenGatekeeperInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final int GAZKH = 8784;
 	
 	public SairlenGatekeeperInstance(int objectId, NpcTemplate template)

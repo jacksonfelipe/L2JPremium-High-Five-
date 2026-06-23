@@ -21,6 +21,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
  */
 public class QuestSiegeGuardInstance extends SiegeGuardInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public QuestSiegeGuardInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);
@@ -45,7 +47,7 @@ public class QuestSiegeGuardInstance extends SiegeGuardInstance
 			List<Player> players = null; // массив с игроками, которые могут быть заинтересованы в квестах
 			if (isRaid() && Config.ALT_NO_LASTHIT) // Для альта на ластхит берем всех игроков вокруг
 			{
-				players = new ArrayList<Player>();
+				players = new ArrayList<>();
 				for (Playable pl : aggroMap.keySet())
 				{
 					if (!pl.isDead() && (isInRangeZ(pl, Config.ALT_PARTY_DISTRIBUTION_RANGE) || killer.isInRangeZ(pl, Config.ALT_PARTY_DISTRIBUTION_RANGE)))
@@ -56,7 +58,7 @@ public class QuestSiegeGuardInstance extends SiegeGuardInstance
 			}
 			else if (killer.getParty() != null) // если пати то собираем всех кто подходит
 			{
-				players = new ArrayList<Player>(killer.getParty().size());
+				players = new ArrayList<>(killer.getParty().size());
 				for (Player pl : killer.getParty().getMembers())
 				{
 					if (!pl.isDead() && (isInRangeZ(pl, Config.ALT_PARTY_DISTRIBUTION_RANGE) || killer.isInRangeZ(pl, Config.ALT_PARTY_DISTRIBUTION_RANGE)))
@@ -85,7 +87,7 @@ public class QuestSiegeGuardInstance extends SiegeGuardInstance
 					}
 					else
 					{ // иначе выбираем одного
-						List<Player> interested = new ArrayList<Player>(players.size());
+						List<Player> interested = new ArrayList<>(players.size());
 						for (Player pl : players)
 						{
 							QuestState qs = pl.getQuestState(quest.getName());

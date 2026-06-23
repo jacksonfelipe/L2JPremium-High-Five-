@@ -2,6 +2,7 @@ package npc.model.residences.fortress.peace;
 
 import java.util.List;
 
+import npc.model.residences.fortress.FacilityManagerInstance;
 import premium.gameserver.model.Player;
 import premium.gameserver.model.entity.events.impl.FortressSiegeEvent;
 import premium.gameserver.model.entity.events.impl.SiegeEvent;
@@ -9,7 +10,6 @@ import premium.gameserver.model.entity.events.objects.DoorObject;
 import premium.gameserver.model.entity.residence.Fortress;
 import premium.gameserver.model.pledge.Clan;
 import premium.gameserver.templates.npc.NpcTemplate;
-import npc.model.residences.fortress.FacilityManagerInstance;
 
 /**
  * @author VISTALL
@@ -17,11 +17,14 @@ import npc.model.residences.fortress.FacilityManagerInstance;
  */
 public class GuardCaptionInstance extends FacilityManagerInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public GuardCaptionInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void onBypassFeedback(Player player, String command)
 	{

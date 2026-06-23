@@ -172,7 +172,7 @@ public class AdminEpic implements IAdminCommandHandler, ScriptFile
 		player.sendPacket(adminReply);
 	}
 	
-	private String getStatusNote(State state)
+	public String getStatusNote(State state)
 	{
 		switch (state)
 		{

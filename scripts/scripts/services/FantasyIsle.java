@@ -36,7 +36,7 @@ public class FantasyIsle extends Functions implements ScriptFile
 	private static int showstuff4 = 32427;
 	private static int showstuff5 = 32428;
 	
-	private static Map<String, Walk> WALKS = new HashMap<String, Walk>();
+	private static Map<String, Walk> WALKS = new HashMap<>();
 	static
 	{
 		WALKS.put("npc1_1", new Walk(-56546, -56384, -2008, "npc1_2", 1200));
@@ -155,7 +155,7 @@ public class FantasyIsle extends Functions implements ScriptFile
 		"Well, I wish I could continue all night long, but this is it for today. Thank you."
 	};
 	
-	private static Map<String, Talk> TALKS = new HashMap<String, Talk>();
+	private static Map<String, Talk> TALKS = new HashMap<>();
 	static
 	{
 		TALKS.put("1", new Talk(TEXT[1], "2", 1000));
@@ -230,7 +230,7 @@ public class FantasyIsle extends Functions implements ScriptFile
 	
 	private static void startQuestTimer(String event, int time, NpcInstance temp_npc)
 	{
-		Map<String, Object> variables = new HashMap<String, Object>();
+		Map<String, Object> variables = new HashMap<>();
 		variables.put("npc", temp_npc.getRef());
 		executeTask("services.FantasyIsle", "start", new Object[]
 		{

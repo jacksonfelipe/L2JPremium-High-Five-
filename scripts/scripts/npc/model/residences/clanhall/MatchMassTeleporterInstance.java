@@ -17,6 +17,7 @@ import premium.gameserver.utils.Location;
  */
 public class MatchMassTeleporterInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private int _flagId;
 	private long _timeout;
 	

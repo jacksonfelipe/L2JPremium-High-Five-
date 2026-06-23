@@ -112,7 +112,7 @@ public class CustomDropItems extends Functions implements ScriptFile, OnDeathLis
 		}
 	}
 	
-	private boolean checkValidate(Creature killer, Creature mob, boolean lvlPlayer, boolean lvlMob)
+	public boolean checkValidate(Creature killer, Creature mob, boolean lvlPlayer, boolean lvlMob)
 	{
 		if (mob == null || killer == null)
 		{
@@ -132,7 +132,7 @@ public class CustomDropItems extends Functions implements ScriptFile, OnDeathLis
 		return false;
 	}
 	
-	private void dropItemMob(Creature cha, Creature killer)
+	public void dropItemMob(Creature cha, Creature killer)
 	{
 		if (_active && SimpleCheckDrop(cha, killer))
 		{
@@ -150,7 +150,7 @@ public class CustomDropItems extends Functions implements ScriptFile, OnDeathLis
 		}
 	}
 	
-	private void dropItemRb(Creature cha, Creature killer)
+	public void dropItemRb(Creature cha, Creature killer)
 	{
 		if (_active)
 		{

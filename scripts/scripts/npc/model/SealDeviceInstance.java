@@ -17,6 +17,7 @@ import premium.gameserver.utils.Location;
  */
 public final class SealDeviceInstance extends MonsterInstance
 {
+	private static final long serialVersionUID = 1L;
 	private boolean _gaveItem = false;
 	
 	public SealDeviceInstance(int objectId, NpcTemplate template)
@@ -58,7 +59,7 @@ public final class SealDeviceInstance extends MonsterInstance
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			for (NpcInstance n : _p.getReflection().getNpcs())
 			{

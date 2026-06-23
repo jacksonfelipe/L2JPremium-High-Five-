@@ -11,6 +11,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
  */
 public class AuctionedManagerInstance extends ManagerInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public AuctionedManagerInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);
@@ -32,9 +34,6 @@ public class AuctionedManagerInstance extends ManagerInstance
 		{
 			return COND_OWNER;
 		}
-		else
-		{
-			return COND_FAIL;
-		}
+		return COND_FAIL;
 	}
 }

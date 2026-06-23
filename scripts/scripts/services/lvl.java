@@ -75,7 +75,7 @@ public class lvl extends Functions
 		}
 	}
 	
-	private void setLevel(Player player, int level)
+	public void setLevel(Player player, int level)
 	{
 		Long exp_add = Experience.LEVEL[level] - player.getExp();
 		player.addExpAndSp(exp_add, 0, 0, 0, false, false);

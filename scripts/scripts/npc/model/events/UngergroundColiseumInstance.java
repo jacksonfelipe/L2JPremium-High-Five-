@@ -17,9 +17,10 @@ import premium.gameserver.network.serverpackets.NpcHtmlMessage;
 import premium.gameserver.network.serverpackets.SystemMessage;
 import premium.gameserver.templates.npc.NpcTemplate;
 
-//TODO: check gameserver.instancemanager.UnderGroundColliseumManager
+ 
 public class UngergroundColiseumInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final Logger _log = LoggerFactory.getLogger(UngergroundColiseumInstance.class);
 	private static boolean ENABLED = false;
 	

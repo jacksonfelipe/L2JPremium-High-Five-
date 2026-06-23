@@ -7,6 +7,7 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class RiganInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final String FILE_PATH = "custom/";
 	
 	public RiganInstance(int objectId, NpcTemplate template)

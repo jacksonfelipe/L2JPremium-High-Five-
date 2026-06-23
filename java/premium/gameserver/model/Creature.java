@@ -463,7 +463,7 @@ public abstract class Creature extends GameObject
 	private List<Player> _statusListeners;
 	private final Lock statusListenersLock = new ReentrantLock();
 	
-	protected Long _storedId;
+	public Long _storedId;
 	
 	public final Long getStoredId()
 	{

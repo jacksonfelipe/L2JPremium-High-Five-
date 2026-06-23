@@ -18,6 +18,8 @@ import premium.gameserver.utils.ItemFunctions;
 
 public final class ClanPromotionInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public ClanPromotionInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

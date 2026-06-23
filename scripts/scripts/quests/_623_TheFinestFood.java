@@ -186,7 +186,7 @@ public class _623_TheFinestFood extends Quest implements ScriptFile
 		return null;
 	}
 	
-	private long summ(QuestState st)
+	public long summ(QuestState st)
 	{
 		return st.getQuestItemsCount(LEAF_OF_FLAVA) + st.getQuestItemsCount(BUFFALO_MEAT) + st.getQuestItemsCount(ANTELOPE_HORN);
 	}

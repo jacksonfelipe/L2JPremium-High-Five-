@@ -47,7 +47,7 @@ public class HeartInfinityDefence extends Reflection
 		ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 		{
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl() 
 			{
 				conquestBegins();
 			}
@@ -73,7 +73,7 @@ public class HeartInfinityDefence extends Reflection
 		coffinSpawnTask = ThreadPoolManager.getInstance().scheduleAtFixedRate(new RunnableImpl()
 		{
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl() 
 			{
 				if (!conquestEnded)
 				{
@@ -87,7 +87,7 @@ public class HeartInfinityDefence extends Reflection
 		aliveTumorSpawnTask = ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 		{
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl() 
 			{
 				if (!conquestEnded)
 				{
@@ -105,7 +105,7 @@ public class HeartInfinityDefence extends Reflection
 		wagonSpawnTask = ThreadPoolManager.getInstance().scheduleAtFixedRate(new RunnableImpl()
 		{
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl() 
 			{
 				addSpawnWithoutRespawn(SoulWagon, new Location(-179544, 207400, -15496), 0);
 			}
@@ -157,7 +157,7 @@ public class HeartInfinityDefence extends Reflection
 				ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 				{
 					@Override
-					public void runImpl() throws Exception
+					public void runImpl() 
 					{
 						deadTumor.deleteMe();
 						addSpawnWithoutRespawn(AliveTumor, deadTumor.getLoc(), 0);
@@ -177,7 +177,7 @@ public class HeartInfinityDefence extends Reflection
 	private class TimerTask extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			long time = (startTime + 25 * 60 * 1000L - System.currentTimeMillis()) / 60000;
 			if (time == 0)

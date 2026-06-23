@@ -13,6 +13,7 @@ import premium.gameserver.utils.ReflectionUtils;
 
 public final class AllenosInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final int tiatIzId = 110;
 	
 	public AllenosInstance(int objectId, NpcTemplate template)

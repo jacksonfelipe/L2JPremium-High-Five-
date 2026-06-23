@@ -9,6 +9,7 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class SquashInstance extends SpecialMonsterInstance
 {
+	private static final long serialVersionUID = 1L;
 	public final static int Young_Squash = 12774;
 	public final static int High_Quality_Squash = 12775;
 	public final static int Low_Quality_Squash = 12776;

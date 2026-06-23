@@ -6,6 +6,8 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
+import npc.model.residences.fortress.siege.BackupPowerUnitInstance;
+import npc.model.residences.fortress.siege.PowerControlUnitInstance;
 import premium.commons.dao.JdbcEntityState;
 import premium.commons.threading.RunnableImpl;
 import premium.gameserver.ThreadPoolManager;
@@ -33,8 +35,6 @@ import premium.gameserver.network.serverpackets.components.SystemMsg;
 import premium.gameserver.scripts.ScriptFile;
 import premium.gameserver.tables.ClanTable;
 import premium.gameserver.utils.HtmlUtils;
-import npc.model.residences.fortress.siege.BackupPowerUnitInstance;
-import npc.model.residences.fortress.siege.PowerControlUnitInstance;
 
 /**
  * @author VISTALL
@@ -65,7 +65,7 @@ public class AdminResidence implements IAdminCommandHandler, ScriptFile
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		Commands command = (Commands) comm;
 		
@@ -329,7 +329,7 @@ public class AdminResidence implements IAdminCommandHandler, ScriptFile
 				{
 					
 					@Override
-					public void runImpl() throws Exception
+					public void runImpl()  
 					{
 						event.stopEvent();
 					}
@@ -377,7 +377,7 @@ public class AdminResidence implements IAdminCommandHandler, ScriptFile
 				ThreadPoolManager.getInstance().execute(new RunnableImpl()
 				{
 					@Override
-					public void runImpl() throws Exception
+					public void runImpl() 
 					{
 						for (Fortress f : ResidenceHolder.getInstance().getResidenceList(Fortress.class))
 						{
@@ -444,7 +444,7 @@ public class AdminResidence implements IAdminCommandHandler, ScriptFile
 					return false;
 				}
 				
-				List<String> t = new ArrayList<String>(3);
+				List<String> t = new ArrayList<>(3);
 				if (target instanceof PowerControlUnitInstance)
 				{
 					for (int i : ((PowerControlUnitInstance) target).getGenerated())
@@ -514,7 +514,9 @@ public class AdminResidence implements IAdminCommandHandler, ScriptFile
 						return false;
 					}
 					
-					final SiegeEvent siege = residence.getSiegeEvent();
+					@SuppressWarnings("rawtypes")
+					SiegeEvent siege = residence.getSiegeEvent();
+					
 					if (siege.getSiegeClan(SiegeEvent.ATTACKERS, clan) != null)
 					{
 						activeChar.sendMessage("This clan is already registered");
@@ -535,6 +537,7 @@ public class AdminResidence implements IAdminCommandHandler, ScriptFile
 		return true;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{

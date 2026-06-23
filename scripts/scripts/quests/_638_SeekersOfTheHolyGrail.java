@@ -84,7 +84,7 @@ public class _638_SeekersOfTheHolyGrail extends Quest implements ScriptFile
 		return htmltext;
 	}
 	
-	private String tryRevard(QuestState st)
+	public String tryRevard(QuestState st)
 	{
 		boolean ok = false;
 		while (st.getQuestItemsCount(TOTEM) >= 2000)

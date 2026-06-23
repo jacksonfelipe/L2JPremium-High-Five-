@@ -76,7 +76,7 @@ public class ErosionHallDefence extends Reflection
 		agressionTask = ThreadPoolManager.getInstance().scheduleAtFixedRate(new RunnableImpl()
 		{
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl() 
 			{
 				if (!conquestEnded)
 				{
@@ -87,7 +87,7 @@ public class ErosionHallDefence extends Reflection
 		coffinSpawnTask = ThreadPoolManager.getInstance().scheduleAtFixedRate(new RunnableImpl()
 		{
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl() 
 			{
 				if (!conquestEnded)
 				{
@@ -101,7 +101,7 @@ public class ErosionHallDefence extends Reflection
 		aliveTumorSpawnTask = ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 		{
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl() 
 			{
 				if (!conquestEnded)
 				{
@@ -166,7 +166,7 @@ public class ErosionHallDefence extends Reflection
 				ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 				{
 					@Override
-					public void runImpl() throws Exception
+					public void runImpl() 
 					{
 						deadTumor.deleteMe();
 						addSpawnWithoutRespawn(AliveTumor, deadTumor.getLoc(), 0);
@@ -196,7 +196,7 @@ public class ErosionHallDefence extends Reflection
 	private class TimerTask extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			long time = (startTime + 25 * 60 * 1000L - System.currentTimeMillis()) / 60000;
 			if (time == 0)
@@ -226,7 +226,7 @@ public class ErosionHallDefence extends Reflection
 					ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 					{
 						@Override
-						public void runImpl() throws Exception
+						public void runImpl() 
 						{
 							
 							npc.getAggroList().clear(true);
@@ -249,7 +249,7 @@ public class ErosionHallDefence extends Reflection
 		addSpawnWithoutRespawn(RegenerationCoffin, new Location(tumor.getLoc().x, tumor.getLoc().y, tumor.getLoc().z, Location.getRandomHeading()), 250);
 	}
 	
-	private NpcInstance getNearestSeed(NpcInstance mob)
+	public NpcInstance getNearestSeed(NpcInstance mob)
 	{
 		for (NpcInstance npc : mob.getAroundNpc(900, 300))
 		{
@@ -335,7 +335,7 @@ public class ErosionHallDefence extends Reflection
 		failureTask = ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 		{
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl() 
 			{
 				conquestConclusion(false);
 			}

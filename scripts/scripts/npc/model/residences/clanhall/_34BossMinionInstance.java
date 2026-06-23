@@ -1,10 +1,10 @@
 package npc.model.residences.clanhall;
 
+import npc.model.residences.SiegeGuardInstance;
 import premium.gameserver.model.Creature;
 import premium.gameserver.network.serverpackets.components.NpcString;
 import premium.gameserver.scripts.Functions;
 import premium.gameserver.templates.npc.NpcTemplate;
-import npc.model.residences.SiegeGuardInstance;
 
 /**
  * @author VISTALL
@@ -12,6 +12,8 @@ import npc.model.residences.SiegeGuardInstance;
  */
 public abstract class _34BossMinionInstance extends SiegeGuardInstance implements _34SiegeGuard
 {
+	private static final long serialVersionUID = 1L;
+
 	public _34BossMinionInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

@@ -9,6 +9,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
  */
 public class TeleportSiegeGuardInstance extends SiegeGuardInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public TeleportSiegeGuardInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

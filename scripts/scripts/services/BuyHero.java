@@ -59,7 +59,7 @@ public class BuyHero extends Functions
 				hero.set(Olympiad.CHAR_NAME, player.getName());
 				hero.set(Hero.ACTIVE, 1);
 				
-				List<StatsSet> heroesToBe = new ArrayList<StatsSet>();
+				List<StatsSet> heroesToBe = new ArrayList<>();
 				heroesToBe.add(hero);
 				
 				Hero.getInstance().computeNewHeroes(heroesToBe);

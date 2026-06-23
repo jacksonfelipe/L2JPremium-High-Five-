@@ -222,10 +222,7 @@ public class _503_PursuitClanAmbition extends Quest implements ScriptFile
 				{
 					return leader.getQuestState(getName()).getCond();
 				}
-				else
-				{
-					return leader.getQuestState(getName()).getInt(var);
-				}
+				return leader.getQuestState(getName()).getInt(var);
 			}
 		}
 		catch (Exception e)

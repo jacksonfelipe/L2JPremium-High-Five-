@@ -18,8 +18,8 @@ public class _633_InTheForgottenVillage extends Quest implements ScriptFile
 	private static int Z_LIVER = 7545;
 	
 	// Mobid : DROP CHANCES
-	private static Map<Integer, Double> DAMOBS = new HashMap<Integer, Double>();
-	private static Map<Integer, Double> UNDEADS = new HashMap<Integer, Double>();
+	private static Map<Integer, Double> DAMOBS = new HashMap<>();
+	private static Map<Integer, Double> UNDEADS = new HashMap<>();
 	
 	@Override
 	public void onLoad()

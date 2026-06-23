@@ -121,7 +121,7 @@ public class _708_PathToBecomingALordGludio extends Quest implements ScriptFile
 	{
 		String htmltext = "noquest";
 		int npcId = npc.getNpcId();
-		int id = st.getState();
+		 
 		int cond = st.getCond();
 		Castle castle = ResidenceHolder.getInstance().getResidence(GludioCastle);
 		if (castle.getOwner() == null)

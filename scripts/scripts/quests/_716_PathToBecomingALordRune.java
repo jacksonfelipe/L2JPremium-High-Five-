@@ -24,7 +24,7 @@ public class _716_PathToBecomingALordRune extends Quest implements ScriptFile
 	private static final int Innocentin = 31328;
 	
 	private static final int RuneCastle = 8;
-	private static List<Integer> Pagans = new ArrayList<Integer>();
+	private static List<Integer> Pagans = new ArrayList<>();
 	
 	static
 	{

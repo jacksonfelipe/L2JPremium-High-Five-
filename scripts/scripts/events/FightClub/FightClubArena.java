@@ -11,7 +11,6 @@ import premium.commons.threading.RunnableImpl;
 import premium.gameserver.Config;
 import premium.gameserver.ThreadPoolManager;
 import premium.gameserver.listener.actor.OnDeathListener;
-import premium.gameserver.listener.actor.player.OnPlayerExitListener;
 import premium.gameserver.listener.zone.OnZoneEnterLeaveListener;
 import premium.gameserver.model.Creature;
 import premium.gameserver.model.Player;
@@ -27,7 +26,7 @@ import premium.gameserver.utils.Location;
 import premium.gameserver.utils.PositionUtils;
 import premium.gameserver.utils.ReflectionUtils;
 
-public class FightClubArena extends FightClubManager implements OnDeathListener, OnPlayerExitListener
+public class FightClubArena extends FightClubManager implements OnDeathListener
 {
 	private static final int[] doors = new int[]
 	{
@@ -65,8 +64,8 @@ public class FightClubArena extends FightClubManager implements OnDeathListener,
 		this.reflection = reflection;
 		
 		_zoneListener = new ZoneListener();
-		_zones = new HashMap<String, ZoneTemplate>();
-		_doors = new HashIntObjectMap<DoorTemplate>();
+		_zones = new HashMap<>();
+		_doors = new HashIntObjectMap<>();
 		
 		// Создаём баттл-зону, создаем двери и добавляем листенер
 		_zones.put("[fightclub_battle]", ReflectionUtils.getZone("[fightclub_battle]").getTemplate());
@@ -194,12 +193,9 @@ public class FightClubArena extends FightClubManager implements OnDeathListener,
 					setLoose(player2);
 					return;
 				}
-				else
-				{
-					giveReward(player2);
-					setLoose(player1);
-					return;
-				}
+				giveReward(player2);
+				setLoose(player1);
+				return;
 			}
 			else if (player1.getMaxCp() / player1.getCurrentCp() > player2.getMaxCp() / player2.getCurrentCp())
 			{
@@ -275,7 +271,7 @@ public class FightClubArena extends FightClubManager implements OnDeathListener,
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			switch (second)
 			{
@@ -319,7 +315,7 @@ public class FightClubArena extends FightClubManager implements OnDeathListener,
 		};
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			removeAura();
 			if (!_isEnded)

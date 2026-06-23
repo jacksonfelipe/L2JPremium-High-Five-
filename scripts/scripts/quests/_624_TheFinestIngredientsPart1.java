@@ -141,7 +141,7 @@ public class _624_TheFinestIngredientsPart1 extends Quest implements ScriptFile
 		return null;
 	}
 	
-	private void onKillCheck(QuestState st)
+	public void onKillCheck(QuestState st)
 	{
 		if (st.getQuestItemsCount(TRUNK_OF_NEPENTHES) == 50 && st.getQuestItemsCount(FOOT_OF_BANDERSNATCHLING) == 50 && st.getQuestItemsCount(SECRET_SPICE) == 50)
 		{

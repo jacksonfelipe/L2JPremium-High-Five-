@@ -322,7 +322,7 @@ public class _454_CompletelyLost extends Quest implements ScriptFile
 		return htmltext;
 	}
 	
-	private NpcInstance seeSoldier(NpcInstance npc, Player player)
+	public NpcInstance seeSoldier(NpcInstance npc, Player player)
 	{
 		List<NpcInstance> around = npc.getAroundNpc(Config.FOLLOW_RANGE * 2, 300);
 		if (around != null && !around.isEmpty())
@@ -342,7 +342,7 @@ public class _454_CompletelyLost extends Quest implements ScriptFile
 		return null;
 	}
 	
-	private void giveReward(QuestState st)
+	public void giveReward(QuestState st)
 	{
 		int row = Rnd.get(0, rewards.length - 1);
 		int id = rewards[row][0];

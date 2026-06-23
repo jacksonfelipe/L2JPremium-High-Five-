@@ -15,6 +15,7 @@ import premium.gameserver.utils.ReflectionUtils;
  */
 public class DoormanInstance extends npc.model.residences.DoormanInstance
 {
+	private static final long serialVersionUID = 1L;
 	private Location[] _locs = new Location[2];
 	
 	public DoormanInstance(int objectId, NpcTemplate template)
@@ -115,15 +116,9 @@ public class DoormanInstance extends npc.model.residences.DoormanInstance
 			{
 				return COND_SIEGE;
 			}
-			else
-			{
-				return COND_OWNER;
-			}
+			return COND_OWNER;
 		}
-		else
-		{
-			return COND_FAIL;
-		}
+		return COND_FAIL;
 	}
 	
 	@Override

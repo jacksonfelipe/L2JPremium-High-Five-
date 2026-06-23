@@ -17,6 +17,7 @@ import premium.gameserver.utils.Location;
  */
 public final class MoonlightTombstoneInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final int KEY_ID = 9714;
 	private final static long COLLAPSE_TIME = 5; // 5 мин
 	private boolean _activated = false;

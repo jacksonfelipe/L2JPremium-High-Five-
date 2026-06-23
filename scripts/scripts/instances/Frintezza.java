@@ -173,7 +173,7 @@ public class Frintezza extends Reflection
 	private class FrintezzaStart extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			ThreadPoolManager.getInstance().schedule(new Spawn(1), 1000);
 		}
@@ -189,7 +189,7 @@ public class Frintezza extends Reflection
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			try
 			{
@@ -326,7 +326,7 @@ public class Frintezza extends Reflection
 	private class Music extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			if (frintezza == null)
 			{
@@ -362,12 +362,10 @@ public class Frintezza extends Reflection
 			musicTask = ThreadPoolManager.getInstance().schedule(new Music(), _intervalOfFrintezzaSongs + Rnd.get(10000));
 		}
 		
-		/**
-		 * Depending on the song, returns the song's targets (either mobs or players)
-		 */
-		private List<Creature> getSongTargets(int songId)
+	 
+		public List<Creature> getSongTargets(int songId)
 		{
-			List<Creature> targets = new ArrayList<Creature>();
+			List<Creature> targets = new ArrayList<>();
 			if (songId < 4) // Target is the minions
 			{
 				if (weakScarlet != null && !weakScarlet.isDead())
@@ -404,9 +402,7 @@ public class Frintezza extends Reflection
 			return targets;
 		}
 		
-		/**
-		 * returns the chosen symphony for Frintezza to play If the minions are injured he has 40% to play a healing song If they are all dead, he will only play harmful player symphonies
-		 */
+	 
 		private int getSong()
 		{
 			if (minionsNeedHeal())
@@ -416,9 +412,7 @@ public class Frintezza extends Reflection
 			return Rnd.get(2, 4);
 		}
 		
-		/**
-		 * Checks if Frintezza's minions need heal (only major minions are checked) Return a "need heal" = true only 40% of the time
-		 */
+	 
 		private boolean minionsNeedHeal()
 		{
 			if (!Rnd.chance(40))
@@ -469,7 +463,7 @@ public class Frintezza extends Reflection
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			// If the song time is over stop this loop
 			if ((frintezza == null) || (_currentTime > _intervalOfFrintezzaSongs))
@@ -534,7 +528,7 @@ public class Frintezza extends Reflection
 		}
 	}
 	
-	private void block(NpcInstance npc, boolean flag)
+	public void block(NpcInstance npc, boolean flag)
 	{
 		if (npc == null || npc.isDead())
 		{
@@ -568,7 +562,7 @@ public class Frintezza extends Reflection
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			try
 			{
@@ -621,7 +615,7 @@ public class Frintezza extends Reflection
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			try
 			{
@@ -709,7 +703,7 @@ public class Frintezza extends Reflection
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			try
 			{

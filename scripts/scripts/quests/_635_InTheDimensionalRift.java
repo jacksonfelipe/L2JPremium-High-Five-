@@ -232,7 +232,7 @@ public class _635_InTheDimensionalRift extends Quest implements ScriptFile
 		return htmltext;
 	}
 	
-	private boolean takeAdena(QuestState st)
+	public boolean takeAdena(QuestState st)
 	{
 		int level = st.getPlayer().getLevel();
 		int fee = 0;
@@ -268,12 +268,12 @@ public class _635_InTheDimensionalRift extends Quest implements ScriptFile
 		return true;
 	}
 	
-	private boolean isZiggurat(int id)
+	public boolean isZiggurat(int id)
 	{
 		return id >= 31095 && id <= 31126;
 	}
 	
-	private boolean isKeeper(int id)
+	public boolean isKeeper(int id)
 	{
 		return id >= 31494 && id <= 31508;
 	}

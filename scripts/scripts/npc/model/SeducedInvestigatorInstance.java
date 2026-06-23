@@ -8,6 +8,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class SeducedInvestigatorInstance extends MonsterInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public SeducedInvestigatorInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

@@ -177,7 +177,7 @@ public class _148_PathToBecomingAnExaltedMercenary extends Quest implements Scri
 		return null;
 	}
 	
-	private boolean isValidKill(Player killed, Player killer)
+	public boolean isValidKill(Player killed, Player killer)
 	{
 		DominionSiegeEvent killedSiegeEvent = killed.getEvent(DominionSiegeEvent.class);
 		DominionSiegeEvent killerSiegeEvent = killer.getEvent(DominionSiegeEvent.class);
@@ -189,7 +189,7 @@ public class _148_PathToBecomingAnExaltedMercenary extends Quest implements Scri
 		return true;
 	}
 	
-	private boolean isValidNpcKill(Player killer, NpcInstance npc)
+	public boolean isValidNpcKill(Player killer, NpcInstance npc)
 	{
 		DominionSiegeEvent npcSiegeEvent = npc.getEvent(DominionSiegeEvent.class);
 		DominionSiegeEvent killerSiegeEvent = killer.getEvent(DominionSiegeEvent.class);

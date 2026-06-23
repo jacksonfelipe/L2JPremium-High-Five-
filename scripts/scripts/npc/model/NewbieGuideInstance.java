@@ -20,6 +20,7 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class NewbieGuideInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final Logger _log = LoggerFactory.getLogger(NewbieGuideInstance.class);
 	private static final List<?> mainHelpers = Arrays.asList(30598, 30599, 30600, 30601, 30602, 32135);
 	
@@ -80,11 +81,8 @@ public class NewbieGuideInstance extends NpcInstance
 						player.sendPacket(new NpcHtmlMessage(player, this, "newbiehelper/q1-2.htm", val));
 						return;
 					}
-					else
-					{
-						player.sendPacket(new NpcHtmlMessage(player, this, "newbiehelper/q1-1.htm", val).replace("%tonpc%", getQuestNpc(1, player)));
-						return;
-					}
+					player.sendPacket(new NpcHtmlMessage(player, this, "newbiehelper/q1-1.htm", val).replace("%tonpc%", getQuestNpc(1, player)));
+					return;
 				}
 				if (player.getLevel() < 10)
 				{
@@ -101,11 +99,8 @@ public class NewbieGuideInstance extends NpcInstance
 						player.sendPacket(new NpcHtmlMessage(player, this, "newbiehelper/q3-1.htm", val).replace("%tonpc%", getQuestNpc(3, player)));
 						return;
 					}
-					else
-					{
-						player.sendPacket(new NpcHtmlMessage(player, this, "newbiehelper/q2-1.htm", val).replace("%tonpc%", getQuestNpc(2, player)));
-						return;
-					}
+					player.sendPacket(new NpcHtmlMessage(player, this, "newbiehelper/q2-1.htm", val).replace("%tonpc%", getQuestNpc(2, player)));
+					return;
 				}
 				if (player.getLevel() < 15)
 				{
@@ -123,11 +118,8 @@ public class NewbieGuideInstance extends NpcInstance
 						player.sendPacket(new NpcHtmlMessage(player, this, "newbiehelper/q4-1.htm", val).replace("%tonpc%", getQuestNpc(4, player)));
 						return;
 					}
-					else
-					{
-						player.sendPacket(new NpcHtmlMessage(player, this, "newbiehelper/q3-1.htm", val).replace("%tonpc%", getQuestNpc(3, player)));
-						return;
-					}
+					player.sendPacket(new NpcHtmlMessage(player, this, "newbiehelper/q3-1.htm", val).replace("%tonpc%", getQuestNpc(3, player)));
+					return;
 				}
 				if (player.getLevel() < 18)
 				{
@@ -145,21 +137,15 @@ public class NewbieGuideInstance extends NpcInstance
 						player.sendPacket(new NpcHtmlMessage(player, this, "newbiehelper/q4-2.htm", val));
 						return;
 					}
-					else
-					{
-						player.sendPacket(new NpcHtmlMessage(player, this, "newbiehelper/q4-1.htm", val).replace("%tonpc%", getQuestNpc(4, player)));
-						return;
-					}
+					player.sendPacket(new NpcHtmlMessage(player, this, "newbiehelper/q4-1.htm", val).replace("%tonpc%", getQuestNpc(4, player)));
+					return;
 				}
 				
 				player.sendPacket(new NpcHtmlMessage(player, this, "newbiehelper/q-no.htm", val));
 				return;
 			}
-			else
-			{
-				player.sendPacket(new NpcHtmlMessage(player, this, "newbiehelper/q-no.htm", val));
-				return;
-			}
+			player.sendPacket(new NpcHtmlMessage(player, this, "newbiehelper/q-no.htm", val));
+			return;
 		}
 		super.showChatWindow(player, val);
 	}

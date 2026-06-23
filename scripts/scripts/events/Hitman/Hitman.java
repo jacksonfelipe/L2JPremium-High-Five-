@@ -11,6 +11,7 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import npc.model.events.HitmanInstance.Order;
 import premium.gameserver.Announcements;
 import premium.gameserver.Config;
 import premium.gameserver.database.DatabaseFactory;
@@ -29,7 +30,6 @@ import premium.gameserver.network.serverpackets.components.CustomMessage;
 import premium.gameserver.scripts.Functions;
 import premium.gameserver.scripts.ScriptFile;
 import premium.gameserver.utils.ItemFunctions;
-import npc.model.events.HitmanInstance.Order;
 
 /**
  * Created with Eclipse + JRebel Developer: claww Date: 24.11.13 Time: 13:41
@@ -105,10 +105,10 @@ public class Hitman extends Functions implements ScriptFile, OnDeathListener, On
 	@Override
 	public void onLoad()
 	{
-		_orderMap = new HashMap<Integer, Order>();
+		_orderMap = new HashMap<>();
 		_itemsList = new StringBuilder();
-		_allowedItems = new HashMap<String, Integer>();
-		_inList = new ArrayList<Integer>();
+		_allowedItems = new HashMap<>();
+		_inList = new ArrayList<>();
 		
 		CharListenerList.addGlobal(this);
 		

@@ -194,7 +194,7 @@ public class _350_EnhanceYourWeapon extends Quest implements ScriptFile
 		return null;
 	}
 	
-	private void calcAbsorb(List<PlayerResult> players, MonsterInstance npc, AbsorbInfo info)
+	public void calcAbsorb(List<PlayerResult> players, MonsterInstance npc, AbsorbInfo info)
 	{
 		if ((players == null) || players.isEmpty())
 		{

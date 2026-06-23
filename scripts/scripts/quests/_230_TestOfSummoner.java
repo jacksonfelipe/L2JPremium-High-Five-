@@ -144,7 +144,7 @@ public class _230_TestOfSummoner extends Quest implements ScriptFile
 		// Brynthea
 	};
 	
-	static Map<Integer, String> NAMES = new HashMap<Integer, String>();
+	static Map<Integer, String> NAMES = new HashMap<>();
 	
 	static
 	{
@@ -156,7 +156,7 @@ public class _230_TestOfSummoner extends Quest implements ScriptFile
 		NAMES.put(30640, "Brynthea");
 	}
 	
-	static Map<Integer, Integer[]> DROPLIST_LARA = new HashMap<Integer, Integer[]>();
+	static Map<Integer, Integer[]> DROPLIST_LARA = new HashMap<>();
 	
 	static
 	{
@@ -663,7 +663,7 @@ public class _230_TestOfSummoner extends Quest implements ScriptFile
 		return htmltext;
 	}
 	
-	static Map<Integer, Integer[]> DROPLIST_SUMMON = new HashMap<Integer, Integer[]>();
+	static Map<Integer, Integer[]> DROPLIST_SUMMON = new HashMap<>();
 	
 	static
 	{
@@ -717,7 +717,7 @@ public class _230_TestOfSummoner extends Quest implements ScriptFile
 		}); // Silhoutte Tilfo
 	}
 	
-	static Map<Integer, String> DROPLIST_SUMMON_VARS = new HashMap<Integer, String>();
+	static Map<Integer, String> DROPLIST_SUMMON_VARS = new HashMap<>();
 	
 	static
 	{

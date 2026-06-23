@@ -337,7 +337,7 @@ public class _194_SevenSignsMammonsContract extends Quest implements ScriptFile
 		return htmltext;
 	}
 	
-	private void negateSpeedBuffs(Player p)
+	public void negateSpeedBuffs(Player p)
 	{
 		for (Effect e : p.getEffectList().getAllEffects())
 		{
@@ -348,7 +348,7 @@ public class _194_SevenSignsMammonsContract extends Quest implements ScriptFile
 		}
 	}
 	
-	private void negateTransformations(Player p)
+	public void negateTransformations(Player p)
 	{
 		p.setTransformation(0);
 	}

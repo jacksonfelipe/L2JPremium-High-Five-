@@ -120,7 +120,7 @@ public class _709_PathToBecomingALordDion extends Quest implements ScriptFile
 	{
 		String htmltext = "noquest";
 		int npcId = npc.getNpcId();
-		int id = st.getState();
+		 
 		int cond = st.getCond();
 		Castle castle = ResidenceHolder.getInstance().getResidence(DionCastle);
 		if (castle.getOwner() == null)

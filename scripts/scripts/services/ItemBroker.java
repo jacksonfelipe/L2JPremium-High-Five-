@@ -37,7 +37,7 @@ public class ItemBroker extends Functions
 	private static final int MAX_ITEMS_PER_PAGE = 10;
 	private static final int MAX_PAGES_PER_LIST = 9;
 	
-	private static Map<Integer, NpcInfo> _npcInfos = new ConcurrentHashMap<Integer, NpcInfo>();
+	private static Map<Integer, NpcInfo> _npcInfos = new ConcurrentHashMap<>();
 	
 	public int[] RARE_ITEMS =
 	{
@@ -1589,10 +1589,10 @@ public class ItemBroker extends Functions
 			return;
 		}
 		
-		List<Item> items = new ArrayList<Item>(allItems.size() * 10);
+		List<Item> items = new ArrayList<>(allItems.size() * 10);
 		for (TreeMap<Long, Item> tempItems : allItems.values())
 		{
-			TreeMap<Long, Item> tempItems2 = new TreeMap<Long, Item>();
+			TreeMap<Long, Item> tempItems2 = new TreeMap<>();
 			for (Entry<Long, Item> entry : tempItems.entrySet())
 			{
 				Item tempItem = entry.getValue();
@@ -1731,7 +1731,7 @@ public class ItemBroker extends Functions
 		show(out.toString(), player, npc);
 	}
 	
-	private void listPageNum(StringBuilder out, int type, int itemType, int page, int minEnchant, int rare, String letter)
+	public void listPageNum(StringBuilder out, int type, int itemType, int page, int minEnchant, int rare, String letter)
 	{
 		out.append("[scripts_services.ItemBroker:list ");
 		out.append(type);
@@ -1832,7 +1832,7 @@ public class ItemBroker extends Functions
 			return;
 		}
 		
-		List<Item> items = new ArrayList<Item>(sortedItems.size());
+		List<Item> items = new ArrayList<>(sortedItems.size());
 		for (Item item : sortedItems.values())
 		{
 			if (item == null || item.enchant < minEnchant || (rare > 0 && !item.rare))
@@ -1941,7 +1941,7 @@ public class ItemBroker extends Functions
 		show(out.toString(), player, npc);
 	}
 	
-	private void listForItemPageNum(StringBuilder out, int type, int itemId, int minEnchant, int rare, int itemType, int page, int returnPage, String[] search, String letter)
+	public void listForItemPageNum(StringBuilder out, int type, int itemId, int minEnchant, int rare, int itemType, int page, int returnPage, String[] search, String letter)
 	{
 		out.append("[scripts_services.ItemBroker:listForItem ");
 		out.append(type);
@@ -2141,9 +2141,9 @@ public class ItemBroker extends Functions
 		{
 			info = new NpcInfo();
 			info.lastUpdate = System.currentTimeMillis();
-			info.bestBuyItems = new TreeMap<String, TreeMap<Long, Item>>();
-			info.bestSellItems = new TreeMap<String, TreeMap<Long, Item>>();
-			info.bestCraftItems = new TreeMap<String, TreeMap<Long, Item>>();
+			info.bestBuyItems = new TreeMap<>();
+			info.bestSellItems = new TreeMap<>();
+			info.bestCraftItems = new TreeMap<>();
 			
 			int itemObjId = 0;
 			
@@ -2169,7 +2169,7 @@ public class ItemBroker extends Functions
 							TreeMap<Long, Item> oldItems = items.get(temp.getName());
 							if (oldItems == null)
 							{
-								oldItems = new TreeMap<Long, Item>();
+								oldItems = new TreeMap<>();
 								items.put(temp.getName(), oldItems);
 							}
 							Item newItem = new Item(item.getItemId(), type, item.getOwnersPrice(), item.getCount(), item.getEnchantLevel(), temp.getName(), pl.getObjectId(), pl.getName(), pl.getLoc(), item.getObjectId(), item, false);
@@ -2202,7 +2202,7 @@ public class ItemBroker extends Functions
 							TreeMap<Long, Item> oldItems = items.get(temp.getName());
 							if (oldItems == null)
 							{
-								oldItems = new TreeMap<Long, Item>();
+								oldItems = new TreeMap<>();
 								items.put(temp.getName(), oldItems);
 							}
 							Item newItem = new Item(item.getItemId(), type, packagePrice, item.getCount(), item.getEnchantLevel(), temp.getName(), pl.getObjectId(), pl.getName(), pl.getLoc(), item.getObjectId(), item, true);
@@ -2229,7 +2229,7 @@ public class ItemBroker extends Functions
 							TreeMap<Long, Item> oldItems = items.get(temp.getName());
 							if (oldItems == null)
 							{
-								oldItems = new TreeMap<Long, Item>();
+								oldItems = new TreeMap<>();
 								items.put(temp.getName(), oldItems);
 							}
 							Item newItem = new Item(item.getItemId(), type, item.getOwnersPrice(), item.getCount(), item.getEnchantLevel(), temp.getName(), pl.getObjectId(), pl.getName(), pl.getLoc(), itemObjId++, item, false);
@@ -2267,7 +2267,7 @@ public class ItemBroker extends Functions
 							TreeMap<Long, Item> oldItems = items.get(temp.getName());
 							if (oldItems == null)
 							{
-								oldItems = new TreeMap<Long, Item>();
+								oldItems = new TreeMap<>();
 								items.put(temp.getName(), oldItems);
 							}
 							Item newItem = new Item(recipe.getItemId(), type, mitem.getCost(), recipe.getCount(), 0, temp.getName(), pl.getObjectId(), pl.getName(), pl.getLoc(), itemObjId++, null, false);
@@ -2337,7 +2337,7 @@ public class ItemBroker extends Functions
 			return;
 		}
 		
-		List<Item> items = new ArrayList<Item>();
+		List<Item> items = new ArrayList<>();
 		String line;
 		TreeMap<Long, Item> itemMap;
 		Item item;
@@ -2452,14 +2452,13 @@ public class ItemBroker extends Functions
 				out.append(minEnchant);
 				out.append(" 0 0 1 ");
 				out.append(currentPage);
-				if (search != null)
+				
+				for (int i = 0; i < search.length; i++)
 				{
-					for (int i = 0; i < search.length; i++)
-					{
-						out.append(" ");
-						out.append(search[i]);
-					}
+					out.append(" ");
+					out.append(search[i]);
 				}
+				
 				out.append("|");
 				out.append("<font color=\"LEVEL\">");
 				out.append(temp.getName());
@@ -2478,7 +2477,7 @@ public class ItemBroker extends Functions
 		show(out.toString(), player, npc);
 	}
 	
-	private void findPageNum(StringBuilder out, int type, int page, String[] search, String letter)
+	public void findPageNum(StringBuilder out, int type, int page, String[] search, String letter)
 	{
 		out.append("[scripts_services.ItemBroker:find ");
 		out.append(type);

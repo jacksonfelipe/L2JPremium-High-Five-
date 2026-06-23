@@ -85,7 +85,7 @@ public class _710_PathToBecomingALordGiran extends Quest implements ScriptFile
 	{
 		String htmltext = "noquest";
 		int npcId = npc.getNpcId();
-		int id = st.getState();
+		 
 		int cond = st.getCond();
 		Castle castle = ResidenceHolder.getInstance().getResidence(GiranCastle);
 		if (castle.getOwner() == null)

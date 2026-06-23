@@ -66,9 +66,9 @@ public class _698_BlocktheLordsEscape extends Quest implements ScriptFile
 	@Override
 	public String onEvent(String event, QuestState st, NpcInstance npc)
 	{
-		Player player = st.getPlayer();
+		 
 		String htmltext = event;
-		int cond = st.getCond();
+	 
 		
 		if (event.equalsIgnoreCase("tepios_q698_3.htm"))
 		{

@@ -30,7 +30,7 @@ public class _511_AwlUnderFoot extends Quest implements ScriptFile
 	private final static int RewardMarksCount = 1000; // цифра с потолка
 	private final static int KnightsEpaulette = 9912;
 	
-	private static final Map<Integer, Prison> _prisons = new ConcurrentHashMap<Integer, Prison>();
+	private static final Map<Integer, Prison> _prisons = new ConcurrentHashMap<>();
 	
 	private static final int HagerTheOutlaw = 25572;
 	private static final int AllSeeingRango = 25575;
@@ -95,10 +95,7 @@ public class _511_AwlUnderFoot extends Quest implements ScriptFile
 			{
 				return "gludio_fort_a_campkeeper_q0511_01a.htm";
 			}
-			else
-			{
-				return enterPrison(st.getPlayer());
-			}
+			return enterPrison(st.getPlayer());
 		}
 		return event;
 	}
@@ -181,7 +178,7 @@ public class _511_AwlUnderFoot extends Quest implements ScriptFile
 		return null;
 	}
 	
-	private boolean check(Player player)
+	public boolean check(Player player)
 	{
 		Fortress fort = ResidenceHolder.getInstance().getResidenceByObject(Fortress.class, player);
 		if (fort == null)
@@ -286,7 +283,7 @@ public class _511_AwlUnderFoot extends Quest implements ScriptFile
 			}
 			
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl()  
 			{
 				addSpawnToInstance(_npcId, new Location(53304, 245992, -6576, 25958), 0, _reflectionId);
 			}
@@ -329,7 +326,7 @@ public class _511_AwlUnderFoot extends Quest implements ScriptFile
 		}
 	}
 	
-	private boolean areMembersSameClan(Player player)
+	public boolean areMembersSameClan(Player player)
 	{
 		if (player.getParty() == null)
 		{

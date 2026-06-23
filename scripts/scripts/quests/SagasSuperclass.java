@@ -88,7 +88,7 @@ public abstract class SagasSuperclass extends Quest
 		2
 	};
 	public String[] Text = new String[18];
-	protected List<Spawn> Spawn_List = new ArrayList<Spawn>();
+	protected List<Spawn> Spawn_List = new ArrayList<>();
 	
 	private class Spawn
 	{
@@ -137,7 +137,7 @@ public abstract class SagasSuperclass extends Quest
 		18219
 	};
 	
-	protected static Map<Integer, Class<?>> Quests = new HashMap<Integer, Class<?>>();
+	protected static Map<Integer, Class<?>> Quests = new HashMap<>();
 	
 	static
 	{
@@ -386,7 +386,7 @@ public abstract class SagasSuperclass extends Quest
 	public class SpawnCleaner extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			synchronized (Spawn_List)
 			{
@@ -989,10 +989,7 @@ public abstract class SagasSuperclass extends Quest
 						st.giveItems(7546, 1);
 						return null;
 					}
-					else
-					{
-						htmltext = "tunatun_q72_02.htm";
-					}
+					htmltext = "tunatun_q72_02.htm";
 				}
 				break;
 			case 4:

@@ -3,6 +3,7 @@ package events.SummerMeleons;
 import java.util.List;
 import java.util.concurrent.ScheduledFuture;
 
+import npc.model.MeleonInstance;
 import premium.commons.threading.RunnableImpl;
 import premium.commons.util.Rnd;
 import premium.gameserver.ThreadPoolManager;
@@ -17,14 +18,13 @@ import premium.gameserver.model.reward.RewardItem;
 import premium.gameserver.network.serverpackets.MagicSkillUse;
 import premium.gameserver.scripts.Functions;
 import premium.gameserver.utils.Log;
-import npc.model.MeleonInstance;
 
 public class MeleonAI extends Fighter
 {
 	public class PolimorphTask extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			MeleonInstance actor = getActor();
 			if (actor == null)

@@ -239,7 +239,7 @@ public class SumielInstance extends NpcInstance
 	private class TIMER_0 extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			for (NpcInstance npc : GameObjectsStorage.getAllNpcs())
 			{
@@ -255,7 +255,7 @@ public class SumielInstance extends NpcInstance
 	private class TIMER_1 extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			for (NpcInstance npc : GameObjectsStorage.getAllNpcs())
 			{
@@ -271,7 +271,7 @@ public class SumielInstance extends NpcInstance
 	private class TIMER_2 extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			for (NpcInstance npc : GameObjectsStorage.getAllNpcs())
 			{
@@ -287,7 +287,7 @@ public class SumielInstance extends NpcInstance
 	private class TIMER_3 extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			for (NpcInstance npc : GameObjectsStorage.getAllNpcs())
 			{
@@ -303,7 +303,7 @@ public class SumielInstance extends NpcInstance
 	private class TIMER_4 extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			for (NpcInstance npc : GameObjectsStorage.getAllNpcs())
 			{
@@ -319,7 +319,7 @@ public class SumielInstance extends NpcInstance
 	private class TIMER_5 extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			for (NpcInstance npc : GameObjectsStorage.getAllNpcs())
 			{
@@ -335,7 +335,7 @@ public class SumielInstance extends NpcInstance
 	private class TIMER_6 extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			for (NpcInstance npc : GameObjectsStorage.getAllNpcs())
 			{
@@ -351,7 +351,7 @@ public class SumielInstance extends NpcInstance
 	private class TIMER_7 extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			for (NpcInstance npc : GameObjectsStorage.getAllNpcs())
 			{
@@ -367,7 +367,7 @@ public class SumielInstance extends NpcInstance
 	private class TIMER_8 extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			for (NpcInstance npc : GameObjectsStorage.getAllNpcs())
 			{
@@ -383,7 +383,7 @@ public class SumielInstance extends NpcInstance
 	private class TIMER_9 extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			for (NpcInstance npc : GameObjectsStorage.getAllNpcs())
 			{
@@ -399,7 +399,7 @@ public class SumielInstance extends NpcInstance
 	private class HURRY_UP extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			NpcInstance npc = GameObjectsStorage.getAsNpc(_storedId);
 			Functions.npcShout(npc, NpcString.FURNFACE2);
@@ -418,7 +418,7 @@ public class SumielInstance extends NpcInstance
 	private class HURRY_UP2 extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			NpcInstance npc = GameObjectsStorage.getAsNpc(_storedId);
 			Functions.npcShout(npc, NpcString.FURNFACE3);
@@ -429,7 +429,7 @@ public class SumielInstance extends NpcInstance
 	private class PC_TURN extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			NpcInstance npc1 = GameObjectsStorage.getAsNpc(_storedId);
 			Functions.npcShout(npc1, NpcString.FURNFACE4);
@@ -447,7 +447,7 @@ public class SumielInstance extends NpcInstance
 	private class GAME_TIME_EXPIRED extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			NpcInstance npc1 = GameObjectsStorage.getAsNpc(_storedId);
 			Functions.npcShout(npc1, NpcString.FURNFACE5);
@@ -467,7 +467,7 @@ public class SumielInstance extends NpcInstance
 	private class GAME_TIME extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			i_quest2 = 0;
 		}

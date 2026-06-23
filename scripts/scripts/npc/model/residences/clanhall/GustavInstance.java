@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import npc.model.residences.SiegeGuardInstance;
 import premium.commons.threading.RunnableImpl;
 import premium.gameserver.ThreadPoolManager;
 import premium.gameserver.ai.CtrlEvent;
@@ -24,7 +25,6 @@ import premium.gameserver.network.serverpackets.components.NpcString;
 import premium.gameserver.scripts.Functions;
 import premium.gameserver.templates.npc.NpcTemplate;
 import premium.gameserver.utils.Location;
-import npc.model.residences.SiegeGuardInstance;
 
 /**
  * @author VISTALL
@@ -32,6 +32,7 @@ import npc.model.residences.SiegeGuardInstance;
  */
 public class GustavInstance extends SiegeGuardInstance implements _34SiegeGuard
 {
+	private static final long serialVersionUID = 1L;
 	private AtomicBoolean _canDead = new AtomicBoolean();
 	private Future<?> _teleportTask;
 	
@@ -50,6 +51,7 @@ public class GustavInstance extends SiegeGuardInstance implements _34SiegeGuard
 		Functions.npcShout(this, NpcString.PREPARE_TO_DIE_FOREIGN_INVADERS_I_AM_GUSTAV_THE_ETERNAL_RULER_OF_THIS_FORTRESS_AND_I_HAVE_TAKEN_UP_MY_SWORD_TO_REPEL_THEE);
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void onDeath(Creature killer)
 	{
@@ -82,7 +84,7 @@ public class GustavInstance extends SiegeGuardInstance implements _34SiegeGuard
 				_teleportTask = ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 				{
 					@Override
-					public void runImpl() throws Exception
+					public void runImpl() 
 					{
 						Location loc = Location.findAroundPosition(177134, -18807, -2256, 50, 100, npc.getGeoIndex());
 						
@@ -122,7 +124,7 @@ public class GustavInstance extends SiegeGuardInstance implements _34SiegeGuard
 		
 		Player temp = null;
 		
-		Map<Player, Integer> damageMap = new HashMap<Player, Integer>();
+		Map<Player, Integer> damageMap = new HashMap<>();
 		
 		for (AggroList.HateInfo info : getAggroList().getPlayableMap().values())
 		{

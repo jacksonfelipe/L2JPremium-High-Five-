@@ -6,12 +6,11 @@ import premium.gameserver.model.Skill;
 import premium.gameserver.model.instances.MonsterInstance;
 import premium.gameserver.templates.npc.NpcTemplate;
 
-/**
- * Данный инстанс используется мобом Thomas D. Turkey в эвенте Saving Snowman
- * @author SYS
- */
+ 
 public class ThomasInstance extends MonsterInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public ThomasInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

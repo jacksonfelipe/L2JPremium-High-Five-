@@ -94,13 +94,8 @@ public class Birthday extends Functions
 		ThreadPoolManager.getInstance().execute(new GameObjectTasks.DeleteTask(npc));
 	}
 	
-	/**
-	 * Вернет true если у чара сегодня день рождения
-	 * @param player
-	 * @return
-	 */
-	@SuppressWarnings("unused")
-	private boolean isBirthdayToday(Player player)
+ 
+	public boolean isBirthdayToday(Player player)
 	{
 		if (player.getCreateTime() == 0)
 		{

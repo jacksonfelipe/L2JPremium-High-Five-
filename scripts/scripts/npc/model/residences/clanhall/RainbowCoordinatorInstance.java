@@ -18,6 +18,8 @@ import premium.gameserver.utils.Location;
  */
 public class RainbowCoordinatorInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public RainbowCoordinatorInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

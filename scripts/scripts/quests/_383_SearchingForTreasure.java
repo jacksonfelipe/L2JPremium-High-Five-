@@ -31,7 +31,7 @@ public class _383_SearchingForTreasure extends Quest implements ScriptFile
 		}
 	}
 	
-	private static List<rewardInfo> rewards = new ArrayList<rewardInfo>();
+	private static List<rewardInfo> rewards = new ArrayList<>();
 	
 	@Override
 	public void onLoad()

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Future;
 
+import npc.model.PathfinderInstance;
 import premium.commons.threading.RunnableImpl;
 import premium.gameserver.ThreadPoolManager;
 import premium.gameserver.data.xml.holder.NpcHolder;
@@ -16,7 +17,6 @@ import premium.gameserver.model.entity.Reflection;
 import premium.gameserver.network.serverpackets.SystemMessage;
 import premium.gameserver.templates.InstantZone;
 import premium.gameserver.utils.Location;
-import npc.model.PathfinderInstance;
 
 public class KamalokaNightmare extends Reflection
 {
@@ -125,6 +125,7 @@ public class KamalokaNightmare extends Reflection
 		
 		_expireTask = ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 		{
+			@SuppressWarnings("synthetic-access")
 			@Override
 			public void runImpl()
 			{
@@ -138,7 +139,7 @@ public class KamalokaNightmare extends Reflection
 					
 					KamalokaNightmare.this.getSpawns().clear();
 					
-					List<GameObject> delete = new ArrayList<GameObject>();
+					List<GameObject> delete = new ArrayList<>();
 					lock.lock();
 					try
 					{

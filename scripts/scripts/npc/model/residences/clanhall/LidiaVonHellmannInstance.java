@@ -3,6 +3,7 @@ package npc.model.residences.clanhall;
 import java.util.HashMap;
 import java.util.Map;
 
+import npc.model.residences.SiegeGuardInstance;
 import premium.gameserver.model.AggroList;
 import premium.gameserver.model.Creature;
 import premium.gameserver.model.Playable;
@@ -11,7 +12,6 @@ import premium.gameserver.model.entity.events.impl.ClanHallSiegeEvent;
 import premium.gameserver.model.entity.events.impl.SiegeEvent;
 import premium.gameserver.model.pledge.Clan;
 import premium.gameserver.templates.npc.NpcTemplate;
-import npc.model.residences.SiegeGuardInstance;
 
 /**
  * @author VISTALL
@@ -19,11 +19,14 @@ import npc.model.residences.SiegeGuardInstance;
  */
 public class LidiaVonHellmannInstance extends SiegeGuardInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public LidiaVonHellmannInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void onDeath(Creature killer)
 	{
@@ -44,7 +47,7 @@ public class LidiaVonHellmannInstance extends SiegeGuardInstance
 		
 		Player temp = null;
 		
-		Map<Player, Integer> damageMap = new HashMap<Player, Integer>();
+		Map<Player, Integer> damageMap = new HashMap<>();
 		
 		for (AggroList.HateInfo info : getAggroList().getPlayableMap().values())
 		{

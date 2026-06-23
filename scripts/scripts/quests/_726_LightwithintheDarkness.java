@@ -156,7 +156,7 @@ public class _726_LightwithintheDarkness extends Quest implements ScriptFile
 		return true;
 	}
 	
-	private boolean check(Player player)
+	public boolean check(Player player)
 	{
 		Fortress fort = ResidenceHolder.getInstance().getResidenceByObject(Fortress.class, player);
 		if (fort == null)

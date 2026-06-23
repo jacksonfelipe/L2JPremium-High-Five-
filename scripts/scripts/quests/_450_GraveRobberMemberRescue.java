@@ -120,7 +120,7 @@ public class _450_GraveRobberMemberRescue extends Quest implements ScriptFile
 				{
 					
 					@Override
-					public void runImpl() throws Exception
+					public void runImpl()  
 					{
 						npc.deleteMe();
 					}

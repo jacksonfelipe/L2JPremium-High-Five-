@@ -145,7 +145,7 @@ public final class ClassMasterInstance extends MerchantInstance
 		}
 	}
 	
-	private void changeClass(Player player, int val)
+	private static void changeClass(Player player, int val)
 	{
 		if (player.getClassId().getLevel() == 3)
 		{

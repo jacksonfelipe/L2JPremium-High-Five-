@@ -16,7 +16,7 @@ public class OpenSealedBox
 	private final QuestState st;
 	private String result = "";
 	private int takecount = 0;
-	private Map<Integer, Long> rewards = new HashMap<Integer, Long>();
+	private Map<Integer, Long> rewards = new HashMap<>();
 	private static final RewardGroup[] rewardgroups =
 	{
 		new RewardAdena(),

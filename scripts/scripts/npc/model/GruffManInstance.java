@@ -12,6 +12,7 @@ import premium.gameserver.utils.ReflectionUtils;
 
 public final class GruffManInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final int elcardiaIzId = 158;
 	
 	public GruffManInstance(int objectId, NpcTemplate template)

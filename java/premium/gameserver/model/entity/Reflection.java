@@ -69,7 +69,7 @@ public class Reflection
 		}
 	}
 	
-	private static final Logger _log = LoggerFactory.getLogger(Reflection.class);
+	public static final Logger _log = LoggerFactory.getLogger(Reflection.class);
 	private final static AtomicInteger _nextId = new AtomicInteger();
 	
 	private final int _id;
@@ -82,8 +82,8 @@ public class Reflection
 	private Location _returnLoc; // если не прописано reset, но прописан return, то телепортит туда, одновременно перемещая в основной мир
 	private Location _teleportLoc; // точка входа
 	
-	protected List<Spawner> _spawns = new ArrayList<Spawner>();
-	protected List<GameObject> _objects = new ArrayList<GameObject>();
+	protected List<Spawner> _spawns = new ArrayList<>();
+	protected List<GameObject> _objects = new ArrayList<>();
 	
 	// vars
 	protected IntObjectMap<DoorInstance> _doors = Containers.emptyIntObjectMap();
@@ -254,7 +254,7 @@ public class Reflection
 			_collapseTask = ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 			{
 				@Override
-				public void runImpl() throws Exception
+				public void runImpl() 
 				{
 					collapse();
 				}
@@ -265,7 +265,7 @@ public class Reflection
 				_collapse1minTask = ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 				{
 					@Override
-					public void runImpl() throws Exception
+					public void runImpl() 
 					{
 						minuteBeforeCollapse();
 					}
@@ -379,8 +379,8 @@ public class Reflection
 			}
 			_zones.clear();
 			
-			List<Player> teleport = new ArrayList<Player>();
-			List<GameObject> delete = new ArrayList<GameObject>();
+			List<Player> teleport = new ArrayList<>();
+			List<GameObject> delete = new ArrayList<>();
 			
 			lock.lock();
 			try
@@ -530,7 +530,7 @@ public class Reflection
 				_hiddencollapseTask = ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 				{
 					@Override
-					public void runImpl() throws Exception
+					public void runImpl() 
 					{
 						collapse();
 					}
@@ -553,7 +553,7 @@ public class Reflection
 	
 	public List<Player> getPlayers()
 	{
-		List<Player> result = new ArrayList<Player>();
+		List<Player> result = new ArrayList<>();
 		lock.lock();
 		try
 		{
@@ -574,7 +574,7 @@ public class Reflection
 	
 	public List<NpcInstance> getNpcs()
 	{
-		List<NpcInstance> result = new ArrayList<NpcInstance>();
+		List<NpcInstance> result = new ArrayList<>();
 		lock.lock();
 		try
 		{
@@ -595,7 +595,7 @@ public class Reflection
 	
 	public List<NpcInstance> getAllByNpcId(int npcId, boolean onlyAlive)
 	{
-		List<NpcInstance> result = new ArrayList<NpcInstance>();
+		List<NpcInstance> result = new ArrayList<>();
 		lock.lock();
 		try
 		{
@@ -717,7 +717,7 @@ public class Reflection
 	{
 		if (!doors.isEmpty())
 		{
-			_doors = new HashIntObjectMap<DoorInstance>(doors.size());
+			_doors = new HashIntObjectMap<>(doors.size());
 		}
 		
 		for (DoorTemplate template : doors.values())
@@ -738,7 +738,7 @@ public class Reflection
 		
 		if (!zones.isEmpty())
 		{
-			_zones = new HashMap<String, Zone>(zones.size());
+			_zones = new HashMap<>(zones.size());
 		}
 		
 		for (ZoneTemplate template : zones.values())
@@ -773,7 +773,7 @@ public class Reflection
 	{
 		if (!doors.isEmpty())
 		{
-			_doors = new HashIntObjectMap<DoorInstance>(doors.size());
+			_doors = new HashIntObjectMap<>(doors.size());
 		}
 		
 		for (InstantZone.DoorInfo info : doors.values())
@@ -794,7 +794,7 @@ public class Reflection
 		
 		if (!zones.isEmpty())
 		{
-			_zones = new HashMap<String, Zone>(zones.size());
+			_zones = new HashMap<>(zones.size());
 		}
 		
 		for (InstantZone.ZoneInfo t : zones.values())
@@ -837,9 +837,7 @@ public class Reflection
 		}
 	}
 	
-	/**
-	 * Открывает дверь в отражении
-	 */
+	 
 	public void openDoor(int doorId)
 	{
 		DoorInstance door = _doors.get(doorId);
@@ -849,9 +847,7 @@ public class Reflection
 		}
 	}
 	
-	/**
-	 * Закрывает дверь в отражении
-	 */
+	 
 	public void closeDoor(int doorId)
 	{
 		DoorInstance door = _doors.get(doorId);
@@ -861,9 +857,7 @@ public class Reflection
 		}
 	}
 	
-	/**
-	 * Удаляет все спауны из рефлекшена и запускает коллапс-таймер. Время указывается в минутах.
-	 */
+ 
 	public void clearReflection(int timeInMinutes, boolean message)
 	{
 		if (isDefault())
@@ -1011,10 +1005,10 @@ public class Reflection
 		
 		if (instantZone.getSpawns().size() > 0)
 		{
-			_spawners = new HashMap<String, List<Spawner>>(instantZone.getSpawns().size());
+			_spawners = new HashMap<>(instantZone.getSpawns().size());
 			for (Map.Entry<String, InstantZone.SpawnInfo2> entry : instantZone.getSpawns().entrySet())
 			{
-				List<Spawner> spawnList = new ArrayList<Spawner>(entry.getValue().getTemplates().size());
+				List<Spawner> spawnList = new ArrayList<>(entry.getValue().getTemplates().size());
 				_spawners.put(entry.getKey(), spawnList);
 				
 				for (SpawnTemplate template : entry.getValue().getTemplates())

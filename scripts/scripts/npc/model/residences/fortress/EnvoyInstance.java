@@ -18,6 +18,7 @@ import premium.gameserver.templates.npc.NpcTemplate;
  */
 public class EnvoyInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	public static final int COND_LEADER = 0;
 	public static final int COND_FAIL = 1;
 	
@@ -124,9 +125,6 @@ public class EnvoyInstance extends NpcInstance
 		{
 			return COND_LEADER;
 		}
-		else
-		{
-			return COND_FAIL;
-		}
+		return COND_FAIL;
 	}
 }

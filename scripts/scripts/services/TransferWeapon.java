@@ -185,7 +185,7 @@ public class TransferWeapon extends Functions
 		else
 		{
 			// Remove the item from the player
-			List<ItemInstance> attachments = new ArrayList<ItemInstance>();
+			List<ItemInstance> attachments = new ArrayList<>();
 			ItemInstance item = player.getInventory().removeItemByObjectId(itemObjectId, 1, "TransferWeapon");
 			item.setOwnerId(player.getObjectId());
 			item.setLocation(ItemLocation.MAIL);

@@ -12,6 +12,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
  */
 public class UndergroundColiseumTowerInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public UndergroundColiseumTowerInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

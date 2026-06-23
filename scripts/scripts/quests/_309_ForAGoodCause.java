@@ -89,10 +89,7 @@ public class _309_ForAGoodCause extends Quest implements ScriptFile
 				st.giveItems(MoiraiRecipes[Rnd.get(MoiraiRecipes.length - 1)], 1);
 				return null;
 			}
-			else
-			{
-				htmltext = "32646-14.htm";
-			}
+			htmltext = "32646-14.htm";
 		}
 		else if (event.equalsIgnoreCase("moiraimat"))
 		{
@@ -102,10 +99,7 @@ public class _309_ForAGoodCause extends Quest implements ScriptFile
 				st.giveItems(Moiraimaterials[Rnd.get(Moiraimaterials.length - 1)], 1);
 				return null;
 			}
-			else
-			{
-				htmltext = "32646-14.htm";
-			}
+			htmltext = "32646-14.htm";
 		}
 		return htmltext;
 	}

@@ -13,6 +13,7 @@ import quests._111_ElrokianHuntersProof;
  */
 public class AsamahInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final int ElrokianTrap = 8763;
 	private static final int TrapStone = 8764;
 	

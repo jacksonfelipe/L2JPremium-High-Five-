@@ -24,6 +24,7 @@ import premium.gameserver.utils.Util;
 
 public final class CaravanTraderInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final int NativeTreasure = 9684;
 	private static final int HolyWater = 9673;
 	private static final int DarionsBadge = 9674;
@@ -83,11 +84,8 @@ public final class CaravanTraderInstance extends NpcInstance
 				showDialog(player, getHtmlPath(getNpcId(), 3, player));
 				return;
 			}
-			else
-			{
-				showDialog(player, getHtmlPath(getNpcId(), 4, player));
-				return;
-			}
+			showDialog(player, getHtmlPath(getNpcId(), 4, player));
+			return;
 		}
 		else if (command.startsWith("buy_holy_water")) // Bernarde
 		{
@@ -103,11 +101,8 @@ public final class CaravanTraderInstance extends NpcInstance
 				showDialog(player, getHtmlPath(getNpcId(), 6, player));
 				return;
 			}
-			else
-			{
-				showDialog(player, getHtmlPath(getNpcId(), 3, player));
-				return;
-			}
+			showDialog(player, getHtmlPath(getNpcId(), 3, player));
+			return;
 		}
 		else if (command.startsWith("one_treasure")) // Bernarde
 		{
@@ -118,11 +113,8 @@ public final class CaravanTraderInstance extends NpcInstance
 				showDialog(player, getHtmlPath(getNpcId(), 8, player));
 				return;
 			}
-			else
-			{
-				showDialog(player, getHtmlPath(getNpcId(), 9, player));
-				return;
-			}
+			showDialog(player, getHtmlPath(getNpcId(), 9, player));
+			return;
 		}
 		else if (command.startsWith("request_1_badge")) // Falk
 		{
@@ -138,12 +130,8 @@ public final class CaravanTraderInstance extends NpcInstance
 				showDialog(player, getHtmlPath(getNpcId(), 4, player));
 				return;
 			}
-			else
-			// not enough badges
-			{
-				showDialog(player, getHtmlPath(getNpcId(), 5, player));
-				return;
-			}
+			showDialog(player, getHtmlPath(getNpcId(), 5, player));
+			return;
 		}
 		else if (command.startsWith("bdgc"))
 		{
@@ -192,12 +180,8 @@ public final class CaravanTraderInstance extends NpcInstance
 				showDialog(player, getHtmlPath(getNpcId(), 6, player));
 				return;
 			}
-			else
-			// not enough
-			{
-				showDialog(player, getHtmlPath(getNpcId(), 7, player));
-				return;
-			}
+			showDialog(player, getHtmlPath(getNpcId(), 7, player));
+			return;
 		}
 		else if (command.startsWith("cntf"))
 		{
@@ -298,11 +282,8 @@ public final class CaravanTraderInstance extends NpcInstance
 				showDialog(player, getHtmlPath(getNpcId(), 3, player));
 				return;
 			}
-			else
-			{
-				showDialog(player, getHtmlPath(getNpcId(), 4, player));
-				return;
-			}
+			showDialog(player, getHtmlPath(getNpcId(), 4, player));
+			return;
 		}
 		else if (command.startsWith("secret_med")) // Hude
 		{
@@ -321,11 +302,8 @@ public final class CaravanTraderInstance extends NpcInstance
 				showDialog(player, getHtmlPath(getNpcId(), 6, player));
 				return;
 			}
-			else
-			{
-				showDialog(player, getHtmlPath(getNpcId(), 4, player));
-				return;
-			}
+			showDialog(player, getHtmlPath(getNpcId(), 4, player));
+			return;
 		}
 		else if (command.startsWith("s80_trade")) // Hude
 		{
@@ -356,11 +334,8 @@ public final class CaravanTraderInstance extends NpcInstance
 				showDialog(player, getHtmlPath(getNpcId(), 2, player));
 				return;
 			}
-			else
-			{
-				showDialog(player, getHtmlPath(getNpcId(), 3, player));
-				return;
-			}
+			showDialog(player, getHtmlPath(getNpcId(), 3, player));
+			return;
 		}
 		else if (command.startsWith("tully_entrance")) // Deltuva
 		{
@@ -369,11 +344,8 @@ public final class CaravanTraderInstance extends NpcInstance
 				player.teleToLocation(new Location(17947, 283205, -9696));
 				return;
 			}
-			else
-			{
-				showDialog(player, getHtmlPath(getNpcId(), 1, player));
-				return;
-			}
+			showDialog(player, getHtmlPath(getNpcId(), 1, player));
+			return;
 		}
 		else if (command.startsWith("infinitum_entrance")) // Jerian
 		{
@@ -674,7 +646,7 @@ public final class CaravanTraderInstance extends NpcInstance
 		player.sendPacket(html);
 	}
 	
-	private boolean hasProperMark(Player player, int mark)
+	private static boolean hasProperMark(Player player, int mark)
 	{
 		switch (mark)
 		{
@@ -711,7 +683,7 @@ public final class CaravanTraderInstance extends NpcInstance
 	private class CloseDoor extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			ReflectionUtils.getDoor(19250003).closeMe();
 			ReflectionUtils.getDoor(19250004).closeMe();

@@ -13,6 +13,7 @@ import services.TeleToFantasyIsle;
  */
 public class UndergroundColiseumHelperInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private final Location[][] LOCS = new Location[][]
 	{
 		{

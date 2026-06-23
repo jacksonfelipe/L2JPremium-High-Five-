@@ -9,6 +9,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
  */
 public class DietrichInstance extends _34BossMinionInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public DietrichInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

@@ -15,15 +15,16 @@ import premium.gameserver.templates.npc.NpcTemplate;
  * @author claww
  * @date 21.01.2013
  */
-@SuppressWarnings("serial")
+ 
 public class BirthDayCakeInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final Skill SKILL = SkillTable.getInstance().getInfo(22035, 1);
 	
 	private class CastTask extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			for (Player player : World.getAroundPlayers(BirthDayCakeInstance.this, 500, 100))
 			{

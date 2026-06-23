@@ -17,7 +17,7 @@ public class _619_RelicsOfTheOldEmpire extends Quest implements ScriptFile
 	// NPCs
 	private static final int GHOST = 31538;
 	
-	private static final Map<Integer, Integer> drops = new HashMap<Integer, Integer>();
+	private static final Map<Integer, Integer> drops = new HashMap<>();
 	
 	static
 	{

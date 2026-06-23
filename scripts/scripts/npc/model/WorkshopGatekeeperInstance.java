@@ -22,8 +22,9 @@ import premium.gameserver.utils.ReflectionUtils;
  */
 public class WorkshopGatekeeperInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static long doorRecharge = 0;
-	private static final IntObjectMap<IntSet> doors = new HashIntObjectMap<IntSet>();
+	private static final IntObjectMap<IntSet> doors = new HashIntObjectMap<>();
 	
 	static
 	{
@@ -181,7 +182,7 @@ public class WorkshopGatekeeperInstance extends NpcInstance
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			_door.closeMe();
 		}

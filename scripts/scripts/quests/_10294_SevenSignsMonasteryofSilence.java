@@ -142,10 +142,7 @@ public class _10294_SevenSignsMonasteryofSilence extends Quest implements Script
 				teleportElcardia(player);
 				return null;
 			}
-			else
-			{
-				htmltext = "movingdevice_q10294_0.htm";
-			}
+			htmltext = "movingdevice_q10294_0.htm";
 		}
 		else if (event.equalsIgnoreCase("teleport_deeper_out"))
 		{
@@ -420,7 +417,7 @@ public class _10294_SevenSignsMonasteryofSilence extends Quest implements Script
 		return htmltext;
 	}
 	
-	private void teleportElcardia(Player player)
+	public void teleportElcardia(Player player)
 	{
 		for (NpcInstance n : player.getReflection().getNpcs())
 		{
@@ -431,7 +428,7 @@ public class _10294_SevenSignsMonasteryofSilence extends Quest implements Script
 		}
 	}
 	
-	private boolean checkComplete(QuestState st)
+	public boolean checkComplete(QuestState st)
 	{
 		return st.getInt("yellow") != 0 && st.getInt("green") != 0 && st.getInt("blue") != 0 && st.getInt("red") != 0;
 	}

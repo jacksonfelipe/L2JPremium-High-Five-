@@ -5,6 +5,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class ImmuneMonsterInstance extends MonsterInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public ImmuneMonsterInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

@@ -16,9 +16,7 @@ public class _640_TheZeroHour extends Quest implements ScriptFile
 	// ITEMS
 	private static int STAKATO_QUEENS_FANG = 14859;
 	private static int KAHMANS_SUPPLY_BOX = 14849;
-	// MOB's
-	private static int QUEEN_SHYEED_ID = 25671;
-	
+ 
 	@Override
 	public void onLoad()
 	{

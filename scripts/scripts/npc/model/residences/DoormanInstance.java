@@ -14,6 +14,7 @@ import premium.gameserver.utils.ReflectionUtils;
  */
 public abstract class DoormanInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	protected static final int COND_OWNER = 0;
 	protected static final int COND_SIEGE = 1;
 	protected static final int COND_FAIL = 2;
@@ -105,15 +106,9 @@ public abstract class DoormanInstance extends NpcInstance
 			{
 				return COND_SIEGE;
 			}
-			else
-			{
-				return COND_OWNER;
-			}
+			return COND_OWNER;
 		}
-		else
-		{
-			return COND_FAIL;
-		}
+		return COND_FAIL;
 	}
 	
 	public abstract int getOpenPriv();

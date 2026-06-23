@@ -15,6 +15,7 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class SepulcherRaidInstance extends RaidBossInstance
 {
+	private static final long serialVersionUID = 1L;
 	public int mysteriousBoxId = 0;
 	private Future<?> _onDeadEventTask = null;
 	
@@ -105,7 +106,7 @@ public class SepulcherRaidInstance extends RaidBossInstance
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			FourSepulchersSpawn.spawnEmperorsGraveNpc(_activeChar.mysteriousBoxId);
 		}

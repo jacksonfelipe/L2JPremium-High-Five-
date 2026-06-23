@@ -26,7 +26,7 @@ public class _697_DefendtheHallofErosion extends Quest implements ScriptFile
 	@Override
 	public String onEvent(String event, QuestState st, NpcInstance npc)
 	{
-		Player player = st.getPlayer();
+		 
 		String htmltext = event;
 		
 		if (event.equalsIgnoreCase("tepios_q697_3.htm"))

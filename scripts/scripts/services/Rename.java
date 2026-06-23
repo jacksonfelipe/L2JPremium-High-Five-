@@ -280,7 +280,7 @@ public class Rename extends Functions
 		append += "<font color=\"LEVEL\">" + new CustomMessage("scripts.services.BaseChange.Price", player).addString(Util.formatAdena(Config.SERVICES_CHANGE_BASE_PRICE)).addItemName(Config.SERVICES_CHANGE_BASE_ITEM) + "</font>";
 		append += "<table>";
 		
-		List<SubClass> possible = new ArrayList<SubClass>();
+		List<SubClass> possible = new ArrayList<>();
 		if (player.getActiveClass().isBase())
 		{
 			possible.addAll(player.getSubClasses().values());

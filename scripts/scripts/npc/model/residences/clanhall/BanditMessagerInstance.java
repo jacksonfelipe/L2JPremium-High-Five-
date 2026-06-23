@@ -30,6 +30,8 @@ import quests._504_CompetitionForTheBanditStronghold;
  */
 public class BanditMessagerInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public BanditMessagerInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);
@@ -183,7 +185,8 @@ public class BanditMessagerInstance extends NpcInstance
 				}
 				
 				siegeClan.getPlayers().add(player.getObjectId());
-				SiegePlayerDAO.getInstance().insert(clanHall, clan.getClanId(), player.getObjectId());
+			 
+				SiegePlayerDAO.insert(clanHall, clan.getClanId(), player.getObjectId());
 				showChatWindow(player, "residence2/clanhall/agit_oel_mahum_messeger_9.htm");
 			}
 		}
@@ -283,7 +286,8 @@ public class BanditMessagerInstance extends NpcInstance
 		siegeEvent.addObject(ClanHallTeamBattleEvent.ATTACKERS, siegeClan);
 		
 		SiegeClanDAO.getInstance().insert(clanHall, siegeClan);
-		SiegePlayerDAO.getInstance().insert(clanHall, clan.getClanId(), player.getObjectId());
+		 
+		SiegePlayerDAO.insert(clanHall, clan.getClanId(), player.getObjectId());
 		
 		List<CTBSiegeClanObject> siegeClans = siegeEvent.getObjects(ClanHallTeamBattleEvent.ATTACKERS);
 		

@@ -146,7 +146,7 @@ public class _226_TestOfHealer extends Quest implements ScriptFile
 	private static final int SECRET_LETTER4_ID = 2819;
 	private static final int MARK_OF_HEALER_ID = 2820;
 	
-	private static Map<Integer, Integer[]> DROPLIST = new HashMap<Integer, Integer[]>();
+	private static Map<Integer, Integer[]> DROPLIST = new HashMap<>();
 	
 	static
 	{

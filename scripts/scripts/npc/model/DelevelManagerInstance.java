@@ -12,6 +12,8 @@ import premium.gameserver.utils.HtmlUtils;
 
 public final class DelevelManagerInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public DelevelManagerInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

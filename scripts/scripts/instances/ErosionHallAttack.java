@@ -170,7 +170,7 @@ public class ErosionHallAttack extends Reflection
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			if (conquestEnded)
 			{
@@ -194,7 +194,7 @@ public class ErosionHallAttack extends Reflection
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			if (conquestEnded)
 			{
@@ -210,7 +210,7 @@ public class ErosionHallAttack extends Reflection
 	private class TimerTask extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			long time = (startTime + 25 * 60 * 1000L - System.currentTimeMillis()) / 60000;
 			if (time == 0)
@@ -321,7 +321,7 @@ public class ErosionHallAttack extends Reflection
 		return getAllByNpcId(AliveTumor, true).size();
 	}
 	
-	private int getRoomId(NpcInstance npc)
+	public int getRoomId(NpcInstance npc)
 	{
 		int i = 0;
 		if (npc.isInZone("[soi_hoe_attack_attackup1_1]"))
@@ -398,10 +398,7 @@ public class ErosionHallAttack extends Reflection
 		{
 			return Location.findPointToStay(npclocations.get(Rnd.get(npclocations.size())), 100, 250);
 		}
-		else
-		{
-			return new Location(-178418, 211653, -12029);
-		}
+		return new Location(-178418, 211653, -12029);
 	}
 	
 	@Override

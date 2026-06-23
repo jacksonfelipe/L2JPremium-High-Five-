@@ -16,6 +16,8 @@ import premium.gameserver.utils.ReflectionUtils;
 
 public class PathfinderInstance extends NpcInstance
 {
+	private static final long serialVersionUID = -8431519746355801378L;
+
 	// Instance's ID
 	private static final int INSTANCE_75LVL_ID = 56;
 	
@@ -227,6 +229,7 @@ public class PathfinderInstance extends NpcInstance
 		return _rank;
 	}
 	
+	@SuppressWarnings("null")
 	private static int[][] getRewardList(int rank, InstantZone iz)
 	{
 		if (iz == null)

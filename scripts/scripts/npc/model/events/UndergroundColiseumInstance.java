@@ -17,9 +17,10 @@ import premium.gameserver.network.serverpackets.NpcHtmlMessage;
 import premium.gameserver.network.serverpackets.SystemMessage;
 import premium.gameserver.templates.npc.NpcTemplate;
 
-@SuppressWarnings("serial")
+ 
 public class UndergroundColiseumInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final Logger _log = LoggerFactory.getLogger(UndergroundColiseumInstance.class);
 	
 	public UndergroundColiseumInstance(int objectId, NpcTemplate template)
@@ -131,10 +132,7 @@ public class UndergroundColiseumInstance extends NpcInstance
 				Coliseum.register(player, getMinLevel(), getMaxLevel());
 				return;
 			}
-			else
-			{
-				_log.info("Wrong data or cheater? try to register whithout lvl", "Coliseum");
-			}
+			_log.info("Wrong data or cheater? try to register whithout lvl", "Coliseum");
 		}
 		else if (actualCommand.startsWith("view"))
 		{

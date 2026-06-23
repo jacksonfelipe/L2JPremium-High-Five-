@@ -20,6 +20,7 @@ import premium.gameserver.utils.TimeUtils;
  */
 public class RainbowMessengerInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	public static final int ITEM_ID = 8034;
 	
 	public RainbowMessengerInstance(int objectId, NpcTemplate template)

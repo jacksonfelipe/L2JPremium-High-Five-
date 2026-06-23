@@ -8,6 +8,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class CastleMessengerInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public CastleMessengerInstance(int objectID, NpcTemplate template)
 	{
 		super(objectID, template);

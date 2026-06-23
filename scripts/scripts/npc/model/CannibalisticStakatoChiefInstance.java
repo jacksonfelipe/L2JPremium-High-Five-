@@ -6,12 +6,12 @@ import premium.gameserver.model.Creature;
 import premium.gameserver.model.Party;
 import premium.gameserver.model.Player;
 import premium.gameserver.model.instances.RaidBossInstance;
-import premium.gameserver.model.items.ItemInstance;
 import premium.gameserver.network.serverpackets.SystemMessage;
 import premium.gameserver.templates.npc.NpcTemplate;
 
 public class CannibalisticStakatoChiefInstance extends RaidBossInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final int ITEMS[] =
 	{
 		14833,
@@ -51,7 +51,7 @@ public class CannibalisticStakatoChiefInstance extends RaidBossInstance
 				{
 					itemId = ITEMS[Rnd.get(ITEMS.length)];
 					partyMember.sendPacket(new SystemMessage(SystemMessage.YOU_HAVE_OBTAINED_S1).addItemName(itemId));
-					ItemInstance createdItem = partyMember.getInventory().addItem(itemId, 1, "CannibalisticStakatoChiefInstance");
+					partyMember.getInventory().addItem(itemId, 1, "CannibalisticStakatoChiefInstance");
 				}
 			}
 		}
@@ -59,7 +59,7 @@ public class CannibalisticStakatoChiefInstance extends RaidBossInstance
 		{
 			itemId = ITEMS[Rnd.get(ITEMS.length)];
 			pc.sendPacket(new SystemMessage(SystemMessage.YOU_HAVE_OBTAINED_S1).addItemName(itemId));
-			ItemInstance createdItem = pc.getInventory().addItem(itemId, 1, "CannibalisticStakatoChiefInstance");
+			pc.getInventory().addItem(itemId, 1, "CannibalisticStakatoChiefInstance");
 		}
 	}
 }

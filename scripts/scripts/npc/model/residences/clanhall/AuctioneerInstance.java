@@ -32,6 +32,7 @@ import premium.gameserver.utils.HtmlUtils;
 
 public class AuctioneerInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final Logger _log = LoggerFactory.getLogger(AuctioneerInstance.class);
 	private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yy");
 	private static final NumberFormat NUMBER_FORMAT = NumberFormat.getIntegerInstance(Locale.KOREA);
@@ -66,7 +67,7 @@ public class AuctioneerInstance extends NpcInstance
 		{
 			int page = Integer.parseInt(tokenizer.nextToken());
 			
-			List<ClanHallAuctionEvent> events = new ArrayList<ClanHallAuctionEvent>();
+			List<ClanHallAuctionEvent> events = new ArrayList<>();
 			for (ClanHall ch : ResidenceHolder.getInstance().getResidenceList(ClanHall.class))
 			{
 				if (ch.getSiegeEvent().getClass() == ClanHallAuctionEvent.class && ch.getSiegeEvent().isInProgress())
@@ -185,6 +186,7 @@ public class AuctioneerInstance extends NpcInstance
 				}
 			}
 			
+			@SuppressWarnings("null")
 			ClanHallAuctionEvent auctionEvent = clanHall.getSiegeEvent();
 			List<AuctionSiegeClanObject> attackers = auctionEvent.getObjects(ClanHallAuctionEvent.ATTACKERS);
 			
@@ -772,7 +774,7 @@ public class AuctioneerInstance extends NpcInstance
 		showChatWindow(player, "residence2/clanhall/auction_dealer001.htm");
 	}
 	
-	private boolean firstChecks(Player player)
+	public boolean firstChecks(Player player)
 	{
 		if (player.getClan() == null || player.getClan().getLevel() < 2)
 		{

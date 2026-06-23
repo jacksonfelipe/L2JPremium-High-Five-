@@ -45,8 +45,8 @@ public class Exchanger extends Functions
 		String template = HtmCache.getInstance().getNotNull("scripts/services/Exchanger/template.htm", player);
 		String block = "";
 		String list = "";
-		List<Change> _list = new ArrayList<Change>();
-		// TODO it dosent change the armor throw ERROR Script class services not found!
+		List<Change> _list = new ArrayList<>();
+		 
 		for (ItemInstance item : player.getInventory().getPaperdollItems())
 		{
 			if (item != null)
@@ -268,6 +268,7 @@ public class Exchanger extends Functions
 		}
 	}
 	
+	@SuppressWarnings("null")
 	public void change_open(String[] arg)
 	{
 		final Player player = getSelf();

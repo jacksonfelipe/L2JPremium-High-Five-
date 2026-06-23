@@ -16,6 +16,7 @@ import premium.gameserver.utils.Location;
 
 public class MushroomInstance extends MonsterInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final int FANTASY_MUSHROOM = 18864;
 	private static final int FANTASY_MUSHROOM_SKILL = 6427;
 	
@@ -107,7 +108,7 @@ public class MushroomInstance extends MonsterInstance
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			if (_skill == null)
 			{
@@ -134,7 +135,7 @@ public class MushroomInstance extends MonsterInstance
 			
 			if (_killer != null && _killer.isPlayer() && !_killer.isDead())
 			{
-				List<Creature> targets = new ArrayList<Creature>();
+				List<Creature> targets = new ArrayList<>();
 				targets.add(_killer);
 				_killer.broadcastPacket(new MagicSkillUse(_killer, _killer, _skill.getId(), _skill.getLevel(), 0, 0));
 				_skill.useSkill(_killer, targets);

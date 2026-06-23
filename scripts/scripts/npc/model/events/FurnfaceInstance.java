@@ -7,6 +7,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class FurnfaceInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public FurnfaceInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);
@@ -54,7 +56,7 @@ public class FurnfaceInstance extends NpcInstance
 	private class OFF_TIMER extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			setNpcState(2);
 		}

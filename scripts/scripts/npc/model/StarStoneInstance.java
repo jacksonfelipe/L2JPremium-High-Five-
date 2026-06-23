@@ -6,6 +6,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public final class StarStoneInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public StarStoneInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

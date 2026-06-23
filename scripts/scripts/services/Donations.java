@@ -140,7 +140,7 @@ public class Donations extends Functions
 		}
 	}
 	
-	private void removeVars(Player player)
+	public void removeVars(Player player)
 	{
 		for (String var : _vars)
 		{
@@ -170,7 +170,7 @@ public class Donations extends Functions
 		NpcHtmlMessage html = new NpcHtmlMessage(0).setFile("scripts/services/Donate/open.htm");
 		String content = "";
 		
-		Map<Integer, Long> price = new HashMap<Integer, Long>();
+		Map<Integer, Long> price = new HashMap<>();
 		
 		html.replace("%name%", donate.getName());
 		html.replace("%icon%", donate.getIcon());
@@ -256,7 +256,7 @@ public class Donations extends Functions
 		player.sendPacket(html);
 	}
 	
-	private boolean checkAttVars(Player player, int size)
+	public boolean checkAttVars(Player player, int size)
 	{
 		int count = 0;
 		
@@ -271,7 +271,7 @@ public class Donations extends Functions
 		return count != size;
 	}
 	
-	private void updatePrice(Map<Integer, Long> price, int id, long count)
+	public void updatePrice(Map<Integer, Long> price, int id, long count)
 	{
 		if (price.containsKey(id))
 		{
@@ -365,7 +365,7 @@ public class Donations extends Functions
 		player.sendPacket(html);
 	}
 	
-	private String elementName(int id)
+	public String elementName(int id)
 	{
 		String name = "";
 		switch (id)
@@ -396,7 +396,7 @@ public class Donations extends Functions
 		return name;
 	}
 	
-	private String button(int att, int id)
+	public String button(int att, int id)
 	{
 		return "<button action=\"bypass -h scripts_services.Donations:put " + id + " " + att + "\" width=34 height=34 back=\"L2UI_CT1.ItemWindow_DF_Frame_Down\" fore=\"L2UI_CT1.ItemWindow_DF_Frame\"/>";
 	}
@@ -486,7 +486,7 @@ public class Donations extends Functions
 		return html;
 	}
 	
-	private boolean block(Player player, int id, int id2)
+	public boolean block(Player player, int id, int id2)
 	{
 		for (int i = 1; i <= 3; i++)
 		{
@@ -500,11 +500,12 @@ public class Donations extends Functions
 		return false;
 	}
 	
-	private boolean isVar(Player player, String var)
+	public boolean isVar(Player player, String var)
 	{
 		return player.getQuickVarI(var, 0) != 0;
 	}
 	
+	@SuppressWarnings("null")
 	public void buy(String[] arg)
 	{
 		if ((arg.length < 1) || !Util.isNumber(arg[0]))
@@ -520,7 +521,7 @@ public class Donations extends Functions
 			return;
 		}
 		
-		Map<Integer, Long> price = new HashMap<Integer, Long>();
+		Map<Integer, Long> price = new HashMap<>();
 		SimpleList simple = donate.getSimple();
 		
 		price.put(simple.getId(), simple.getCount());
@@ -1220,7 +1221,7 @@ public class Donations extends Functions
 		}
 	}
 	
-	private boolean isValidCloak(int paramInt)
+	public boolean isValidCloak(int paramInt)
 	{
 		int[] arrayOfInt1 =
 		{

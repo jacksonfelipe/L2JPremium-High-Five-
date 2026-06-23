@@ -20,7 +20,7 @@ public class RideHire extends Functions
 		
 		if (val == 0)
 		{
-			Player player = getSelf();
+			 
 			return "<br>[scripts_services.RideHire:ride_prices|Ride hire mountable pet.]";
 		}
 		return "";

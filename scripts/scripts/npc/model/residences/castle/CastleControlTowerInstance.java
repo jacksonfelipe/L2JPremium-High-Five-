@@ -10,7 +10,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class CastleControlTowerInstance extends SiegeToggleNpcInstance
 {
-	private Set<Spawner> _spawnList = new HashSet<Spawner>();
+	private static final long serialVersionUID = 1L;
+	private Set<Spawner> _spawnList = new HashSet<>();
 	
 	public CastleControlTowerInstance(int objectId, NpcTemplate template)
 	{
