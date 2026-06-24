@@ -12,8 +12,8 @@ import premium.gameserver.templates.augmentation.AugmentationInfo;
 public class AugmentationDataHolder extends AbstractHolder
 {
 	private static AugmentationDataHolder _instance = new AugmentationDataHolder();
-	private Set<AugmentationInfo> _augmentationInfos = new HashSet<AugmentationInfo>();
-	private List<Integer> _lifestone = new ArrayList<Integer>();
+	private Set<AugmentationInfo> _augmentationInfos = new HashSet<>();
+	private List<Integer> _lifestone = new ArrayList<>();
 	
 	public static AugmentationDataHolder getInstance()
 	{

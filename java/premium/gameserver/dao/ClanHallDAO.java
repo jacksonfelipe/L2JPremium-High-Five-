@@ -64,7 +64,7 @@ public class ClanHallDAO
 		update0(c);
 	}
 	
-	private void update0(ClanHall c)
+	public void update0(ClanHall c)
 	{
 		try (Connection con = DatabaseFactory.getInstance().getConnection(); PreparedStatement statement = con.prepareStatement(UPDATE_SQL_QUERY))
 		{

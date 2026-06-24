@@ -69,7 +69,7 @@ public class DominionDAO
 		update0(residence);
 	}
 	
-	private void update0(Dominion dominion)
+	public void update0(Dominion dominion)
 	{
 		StringBuilder builder = new StringBuilder();
 		int[] flags = dominion.getFlags();

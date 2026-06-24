@@ -7,7 +7,7 @@ import premium.gameserver.templates.AirshipDock;
 public final class AirshipDockHolder extends AbstractHolder
 {
 	private static final AirshipDockHolder _instance = new AirshipDockHolder();
-	private TIntObjectHashMap<AirshipDock> _docks = new TIntObjectHashMap<AirshipDock>(4);
+	private TIntObjectHashMap<AirshipDock> _docks = new TIntObjectHashMap<>(4);
 	
 	public static AirshipDockHolder getInstance()
 	{

@@ -57,9 +57,9 @@ public final class ExchangeItemParser extends AbstractFileParser<ExchangeItemHol
 		}
 	}
 	
-	private List<Variant> parseVariants(Element n)
+	private static List<Variant> parseVariants(Element n)
 	{
-		List<Variant> list = new ArrayList<Variant>();
+		List<Variant> list = new ArrayList<>();
 		for (Iterator<Element> iterator = n.elementIterator(); iterator.hasNext();)
 		{
 			Element element = iterator.next();

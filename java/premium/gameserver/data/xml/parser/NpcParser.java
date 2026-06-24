@@ -283,7 +283,7 @@ public final class NpcParser extends AbstractDirParser<NpcHolder>
 					{
 						org.dom4j.Element subListElement = sublistIterator.next();
 						int id = Integer.parseInt(subListElement.attributeValue("id"));
-						List<TeleportLocation> list = new ArrayList<TeleportLocation>();
+						List<TeleportLocation> list = new ArrayList<>();
 						for (Iterator<org.dom4j.Element> targetIterator = subListElement.elementIterator(); targetIterator.hasNext();)
 						{
 							org.dom4j.Element targetElement = targetIterator.next();
@@ -306,7 +306,7 @@ public final class NpcParser extends AbstractDirParser<NpcHolder>
 		}
 	}
 	
-	private RewardData parseReward(org.dom4j.Element rewardElement, int id)
+	private static RewardData parseReward(org.dom4j.Element rewardElement, int id)
 	{
 		int itemId = Integer.parseInt(rewardElement.attributeValue("item_id"));
 		int min = Integer.parseInt(rewardElement.attributeValue("min"));

@@ -48,7 +48,7 @@ public class ProductHolder
 	
 	private ProductHolder()
 	{
-		_itemsList = new TreeMap<Integer, ProductItem>();
+		_itemsList = new TreeMap<>();
 		
 		try
 		{
@@ -98,7 +98,7 @@ public class ProductHolder
 							Node endTimeNode = d1.getAttributes().getNamedItem("sale_end_date");
 							long endTimeSale = endTimeNode != null ? getMillisecondsFromString(endTimeNode.getNodeValue()) : 0;
 							
-							ArrayList<ProductItemComponent> components = new ArrayList<ProductItemComponent>();
+							ArrayList<ProductItemComponent> components = new ArrayList<>();
 							ProductItem pr = new ProductItem(productId, category, price, tabId, startTimeSale, endTimeSale);
 							for (Node t1 = d1.getFirstChild(); t1 != null; t1 = t1.getNextSibling())
 							{

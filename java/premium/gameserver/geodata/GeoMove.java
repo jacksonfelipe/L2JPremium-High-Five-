@@ -35,7 +35,7 @@ public class GeoMove
 			return Collections.emptyList();
 		}
 		
-		List<Location> targetRecorder = new ArrayList<Location>(n.getPath().size() + 2);
+		List<Location> targetRecorder = new ArrayList<>(n.getPath().size() + 2);
 		
 		// add the first point in the list (starting position Chara)
 		targetRecorder.add(new Location(x, y, z));
@@ -94,7 +94,7 @@ public class GeoMove
 		{
 			return Collections.emptyList();
 		}
-		List<List<Location>> result = new ArrayList<List<Location>>(size);
+		List<List<Location>> result = new ArrayList<>(size);
 		for (int i = 1; i < size; i++)
 		{
 			Location p2 = path.get(i);
@@ -128,7 +128,7 @@ public class GeoMove
 		float step_x = diff_x / steps, step_y = diff_y / steps, step_z = diff_z / steps;
 		float next_x = begin.x, next_y = begin.y, next_z = begin.z;
 		
-		List<Location> result = new ArrayList<Location>((int) steps + 1);
+		List<Location> result = new ArrayList<>((int) steps + 1);
 		result.add(new Location(begin.x, begin.y, begin.z)); // The first point
 		
 		for (int i = 0; i < steps; i++)
@@ -143,9 +143,7 @@ public class GeoMove
 		return result;
 	}
 	
-	/**
-	 * Clears the way of unnecessary points. @ Param path the path to be cleared
-	 */
+ 
 	private static void pathClean(List<Location> path, int geoIndex)
 	{
 		int size = path.size();

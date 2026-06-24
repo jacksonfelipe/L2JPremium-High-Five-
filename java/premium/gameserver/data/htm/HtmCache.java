@@ -1,10 +1,11 @@
 package premium.gameserver.data.htm;
 
-import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
+
+import net.sf.ehcache.Cache;
+import net.sf.ehcache.CacheManager;
+import net.sf.ehcache.Element;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -17,9 +18,6 @@ import premium.gameserver.model.Player;
 import premium.gameserver.scripts.Functions;
 import premium.gameserver.utils.Language;
 import premium.gameserver.utils.Strings;
-import net.sf.ehcache.Cache;
-import net.sf.ehcache.CacheManager;
-import net.sf.ehcache.Element;
 
 public class HtmCache
 {
@@ -141,7 +139,7 @@ public class HtmCache
 	
 	public String getNotNull(String fileName, Player player)
 	{
-		Language lang = player == null ? Language.ENGLISH : player.getLanguage();
+		Language lang = player.getLanguage();
 		
 		if (player.isGM())
 		{
@@ -212,7 +210,7 @@ public class HtmCache
 		return cache;
 	}
 	
-	private String loadDisabled(Language lang, String file)
+	public String loadDisabled(Language lang, String file)
 	{
 		String cache = null;
 		File f = new File(Config.DATAPACK_ROOT, "data/html-" + lang.getShortName() + "/" + file);

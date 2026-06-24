@@ -29,7 +29,7 @@ public class AdminIP implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		Commands command = (Commands) comm;
 		
@@ -201,7 +201,7 @@ public class AdminIP implements IAdminCommandHandler
 		activeChar.sendPacket(adminReply);
 	}
 	
-	private void showHwidInfo(Player activeChar, String hwid, int minPlayersOnHwid, int page)
+	public void showHwidInfo(Player activeChar, String hwid, int minPlayersOnHwid, int page)
 	{
 		final HwidGamer gamer = HwidEngine.getInstance().getGamerByHwid(hwid);
 		final StringBuilder builder = new StringBuilder();
@@ -231,9 +231,9 @@ public class AdminIP implements IAdminCommandHandler
 		activeChar.sendPacket(adminReply);
 	}
 	
-	private Map<String, Integer> getHwidsAboveCount(int minPlayersOnHwid)
+	public Map<String, Integer> getHwidsAboveCount(int minPlayersOnHwid)
 	{
-		final Map<String, Integer> countByHwid = new HashMap<String, Integer>();
+		final Map<String, Integer> countByHwid = new HashMap<>();
 		for (Player player : GameObjectsStorage.getAllPlayersForIterate())
 		{
 			if (player.isOnline() && player.getHWID() != null && !player.getHWID().equals("NO-SMART-GUARD-ENABLED"))
@@ -330,9 +330,9 @@ public class AdminIP implements IAdminCommandHandler
 		activeChar.sendPacket(adminReply);
 	}
 	
-	private List<Player> getPlayersByIP(String ip)
+	public List<Player> getPlayersByIP(String ip)
 	{
-		final List<Player> playersWithIP = new ArrayList<Player>();
+		final List<Player> playersWithIP = new ArrayList<>();
 		for (Player player : GameObjectsStorage.getAllPlayersForIterate())
 		{
 			if (player.isOnline() && player.getIP() != null && player.getIP().equals(ip))
@@ -343,9 +343,9 @@ public class AdminIP implements IAdminCommandHandler
 		return playersWithIP;
 	}
 	
-	private Map<String, Integer> getIPsAboveCount(int minPlayersOnIp)
+	public Map<String, Integer> getIPsAboveCount(int minPlayersOnIp)
 	{
-		final Map<String, Integer> countByIP = new HashMap<String, Integer>();
+		final Map<String, Integer> countByIP = new HashMap<>();
 		for (Player player : GameObjectsStorage.getAllPlayersForIterate())
 		{
 			if (player.isOnline() && player.getIP() != null && !player.getIP().equals("?.?.?.?"))
@@ -365,7 +365,7 @@ public class AdminIP implements IAdminCommandHandler
 	
 	private static Map<String, Integer> getRecordsAboveCount(Map<String, Integer> currentMap, int valueAbove)
 	{
-		final Map<String, Integer> aboveCount = new HashMap<String, Integer>();
+		final Map<String, Integer> aboveCount = new HashMap<>();
 		for (Map.Entry<String, Integer> hwidWithCount : currentMap.entrySet())
 		{
 			if (hwidWithCount.getValue() >= valueAbove)
@@ -392,6 +392,7 @@ public class AdminIP implements IAdminCommandHandler
 		activeChar.sendMessage("Real Unique Online: " + uniquePlayers.size());
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{

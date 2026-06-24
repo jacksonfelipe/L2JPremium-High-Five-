@@ -45,7 +45,7 @@ public final class DoorParser extends AbstractDirParser<DoorHolder>
 		return "doors.dtd";
 	}
 	
-	private StatsSet initBaseStats()
+	private static StatsSet initBaseStats()
 	{
 		StatsSet baseDat = new StatsSet();
 		baseDat.set("level", 0);

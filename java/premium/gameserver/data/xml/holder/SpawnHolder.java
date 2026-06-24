@@ -17,7 +17,7 @@ public final class SpawnHolder extends AbstractHolder
 {
 	private static final SpawnHolder _instance = new SpawnHolder();
 	
-	private Map<String, List<SpawnTemplate>> _spawns = new HashMap<String, List<SpawnTemplate>>();
+	private Map<String, List<SpawnTemplate>> _spawns = new HashMap<>();
 	
 	public static SpawnHolder getInstance()
 	{
@@ -29,7 +29,7 @@ public final class SpawnHolder extends AbstractHolder
 		List<SpawnTemplate> spawns = _spawns.get(group);
 		if (spawns == null)
 		{
-			_spawns.put(group, (spawns = new ArrayList<SpawnTemplate>()));
+			_spawns.put(group, (spawns = new ArrayList<>()));
 		}
 		spawns.add(spawn);
 	}

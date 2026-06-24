@@ -15,8 +15,8 @@ public final class ExchangeItemHolder extends AbstractHolder
 		return _instance;
 	}
 	
-	private final Map<Integer, Change> _changes = new HashMap<Integer, Change>();
-	private final Map<Integer, Change> _upgrades = new HashMap<Integer, Change>();
+	private final Map<Integer, Change> _changes = new HashMap<>();
+	private final Map<Integer, Change> _upgrades = new HashMap<>();
 	
 	public void addChanges(Change armorset)
 	{

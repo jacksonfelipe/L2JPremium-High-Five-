@@ -15,7 +15,7 @@ public final class PremiumHolder extends AbstractHolder
 		return _instance;
 	}
 	
-	private List<PremiumAccount> _premium = new ArrayList<PremiumAccount>();
+	private List<PremiumAccount> _premium = new ArrayList<>();
 	
 	public void addPremium(PremiumAccount premium)
 	{

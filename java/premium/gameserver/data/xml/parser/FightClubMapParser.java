@@ -67,7 +67,7 @@ public final class FightClubMapParser extends AbstractDirParser<FightClubMapHold
 			Element eventElement = iterator.next();
 			String name = eventElement.attributeValue("name");
 			
-			MultiValueSet<String> set = new MultiValueSet<String>();
+			MultiValueSet<String> set = new MultiValueSet<>();
 			set.set("name", name);
 			
 			for (Iterator<Element> parameterIterator = eventElement.elementIterator("parameter"); parameterIterator.hasNext();)
@@ -121,7 +121,7 @@ public final class FightClubMapParser extends AbstractDirParser<FightClubMapHold
 		}
 	}
 	
-	private Location[] parseLocations(Element element)
+	private static Location[] parseLocations(Element element)
 	{
 		List<Location> locs = new ArrayList<>();
 		for (Iterator<Element> objectsIterator = element.elementIterator(); objectsIterator.hasNext();)
@@ -145,7 +145,7 @@ public final class FightClubMapParser extends AbstractDirParser<FightClubMapHold
 		return locArray;
 	}
 	
-	private Map<String, ZoneTemplate> parseTerritory(Element element)
+	private static Map<String, ZoneTemplate> parseTerritory(Element element)
 	{
 		Map<String, ZoneTemplate> territories = new HashMap<>();
 		for (Iterator<Element> objectsIterator = element.elementIterator(); objectsIterator.hasNext();)

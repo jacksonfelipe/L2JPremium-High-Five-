@@ -48,7 +48,7 @@ public class ClanDataDAO
 		return getOwner(c, SELECT_CLANHALL_OWNER);
 	}
 	
-	private Clan getOwner(Residence residence, String sql)
+	public Clan getOwner(Residence residence, String sql)
 	{
 		try (Connection con = DatabaseFactory.getInstance().getConnection(); PreparedStatement statement = con.prepareStatement(sql))
 		{

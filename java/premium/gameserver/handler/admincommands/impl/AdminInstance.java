@@ -31,7 +31,7 @@ public class AdminInstance implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		Commands command = (Commands) comm;
 		
@@ -140,13 +140,14 @@ public class AdminInstance implements IAdminCommandHandler
 		return true;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{
 		return Commands.values();
 	}
 	
-	private void listOfInstances(Player activeChar)
+	public void listOfInstances(Player activeChar)
 	{
 		NpcHtmlMessage adminReply = new NpcHtmlMessage(5);
 		StringBuffer replyMSG = new StringBuffer("<html><title>Instance Menu</title><body>");
@@ -177,7 +178,7 @@ public class AdminInstance implements IAdminCommandHandler
 		activeChar.sendPacket(adminReply);
 	}
 	
-	private void listOfCharsForInstance(Player activeChar, String sid)
+	public void listOfCharsForInstance(Player activeChar, String sid)
 	{
 		Reflection reflection = ReflectionManager.getInstance().get(Integer.parseInt(sid));
 		

@@ -43,7 +43,7 @@ public class AdminFacebook implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		Commands command = (Commands) comm;
 		
@@ -114,11 +114,11 @@ public class AdminFacebook implements IAdminCommandHandler
 				String html = HtmCache.getInstance().getNotNull("admin/facebook/officialPosts.htm", activeChar);
 				
 				final StringBuilder sb = new StringBuilder();
-				int index = 0;
+			 
 				boolean nextColor = false;
 				for (OfficialPost officialPost : OfficialPostsHolder.getInstance().getRecentOfficialPostsForIterate())
 				{
-					index++;
+					 
 					
 					sb.append("<table cellspacing=5></table>");
 					sb.append("<table cellspacing=0 cellpadding=2 fixwidth=740 height=79>");
@@ -214,7 +214,7 @@ public class AdminFacebook implements IAdminCommandHandler
 			{
 				final String targetName = wordList[1];
 				final Player target = GameObjectsStorage.getPlayer(targetName);
-				if (target == null || target.getFacebookProfile() == null)
+				if (target.getFacebookProfile() == null)
 				{
 					activeChar.sendMessage(target.toString() + " doesn't have Facebook Profile.");
 					return false;
@@ -328,6 +328,7 @@ public class AdminFacebook implements IAdminCommandHandler
 		return true;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{

@@ -58,7 +58,7 @@ public final class SpawnParser extends AbstractDirParser<SpawnHolder>
 	@Override
 	protected void readData(Element rootElement) throws Exception
 	{
-		Map<String, Territory> territories = new HashMap<String, Territory>();
+		Map<String, Territory> territories = new HashMap<>();
 		for (Iterator<Element> spawnIterator = rootElement.elementIterator(); spawnIterator.hasNext();)
 		{
 			Element spawnElement = spawnIterator.next();
@@ -122,7 +122,7 @@ public final class SpawnParser extends AbstractDirParser<SpawnHolder>
 						{
 							if (parameters.isEmpty())
 							{
-								parameters = new MultiValueSet<String>();
+								parameters = new MultiValueSet<>();
 							}
 							
 							parameters.set(e.attributeValue("name"), e.attributeValue("value"));

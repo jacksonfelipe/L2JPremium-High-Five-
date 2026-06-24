@@ -62,7 +62,7 @@ public final class CubicParser extends AbstractFileParser<CubicHolder>
 			{
 				Element skillsElement = skillsIterator.next();
 				int chance = Integer.parseInt(skillsElement.attributeValue("chance"));
-				List<CubicTemplate.SkillInfo> skills = new ArrayList<CubicTemplate.SkillInfo>(1);
+				List<CubicTemplate.SkillInfo> skills = new ArrayList<>(1);
 				// skill
 				for (Iterator<Element> skillIterator = skillsElement.elementIterator(); skillIterator.hasNext();)
 				{

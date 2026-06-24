@@ -45,7 +45,7 @@ public class CharTemplateParser extends AbstractFileParser<CharTemplateHolder>
 	{
 		for (Iterator interator = rootElement.elementIterator(); interator.hasNext();)
 		{
-			List<CreateItem> items = new ArrayList<CreateItem>();
+			List<CreateItem> items = new ArrayList<>();
 			
 			Element element = (org.dom4j.Element) interator.next();
 			StatsSet set = new StatsSet();

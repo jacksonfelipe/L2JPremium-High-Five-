@@ -88,7 +88,7 @@ public class AdminCommandHandler extends AbstractHolder
 		return _instance;
 	}
 	
-	private final Map<String, IAdminCommandHandler> _datatable = new HashMap<String, IAdminCommandHandler>();
+	private final Map<String, IAdminCommandHandler> _datatable = new HashMap<>();
 	
 	private AdminCommandHandler()
 	{

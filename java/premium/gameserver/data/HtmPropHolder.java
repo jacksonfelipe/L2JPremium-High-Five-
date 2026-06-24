@@ -24,11 +24,6 @@ public class HtmPropHolder
 		".htm",
 		".html"
 	};
-	private static final String USUAL_PROP_NAME_ADDON = ".prop";
-	private static final String STARTING_PATH = "data/html-en/";
-	private static final char LINE_SEPARATOR = '\n';
-	private static final String START_BOUNDARY = "{";
-	private static final String FINISH_BOUNDARY = "}";
 	private final Map<String, HtmPropList> lists;
 	
 	private HtmPropHolder()

@@ -1,6 +1,5 @@
 package premium.gameserver.gui;
 
-import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.LinkedHashMap;
@@ -19,7 +18,7 @@ public final class GameUiLog
 	private static volatile long lastManualTime;
 	private static volatile long suppressSystemUntil;
 
-	private static final Map<String, String> TRANSLATIONS = new LinkedHashMap<String, String>();
+	private static final Map<String, String> TRANSLATIONS = new LinkedHashMap<>();
 
 	static
 	{
@@ -180,7 +179,7 @@ public final class GameUiLog
 		}
 
 		@Override
-		public synchronized void write(int b) throws IOException
+		public synchronized void write(int b)  
 		{
 			if (b == '\r')
 			{
@@ -197,7 +196,7 @@ public final class GameUiLog
 		}
 
 		@Override
-		public synchronized void flush() throws IOException
+		public synchronized void flush()  
 		{
 			flushBuffer();
 		}

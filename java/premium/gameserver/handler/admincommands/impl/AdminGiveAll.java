@@ -10,7 +10,7 @@ import premium.gameserver.scripts.Functions;
 
 public class AdminGiveAll implements IAdminCommandHandler
 {
-	private static List<String> _l = new ArrayList<String>();
+	private static List<String> _l = new ArrayList<>();
 	
 	enum Commands
 	{
@@ -18,7 +18,7 @@ public class AdminGiveAll implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		if (wordList.length >= 3)
 		{

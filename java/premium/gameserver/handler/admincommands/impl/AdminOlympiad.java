@@ -32,7 +32,7 @@ public class AdminOlympiad implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		Commands command = (Commands) comm;
 		
@@ -140,7 +140,7 @@ public class AdminOlympiad implements IAdminCommandHandler
 					hero.set(Olympiad.CHAR_ID, player.getObjectId());
 					hero.set(Olympiad.CHAR_NAME, player.getName());
 					
-					List<StatsSet> heroesToBe = new ArrayList<StatsSet>();
+					List<StatsSet> heroesToBe = new ArrayList<>();
 					heroesToBe.add(hero);
 					
 					Hero.getInstance().computeNewHeroes(heroesToBe);
@@ -166,6 +166,7 @@ public class AdminOlympiad implements IAdminCommandHandler
 		return true;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{

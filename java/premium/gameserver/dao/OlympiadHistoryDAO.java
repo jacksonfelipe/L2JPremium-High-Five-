@@ -39,8 +39,8 @@ public class OlympiadHistoryDAO
 			try (ResultSet rset = statement.executeQuery())
 			{
 				map = new HashMap<>(2);
-				map.put(Boolean.TRUE, new ArrayList<OlympiadHistory>());
-				map.put(Boolean.FALSE, new ArrayList<OlympiadHistory>());
+				map.put(Boolean.TRUE, new ArrayList<>());
+				map.put(Boolean.FALSE, new ArrayList<>());
 				
 				while (rset.next())
 				{

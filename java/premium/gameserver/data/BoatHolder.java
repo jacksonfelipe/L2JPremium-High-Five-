@@ -15,7 +15,7 @@ public final class BoatHolder extends AbstractHolder
 	public static final CharTemplate TEMPLATE = new CharTemplate(CharTemplate.getEmptyStatsSet());
 	
 	private static BoatHolder _instance = new BoatHolder();
-	private final TIntObjectHashMap<Boat> _boats = new TIntObjectHashMap<Boat>();
+	private final TIntObjectHashMap<Boat> _boats = new TIntObjectHashMap<>();
 	
 	public static BoatHolder getInstance()
 	{

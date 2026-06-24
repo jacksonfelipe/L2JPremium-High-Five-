@@ -10,7 +10,7 @@ import premium.gameserver.model.donatesystem.Donation;
 public final class DonationHolder extends AbstractHolder
 {
 	private static final DonationHolder _instance = new DonationHolder();
-	private List<Donation> _donate = new ArrayList<Donation>();
+	private List<Donation> _donate = new ArrayList<>();
 	
 	public static DonationHolder getInstance()
 	{
@@ -48,7 +48,7 @@ public final class DonationHolder extends AbstractHolder
 	
 	public List<Donation> getGroup(int id)
 	{
-		ArrayList<Donation> group = new ArrayList<Donation>();
+		ArrayList<Donation> group = new ArrayList<>();
 		Iterator<Donation> i = _donate.iterator();
 		
 		while (i.hasNext())

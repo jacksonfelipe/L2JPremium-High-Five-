@@ -19,7 +19,7 @@ import premium.gameserver.templates.InstantZone;
 public class InstantZoneHolder extends AbstractHolder
 {
 	private static final InstantZoneHolder _instance = new InstantZoneHolder();
-	private IntObjectMap<InstantZone> _zones = new HashIntObjectMap<InstantZone>();
+	private IntObjectMap<InstantZone> _zones = new HashIntObjectMap<>();
 	
 	public static InstantZoneHolder getInstance()
 	{
@@ -53,7 +53,7 @@ public class InstantZoneHolder extends AbstractHolder
 		Long time = null;
 		if (getSharedReuseInstanceIds(id) != null && !getSharedReuseInstanceIds(id).isEmpty())
 		{
-			List<Long> reuses = new ArrayList<Long>();
+			List<Long> reuses = new ArrayList<>();
 			for (int i : getSharedReuseInstanceIds(id))
 			{
 				if (player.getInstanceReuse(i) != null)
@@ -84,7 +84,7 @@ public class InstantZoneHolder extends AbstractHolder
 		{
 			return null;
 		}
-		List<Integer> sharedInstanceIds = new ArrayList<Integer>();
+		List<Integer> sharedInstanceIds = new ArrayList<>();
 		for (InstantZone iz : _zones.values())
 		{
 			if (iz.getSharedReuseGroup() > 0 && getInstantZone(id).getSharedReuseGroup() > 0 && iz.getSharedReuseGroup() == getInstantZone(id).getSharedReuseGroup())
@@ -101,7 +101,7 @@ public class InstantZoneHolder extends AbstractHolder
 		{
 			return null;
 		}
-		List<Integer> sharedInstanceIds = new ArrayList<Integer>();
+		List<Integer> sharedInstanceIds = new ArrayList<>();
 		for (InstantZone iz : _zones.values())
 		{
 			if (iz.getSharedReuseGroup() > 0 && iz.getSharedReuseGroup() == groupId)

@@ -65,7 +65,7 @@ public final class DatabaseBackupManager
 		return executeCMD(cmd, logToConsole);
 	}
 	
-	private String executeCMD(String[] cmd, boolean logToConsole)
+	public static String executeCMD(String[] cmd, boolean logToConsole)
 	{
 		try
 		{
@@ -102,7 +102,7 @@ public final class DatabaseBackupManager
 		}
 	}
 	
-	private String getDatabaseName()
+	public static String getDatabaseName()
 	{
 		final Matcher m = DatabaseBackupManager.DATABASE_NAME_PATTERN.matcher(Config.DATABASE_GAME_URL);
 		if (m.find())

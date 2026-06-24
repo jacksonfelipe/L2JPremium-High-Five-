@@ -31,7 +31,7 @@ public final class FacebookCommentsParser extends AbstractFileParser<FacebookCom
 	}
 	
 	@Override
-	protected void readData(Element rootElement) throws Exception
+	protected void readData(Element rootElement) 
 	{
 		final Iterator<Element> typeIterator = rootElement.elementIterator("type");
 		while (typeIterator.hasNext())

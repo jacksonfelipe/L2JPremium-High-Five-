@@ -16,7 +16,7 @@ public final class ItemHolder extends AbstractHolder
 {
 	private static final ItemHolder _instance = new ItemHolder();
 	
-	private final TIntObjectHashMap<ItemTemplate> _items = new TIntObjectHashMap<ItemTemplate>();
+	private final TIntObjectHashMap<ItemTemplate> _items = new TIntObjectHashMap<>();
 	private ItemTemplate[] _allTemplates;
 	private ItemTemplate[] droppableTemplates;
 	

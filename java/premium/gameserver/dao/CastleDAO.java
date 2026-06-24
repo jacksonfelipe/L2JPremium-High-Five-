@@ -61,7 +61,7 @@ public class CastleDAO
 		update0(residence);
 	}
 	
-	private void update0(Castle castle)
+	public void update0(Castle castle)
 	{
 		try (Connection con = DatabaseFactory.getInstance().getConnection(); PreparedStatement statement = con.prepareStatement(UPDATE_SQL_QUERY))
 		{

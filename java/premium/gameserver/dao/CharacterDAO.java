@@ -446,7 +446,7 @@ public class CharacterDAO
 	
 	public static List<Integer> getCharIdsFromAccount(String account)
 	{
-		final List<Integer> charIds = new ArrayList<Integer>(8);
+		final List<Integer> charIds = new ArrayList<>(8);
 		try (Connection con = DatabaseFactory.getInstance().getConnection(); PreparedStatement statement = con.prepareStatement("SELECT obj_Id FROM characters WHERE account_name=? AND accesslevel >= 0"))
 		{
 			statement.setString(1, account);
@@ -467,7 +467,7 @@ public class CharacterDAO
 	
 	public static List<String> getCharNamesFromAccount(String account)
 	{
-		final List<String> charNames = new ArrayList<String>(8);
+		final List<String> charNames = new ArrayList<>(8);
 		try (Connection con = DatabaseFactory.getInstance().getConnection(); PreparedStatement statement = con.prepareStatement("SELECT char_name FROM characters WHERE account_name=? AND accesslevel >= 0"))
 		{
 			statement.setString(1, account);

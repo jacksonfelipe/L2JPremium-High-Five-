@@ -12,7 +12,7 @@ public final class FakePlayerNpcsHolder extends AbstractHolder
 	
 	private FakePlayerNpcsHolder()
 	{
-		_templates = new HashMap<Integer, FakePlayerTemplate>();
+		_templates = new HashMap<>();
 	}
 	
 	public void addTemplate(FakePlayerTemplate template)

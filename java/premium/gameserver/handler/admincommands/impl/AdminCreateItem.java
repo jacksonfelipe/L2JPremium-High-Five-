@@ -294,7 +294,7 @@ public class AdminCreateItem implements IAdminCommandHandler
 		return true;
 	}
 	
-	private boolean noSameHwid(List<Player> rewardedPlayers, Player player)
+	public boolean noSameHwid(List<Player> rewardedPlayers, Player player)
 	{
 		for (Player iPlayer : rewardedPlayers)
 		{
@@ -313,7 +313,7 @@ public class AdminCreateItem implements IAdminCommandHandler
 		return Commands.values();
 	}
 	
-	private ItemInstance createItem(Player activeChar, int itemId, long count)
+	public ItemInstance createItem(Player activeChar, int itemId, long count)
 	{
 		ItemInstance createditem = ItemFunctions.createItem(itemId);
 		createditem.setCount(count);

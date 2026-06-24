@@ -11,7 +11,7 @@ import premium.gameserver.model.entity.events.GlobalEvent;
 public final class EventHolder extends AbstractHolder
 {
 	private static final EventHolder _instance = new EventHolder();
-	private final IntObjectMap<GlobalEvent> _events = new TreeIntObjectMap<GlobalEvent>();
+	private final IntObjectMap<GlobalEvent> _events = new TreeIntObjectMap<>();
 	public static int FIGHT_CLUB_EVENTS = 0;
 	
 	public static EventHolder getInstance()

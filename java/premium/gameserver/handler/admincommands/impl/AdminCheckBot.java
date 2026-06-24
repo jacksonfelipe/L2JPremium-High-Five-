@@ -38,7 +38,7 @@ public class AdminCheckBot implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		if (!Config.ENABLE_AUTO_HUNTING_REPORT)
 		{
@@ -261,6 +261,7 @@ public class AdminCheckBot implements IAdminCommandHandler
 		}
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{

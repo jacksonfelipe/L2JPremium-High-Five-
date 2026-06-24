@@ -16,7 +16,7 @@ public class PetitionGroupHolder extends AbstractHolder
 {
 	private static PetitionGroupHolder _instance = new PetitionGroupHolder();
 	
-	private IntObjectMap<PetitionMainGroup> _petitionGroups = new HashIntObjectMap<PetitionMainGroup>();
+	private IntObjectMap<PetitionMainGroup> _petitionGroups = new HashIntObjectMap<>();
 	
 	public static PetitionGroupHolder getInstance()
 	{

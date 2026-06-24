@@ -54,7 +54,7 @@ public class AdminEffects implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		Commands command = (Commands) comm;
 		
@@ -467,7 +467,6 @@ public class AdminEffects implements IAdminCommandHandler
 				{
 					id = Integer.parseInt(wordList[1]);
 					lvl = Integer.parseInt(wordList[2]);
-					List<Effect> trasform = activeChar.getEffectList().getEffectsBySkillId(id);
 				}
 				catch (Exception e)
 				{
@@ -498,7 +497,7 @@ public class AdminEffects implements IAdminCommandHandler
 		return true;
 	}
 	
-	private void handleInvul(Player activeChar, Player target)
+	public void handleInvul(Player activeChar, Player target)
 	{
 		if (target.isInvul())
 		{
@@ -520,6 +519,7 @@ public class AdminEffects implements IAdminCommandHandler
 		}
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{

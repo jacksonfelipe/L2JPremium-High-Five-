@@ -7,7 +7,6 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -21,11 +20,11 @@ import premium.gameserver.Config;
 import premium.gameserver.ConfigHolder;
 import premium.gameserver.GameServer;
 import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.listener.game.OnConfigsReloaded;
 import premium.gameserver.multverso.facebook.ActiveTask;
 import premium.gameserver.multverso.facebook.FacebookAction;
 import premium.gameserver.multverso.facebook.FacebookIdentityType;
 import premium.gameserver.multverso.facebook.OfficialPost;
-import premium.gameserver.listener.game.OnConfigsReloaded;
 import premium.gameserver.utils.Log;
 
 public final class FacebookCommentsHolder extends AbstractHolder implements OnConfigsReloaded
@@ -48,16 +47,15 @@ public final class FacebookCommentsHolder extends AbstractHolder implements OnCo
 	
 	private final HashMap<String, ArrayList<String>> _commentsByType;
 	private final ConcurrentHashMap<String, Long> _lastUsedComments;
-	private final ScheduledFuture<?> _clearLastUsedCommentsThread;
 	private Pattern COMMENT_WITH_CHAR_NAME_PATTERN;
 	
 	private FacebookCommentsHolder()
 	{
-		_commentsByType = new HashMap<String, ArrayList<String>>(8);
-		_lastUsedComments = new ConcurrentHashMap<String, Long>();
+		_commentsByType = new HashMap<>(8);
+		_lastUsedComments = new ConcurrentHashMap<>();
 		GameServer.getInstance().addListener(this);
 		reloadPattern();
-		_clearLastUsedCommentsThread = ThreadPoolManager.getInstance().scheduleAtFixedDelay(new ClearLastUsedCommentsThread(_lastUsedComments), CLEAR_LAST_USED_COMMENTS_DELAY, CLEAR_LAST_USED_COMMENTS_DELAY);
+		ThreadPoolManager.getInstance().scheduleAtFixedDelay(new ClearLastUsedCommentsThread(_lastUsedComments), CLEAR_LAST_USED_COMMENTS_DELAY, CLEAR_LAST_USED_COMMENTS_DELAY);
 	}
 	
 	public void addNewComment(String type, String comment)
@@ -65,7 +63,7 @@ public final class FacebookCommentsHolder extends AbstractHolder implements OnCo
 		ArrayList<String> comments = _commentsByType.get(type);
 		if (comments == null)
 		{
-			comments = new ArrayList<String>(64);
+			comments = new ArrayList<>(64);
 			comments.add(comment.trim());
 			_commentsByType.put(type, comments);
 		}
@@ -106,40 +104,37 @@ public final class FacebookCommentsHolder extends AbstractHolder implements OnCo
 			}
 			return task.getRequestedMessage().isEmpty() && action.getMessage().isEmpty() ? CommentMatchType.FULL_MATCH : CommentMatchType.COMMENT_NOT_MATCHES;
 		}
-		else
+		if (task.getIdentityType() != FacebookIdentityType.NAME_IN_COMMENT)
 		{
-			if (task.getIdentityType() != FacebookIdentityType.NAME_IN_COMMENT)
-			{
-				return commentMatches(action.getMessage(), task.getRequestedMessage()) ? CommentMatchType.FULL_MATCH : CommentMatchType.COMMENT_NOT_MATCHES;
-			}
-			final Matcher wroteMessageMatcher = COMMENT_WITH_CHAR_NAME_PATTERN.matcher(action.getMessage());
-			if (!wroteMessageMatcher.matches())
-			{
-				return CommentMatchType.NONE_MATCHES;
-			}
-			final Matcher requestedMessageMatcher = COMMENT_WITH_CHAR_NAME_PATTERN.matcher(task.getRequestedMessage());
-			if (!requestedMessageMatcher.matches())
-			{
-				_log.error("Requested Message does not match Matcher! Msg: " + task.getRequestedMessage());
-				Log.logFacebook("Requested Message does not match Matcher! Msg: " + task.getRequestedMessage());
-				return CommentMatchType.NONE_MATCHES;
-			}
-			final boolean nameMatches = wroteMessageMatcher.group("charName").equalsIgnoreCase(requestedMessageMatcher.group("charName"));
-			final boolean commentMatches = commentMatches(wroteMessageMatcher.group("comment"), requestedMessageMatcher.group("comment"));
-			if (nameMatches && commentMatches)
-			{
-				return CommentMatchType.FULL_MATCH;
-			}
-			if (!nameMatches && !commentMatches)
-			{
-				return CommentMatchType.NONE_MATCHES;
-			}
-			if (nameMatches)
-			{
-				return CommentMatchType.COMMENT_NOT_MATCHES;
-			}
-			return CommentMatchType.IDENTITY_NOT_MATCHES;
+			return commentMatches(action.getMessage(), task.getRequestedMessage()) ? CommentMatchType.FULL_MATCH : CommentMatchType.COMMENT_NOT_MATCHES;
 		}
+		final Matcher wroteMessageMatcher = COMMENT_WITH_CHAR_NAME_PATTERN.matcher(action.getMessage());
+		if (!wroteMessageMatcher.matches())
+		{
+			return CommentMatchType.NONE_MATCHES;
+		}
+		final Matcher requestedMessageMatcher = COMMENT_WITH_CHAR_NAME_PATTERN.matcher(task.getRequestedMessage());
+		if (!requestedMessageMatcher.matches())
+		{
+			_log.error("Requested Message does not match Matcher! Msg: " + task.getRequestedMessage());
+			Log.logFacebook("Requested Message does not match Matcher! Msg: " + task.getRequestedMessage());
+			return CommentMatchType.NONE_MATCHES;
+		}
+		final boolean nameMatches = wroteMessageMatcher.group("charName").equalsIgnoreCase(requestedMessageMatcher.group("charName"));
+		final boolean commentMatches = commentMatches(wroteMessageMatcher.group("comment"), requestedMessageMatcher.group("comment"));
+		if (nameMatches && commentMatches)
+		{
+			return CommentMatchType.FULL_MATCH;
+		}
+		if (!nameMatches && !commentMatches)
+		{
+			return CommentMatchType.NONE_MATCHES;
+		}
+		if (nameMatches)
+		{
+			return CommentMatchType.COMMENT_NOT_MATCHES;
+		}
+		return CommentMatchType.IDENTITY_NOT_MATCHES;
 	}
 	
 	private static boolean commentMatches(String requestedMessage, String wroteMessage)
@@ -226,7 +221,7 @@ public final class FacebookCommentsHolder extends AbstractHolder implements OnCo
 	
 	public HashSet<String> getCommentTypesCopy()
 	{
-		return new HashSet<String>(_commentsByType.keySet());
+		return new HashSet<>(_commentsByType.keySet());
 	}
 	
 	public ArrayList<String> getCommentsForIterate(String type)
@@ -236,7 +231,7 @@ public final class FacebookCommentsHolder extends AbstractHolder implements OnCo
 	
 	public ArrayList<String> getCommentsCopy(String type)
 	{
-		return new ArrayList<String>(_commentsByType.get(type));
+		return new ArrayList<>(_commentsByType.get(type));
 	}
 	
 	private static String prepareMsgToCompere(String msg)
@@ -317,7 +312,7 @@ public final class FacebookCommentsHolder extends AbstractHolder implements OnCo
 		public void runImpl()
 		{
 			final long currentDate = System.currentTimeMillis();
-			final ArrayList<String> commentsToDelete = new ArrayList<String>(3);
+			final ArrayList<String> commentsToDelete = new ArrayList<>(3);
 			for (Map.Entry<String, Long> lastUsedCommentEntry : lastUsedComments.entrySet())
 			{
 				if (lastUsedCommentEntry.getValue() < currentDate)

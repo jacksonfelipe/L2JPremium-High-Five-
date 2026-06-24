@@ -22,7 +22,7 @@ public class AdminAttribute implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		if (!activeChar.getPlayerAccess().CanEditChar)
 		{
@@ -105,58 +105,57 @@ public class AdminAttribute implements IAdminCommandHandler
 		
 		ItemInstance item = target.getInventory().getPaperdollItem(armorType);
 		curEnchant = item.getEnchantLevel();
-		if (item != null)
+		
+		if (item.isWeapon())
 		{
-			if (item.isWeapon())
+			item.setAttributeElement(El, value);
+			target.getInventory().equipItem(item);
+			target.sendPacket(new InventoryUpdate().addModifiedItem(item));
+			target.broadcastUserInfo(true);
+		}
+		if (item.isArmor())
+		{
+			if (!canEnchantArmorAttribute(element, item))
 			{
-				item.setAttributeElement(El, value);
-				target.getInventory().equipItem(item);
-				target.sendPacket(new InventoryUpdate().addModifiedItem(item));
-				target.broadcastUserInfo(true);
-			}
-			if (item.isArmor())
-			{
-				if (!canEnchantArmorAttribute(element, item))
-				{
-					target.sendMessage("Unable to insert an attribute in the armor, not the conditions.");
-					return;
-				}
-				
-				target.getInventory().unEquipItem(item);
-				item.setAttributeElement(El, value);
-				target.getInventory().equipItem(item);
-				target.sendPacket(new InventoryUpdate().addModifiedItem(item));
-				target.broadcastUserInfo(true);
-			}
-			String elementName = "";
-			switch (element)
-			{
-				case 0:
-					elementName = "Fire";
-					break;
-				case 1:
-					elementName = "Water";
-					break;
-				case 2:
-					elementName = "Wind";
-					break;
-				case 3:
-					elementName = "Earth";
-					break;
-				case 4:
-					elementName = "Holy";
-					break;
-				case 5:
-					elementName = "Dark";
-					break;
+				target.sendMessage("Unable to insert an attribute in the armor, not the conditions.");
+				return;
 			}
 			
-			activeChar.sendMessage("You have changed attribute " + elementName + " on " + value + " in " + item.getName() + " +" + curEnchant + ".");
-			target.sendMessage("Admin has changed the value of the attribute " + elementName + " on " + value + " in " + item.getName() + " +" + curEnchant + ".");
+			target.getInventory().unEquipItem(item);
+			item.setAttributeElement(El, value);
+			target.getInventory().equipItem(item);
+			target.sendPacket(new InventoryUpdate().addModifiedItem(item));
+			target.broadcastUserInfo(true);
 		}
+		String elementName = "";
+		switch (element)
+		{
+			case 0:
+				elementName = "Fire";
+				break;
+			case 1:
+				elementName = "Water";
+				break;
+			case 2:
+				elementName = "Wind";
+				break;
+			case 3:
+				elementName = "Earth";
+				break;
+			case 4:
+				elementName = "Holy";
+				break;
+			case 5:
+				elementName = "Dark";
+				break;
+		}
+		
+		activeChar.sendMessage("You have changed attribute " + elementName + " on " + value + " in " + item.getName() + " +" + curEnchant + ".");
+		target.sendMessage("Admin has changed the value of the attribute " + elementName + " on " + value + " in " + item.getName() + " +" + curEnchant + ".");
+		
 	}
 	
-	private boolean canEnchantArmorAttribute(int attr, ItemInstance item)
+	public boolean canEnchantArmorAttribute(int attr, ItemInstance item)
 	{
 		switch (attr)
 		{
@@ -200,7 +199,7 @@ public class AdminAttribute implements IAdminCommandHandler
 		return true;
 	}
 	
-	private void showMainPage(Player activeChar)
+	public void showMainPage(Player activeChar)
 	{
 		activeChar.sendPacket(new NpcHtmlMessage(5).setFile("admin/attribute.htm"));
 	}
@@ -274,9 +273,7 @@ public class AdminAttribute implements IAdminCommandHandler
 		return builder.toString();
 	}
 	
-	/**
-	 * returning font color for each element
-	 */
+	 
 	private static String getElementName(Element element)
 	{
 		String color;
@@ -306,6 +303,7 @@ public class AdminAttribute implements IAdminCommandHandler
 		return "<font color=" + color + '>' + element.name() + "</font>";
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{

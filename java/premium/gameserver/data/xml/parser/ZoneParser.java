@@ -80,7 +80,7 @@ public class ZoneParser extends AbstractDirParser<ZoneHolder>
 					}
 					else if ("restart_point".equals(n.getName()))
 					{
-						List<Location> restartPoints = new ArrayList<Location>();
+						List<Location> restartPoints = new ArrayList<>();
 						for (Iterator<Element> ii = n.elementIterator(); ii.hasNext();)
 						{
 							Element d = ii.next();
@@ -94,7 +94,7 @@ public class ZoneParser extends AbstractDirParser<ZoneHolder>
 					}
 					else if ("PKrestart_point".equals(n.getName()))
 					{
-						List<Location> PKrestartPoints = new ArrayList<Location>();
+						List<Location> PKrestartPoints = new ArrayList<>();
 						for (Iterator<Element> ii = n.elementIterator(); ii.hasNext();)
 						{
 							Element d = ii.next();

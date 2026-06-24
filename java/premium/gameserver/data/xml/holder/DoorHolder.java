@@ -10,7 +10,7 @@ public final class DoorHolder extends AbstractHolder
 {
 	private static final DoorHolder _instance = new DoorHolder();
 	
-	private IntObjectMap<DoorTemplate> _doors = new HashIntObjectMap<DoorTemplate>();
+	private IntObjectMap<DoorTemplate> _doors = new HashIntObjectMap<>();
 	
 	public static DoorHolder getInstance()
 	{

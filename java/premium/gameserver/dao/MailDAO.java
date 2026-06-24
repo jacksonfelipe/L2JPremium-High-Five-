@@ -11,6 +11,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
+import net.sf.ehcache.Cache;
+import net.sf.ehcache.CacheManager;
+import net.sf.ehcache.Element;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,9 +25,6 @@ import premium.commons.dbutils.DbUtils;
 import premium.gameserver.database.DatabaseFactory;
 import premium.gameserver.model.items.ItemInstance;
 import premium.gameserver.model.mail.Mail;
-import net.sf.ehcache.Cache;
-import net.sf.ehcache.CacheManager;
-import net.sf.ehcache.Element;
 
 public class MailDAO implements JdbcDAO<Integer, Mail>
 {
@@ -296,7 +297,7 @@ public class MailDAO implements JdbcDAO<Integer, Mail>
 			statement.setInt(1, ownerId);
 			statement.setBoolean(2, sent);
 			rset = statement.executeQuery();
-			messageIds = new ArrayList<Integer>();
+			messageIds = new ArrayList<>();
 			while (rset.next())
 			{
 				messageIds.add(rset.getInt(1));
@@ -315,7 +316,7 @@ public class MailDAO implements JdbcDAO<Integer, Mail>
 		return load(messageIds);
 	}
 	
-	private boolean deleteMailByOwnerIdAndMailId(int ownerId, int messageId, boolean sent)
+	public boolean deleteMailByOwnerIdAndMailId(int ownerId, int messageId, boolean sent)
 	{
 		Connection con = null;
 		PreparedStatement statement = null;
@@ -402,7 +403,7 @@ public class MailDAO implements JdbcDAO<Integer, Mail>
 			statement = con.prepareStatement(RESTORE_EXPIRED_MAIL);
 			statement.setInt(1, expireTime);
 			rset = statement.executeQuery();
-			messageIds = new ArrayList<Integer>();
+			messageIds = new ArrayList<>();
 			while (rset.next())
 			{
 				messageIds.add(rset.getInt(1));
@@ -456,7 +457,7 @@ public class MailDAO implements JdbcDAO<Integer, Mail>
 			return Collections.emptyList();
 		}
 		
-		List<Mail> list = new ArrayList<Mail>(messageIds.size());
+		List<Mail> list = new ArrayList<>(messageIds.size());
 		
 		Mail mail;
 		for (Integer messageId : messageIds)

@@ -101,9 +101,9 @@ public final class DonationParse extends AbstractFileParser<DonationHolder>
 		
 	}
 	
-	private List<DonateItem> simple_parse(Element n)
+	private static List<DonateItem> simple_parse(Element n)
 	{
-		ArrayList<DonateItem> list = new ArrayList<DonateItem>();
+		ArrayList<DonateItem> list = new ArrayList<>();
 		Iterator<?> iterator = n.elementIterator();
 		
 		while (iterator.hasNext())
@@ -122,9 +122,9 @@ public final class DonationParse extends AbstractFileParser<DonationHolder>
 		return list;
 	}
 	
-	private List<DonateItem> donate_parse(Element n)
+	private static List<DonateItem> donate_parse(Element n)
 	{
-		ArrayList<DonateItem> list = new ArrayList<DonateItem>();
+		ArrayList<DonateItem> list = new ArrayList<>();
 		Iterator<?> iterator = n.elementIterator();
 		
 		while (iterator.hasNext())

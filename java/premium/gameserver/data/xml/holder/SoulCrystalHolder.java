@@ -17,7 +17,7 @@ public final class SoulCrystalHolder extends AbstractHolder
 		return _instance;
 	}
 	
-	private final TIntObjectHashMap<SoulCrystal> _crystals = new TIntObjectHashMap<SoulCrystal>();
+	private final TIntObjectHashMap<SoulCrystal> _crystals = new TIntObjectHashMap<>();
 	
 	public void addCrystal(SoulCrystal crystal)
 	{

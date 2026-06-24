@@ -28,7 +28,7 @@ public class AdminEvents implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		Commands command = (Commands) comm;
 		
@@ -235,7 +235,7 @@ public class AdminEvents implements IAdminCommandHandler
 		}
 	}
 	
-	private void dropEventItem(Player player, int itemId, long num, int x, int y, int z, int reflectionId)
+	public void dropEventItem(Player player, int itemId, long num, int x, int y, int z, int reflectionId)
 	{
 		if (itemId == 0)
 		{
@@ -249,7 +249,7 @@ public class AdminEvents implements IAdminCommandHandler
 		item.dropToTheGround(player, new Location(x, y, z));
 	}
 	
-	private String generateRandom(int dx, int dy, int fillPercent)
+	public String generateRandom(int dx, int dy, int fillPercent)
 	{
 		StringBuilder sb = new StringBuilder((dx * dy) + dy);
 		for (int y = 0; y < dy; y++)
@@ -271,6 +271,7 @@ public class AdminEvents implements IAdminCommandHandler
 		return sb.toString();
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{

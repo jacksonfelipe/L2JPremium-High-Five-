@@ -14,7 +14,7 @@ public class EnchantItemHolder extends AbstractHolder
 {
 	private static EnchantItemHolder _instance = new EnchantItemHolder();
 	
-	private IntObjectMap<EnchantScroll> _enchantScrolls = new HashIntObjectMap<EnchantScroll>();
+	private IntObjectMap<EnchantScroll> _enchantScrolls = new HashIntObjectMap<>();
 	
 	public static EnchantItemHolder getInstance()
 	{

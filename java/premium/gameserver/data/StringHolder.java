@@ -25,7 +25,7 @@ public final class StringHolder extends AbstractHolder
 {
 	private static final Logger LOG = LoggerFactory.getLogger(StringHolder.class);
 	private static final StringHolder _instance = new StringHolder();
-	private final Map<Language, Map<String, String>> _strings = new HashMap<Language, Map<String, String>>();
+	private final Map<Language, Map<String, String>> _strings = new HashMap<>();
 	
 	public static StringHolder getInstance()
 	{
@@ -125,7 +125,7 @@ public final class StringHolder extends AbstractHolder
 	{
 		for (Language lang : Language.VALUES)
 		{
-			_strings.put(lang, new HashMap<String, String>());
+			_strings.put(lang, new HashMap<>());
 			
 			File f = new File(Config.DATAPACK_ROOT, "data/string/strings_" + lang.getShortName() + ".ini");
 			if (!f.exists())

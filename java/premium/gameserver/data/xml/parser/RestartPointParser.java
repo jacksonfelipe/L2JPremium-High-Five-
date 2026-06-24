@@ -53,8 +53,8 @@ public class RestartPointParser extends AbstractFileParser<MapRegionManager>
 	@Override
 	protected void readData(Element rootElement) throws Exception
 	{
-		List<Pair<Territory, Map<Race, String>>> restartArea = new ArrayList<Pair<Territory, Map<Race, String>>>();
-		Map<String, RestartPoint> restartPoint = new HashMap<String, RestartPoint>();
+		List<Pair<Territory, Map<Race, String>>> restartArea = new ArrayList<>();
+		Map<String, RestartPoint> restartPoint = new HashMap<>();
 		
 		for (Iterator<Element> iterator = rootElement.elementIterator(); iterator.hasNext();)
 		{
@@ -63,7 +63,7 @@ public class RestartPointParser extends AbstractFileParser<MapRegionManager>
 			if ("restart_area".equals(listElement.getName()))
 			{
 				Territory territory = null;
-				Map<Race, String> restarts = new HashMap<Race, String>();
+				Map<Race, String> restarts = new HashMap<>();
 				
 				for (Iterator<Element> i = listElement.elementIterator(); i.hasNext();)
 				{
@@ -129,15 +129,15 @@ public class RestartPointParser extends AbstractFileParser<MapRegionManager>
 					throw new RuntimeException("RestartPointParser: restarts not defined!");
 				}
 				
-				restartArea.add(new ImmutablePair<Territory, Map<Race, String>>(territory, restarts));
+				restartArea.add(new ImmutablePair<>(territory, restarts));
 			}
 			else if ("restart_loc".equals(listElement.getName()))
 			{
 				String name = listElement.attributeValue("name");
 				int bbs = Integer.parseInt(listElement.attributeValue("bbs", "0"));
 				int msgId = Integer.parseInt(listElement.attributeValue("msg_id", "0"));
-				List<Location> restartPoints = new ArrayList<Location>();
-				List<Location> PKrestartPoints = new ArrayList<Location>();
+				List<Location> restartPoints = new ArrayList<>();
+				List<Location> PKrestartPoints = new ArrayList<>();
 				
 				for (Iterator<Element> i = listElement.elementIterator(); i.hasNext();)
 				{
@@ -185,7 +185,7 @@ public class RestartPointParser extends AbstractFileParser<MapRegionManager>
 		
 		for (Pair<Territory, Map<Race, String>> ra : restartArea)
 		{
-			Map<Race, RestartPoint> restarts = new HashMap<Race, RestartPoint>();
+			Map<Race, RestartPoint> restarts = new HashMap<>();
 			
 			for (Map.Entry<Race, String> e : ra.getValue().entrySet())
 			{

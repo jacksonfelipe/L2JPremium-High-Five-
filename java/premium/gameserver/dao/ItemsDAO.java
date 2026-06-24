@@ -9,6 +9,10 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.concurrent.atomic.AtomicLong;
 
+import net.sf.ehcache.Cache;
+import net.sf.ehcache.CacheManager;
+import net.sf.ehcache.Element;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,9 +23,6 @@ import premium.commons.dbutils.DbUtils;
 import premium.gameserver.database.DatabaseFactory;
 import premium.gameserver.model.items.ItemInstance;
 import premium.gameserver.model.items.ItemInstance.ItemLocation;
-import net.sf.ehcache.Cache;
-import net.sf.ehcache.CacheManager;
-import net.sf.ehcache.Element;
 
 public class ItemsDAO implements JdbcDAO<Integer, ItemInstance>
 {
@@ -114,7 +115,7 @@ public class ItemsDAO implements JdbcDAO<Integer, ItemInstance>
 		return item;
 	}
 	
-	private ItemInstance load0(ResultSet rset) throws SQLException
+	public ItemInstance load0(ResultSet rset) throws SQLException
 	{
 		ItemInstance item = null;
 		
@@ -190,7 +191,7 @@ public class ItemsDAO implements JdbcDAO<Integer, ItemInstance>
 		insert.incrementAndGet();
 	}
 	
-	private void delete0(ItemInstance item, PreparedStatement statement) throws SQLException
+	public void delete0(ItemInstance item, PreparedStatement statement) throws SQLException
 	{
 		statement.setInt(1, item.getObjectId());
 	}
@@ -214,7 +215,7 @@ public class ItemsDAO implements JdbcDAO<Integer, ItemInstance>
 		delete.incrementAndGet();
 	}
 	
-	private void update0(ItemInstance item, PreparedStatement statement) throws SQLException
+	public void update0(ItemInstance item, PreparedStatement statement) throws SQLException
 	{
 		statement.setInt(20, item.getObjectId());
 		statement.setInt(1, item.getOwnerId());
@@ -299,7 +300,7 @@ public class ItemsDAO implements JdbcDAO<Integer, ItemInstance>
 			return list;
 		}
 		
-		list = new ArrayList<ItemInstance>(objectIds.size());
+		list = new ArrayList<>(objectIds.size());
 		
 		ItemInstance item;
 		for (Integer objectId : objectIds)
@@ -464,7 +465,7 @@ public class ItemsDAO implements JdbcDAO<Integer, ItemInstance>
 			statement.setInt(1, ownerId);
 			statement.setString(2, loc.name());
 			rset = statement.executeQuery();
-			objectIds = new ArrayList<Integer>();
+			objectIds = new ArrayList<>();
 			while (rset.next())
 			{
 				objectIds.add(rset.getInt(1));
@@ -493,7 +494,7 @@ public class ItemsDAO implements JdbcDAO<Integer, ItemInstance>
 			
 			try (ResultSet rset = statement.executeQuery())
 			{
-				objectIds = new ArrayList<Integer>();
+				objectIds = new ArrayList<>();
 				while (rset.next())
 				{
 					objectIds.add(rset.getInt(1));

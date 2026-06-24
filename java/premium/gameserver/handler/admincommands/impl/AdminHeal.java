@@ -17,7 +17,7 @@ public class AdminHeal implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		Commands command = (Commands) comm;
 		
@@ -46,13 +46,14 @@ public class AdminHeal implements IAdminCommandHandler
 		return true;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{
 		return Commands.values();
 	}
 	
-	private void handleHeal(Player activeChar, String player)
+	public void handleHeal(Player activeChar, String player)
 	{
 		GameObject obj = activeChar.getTarget();
 		if (player != null)
@@ -99,7 +100,7 @@ public class AdminHeal implements IAdminCommandHandler
 		}
 	}
 	
-	private void handleClanHeal(Player activeChar)
+	public void handleClanHeal(Player activeChar)
 	{
 		final GameObject obj = activeChar.getTarget();
 		if (!(obj instanceof Player))

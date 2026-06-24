@@ -44,7 +44,7 @@ public class MultiSellHolder
 	private static final String NODE_PRODUCTION = "production";
 	private static final String NODE_INGRIDIENT = "ingredient";
 	
-	private final TIntObjectHashMap<MultiSellListContainer> entries = new TIntObjectHashMap<MultiSellListContainer>();
+	private final TIntObjectHashMap<MultiSellListContainer> entries = new TIntObjectHashMap<>();
 	
 	public MultiSellListContainer getList(int id)
 	{
@@ -74,7 +74,7 @@ public class MultiSellHolder
 		private boolean keep_enchanted = false;
 		private boolean is_dutyfree = false;
 		private boolean nokey = false;
-		private final List<MultiSellEntry> entries = new ArrayList<MultiSellEntry>();
+		private final List<MultiSellEntry> entries = new ArrayList<>();
 		
 		public void setListId(int listId)
 		{
@@ -228,7 +228,7 @@ public class MultiSellHolder
 	
 	private void parse()
 	{
-		List<File> files = new ArrayList<File>();
+		List<File> files = new ArrayList<>();
 		hashFiles("multisell", files);
 		for (File f : files)
 		{
@@ -494,7 +494,11 @@ public class MultiSellHolder
 		player.sendPacket(new MultiSellList(temp, page, 1));
 	}
 	
-	private MultiSellListContainer generateMultiSell(MultiSellListContainer container, Player player, double taxRate)
+	@SuppressWarnings({
+		"null",
+		"unlikely-arg-type"
+	})
+	public MultiSellListContainer generateMultiSell(MultiSellListContainer container, Player player, double taxRate)
 	{
 		MultiSellListContainer list = new MultiSellListContainer();
 		list.setListId(container.getListId());
@@ -515,14 +519,12 @@ public class MultiSellHolder
 		{
 			MultiSellEntry ent = origEntry.clone();
 			
-			// Обработка налога, если лист не безналоговый
-			// Адены добавляются в лист если отсутствуют или прибавляются к существующим
 			List<MultiSellIngredient> ingridients;
 			if (!notax && taxRate > 0.)
 			{
 				double tax = 0;
 				long adena = 0;
-				ingridients = new ArrayList<MultiSellIngredient>(ent.getIngredients().size() + 1);
+				ingridients = new ArrayList<>(ent.getIngredients().size() + 1);
 				for (MultiSellIngredient i : ent.getIngredients())
 				{
 					if (i.getItemId() == 57)
@@ -534,8 +536,6 @@ public class MultiSellHolder
 					ingridients.add(i);
 					if (i.getItemId() == ItemTemplate.ITEM_ID_CLAN_REPUTATION_SCORE)
 					{
-						// FIXME hardcoded. Налог на клановую репутацию. Формула проверена на с6 и соответсвует на 100%.
-						// TODO Проверить на корейском(?) оффе налог на банг поинты и fame
 						tax += i.getItemCount() / 120 * 1000 * taxRate * 100;
 					}
 					if (i.getItemId() < 1)
@@ -566,14 +566,13 @@ public class MultiSellHolder
 				ingridients = ent.getIngredients();
 			}
 			
-			// Если стоит флаг "показывать все" не проверять наличие ингридиентов
 			if (showall)
 			{
 				list.entries.add(ent);
 			}
 			else
 			{
-				List<Integer> itms = new ArrayList<Integer>();
+				List<Integer> itms = new ArrayList<>();
 				boolean containsMammonVarnishEnhancer = false;
 				for (MultiSellIngredient ingredient : ingridients)
 				{

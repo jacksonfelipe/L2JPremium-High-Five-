@@ -399,10 +399,7 @@ public class GeoEngine
 		int zdiff = nearest_lower_neighborh - layerh;
 		return (layer & 0x0F & directionNSWE) != 0 || zdiff > -Config.MAX_Z_DIFF && zdiff != 0;
 	}
-	
-	/**
-	 * check visibility @ Return returns the last point which is visible (in the format of geo-coordinates) Results (Location) h is the code if> = 0, the last successfully reached the point if it is not less than last
-	 */
+ 
 	public static Location canSee(int _x, int _y, int _z, int _tx, int _ty, int _tz, boolean air, int geoIndex)
 	{
 		final int diff_x = _tx - _x;
@@ -623,9 +620,7 @@ public class GeoEngine
 		return new Location((int) next_x, (int) next_y, (int) next_z).geo2world();
 	}
 	
-	/**
-	 * cross-check on line @ Return 0 - passable, otherwise obstruction reason code (used for debugging)
-	 */
+ 
 	private static int canMove(int __x, int __y, int _z, int __tx, int __ty, int _tz, boolean withCollision, int geoIndex)
 	{
 		int _x = __x - World.MAP_MIN_X >> 4;
@@ -743,7 +738,7 @@ public class GeoEngine
 		return new Location(curr_x, curr_y, curr_z).geo2world();
 	}
 	
-	/** Similar to CanMove, but returns all the traversed path. In the geometric coordinates .. */
+ 
 	public static List<Location> MoveList(int __x, int __y, int _z, int __tx, int __ty, int geoIndex, boolean onlyFullPath)
 	{
 		int _x = __x - World.MAP_MIN_X >> 4;
@@ -794,10 +789,7 @@ public class GeoEngine
 				{
 					return null;
 				}
-				else
-				{
-					break;
-				}
+				break;
 			}
 			
 			curr_next_switcher = curr_layers;
@@ -813,10 +805,7 @@ public class GeoEngine
 		
 		return result;
 	}
-	
-	/**
-	 * Only used for anti locomotive in AI
-	 */
+ 
 	private static Location MoveCheckForAI(int x, int y, int z, int tx, int ty, int geoIndex)
 	{
 		int dx = tx - x;
@@ -921,9 +910,7 @@ public class GeoEngine
 		return checkNSWE((byte) (temp_layer & 0x0F), x, y, nextx, nexty);
 	}
 	
-	/**
-	 * @return returns the height of the next block, or if the move can not be Integer.MIN_VALUE
-	 */
+ 
 	public static int NcanMoveNext(int x, int y, int z, short[] layers, int next_x, int next_y, short[] next_layers, short[] temp_layers, boolean withCollision, int geoIndex)
 	{
 		if (layers[0] == 0 || next_layers[0] == 0)
@@ -1003,9 +990,7 @@ public class GeoEngine
 		return next_layer_h;
 	}
 	
-	/**
-	 * Используется только для антипаровоза в AI
-	 */
+ 
 	public static int NcanMoveNextForAI(int x, int y, int z, int next_x, int next_y, int geoIndex)
 	{
 		short[] layers1 = new short[MAX_LAYERS + 1];
@@ -1062,12 +1047,7 @@ public class GeoEngine
 		return z2 == 0 ? 1 : z2;
 	}
 	
-	/**
-	 * в нулевую ячейку кладется длина
-	 * @param geoX
-	 * @param geoY
-	 * @param result
-	 */
+	 
 	public static void NGetLayers(int geoX, int geoY, short[] result, int geoIndex)
 	{
 		result[0] = 0;
@@ -1211,12 +1191,7 @@ public class GeoEngine
 		}
 	}
 	
-	/**
-	 * @param geoX позиция геодаты
-	 * @param geoY позиция геодаты
-	 * @param z координата без изменений
-	 * @return NSWE: 0-15
-	 */
+ 
 	public static byte NgetNSWE(int geoX, int geoY, int z, int geoIndex)
 	{
 		byte[] block = getGeoBlockFromGeoCoords(geoX, geoY, geoIndex);
@@ -1448,10 +1423,7 @@ public class GeoEngine
 		return -1;
 	}
 	
-	/**
-	 * It is the actual unit for the current geo-coordinates. <BR>
-	 * Is the workpiece to return otdelnіh units with doors @ Param geoX geographic coordinates @ Param geoY geographic coordinates @ Return the current block geodata, or null if there is no geodata.
-	 */
+ 
 	private static byte[] getGeoBlockFromGeoCoords(int geoX, int geoY, int geoIndex)
 	{
 		if (!Config.ALLOW_GEODATA)
@@ -1639,10 +1611,7 @@ public class GeoEngine
 		
 		return true;
 	}
-	
-	/**
-	 * Download region geodata. @ Param rx region x @ Param ry region y
-	 */
+	 
 	public static boolean LoadGeodataFile(byte rx, byte ry)
 	{
 		String fname = "data/geodata/" + rx + "_" + ry + ".l2j";
@@ -2419,12 +2388,7 @@ public class GeoEngine
 		return (worldY - World.MAP_MIN_Y) >> 4;
 	}
 	
-	/**
-	 * A single geodata position represents 16x16 positions in the game world.<br>
-	 * That means we add 8 to the calculated world position, to always return the<br>
-	 * middle of the 16x16 world sqaure the geo position represents.
-	 */
-	
+ 
 	public static int getWorldX(int geoX)
 	{
 		return (geoX << 4) + World.MAP_MIN_X + 8;

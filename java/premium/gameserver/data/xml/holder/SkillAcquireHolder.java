@@ -32,16 +32,16 @@ public final class SkillAcquireHolder extends AbstractHolder
 	}
 	
 	// классовые зависимости
-	private final TIntObjectHashMap<List<SkillLearn>> _normalSkillTree = new TIntObjectHashMap<List<SkillLearn>>();
-	private final TIntObjectHashMap<List<SkillLearn>> _transferSkillTree = new TIntObjectHashMap<List<SkillLearn>>();
+	private final TIntObjectHashMap<List<SkillLearn>> _normalSkillTree = new TIntObjectHashMap<>();
+	private final TIntObjectHashMap<List<SkillLearn>> _transferSkillTree = new TIntObjectHashMap<>();
 	// расовые зависимости
-	private final TIntObjectHashMap<List<SkillLearn>> _fishingSkillTree = new TIntObjectHashMap<List<SkillLearn>>();
-	private final TIntObjectHashMap<List<SkillLearn>> _transformationSkillTree = new TIntObjectHashMap<List<SkillLearn>>();
+	private final TIntObjectHashMap<List<SkillLearn>> _fishingSkillTree = new TIntObjectHashMap<>();
+	private final TIntObjectHashMap<List<SkillLearn>> _transformationSkillTree = new TIntObjectHashMap<>();
 	// без зависимостей
-	private final List<SkillLearn> _certificationSkillTree = new ArrayList<SkillLearn>();
-	private final List<SkillLearn> _collectionSkillTree = new ArrayList<SkillLearn>();
-	private final List<SkillLearn> _pledgeSkillTree = new ArrayList<SkillLearn>();
-	private final List<SkillLearn> _subUnitSkillTree = new ArrayList<SkillLearn>();
+	private final List<SkillLearn> _certificationSkillTree = new ArrayList<>();
+	private final List<SkillLearn> _collectionSkillTree = new ArrayList<>();
+	private final List<SkillLearn> _pledgeSkillTree = new ArrayList<>();
+	private final List<SkillLearn> _subUnitSkillTree = new ArrayList<>();
 	
 	public int getMinLevelForNewSkill(Player player, AcquireType type)
 	{
@@ -136,23 +136,20 @@ public final class SkillAcquireHolder extends AbstractHolder
 				{
 					return skills;
 				}
-				else
+				Map<Integer, SkillLearn> skillLearnMap = new TreeMap<>();
+				for (SkillLearn temp : skills)
 				{
-					Map<Integer, SkillLearn> skillLearnMap = new TreeMap<Integer, SkillLearn>();
-					for (SkillLearn temp : skills)
+					if (temp.getMinLevel() <= player.getLevel())
 					{
-						if (temp.getMinLevel() <= player.getLevel())
+						int knownLevel = player.getSkillLevel(temp.getId());
+						if (knownLevel == -1)
 						{
-							int knownLevel = player.getSkillLevel(temp.getId());
-							if (knownLevel == -1)
-							{
-								skillLearnMap.put(temp.getId(), temp);
-							}
+							skillLearnMap.put(temp.getId(), temp);
 						}
 					}
-					
-					return skillLearnMap.values();
 				}
+				
+				return skillLearnMap.values();
 			case FISHING:
 				skills = _fishingSkillTree.get(player.getRace().ordinal());
 				if (skills == null)
@@ -177,10 +174,7 @@ public final class SkillAcquireHolder extends AbstractHolder
 				{
 					return skills;
 				}
-				else
-				{
-					return getAvaliableList(skills, player.getAllSkillsArray(), player.getLevel());
-				}
+				return getAvaliableList(skills, player.getAllSkillsArray(), player.getLevel());
 			default:
 				return Collections.emptyList();
 		}
@@ -228,23 +222,20 @@ public final class SkillAcquireHolder extends AbstractHolder
 				{
 					return skills;
 				}
-				else
+				Map<Integer, SkillLearn> skillLearnMap = new TreeMap<>();
+				for (SkillLearn temp : skills)
 				{
-					Map<Integer, SkillLearn> skillLearnMap = new TreeMap<Integer, SkillLearn>();
-					for (SkillLearn temp : skills)
+					if (temp.getMinLevel() <= player.getLevel())
 					{
-						if (temp.getMinLevel() <= player.getLevel())
+						int knownLevel = player.getSkillLevel(temp.getId());
+						if (knownLevel == -1)
 						{
-							int knownLevel = player.getSkillLevel(temp.getId());
-							if (knownLevel == -1)
-							{
-								skillLearnMap.put(temp.getId(), temp);
-							}
+							skillLearnMap.put(temp.getId(), temp);
 						}
 					}
-					
-					return skillLearnMap.values();
 				}
+				
+				return skillLearnMap.values();
 			case FISHING:
 				skills = _fishingSkillTree.get(player.getRace().ordinal());
 				if (skills == null)
@@ -269,18 +260,15 @@ public final class SkillAcquireHolder extends AbstractHolder
 				{
 					return skills;
 				}
-				else
-				{
-					return getAvaliableList(skills, player.getAllSkillsArray(), level);
-				}
+				return getAvaliableList(skills, player.getAllSkillsArray(), level);
 			default:
 				return Collections.emptyList();
 		}
 	}
 	
-	private Collection<SkillLearn> getAvaliableList(Collection<SkillLearn> skillLearns, Skill[] skills, int level)
+	private static Collection<SkillLearn> getAvaliableList(Collection<SkillLearn> skillLearns, Skill[] skills, int level)
 	{
-		Map<Integer, SkillLearn> skillLearnMap = new TreeMap<Integer, SkillLearn>();
+		Map<Integer, SkillLearn> skillLearnMap = new TreeMap<>();
 		for (SkillLearn temp : skillLearns)
 		{
 			if (temp.getMinLevel() <= level)
@@ -414,7 +402,7 @@ public final class SkillAcquireHolder extends AbstractHolder
 		return isSkillPossible(skills, skill);
 	}
 	
-	private boolean isSkillPossible(Collection<SkillLearn> skills, Skill skill)
+	public static boolean isSkillPossible(Collection<SkillLearn> skills, Skill skill)
 	{
 		for (SkillLearn learn : skills)
 		{
@@ -447,7 +435,7 @@ public final class SkillAcquireHolder extends AbstractHolder
 			return Collections.emptyList();
 		}
 		
-		List<SkillLearn> l = new ArrayList<SkillLearn>(1);
+		List<SkillLearn> l = new ArrayList<>(1);
 		for (SkillLearn $i : learns)
 		{
 			if ($i.getItemId() == itemId)
@@ -461,7 +449,7 @@ public final class SkillAcquireHolder extends AbstractHolder
 	
 	public List<SkillLearn> getAllNormalSkillTreeWithForgottenScrolls()
 	{
-		List<SkillLearn> a = new ArrayList<SkillLearn>();
+		List<SkillLearn> a = new ArrayList<>();
 		for (TIntObjectIterator<List<SkillLearn>> i = _normalSkillTree.iterator(); i.hasNext();)
 		{
 			i.advance();
@@ -593,7 +581,7 @@ public final class SkillAcquireHolder extends AbstractHolder
 		_subUnitSkillTree.clear();
 	}
 	
-	private int sizeTroveMap(TIntObjectHashMap<List<SkillLearn>> a)
+	public static int sizeTroveMap(TIntObjectHashMap<List<SkillLearn>> a)
 	{
 		int i = 0;
 		for (TIntObjectIterator<List<SkillLearn>> iterator = a.iterator(); iterator.hasNext();)

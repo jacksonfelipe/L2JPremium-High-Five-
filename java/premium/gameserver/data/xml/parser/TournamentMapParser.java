@@ -46,7 +46,7 @@ public final class TournamentMapParser extends AbstractFileParser<TournamentMapH
 			final String name = mapElement.attributeValue("name");
 			final Element zoneElement = mapElement.element("zone");
 			final String zoneName = zoneElement.attributeValue("name");
-			final Map<String, Location> locations = new HashMap<String, Location>(3);
+			final Map<String, Location> locations = new HashMap<>(3);
 			final Iterator<Element> parameterIterator = mapElement.elementIterator("loc");
 			while (parameterIterator.hasNext())
 			{

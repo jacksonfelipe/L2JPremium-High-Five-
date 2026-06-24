@@ -15,7 +15,7 @@ public final class DressCloakHolder extends AbstractHolder
 		return _instance;
 	}
 	
-	private List<DressCloakData> _cloak = new ArrayList<DressCloakData>();
+	private List<DressCloakData> _cloak = new ArrayList<>();
 	
 	public void addCloak(DressCloakData cloak)
 	{

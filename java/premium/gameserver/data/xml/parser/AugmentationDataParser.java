@@ -52,8 +52,8 @@ public class AugmentationDataParser extends AbstractFileParser<AugmentationDataH
 	@Override
 	protected void readData(Element rootElement) throws Exception
 	{
-		Map<String, int[]> items = new HashMap<String, int[]>();
-		IntObjectMap<RndSelector<OptionGroup>[][]> variants = new HashIntObjectMap<RndSelector<OptionGroup>[][]>();
+		Map<String, int[]> items = new HashMap<>();
+		IntObjectMap<RndSelector<OptionGroup>[][]> variants = new HashIntObjectMap<>();
 		for (Iterator<Element> iterator = rootElement.elementIterator("item_group"); iterator.hasNext();)
 		{
 			Element element = iterator.next();
@@ -121,8 +121,9 @@ public class AugmentationDataParser extends AbstractFileParser<AugmentationDataH
 		}
 	}
 	
+ 
 	@SuppressWarnings("unchecked")
-	private RndSelector<OptionGroup>[] readVariation(Element warElement)
+	private static RndSelector<OptionGroup>[] readVariation(Element warElement)
 	{
 		RndSelector<OptionGroup>[] sel = new RndSelector[2];
 		if (warElement == null)
@@ -132,7 +133,7 @@ public class AugmentationDataParser extends AbstractFileParser<AugmentationDataH
 		int val = 0;
 		for (Element variantElement : warElement.elements())
 		{
-			RndSelector<OptionGroup> rnd = new RndSelector<OptionGroup>();
+			RndSelector<OptionGroup> rnd = new RndSelector<>();
 			sel[(val++)] = rnd;
 			
 			int allGroupChance = 0;

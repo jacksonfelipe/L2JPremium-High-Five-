@@ -38,7 +38,7 @@ public class AdminGathering implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		Commands command = (Commands) comm;
 		
@@ -53,7 +53,7 @@ public class AdminGathering implements IAdminCommandHandler
 					final AtomicInteger totalPeaceTeleported = new AtomicInteger(0);
 					int peaceAskedCount = 0;
 					final Location adminLoc = activeChar.getLoc();
-					final Map<Language, ConfirmDlg> dialogPerLang = new EnumMap<Language, ConfirmDlg>(Language.class);
+					final Map<Language, ConfirmDlg> dialogPerLang = new EnumMap<>(Language.class);
 					for (Language lang : Language.values())
 					{
 						dialogPerLang.put(lang, new ConfirmDlg(SystemMsg.S1, TIME_IN_MILLIS_FOR_QUESTION).addString(StringHolder.getNotNull(lang, "Gathering.AskDialog", new Object[0])));
@@ -77,7 +77,7 @@ public class AdminGathering implements IAdminCommandHandler
 			}
 			case admin_gathering_ask_outside:
 			{
-				final Map<Language, IStaticPacket> msgPerLang = new EnumMap<Language, IStaticPacket>(Language.class);
+				final Map<Language, IStaticPacket> msgPerLang = new EnumMap<>(Language.class);
 				for (Language lang2 : Language.values())
 				{
 					msgPerLang.put(lang2, new Say2(activeChar.getObjectId(), ChatType.TELL, activeChar.getName(), StringHolder.getNotNull(lang2, "Gathering.AskPM", new Object[0])));
@@ -102,7 +102,7 @@ public class AdminGathering implements IAdminCommandHandler
 					playersToReward.add(activeChar);
 					final String mailTopic = "Gathering Event Reward!";
 					final String mailBody = "Thank you for participating!";
-					final Map<Integer, Long> rewardList = new HashMap<Integer, Long>(1);
+					final Map<Integer, Long> rewardList = new HashMap<>(1);
 					rewardList.put(Integer.parseInt(wordList[1]), Long.parseLong(wordList[2]));
 					int rewardedCount = 0;
 					for (Player target : playersToReward)
@@ -198,6 +198,7 @@ public class AdminGathering implements IAdminCommandHandler
 		}
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{

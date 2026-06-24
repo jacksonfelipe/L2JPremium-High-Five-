@@ -18,7 +18,7 @@ public final class ProxiesHolder extends AbstractHolder
 	
 	private ProxiesHolder()
 	{
-		_proxies = new LinkedHashMap<ProxyRequirement, InetAddress>();
+		_proxies = new LinkedHashMap<>();
 	}
 	
 	public void addNewProxy(ProxyRequirement requirement, String ipName)
@@ -41,7 +41,7 @@ public final class ProxiesHolder extends AbstractHolder
 	
 	public LinkedHashMap<ProxyRequirement, InetAddress> getProxiesCopy()
 	{
-		return new LinkedHashMap<ProxyRequirement, InetAddress>(_proxies);
+		return new LinkedHashMap<>(_proxies);
 	}
 	
 	@Override

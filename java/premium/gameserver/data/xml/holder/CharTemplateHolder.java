@@ -33,7 +33,7 @@ public class CharTemplateHolder extends AbstractHolder
 	
 	private CharTemplateHolder()
 	{
-		_templates = new HashMap<Integer, PlayerTemplate>();
+		_templates = new HashMap<>();
 	}
 	
 	public void addTemplate(int classId, StatsSet set, List<CreateItem> items)

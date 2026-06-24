@@ -13,7 +13,7 @@ public class ZoneHolder extends AbstractHolder
 {
 	private static final ZoneHolder _instance = new ZoneHolder();
 	
-	private final Map<String, ZoneTemplate> _zones = new HashMap<String, ZoneTemplate>();
+	private final Map<String, ZoneTemplate> _zones = new HashMap<>();
 	
 	public static ZoneHolder getInstance()
 	{

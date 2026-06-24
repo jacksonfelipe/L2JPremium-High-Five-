@@ -22,7 +22,7 @@ public class AdminMail implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		Commands command = (Commands) comm;
 		
@@ -49,7 +49,7 @@ public class AdminMail implements IAdminCommandHandler
 					return false;
 				}
 				
-				List<String> nicks = mailNicks.containsKey(activeChar.getObjectId()) ? mailNicks.get(activeChar.getObjectId()) : new ArrayList<String>();
+				List<String> nicks = mailNicks.containsKey(activeChar.getObjectId()) ? mailNicks.get(activeChar.getObjectId()) : new ArrayList<>();
 				nicks.add(targetToAdd);
 				mailNicks.put(activeChar.getObjectId(), nicks);
 				activeChar.sendMessage("Player " + targetToAdd + " was added to the list!");
@@ -70,7 +70,7 @@ public class AdminMail implements IAdminCommandHandler
 					activeChar.sendMessage("Target a player and use //remove_mail or use //remove_mail nick");
 					return false;
 				}
-				List<String> currentNicks = mailNicks.containsKey(activeChar.getObjectId()) ? mailNicks.get(activeChar.getObjectId()) : new ArrayList<String>();
+				List<String> currentNicks = mailNicks.containsKey(activeChar.getObjectId()) ? mailNicks.get(activeChar.getObjectId()) : new ArrayList<>();
 				currentNicks.remove(targetToRemove);
 				mailNicks.put(activeChar.getObjectId(), currentNicks);
 				activeChar.sendMessage("Player " + targetToRemove + " was removed from the list!");
@@ -117,6 +117,7 @@ public class AdminMail implements IAdminCommandHandler
 		mailNicks.get(gmObjectId).clear();
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{

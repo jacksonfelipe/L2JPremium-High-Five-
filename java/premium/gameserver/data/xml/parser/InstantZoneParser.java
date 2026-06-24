@@ -92,7 +92,7 @@ public class InstantZoneParser extends AbstractDirParser<InstantZoneHolder>
 			boolean setReuseUponEntry = true;
 			StatsSet params = new StatsSet();
 			
-			List<InstantZone.SpawnInfo> spawns = new ArrayList<InstantZone.SpawnInfo>();
+			List<InstantZone.SpawnInfo> spawns = new ArrayList<>();
 			IntObjectMap<InstantZone.DoorInfo> doors = Containers.emptyIntObjectMap();
 			Map<String, InstantZone.ZoneInfo> zones = Collections.emptyMap();
 			Map<String, InstantZone.SpawnInfo2> spawns2 = Collections.emptyMap();
@@ -161,7 +161,7 @@ public class InstantZoneParser extends AbstractDirParser<InstantZoneHolder>
 				{
 					if (teleportLocs.isEmpty())
 					{
-						teleportLocs = new ArrayList<Location>(1);
+						teleportLocs = new ArrayList<>(1);
 					}
 					teleportLocs.add(Location.parseLoc(subElement.attributeValue("loc")));
 				}
@@ -198,7 +198,7 @@ public class InstantZoneParser extends AbstractDirParser<InstantZoneHolder>
 					{
 						if (doors.isEmpty())
 						{
-							doors = new HashIntObjectMap<InstantZone.DoorInfo>();
+							doors = new HashIntObjectMap<>();
 						}
 						
 						boolean opened = e.attributeValue("opened") != null && Boolean.parseBoolean(e.attributeValue("opened"));
@@ -213,7 +213,7 @@ public class InstantZoneParser extends AbstractDirParser<InstantZoneHolder>
 					{
 						if (zones.isEmpty())
 						{
-							zones = new HashMap<String, InstantZone.ZoneInfo>();
+							zones = new HashMap<>();
 						}
 						
 						boolean active = e.attributeValue("active") != null && Boolean.parseBoolean(e.attributeValue("active"));
@@ -253,7 +253,7 @@ public class InstantZoneParser extends AbstractDirParser<InstantZoneHolder>
 							{
 								if (spawns2.isEmpty())
 								{
-									spawns2 = new Hashtable<String, InstantZone.SpawnInfo2>();
+									spawns2 = new Hashtable<>();
 								}
 								
 								spawns2.put(group, new InstantZone.SpawnInfo2(templates, spawned));
@@ -272,7 +272,7 @@ public class InstantZoneParser extends AbstractDirParser<InstantZoneHolder>
 							String countNode = e.attributeValue("count");
 							count = countNode != null ? Integer.parseInt(countNode) : 1;
 							
-							List<Location> coords = new ArrayList<Location>();
+							List<Location> coords = new ArrayList<>();
 							spawnType = 0;
 							
 							String spawnTypeNode = e.attributeValue("type");

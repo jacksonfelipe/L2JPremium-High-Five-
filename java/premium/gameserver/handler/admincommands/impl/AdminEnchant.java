@@ -35,7 +35,7 @@ public class AdminEnchant implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		Commands command = (Commands) comm;
 		
@@ -143,7 +143,7 @@ public class AdminEnchant implements IAdminCommandHandler
 		return true;
 	}
 	
-	private void setEnchant(Player activeChar, int ench, int armorType)
+	public void setEnchant(Player activeChar, int ench, int armorType)
 	{
 		// get the target
 		GameObject target = activeChar.getTarget();
@@ -256,6 +256,7 @@ public class AdminEnchant implements IAdminCommandHandler
 		activeChar.sendPacket(adminReply);
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{

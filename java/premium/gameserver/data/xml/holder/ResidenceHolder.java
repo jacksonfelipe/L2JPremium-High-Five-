@@ -23,10 +23,10 @@ public final class ResidenceHolder extends AbstractHolder
 {
 	private static ResidenceHolder _instance = new ResidenceHolder();
 	
-	private IntObjectMap<Residence> _residences = new TreeIntObjectMap<Residence>();
+	private IntObjectMap<Residence> _residences = new TreeIntObjectMap<>();
 	
 	@SuppressWarnings("rawtypes")
-	private Map<Class, List<Residence>> _fastResidencesByType = new HashMap<Class, List<Residence>>(4);
+	private Map<Class, List<Residence>> _fastResidencesByType = new HashMap<>(4);
 	
 	public static ResidenceHolder getInstance()
 	{
@@ -122,7 +122,7 @@ public final class ResidenceHolder extends AbstractHolder
 			List<Residence> list = _fastResidencesByType.get(residence.getClass());
 			if (list == null)
 			{
-				_fastResidencesByType.put(residence.getClass(), (list = new ArrayList<Residence>()));
+				_fastResidencesByType.put(residence.getClass(), (list = new ArrayList<>()));
 			}
 			list.add(residence);
 		}

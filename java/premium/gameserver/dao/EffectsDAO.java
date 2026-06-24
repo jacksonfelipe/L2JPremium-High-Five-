@@ -197,7 +197,7 @@ public class EffectsDAO
 		}
 	}
 	
-	private void heal(Playable playable, double hp, double cp, double mp)
+	public void heal(Playable playable, double hp, double cp, double mp)
 	{
 		if (!playable.isPlayer())
 		{

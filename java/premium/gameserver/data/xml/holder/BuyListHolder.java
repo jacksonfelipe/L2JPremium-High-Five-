@@ -45,7 +45,7 @@ public class BuyListHolder
 	
 	private BuyListHolder()
 	{
-		_lists = new HashMap<Integer, NpcTradeList>();
+		_lists = new HashMap<>();
 		
 		try
 		{
@@ -214,7 +214,7 @@ public class BuyListHolder
 	
 	public static class NpcTradeList
 	{
-		private List<TradeItem> tradeList = new ArrayList<TradeItem>();
+		private List<TradeItem> tradeList = new ArrayList<>();
 		private int _id;
 		private int _npcId;
 		
@@ -245,7 +245,7 @@ public class BuyListHolder
 		
 		public synchronized List<TradeItem> getItems()
 		{
-			List<TradeItem> result = new ArrayList<TradeItem>();
+			List<TradeItem> result = new ArrayList<>();
 			long currentTime = System.currentTimeMillis() / 60000L;
 			for (TradeItem ti : tradeList)
 			{

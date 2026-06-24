@@ -124,7 +124,7 @@ public class PathFind
 		return path;
 	}
 	
-	private List<Location> tracePath(GeoNode f)
+	private static List<Location> tracePath(GeoNode f)
 	{
 		List<Location> locations = new ArrayList<>();
 		do
@@ -244,31 +244,28 @@ public class PathFind
 		{
 			return 3f;
 		}
-		else
+		getHeightAndNSWE(n.x + 1, n.y, n.z);
+		if (hNSWE[1] != NSWE_ALL || Math.abs(n.z - hNSWE[0]) > 16)
 		{
-			getHeightAndNSWE(n.x + 1, n.y, n.z);
-			if (hNSWE[1] != NSWE_ALL || Math.abs(n.z - hNSWE[0]) > 16)
-			{
-				return 2f;
-			}
-			
-			getHeightAndNSWE(n.x - 1, n.y, n.z);
-			if (hNSWE[1] != NSWE_ALL || Math.abs(n.z - hNSWE[0]) > 16)
-			{
-				return 2f;
-			}
-			
-			getHeightAndNSWE(n.x, n.y + 1, n.z);
-			if (hNSWE[1] != NSWE_ALL || Math.abs(n.z - hNSWE[0]) > 16)
-			{
-				return 2f;
-			}
-			
-			getHeightAndNSWE(n.x, n.y - 1, n.z);
-			if (hNSWE[1] != NSWE_ALL || Math.abs(n.z - hNSWE[0]) > 16)
-			{
-				return 2f;
-			}
+			return 2f;
+		}
+		
+		getHeightAndNSWE(n.x - 1, n.y, n.z);
+		if (hNSWE[1] != NSWE_ALL || Math.abs(n.z - hNSWE[0]) > 16)
+		{
+			return 2f;
+		}
+		
+		getHeightAndNSWE(n.x, n.y + 1, n.z);
+		if (hNSWE[1] != NSWE_ALL || Math.abs(n.z - hNSWE[0]) > 16)
+		{
+			return 2f;
+		}
+		
+		getHeightAndNSWE(n.x, n.y - 1, n.z);
+		if (hNSWE[1] != NSWE_ALL || Math.abs(n.z - hNSWE[0]) > 16)
+		{
+			return 2f;
 		}
 		
 		return d ? 1.414f : 1f;

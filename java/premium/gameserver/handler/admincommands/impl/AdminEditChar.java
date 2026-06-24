@@ -73,7 +73,7 @@ public class AdminEditChar implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		Commands command = (Commands) comm;
 		
@@ -691,13 +691,14 @@ public class AdminEditChar implements IAdminCommandHandler
 		return true;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{
 		return Commands.values();
 	}
 	
-	private void listCharacters(Player activeChar, int page)
+	public void listCharacters(Player activeChar, int page)
 	{
 		List<Player> players = GameObjectsStorage.getAllPlayers();
 		
@@ -822,8 +823,8 @@ public class AdminEditChar implements IAdminCommandHandler
 		replyMSG.append("<table width=290>");
 		replyMSG.append("<tr><td width=100>Account/IP: </td><td><a action=\"bypass -h admin_find_char_acc " + player.getName() + "\">" + player.getAccountName() + "</a> / <a action=\"bypass -h admin_find_ip " + player.getIP() + "\">" + player.getIP() + "</a></td></tr>");
 		replyMSG.append("<tr><td width=100>HWID: </td><td><a action=\"bypass -h admin_find_hwid " + player.getHWID() + "\">" + (player.hasHWID() ? player.getHWID() : "hwid missing") + "</a></td></tr>");
-		replyMSG.append("<tr><td width=100>Country: </td><td>" + GeoLocation.getInstance().getCountry(player) + " (" + GeoLocation.getInstance().getCountryCode(player) + ")</td></tr>");
-		replyMSG.append("<tr><td width=100>City: </td><td>" + GeoLocation.getInstance().getCity(player) + " (" + GeoLocation.getInstance().getCityRegion(player) + ")</td></tr>");
+		replyMSG.append("<tr><td width=100>Country: </td><td>" + GeoLocation.getInstance().getCountry(player) + " (" + GeoLocation.getCountryCode(player) + ")</td></tr>");
+		replyMSG.append("<tr><td width=100>City: </td><td>" + GeoLocation.getCity(player) + " (" + GeoLocation.getInstance().getCityRegion(player) + ")</td></tr>");
 		replyMSG.append("<tr><td width=100><font color=0099FF>Name:</font></td><td>" + player.getName() + "</td></tr>");
 		replyMSG.append("<tr><td width=100><font color=0099FF>Level:</font></td><td>" + player.getLevel() + "</td></tr>");
 		replyMSG.append("<tr><td width=100><font color=0099FF>Class:</font></td><td>" + player.getTemplate().className + "</td></tr>");
@@ -848,7 +849,7 @@ public class AdminEditChar implements IAdminCommandHandler
 		activeChar.sendPacket(adminReply);
 	}
 	
-	private void setTargetKarma(Player activeChar, int newKarma)
+	public void setTargetKarma(Player activeChar, int newKarma)
 	{
 		GameObject target = activeChar.getTarget();
 		if (target == null)
@@ -881,7 +882,7 @@ public class AdminEditChar implements IAdminCommandHandler
 		}
 	}
 	
-	private void setTargetFame(Player activeChar, int newFame)
+	public void setTargetFame(Player activeChar, int newFame)
 	{
 		GameObject target = activeChar.getTarget();
 		if (target == null)
@@ -914,7 +915,7 @@ public class AdminEditChar implements IAdminCommandHandler
 		}
 	}
 	
-	private void addTargetFame(Player activeChar, int addFame)
+	public void addTargetFame(Player activeChar, int addFame)
 	{
 		GameObject target = activeChar.getTarget();
 		if (target == null)
@@ -993,7 +994,7 @@ public class AdminEditChar implements IAdminCommandHandler
 		player.spawnMe(activeChar.getLoc());
 	}
 	
-	private void editCharacter(Player activeChar)
+	public void editCharacter(Player activeChar)
 	{
 		GameObject target = activeChar.getTarget();
 		if (target == null || !target.isPlayer())
@@ -1048,7 +1049,7 @@ public class AdminEditChar implements IAdminCommandHandler
 		activeChar.sendPacket(adminReply);
 	}
 	
-	private void showCharacterActions(Player activeChar)
+	public void showCharacterActions(Player activeChar)
 	{
 		GameObject target = activeChar.getTarget();
 		Player player;
@@ -1085,7 +1086,7 @@ public class AdminEditChar implements IAdminCommandHandler
 		activeChar.sendPacket(adminReply);
 	}
 	
-	private void findCharacter(Player activeChar, String CharacterToFind)
+	public void findCharacter(Player activeChar, String CharacterToFind)
 	{
 		NpcHtmlMessage adminReply = new NpcHtmlMessage(5);
 		int CharactersFound = 0;
@@ -1140,7 +1141,7 @@ public class AdminEditChar implements IAdminCommandHandler
 		activeChar.sendPacket(adminReply);
 	}
 	
-	private void addExpSp(Player activeChar)
+	public void addExpSp(Player activeChar)
 	{
 		final GameObject target = activeChar.getTarget();
 		Player player;
@@ -1198,7 +1199,7 @@ public class AdminEditChar implements IAdminCommandHandler
 		activeChar.sendPacket(adminReply);
 	}
 	
-	private void adminAddExpSp(Player activeChar, String ExpSp)
+	public void adminAddExpSp(Player activeChar, String ExpSp)
 	{
 		if (!activeChar.getPlayerAccess().CanEditCharAll)
 		{
@@ -1259,7 +1260,7 @@ public class AdminEditChar implements IAdminCommandHandler
 		activeChar.sendPacket(html);
 	}
 	
-	private Set<PlayerClass> getAvailableSubClasses(Player player)
+	public Set<PlayerClass> getAvailableSubClasses(Player player)
 	{
 		final int charClassId = player.getBaseClassId();
 		
@@ -1324,9 +1325,7 @@ public class AdminEditChar implements IAdminCommandHandler
 						availSubs.remove(availSub);
 					}
 				}
-				
-				// Inspector доступен, только когда вкачаны 2 возможных первых саба камаэль(+ мейн класс):
-				// doombringer(berserker), soulhound(maleSoulbreaker, femaleSoulbreaker), trickster(arbalester)
+		 
 				if (availSub == PlayerClass.Inspector)
 				{
 					// doombringer(berserker)
@@ -1340,7 +1339,7 @@ public class AdminEditChar implements IAdminCommandHandler
 		return availSubs;
 	}
 	
-	private String formatClassForDisplay(PlayerClass className)
+	public String formatClassForDisplay(PlayerClass className)
 	{
 		String classNameStr = className.toString();
 		char[] charArray = classNameStr.toCharArray();

@@ -79,7 +79,7 @@ public class AdminAdmin implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		Commands command = (Commands) comm;
 		StringTokenizer st;
@@ -319,7 +319,7 @@ public class AdminAdmin implements IAdminCommandHandler
 						return false;
 					}
 					Player pl = ob.getPlayer();
-					List<String> _s = new ArrayList<String>();
+					List<String> _s = new ArrayList<>();
 					_s.add("==========TARGET STATS:");
 					_s.add("==Magic Resist: " + pl.calcStat(Stats.MAGIC_RESIST, null, null));
 					_s.add("==Magic Power: " + pl.calcStat(Stats.MAGIC_POWER, 1, null, null));
@@ -699,6 +699,7 @@ public class AdminAdmin implements IAdminCommandHandler
 		return false;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{

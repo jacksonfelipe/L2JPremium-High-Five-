@@ -39,7 +39,7 @@ public class CastleDamageZoneDAO
 		try (Connection con = DatabaseFactory.getInstance().getConnection(); PreparedStatement statement = con.prepareStatement(SELECT_SQL_QUERY))
 		{
 			statement.setInt(1, r.getId());
-			set = new ArrayList<String>();
+			set = new ArrayList<>();
 			
 			try (ResultSet rset = statement.executeQuery())
 			{

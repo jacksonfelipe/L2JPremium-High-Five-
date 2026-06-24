@@ -21,7 +21,7 @@ public class AdminLevel implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		Commands command = (Commands) comm;
 		
@@ -81,7 +81,7 @@ public class AdminLevel implements IAdminCommandHandler
 		return true;
 	}
 	
-	private void setLevel(Player activeChar, GameObject target, int level)
+	public void setLevel(Player activeChar, GameObject target, int level)
 	{
 		if (target == null || !(target.isPlayer() || target.isPet()))
 		{
@@ -118,6 +118,7 @@ public class AdminLevel implements IAdminCommandHandler
 		}
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{

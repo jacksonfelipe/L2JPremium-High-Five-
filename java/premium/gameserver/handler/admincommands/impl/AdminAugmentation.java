@@ -305,6 +305,7 @@ public class AdminAugmentation implements IAdminCommandHandler
 		player.sendPacket(adminReply);
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{

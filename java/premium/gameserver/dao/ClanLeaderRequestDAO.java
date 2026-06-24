@@ -34,7 +34,7 @@ public class ClanLeaderRequestDAO
 	
 	public IntObjectMap<ClanChangeLeaderRequest> select()
 	{
-		IntObjectMap<ClanChangeLeaderRequest> requestList = new HashIntObjectMap<ClanChangeLeaderRequest>();
+		IntObjectMap<ClanChangeLeaderRequest> requestList = new HashIntObjectMap<>();
 		
 		Connection con = null;
 		Statement statement = null;

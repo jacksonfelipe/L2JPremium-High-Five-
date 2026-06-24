@@ -15,7 +15,7 @@ public final class DressWeaponHolder extends AbstractHolder
 		return _instance;
 	}
 	
-	private List<DressWeaponData> _weapons = new ArrayList<DressWeaponData>();
+	private List<DressWeaponData> _weapons = new ArrayList<>();
 	
 	public void addWeapon(DressWeaponData weapon)
 	{

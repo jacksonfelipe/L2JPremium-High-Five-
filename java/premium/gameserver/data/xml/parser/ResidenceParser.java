@@ -100,7 +100,7 @@ public final class ResidenceParser extends AbstractDirParser<ResidenceHolder>
 			if (nodeName.equalsIgnoreCase("teleport"))
 			{
 				function = checkAndGetFunction(residence, ResidenceFunction.TELEPORT);
-				List<TeleportLocation> targets = new ArrayList<TeleportLocation>();
+				List<TeleportLocation> targets = new ArrayList<>();
 				for (Iterator<Element> it2 = element.elementIterator(); it2.hasNext();)
 				{
 					Element teleportElement = it2.next();
@@ -264,7 +264,7 @@ public final class ResidenceParser extends AbstractDirParser<ResidenceHolder>
 		}
 	}
 	
-	private ResidenceFunction checkAndGetFunction(Residence residence, int type)
+	private static ResidenceFunction checkAndGetFunction(Residence residence, int type)
 	{
 		ResidenceFunction function = residence.getFunction(type);
 		if (function == null)

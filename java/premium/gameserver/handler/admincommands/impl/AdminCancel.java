@@ -17,7 +17,7 @@ public class AdminCancel implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		Commands command = (Commands) comm;
 		
@@ -47,13 +47,14 @@ public class AdminCancel implements IAdminCommandHandler
 		return true;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{
 		return Commands.values();
 	}
 	
-	private void handleCancel(Player activeChar, String targetName)
+	public void handleCancel(Player activeChar, String targetName)
 	{
 		GameObject obj = activeChar.getTarget();
 		if (targetName != null)

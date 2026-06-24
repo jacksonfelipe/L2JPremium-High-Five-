@@ -15,7 +15,7 @@ public final class NpcHolder extends AbstractHolder
 {
 	private static final NpcHolder _instance = new NpcHolder();
 	
-	private TIntObjectHashMap<NpcTemplate> _npcs = new TIntObjectHashMap<NpcTemplate>(20000);
+	private TIntObjectHashMap<NpcTemplate> _npcs = new TIntObjectHashMap<>(20000);
 	private TIntObjectHashMap<List<NpcTemplate>> _npcsByLevel;
 	private NpcTemplate[] _allTemplates;
 	private Map<String, NpcTemplate> _npcsNames;
@@ -63,8 +63,8 @@ public final class NpcHolder extends AbstractHolder
 	
 	private void buildFastLookupTable()
 	{
-		_npcsByLevel = new TIntObjectHashMap<List<NpcTemplate>>();
-		_npcsNames = new HashMap<String, NpcTemplate>();
+		_npcsByLevel = new TIntObjectHashMap<>();
+		_npcsNames = new HashMap<>();
 		
 		int highestId = 0;
 		for (int id : _npcs.keys())
@@ -87,7 +87,7 @@ public final class NpcHolder extends AbstractHolder
 			List<NpcTemplate> byLevel;
 			if ((byLevel = _npcsByLevel.get(npc.level)) == null)
 			{
-				_npcsByLevel.put(npcId, byLevel = new ArrayList<NpcTemplate>());
+				_npcsByLevel.put(npcId, byLevel = new ArrayList<>());
 			}
 			byLevel.add(npc);
 			

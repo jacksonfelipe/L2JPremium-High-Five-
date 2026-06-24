@@ -35,7 +35,7 @@ public class UndergroundColiseumHistoryDAO
 	
 	public List<Pair<String, Integer>> select(int id)
 	{
-		List<Pair<String, Integer>> list = new ArrayList<Pair<String, Integer>>();
+		List<Pair<String, Integer>> list = new ArrayList<>();
 		Connection con = null;
 		PreparedStatement statement = null;
 		ResultSet rset = null;
@@ -47,7 +47,7 @@ public class UndergroundColiseumHistoryDAO
 			rset = statement.executeQuery();
 			while (rset.next())
 			{
-				list.add(new MutablePair<String, Integer>(rset.getString("name"), rset.getInt("wins")));
+				list.add(new MutablePair<>(rset.getString("name"), rset.getInt("wins")));
 			}
 		}
 		catch (Exception e)

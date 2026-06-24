@@ -18,7 +18,7 @@ public class AdminKill implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		Commands command = (Commands) comm;
 		
@@ -47,6 +47,7 @@ public class AdminKill implements IAdminCommandHandler
 		return true;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{
@@ -58,7 +59,7 @@ public class AdminKill implements IAdminCommandHandler
 		handleKill(activeChar, null);
 	}
 	
-	private void handleKill(Player activeChar, String player)
+	public void handleKill(Player activeChar, String player)
 	{
 		GameObject obj = activeChar.getTarget();
 		if (player != null)
@@ -94,7 +95,7 @@ public class AdminKill implements IAdminCommandHandler
 		}
 	}
 	
-	private void handleDamage(Player activeChar, int damage)
+	public void handleDamage(Player activeChar, int damage)
 	{
 		GameObject obj = activeChar.getTarget();
 		

@@ -109,7 +109,7 @@ public final class EventParser extends AbstractDirParser<EventHolder>
 			
 			Constructor<GlobalEvent> constructor = eventClass.getConstructor(MultiValueSet.class);
 			
-			MultiValueSet<String> set = new MultiValueSet<String>();
+			MultiValueSet<String> set = new MultiValueSet<>();
 			set.set("id", id);
 			set.set("name", name);
 			set.set("eventClass", "premium.gameserver.model.entity.events.impl." + impl + "Event");
@@ -153,7 +153,7 @@ public final class EventParser extends AbstractDirParser<EventHolder>
 		}
 	}
 	
-	private List<Serializable> parseObjects(Element element)
+	private static List<Serializable> parseObjects(Element element)
 	{
 		if (element == null)
 		{
@@ -215,7 +215,7 @@ public final class EventParser extends AbstractDirParser<EventHolder>
 					Element sub = oIterator.next();
 					if (set.isEmpty())
 					{
-						set = new HashSet<String>();
+						set = new HashSet<>();
 					}
 					set.add(sub.attributeValue("name"));
 				}
@@ -251,7 +251,7 @@ public final class EventParser extends AbstractDirParser<EventHolder>
 		}
 		
 		IfElseAction lastIf = null;
-		List<EventAction> actions = new ArrayList<EventAction>(0);
+		List<EventAction> actions = new ArrayList<>(0);
 		for (Iterator<Element> iterator = element.elementIterator(); iterator.hasNext();)
 		{
 			Element actionElement = iterator.next();

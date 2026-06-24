@@ -78,7 +78,7 @@ public class FortressDAO
 		update0(fortress);
 	}
 	
-	private void update0(Fortress fortress)
+	public void update0(Fortress fortress)
 	{
 		try (Connection con = DatabaseFactory.getInstance().getConnection(); PreparedStatement statement = con.prepareStatement(UPDATE_SQL_QUERY);)
 		{

@@ -17,7 +17,7 @@ public final class HennaHolder extends AbstractHolder
 {
 	private static final HennaHolder _instance = new HennaHolder();
 	
-	private TIntObjectHashMap<Henna> _hennas = new TIntObjectHashMap<Henna>();
+	private TIntObjectHashMap<Henna> _hennas = new TIntObjectHashMap<>();
 	
 	public static HennaHolder getInstance()
 	{
@@ -36,7 +36,7 @@ public final class HennaHolder extends AbstractHolder
 	
 	public List<Henna> generateList(Player player)
 	{
-		List<Henna> list = new ArrayList<Henna>();
+		List<Henna> list = new ArrayList<>();
 		for (TIntObjectIterator<Henna> iterator = _hennas.iterator(); iterator.hasNext();)
 		{
 			iterator.advance();

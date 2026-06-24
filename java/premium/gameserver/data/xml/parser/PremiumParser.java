@@ -73,7 +73,7 @@ public final class PremiumParser extends AbstractFileParser<PremiumHolder>
 		}
 	}
 	
-	private int parseTime(Element times)
+	private static int parseTime(Element times)
 	{
 		int days = Integer.parseInt(times.attributeValue("days"));
 		int hours = Integer.parseInt(times.attributeValue("hours"));
@@ -84,7 +84,7 @@ public final class PremiumParser extends AbstractFileParser<PremiumHolder>
 		return total;
 	}
 	
-	private void parseGifts(Element gifts, List<PremiumGift> list)
+	private static void parseGifts(Element gifts, List<PremiumGift> list)
 	{
 		for (Iterator<org.dom4j.Element> it = gifts.elementIterator(); it.hasNext();)
 		{

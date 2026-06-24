@@ -15,7 +15,7 @@ public final class DressShieldHolder extends AbstractHolder
 		return _instance;
 	}
 	
-	private List<DressShieldData> _shield = new ArrayList<DressShieldData>();
+	private List<DressShieldData> _shield = new ArrayList<>();
 	
 	public void addShield(DressShieldData shield)
 	{

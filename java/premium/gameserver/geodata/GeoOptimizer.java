@@ -146,7 +146,7 @@ public class GeoOptimizer
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			if (!exists())
 			{
@@ -260,7 +260,7 @@ public class GeoOptimizer
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			if (!loadFromFile())
 			{

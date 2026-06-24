@@ -27,8 +27,8 @@ public class RecipeHolder
 	private static final Logger _log = LoggerFactory.getLogger(RecipeHolder.class);
 	private static RecipeHolder _instance;
 	
-	private ConcurrentHashMap<Integer, Recipe> _listByRecipeId = new ConcurrentHashMap<Integer, Recipe>();
-	private ConcurrentHashMap<Integer, Recipe> _listByRecipeItem = new ConcurrentHashMap<Integer, Recipe>();
+	private ConcurrentHashMap<Integer, Recipe> _listByRecipeId = new ConcurrentHashMap<>();
+	private ConcurrentHashMap<Integer, Recipe> _listByRecipeItem = new ConcurrentHashMap<>();
 	
 	private RecipeHolder()
 	{
@@ -63,7 +63,7 @@ public class RecipeHolder
 		if (file.exists())
 		{
 			Document doc = factory.newDocumentBuilder().parse(file);
-			List<RecipeComponent> recipePartList = new ArrayList<RecipeComponent>();
+			List<RecipeComponent> recipePartList = new ArrayList<>();
 			for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
 			{
 				if ("list".equalsIgnoreCase(n.getNodeName()))

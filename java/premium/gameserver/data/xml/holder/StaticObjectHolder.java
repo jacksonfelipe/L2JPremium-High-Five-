@@ -15,8 +15,8 @@ public final class StaticObjectHolder extends AbstractHolder
 {
 	private static final StaticObjectHolder _instance = new StaticObjectHolder();
 	
-	private IntObjectMap<StaticObjectTemplate> _templates = new HashIntObjectMap<StaticObjectTemplate>();
-	private IntObjectMap<StaticObjectInstance> _spawned = new HashIntObjectMap<StaticObjectInstance>();
+	private IntObjectMap<StaticObjectTemplate> _templates = new HashIntObjectMap<>();
+	private IntObjectMap<StaticObjectInstance> _spawned = new HashIntObjectMap<>();
 	
 	public static StaticObjectHolder getInstance()
 	{

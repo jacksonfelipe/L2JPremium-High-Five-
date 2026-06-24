@@ -15,7 +15,7 @@ public final class ArmorSetsHolder extends AbstractHolder
 		return _instance;
 	}
 	
-	private final List<ArmorSet> _armorSets = new ArrayList<ArmorSet>();
+	private final List<ArmorSet> _armorSets = new ArrayList<>();
 	
 	public void addArmorSet(ArmorSet armorset)
 	{

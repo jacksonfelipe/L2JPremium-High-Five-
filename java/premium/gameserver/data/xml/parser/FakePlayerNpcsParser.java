@@ -180,7 +180,7 @@ public final class FakePlayerNpcsParser extends AbstractFileParser<FakePlayerNpc
 	
 	private static Map<Integer, Integer> parseInventory(Element npcData)
 	{
-		final Map<Integer, Integer> inventory = new HashMap<Integer, Integer>(9);
+		final Map<Integer, Integer> inventory = new HashMap<>(9);
 		final Iterator<Element> parameterIterator = npcData.elementIterator("items");
 		while (parameterIterator.hasNext())
 		{

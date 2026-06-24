@@ -39,6 +39,10 @@ public class ConfigParser
 		return configs;
 	}
 	
+	@SuppressWarnings({
+		"rawtypes",
+		"unchecked"
+	})
 	public static Object parseObject(String value, Class type)
 	{
 		if (type == Integer.class || type == Integer.TYPE)
@@ -120,6 +124,7 @@ public class ConfigParser
 		return parseArray(value, (Class<Object>) type);
 	}
 	
+	@SuppressWarnings("unchecked")
 	public static <E, T> Map<E, T> parseMap(String config, Class<E> firstType, Class<T> secondType)
 	{
 		final Map<E, T> map = new HashMap<>();
@@ -144,6 +149,7 @@ public class ConfigParser
 		return map;
 	}
 	
+	@SuppressWarnings("unchecked")
 	@Nullable
 	public static <E, T> Map.Entry<E, T> parseMapEntry(String config, Class<E> firstType, Class<T> secondType)
 	{

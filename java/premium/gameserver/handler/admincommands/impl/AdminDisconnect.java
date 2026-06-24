@@ -20,7 +20,7 @@ public class AdminDisconnect implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		Commands command = (Commands) comm;
 		
@@ -75,7 +75,7 @@ public class AdminDisconnect implements IAdminCommandHandler
 				ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 				{
 					@Override
-					public void runImpl() throws Exception
+					public void runImpl()  
 					{
 						player.kick();
 					}
@@ -91,7 +91,7 @@ public class AdminDisconnect implements IAdminCommandHandler
 						ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 						{
 							@Override
-							public void runImpl() throws Exception
+							public void runImpl()  
 							{
 								playerToKick.kick();
 							}
@@ -109,6 +109,7 @@ public class AdminDisconnect implements IAdminCommandHandler
 		return true;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{

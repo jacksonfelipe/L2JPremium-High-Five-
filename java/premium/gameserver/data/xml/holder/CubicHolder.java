@@ -7,7 +7,7 @@ import premium.gameserver.templates.CubicTemplate;
 public final class CubicHolder extends AbstractHolder
 {
 	private static CubicHolder _instance = new CubicHolder();
-	private final TIntObjectHashMap<CubicTemplate> _cubics = new TIntObjectHashMap<CubicTemplate>(10);
+	private final TIntObjectHashMap<CubicTemplate> _cubics = new TIntObjectHashMap<>(10);
 	
 	public static CubicHolder getInstance()
 	{
@@ -28,7 +28,7 @@ public final class CubicHolder extends AbstractHolder
 		return _cubics.get(hash(id, level));
 	}
 	
-	public int hash(int id, int level)
+	public static int hash(int id, int level)
 	{
 		return id * 10000 + level;
 	}

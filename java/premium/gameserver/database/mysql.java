@@ -20,10 +20,7 @@ public abstract class mysql
 {
 	private static final Logger _log = LoggerFactory.getLogger(mysql.class);
 	
-	/**
-	 * Performs a simple sql queries where unnecessary control parameters <BR>
-	 * NOTE: In this method, the parameters passed are not valid for SQL-injection! @ Param query the SQL query string @ Return false on error query or true on success
-	 */
+	 
 	public static boolean setEx(DatabaseFactory db, String query, Object... vars)
 	{
 		Connection con = null;
@@ -110,7 +107,7 @@ public abstract class mysql
 			{
 				if (md.getColumnCount() > 1)
 				{
-					Map<String, Object> tmp = new HashMap<String, Object>();
+					Map<String, Object> tmp = new HashMap<>();
 					for (int i = md.getColumnCount(); i > 0; i--)
 					{
 						tmp.put(md.getColumnName(i), rset.getObject(i));
@@ -133,7 +130,7 @@ public abstract class mysql
 	
 	public static List<Map<String, Object>> getAll(String query)
 	{
-		List<Map<String, Object>> ret = new ArrayList<Map<String, Object>>();
+		List<Map<String, Object>> ret = new ArrayList<>();
 		Connection con = null;
 		Statement statement = null;
 		ResultSet rset = null;
@@ -146,7 +143,7 @@ public abstract class mysql
 			
 			while (rset.next())
 			{
-				Map<String, Object> tmp = new HashMap<String, Object>();
+				Map<String, Object> tmp = new HashMap<>();
 				for (int i = md.getColumnCount(); i > 0; i--)
 				{
 					tmp.put(md.getColumnName(i), rset.getObject(i));
@@ -167,7 +164,7 @@ public abstract class mysql
 	
 	public static List<Object> get_array(DatabaseFactory db, String query)
 	{
-		List<Object> ret = new ArrayList<Object>();
+		List<Object> ret = new ArrayList<>();
 		Connection con = null;
 		PreparedStatement statement = null;
 		ResultSet rset = null;
@@ -186,7 +183,7 @@ public abstract class mysql
 			{
 				if (md.getColumnCount() > 1)
 				{
-					Map<String, Object> tmp = new HashMap<String, Object>();
+					Map<String, Object> tmp = new HashMap<>();
 					for (int i = 0; i < md.getColumnCount(); i++)
 					{
 						tmp.put(md.getColumnName(i + 1), rset.getObject(i + 1));

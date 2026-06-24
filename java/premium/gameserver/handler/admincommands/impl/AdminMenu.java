@@ -28,7 +28,7 @@ public class AdminMenu implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		Commands command = (Commands) comm;
 		
@@ -117,13 +117,14 @@ public class AdminMenu implements IAdminCommandHandler
 		return true;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{
 		return Commands.values();
 	}
 	
-	private void teleportCharacter(Player player, Location loc, Player activeChar)
+	public void teleportCharacter(Player player, Location loc, Player activeChar)
 	{
 		if (player != null)
 		{
@@ -132,7 +133,7 @@ public class AdminMenu implements IAdminCommandHandler
 		}
 	}
 	
-	private void teleportToCharacter(Player activeChar, GameObject target)
+	public void teleportToCharacter(Player activeChar, GameObject target)
 	{
 		Player player;
 		if (target != null && target.isPlayer())
