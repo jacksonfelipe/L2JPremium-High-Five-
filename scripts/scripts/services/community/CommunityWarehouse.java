@@ -44,12 +44,12 @@ public class CommunityWarehouse implements ScriptFile, ICommunityBoardHandler
 		{
 			if (!Config.BBS_WAREHOUSE_ALLOW_PK && player.getKarma() > 0)
 			{
-				player.sendChatMessage(0, ChatType.TELL.ordinal(), "Warehouse", player.isLangRus() ? "PK нельзя использовать склад" : "PK can not use a warehouse");
+				player.sendChatMessage(0, ChatType.TELL.ordinal(), "Warehouse", Player.isLangRus() ? "PK нельзя использовать склад" : "PK can not use a warehouse");
 				return;
 			}
 			if (!player.isInZone(ZoneType.peace_zone) && !player.isInZone(ZoneType.RESIDENCE))
 			{
-				player.sendChatMessage(0, ChatType.TELL.ordinal(), "Warehouse", player.isLangRus() ? "Вы должны быть в зону мира, чтобы использовать эту функцию." : "You must be inside peace zone to use this function.");
+				player.sendChatMessage(0, ChatType.TELL.ordinal(), "Warehouse", Player.isLangRus() ? "Вы должны быть в зону мира, чтобы использовать эту функцию." : "You must be inside peace zone to use this function.");
 				return;
 			}
 			if (player.isCursedWeaponEquipped() || player.isInJail() || player.getReflectionId() != ReflectionManager.DEFAULT.getId() /* || player.getPvpFlag() != 0 */ || player.isDead() || player.isAlikeDead() || player.isCastingNow() || player.isInCombat() || player.isAttackingNow() || player.isInOlympiadMode() || player.isFlying() || player.isTerritoryFlagEquipped() || player.isInZone(ZoneType.no_escape) || player.isInZone(ZoneType.SIEGE) || player.isInZone(ZoneType.epic))

@@ -900,17 +900,17 @@ public class CommunityAugment implements ScriptFile, ICommunityBoardHandler
 		}
 		if (player.isCursedWeaponEquipped() || player.isInJail() || player.isDead() || player.isAlikeDead() || player.isCastingNow() || player.isInCombat() || player.isAttackingNow() || player.isInOlympiadMode() || player.isFlying() || player.isTerritoryFlagEquipped())
 		{
-			player.sendChatMessage(0, ChatType.BATTLEFIELD.ordinal(), "Augmentation", player.isLangRus() ? "Невозможно использовать в данный момент!" : "You can not use it at this moment!");
+			player.sendChatMessage(0, ChatType.BATTLEFIELD.ordinal(), "Augmentation", Player.isLangRus() ? "Невозможно использовать в данный момент!" : "You can not use it at this moment!");
 			return false;
 		}
 		if (player.getReflectionId() != 0 || player.isInZone(ZoneType.epic))
 		{
-			player.sendChatMessage(player.getObjectId(), ChatType.BATTLEFIELD.ordinal(), "Augmentation", player.isLangRus() ? "Невозможно использовать в данных зонах!" : "Can not be used in these areas!");
+			player.sendChatMessage(player.getObjectId(), ChatType.BATTLEFIELD.ordinal(), "Augmentation", Player.isLangRus() ? "Невозможно использовать в данных зонах!" : "Can not be used in these areas!");
 			return false;
 		}
 		if (player.isInZone(ZoneType.SIEGE))
 		{
-			player.sendChatMessage(player.getObjectId(), ChatType.BATTLEFIELD.ordinal(), "Augmentation", player.isLangRus() ? "Невозможно использовать во время осад!" : "Can not be used during the siege!");
+			player.sendChatMessage(player.getObjectId(), ChatType.BATTLEFIELD.ordinal(), "Augmentation", Player.isLangRus() ? "Невозможно использовать во время осад!" : "Can not be used during the siege!");
 			return false;
 		}
 		if (player.isTerritoryFlagEquipped())

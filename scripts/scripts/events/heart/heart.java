@@ -289,7 +289,7 @@ public class heart extends Functions implements ScriptFile, OnDeathListener, OnP
 	
 	public boolean isRus(Player player)
 	{
-		return player.isLangRus();
+		return Player.isLangRus();
 	}
 	
 	public String link(String s, boolean rus)

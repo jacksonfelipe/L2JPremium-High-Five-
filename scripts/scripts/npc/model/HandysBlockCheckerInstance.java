@@ -68,14 +68,14 @@ public class HandysBlockCheckerInstance extends NpcInstance
 				player.sendPacket(new SystemMessage(SystemMessage.YOU_CANNOT_REGISTER_BECAUSE_CAPACITY_HAS_BEEN_EXCEEDED));
 				return;
 			}
-			if (HandysBlockCheckerManager.getInstance().arenaIsBeingUsed(arena))
+			if (HandysBlockCheckerManager.arenaIsBeingUsed(arena))
 			{
 				player.sendPacket(new SystemMessage(SystemMessage.THE_MATCH_IS_BEING_PREPARED_PLEASE_TRY_AGAIN_LATER));
 				return;
 			}
-			if (HandysBlockCheckerManager.getInstance().addPlayerToArena(player, arena))
+			if (HandysBlockCheckerManager.addPlayerToArena(player, arena))
 			{
-				ArenaParticipantsHolder holder = HandysBlockCheckerManager.getInstance().getHolder(arena);
+				ArenaParticipantsHolder holder = HandysBlockCheckerManager.getHolder(arena);
 				
 				final ExCubeGameTeamList tl = new ExCubeGameTeamList(holder.getRedPlayers(), holder.getBluePlayers(), arena);
 				
@@ -98,7 +98,7 @@ public class HandysBlockCheckerInstance extends NpcInstance
 	
 	public boolean eventIsFull(int arena)
 	{
-		if (HandysBlockCheckerManager.getInstance().getHolder(arena).getAllPlayers().size() == 12)
+		if (HandysBlockCheckerManager.getHolder(arena).getAllPlayers().size() == 12)
 		{
 			return true;
 		}
