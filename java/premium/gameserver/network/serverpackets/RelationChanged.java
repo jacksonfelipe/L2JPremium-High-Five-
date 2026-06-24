@@ -40,7 +40,7 @@ public class RelationChanged extends L2GameServerPacket
 	
 	protected RelationChanged(int s)
 	{
-		this._data = new ArrayList<RelationChangedData>(s);
+		this._data = new ArrayList<>(s);
 	}
 	
 	protected void add(RelationChangedData data)

@@ -47,9 +47,7 @@ public abstract class L2GameServerPacket extends SendablePacket<GameClient> impl
 		this.writeD(b ? 1 : 0);
 	}
 	
-	/**
-	 * Отсылает число позиций + массив
-	 */
+ 
 	protected void writeDD(int[] values, boolean sendCount)
 	{
 		if (sendCount)

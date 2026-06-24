@@ -10,9 +10,7 @@ public final class CreatureSay extends L2GameServerPacket
 	private String _text;
 	private int _msgId = -1;
 	
-	/**
-	 * @param _characters
-	 */
+ 
 	public CreatureSay(int objectId, int messageType, String charName, String text)
 	{
 		this._objectId = objectId;

@@ -8,7 +8,7 @@ import premium.gameserver.utils.Location;
 
 public class ExShowTrace extends L2GameServerPacket
 {
-	private final List<Trace> _traces = new ArrayList<Trace>();
+	private final List<Trace> _traces = new ArrayList<>();
 	
 	static final class Trace
 	{

@@ -21,8 +21,8 @@ public class ExShowSellCropList extends L2GameServerPacket
 	public ExShowSellCropList(Player player, int manorId, List<CropProcure> crops)
 	{
 		this._manorId = manorId;
-		this._castleCrops = new TreeMap<Integer, CropProcure>();
-		this._cropsItems = new TreeMap<Integer, ItemInstance>();
+		this._castleCrops = new TreeMap<>();
+		this._cropsItems = new TreeMap<>();
 		
 		List<Integer> allCrops = Manor.getInstance().getAllCrops();
 		for (int cropId : allCrops)

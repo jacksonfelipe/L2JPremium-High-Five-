@@ -18,7 +18,7 @@ public class ExShowCastleInfo extends L2GameServerPacket
 		int id, tax, nextSiege;
 		
 		List<Castle> castles = ResidenceHolder.getInstance().getResidenceList(Castle.class);
-		this._infos = new ArrayList<CastleInfo>(castles.size());
+		this._infos = new ArrayList<>(castles.size());
 		for (Castle castle : castles)
 		{
 			ownerName = ClanTable.getInstance().getClanName(castle.getOwnerId());

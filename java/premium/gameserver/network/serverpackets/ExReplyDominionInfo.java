@@ -14,7 +14,7 @@ public class ExReplyDominionInfo extends L2GameServerPacket
 	public ExReplyDominionInfo()
 	{
 		List<Dominion> dominions = ResidenceHolder.getInstance().getResidenceList(Dominion.class);
-		this._dominionList = new ArrayList<TerritoryInfo>(dominions.size());
+		this._dominionList = new ArrayList<>(dominions.size());
 		
 		for (Dominion dominion : dominions)
 		{

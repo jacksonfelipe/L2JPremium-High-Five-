@@ -28,10 +28,7 @@ public class MyTargetSelected extends L2GameServerPacket
 	private int _objectId;
 	private int _color;
 	
-	/**
-	 * @param int objectId of the target
-	 * @param int level difference to the target. name color is calculated from that
-	 */
+ 
 	public MyTargetSelected(int objectId, int color)
 	{
 		this._objectId = objectId;

@@ -4,10 +4,7 @@ public class AutoAttackStop extends L2GameServerPacket
 {
 	// dh
 	private int _targetId;
-	
-	/**
-	 * @param _characters
-	 */
+ 
 	public AutoAttackStop(int targetId)
 	{
 		this._targetId = targetId;

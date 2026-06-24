@@ -59,7 +59,7 @@ public abstract class SysMsgContainer<T extends SysMsgContainer<T>> extends L2Ga
 		}
 		
 		this._message = message;
-		this._arguments = new ArrayList<IArgument>(this._message.size());
+		this._arguments = new ArrayList<>(this._message.size());
 	}
 	
 	protected void writeElements()

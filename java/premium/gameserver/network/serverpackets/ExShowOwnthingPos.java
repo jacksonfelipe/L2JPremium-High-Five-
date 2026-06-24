@@ -13,7 +13,7 @@ import premium.gameserver.utils.Location;
  */
 public class ExShowOwnthingPos extends L2GameServerPacket
 {
-	private List<WardInfo> _wardList = new ArrayList<WardInfo>(9);
+	private List<WardInfo> _wardList = new ArrayList<>(9);
 	
 	public ExShowOwnthingPos()
 	{

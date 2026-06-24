@@ -10,7 +10,7 @@ public class HennaUnequipList extends L2GameServerPacket
 {
 	private int _emptySlots;
 	private long _adena;
-	private List<Henna> availHenna = new ArrayList<Henna>(3);
+	private List<Henna> availHenna = new ArrayList<>(3);
 	
 	public HennaUnequipList(Player player)
 	{

@@ -20,7 +20,7 @@ public class ExShowAgitInfo extends L2GameServerPacket
 	public ExShowAgitInfo()
 	{
 		List<ClanHall> chs = ResidenceHolder.getInstance().getResidenceList(ClanHall.class);
-		this._clanHalls = new ArrayList<AgitInfo>(chs.size());
+		this._clanHalls = new ArrayList<>(chs.size());
 		
 		for (ClanHall clanHall : chs)
 		{

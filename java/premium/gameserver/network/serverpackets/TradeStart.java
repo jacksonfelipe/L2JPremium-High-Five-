@@ -9,7 +9,7 @@ import premium.gameserver.model.items.ItemInstance;
 
 public class TradeStart extends L2GameServerPacket
 {
-	private List<ItemInfo> _tradelist = new ArrayList<ItemInfo>();
+	private List<ItemInfo> _tradelist = new ArrayList<>();
 	private int targetId;
 	
 	public TradeStart(Player player, Player target)

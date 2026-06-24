@@ -22,7 +22,7 @@ public class AcquireSkillInfo extends L2GameServerPacket
 		this._learn = learn;
 		if (this._learn.getItemId() != 0)
 		{
-			this._reqs = new ArrayList<Require>(1);
+			this._reqs = new ArrayList<>(1);
 			this._reqs.add(new Require(99, this._learn.getItemId(), this._learn.getItemCount(), 50));
 		}
 	}

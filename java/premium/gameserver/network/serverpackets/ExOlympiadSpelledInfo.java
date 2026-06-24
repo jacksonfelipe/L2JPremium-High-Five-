@@ -26,7 +26,7 @@ public class ExOlympiadSpelledInfo extends L2GameServerPacket
 	
 	public ExOlympiadSpelledInfo()
 	{
-		this._effects = new ArrayList<Effect>();
+		this._effects = new ArrayList<>();
 	}
 	
 	public void addEffect(int skillId, int level, int duration)

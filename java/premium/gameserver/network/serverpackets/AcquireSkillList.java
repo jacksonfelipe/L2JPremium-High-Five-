@@ -35,7 +35,7 @@ public class AcquireSkillList extends L2GameServerPacket
 	
 	public AcquireSkillList(AcquireType type, int size)
 	{
-		this._skills = new ArrayList<Skill>(size);
+		this._skills = new ArrayList<>(size);
 		this._type = type;
 	}
 	

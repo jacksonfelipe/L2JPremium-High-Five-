@@ -26,7 +26,7 @@ public class PackageSendableList extends L2GameServerPacket
 		
 		ItemInstance[] items = cha.getInventory().getItems();
 		ArrayUtils.eqSort(items, Warehouse.ItemClassComparator.getInstance());
-		this._itemList = new ArrayList<ItemInfo>(items.length);
+		this._itemList = new ArrayList<>(items.length);
 		for (ItemInstance item : items)
 		{
 			if (item.getTemplate().isFreightable())

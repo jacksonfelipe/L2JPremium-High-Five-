@@ -19,7 +19,7 @@ public class PledgeReceiveWarList extends L2GameServerPacket
 	{
 		this._clan = clan;
 		this._page = page;
-		this._state = state;
+		this.setstate(state);
 	}
 	
 	@Override
@@ -63,5 +63,15 @@ public class PledgeReceiveWarList extends L2GameServerPacket
 			this.writeD(war.calculateWarProgress(pointDiff).ordinal());
 			this.writeD(opposingClan.getAllSize());
 		}
+	}
+
+	public int getstate()
+	{
+		return _state;
+	}
+
+	public void setstate(int _state)
+	{
+		this._state = _state;
 	}
 }

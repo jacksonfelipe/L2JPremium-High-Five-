@@ -19,7 +19,7 @@ public class ExMpccRoomMember extends L2GameServerPacket
 	public ExMpccRoomMember(MatchingRoom room, Player player)
 	{
 		this._type = room.getMemberType(player);
-		this._members = new ArrayList<MpccRoomMemberInfo>(room.getPlayers().size());
+		this._members = new ArrayList<>(room.getPlayers().size());
 		
 		for (Player member : room.getPlayers())
 		{

@@ -8,7 +8,7 @@ import premium.gameserver.utils.Location;
 
 public class PartyMemberPosition extends L2GameServerPacket
 {
-	private final Map<Integer, Location> positions = new HashMap<Integer, Location>();
+	private final Map<Integer, Location> positions = new HashMap<>();
 	
 	public PartyMemberPosition add(Player actor)
 	{

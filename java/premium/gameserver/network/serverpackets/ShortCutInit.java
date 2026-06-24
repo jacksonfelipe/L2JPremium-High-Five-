@@ -15,7 +15,7 @@ public class ShortCutInit extends ShortCutPacket
 	public ShortCutInit(Player pl)
 	{
 		Collection<ShortCut> shortCuts = pl.getAllShortCuts();
-		this._shortCuts = new ArrayList<ShortcutInfo>(shortCuts.size());
+		this._shortCuts = new ArrayList<>(shortCuts.size());
 		for (ShortCut shortCut : shortCuts)
 		{
 			this._shortCuts.add(convert(pl, shortCut));

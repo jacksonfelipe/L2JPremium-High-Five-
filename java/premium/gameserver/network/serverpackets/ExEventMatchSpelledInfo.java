@@ -27,7 +27,7 @@ public class ExEventMatchSpelledInfo extends L2GameServerPacket
 	
 	public ExEventMatchSpelledInfo()
 	{
-		this._effects = new ArrayList<Effect>();
+		this._effects = new ArrayList<>();
 	}
 	
 	public void addEffect(int skillId, int dat, int duration)

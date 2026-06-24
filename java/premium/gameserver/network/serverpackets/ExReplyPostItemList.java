@@ -13,7 +13,7 @@ import premium.gameserver.network.clientpackets.RequestExPostItemList;
  */
 public class ExReplyPostItemList extends L2GameServerPacket
 {
-	private List<ItemInfo> _itemsList = new ArrayList<ItemInfo>();
+	private List<ItemInfo> _itemsList = new ArrayList<>();
 	
 	public ExReplyPostItemList(Player activeChar)
 	{

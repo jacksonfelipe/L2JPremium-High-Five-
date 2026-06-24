@@ -18,7 +18,7 @@ public class SkillList extends L2GameServerPacket
 	
 	public SkillList(Player p)
 	{
-		this._skills = new ArrayList<Skill>(p.getAllSkills());
+		this._skills = new ArrayList<>(p.getAllSkills());
 		this.canEnchant = p.getTransformation() == 0;
 		this.activeChar = p;
 	}

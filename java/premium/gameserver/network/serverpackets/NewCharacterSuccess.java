@@ -7,8 +7,8 @@ import premium.gameserver.templates.PlayerTemplate;
 
 public class NewCharacterSuccess extends L2GameServerPacket
 {
-	// dddddddddddddddddddd
-	private List<PlayerTemplate> _chars = new ArrayList<PlayerTemplate>();
+	 
+	private List<PlayerTemplate> _chars = new ArrayList<>();
 	
 	public void addChar(PlayerTemplate template)
 	{

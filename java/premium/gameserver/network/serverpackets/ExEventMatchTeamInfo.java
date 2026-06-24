@@ -10,7 +10,7 @@ public class ExEventMatchTeamInfo extends L2GameServerPacket
 {
 	@SuppressWarnings("unused")
 	private int leader_id, loot;
-	private List<EventMatchTeamInfo> members = new ArrayList<EventMatchTeamInfo>();
+	private List<EventMatchTeamInfo> members = new ArrayList<>();
 	
 	public ExEventMatchTeamInfo(List<Player> party, Player exclude)
 	{

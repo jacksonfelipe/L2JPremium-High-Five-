@@ -40,7 +40,7 @@ public class StatusUpdate extends L2GameServerPacket
 	public final static int MAX_CP = 0x22;
 	
 	private final int _objectId;
-	private final List<Attribute> _attributes = new ArrayList<Attribute>();
+	private final List<Attribute> _attributes = new ArrayList<>();
 	
 	class Attribute
 	{

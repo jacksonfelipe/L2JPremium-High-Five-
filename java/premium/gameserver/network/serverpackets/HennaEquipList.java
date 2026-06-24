@@ -11,7 +11,7 @@ public class HennaEquipList extends L2GameServerPacket
 {
 	private int _emptySlots;
 	private long _adena;
-	private List<Henna> _hennas = new ArrayList<Henna>();
+	private List<Henna> _hennas = new ArrayList<>();
 	
 	public HennaEquipList(Player player)
 	{

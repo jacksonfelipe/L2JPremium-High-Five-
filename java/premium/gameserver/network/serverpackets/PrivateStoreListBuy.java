@@ -22,7 +22,7 @@ public class PrivateStoreListBuy extends L2GameServerPacket
 	{
 		this._adena = seller.getAdena();
 		this._buyerId = buyer.getObjectId();
-		this._sellList = new ArrayList<TradeItem>();
+		this._sellList = new ArrayList<>();
 		final List<TradeItem> buyList = buyer.getBuyList();
 		final ItemInstance[] items = seller.getInventory().getItems();
 		for (TradeItem bi : buyList)

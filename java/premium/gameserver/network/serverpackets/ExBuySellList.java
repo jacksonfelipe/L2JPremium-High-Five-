@@ -71,14 +71,14 @@ public abstract class ExBuySellList extends L2GameServerPacket
 			else
 			{
 				ItemInstance[] items = activeChar.getRefund().getItems();
-				this._refundList = new ArrayList<TradeItem>(items.length);
+				this._refundList = new ArrayList<>(items.length);
 				for (ItemInstance item : items)
 				{
 					this._refundList.add(new TradeItem(item));
 				}
 				
 				items = activeChar.getInventory().getItems();
-				this._sellList = new ArrayList<TradeItem>(items.length);
+				this._sellList = new ArrayList<>(items.length);
 				for (ItemInstance item : items)
 				{
 					if (item.canBeSold(activeChar))

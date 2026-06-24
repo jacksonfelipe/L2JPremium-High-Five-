@@ -26,7 +26,7 @@ public class ExListPartyMatchingWaitingRoom extends L2GameServerPacket
 		List<Player> temp = MatchingRoomManager.getInstance().getWaitingList(minLevel, maxLevel, classes);
 		this._fullSize = temp.size();
 		
-		this._waitingList = new ArrayList<PartyMatchingWaitingInfo>(this._fullSize);
+		this._waitingList = new ArrayList<>(this._fullSize);
 		for (Player pc : temp)
 		{
 			if (i < first || i >= firstNot)

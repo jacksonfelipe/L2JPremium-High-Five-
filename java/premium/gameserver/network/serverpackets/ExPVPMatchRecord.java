@@ -51,7 +51,7 @@ public class ExPVPMatchRecord extends L2GameServerPacket
 		UCTeamObject redTeam = battleEvent.getFirstObject(TeamType.RED.name());
 		this._redKills = redTeam.getKills();
 		
-		this._blueList = new ArrayList<Member>(9);
+		this._blueList = new ArrayList<>(9);
 		for (UCMemberObject memberObject : blueTeam)
 		{
 			if (memberObject != null)
@@ -60,7 +60,7 @@ public class ExPVPMatchRecord extends L2GameServerPacket
 			}
 		}
 		
-		this._redList = new ArrayList<Member>(9);
+		this._redList = new ArrayList<>(9);
 		for (UCMemberObject memberObject : redTeam)
 		{
 			if (memberObject != null)

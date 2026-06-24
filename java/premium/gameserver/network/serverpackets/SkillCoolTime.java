@@ -15,7 +15,7 @@ public class SkillCoolTime extends L2GameServerPacket
 	public SkillCoolTime(Player player)
 	{
 		Collection<TimeStamp> list = player.getSkillReuses();
-		this._list = new ArrayList<Skill>(list.size());
+		this._list = new ArrayList<>(list.size());
 		for (TimeStamp stamp : list)
 		{
 			if (!stamp.hasNotPassed())

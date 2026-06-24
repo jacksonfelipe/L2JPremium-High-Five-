@@ -14,7 +14,7 @@ public class ExEnchantSkillInfo extends L2GameServerPacket
 	
 	public ExEnchantSkillInfo(int id, int level)
 	{
-		this._routes = new ArrayList<Integer>();
+		this._routes = new ArrayList<>();
 		this._id = id;
 		this._level = level;
 		

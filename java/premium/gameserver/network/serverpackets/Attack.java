@@ -56,10 +56,7 @@ public class Attack extends L2GameServerPacket
 		this.hits = new Hit[0];
 	}
 	
-	/**
-	 * Add this hit (target, damage, miss, critical, shield) to the Server-Client packet Attack.<BR>
-	 * <BR>
-	 */
+ 
 	public void addHit(GameObject target, int damage, boolean miss, boolean crit, boolean shld)
 	{
 		// Get the last position in the hits table
@@ -73,11 +70,8 @@ public class Attack extends L2GameServerPacket
 		tmp[pos] = new Hit(target, damage, miss, crit, shld);
 		this.hits = tmp;
 	}
-	
-	/**
-	 * Return True if the Server-Client packet Attack conatins at least 1 hit.<BR>
-	 * <BR>
-	 */
+ 	
+ 
 	public boolean hasHits()
 	{
 		return this.hits.length > 0;

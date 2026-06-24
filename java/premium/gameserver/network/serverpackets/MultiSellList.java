@@ -25,6 +25,7 @@ public class MultiSellList extends L2GameServerPacket
 		this._finished = finished;
 	}
 	
+	@SuppressWarnings("null")
 	@Override
 	protected final void writeImpl()
 	{
@@ -67,7 +68,7 @@ public class MultiSellList extends L2GameServerPacket
 			for (MultiSellIngredient i : ingredients)
 			{
 				int itemId = i.getItemId();
-				final ItemTemplate item = itemId > 0 ? ItemHolder.getInstance().getTemplate(i.getItemId()) : null;
+				final ItemTemplate item = itemId > 0 ? ItemHolder.getInstance().getTemplate(itemId) : null;
 				this.writeD(itemId); // ID
 				this.writeH(itemId > 0 ? item.getType2() : 0xffff);
 				this.writeQ(i.getItemCount()); // Count
@@ -79,7 +80,7 @@ public class MultiSellList extends L2GameServerPacket
 		}
 	}
 	
-	// FIXME временная затычка, пока NCSoft не починят в клиенте отображение мультиселов где кол-во больше Integer.MAX_VALUE
+	 
 	private static List<MultiSellIngredient> fixIngredients(List<MultiSellIngredient> ingredients)
 	{
 		int needFix = 0;
@@ -97,7 +98,7 @@ public class MultiSellList extends L2GameServerPacket
 		}
 		
 		MultiSellIngredient temp;
-		List<MultiSellIngredient> result = new ArrayList<MultiSellIngredient>(ingredients.size() + needFix);
+		List<MultiSellIngredient> result = new ArrayList<>(ingredients.size() + needFix);
 		for (MultiSellIngredient ingredient : ingredients)
 		{
 			ingredient = ingredient.clone();

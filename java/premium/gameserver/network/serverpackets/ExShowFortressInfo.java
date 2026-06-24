@@ -17,7 +17,7 @@ public class ExShowFortressInfo extends L2GameServerPacket
 	public ExShowFortressInfo()
 	{
 		List<Fortress> forts = ResidenceHolder.getInstance().getResidenceList(Fortress.class);
-		this._infos = new ArrayList<FortressInfo>(forts.size());
+		this._infos = new ArrayList<>(forts.size());
 		for (Fortress fortress : forts)
 		{
 			Clan owner = fortress.getOwner();

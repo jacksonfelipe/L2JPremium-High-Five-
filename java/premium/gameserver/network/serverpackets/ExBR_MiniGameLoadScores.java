@@ -22,7 +22,7 @@ public class ExBR_MiniGameLoadScores extends L2GameServerPacket
 	private int _score;
 	private int _lastScore;
 	
-	private IntObjectMap<List<Map.Entry<String, Integer>>> _entries = new TreeIntObjectMap<List<Map.Entry<String, Integer>>>();
+	private IntObjectMap<List<Map.Entry<String, Integer>>> _entries = new TreeIntObjectMap<>();
 	
 	public ExBR_MiniGameLoadScores(Player player)
 	{
@@ -36,7 +36,7 @@ public class ExBR_MiniGameLoadScores extends L2GameServerPacket
 				List<Map.Entry<String, Integer>> set = this._entries.get(i);
 				if (set == null)
 				{
-					this._entries.put(i, (set = new ArrayList<Map.Entry<String, Integer>>()));
+					this._entries.put(i, (set = new ArrayList<>()));
 				}
 				
 				if (name.equalsIgnoreCase(player.getName()))
@@ -48,7 +48,7 @@ public class ExBR_MiniGameLoadScores extends L2GameServerPacket
 					}
 				}
 				
-				set.add(new AbstractMap.SimpleImmutableEntry<String, Integer>(name, entry.getKey()));
+				set.add(new AbstractMap.SimpleImmutableEntry<>(name, entry.getKey()));
 				
 				i++;
 				

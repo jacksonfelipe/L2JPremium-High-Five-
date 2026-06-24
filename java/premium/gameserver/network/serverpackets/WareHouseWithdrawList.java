@@ -16,7 +16,7 @@ import premium.gameserver.templates.item.ItemTemplate.ItemClass;
 public class WareHouseWithdrawList extends L2GameServerPacket
 {
 	private long _adena;
-	private List<ItemInfo> _itemList = new ArrayList<ItemInfo>();
+	private List<ItemInfo> _itemList = new ArrayList<>();
 	private int _type;
 	
 	public WareHouseWithdrawList(Player player, WarehouseType type, ItemClass clss)
@@ -42,7 +42,7 @@ public class WareHouseWithdrawList extends L2GameServerPacket
 				return;
 		}
 		
-		this._itemList = new ArrayList<ItemInfo>(items.length);
+		this._itemList = new ArrayList<>(items.length);
 		ArrayUtils.eqSort(items, ItemClassComparator.getInstance());
 		for (ItemInstance item : items)
 		{
@@ -57,7 +57,7 @@ public class WareHouseWithdrawList extends L2GameServerPacket
 		
 		ItemInstance[] items = clan == null ? new ItemInstance[0] : clan.getWarehouse().getItems();
 		
-		this._itemList = new ArrayList<ItemInfo>(items.length);
+		this._itemList = new ArrayList<>(items.length);
 		ArrayUtils.eqSort(items, ItemClassComparator.getInstance());
 		for (ItemInstance item : items)
 		{

@@ -32,7 +32,7 @@ public class SystemMessage extends L2GameServerPacket
 	private static final int TYPE_NUMBER = 1;
 	private static final int TYPE_TEXT = 0;
 	private int _messageId;
-	private List<Arg> args = new ArrayList<Arg>();
+	private List<Arg> args = new ArrayList<>();
 	
 	public static final int YOU_HAVE_BEEN_DISCONNECTED_FROM_THE_SERVER = 0; // Соединение с сервером потеряно.
 	public static final int THE_SERVER_WILL_BE_COMING_DOWN_IN_S1_SECONDS__PLEASE_FIND_A_SAFE_PLACE_TO_LOG_OUT = 1; // Сервер будет отключен через $s1 сек. Пожалуйста, выйдите из игры.
@@ -4669,9 +4669,7 @@ public class SystemMessage extends L2GameServerPacket
 		return this;
 	}
 	
-	/**
-	 * Устанавливает имя если это playable или id если это npc
-	 */
+
 	public SystemMessage addName(Creature cha)
 	{
 		if (cha == null)
@@ -4694,13 +4692,13 @@ public class SystemMessage extends L2GameServerPacket
 	
 	public SystemMessage addDoorName(int id)
 	{
-		this.args.add(new Arg(TYPE_DOOR_NAME, new Integer(id)));
+		this.args.add(new Arg(TYPE_DOOR_NAME, id));
 		return this;
 	}
 	
 	public SystemMessage addNpcName(int id)
 	{
-		this.args.add(new Arg(TYPE_NPC_NAME, new Integer(1000000 + id)));
+		this.args.add(new Arg(TYPE_NPC_NAME, 1000000 + id));
 		return this;
 	}
 	

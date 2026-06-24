@@ -46,7 +46,7 @@ public class PledgeShowMemberListAll extends L2GameServerPacket
 			this._allianceCrestId = ally.getAllyCrestId();
 		}
 		
-		this._members = new ArrayList<PledgePacketMember>(sub.size());
+		this._members = new ArrayList<>(sub.size());
 		
 		for (UnitMember m : sub.getUnitMembers())
 		{

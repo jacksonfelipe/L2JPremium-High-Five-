@@ -23,7 +23,7 @@ public abstract class ExReceiveOlympiad extends L2GameServerPacket
 			OlympiadManager manager = Olympiad._manager;
 			if (manager != null)
 			{
-				this._arenaList = new ArrayList<ArenaInfo>();
+				this._arenaList = new ArrayList<>();
 				for (int i = 0; i < Olympiad.STADIUMS.length; i++)
 				{
 					OlympiadGame game = manager.getOlympiadInstance(i);
@@ -78,8 +78,8 @@ public abstract class ExReceiveOlympiad extends L2GameServerPacket
 	{
 		private final boolean _tie;
 		private final String _name;
-		private final List<PlayerInfo> _teamOne = new ArrayList<PlayerInfo>(3);
-		private final List<PlayerInfo> _teamTwo = new ArrayList<PlayerInfo>(3);
+		private final List<PlayerInfo> _teamOne = new ArrayList<>(3);
+		private final List<PlayerInfo> _teamTwo = new ArrayList<>(3);
 		
 		public MatchResult(boolean tie, String winnerName)
 		{

@@ -13,7 +13,7 @@ public class InventoryUpdate extends L2GameServerPacket
 	public static final int MODIFIED = 2;
 	public static final int REMOVED = 3;
 	
-	private final List<ItemInfo> _items = new ArrayList<ItemInfo>(1);
+	private final List<ItemInfo> _items = new ArrayList<>(1);
 	
 	public InventoryUpdate addNewItem(ItemInstance item)
 	{

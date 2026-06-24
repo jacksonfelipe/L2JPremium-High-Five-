@@ -17,17 +17,14 @@ public class PrivateStoreManageListSell extends L2GameServerPacket
 	private final List<TradeItem> _sellList;
 	private final List<TradeItem> _sellList0;
 	
-	/**
-	 * Окно управления личным магазином продажи
-	 * @param seller
-	 */
+	 
 	public PrivateStoreManageListSell(Player seller, boolean pkg)
 	{
 		this._sellerId = seller.getObjectId();
 		this._adena = seller.getAdena();
 		this._package = pkg;
 		this._sellList0 = seller.getSellList(this._package);
-		this._sellList = new ArrayList<TradeItem>();
+		this._sellList = new ArrayList<>();
 		
 		// Проверяем список вещей в инвентаре, если вещь остутствует - убираем из списка продажи
 		for (TradeItem si : this._sellList0)

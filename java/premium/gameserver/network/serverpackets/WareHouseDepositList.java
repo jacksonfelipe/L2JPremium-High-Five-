@@ -23,7 +23,7 @@ public class WareHouseDepositList extends L2GameServerPacket
 		
 		ItemInstance[] items = cha.getInventory().getItems();
 		ArrayUtils.eqSort(items, ItemClassComparator.getInstance());
-		this._itemList = new ArrayList<ItemInfo>(items.length);
+		this._itemList = new ArrayList<>(items.length);
 		for (ItemInstance item : items)
 		{
 			switch (this._whtype)

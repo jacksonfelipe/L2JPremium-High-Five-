@@ -25,7 +25,7 @@ public class QuestList extends L2GameServerPacket
 	public QuestList(Player player)
 	{
 		QuestState[] allQuestStates = player.getAllQuestsStates();
-		this.questlist = new ArrayList<int[]>(allQuestStates.length);
+		this.questlist = new ArrayList<>(allQuestStates.length);
 		for (QuestState quest : allQuestStates)
 		{
 			if (quest.getQuest().isVisible() && quest.isStarted())

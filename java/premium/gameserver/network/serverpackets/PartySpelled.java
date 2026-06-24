@@ -18,7 +18,7 @@ public class PartySpelled extends L2GameServerPacket
 		this._objId = activeChar.getObjectId();
 		this._type = activeChar.isPet() ? 1 : activeChar.isSummon() ? 2 : 0;
 		// 0 - L2Player // 1 - петы // 2 - саммоны
-		this._effects = new ArrayList<Effect>();
+		this._effects = new ArrayList<>();
 		if (full)
 		{
 			premium.gameserver.model.Effect[] effects = activeChar.getEffectList().getAllFirstEffects();

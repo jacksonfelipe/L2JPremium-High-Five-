@@ -20,7 +20,7 @@ public class ShopPreviewList extends L2GameServerPacket
 		this._listId = list.getListId();
 		this._money = player.getAdena();
 		List<TradeItem> tradeList = list.getItems();
-		this._itemList = new ArrayList<ItemInfo>(tradeList.size());
+		this._itemList = new ArrayList<>(tradeList.size());
 		for (TradeItem item : list.getItems())
 		{
 			if (item.getItem().isEquipable())

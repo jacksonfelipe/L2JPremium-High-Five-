@@ -3,7 +3,6 @@ package premium.gameserver.network.serverpackets;
 import java.util.HashMap;
 import java.util.Map;
 
-import premium.gameserver.multverso.managers.GmEventManager;
 import premium.gameserver.instancemanager.ReflectionManager;
 import premium.gameserver.model.Creature;
 import premium.gameserver.model.Player;
@@ -12,6 +11,7 @@ import premium.gameserver.model.entity.events.GlobalEvent;
 import premium.gameserver.model.entity.tournament.ActiveBattleManager;
 import premium.gameserver.model.instances.MonsterInstance;
 import premium.gameserver.model.pledge.Clan;
+import premium.gameserver.multverso.managers.GmEventManager;
 
 public class Die extends L2GameServerPacket
 {
@@ -20,7 +20,7 @@ public class Die extends L2GameServerPacket
 	@SuppressWarnings("unused")
 	private boolean _sweepable, isPvPevents;
 	
-	private final Map<RestartType, Boolean> _types = new HashMap<RestartType, Boolean>(RestartType.VALUES.length);
+	private final Map<RestartType, Boolean> _types = new HashMap<>(RestartType.VALUES.length);
 	
 	public Die(Creature cha)
 	{

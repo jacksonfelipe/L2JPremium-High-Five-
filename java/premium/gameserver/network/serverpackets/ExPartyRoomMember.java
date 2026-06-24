@@ -20,7 +20,7 @@ public class ExPartyRoomMember extends L2GameServerPacket
 	public ExPartyRoomMember(MatchingRoom room, Player activeChar)
 	{
 		this._type = room.getMemberType(activeChar);
-		this._members = new ArrayList<PartyRoomMemberInfo>(room.getPlayers().size());
+		this._members = new ArrayList<>(room.getPlayers().size());
 		for (Player $member : room.getPlayers())
 		{
 			this._members.add(new PartyRoomMemberInfo($member, room.getMemberType($member)));

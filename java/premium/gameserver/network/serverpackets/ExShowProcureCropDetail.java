@@ -20,7 +20,7 @@ public class ExShowProcureCropDetail extends L2GameServerPacket
 	public ExShowProcureCropDetail(int cropId)
 	{
 		this._cropId = cropId;
-		this._castleCrops = new TreeMap<Integer, CropProcure>();
+		this._castleCrops = new TreeMap<>();
 		
 		List<Castle> castleList = ResidenceHolder.getInstance().getResidenceList(Castle.class);
 		for (Castle c : castleList)

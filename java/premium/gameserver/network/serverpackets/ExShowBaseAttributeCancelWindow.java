@@ -13,7 +13,7 @@ import premium.gameserver.templates.item.ItemTemplate;
  */
 public class ExShowBaseAttributeCancelWindow extends L2GameServerPacket
 {
-	private final List<ItemInstance> _items = new ArrayList<ItemInstance>();
+	private final List<ItemInstance> _items = new ArrayList<>();
 	
 	public ExShowBaseAttributeCancelWindow(Player activeChar)
 	{

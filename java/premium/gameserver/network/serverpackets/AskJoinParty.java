@@ -13,10 +13,6 @@ public class AskJoinParty extends L2GameServerPacket
 	private String _requestorName;
 	private int _itemDistribution;
 	
-	/**
-	 * @param int objectId of the target
-	 * @param int
-	 */
 	public AskJoinParty(String requestorName, int itemDistribution)
 	{
 		this._requestorName = requestorName;

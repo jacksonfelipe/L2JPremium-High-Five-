@@ -46,7 +46,7 @@ public class ExShowDominionRegistry extends L2GameServerPacket
 		this._registeredAsClan = siegeEvent.getSiegeClan(DominionSiegeEvent.DEFENDERS, activeChar.getClan()) != null;
 		
 		List<Dominion> dominions = ResidenceHolder.getInstance().getResidenceList(Dominion.class);
-		this._flags = new ArrayList<TerritoryFlagsInfo>(dominions.size());
+		this._flags = new ArrayList<>(dominions.size());
 		for (Dominion d : dominions)
 		{
 			this._flags.add(new TerritoryFlagsInfo(d.getId(), d.getFlags()));

@@ -19,7 +19,7 @@ public class FriendList extends L2GameServerPacket
 	public FriendList(Player player)
 	{
 		Map<Integer, Friend> friends = player.getFriendList().getList();
-		this._friends = new ArrayList<FriendInfo>(friends.size());
+		this._friends = new ArrayList<>(friends.size());
 		for (Map.Entry<Integer, Friend> entry : friends.entrySet())
 		{
 			Friend friend = entry.getValue();

@@ -13,7 +13,7 @@ import premium.gameserver.model.Summon;
 public class PartySmallWindowAll extends L2GameServerPacket
 {
 	private final int leaderId, loot;
-	private final List<PartySmallWindowMemberInfo> members = new ArrayList<PartySmallWindowMemberInfo>();
+	private final List<PartySmallWindowMemberInfo> members = new ArrayList<>();
 	
 	public PartySmallWindowAll(Party party, Player exclude)
 	{

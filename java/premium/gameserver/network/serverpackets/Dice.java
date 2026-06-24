@@ -9,10 +9,7 @@ public class Dice extends L2GameServerPacket
 	private int _y;
 	private int _z;
 	
-	/**
-	 * 0xd4 Dice dddddd
-	 * @param _characters
-	 */
+ 
 	public Dice(int playerId, int itemId, int number, int x, int y, int z)
 	{
 		this._playerId = playerId;

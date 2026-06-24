@@ -34,9 +34,10 @@ public class NpcHtmlMessage extends L2GameServerPacket
 	protected int _npcObjId;
 	protected String _html;
 	protected String _file = null;
-	protected List<String> _replaces = new ArrayList<String>();
+	protected List<String> _replaces = new ArrayList<>();
 	protected boolean have_appends = false;
 	
+	@SuppressWarnings("deprecation")
 	public NpcHtmlMessage(Player player, int npcId, String filename, int val)
 	{
 		List<ScriptClassAndMethod> appends = Scripts.dialogAppends.get(npcId);
