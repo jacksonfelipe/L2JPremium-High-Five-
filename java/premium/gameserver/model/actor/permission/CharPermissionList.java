@@ -38,9 +38,10 @@ public class CharPermissionList extends PermissionList<Creature>
 		return CharPermissionList.global.remove(permission);
 	}
 	
+	@SuppressWarnings("unchecked")
 	protected <E> List<E> getPermissions(Class<E> type)
 	{
-		final List<E> list = new ArrayList<E>(CharPermissionList.global.size() + actor.getPermissions().size());
+		final List<E> list = new ArrayList<>(CharPermissionList.global.size() + actor.getPermissions().size());
 		if (!CharPermissionList.global.getPermissions().isEmpty())
 		{
 			for (Permission<Creature> permission : CharPermissionList.global.getPermissions())
@@ -122,6 +123,6 @@ public class CharPermissionList extends PermissionList<Creature>
 	
 	static
 	{
-		global = new PermissionList<Creature>();
+		global = new PermissionList<>();
 	}
 }

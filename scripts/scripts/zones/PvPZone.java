@@ -73,7 +73,7 @@
 // }
 //
 // @Override
-// public void runImpl() throws Exception
+// public void runImpl()
 // {
 // if(_cha.isInZone(_zone))
 // {

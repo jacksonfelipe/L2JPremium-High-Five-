@@ -66,7 +66,7 @@ public class LotteryManager
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			if (restoreLotteryData())
 			{
@@ -237,7 +237,7 @@ public class LotteryManager
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			if (Config.SERVICES_ALLOW_LOTTERY)
 			{
@@ -257,7 +257,7 @@ public class LotteryManager
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			if (Config.SERVICES_ALLOW_LOTTERY)
 			{

@@ -14,7 +14,7 @@ import premium.gameserver.model.instances.NpcInstance;
 import premium.gameserver.model.instances.PetInstance;
 import premium.gameserver.model.items.ItemInstance;
 
-//TODO [G1ta0] submit the bredyatinu to hell
+ 
 public class GameObjectsStorage
 {
 	@SuppressWarnings("unused")
@@ -35,7 +35,7 @@ public class GameObjectsStorage
 		storages[STORAGE_PLAYERS] = new GameObjectArray<Player>("PLAYERS", Config.MAXIMUM_ONLINE_USERS, 1);
 		storages[STORAGE_SUMMONS] = new GameObjectArray<Playable>("SUMMONS", Config.MAXIMUM_ONLINE_USERS, 1);
 		storages[STORAGE_NPCS] = new GameObjectArray<NpcInstance>("NPCS", 60000 * Config.RATE_MOB_SPAWN, 5000);
-		storages[STORAGE_OTHER] = new GameObjectArray<GameObject>("OTHER", 2000, 1000);
+		storages[STORAGE_OTHER] = new GameObjectArray<>("OTHER", 2000, 1000);
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -267,7 +267,7 @@ public class GameObjectsStorage
 	})
 	public static List<GameObject> getAllObjects()
 	{
-		List<GameObject> result = new ArrayList<GameObject>(getAllObjectsCount());
+		List<GameObject> result = new ArrayList<>(getAllObjectsCount());
 		for (GameObjectArray storage : storages)
 		{
 			if (storage != null)
@@ -364,7 +364,7 @@ public class GameObjectsStorage
 	
 	public static List<NpcInstance> getAllByNpcId(int npc_id, boolean justAlive, boolean visible)
 	{
-		List<NpcInstance> result = new ArrayList<NpcInstance>();
+		List<NpcInstance> result = new ArrayList<>();
 		for (NpcInstance temp : getStorageNpcs())
 		{
 			if (temp.getTemplate() != null && npc_id == temp.getTemplate().getNpcId() && (!justAlive || !temp.isDead()) && (!visible || temp.isVisible()))
@@ -377,7 +377,7 @@ public class GameObjectsStorage
 	
 	public static List<NpcInstance> getAllByNpcId(int[] npc_ids, boolean justAlive)
 	{
-		List<NpcInstance> result = new ArrayList<NpcInstance>();
+		List<NpcInstance> result = new ArrayList<>();
 		for (NpcInstance temp : getStorageNpcs())
 		{
 			if (!justAlive || !temp.isDead())

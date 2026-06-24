@@ -68,7 +68,7 @@ public class AdminTeleport implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		Commands command = (Commands) comm;
 		
@@ -289,10 +289,7 @@ public class AdminTeleport implements IAdminCommandHandler
 					});
 					return true;
 				}
-				else
-				{
-					activeChar.sendMessage("->" + targetName + "<- is incorrect.");
-				}
+				activeChar.sendMessage("->" + targetName + "<- is incorrect.");
 				break;
 			case admin_recallcc:
 				if (target != null)
@@ -300,10 +297,7 @@ public class AdminTeleport implements IAdminCommandHandler
 					recall(activeChar, target.getPlayerGroup().getMembers().toArray(new Player[0]));
 					return true;
 				}
-				else
-				{
-					activeChar.sendMessage("->" + targetName + "<- is incorrect.");
-				}
+				activeChar.sendMessage("->" + targetName + "<- is incorrect.");
 				break;
 			case admin_recallinstance:
 				if (target != null && !target.getReflection().isDefault())
@@ -311,10 +305,7 @@ public class AdminTeleport implements IAdminCommandHandler
 					recall(activeChar, target.getReflection().getPlayers().toArray(new Player[0]));
 					return true;
 				}
-				else
-				{
-					activeChar.sendMessage("->" + targetName + "<- is incorrect, or reflection is default.");
-				}
+				activeChar.sendMessage("->" + targetName + "<- is incorrect, or reflection is default.");
 				break;
 			case admin_recallserver:
 			case admin_recallserverforce:
@@ -387,13 +378,14 @@ public class AdminTeleport implements IAdminCommandHandler
 		return true;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{
 		return Commands.values();
 	}
 	
-	private void showTeleportWindow(Player activeChar)
+	public void showTeleportWindow(Player activeChar)
 	{
 		NpcHtmlMessage adminReply = new NpcHtmlMessage(5);
 		
@@ -420,7 +412,7 @@ public class AdminTeleport implements IAdminCommandHandler
 		activeChar.sendPacket(adminReply);
 	}
 	
-	private void showTeleportCharWindow(Player activeChar)
+	public void showTeleportCharWindow(Player activeChar)
 	{
 		GameObject target = activeChar.getTarget();
 		Player player = null;
@@ -460,7 +452,7 @@ public class AdminTeleport implements IAdminCommandHandler
 		recall(activeChar, false, false, targets);
 	}
 	
-	private void recall(Player activeChar, boolean askToTp, boolean randomTp, Player... targets)
+	public void recall(Player activeChar, boolean askToTp, boolean randomTp, Player... targets)
 	{
 		for (Player target : targets)
 		{
@@ -524,7 +516,7 @@ public class AdminTeleport implements IAdminCommandHandler
 		}
 	}
 	
-	private void teleportCharacter_offline(int obj_id, Location loc)
+	public void teleportCharacter_offline(int obj_id, Location loc)
 	{
 		if (obj_id == 0)
 		{
@@ -553,7 +545,7 @@ public class AdminTeleport implements IAdminCommandHandler
 		}
 	}
 	
-	private void teleportToCharacter(Player activeChar, GameObject target)
+	public void teleportToCharacter(Player activeChar, GameObject target)
 	{
 		if (target == null)
 		{
@@ -566,7 +558,7 @@ public class AdminTeleport implements IAdminCommandHandler
 		activeChar.sendMessage("You have teleported to " + target);
 	}
 	
-	private void recallNPC(Player activeChar)
+	public void recallNPC(Player activeChar)
 	{
 		GameObject obj = activeChar.getTarget();
 		if (obj != null && obj.isNpc())

@@ -43,13 +43,13 @@ public class AutoAnnounce implements Runnable
 	
 	public AutoAnnounce()
 	{
-		_lists = new HashMap<Integer, AutoAnnounces>();
+		_lists = new HashMap<>();
 		LOG.info("AutoAnnounce: Initializing");
 		load();
 		LOG.info("AutoAnnounce: Loaded " + _lists.size() + " announce.");
 	}
 	
-	private void load()
+	public void load()
 	{
 		try
 		{
@@ -74,7 +74,7 @@ public class AutoAnnounce implements Runnable
 					{
 						if ("announce".equalsIgnoreCase(d.getNodeName()))
 						{
-							ArrayList<String> msg = new ArrayList<String>();
+							ArrayList<String> msg = new ArrayList<>();
 							NamedNodeMap attrs = d.getAttributes();
 							int delay = Integer.parseInt(attrs.getNamedItem("delay").getNodeValue());
 							int repeat = Integer.parseInt(attrs.getNamedItem("repeat").getNodeValue());

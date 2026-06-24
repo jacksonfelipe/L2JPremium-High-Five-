@@ -77,7 +77,7 @@ public class ProductItem
 	{
 		if (_components == null)
 		{
-			_components = new ArrayList<ProductItemComponent>();
+			_components = new ArrayList<>();
 		}
 		
 		return _components;

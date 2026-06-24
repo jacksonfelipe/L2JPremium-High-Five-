@@ -140,9 +140,6 @@ public final class RecomBonus
 		{
 			return 1. + bonus / 100;
 		}
-		else
-		{
-			return 1.;
-		}
+		return 1.;
 	}
 }

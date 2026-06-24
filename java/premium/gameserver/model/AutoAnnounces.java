@@ -38,10 +38,7 @@ public class AutoAnnounces
 		{
 			return true;
 		}
-		else
-		{
-			return false;
-		}
+		return false;
 	}
 	
 	public ArrayList<String> getMessage()

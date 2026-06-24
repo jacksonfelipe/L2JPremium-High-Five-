@@ -53,7 +53,7 @@ public class ItemAuctionInstance
 	ItemAuctionInstance(int instanceId, SchedulingPattern dateTime, List<AuctionItem> items)
 	{
 		_instanceId = instanceId;
-		_auctions = new TIntObjectHashMap<ItemAuction>();
+		_auctions = new TIntObjectHashMap<>();
 		_items = items;
 		_dateTime = dateTime;
 		
@@ -273,7 +273,7 @@ public class ItemAuctionInstance
 	public ItemAuction[] getAuctionsByBidder(int bidderObjId)
 	{
 		ItemAuction[] auctions = getAuctions();
-		List<ItemAuction> stack = new ArrayList<ItemAuction>(auctions.length);
+		List<ItemAuction> stack = new ArrayList<>(auctions.length);
 		for (ItemAuction auction : getAuctions())
 		{
 			if (auction.getAuctionState() != ItemAuctionState.CREATED)
@@ -306,7 +306,7 @@ public class ItemAuctionInstance
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			ItemAuctionState state = _auction.getAuctionState();
 			

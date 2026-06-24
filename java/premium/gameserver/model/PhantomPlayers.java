@@ -86,9 +86,9 @@ public class PhantomPlayers
 			_phantomTitles = Collections.emptyList();
 		}
 		
-		_phantoms = new ArrayList<Integer>();
-		_phantomsWithClan = new ArrayList<Integer>();
-		_phantomSpawners = new ArrayList<PhantomSpawner>();
+		_phantoms = new ArrayList<>();
+		_phantomsWithClan = new ArrayList<>();
+		_phantomSpawners = new ArrayList<>();
 		
 		_log.info("Loaded " + _phantomNames.size() + " possible phantom names.");
 		_log.info("Loaded " + _phantomTitles.size() + " possible phantom titles.");
@@ -228,7 +228,7 @@ public class PhantomPlayers
 	public static Player createNewPhantom(String name, Race race, boolean mage, int level)
 	{
 		boolean female = Rnd.nextBoolean();
-		List<Integer> classes = new ArrayList<Integer>();
+		List<Integer> classes = new ArrayList<>();
 		for (ClassId c : ClassId.values())
 		{
 			// Check if class is banned.
@@ -328,7 +328,7 @@ public class PhantomPlayers
 				level = 85;
 			}
 			
-			List<Integer> classes = new ArrayList<Integer>();
+			List<Integer> classes = new ArrayList<>();
 			for (ClassId c : ClassId.values())
 			{
 				if (Util.contains(Config.PHANTOM_BANNED_CLASSID, c.getId()) || (level <= 20 && c.getLevel() != 1))
@@ -578,7 +578,7 @@ public class PhantomPlayers
 	 */
 	private static int getUnspawnedPhantomObjId()
 	{
-		List<Integer> _unspawnedPhantoms = new ArrayList<Integer>();
+		List<Integer> _unspawnedPhantoms = new ArrayList<>();
 		_unspawnedPhantoms.addAll(_phantoms);
 		_unspawnedPhantoms.addAll(_phantomsWithClan);
 		
@@ -604,7 +604,7 @@ public class PhantomPlayers
 	 */
 	public static int getRandomPhantomWithClan()
 	{
-		List<Integer> _unspawnedPhantoms = new ArrayList<Integer>();
+		List<Integer> _unspawnedPhantoms = new ArrayList<>();
 		_unspawnedPhantoms.addAll(_phantomsWithClan);
 		
 		for (Player player : GameObjectsStorage.getAllPlayersForIterate())
@@ -920,7 +920,7 @@ public class PhantomPlayers
 			_task = ThreadPoolManager.getInstance().scheduleAtFixedRate(new RunnableImpl()
 			{
 				@Override
-				public void runImpl() throws Exception
+				public void runImpl()
 				{
 					if (_curSpawns >= _numSpawns)
 					{
@@ -1026,7 +1026,7 @@ public class PhantomPlayers
 		}
 		
 		// TODO: Lame... will fix later
-		List<Integer> sets = new ArrayList<Integer>();
+		List<Integer> sets = new ArrayList<>();
 		for (int set : setsArr)
 		{
 			if (!Util.contains(Config.PHANTOM_BANNED_SETID, set))
@@ -1333,7 +1333,7 @@ public class PhantomPlayers
 			MultiSellHolder.getInstance().getList(9038) // S84 Weapons
 		};
 		
-		List<Integer> weaplist = new ArrayList<Integer>();
+		List<Integer> weaplist = new ArrayList<>();
 		
 		for (MultiSellListContainer list : weaponsInShops)
 		{
@@ -1426,7 +1426,7 @@ public class PhantomPlayers
 			return;
 		}
 		
-		List<Integer> newWeaps = new ArrayList<Integer>();
+		List<Integer> newWeaps = new ArrayList<>();
 		if (gradeGear < 0)
 		{
 			for (int weapitem : weaplist)

@@ -29,7 +29,7 @@ public class VoteRewardHopzone
 	
 	// Don't-touch variables.
 	private static int lastVotes = 0;
-	private static FastMap<String, Integer> playerIps = new FastMap<String, Integer>();
+	private static FastMap<String, Integer> playerIps = new FastMap<>();
 	
 	public static void updateConfigurations()
 	{

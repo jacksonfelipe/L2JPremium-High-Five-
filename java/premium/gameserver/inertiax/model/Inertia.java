@@ -147,16 +147,13 @@ public class Inertia implements Callable<Inertia>
 		return this;
 	}
 
-	// -------------------------------------------------------
-	// Player access (safe: may be offline)
-	// -------------------------------------------------------
-	/** Returns the online Player or null if offline. */
+ 
 	public Player getActivePlayer()
 	{
 		return World.getPlayer(_ownerId);
 	}
 
-	/** Returns the current assist player or null. */
+ 
 	public Player getAssistPlayer()
 	{
 		if (_assistObjectId == 0)
@@ -327,11 +324,7 @@ public class Inertia implements Callable<Inertia>
 			player.sendMessage("InertiaMode SearchRange changed to -> [" + _searchRange + "]");
 		renderRange();
 	}
-
-	/**
-	 * Set party assist target by player name.
-	 * Used by InertiaController when the original PlayerPassport lookup is unavailable.
-	 */
+ 
 	public void setPartyTargetByName(final String name)
 	{
 		final Player player = getActivePlayer();
@@ -518,32 +511,29 @@ public class Inertia implements Callable<Inertia>
 			startAutoAttack(actualTarget);
 			return;
 		}
-		else
+		final java.util.Optional<InertiaCast> avail = getAvailSkillActions().filter(availSkillFilter).findFirst();
+
+		if (avail != null && avail.isPresent())
 		{
-			final java.util.Optional<InertiaCast> avail = getAvailSkillActions().filter(availSkillFilter).findFirst();
-
-			if (avail != null && avail.isPresent())
+			final InertiaCast availCast = avail.get();
+			if (availCast != null)
 			{
-				final InertiaCast availCast = avail.get();
-				if (availCast != null)
+				final Skill availSkill = getSkill(availCast);
+				if (availSkill != null)
 				{
-					final Skill availSkill = getSkill(availCast);
-					if (availSkill != null)
-					{
-						if (availSkill.isOffensive() && !actualTarget.isAutoAttackable(player))
-							player.setTarget(null);
+					if (availSkill.isOffensive() && !actualTarget.isAutoAttackable(player))
+						player.setTarget(null);
 
-						// Cast the skill on the current target
-						player.doCast(availSkill, actualTarget, false);
-						availCast.initReuse();
-						return;
-					}
+					// Cast the skill on the current target
+					player.doCast(availSkill, actualTarget, false);
+					availCast.initReuse();
+					return;
 				}
 			}
-			else if (_autoAttack == EAutoAttack.Melee || _autoAttack == EAutoAttack.Long_Range)
-			{
-				startAutoAttack(actualTarget);
-			}
+		}
+		else if (_autoAttack == EAutoAttack.Melee || _autoAttack == EAutoAttack.Long_Range)
+		{
+			startAutoAttack(actualTarget);
 		}
 	}
 
@@ -641,8 +631,7 @@ public class Inertia implements Callable<Inertia>
 		return null;
 	}
 
-	/** The reference location used for range/path calculations. Returns a Location, never null if player is online. */
-	public Location getSearchLocation()
+ 	public Location getSearchLocation()
 	{
 		if (_moveType == EMoveType.Saved_Location)
 		{
@@ -954,7 +943,7 @@ public class Inertia implements Callable<Inertia>
 		return sb.toString();
 	}
 
-	private String buildParty()
+	public String buildParty()
 	{
 		final Player player = getActivePlayer();
 		if (player == null)
@@ -980,7 +969,7 @@ public class Inertia implements Callable<Inertia>
 		return sb.toString();
 	}
 
-	private String buildSearch()
+	public String buildSearch()
 	{
 		final StringBuilder sb = new StringBuilder(512);
 		for (final ESearchType et : ESearchType.values())
@@ -993,7 +982,7 @@ public class Inertia implements Callable<Inertia>
 		return sb.toString();
 	}
 
-	private String buildOptions()
+	public String buildOptions()
 	{
 		final StringBuilder sb = new StringBuilder();
 		for (final EPanelOption opt : EPanelOption.values())

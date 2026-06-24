@@ -33,11 +33,8 @@ public class InertiaCast
 			final Skill skill = SkillTable.getInstance().getInfo(_actionId, 1);
 			return skill != null ? skill.getIcon() : "icon.etc_question_mark_i00";
 		}
-		else
-		{
-			final var template = ItemHolder.getInstance().getTemplate(_actionId);
-			return template != null ? template.getIcon() : "icon.etc_question_mark_i00";
-		}
+		final var template = ItemHolder.getInstance().getTemplate(_actionId);
+		return template != null ? template.getIcon() : "icon.etc_question_mark_i00";
 	}
 	
 	public boolean isReuse()

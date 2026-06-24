@@ -13,7 +13,7 @@ public class PlayerMessageStack
 {
 	private static PlayerMessageStack _instance;
 	
-	private final Map<Integer, List<L2GameServerPacket>> _stack = new HashMap<Integer, List<L2GameServerPacket>>();
+	private final Map<Integer, List<L2GameServerPacket>> _stack = new HashMap<>();
 	
 	public static PlayerMessageStack getInstance()
 	{
@@ -47,7 +47,7 @@ public class PlayerMessageStack
 			}
 			else
 			{
-				messages = new ArrayList<L2GameServerPacket>();
+				messages = new ArrayList<>();
 			}
 			messages.add(message);
 			// TODO: сохранение в БД

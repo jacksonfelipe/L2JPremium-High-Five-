@@ -28,7 +28,7 @@ public class ReflectionManager
 		return _instance;
 	}
 	
-	private final TIntObjectHashMap<Reflection> _reflections = new TIntObjectHashMap<Reflection>();
+	private final TIntObjectHashMap<Reflection> _reflections = new TIntObjectHashMap<>();
 	
 	private final ReadWriteLock lock = new ReentrantReadWriteLock();
 	private final Lock readLock = lock.readLock();

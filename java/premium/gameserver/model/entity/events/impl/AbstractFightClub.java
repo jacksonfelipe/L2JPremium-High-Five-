@@ -15,7 +15,6 @@ import java.util.StringTokenizer;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ScheduledFuture;
-import java.util.regex.Pattern;
 
 import org.apache.commons.lang3.reflect.MethodUtils;
 import org.napile.primitive.maps.IntObjectMap;
@@ -174,8 +173,6 @@ public abstract class AbstractFightClub extends GlobalEvent
 		"10th"
 	};
 	
-	private static final Pattern DOOR_IDS_SPLIT = Pattern.compile(";");
-	private static final String DOORS_NAME = "doors";
 	public static final String OBJECT_NAME_ENDING = "Object";
 	
 	// Properties
@@ -201,9 +198,7 @@ public abstract class AbstractFightClub extends GlobalEvent
 	
 	// Badges
 	private final double _badgesKillPlayer;
-	private final double _badgesKillPet;
 	private final double _killsNeededForBadge;
-	private final double _badgesDie;
 	protected final double _badgeWin;
 	private final int topKillerReward;
 	
@@ -270,9 +265,9 @@ public abstract class AbstractFightClub extends GlobalEvent
 		_isPvPEvent = set.getBool("isPvPEvent", true);
 		// Badges
 		_badgesKillPlayer = set.getDouble("badgesKillPlayer", 0);
-		_badgesKillPet = set.getDouble("badgesKillPet", 0);
+		set.getDouble("badgesKillPet", 0);
 		_killsNeededForBadge = set.getDouble("killsNeededForBadge", 1);
-		_badgesDie = set.getDouble("badgesDie", 0);
+		set.getDouble("badgesDie", 0);
 		_badgeWin = set.getDouble("badgesWin", 0);
 		topKillerReward = set.getInteger("topKillerReward", 0);
 		
@@ -606,7 +601,7 @@ public abstract class AbstractFightClub extends GlobalEvent
 	public void onKilled(Creature actor, Creature victim)
 	{
 		FightClubPlayer fVictim = victim.isPlayable() ? getFightClubPlayer(victim.getPlayer()) : null;
-		FightClubPlayer fActor = (actor != null) && (actor.isPlayable()) ? getFightClubPlayer(actor.getPlayer()) : null;
+		FightClubPlayer fActor = (actor.isPlayable()) ? getFightClubPlayer(actor.getPlayer()) : null;
 		
 		int respawnTime = fVictim == null ? -1 : getRespawnTime(fVictim);
 		if (respawnTime > 0)
@@ -833,10 +828,7 @@ public abstract class AbstractFightClub extends GlobalEvent
 		{
 			return isFriend(thisPlayer, target) ? getFriendRelation() : getWarRelation();
 		}
-		else
-		{
-			return oldRelation;
-		}
+		return oldRelation;
 	}
 	
 	public boolean canJoinParty(Player sender, Player receiver)
@@ -973,7 +965,7 @@ public abstract class AbstractFightClub extends GlobalEvent
 		return (int) Math.floor(score * badgePerScore);
 	}
 	
-	private int getEndEventBadges(FightClubPlayer fPlayer)
+	public int getEndEventBadges()
 	{
 		return 0;
 	}
@@ -1233,7 +1225,7 @@ public abstract class AbstractFightClub extends GlobalEvent
 		
 		if (getState() == EventState.NOT_ACTIVE)
 		{
-			badgesToGive += getEndEventBadges(fPlayer);
+			badgesToGive += getEndEventBadges();
 		}
 		
 		if (badgesToGive > 0)

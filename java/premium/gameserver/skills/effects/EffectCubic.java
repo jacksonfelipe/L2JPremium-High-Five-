@@ -29,7 +29,7 @@ public class EffectCubic extends Effect
 	private class ActionTask extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			if (!isActive())
 			{
@@ -236,7 +236,7 @@ public class EffectCubic extends Effect
 		ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 		{
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl()
 			{
 				final List<Creature> targets = new ArrayList<Creature>(1);
 				targets.add(aimTarget);
@@ -271,7 +271,7 @@ public class EffectCubic extends Effect
 		ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 		{
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl()
 			{
 				final List<Creature> targets = new ArrayList<Creature>(1);
 				targets.add(aimTarget);
@@ -323,7 +323,7 @@ public class EffectCubic extends Effect
 		ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 		{
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl()
 			{
 				final List<Creature> targets = new ArrayList<Creature>(1);
 				targets.add(aimTarget);
@@ -380,7 +380,7 @@ public class EffectCubic extends Effect
 		ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 		{
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl()
 			{
 				final List<Creature> targets = new ArrayList<Creature>(1);
 				targets.add(player);

@@ -14,7 +14,6 @@ import premium.commons.listener.ListenerList;
 import premium.commons.util.Rnd;
 import premium.gameserver.Config;
 import premium.gameserver.ThreadPoolManager;
-import premium.gameserver.instancemanager.ReflectionManager;
 import premium.gameserver.listener.zone.OnZoneEnterLeaveListener;
 import premium.gameserver.model.base.Race;
 import premium.gameserver.model.entity.Reflection;
@@ -263,7 +262,7 @@ public class Zone
 	
 	private final ZoneListenerList listeners = new ZoneListenerList();
 	
-	private final List<Creature> _objects = new CopyOnWriteArrayList<Creature>();
+	private final List<Creature> _objects = new CopyOnWriteArrayList<>();
 	
 	/**
 	 * Ордер в зонах, с ним мы и добавляем/убираем статы. TODO: сравнить ордер с оффом, пока от фонаря
@@ -742,7 +741,7 @@ public class Zone
 	
 	public List<Player> getInsidePlayers()
 	{
-		final List<Player> result = new ArrayList<Player>();
+		final List<Player> result = new ArrayList<>();
 		
 		Creature cha;
 		for (int i = 0; i < _objects.size(); i++)
@@ -758,7 +757,7 @@ public class Zone
 	
 	public List<Playable> getInsidePlayables()
 	{
-		final List<Playable> result = new ArrayList<Playable>();
+		final List<Playable> result = new ArrayList<>();
 		
 		Creature cha;
 		for (int i = 0; i < _objects.size(); i++)
@@ -774,7 +773,7 @@ public class Zone
 	
 	public List<NpcInstance> getInsideNpcs()
 	{
-		List<NpcInstance> result = new ArrayList<NpcInstance>();
+		List<NpcInstance> result = new ArrayList<>();
 		
 		Creature cha;
 		for (int i = 0; i < _objects.size(); i++)

@@ -30,10 +30,7 @@ public class Macro
 			this.cmd = cmd;
 		}
 	}
-	
-	/**
-	 *
-	 */
+	 
 	public Macro(int id, int icon, String name, String descr, String acronym, L2MacroCmd[] commands)
 	{
 		this.id = id;

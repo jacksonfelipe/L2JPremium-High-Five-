@@ -41,12 +41,12 @@ public class FishingChampionShipManager
 	}
 	
 	private long _enddate = 0;
-	private List<String> _playersName = new ArrayList<String>();
-	private List<String> _fishLength = new ArrayList<String>();
-	private List<String> _winPlayersName = new ArrayList<String>();
-	private List<String> _winFishLength = new ArrayList<String>();
-	private List<Fisher> _tmpPlayers = new ArrayList<Fisher>();
-	private List<Fisher> _winPlayers = new ArrayList<Fisher>();
+	private List<String> _playersName = new ArrayList<>();
+	private List<String> _fishLength = new ArrayList<>();
+	private List<String> _winPlayersName = new ArrayList<>();
+	private List<String> _winFishLength = new ArrayList<>();
+	private List<Fisher> _tmpPlayers = new ArrayList<>();
+	private List<Fisher> _winPlayers = new ArrayList<>();
 	private double _minFishLength = 0;
 	private boolean _needRefresh = true;
 	
@@ -430,7 +430,7 @@ public class FishingChampionShipManager
 	private class finishChamp extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			_winPlayers.clear();
 			for (Fisher fisher : _tmpPlayers)
@@ -450,7 +450,7 @@ public class FishingChampionShipManager
 	private class needRefresh extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			_needRefresh = true;
 		}

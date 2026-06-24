@@ -204,10 +204,7 @@ public enum ClassId
 	
 	private final int _level;
 	
-	/**
-	 * Constructor<?> of ClassId.<BR>
-	 * <BR>
-	 */
+	 
 	private ClassId(int id, String name, boolean isMage, Race race, ClassId parent, ClassId parent2, int level, ClassType2 classType2)
 	{
 		_id = id;
@@ -220,47 +217,30 @@ public enum ClassId
 		_type2 = classType2;
 	}
 	
-	/**
-	 * Return the Identifier of the Class.<BR>
-	 * <BR>
-	 */
+	 
 	public final int getId()
 	{
 		return _id;
 	}
 	
-	/**
-	 * Return the display name of the Class.<BR>
-	 * <BR>
-	 */
+	 
 	public final String getName()
 	{
 		return _name;
 	}
 	
-	/**
-	 * Return True if the class is a mage class.<BR>
-	 * <BR>
-	 */
+ 
 	public final boolean isMage()
 	{
 		return _isMage;
 	}
-	
-	/**
-	 * Return the Race object of the class.<BR>
-	 * <BR>
-	 */
+ 
 	public final Race getRace()
 	{
 		return _race;
 	}
 	
-	/**
-	 * Return True if this Class<?> is a child of the selected ClassId.<BR>
-	 * <BR>
-	 * @param cid The parent ClassId to check
-	 */
+ 
 	public final boolean childOf(ClassId cid)
 	{
 		if (_parent == null)
@@ -277,21 +257,13 @@ public enum ClassId
 		
 	}
 	
-	/**
-	 * Return True if this Class<?> is equal to the selected ClassId or a child of the selected ClassId.<BR>
-	 * <BR>
-	 * @param cid The parent ClassId to check
-	 */
+	 
 	public final boolean equalsOrChildOf(ClassId cid)
 	{
 		return this == cid || childOf(cid);
 	}
 	
-	/**
-	 * Return the child level of this Class<?> (0=root, 1=child leve 1...).<BR>
-	 * <BR>
-	 * @param cid The parent ClassId to check
-	 */
+	 
 	public final int level()
 	{
 		if (_parent == null)

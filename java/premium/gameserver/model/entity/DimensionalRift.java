@@ -26,7 +26,7 @@ public class DimensionalRift extends Reflection
 	protected static final int MILLISECONDS_IN_MINUTE = 60000;
 	
 	protected int _roomType;
-	protected List<Integer> _completedRooms = new ArrayList<Integer>();
+	protected List<Integer> _completedRooms = new ArrayList<>();
 	protected int jumps_current = 0;
 	
 	private Future<?> teleporterTask;
@@ -95,7 +95,7 @@ public class DimensionalRift extends Reflection
 		teleporterTask = ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 		{
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl()
 			{
 				if (jumps_current < getMaxJumps() && getPlayersInside(true) > 0)
 				{
@@ -124,7 +124,7 @@ public class DimensionalRift extends Reflection
 		spawnTask = ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 		{
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl()
 			{
 				for (SimpleSpawner s : riftRoom.getSpawns())
 				{
@@ -156,7 +156,7 @@ public class DimensionalRift extends Reflection
 		killRiftTask = ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 		{
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl()
 			{
 				if (isCollapseStarted())
 				{
@@ -254,7 +254,7 @@ public class DimensionalRift extends Reflection
 		}
 		else
 		{ // выбираем комнату, где еще не были
-			List<Integer> notCompletedRooms = new ArrayList<Integer>();
+			List<Integer> notCompletedRooms = new ArrayList<>();
 			for (int i = 1; i <= size; i++)
 			{
 				if (!_completedRooms.contains(i))
@@ -354,7 +354,7 @@ public class DimensionalRift extends Reflection
 		return DimensionalRiftManager.getInstance().getRoom(_roomType, room).getTeleportCoords();
 	}
 	
-	/** По умолчанию 4 */
+ 
 	public int getMaxJumps()
 	{
 		return Math.max(Math.min(Config.RIFT_MAX_JUMPS, 8), 1);

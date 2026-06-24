@@ -86,17 +86,6 @@ import premium.gameserver.data.xml.holder.ResidenceHolder;
 import premium.gameserver.data.xml.holder.SkillAcquireHolder;
 import premium.gameserver.database.DatabaseFactory;
 import premium.gameserver.database.mysql;
-import premium.gameserver.multverso.academy.AcademyList;
-import premium.gameserver.multverso.datatables.OfflineBuffersTable;
-import premium.gameserver.multverso.facebook.FacebookProfile;
-import premium.gameserver.multverso.facebook.FacebookProfilesHolder;
-import premium.gameserver.multverso.managers.GmEventManager;
-import premium.gameserver.multverso.managers.OfflineBufferManager;
-//import fandc.pc.PcStats;
-//import fandc.templates.Ranking;
-import premium.gameserver.multverso.security.AntiFeedManager;
-import premium.gameserver.multverso.tournament.model.AbstractTournament;
-import premium.gameserver.multverso.tournament.model.enums.TournamentPhase;
 import premium.gameserver.handler.bbs.CommunityBoardManager;
 import premium.gameserver.handler.bbs.ICommunityBoardHandler;
 import premium.gameserver.handler.bypass.BypassHandler;
@@ -226,6 +215,17 @@ import premium.gameserver.model.premium.PremiumStart;
 import premium.gameserver.model.quest.Quest;
 import premium.gameserver.model.quest.QuestEventType;
 import premium.gameserver.model.quest.QuestState;
+import premium.gameserver.multverso.academy.AcademyList;
+import premium.gameserver.multverso.datatables.OfflineBuffersTable;
+import premium.gameserver.multverso.facebook.FacebookProfile;
+import premium.gameserver.multverso.facebook.FacebookProfilesHolder;
+import premium.gameserver.multverso.managers.GmEventManager;
+import premium.gameserver.multverso.managers.OfflineBufferManager;
+//import fandc.pc.PcStats;
+//import fandc.templates.Ranking;
+import premium.gameserver.multverso.security.AntiFeedManager;
+import premium.gameserver.multverso.tournament.model.AbstractTournament;
+import premium.gameserver.multverso.tournament.model.enums.TournamentPhase;
 import premium.gameserver.network.GameClient;
 import premium.gameserver.network.loginservercon.AuthServerCommunication;
 import premium.gameserver.network.loginservercon.gspackets.ChangeAccessLevel;
@@ -375,7 +375,7 @@ public final class Player extends Playable implements PlayerGroup
 	public static final String MY_BIRTHDAY_RECEIVE_YEAR = "MyBirthdayReceiveYear";
 	public static final String NOT_CONNECTED = "<not connected>";
 	
-	public Map<Integer, SubClass> _classlist = new HashMap<Integer, SubClass>(4);
+	public Map<Integer, SubClass> _classlist = new HashMap<>(4);
 	
 	public final static int OBSERVER_NONE = 0;
 	public final static int OBSERVER_STARTING = 1;
@@ -487,8 +487,8 @@ public final class Player extends Playable implements PlayerGroup
 	/**
 	 * The table containing all l2fecipeList of the L2Player
 	 */
-	private final Map<Integer, Recipe> _recipebook = new TreeMap<Integer, Recipe>();
-	private final Map<Integer, Recipe> _commonrecipebook = new TreeMap<Integer, Recipe>();
+	private final Map<Integer, Recipe> _recipebook = new TreeMap<>();
+	private final Map<Integer, Recipe> _commonrecipebook = new TreeMap<>();
 	
 	private final Map<String, Object> quickVars = new ConcurrentHashMap<>();
 	private final List<Integer> loadedImages = new ArrayList<>();
@@ -496,12 +496,12 @@ public final class Player extends Playable implements PlayerGroup
 	/**
 	 * Premium Items
 	 */
-	private final Map<Integer, PremiumItem> _premiumItems = new TreeMap<Integer, PremiumItem>();
+	private final Map<Integer, PremiumItem> _premiumItems = new TreeMap<>();
 	
 	/**
 	 * The table containing all Quests began by the L2Player
 	 */
-	private final Map<String, QuestState> _quests = new HashMap<String, QuestState>();
+	private final Map<String, QuestState> _quests = new HashMap<>();
 	
 	/**
 	 * The list containing all shortCuts of this L2Player
@@ -570,7 +570,7 @@ public final class Player extends Playable implements PlayerGroup
 	 */
 	private WeaponTemplate _fistsWeaponItem;
 	
-	private Map<Integer, String> _chars = new HashMap<Integer, String>(8);
+	private Map<Integer, String> _chars = new HashMap<>(8);
 	
 	/**
 	 * The current higher Expertise of the L2Player (None=0, D=1, C=2, B=3, A=4, S=5, S80=6, S84=7)
@@ -591,7 +591,7 @@ public final class Player extends Playable implements PlayerGroup
 	private HardReference<NpcInstance> _lastNpc = HardReferences.emptyRef();
 	private MultiSellListContainer _multisell = null;
 	
-	private final Set<Integer> _activeSoulShots = new CopyOnWriteArraySet<Integer>();
+	private final Set<Integer> _activeSoulShots = new CopyOnWriteArraySet<>();
 	
 	private WorldRegion _observerRegion;
 	private final AtomicInteger _observerMode = new AtomicInteger(0);
@@ -613,7 +613,7 @@ public final class Player extends Playable implements PlayerGroup
 	 */
 	public int _race[] = new int[2];
 	
-	private final Map<Integer, String> _blockList = new ConcurrentSkipListMap<Integer, String>(); // characters blocked with '/block <charname>' cmd
+	private final Map<Integer, String> _blockList = new ConcurrentSkipListMap<>(); // characters blocked with '/block <charname>' cmd
 	private final FriendList _friendList = new FriendList(this);
 	
 	private boolean _hero = false;
@@ -678,7 +678,7 @@ public final class Player extends Playable implements PlayerGroup
 	
 	private int _pcBangPoints;
 	
-	Map<Integer, Skill> _transformationSkills = new HashMap<Integer, Skill>();
+	Map<Integer, Skill> _transformationSkills = new HashMap<>();
 	
 	private int _expandInventory = 0;
 	private int _expandWarehouse = 0;
@@ -689,7 +689,7 @@ public final class Player extends Playable implements PlayerGroup
 	private final Map<BypassType, List<String>> bypasses;
 	private IntObjectMap<String> _postFriends = Containers.emptyIntObjectMap();
 	
-	private final List<String> _blockedActions = new ArrayList<String>();
+	private final List<String> _blockedActions = new ArrayList<>();
 	
 	private boolean _notShowBuffAnim = false;
 	private boolean _notShowTraders = false;
@@ -700,7 +700,7 @@ public final class Player extends Playable implements PlayerGroup
 	private long _dropDisabled;
 	private long _lastItemAuctionInfoRequest;
 	
-	private final IntObjectMap<TimeStamp> _sharedGroupReuses = new CHashIntObjectMap<TimeStamp>();
+	private final IntObjectMap<TimeStamp> _sharedGroupReuses = new CHashIntObjectMap<>();
 	private Pair<Integer, OnAnswerListener> _askDialog = null;
 	
 	// High Five: Navit's Bonus System
@@ -709,9 +709,9 @@ public final class Player extends Playable implements PlayerGroup
 	private MatchingRoom _matchingRoom;
 	private boolean _matchingRoomWindowOpened = false;
 	private PetitionMainGroup _petitionGroup;
-	private final Map<Integer, Long> _instancesReuses = new ConcurrentHashMap<Integer, Long>();
+	private final Map<Integer, Long> _instancesReuses = new ConcurrentHashMap<>();
 	
-	public List<TeleportPoints> _teleportPoints = new ArrayList<TeleportPoints>();
+	public List<TeleportPoints> _teleportPoints = new ArrayList<>();
 	
 	public GameEvent _event = null;
 	private FightClubGameRoom _fightClubGameRoom = null;
@@ -740,10 +740,10 @@ public final class Player extends Playable implements PlayerGroup
 		_titlecolor = 0xFFFF77;
 		_baseClass = getClassId().getId();
 		buffSchemes = new CopyOnWriteArrayList<>();
-		bypasses = new EnumMap<BypassType, List<String>>(BypassType.class);
+		bypasses = new EnumMap<>(BypassType.class);
 		for (BypassType bypassType : BypassType.values())
 		{
-			bypasses.put(bypassType, new ArrayList<String>());
+			bypasses.put(bypassType, new ArrayList<>());
 		}
 	}
 	
@@ -1513,7 +1513,7 @@ public final class Player extends Playable implements PlayerGroup
 	
 	public Quest[] getAllActiveQuests()
 	{
-		List<Quest> quests = new ArrayList<Quest>(_quests.size());
+		List<Quest> quests = new ArrayList<>(_quests.size());
 		questRead.lock();
 		try
 		{
@@ -1547,7 +1547,7 @@ public final class Player extends Playable implements PlayerGroup
 	
 	public List<QuestState> getQuestsForEvent(NpcInstance npc, QuestEventType event)
 	{
-		List<QuestState> states = new ArrayList<QuestState>();
+		List<QuestState> states = new ArrayList<>();
 		Quest[] quests = npc.getTemplate().getEventQuests(event);
 		QuestState qs;
 		if (quests != null)
@@ -2172,7 +2172,7 @@ public final class Player extends Playable implements PlayerGroup
 		if (expertiseIndex != i)
 		{
 			expertiseIndex = i;
-			if ((expertiseIndex > 0) && Config.EXPERTISE_PENALTY) // TODO who to do? No need here! redo with a check for an item epic! added Config.EPIC_EXPERTISE_PENALTY
+			if ((expertiseIndex > 0) && Config.EXPERTISE_PENALTY)
 			{
 				addSkill(SkillTable.getInstance().getInfo(239, expertiseIndex), false);
 				skillUpdate = true;
@@ -2481,7 +2481,7 @@ public final class Player extends Playable implements PlayerGroup
 		return _fistsWeaponItem;
 	}
 	
-	public WeaponTemplate findFistsWeaponItem(int classId)
+	public static WeaponTemplate findFistsWeaponItem(int classId)
 	{
 		// human fighter fists
 		if ((classId >= 0x00) && (classId <= 0x09))
@@ -3635,7 +3635,7 @@ public final class Player extends Playable implements PlayerGroup
 			return;
 		}
 		
-		List<L2GameServerPacket> packets = new ArrayList<L2GameServerPacket>(withPet ? 2 : 1);
+		List<L2GameServerPacket> packets = new ArrayList<>(withPet ? 2 : 1);
 		if (withPet && (getPet() != null))
 		{
 			packets.add(getPet().makeStatusUpdate(fields));
@@ -4331,7 +4331,7 @@ public final class Player extends Playable implements PlayerGroup
 		return (_clan != null) && (player.getClan() != null) && (getPledgeType() != -1) && (player.getPledgeType() != -1) && _clan.isAtWarWith(player.getClan().getClanId()) && player.getClan().isAtWarWith(_clan.getClanId());
 	}
 	
-	public final void doPurePk(Player killer)
+	public final static void doPurePk(Player killer)
 	{
 		if (killer.getKarma() > 0)
 		{
@@ -4392,7 +4392,7 @@ public final class Player extends Playable implements PlayerGroup
 		}
 	}
 	
-	public void checkAddItemToDrop(List<ItemInstance> array, List<ItemInstance> items, int maxCount)
+	public static void checkAddItemToDrop(List<ItemInstance> array, List<ItemInstance> items, int maxCount)
 	{
 		for (int i = 0; (i < maxCount) && !items.isEmpty(); i++)
 		{
@@ -4664,8 +4664,8 @@ public final class Player extends Playable implements PlayerGroup
 			}
 		}
 		
-		List<ItemInstance> drop = new ArrayList<ItemInstance>(), // total array with the results of the choice
-			dropItem = new ArrayList<ItemInstance>(), dropEquip = new ArrayList<ItemInstance>(), dropWeapon = new ArrayList<ItemInstance>();
+		List<ItemInstance> drop = new ArrayList<>(), // total array with the results of the choice
+			dropItem = new ArrayList<>(), dropEquip = new ArrayList<>(), dropWeapon = new ArrayList<>();
 		
 		getInventory().writeLock();
 		try
@@ -4745,7 +4745,7 @@ public final class Player extends Playable implements PlayerGroup
 		Player player = getPlayer();
 		
 		// Check for active charm of luck for death penalty
-		if (player != null && !player.isPhantom())
+		if (!player.isPhantom())
 		{
 			getDeathPenalty().checkCharmOfLuck();
 		}
@@ -6001,7 +6001,7 @@ public final class Player extends Playable implements PlayerGroup
 					player.AutoLootOnlyAdena = player.getVarB("AutoLootOnlyAdena", Config.AUTO_LOOT_ONLY_ADENA);
 				}
 				
-				player._fistsWeaponItem = player.findFistsWeaponItem(classId);
+				player._fistsWeaponItem = Player.findFistsWeaponItem(classId);
 				player._uptime = System.currentTimeMillis();
 				player._lastAccess = rset.getLong("lastAccess");
 				
@@ -8169,7 +8169,7 @@ public final class Player extends Playable implements PlayerGroup
 		return _hero;
 	}
 	
-	public void setHero(Player player)
+	public static void setHero(Player player)
 	{
 		StatsSet hero = new StatsSet();
 		hero.set(Olympiad.CLASS_ID, player.getBaseClassId());
@@ -8177,7 +8177,7 @@ public final class Player extends Playable implements PlayerGroup
 		hero.set(Olympiad.CHAR_NAME, player.getName());
 		hero.set(Hero.ACTIVE, 1);
 		
-		List<StatsSet> heroesToBe = new ArrayList<StatsSet>();
+		List<StatsSet> heroesToBe = new ArrayList<>();
 		heroesToBe.add(hero);
 		
 		Hero.getInstance().computeNewHeroes(heroesToBe);
@@ -8701,7 +8701,7 @@ public final class Player extends Playable implements PlayerGroup
 		setNameColor(Integer.decode("0x" + RGB));
 	}
 	
-	private final Map<String, PlayerVar> user_variables = new ConcurrentHashMap<String, PlayerVar>();
+	private final Map<String, PlayerVar> user_variables = new ConcurrentHashMap<>();
 	
 	public void increaseWroteMessages(ChatType chatType)
 	{
@@ -9119,12 +9119,12 @@ public final class Player extends Playable implements PlayerGroup
 		return loadedImages.size();
 	}
 	
-	public String getLang()
+	public static String getLang()
 	{
 		return "en";
 	}
 	
-	public int getLangId()
+	public static int getLangId()
 	{
 		String lang = getLang();
 		if (lang.equalsIgnoreCase("en") || lang.equalsIgnoreCase("e") || lang.equalsIgnoreCase("eng"))
@@ -9142,7 +9142,7 @@ public final class Player extends Playable implements PlayerGroup
 	{
 		Player player = getPlayer();
 		
-		if ((player == null) || (player != null && player.isPhantom()))
+		if ((player == null) || (player.isPhantom()))
 		{
 			return Language.ENGLISH;
 		}
@@ -9159,7 +9159,7 @@ public final class Player extends Playable implements PlayerGroup
 		return Language.ENGLISH;
 	}
 	
-	public boolean isLangRus()
+	public static boolean isLangRus()
 	{
 		return getLangId() == LANG_RUS;
 	}
@@ -10011,11 +10011,8 @@ public final class Player extends Playable implements PlayerGroup
 			_lastItemAuctionInfoRequest = System.currentTimeMillis();
 			return true;
 		}
-		else
-		{
-			_lastItemAuctionInfoRequest = System.currentTimeMillis();
-			return false;
-		}
+		_lastItemAuctionInfoRequest = System.currentTimeMillis();
+		return false;
 	}
 	
 	@Override
@@ -10368,8 +10365,8 @@ public final class Player extends Playable implements PlayerGroup
 		return _isUndying;
 	}
 	
-	private final GArray<Player> _snoopListener = new GArray<Player>();
-	private final GArray<Player> _snoopedPlayer = new GArray<Player>();
+	private final GArray<Player> _snoopListener = new GArray<>();
+	private final GArray<Player> _snoopedPlayer = new GArray<>();
 	
 	public void broadcastSnoop(int type, String name, String _text)
 	{
@@ -10877,7 +10874,7 @@ public final class Player extends Playable implements PlayerGroup
 		return _useSeed;
 	}
 	
-	public int getFriendRelation()
+	public static int getFriendRelation()
 	{
 		int result = 0;
 		
@@ -10887,7 +10884,7 @@ public final class Player extends Playable implements PlayerGroup
 		return result;
 	}
 	
-	public int getWarRelation()
+	public static int getWarRelation()
 	{
 		int result = 0;
 		
@@ -10996,7 +10993,7 @@ public final class Player extends Playable implements PlayerGroup
 			if (getBlockCheckerArena() != -1)
 			{
 				result |= RelationChanged.RELATION_INSIEGE;
-				ArenaParticipantsHolder holder = HandysBlockCheckerManager.getInstance().getHolder(getBlockCheckerArena());
+				ArenaParticipantsHolder holder = HandysBlockCheckerManager.getHolder(getBlockCheckerArena());
 				if (holder.getPlayerTeam(this) == 0)
 				{
 					result |= RelationChanged.RELATION_ENEMY;
@@ -11149,7 +11146,7 @@ public final class Player extends Playable implements PlayerGroup
 		return getEvent(AbstractFightClub.class);
 	}
 	
-	private final Map<Integer, TamedBeastInstance> _tamedBeasts = new ConcurrentHashMap<Integer, TamedBeastInstance>();
+	private final Map<Integer, TamedBeastInstance> _tamedBeasts = new ConcurrentHashMap<>();
 	
 	public Map<Integer, TamedBeastInstance> getTrainedBeasts()
 	{
@@ -11425,7 +11422,7 @@ public final class Player extends Playable implements PlayerGroup
 			return super.getAllSkills();
 		}
 		
-		Map<Integer, Skill> tempSkills = new HashMap<Integer, Skill>();
+		Map<Integer, Skill> tempSkills = new HashMap<>();
 		for (Skill s : super.getAllSkills())
 		{
 			if ((s != null) && !s.isActive() && !s.isToggle())
@@ -11602,7 +11599,7 @@ public final class Player extends Playable implements PlayerGroup
 		var = getVar("selllist");
 		if (var != null)
 		{
-			_sellList = new CopyOnWriteArrayList<TradeItem>();
+			_sellList = new CopyOnWriteArrayList<>();
 			String[] items = var.split(":");
 			for (String item : items)
 			{
@@ -11652,7 +11649,7 @@ public final class Player extends Playable implements PlayerGroup
 		var = getVar("packageselllist");
 		if (var != null)
 		{
-			_packageSellList = new CopyOnWriteArrayList<TradeItem>();
+			_packageSellList = new CopyOnWriteArrayList<>();
 			String[] items = var.split(":");
 			for (String item : items)
 			{
@@ -11702,7 +11699,7 @@ public final class Player extends Playable implements PlayerGroup
 		var = getVar("buylist");
 		if (var != null)
 		{
-			_buyList = new CopyOnWriteArrayList<TradeItem>();
+			_buyList = new CopyOnWriteArrayList<>();
 			String[] items = var.split(":");
 			for (String item : items)
 			{
@@ -11735,7 +11732,7 @@ public final class Player extends Playable implements PlayerGroup
 		var = getVar("createlist");
 		if (var != null)
 		{
-			_createList = new CopyOnWriteArrayList<ManufactureItem>();
+			_createList = new CopyOnWriteArrayList<>();
 			String[] items = var.split(":");
 			for (String item : items)
 			{
@@ -12566,7 +12563,7 @@ public final class Player extends Playable implements PlayerGroup
 		{
 			return null;
 		}
-		Collection<TrapInstance> result = new ArrayList<TrapInstance>(getTrapsCount());
+		Collection<TrapInstance> result = new ArrayList<>(getTrapsCount());
 		TrapInstance trap;
 		for (Integer trapId : _traps.keySet())
 		{
@@ -12591,7 +12588,7 @@ public final class Player extends Playable implements PlayerGroup
 	{
 		if (_traps == null)
 		{
-			_traps = new HashMap<Integer, Long>();
+			_traps = new HashMap<>();
 		}
 		_traps.put(trap.getObjectId(), trap.getStoredId());
 	}
@@ -12632,7 +12629,7 @@ public final class Player extends Playable implements PlayerGroup
 		{
 			return;
 		}
-		List<TrapInstance> toRemove = new ArrayList<TrapInstance>();
+		List<TrapInstance> toRemove = new ArrayList<>();
 		for (Integer trapId : traps.keySet())
 		{
 			toRemove.add((TrapInstance) GameObjectsStorage.get(traps.get(trapId)));
@@ -12824,7 +12821,7 @@ public final class Player extends Playable implements PlayerGroup
 	{
 		if (_userSession == null)
 		{
-			_userSession = new ConcurrentHashMap<String, String>();
+			_userSession = new ConcurrentHashMap<>();
 		}
 		
 		if ((val == null) || val.isEmpty())
@@ -13114,7 +13111,7 @@ public final class Player extends Playable implements PlayerGroup
 		}
 		
 		int rnd = Rnd.nextInt();
-		_askDialog = new ImmutablePair<Integer, OnAnswerListener>(rnd, listener);
+		_askDialog = new ImmutablePair<>(rnd, listener);
 		dlg.setRequestId(rnd);
 		sendPacket(dlg);
 		
@@ -13131,12 +13128,9 @@ public final class Player extends Playable implements PlayerGroup
 		{
 			return _askDialog;
 		}
-		else
-		{
-			Pair<Integer, OnAnswerListener> ask = _askDialog;
-			_askDialog = null;
-			return ask;
-		}
+		Pair<Integer, OnAnswerListener> ask = _askDialog;
+		_askDialog = null;
+		return ask;
 	}
 	
 	public boolean hasDialogAskActive()
@@ -13396,15 +13390,9 @@ public final class Player extends Playable implements PlayerGroup
 			{
 				return getParty().getCommandChannel();
 			}
-			else
-			{
-				return getParty();
-			}
+			return getParty();
 		}
-		else
-		{
-			return this;
-		}
+		return this;
 	}
 	
 	@Override
@@ -13619,7 +13607,7 @@ public final class Player extends Playable implements PlayerGroup
 		_isNoAttackEvents = set;
 	}
 	
-	public boolean isNoAttackEvents()
+	public static boolean isNoAttackEvents()
 	{
 		return _isNoAttackEvents;
 	}
@@ -14429,7 +14417,7 @@ public final class Player extends Playable implements PlayerGroup
 	}
 	
 	// Synerge - Support for Automatic Potions (Toogle)
-	private final Set<Integer> _autoPotions = new CopyOnWriteArraySet<Integer>();
+	private final Set<Integer> _autoPotions = new CopyOnWriteArraySet<>();
 	private Future<?> _autoPotionTask = null;
 	
 	public void addAutoPotion(int itemId)

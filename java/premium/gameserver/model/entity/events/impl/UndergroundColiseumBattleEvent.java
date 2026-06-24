@@ -658,7 +658,7 @@ public class UndergroundColiseumBattleEvent extends GlobalEvent implements Itera
 					ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 					{
 						@Override
-						public void runImpl() throws Exception
+						public void runImpl()
 						{
 							stopEvent();
 						}

@@ -64,9 +64,6 @@ public final class SkillLearn implements Comparable<SkillLearn>
 		{
 			return getLevel() - o.getLevel();
 		}
-		else
-		{
-			return getId() - o.getId();
-		}
+		return getId() - o.getId();
 	}
 }

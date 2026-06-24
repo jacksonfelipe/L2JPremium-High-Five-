@@ -22,17 +22,14 @@ public class CommandChannel implements PlayerGroup
 	public static final int STRATEGY_GUIDE_ID = 8871;
 	public static final int CLAN_IMPERIUM_ID = 391;
 	
-	private final List<Party> _commandChannelParties = new CopyOnWriteArrayList<Party>();
+	private final List<Party> _commandChannelParties = new CopyOnWriteArrayList<>();
 	private Player _commandChannelLeader;
 	private int _commandChannelLvl;
 	private Reflection _reflection;
 	
 	private MatchingRoom _matchingRoom;
 	
-	/**
-	 * Creates a New Command Channel and Add the Leaders party to the CC
-	 * @param CommandChannelLeader
-	 */
+ 
 	public CommandChannel(Player leader)
 	{
 		_commandChannelLeader = leader;
@@ -42,10 +39,7 @@ public class CommandChannel implements PlayerGroup
 		sendPacket(ExMPCCOpen.STATIC);
 	}
 	
-	/**
-	 * Adds a Party to the Command Channel
-	 * @param Party
-	 */
+ 
 	public void addParty(Party party)
 	{
 		sendPacket(new ExMPCCPartyInfoUpdate(party, 1));
@@ -63,10 +57,7 @@ public class CommandChannel implements PlayerGroup
 		}
 	}
 	
-	/**
-	 * Removes a Party from the Command Channel
-	 * @param Party
-	 */
+ 
 	public void removeParty(Party party)
 	{
 		_commandChannelParties.remove(party);
@@ -160,9 +151,7 @@ public class CommandChannel implements PlayerGroup
 		}
 	}
 	
-	/**
-	 * Broadcast packet to every party leader of command channel
-	 */
+	 
 	public void broadcastToChannelPartyLeaders(L2GameServerPacket gsp)
 	{
 		for (Party party : _commandChannelParties)
@@ -186,12 +175,12 @@ public class CommandChannel implements PlayerGroup
 	@Override
 	public Iterator<Player> iterator()
 	{
-		List<Iterator<Player>> iterators = new ArrayList<Iterator<Player>>(_commandChannelParties.size());
+		List<Iterator<Player>> iterators = new ArrayList<>(_commandChannelParties.size());
 		for (Party p : getParties())
 		{
 			iterators.add(p.getMembers().iterator());
 		}
-		return new JoinedIterator<Player>(iterators);
+		return new JoinedIterator<>(iterators);
 	}
 	
 	@Override
@@ -218,7 +207,7 @@ public class CommandChannel implements PlayerGroup
 	@Override
 	public List<Player> getMembers(Player... excluded)
 	{
-		List<Player> members = new ArrayList<Player>(_commandChannelParties.size());
+		List<Player> members = new ArrayList<>(_commandChannelParties.size());
 		for (Party party : getParties())
 		{
 			members.addAll(party.getMembers(excluded));
@@ -320,9 +309,7 @@ public class CommandChannel implements PlayerGroup
 		return _reflection;
 	}
 	
-	/**
-	 * Проверяет возможность создания командного канала
-	 */
+ 
 	public static boolean checkAuthority(Player creator)
 	{
 		// CC могут создавать только лидеры партий, состоящие в клане ранком не ниже барона

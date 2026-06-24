@@ -49,7 +49,7 @@ public class SymbolInstance extends NpcInstance
 		{
 			
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl()
 			{
 				for (Creature target : getAroundCharacters(200, 200))
 				{

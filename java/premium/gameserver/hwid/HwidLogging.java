@@ -39,7 +39,7 @@ public class HwidLogging
 		return _logs.get(player.getObjectId());
 	}
 	
-	private List<SimpleLog> loadLogs(int objId)
+	public List<SimpleLog> loadLogs(int objId)
 	{
 		List<SimpleLog> playerLogs = new ArrayList<>();
 		

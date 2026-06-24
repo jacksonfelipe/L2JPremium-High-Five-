@@ -460,7 +460,7 @@ public abstract class Effect extends RunnableImpl implements Comparable<Effect>,
 	}
 	
 	@Override
-	public final void runImpl() throws Exception
+	public final void runImpl()
 	{
 		if (setState(STARTED, ACTING))
 		{

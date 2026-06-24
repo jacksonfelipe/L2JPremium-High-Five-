@@ -9,6 +9,7 @@ import premium.gameserver.model.Player;
 
 public class FightClubPlayer implements Serializable
 {
+	private static final long serialVersionUID = 1L;
 	private Player _player;
 	private FightClubTeam _team;
 	private Party _myParty = null;
@@ -122,10 +123,7 @@ public class FightClubPlayer implements Serializable
 		{
 			return _playerKills;
 		}
-		else
-		{
-			return _petKills;
-		}
+		return _petKills;
 	}
 	
 	/*

@@ -11,6 +11,8 @@ import premium.gameserver.model.entity.events.impl.AbstractFightClub;
 
 public class FightClubTeam implements Serializable
 {
+	private static final long serialVersionUID = 1L;
+
 	public static enum TEAM_NAMES
 	{
 		Red(0x162ee1),

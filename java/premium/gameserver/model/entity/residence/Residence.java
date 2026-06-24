@@ -41,7 +41,7 @@ public abstract class Residence implements JdbcEntity
 	public class ResidenceCycleTask extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			chanceCycle();
 			update();
@@ -444,7 +444,7 @@ public abstract class Residence implements JdbcEntity
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			startAutoTaskForFunction(_function);
 		}

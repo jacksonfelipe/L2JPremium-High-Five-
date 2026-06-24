@@ -324,7 +324,7 @@ public class LastHero extends Functions implements ScriptFile, OnDeathListener, 
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			target.unblock();
 			target.teleToLocation(loc);

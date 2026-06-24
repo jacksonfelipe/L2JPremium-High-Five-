@@ -57,7 +57,7 @@ public class DecoyInstance extends NpcInstance
 	class DecoyLifetime extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			try
 			{
@@ -86,7 +86,7 @@ public class DecoyInstance extends NpcInstance
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			try
 			{

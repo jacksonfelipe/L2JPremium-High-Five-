@@ -42,7 +42,7 @@ public class BookMarkList
 	public BookMarkList(Player owner, int acapacity)
 	{
 		this.owner = owner;
-		elementData = new ArrayList<BookMark>(acapacity);
+		elementData = new ArrayList<>(acapacity);
 		capacity = acapacity;
 	}
 	

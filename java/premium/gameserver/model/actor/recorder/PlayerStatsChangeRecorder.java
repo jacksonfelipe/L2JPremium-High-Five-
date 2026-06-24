@@ -44,37 +44,37 @@ public final class PlayerStatsChangeRecorder extends CharStatsChangeRecorder<Pla
 	@Override
 	protected void refreshStats()
 	{
-		_maxCp = set(4, _maxCp, ((Player) _activeChar).getMaxCp());
+		_maxCp = set(4, _maxCp, _activeChar.getMaxCp());
 		
 		super.refreshStats();
 		
-		_maxLoad = set(34, _maxLoad, ((Player) _activeChar).getMaxLoad());
-		_curLoad = set(64, _curLoad, ((Player) _activeChar).getCurrentLoad());
+		_maxLoad = set(34, _maxLoad, _activeChar.getMaxLoad());
+		_curLoad = set(64, _curLoad, _activeChar.getCurrentLoad());
 		
 		for (Element e : Element.VALUES)
 		{
-			_attackElement[e.getId()] = set(2, _attackElement[e.getId()], ((Player) _activeChar).getAttack(e));
-			_defenceElement[e.getId()] = set(2, _defenceElement[e.getId()], ((Player) _activeChar).getDefence(e));
+			_attackElement[e.getId()] = set(2, _attackElement[e.getId()], _activeChar.getAttack(e));
+			_defenceElement[e.getId()] = set(2, _defenceElement[e.getId()], _activeChar.getDefence(e));
 		}
 		
-		_exp = set(2, _exp, ((Player) _activeChar).getExp());
-		_sp = set(2, _sp, ((Player) _activeChar).getIntSp());
-		_pk = set(2, _pk, ((Player) _activeChar).getPkKills());
-		_pvp = set(2, _pvp, ((Player) _activeChar).getPvpKills());
-		_fame = set(2, _fame, ((Player) _activeChar).getFame());
+		_exp = set(2, _exp, _activeChar.getExp());
+		_sp = set(2, _sp, _activeChar.getIntSp());
+		_pk = set(2, _pk, _activeChar.getPkKills());
+		_pvp = set(2, _pvp, _activeChar.getPvpKills());
+		_fame = set(2, _fame, _activeChar.getFame());
 		
-		_karma = set(8, _karma, ((Player) _activeChar).getKarma());
+		_karma = set(8, _karma, _activeChar.getKarma());
 		
-		_inventory = set(16, _inventory, ((Player) _activeChar).getInventoryLimit());
-		_warehouse = set(16, _warehouse, ((Player) _activeChar).getWarehouseLimit());
+		_inventory = set(16, _inventory, _activeChar.getInventoryLimit());
+		_warehouse = set(16, _warehouse, _activeChar.getWarehouseLimit());
 		_clan = set(16, _clan, Config.WAREHOUSE_SLOTS_CLAN);
-		_trade = set(16, _trade, ((Player) _activeChar).getTradeLimit());
-		_recipeDwarven = set(16, _recipeDwarven, ((Player) _activeChar).getDwarvenRecipeLimit());
-		_recipeCommon = set(16, _recipeCommon, ((Player) _activeChar).getCommonRecipeLimit());
-		_cubicsHash = set(1, _cubicsHash, CollectionUtils.hashCode(((Player) _activeChar).getCubics()));
-		_partyRoom = set(1, _partyRoom, ((((Player) _activeChar).getMatchingRoom() != null) && (((Player) _activeChar).getMatchingRoom().getType() == MatchingRoom.PARTY_MATCHING) && (((Player) _activeChar).getMatchingRoom().getLeader() == _activeChar)) ? ((Player) _activeChar).getMatchingRoom().getId() : 0);
-		_team = ((TeamType) set(128, _team, ((Player) _activeChar).getTeam()));
-		_title = set(1, _title, ((Player) _activeChar).getTitle());
+		_trade = set(16, _trade, _activeChar.getTradeLimit());
+		_recipeDwarven = set(16, _recipeDwarven, _activeChar.getDwarvenRecipeLimit());
+		_recipeCommon = set(16, _recipeCommon, _activeChar.getCommonRecipeLimit());
+		_cubicsHash = set(1, _cubicsHash, CollectionUtils.hashCode(_activeChar.getCubics()));
+		_partyRoom = set(1, _partyRoom, ((_activeChar.getMatchingRoom() != null) && (_activeChar.getMatchingRoom().getType() == MatchingRoom.PARTY_MATCHING) && (_activeChar.getMatchingRoom().getLeader() == _activeChar)) ? _activeChar.getMatchingRoom().getId() : 0);
+		_team = ((TeamType) set(128, _team, _activeChar.getTeam()));
+		_title = set(1, _title, _activeChar.getTitle());
 	}
 	
 	@Override
@@ -84,44 +84,44 @@ public final class PlayerStatsChangeRecorder extends CharStatsChangeRecorder<Pla
 		
 		if ((_changes & 0x80) == 128)
 		{
-			((Player) _activeChar).broadcastCharInfo();
-			if (((Player) _activeChar).getPet() != null)
+			_activeChar.broadcastCharInfo();
+			if (_activeChar.getPet() != null)
 			{
-				((Player) _activeChar).getPet().broadcastCharInfo();
+				_activeChar.getPet().broadcastCharInfo();
 			}
 		}
 		/* 100 */ if ((_changes & 0x1) == 1)
 		{
-			((Player) _activeChar).broadcastCharInfo();
+			_activeChar.broadcastCharInfo();
 		}
 		else if ((_changes & 0x2) == 2)
 		{
-			((Player) _activeChar).sendUserInfo();
+			_activeChar.sendUserInfo();
 		}
 		if ((_changes & 0x40) == 64)
 		{
-			((Player) _activeChar).sendStatusUpdate(false, false, new int[]
+			_activeChar.sendStatusUpdate(false, false, new int[]
 			{
 				14
 			});
 		}
 		if ((_changes & 0x20) == 32)
 		{
-			((Player) _activeChar).sendStatusUpdate(false, false, new int[]
+			_activeChar.sendStatusUpdate(false, false, new int[]
 			{
 				15
 			});
 		}
 		if ((_changes & 0x8) == 8)
 		{
-			((Player) _activeChar).sendStatusUpdate(true, false, new int[]
+			_activeChar.sendStatusUpdate(true, false, new int[]
 			{
 				27
 			});
 		}
 		if ((_changes & 0x10) == 16)
 		{
-			((Player) _activeChar).sendPacket(new ExStorageMaxCount((Player) _activeChar));
+			_activeChar.sendPacket(new ExStorageMaxCount(_activeChar));
 		}
 	}
 }

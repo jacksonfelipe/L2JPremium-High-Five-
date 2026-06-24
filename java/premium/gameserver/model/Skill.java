@@ -19,7 +19,6 @@ import premium.commons.util.Rnd;
 import premium.gameserver.Config;
 import premium.gameserver.ThreadPoolManager;
 import premium.gameserver.cache.Msg;
-import premium.gameserver.multverso.managers.GmEventManager;
 import premium.gameserver.geodata.GeoEngine;
 import premium.gameserver.instancemanager.games.HandysBlockCheckerManager;
 import premium.gameserver.instancemanager.games.HandysBlockCheckerManager.ArenaParticipantsHolder;
@@ -39,6 +38,7 @@ import premium.gameserver.model.instances.TerritoryWardInstance;
 import premium.gameserver.model.instances.TrapInstance;
 import premium.gameserver.model.items.Inventory;
 import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.multverso.managers.GmEventManager;
 import premium.gameserver.network.serverpackets.FlyToLocation;
 import premium.gameserver.network.serverpackets.FlyToLocation.FlyType;
 import premium.gameserver.network.serverpackets.SystemMessage2;
@@ -660,6 +660,7 @@ public abstract class Skill extends StatTemplate implements Cloneable
 	/**
 	 * @param set
 	 */
+	@SuppressWarnings("deprecation")
 	protected Skill(StatsSet set)
 	{
 		// _set = set;
@@ -1191,19 +1192,13 @@ public abstract class Skill extends StatTemplate implements Cloneable
 						{
 							return null;
 						}
-						else
-						{
-							return SystemMsg.THAT_IS_AN_INCORRECT_TARGET;
-						}
+						return SystemMsg.THAT_IS_AN_INCORRECT_TARGET;
 					case GmEventManager.RETURN_FALSE:
 						if (isOffensive())
 						{
 							return SystemMsg.THAT_IS_AN_INCORRECT_TARGET;
 						}
-						else
-						{
-							return null;
-						}
+						return null;
 				}
 				
 				if (isOffensive())
@@ -1243,7 +1238,7 @@ public abstract class Skill extends StatTemplate implements Cloneable
 					
 					if (activeChar.isInZoneBattle())
 					{
-						// TODO: Better handling for epic battle zones.
+					 
 						if (!forceUse && !isForceUse() && (player.getPlayerGroup() == pcTarget.getPlayerGroup()))
 						{
 							return SystemMsg.INVALID_TARGET;
@@ -1279,10 +1274,7 @@ public abstract class Skill extends StatTemplate implements Cloneable
 							{
 								return SystemMsg.INVALID_TARGET;
 							}
-							else
-							{
-								return null;
-							}
+							return null;
 						}
 					}
 					
@@ -1535,14 +1527,11 @@ public abstract class Skill extends StatTemplate implements Cloneable
 		List<Creature> targets;
 		if (oneTarget())
 		{
-			targets = new ArrayList<Creature>(1);
+			targets = new ArrayList<>(1);
 			targets.add(aimingTarget);
 			return targets;
 		}
-		else
-		{
-			targets = new ArrayList<Creature>();
-		}
+		targets = new ArrayList<>();
 		
 		switch (_targetType)
 		{
@@ -1555,7 +1544,7 @@ public abstract class Skill extends StatTemplate implements Cloneable
 					
 					if (playerArena != -1)
 					{
-						ArenaParticipantsHolder holder = HandysBlockCheckerManager.getInstance().getHolder(playerArena);
+						ArenaParticipantsHolder holder = HandysBlockCheckerManager.getHolder(playerArena);
 						int team = holder.getPlayerTeam(player);
 						// Aura attack
 						for (Player actor : World.getAroundPlayers(activeChar, 250, 100))
@@ -1927,7 +1916,7 @@ public abstract class Skill extends StatTemplate implements Cloneable
 					}
 					
 					Creature character = et._applyOnCaster || (et._isReflectable && skillReflected) ? effector : effected;
-					List<Creature> targets = new ArrayList<Creature>(1);
+					List<Creature> targets = new ArrayList<>(1);
 					targets.add(character);
 					
 					if (et._applyOnSummon && character.isPlayer())

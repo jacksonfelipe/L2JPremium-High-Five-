@@ -192,7 +192,7 @@ public enum PlayerClass
 	/** kamael SubClasses */
 	private static final Set<PlayerClass> subclasseSet6 = EnumSet.of(Inspector);
 	
-	private static final EnumMap<PlayerClass, Set<PlayerClass>> subclassSetMap = new EnumMap<PlayerClass, Set<PlayerClass>>(PlayerClass.class);
+	private static final EnumMap<PlayerClass, Set<PlayerClass>> subclassSetMap = new EnumMap<>(PlayerClass.class);
 	
 	static
 	{
@@ -337,9 +337,7 @@ public enum PlayerClass
 		return _level == level;
 	}
 	
-	/**
-	 * Проверяет принципиальную совместимость двух сабов.
-	 */
+	 
 	public static boolean areClassesComportable(PlayerClass c1, PlayerClass c2)
 	{
 		if (c1.isOfRace(Race.kamael) != c2.isOfRace(Race.kamael))

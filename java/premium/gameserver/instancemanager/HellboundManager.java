@@ -151,10 +151,7 @@ public class HellboundManager
 			{
 				return 9;
 			}
-			else
-			{
-				return 8;
-			}
+			return 8;
 		}
 		else if (confidence >= 2100000 && confidence < 2200000)
 		{
@@ -340,8 +337,8 @@ public class HellboundManager
 	
 	private void getHellboundSpawn()
 	{
-		_list = new ArrayList<HellboundSpawn>();
-		_spawnList = new ArrayList<SimpleSpawner>();
+		_list = new ArrayList<>();
+		_spawnList = new ArrayList<>();
 		
 		try
 		{
@@ -447,7 +444,7 @@ public class HellboundManager
 		}
 	}
 	
-	private void despawnHellbound()
+	public void despawnHellbound()
 	{
 		for (SimpleSpawner spawnToDelete : _spawnList)
 		{
@@ -460,7 +457,7 @@ public class HellboundManager
 	private class StageCheckTask extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			if (_initialStage != getHellboundLevel())
 			{

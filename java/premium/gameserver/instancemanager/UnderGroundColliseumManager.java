@@ -11,8 +11,7 @@ import premium.gameserver.model.Zone.ZoneType;
 import premium.gameserver.model.entity.Coliseum;
 import premium.gameserver.utils.ReflectionUtils;
 
-// TODO: zones for underground coliseum, restart points, spawn points etc.
-// TODO: unregister and safe checks on register.
+ 
 public class UnderGroundColliseumManager
 {
 	private static final Logger _log = LoggerFactory.getLogger(UnderGroundColliseumManager.class);
@@ -50,7 +49,7 @@ public class UnderGroundColliseumManager
 	{
 		if (_coliseums == null)
 		{
-			_coliseums = new HashMap<String, Coliseum>();
+			_coliseums = new HashMap<>();
 		}
 		return _coliseums;
 	}

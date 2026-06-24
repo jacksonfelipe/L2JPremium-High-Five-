@@ -12,7 +12,6 @@ import premium.gameserver.Config;
 import premium.gameserver.ai.CtrlEvent;
 import premium.gameserver.ai.CtrlIntention;
 import premium.gameserver.cache.Msg;
-import premium.gameserver.multverso.managers.GmEventManager;
 import premium.gameserver.geodata.GeoEngine;
 import premium.gameserver.model.AggroList.AggroInfo;
 import premium.gameserver.model.Skill.SkillTargetType;
@@ -26,6 +25,7 @@ import premium.gameserver.model.instances.NpcInstance;
 import premium.gameserver.model.instances.StaticObjectInstance;
 import premium.gameserver.model.items.Inventory;
 import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.multverso.managers.GmEventManager;
 import premium.gameserver.network.serverpackets.L2GameServerPacket;
 import premium.gameserver.network.serverpackets.Revive;
 import premium.gameserver.network.serverpackets.SystemMessage;
@@ -509,10 +509,7 @@ public abstract class Playable extends Creature
 					{
 						return false;
 					}
-					else
-					{
-						return true;
-					}
+					return true;
 				}
 			}
 			

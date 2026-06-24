@@ -154,7 +154,7 @@ public class CoupleManager
 	{
 		if (_couples == null)
 		{
-			_couples = new CopyOnWriteArrayList<Couple>();
+			_couples = new CopyOnWriteArrayList<>();
 		}
 		return _couples;
 	}
@@ -163,14 +163,11 @@ public class CoupleManager
 	{
 		if (_deletedCouples == null)
 		{
-			_deletedCouples = new CopyOnWriteArrayList<Couple>();
+			_deletedCouples = new CopyOnWriteArrayList<>();
 		}
 		return _deletedCouples;
 	}
-	
-	/**
-	 * Вызывется при шатдауне Сначала очищаем таблицу от ненужных свадеб, потом загоняем в нее все нужные. Обращение происходит только при загрузке/шатдауне сервера, ну или по запросу
-	 */
+ 
 	public void store()
 	{
 		Connection con = null;
@@ -216,7 +213,7 @@ public class CoupleManager
 	private class StoreTask extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			store();
 		}

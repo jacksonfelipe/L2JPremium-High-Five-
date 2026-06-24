@@ -77,7 +77,7 @@ public class CastleManorManager
 		}
 	}
 	
-	private void load()
+	public void load()
 	{
 		Connection con = null;
 		PreparedStatement statement = null;
@@ -89,10 +89,10 @@ public class CastleManorManager
 			List<Castle> castleList = ResidenceHolder.getInstance().getResidenceList(Castle.class);
 			for (Castle castle : castleList)
 			{
-				List<SeedProduction> production = new ArrayList<SeedProduction>();
-				List<SeedProduction> productionNext = new ArrayList<SeedProduction>();
-				List<CropProcure> procure = new ArrayList<CropProcure>();
-				List<CropProcure> procureNext = new ArrayList<CropProcure>();
+				List<SeedProduction> production = new ArrayList<>();
+				List<SeedProduction> productionNext = new ArrayList<>();
+				List<CropProcure> procure = new ArrayList<>();
+				List<CropProcure> procureNext = new ArrayList<>();
 				
 				// restore seed production info
 				statement = con.prepareStatement(CASTLE_MANOR_LOAD_PRODUCTION);
@@ -257,8 +257,8 @@ public class CastleManorManager
 			}
 			else
 			{
-				List<SeedProduction> production = new ArrayList<SeedProduction>();
-				List<CropProcure> procure = new ArrayList<CropProcure>();
+				List<SeedProduction> production = new ArrayList<>();
+				List<CropProcure> procure = new ArrayList<>();
 				for (SeedProduction s : c.getSeedProduction(PERIOD_CURRENT))
 				{
 					s.setCanProduce(s.getStartProduce());
@@ -317,9 +317,9 @@ public class CastleManorManager
 		}
 	}
 	
-	private List<SeedProduction> getNewSeedsList(int castleId)
+	public List<SeedProduction> getNewSeedsList(int castleId)
 	{
-		List<SeedProduction> seeds = new ArrayList<SeedProduction>();
+		List<SeedProduction> seeds = new ArrayList<>();
 		List<Integer> seedsIds = Manor.getInstance().getSeedsForCastle(castleId);
 		for (int sd : seedsIds)
 		{
@@ -328,9 +328,9 @@ public class CastleManorManager
 		return seeds;
 	}
 	
-	private List<CropProcure> getNewCropsList(int castleId)
+	public List<CropProcure> getNewCropsList(int castleId)
 	{
-		List<CropProcure> crops = new ArrayList<CropProcure>();
+		List<CropProcure> crops = new ArrayList<>();
 		List<Integer> cropsIds = Manor.getInstance().getCropsForCastle(castleId);
 		for (int cr : cropsIds)
 		{
@@ -409,7 +409,7 @@ public class CastleManorManager
 	private class ManorTask extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() 
 		{
 			int H = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
 			int M = Calendar.getInstance().get(Calendar.MINUTE);

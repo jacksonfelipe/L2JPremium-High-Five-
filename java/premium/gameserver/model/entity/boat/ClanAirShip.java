@@ -25,6 +25,7 @@ import premium.gameserver.utils.Location;
 
 public class ClanAirShip extends AirShip
 {
+	private static final long serialVersionUID = 1L;
 	private static final long MAINTENANCE_DELAY = 60 * 1000L;
 	public static final int MAX_FUEL = 600;
 	private int _currentFuel;
@@ -384,7 +385,7 @@ public class ClanAirShip extends AirShip
 	@Override
 	public List<L2GameServerPacket> deletePacketList()
 	{
-		List<L2GameServerPacket> list = new ArrayList<L2GameServerPacket>(2);
+		List<L2GameServerPacket> list = new ArrayList<>(2);
 		list.add(new DeleteObject(_controlKey));
 		list.add(new DeleteObject(this));
 		return list;
@@ -393,7 +394,7 @@ public class ClanAirShip extends AirShip
 	private class FuelAndDeleteTask extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			boolean empty = true;
 			for (Player player : _players)

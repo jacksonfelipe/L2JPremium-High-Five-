@@ -122,16 +122,13 @@ public class CCPRepair
 				DbUtils.closeQuietly(con, statement, rs);
 			}
 		}
-		else
-		{
-			activeChar.sendMessage(".repair <name>");
-			return false;
-		}
+		activeChar.sendMessage(".repair <name>");
+		return false;
 	}
 	
 	public static String getCharsOnAccount(String myCharName, String accountName)
 	{
-		List<String> chars = new ArrayList<String>();
+		List<String> chars = new ArrayList<>();
 		
 		try (Connection con = DatabaseFactory.getInstance().getConnection(); PreparedStatement statement = con.prepareStatement("SELECT char_name FROM characters WHERE account_name=?"))
 		{

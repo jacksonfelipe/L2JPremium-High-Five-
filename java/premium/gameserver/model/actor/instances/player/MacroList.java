@@ -25,7 +25,7 @@ public class MacroList
 	private static final Logger _log = LoggerFactory.getLogger(MacroList.class);
 	
 	private final Player player;
-	private final Map<Integer, Macro> _macroses = new HashMap<Integer, Macro>();
+	private final Map<Integer, Macro> _macroses = new HashMap<>();
 	private int _revision;
 	private int _macroId;
 	
@@ -147,9 +147,7 @@ public class MacroList
 		}
 	}
 	
-	/**
-	 * @param shortcut
-	 */
+	 
 	private void deleteMacroFromDb(Macro macro)
 	{
 		Connection con = null;

@@ -522,7 +522,7 @@ public class FeedableBeastInstance extends MonsterInstance
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			_actor.getAI().notifyEvent(CtrlEvent.EVT_AGGRESSION, _killer, 1000);
 		}

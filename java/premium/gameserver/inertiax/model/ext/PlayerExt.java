@@ -1,7 +1,5 @@
 package premium.gameserver.inertiax.model.ext;
 
-import java.util.StringTokenizer;
-
 import premium.gameserver.ai.CtrlIntention;
 import premium.gameserver.inertiax.enums.IInertiaCmd.EInertiaEvt;
 import premium.gameserver.inertiax.model.Inertia;

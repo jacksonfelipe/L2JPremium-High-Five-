@@ -131,7 +131,7 @@ public class HwidEngine
 		}
 	}
 	
-	private void saveNewGamer(HwidGamer gamer)
+	public void saveNewGamer(HwidGamer gamer)
 	{
 		try (Connection con = DatabaseFactory.getInstance().getConnection(); PreparedStatement statement = con.prepareStatement("INSERT INTO hwid SET HWID=?, first_time_played=?, total_time_played=?, poll_answer=?, warnings=?, seenChangeLog=?, threat=?, banned=?"))
 		{

@@ -223,7 +223,7 @@ public class Coliseum
 				setIsInUse(true);
 				if (party_waiting_list.size() > 0)
 				{
-					final ArrayList<Party> toDel = new ArrayList<Party>();
+					final ArrayList<Party> toDel = new ArrayList<>();
 					for (Party party : party_waiting_list)
 					{
 						if (party.size() > 6)
@@ -304,8 +304,8 @@ public class Coliseum
 		return party.size() == 0;
 	}
 	
-	private final ArrayList<Party> party_waiting_list = new ArrayList<Party>();
-	private final ArrayList<Party> party_inbattle_list = new ArrayList<Party>();
+	private final ArrayList<Party> party_waiting_list = new ArrayList<>();
+	private final ArrayList<Party> party_inbattle_list = new ArrayList<>();
 	private Zone _zone;
 	private int _id = 0;
 	private static Integer _event_cycle = 0;

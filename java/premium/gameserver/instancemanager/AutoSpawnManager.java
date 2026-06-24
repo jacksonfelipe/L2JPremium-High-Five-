@@ -24,10 +24,7 @@ import premium.gameserver.database.DatabaseFactory;
 import premium.gameserver.idfactory.IdFactory;
 import premium.gameserver.model.SimpleSpawner;
 import premium.gameserver.model.Spawner;
-import premium.gameserver.model.base.Race;
 import premium.gameserver.model.instances.NpcInstance;
-import premium.gameserver.templates.mapregion.RestartArea;
-import premium.gameserver.templates.mapregion.RestartPoint;
 import premium.gameserver.templates.npc.NpcTemplate;
 import premium.gameserver.utils.Location;
 
@@ -45,8 +42,8 @@ public class AutoSpawnManager
 	
 	public AutoSpawnManager()
 	{
-		_registeredSpawns = new ConcurrentHashMap<Integer, AutoSpawnInstance>();
-		_runningSpawns = new ConcurrentHashMap<Integer, ScheduledFuture<?>>();
+		_registeredSpawns = new ConcurrentHashMap<>();
+		_runningSpawns = new ConcurrentHashMap<>();
 		
 		restoreSpawnData();
 		
@@ -117,16 +114,7 @@ public class AutoSpawnManager
 			DbUtils.closeQuietly(con, statement, rset);
 		}
 	}
-	
-	/**
-	 * Registers a spawn with the given parameters with the spawner, and marks it as active. Returns a AutoSpawnInstance containing info about the spawn.
-	 * @param int npcId
-	 * @param int[][] spawnPoints
-	 * @param int initialDelay (If < 0 = default value)
-	 * @param int respawnDelay (If < 0 = default value)
-	 * @param int despawnDelay (If < 0 = default value or if = 0, function disabled)
-	 * @return AutoSpawnInstance spawnInst
-	 */
+	 
 	public AutoSpawnInstance registerSpawn(int npcId, int[][] spawnPoints, int initialDelay, int respawnDelay, int despawnDelay)
 	{
 		if (initialDelay < 0)
@@ -163,25 +151,13 @@ public class AutoSpawnManager
 		return newSpawn;
 	}
 	
-	/**
-	 * Registers a spawn with the given parameters with the spawner, and marks it as active. Returns a AutoSpawnInstance containing info about the spawn. <BR>
-	 * <B>Warning:</B> Spawn locations must be specified separately using addSpawnLocation().
-	 * @param int npcId
-	 * @param int initialDelay (If < 0 = default value)
-	 * @param int respawnDelay (If < 0 = default value)
-	 * @param int despawnDelay (If < 0 = default value or if = 0, function disabled)
-	 * @return AutoSpawnInstance spawnInst
-	 */
+	 
 	public AutoSpawnInstance registerSpawn(int npcId, int initialDelay, int respawnDelay, int despawnDelay)
 	{
 		return registerSpawn(npcId, null, initialDelay, respawnDelay, despawnDelay);
 	}
 	
-	/**
-	 * Remove a registered spawn from the list, specified by the given spawn instance.
-	 * @param AutoSpawnInstance spawnInst
-	 * @return boolean removedSuccessfully
-	 */
+	  
 	public boolean removeSpawn(AutoSpawnInstance spawnInst)
 	{
 		if (!isSpawnRegistered(spawnInst))
@@ -207,21 +183,13 @@ public class AutoSpawnManager
 		return true;
 	}
 	
-	/**
-	 * Remove a registered spawn from the list, specified by the given spawn object ID.
-	 * @param int objectId
-	 * @return boolean removedSuccessfully
-	 */
+ 
 	public void removeSpawn(int objectId)
 	{
 		removeSpawn(_registeredSpawns.get(objectId));
 	}
 	
-	/**
-	 * Sets the active state of the specified spawn.
-	 * @param AutoSpawnInstance spawnInst
-	 * @param boolean isActive
-	 */
+	 
 	public void setSpawnActive(AutoSpawnInstance spawnInst, boolean isActive)
 	{
 		int objectId = spawnInst._objectId;
@@ -258,11 +226,7 @@ public class AutoSpawnManager
 		}
 	}
 	
-	/**
-	 * Returns the number of milliseconds until the next occurrance of the given spawn.
-	 * @param AutoSpawnInstance spawnInst
-	 * @param long milliRemaining
-	 */
+ 
 	public final long getTimeToNextSpawn(AutoSpawnInstance spawnInst)
 	{
 		int objectId = spawnInst._objectId;
@@ -274,14 +238,7 @@ public class AutoSpawnManager
 		
 		return _runningSpawns.get(objectId).getDelay(TimeUnit.MILLISECONDS);
 	}
-	
-	/**
-	 * Attempts to return the AutoSpawnInstance associated with the given NPC or Object ID type. <BR>
-	 * Note: If isObjectId == false, returns first instance for the specified NPC ID.
-	 * @param int id
-	 * @param boolean isObjectId
-	 * @return AutoSpawnInstance spawnInst
-	 */
+ 
 	public final AutoSpawnInstance getAutoSpawnInstance(int id, boolean isObjectId)
 	{
 		if (isObjectId)
@@ -307,7 +264,7 @@ public class AutoSpawnManager
 	
 	public Map<Integer, AutoSpawnInstance> getAllAutoSpawnInstance(int id)
 	{
-		Map<Integer, AutoSpawnInstance> spawnInstList = new ConcurrentHashMap<Integer, AutoSpawnInstance>();
+		Map<Integer, AutoSpawnInstance> spawnInstList = new ConcurrentHashMap<>();
 		
 		for (AutoSpawnInstance spawnInst : _registeredSpawns.values())
 		{
@@ -320,32 +277,19 @@ public class AutoSpawnManager
 		return spawnInstList;
 	}
 	
-	/**
-	 * Tests if the specified object ID is assigned to an auto spawn.
-	 * @param int objectId
-	 * @return boolean isAssigned
-	 */
+	 
 	public final boolean isSpawnRegistered(int objectId)
 	{
 		return _registeredSpawns.containsKey(objectId);
 	}
 	
-	/**
-	 * Tests if the specified spawn instance is assigned to an auto spawn.
-	 * @param AutoSpawnInstance spawnInst
-	 * @return boolean isAssigned
-	 */
+ 
 	public final boolean isSpawnRegistered(AutoSpawnInstance spawnInst)
 	{
 		return _registeredSpawns.containsValue(spawnInst);
 	}
 	
-	/**
-	 * AutoSpawner Class <BR>
-	 * <BR>
-	 * This handles the main spawn task for an auto spawn instance, and initializes a despawner if required.
-	 * @author Tempy
-	 */
+	 
 	private class AutoSpawner extends RunnableImpl
 	{
 		private int _objectId;
@@ -356,7 +300,7 @@ public class AutoSpawnManager
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			try
 			{
@@ -435,14 +379,7 @@ public class AutoSpawnManager
 					spawnInst.addAttackable(npcInst);
 				}
 				
-				RestartArea ra = MapRegionManager.getInstance().getRegionData(RestartArea.class, npcInst.getLoc());
-				String nearestTown = "";
-				if (ra != null)
-				{
-					RestartPoint rp = ra.getRestartPoint().get(Race.human);
-					nearestTown = rp.getNameLoc();
-				}
-				
+	 
 				// Announce to all players that the spawn has taken place, with the nearest town location.
 				/*
 				 * if (spawnInst.isBroadcasting() && npcInst != null) Announcements.getInstance().announceByCustomMessage("premium.gameserver.model.AutoSpawnHandler.spawnNPC", new String[] { npcInst.getName(), nearestTown });
@@ -478,7 +415,7 @@ public class AutoSpawnManager
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			try
 			{
@@ -515,8 +452,8 @@ public class AutoSpawnManager
 		protected int _spawnCount = 1;
 		protected int _lastLocIndex = -1;
 		
-		private List<NpcInstance> _npcList = new ArrayList<NpcInstance>();
-		private List<Location> _locList = new ArrayList<Location>();
+		private List<NpcInstance> _npcList = new ArrayList<>();
+		private List<Location> _locList = new ArrayList<>();
 		
 		private boolean _spawnActive;
 		private boolean _randomSpawn = false;
@@ -587,7 +524,7 @@ public class AutoSpawnManager
 		
 		public Spawner[] getSpawns()
 		{
-			List<Spawner> npcSpawns = new ArrayList<Spawner>();
+			List<Spawner> npcSpawns = new ArrayList<>();
 			
 			for (NpcInstance npcInst : _npcList)
 			{

@@ -69,10 +69,7 @@ public class LvlupData
 	{
 		return _classCpAdd;
 	}
-	
-	/**
-	 * @param hpAdd The _classCpAdd to set.
-	 */
+ 
 	public void set_classCpAdd(double cpAdd)
 	{
 		_classCpAdd = cpAdd;
@@ -85,10 +82,7 @@ public class LvlupData
 	{
 		return _classCpBase;
 	}
-	
-	/**
-	 * @param hpBase The _classCpBase to set.
-	 */
+ 
 	public void set_classCpBase(double cpBase)
 	{
 		_classCpBase = cpBase;

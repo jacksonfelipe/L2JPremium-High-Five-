@@ -42,6 +42,7 @@ public class Achievement
 			
 			String[] split = s.split(",");
 			Integer item = 0;
+			@SuppressWarnings("deprecation")
 			Long count = new Long(0);
 			try
 			{

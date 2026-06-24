@@ -26,8 +26,8 @@ public class OlympiadHistoryManager
 {
 	private static final OlympiadHistoryManager _instance = new OlympiadHistoryManager();
 	
-	private IntObjectMap<List<OlympiadHistory>> _historyNew = new CHashIntObjectMap<List<OlympiadHistory>>();
-	private IntObjectMap<List<OlympiadHistory>> _historyOld = new CHashIntObjectMap<List<OlympiadHistory>>();
+	private IntObjectMap<List<OlympiadHistory>> _historyNew = new CHashIntObjectMap<>();
+	private IntObjectMap<List<OlympiadHistory>> _historyOld = new CHashIntObjectMap<>();
 	
 	public static OlympiadHistoryManager getInstance()
 	{
@@ -75,12 +75,12 @@ public class OlympiadHistoryManager
 		addHistory0(map, history.getObjectId2(), history);
 	}
 	
-	private void addHistory0(IntObjectMap<List<OlympiadHistory>> map, int objectId, OlympiadHistory history)
+	public void addHistory0(IntObjectMap<List<OlympiadHistory>> map, int objectId, OlympiadHistory history)
 	{
 		List<OlympiadHistory> historySet = map.get(objectId);
 		if (historySet == null)
 		{
-			map.put(objectId, historySet = new CopyOnWriteArrayList<OlympiadHistory>());
+			map.put(objectId, historySet = new CopyOnWriteArrayList<>());
 		}
 		
 		historySet.add(history);

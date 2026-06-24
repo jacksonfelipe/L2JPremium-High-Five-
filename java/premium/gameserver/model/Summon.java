@@ -432,7 +432,7 @@ public abstract class Summon extends Playable
 	private class UpdateEffectIcons extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			updateEffectIconsImpl();
 			_updateEffectIconsTask = null;
@@ -634,7 +634,7 @@ public abstract class Summon extends Playable
 	public class BroadcastCharInfoTask extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			broadcastCharInfoImpl();
 			_broadcastCharInfoTask = null;
@@ -678,7 +678,7 @@ public abstract class Summon extends Playable
 	private class PetInfoTask extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			sendPetInfoImpl();
 			_petInfoTask = null;
@@ -711,10 +711,7 @@ public abstract class Summon extends Playable
 		
 		_petInfoTask = ThreadPoolManager.getInstance().schedule(new PetInfoTask(), Config.USER_INFO_INTERVAL);
 	}
-	
-	/**
-	 * It is necessary to display animation spawn is used in the package NpcInfo, PetInfo: 0=false, 1=true, 2=summoned (only works if model has a summon animation)
-	 **/
+ 
 	public int getSpawnAnimation()
 	{
 		return _spawnAnimation;
@@ -776,7 +773,7 @@ public abstract class Summon extends Playable
 	@Override
 	public List<L2GameServerPacket> addPacketList(Player forPlayer, Creature dropper)
 	{
-		List<L2GameServerPacket> list = new ArrayList<L2GameServerPacket>();
+		List<L2GameServerPacket> list = new ArrayList<>();
 		Player owner = getPlayer();
 		
 		if (owner == forPlayer)
@@ -835,10 +832,7 @@ public abstract class Summon extends Playable
 		{
 			return player.getEvent(eventClass);
 		}
-		else
-		{
-			return super.getEvent(eventClass);
-		}
+		return super.getEvent(eventClass);
 	}
 	
 	@Override
@@ -849,10 +843,7 @@ public abstract class Summon extends Playable
 		{
 			return player.getEvents();
 		}
-		else
-		{
-			return super.getEvents();
-		}
+		return super.getEvents();
 	}
 	
 	@Override

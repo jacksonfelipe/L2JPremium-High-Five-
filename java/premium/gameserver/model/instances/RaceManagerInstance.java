@@ -128,7 +128,7 @@ public class RaceManagerInstance extends NpcInstance
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			makeAnnouncement(type);
 		}
@@ -478,7 +478,7 @@ public class RaceManagerInstance extends NpcInstance
 	class RunRace extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			packet = new MonRaceInfo(codes[2][0], codes[2][1], MonsterRace.getInstance().getMonsters(), MonsterRace.getInstance().getSpeeds());
 			sendMonsterInfo();
@@ -489,7 +489,7 @@ public class RaceManagerInstance extends NpcInstance
 	class RunEnd extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			makeAnnouncement(SystemMessage.FIRST_PRIZE_GOES_TO_THE_PLAYER_IN_LANE_S1_SECOND_PRIZE_GOES_TO_THE_PLAYER_IN_LANE_S2);
 			makeAnnouncement(SystemMessage.MONSTER_RACE_S1_IS_FINISHED);

@@ -162,7 +162,7 @@ public interface PlayerGroup extends Iterable<Player>
 	
 	default List<Playable> getMembersWithPets(Player... excluded)
 	{
-		List<Playable> result = new ArrayList<Playable>();
+		List<Playable> result = new ArrayList<>();
 		for (Player member : getMembers(excluded))
 		{
 			result.add(member);

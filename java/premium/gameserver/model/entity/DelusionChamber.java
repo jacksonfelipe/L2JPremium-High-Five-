@@ -34,7 +34,7 @@ public class DelusionChamber extends DimensionalRift
 		killRiftTask = ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 		{
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl()
 			{
 				if (getParty() != null && !getParty().getMembers().isEmpty())
 				{

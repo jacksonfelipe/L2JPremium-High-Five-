@@ -46,13 +46,13 @@ public class AutoHuntingManager
 	private static AutoHuntingManager _instance;
 	private static FastMap<Integer, String[]> _unread;
 	// Number of reportes made over each player
-	private static FastMap<Integer, FastTable<Player>> _reportedCount = new FastMap<Integer, FastTable<Player>>();
+	private static FastMap<Integer, FastTable<Player>> _reportedCount = new FastMap<>();
 	// Reporters blocked by time
-	private static FastMap<Integer, Long> _lockedReporters = new FastMap<Integer, Long>();
+	private static FastMap<Integer, Long> _lockedReporters = new FastMap<>();
 	// Blocked ips
-	private static Set<String> _lockedIps = new HashSet<String>();
+	private static Set<String> _lockedIps = new HashSet<>();
 	// Blocked accounts
-	private static Set<String> _lockedAccounts = new HashSet<String>();
+	private static Set<String> _lockedAccounts = new HashSet<>();
 	
 	private AutoHuntingManager()
 	{
@@ -60,7 +60,7 @@ public class AutoHuntingManager
 		loadUnread();
 	}
 
-	private void checkAndFixTable()
+	public void checkAndFixTable()
 	{
 		Connection con = null;
 		try
@@ -125,11 +125,8 @@ public class AutoHuntingManager
 		return World.getPlayer(player.getObjectId()) != null;
 	}
 	
-	/**
-	 * Will save the report in database
-	 * @param reported (the L2PcInstance who was reported)
-	 * @param reporter (the L2PcInstance who reported the bot)
-	 */
+ 
+	@SuppressWarnings("unlikely-arg-type")
 	public synchronized void reportBot(Player reported, Player reporter, String typeOfReport, String moreInfo)
 	{
 		if (!reportedIsOnline(reported) && reported.getPrivateStoreType() == Player.STORE_PRIVATE_NONE)
@@ -189,7 +186,7 @@ public class AutoHuntingManager
 		{
 			if (!_reportedCount.containsKey(reported))
 			{
-				final FastTable<Player> p = new FastTable<Player>();
+				final FastTable<Player> p = new FastTable<>();
 				p.add(reported);
 				_reportedCount.put(reporter.getObjectId(), p);
 			}
@@ -305,13 +302,10 @@ public class AutoHuntingManager
 		reporter.sendPacket(html);
 	}
 	
-	/**
-	 * Will load the data from all unreaded reports (used to load reports in a window for admins/GMs)
-	 * @return a FastMap<Integer, String[]> (Integer - report id, String[] - reported name, report name, date)
-	 */
-	private void loadUnread()
+ 
+	public void loadUnread()
 	{
-		_unread = new FastMap<Integer, String[]>();
+		_unread = new FastMap<>();
 		Connection con = null;
 		PreparedStatement statement = null;
 		ResultSet rset = null;
@@ -450,6 +444,7 @@ public class AutoHuntingManager
 	 * @param reporter
 	 * @return
 	 */
+	@SuppressWarnings("unlikely-arg-type")
 	public boolean validateBot(Player reported, Player reporter)
 	{
 		if (reported == null || reporter == null)
@@ -493,10 +488,7 @@ public class AutoHuntingManager
 			reporter.sendMessage("You cannot report players in this zone!");
 			return false;
 		}
-		/*
-		 * usless so disabled. // Cannot report if the reported didnt earn exp since he logged in if (!reported.hasEarnedExp()) { reporter.sendPacket(new SystemMessage2(SystemMsg.CANNOT_REPORT_CHARACTER_WITHOUT_GAINEXP)); return false; }
-		 */
-		// Cannot report twice or more a player
+		 
 		if (_reportedCount.containsKey(reporter))
 		{
 			for (Player p : _reportedCount.get(reporter))
@@ -552,10 +544,7 @@ public class AutoHuntingManager
 				reporter.sendPacket(sm);
 				return false;
 			}
-			else
-			{
-				ThreadPoolManager.getInstance().execute(new ReportClear(reporter));
-			}
+			ThreadPoolManager.getInstance().execute(new ReportClear(reporter));
 		}
 		// In those 30 mins, the ip which made the first report cannot report again
 		else if (_lockedIps.contains(reporter.getIP()))
@@ -610,11 +599,8 @@ public class AutoHuntingManager
 		activeChar.setReportedAccount(activeChar.getAccountName());
 	}
 	
-	/**
-	 * Will retore the player punish on enter
-	 * @param activeChar
-	 */
-	private void restorePlayerBotPunishment(Player activeChar)
+ 
+	public void restorePlayerBotPunishment(Player activeChar)
 	{
 		String punish = "";
 		long delay = 0;
@@ -668,6 +654,7 @@ public class AutoHuntingManager
 			_reporter = reporter;
 		}
 		
+		@SuppressWarnings("unlikely-arg-type")
 		@Override
 		public void run()
 		{

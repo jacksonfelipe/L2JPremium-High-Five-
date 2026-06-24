@@ -25,7 +25,7 @@ public class BeastFeed extends Skill
 			ThreadPoolManager.getInstance().execute(new RunnableImpl()
 			{
 				@Override
-				public void runImpl() throws Exception
+				public void runImpl()
 				{
 					if (target instanceof FeedableBeastInstance)
 					{

@@ -19,7 +19,7 @@ public class AdminTeam implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		TeamType team = TeamType.NONE;
 		int range = -1;
@@ -79,6 +79,7 @@ public class AdminTeam implements IAdminCommandHandler
 		return true;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{

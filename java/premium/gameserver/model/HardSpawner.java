@@ -20,12 +20,12 @@ public class HardSpawner extends Spawner
 	private int _pointIndex;
 	private int _npcIndex;
 	
-	private List<NpcInstance> _reSpawned = new CopyOnWriteArrayList<NpcInstance>();
+	private List<NpcInstance> _reSpawned = new CopyOnWriteArrayList<>();
 	
 	public HardSpawner(SpawnTemplate template)
 	{
 		_template = template;
-		_spawned = new CopyOnWriteArrayList<NpcInstance>();
+		_spawned = new CopyOnWriteArrayList<>();
 	}
 	
 	@Override

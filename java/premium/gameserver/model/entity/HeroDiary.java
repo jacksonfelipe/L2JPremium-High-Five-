@@ -45,6 +45,6 @@ public class HeroDiary
 				return null;
 		}
 		
-		return new AbstractMap.SimpleEntry<String, String>(SIMPLE_FORMAT.format(_time), message.toString());
+		return new AbstractMap.SimpleEntry<>(SIMPLE_FORMAT.format(_time), message.toString());
 	}
 }

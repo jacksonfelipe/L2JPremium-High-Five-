@@ -127,6 +127,7 @@ public class ChangeLogManager
 			fixes = new ArrayList<>();
 		}
 		
+		@SuppressWarnings("unused")
 		public int getIndex()
 		{
 			return index;

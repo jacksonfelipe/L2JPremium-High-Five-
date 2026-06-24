@@ -32,7 +32,7 @@ public class Manor
 	
 	public Manor()
 	{
-		_seeds = new ConcurrentHashMap<Integer, SeedData>();
+		_seeds = new ConcurrentHashMap<>();
 		parseData();
 	}
 	
@@ -47,7 +47,7 @@ public class Manor
 	
 	public List<Integer> getAllCrops()
 	{
-		List<Integer> crops = new ArrayList<Integer>();
+		List<Integer> crops = new ArrayList<>();
 		for (SeedData seed : _seeds.values())
 		{
 			if (!crops.contains(seed.getCrop()) && seed.getCrop() != 0 && !crops.contains(seed.getCrop()))
@@ -227,7 +227,7 @@ public class Manor
 	 */
 	public List<Integer> getCropsForCastle(int castleId)
 	{
-		List<Integer> crops = new ArrayList<Integer>();
+		List<Integer> crops = new ArrayList<>();
 		for (SeedData seed : _seeds.values())
 		{
 			if (seed.getManorId() == castleId && !crops.contains(seed.getCrop()))
@@ -245,7 +245,7 @@ public class Manor
 	 */
 	public List<Integer> getSeedsForCastle(int castleId)
 	{
-		List<Integer> seedsID = new ArrayList<Integer>();
+		List<Integer> seedsID = new ArrayList<>();
 		for (SeedData seed : _seeds.values())
 		{
 			if (seed.getManorId() == castleId && !seedsID.contains(seed.getId()))

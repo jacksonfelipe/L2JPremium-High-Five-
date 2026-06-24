@@ -47,7 +47,7 @@ public class ItemAuction
 		_startingTime = startingTime;
 		_endingTime = endingTime;
 		_auctionItem = auctionItem;
-		_auctionBids = new TIntObjectHashMap<ItemAuctionBid>();
+		_auctionBids = new TIntObjectHashMap<>();
 		_auctionState = auctionState;
 	}
 	

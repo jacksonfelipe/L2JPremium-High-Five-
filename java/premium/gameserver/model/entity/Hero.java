@@ -85,10 +85,10 @@ public class Hero
 	
 	private void init()
 	{
-		_heroes = new ConcurrentHashMap<Integer, StatsSet>();
-		_completeHeroes = new ConcurrentHashMap<Integer, StatsSet>();
-		_herodiary = new ConcurrentHashMap<Integer, List<HeroDiary>>();
-		_heroMessage = new ConcurrentHashMap<Integer, String>();
+		_heroes = new ConcurrentHashMap<>();
+		_completeHeroes = new ConcurrentHashMap<>();
+		_herodiary = new ConcurrentHashMap<>();
+		_heroMessage = new ConcurrentHashMap<>();
 		
 		Connection con = null;
 		PreparedStatement statement = null;
@@ -204,7 +204,7 @@ public class Hero
 			return true;
 		}
 		
-		Map<Integer, StatsSet> heroes = new ConcurrentHashMap<Integer, StatsSet>();
+		Map<Integer, StatsSet> heroes = new ConcurrentHashMap<>();
 		boolean ok = true;
 		
 		for (StatsSet hero : newHeroes)
@@ -408,7 +408,7 @@ public class Hero
 	
 	public void loadDiary(int charId)
 	{
-		List<HeroDiary> diary = new ArrayList<HeroDiary>();
+		List<HeroDiary> diary = new ArrayList<>();
 		
 		Connection con = null;
 		PreparedStatement statement = null;
@@ -461,7 +461,7 @@ public class Hero
 			html.replace("%heroname%", Olympiad.getNobleName(charid));
 			html.replace("%message%", _heroMessage.get(charid));
 			
-			List<HeroDiary> list = new ArrayList<HeroDiary>(mainlist);
+			List<HeroDiary> list = new ArrayList<>(mainlist);
 			
 			Collections.reverse(list);
 			
@@ -533,7 +533,7 @@ public class Hero
 		}
 	}
 	
-	private void insertHeroDiary(int charId, int action, int param)
+	public void insertHeroDiary(int charId, int action, int param)
 	{
 		Connection con = null;
 		PreparedStatement statement = null;

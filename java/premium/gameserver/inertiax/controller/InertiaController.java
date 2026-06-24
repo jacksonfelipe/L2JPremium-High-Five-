@@ -264,12 +264,7 @@ public class InertiaController implements IBypassHandler, IVoicedCommandHandler
 		player.sendPacket(npcHtml);
 	}
 
-	// -------------------------------------------------------
-	// Inertia session management
-	// -------------------------------------------------------
-	/**
-	 * Fetch (or create) the Inertia session for the given player.
-	 */
+ 
 	public Inertia fetchInertia(final Player player)
 	{
 		final int objectId = player.getObjectId();
@@ -283,9 +278,7 @@ public class InertiaController implements IBypassHandler, IVoicedCommandHandler
 		});
 	}
 
-	/**
-	 * Find inertia — if viewer is a GM and viewId differs, return that player's session; else return the active player's session.
-	 */
+ 
 	public Inertia findInertia(final Player player, final int viewId)
 	{
 		if (player.getObjectId() != viewId && player.isGM())
@@ -298,15 +291,13 @@ public class InertiaController implements IBypassHandler, IVoicedCommandHandler
 		return fetchInertia(player);
 	}
 
-	/**
-	 * Return existing Inertia session or null if not loaded.
-	 */
+ 
 	public Inertia getInertia(final Player player)
 	{
 		return _playerInertias.get(player.getObjectId());
 	}
 
-	/** Render the autofarm main UI for the player. */
+ 
 	public void renderInertia(final Player player)
 	{
 		final Inertia inertia = fetchInertia(player);

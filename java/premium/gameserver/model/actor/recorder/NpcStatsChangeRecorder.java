@@ -20,7 +20,7 @@ package premium.gameserver.model.actor.recorder;
 		/*	*/
 		/* 17 */ if ((_changes & 0x1) == 1)
 		{
-			/* 18 */ ((NpcInstance) _activeChar).broadcastCharInfo();
+			/* 18 */ _activeChar.broadcastCharInfo();
 			/*	*/
 		}
 	}

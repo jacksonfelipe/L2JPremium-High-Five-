@@ -49,7 +49,7 @@ public class BloodAltarManager
 		ThreadPoolManager.getInstance().scheduleAtFixedRate(new RunnableImpl()
 		{
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl() 
 			{
 				if (Rnd.chance(30) && bossRespawnTimer < System.currentTimeMillis())
 				{

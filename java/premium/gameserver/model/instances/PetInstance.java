@@ -50,7 +50,7 @@ public class PetInstance extends Summon
 	class FeedTask extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			Player owner = getPlayer();
 			

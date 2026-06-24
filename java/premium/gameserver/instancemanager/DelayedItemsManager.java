@@ -13,10 +13,10 @@ import premium.commons.dbutils.DbUtils;
 import premium.commons.threading.RunnableImpl;
 import premium.gameserver.Config;
 import premium.gameserver.ThreadPoolManager;
+import premium.gameserver.data.xml.holder.ItemHolder;
 import premium.gameserver.database.DatabaseFactory;
 import premium.gameserver.model.GameObjectsStorage;
 import premium.gameserver.model.Player;
-import premium.gameserver.data.xml.holder.ItemHolder;
 import premium.gameserver.model.base.Element;
 import premium.gameserver.model.items.ItemInstance;
 import premium.gameserver.templates.item.ItemTemplate;
@@ -167,7 +167,7 @@ public class DelayedItemsManager
 		}
 	}
 	
-	private void markAsDelivered(Connection con, int paymentId)
+	public void markAsDelivered(Connection con, int paymentId)
 	{
 		PreparedStatement ps = null;
 		try

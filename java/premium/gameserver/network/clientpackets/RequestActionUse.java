@@ -872,7 +872,7 @@ public class RequestActionUse extends L2GameClientPacket
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			this._player.stopParalyzed();
 		}

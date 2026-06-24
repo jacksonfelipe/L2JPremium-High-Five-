@@ -61,7 +61,7 @@ public class Party implements PlayerGroup
 	public static final int ITEM_ORDER = 3;
 	public static final int ITEM_ORDER_SPOIL = 4;
 	
-	private final List<Player> _members = new CopyOnWriteArrayList<Player>();
+	private final List<Player> _members = new CopyOnWriteArrayList<>();
 	
 	private int _partyLvl = 0;
 	private int _itemDistribution = 0;
@@ -210,8 +210,8 @@ public class Party implements PlayerGroup
 		player.getListeners().onPartyInvite();
 		
 		Summon pet;
-		final List<L2GameServerPacket> addInfo = new ArrayList<L2GameServerPacket>(4 + _members.size() * 4);
-		final List<L2GameServerPacket> pplayer = new ArrayList<L2GameServerPacket>(20);
+		final List<L2GameServerPacket> addInfo = new ArrayList<>(4 + _members.size() * 4);
+		final List<L2GameServerPacket> pplayer = new ArrayList<>(20);
 		// sends new member party window for all members
 		// we do all actions before adding member to a list, this speeds things up a little
 		pplayer.add(new PartySmallWindowAll(this, player));
@@ -231,7 +231,7 @@ public class Party implements PlayerGroup
 		{
 			if (member != player)
 			{
-				pmember = new ArrayList<L2GameServerPacket>(addInfo.size() + 4);
+				pmember = new ArrayList<>(addInfo.size() + 4);
 				pmember.addAll(addInfo);
 				pmember.add(new PartySmallWindowAdd(member, player));
 				pmember.add(new PartyMemberPosition().add(player));
@@ -313,12 +313,7 @@ public class Party implements PlayerGroup
 		
 	}
 	
-	/**
-	 * removes player from party
-	 * @param player Player to remove
-	 * @param kick меняет сообщения "вышел/кикнули"
-	 * @param withdrawal выход по нажатию кнопки
-	 */
+	 
 	public boolean removePartyMember(Player player, boolean kick, boolean withdrawal)
 	{
 		final boolean isLeader = isLeader(player);
@@ -336,7 +331,7 @@ public class Party implements PlayerGroup
 		
 		player.setParty(null);
 		recalculatePartyData();
-		final List<L2GameServerPacket> pplayer = new ArrayList<L2GameServerPacket>(4 + _members.size() * 2);
+		final List<L2GameServerPacket> pplayer = new ArrayList<>(4 + _members.size() * 2);
 		// Отсылаемы вышедшему пакет закрытия СС
 		if (isInCommandChannel())
 		{
@@ -353,7 +348,7 @@ public class Party implements PlayerGroup
 		pplayer.add(PartySmallWindowDeleteAll.STATIC);
 		
 		Summon pet;
-		final List<L2GameServerPacket> outsInfo = new ArrayList<L2GameServerPacket>(3);
+		final List<L2GameServerPacket> outsInfo = new ArrayList<>(3);
 		if ((pet = player.getPet()) != null)
 		{
 			outsInfo.add(new ExPartyPetWindowDelete(pet));
@@ -371,7 +366,7 @@ public class Party implements PlayerGroup
 		List<L2GameServerPacket> pmember;
 		for (Player member : _members)
 		{
-			pmember = new ArrayList<L2GameServerPacket>(2 + outsInfo.size());
+			pmember = new ArrayList<>(2 + outsInfo.size());
 			pmember.addAll(outsInfo);
 			pmember.add(RelationChanged.update(member, player, member));
 			if (member.getPet() != null)
@@ -548,7 +543,7 @@ public class Party implements PlayerGroup
 				{
 					case ITEM_RANDOM:
 					case ITEM_RANDOM_SPOIL:
-						ret = new ArrayList<Player>(_members.size());
+						ret = new ArrayList<>(_members.size());
 						for (Player member : _members)
 						{
 							if (member.isInRangeZ(player, Config.ALT_PARTY_DISTRIBUTION_RANGE) && !member.isDead() && member.getInventory().validateCapacity(item) && member.getInventory().validateWeight(item))
@@ -563,7 +558,7 @@ public class Party implements PlayerGroup
 					case ITEM_ORDER_SPOIL:
 						synchronized (_members)
 						{
-							ret = new CopyOnWriteArrayList<Player>(_members);
+							ret = new CopyOnWriteArrayList<>(_members);
 							while (target == null && !ret.isEmpty())
 							{
 								final int looter = _itemOrder;
@@ -633,7 +628,7 @@ public class Party implements PlayerGroup
 			return;
 		}
 		
-		List<Player> membersInRange = new ArrayList<Player>();
+		List<Player> membersInRange = new ArrayList<>();
 		
 		if (item.getCount() < _members.size())
 		{
@@ -678,7 +673,7 @@ public class Party implements PlayerGroup
 	{
 		recalculatePartyData();
 		
-		List<Player> mtr = new ArrayList<Player>();
+		List<Player> mtr = new ArrayList<>();
 		int partyLevel = lastAttacker.getLevel();
 		int partyLvlSum = 0;
 		
@@ -987,9 +982,9 @@ public class Party implements PlayerGroup
 	private class UpdatePositionTask extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
-			final List<Player> update = new ArrayList<Player>();
+			final List<Player> update = new ArrayList<>();
 			for (Player member : _members)
 			{
 				final Location loc = member.getLastPartyPosition();
@@ -1037,7 +1032,7 @@ public class Party implements PlayerGroup
 		_requestChangeLoot = type;
 		final int additionalTime = 45000; // timeout 45sec, guess
 		_requestChangeLootTimer = System.currentTimeMillis() + additionalTime;
-		_changeLootAnswers = new CopyOnWriteArraySet<Integer>();
+		_changeLootAnswers = new CopyOnWriteArraySet<>();
 		_checkTask = ThreadPoolManager.getInstance().scheduleAtFixedRate(new ChangeLootCheck(), additionalTime + 1000, 5000);
 		sendPacket(getLeader(), new ExAskModifyPartyLooting(getLeader().getName(), type));
 		final SystemMessage2 sm = new SystemMessage2(SystemMsg.REQUESTING_APPROVAL_CHANGE_PARTY_LOOT_S1);
@@ -1095,7 +1090,7 @@ public class Party implements PlayerGroup
 	private class ChangeLootCheck extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			if (System.currentTimeMillis() > _requestChangeLootTimer)
 			{

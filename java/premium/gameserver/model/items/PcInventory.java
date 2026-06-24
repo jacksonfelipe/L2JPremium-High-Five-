@@ -786,7 +786,7 @@ public class PcInventory extends Inventory
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			Player player = getActor();
 			
@@ -848,7 +848,7 @@ public class PcInventory extends Inventory
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			Player player = getActor();
 			

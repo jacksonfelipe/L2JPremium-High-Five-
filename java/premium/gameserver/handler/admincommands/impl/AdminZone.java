@@ -25,7 +25,7 @@ public class AdminZone implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		Commands command = (Commands) comm;
 		
@@ -40,7 +40,7 @@ public class AdminZone implements IAdminCommandHandler
 			{
 				activeChar.sendMessage("Current region: " + activeChar.getCurrentRegion());
 				activeChar.sendMessage("Zone list:");
-				List<Zone> zones = new ArrayList<Zone>();
+				List<Zone> zones = new ArrayList<>();
 				World.getZones(zones, activeChar.getLoc(), activeChar.getReflection());
 				for (Zone zone : zones)
 				{
@@ -91,6 +91,7 @@ public class AdminZone implements IAdminCommandHandler
 		return true;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{

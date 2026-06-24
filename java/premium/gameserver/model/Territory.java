@@ -15,8 +15,8 @@ public class Territory implements Shape, SpawnRange
 	protected final Point3D max = new Point3D();
 	protected final Point3D min = new Point3D();
 	
-	private final List<Shape> include = new ArrayList<Shape>(1);
-	private final List<Shape> exclude = new ArrayList<Shape>(1);
+	private final List<Shape> include = new ArrayList<>(1);
+	private final List<Shape> exclude = new ArrayList<>(1);
 	
 	public Territory()
 	{

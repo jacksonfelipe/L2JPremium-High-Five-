@@ -14,9 +14,9 @@ import javolution.util.FastMap;
 import premium.gameserver.Announcements;
 import premium.gameserver.Config;
 import premium.gameserver.ThreadPoolManager;
-import premium.gameserver.multverso.votingengine.VotingSettings;
 import premium.gameserver.model.GameObjectsStorage;
 import premium.gameserver.model.Player;
+import premium.gameserver.multverso.votingengine.VotingSettings;
 import premium.gameserver.utils.ItemFunctions;
 
 public class VoteRewardTopzone
@@ -32,7 +32,7 @@ public class VoteRewardTopzone
 	
 	// Don't-touch variables.
 	private static int lastVotes = 0;
-	private static FastMap<String, Integer> playerIps = new FastMap<String, Integer>();
+	private static FastMap<String, Integer> playerIps = new FastMap<>();
 	
 	public static void updateConfigurations()
 	{

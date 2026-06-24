@@ -38,7 +38,7 @@ public class TwitchManager
 		init();
 	}
 	
-	private void init()
+	public void init()
 	{
 		/** Register voice comamnd handler */
 		VoicedCommandHandler.getInstance().registerVoicedCommandHandler(new IVoicedCommandHandler()

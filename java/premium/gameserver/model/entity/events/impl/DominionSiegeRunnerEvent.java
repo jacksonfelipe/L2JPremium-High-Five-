@@ -33,7 +33,7 @@ public class DominionSiegeRunnerEvent extends GlobalEvent
 	private class BattlefieldChatTask extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			setBattlefieldChatActive(false);
 			setRegistrationOver(false);

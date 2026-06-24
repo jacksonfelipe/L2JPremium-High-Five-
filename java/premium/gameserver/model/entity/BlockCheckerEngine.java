@@ -46,15 +46,15 @@ public final class BlockCheckerEngine
 	// The object which holds all basic members info
 	private HandysBlockCheckerManager.ArenaParticipantsHolder _holder;
 	// Maps to hold player of each team and his points
-	private Map<Player, Integer> _redTeamPoints = new ConcurrentHashMap<Player, Integer>();
-	private Map<Player, Integer> _blueTeamPoints = new ConcurrentHashMap<Player, Integer>();
+	private Map<Player, Integer> _redTeamPoints = new ConcurrentHashMap<>();
+	private Map<Player, Integer> _blueTeamPoints = new ConcurrentHashMap<>();
 	// The initial points of the event
 	private int _redPoints = 15;
 	private int _bluePoints = 15;
 	// Current used arena
 	private int _arena = -1;
 	// All blocks
-	private List<SimpleSpawner> _spawns = new CopyOnWriteArrayList<SimpleSpawner>();
+	private List<SimpleSpawner> _spawns = new CopyOnWriteArrayList<>();
 	// Sets if the red team won the event at the end of this (used for packets)
 	private boolean _isRedWinner;
 	// Time when the event starts. Used on packet sending
@@ -105,7 +105,7 @@ public final class BlockCheckerEngine
 	// Girl Npc
 	private NpcInstance _girlNpc;
 	// List of dropped items in event (for later deletion)
-	private List<ItemInstance> _drops = new ArrayList<ItemInstance>();
+	private List<ItemInstance> _drops = new ArrayList<>();
 	// Default arena
 	private static final byte DEFAULT_ARENA = -1;
 	// Event is started
@@ -217,10 +217,7 @@ public final class BlockCheckerEngine
 		{
 			return _redTeamPoints.get(player);
 		}
-		else
-		{
-			return _blueTeamPoints.get(player);
-		}
+		return _blueTeamPoints.get(player);
 	}
 	
 	/**
@@ -272,9 +269,7 @@ public final class BlockCheckerEngine
 		return _isStarted;
 	}
 	
-	/**
-	 * Will send all packets for the event members with the relation info
-	 */
+ 
 	private void broadcastRelationChanged(Player plr)
 	{
 		for (Player p : _holder.getAllPlayers())
@@ -310,7 +305,7 @@ public final class BlockCheckerEngine
 		}
 	}
 	
-	public void clearArena(String zoneName)
+	public static void clearArena(String zoneName)
 	{
 		Zone zone = ReflectionUtils.getZone(zoneName);
 		if (zone != null)
@@ -353,7 +348,7 @@ public final class BlockCheckerEngine
 		private void setUpPlayers()
 		{
 			// Set current arena as being used
-			HandysBlockCheckerManager.getInstance().setArenaBeingUsed(_arena);
+			HandysBlockCheckerManager.setArenaBeingUsed(_arena);
 			// Initialize packets avoiding create a new one per player
 			_redPoints = _spawns.size() / 2;
 			_bluePoints = _spawns.size() / 2;
@@ -538,7 +533,7 @@ public final class BlockCheckerEngine
 					ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 					{
 						@Override
-						public void runImpl() throws Exception
+						public void runImpl()
 						{
 							if (_girlNpc == null)
 							{
@@ -568,7 +563,7 @@ public final class BlockCheckerEngine
 		private int seconds = 5;
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			switch (seconds)
 			{
@@ -621,7 +616,7 @@ public final class BlockCheckerEngine
 			_holder.clearPlayers();
 			_blueTeamPoints.clear();
 			_redTeamPoints.clear();
-			HandysBlockCheckerManager.getInstance().setArenaFree(_arena);
+			HandysBlockCheckerManager.setArenaFree(_arena);
 			
 			for (SimpleSpawner spawn : _spawns)
 			{
@@ -831,7 +826,7 @@ public final class BlockCheckerEngine
 			player.setTransformation(0);
 			player.getEffectList().stopAllEffects();
 			int arena = player.getBlockCheckerArena();
-			int team = HandysBlockCheckerManager.getInstance().getHolder(arena).getPlayerTeam(player);
+			int team = HandysBlockCheckerManager.getHolder(arena).getPlayerTeam(player);
 			HandysBlockCheckerManager.getInstance().removePlayer(player, arena, team);
 			// Remove team aura
 			player.setTeam(TeamType.NONE);

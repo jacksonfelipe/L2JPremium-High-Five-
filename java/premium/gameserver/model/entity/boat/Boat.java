@@ -24,6 +24,7 @@ import premium.gameserver.utils.PositionUtils;
 
 public abstract class Boat extends Creature
 {
+	private static final long serialVersionUID = 1L;
 	private int _moveSpeed; // speed 1
 	private int _rotationSpeed; // speed 2
 	
@@ -31,7 +32,7 @@ public abstract class Boat extends Creature
 	protected int _runState;
 	
 	private final BoatWayEvent[] _ways = new BoatWayEvent[2];
-	protected final Set<Player> _players = new CopyOnWriteArraySet<Player>();
+	protected final Set<Player> _players = new CopyOnWriteArraySet<>();
 	
 	public Boat(int objectId, CharTemplate template)
 	{
@@ -231,7 +232,7 @@ public abstract class Boat extends Creature
 	@Override
 	public void broadcastPacket(L2GameServerPacket... packets)
 	{
-		List<Player> players = new ArrayList<Player>();
+		List<Player> players = new ArrayList<>();
 		players.addAll(_players);
 		players.addAll(World.getAroundPlayers(this));
 		
@@ -366,12 +367,9 @@ public abstract class Boat extends Creature
 		{
 			return Collections.singletonList(infoPacket());
 		}
-		else
-		{
-			List<L2GameServerPacket> list = new ArrayList<L2GameServerPacket>(2);
-			list.add(infoPacket());
-			list.add(movePacket());
-			return list;
-		}
+		List<L2GameServerPacket> list = new ArrayList<>(2);
+		list.add(infoPacket());
+		list.add(movePacket());
+		return list;
 	}
 }

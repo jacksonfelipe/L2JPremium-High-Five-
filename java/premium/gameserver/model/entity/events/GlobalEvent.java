@@ -76,10 +76,10 @@ public abstract class GlobalEvent extends LoggerObject
 	public static final String EVENT = "event";
 	
 	// actions
-	protected final IntObjectMap<List<EventAction>> _onTimeActions = new TreeIntObjectMap<List<EventAction>>();
-	protected final List<EventAction> _onStartActions = new ArrayList<EventAction>(0);
-	protected final List<EventAction> _onStopActions = new ArrayList<EventAction>(0);
-	protected final List<EventAction> _onInitActions = new ArrayList<EventAction>(0);
+	protected final IntObjectMap<List<EventAction>> _onTimeActions = new TreeIntObjectMap<>();
+	protected final List<EventAction> _onStartActions = new ArrayList<>(0);
+	protected final List<EventAction> _onStopActions = new ArrayList<>(0);
+	protected final List<EventAction> _onInitActions = new ArrayList<>(0);
 	// objects
 	protected final Map<String, List<Serializable>> _objects = new HashMap<>(0);
 	
@@ -181,7 +181,7 @@ public abstract class GlobalEvent extends LoggerObject
 		}
 		else
 		{
-			final List<EventAction> actions = new ArrayList<EventAction>(1);
+			final List<EventAction> actions = new ArrayList<>(1);
 			actions.add(action);
 			_onTimeActions.put(time, actions);
 		}
@@ -201,7 +201,7 @@ public abstract class GlobalEvent extends LoggerObject
 		}
 		else
 		{
-			_onTimeActions.put(time, new ArrayList<EventAction>(actions));
+			_onTimeActions.put(time, new ArrayList<>(actions));
 		}
 	}
 	
@@ -274,7 +274,7 @@ public abstract class GlobalEvent extends LoggerObject
 		return objectsFromType;
 	}
 	
-	@SuppressWarnings("unchecked")
+ 
 	public <O extends Serializable> O getFirstObject(String name)
 	{
 		final List<O> objects = getObjects(name);
@@ -638,7 +638,7 @@ public abstract class GlobalEvent extends LoggerObject
 	{
 		if (_banishedItems.isEmpty())
 		{
-			_banishedItems = new CHashIntObjectMap<ItemInstance>();
+			_banishedItems = new CHashIntObjectMap<>();
 		}
 		
 		_banishedItems.put(item.getObjectId(), item);

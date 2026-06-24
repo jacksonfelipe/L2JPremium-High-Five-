@@ -66,8 +66,8 @@ public final class PetitionManager implements IPetitionHandler
 	}
 	
 	private final AtomicInteger _nextId = new AtomicInteger();
-	private final Map<Integer, Petition> _pendingPetitions = new ConcurrentHashMap<Integer, Petition>();
-	private final Map<Integer, Petition> _completedPetitions = new ConcurrentHashMap<Integer, Petition>();
+	private final Map<Integer, Petition> _pendingPetitions = new ConcurrentHashMap<>();
+	private final Map<Integer, Petition> _completedPetitions = new ConcurrentHashMap<>();
 	
 	private class Petition
 	{
@@ -79,7 +79,7 @@ public final class PetitionManager implements IPetitionHandler
 		private PetitionState _state = PetitionState.Pending;
 		private final String _content;
 		
-		private final List<Say2> _messageLog = new ArrayList<Say2>();
+		private final List<Say2> _messageLog = new ArrayList<>();
 		
 		private final int _petitioner;
 		private int _responder;
@@ -461,7 +461,7 @@ public final class PetitionManager implements IPetitionHandler
 		return false;
 	}
 	
-	public boolean isPetitioningAllowed()
+	public static boolean isPetitioningAllowed()
 	{
 		return Config.PETITIONING_ALLOWED;
 	}
@@ -648,7 +648,7 @@ public final class PetitionManager implements IPetitionHandler
 			return;
 		}
 		
-		if (!PetitionManager.getInstance().isPetitioningAllowed())
+		if (!PetitionManager.isPetitioningAllowed())
 		{
 			player.sendPacket(new SystemMessage(SystemMessage.CANNOT_CONNECT_TO_PETITION_SERVER));
 			return;

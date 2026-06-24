@@ -16,7 +16,7 @@ public class ManageBbsBuffer
 	
 	public ManageBbsBuffer()
 	{
-		listScheme = new ArrayList<SBufferScheme>();
+		listScheme = new ArrayList<>();
 	}
 	
 	public static ManageBbsBuffer getInstance()
@@ -55,7 +55,7 @@ public class ManageBbsBuffer
 	
 	public static List<Integer> StringToInt(String list)
 	{
-		List<Integer> skills_id = new ArrayList<Integer>();
+		List<Integer> skills_id = new ArrayList<>();
 		
 		String[] s_id = list.split(";");
 		
@@ -108,7 +108,7 @@ public class ManageBbsBuffer
 	
 	public static List<SBufferScheme> getSchemePlayer(int obj_id)
 	{
-		List<SBufferScheme> list = new ArrayList<SBufferScheme>();
+		List<SBufferScheme> list = new ArrayList<>();
 		for (SBufferScheme sm : getInstance().listScheme)
 		{
 			if (sm.obj_id == obj_id)
@@ -131,7 +131,7 @@ public class ManageBbsBuffer
 			id = 0;
 			obj_id = 0;
 			name = "";
-			skills_id = new ArrayList<Integer>();
+			skills_id = new ArrayList<>();
 		}
 	}
 }

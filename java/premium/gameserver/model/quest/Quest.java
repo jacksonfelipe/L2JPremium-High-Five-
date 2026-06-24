@@ -980,7 +980,7 @@ public class Quest
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			if (_npc != null)
 			{

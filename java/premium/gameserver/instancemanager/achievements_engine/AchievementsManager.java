@@ -145,7 +145,7 @@ public class AchievementsManager
 		return b;
 	}
 	
-	private int checkInt(Node d, String nodename)
+	public int checkInt(Node d, String nodename)
 	{
 		int i = 0;
 		

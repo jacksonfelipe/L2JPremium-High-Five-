@@ -178,7 +178,7 @@ public class RequestPreviewItem extends L2GameClientPacket
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			this._activeChar.sendPacket(SystemMsg.YOU_ARE_NO_LONGER_TRYING_ON_EQUIPMENT_);
 			this._activeChar.sendUserInfo(true);

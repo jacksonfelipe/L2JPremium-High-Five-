@@ -22,7 +22,7 @@ public class BitSetIDFactory extends IdFactory
 	public class BitSetCapacityCheck extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			if (reachingBitSetCapacity())
 			{

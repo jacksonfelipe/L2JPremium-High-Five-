@@ -41,9 +41,6 @@ public class EffectList
 		_actor = owner;
 	}
 	
-	/**
-	 * Возвращает число эффектов соответствующее данному скиллу
-	 */
 	public int getEffectsCountForSkill(int skill_id)
 	{
 		if (isEmpty())
@@ -98,7 +95,7 @@ public class EffectList
 			return null;
 		}
 		
-		List<Effect> list = new ArrayList<Effect>(2);
+		List<Effect> list = new ArrayList<>(2);
 		for (Effect e : _effects)
 		{
 			if (e.getSkill().getId() == skillId)
@@ -170,7 +167,7 @@ public class EffectList
 		{
 			return Collections.emptyList();
 		}
-		return new ArrayList<Effect>(_effects);
+		return new ArrayList<>(_effects);
 	}
 	
 	public boolean isEmpty()
@@ -178,9 +175,6 @@ public class EffectList
 		return (_effects == null) || _effects.isEmpty();
 	}
 	
-	/**
-	 * Возвращает первые эффекты для всех скиллов. Нужно для отображения не более чем 1 иконки для каждого скилла.
-	 */
 	public Effect[] getAllFirstEffects()
 	{
 		if (isEmpty())
@@ -188,7 +182,7 @@ public class EffectList
 			return Effect.EMPTY_L2EFFECT_ARRAY;
 		}
 		
-		Map<Integer, Effect> map = new LinkedHashMap<Integer, Effect>();
+		Map<Integer, Effect> map = new LinkedHashMap<>();
 		for (Effect e : _effects)
 		{
 			map.put(e.getSkill().getId(), e); // putIfAbsent
@@ -326,7 +320,7 @@ public class EffectList
 		{
 			if (_effects == null)
 			{
-				_effects = new CopyOnWriteArrayList<Effect>();
+				_effects = new CopyOnWriteArrayList<>();
 			}
 			
 			if (stackType.equals(EffectTemplate.NO_STACK))
@@ -381,11 +375,8 @@ public class EffectList
 			// Проверяем на лимиты бафов/дебафов
 			checkSlotLimit(effect);
 			
-			// Добавляем новый эффект
-			if (add = _effects.add(effect))
-			{
-				effect.setInUse(true);
-			}
+			effect.setInUse(true);
+			
 		}
 		finally
 		{
@@ -537,9 +528,7 @@ public class EffectList
 		}
 	}
 	
-	/**
-	 * Находит скиллы с указанным эффектом, и останавливает у этих скиллов все эффекты (не только указанный).
-	 */
+ 
 	public void stopAllSkillEffects(EffectType type)
 	{
 		if (isEmpty())

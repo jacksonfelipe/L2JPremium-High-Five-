@@ -41,7 +41,7 @@ public final class HandysBlockCheckerManager
 	private static Map<Integer, Boolean> _arenaStatus;
 	
 	// Registration request penalty (10 seconds)
-	private static List<Integer> _registrationPenalty = new ArrayList<Integer>();
+	private static List<Integer> _registrationPenalty = new ArrayList<>();
 	
 	/**
 	 * Return the number of event-start votes for the spcified arena id
@@ -95,7 +95,7 @@ public final class HandysBlockCheckerManager
 		// Initialize arena status
 		if (_arenaStatus == null)
 		{
-			_arenaStatus = new HashMap<Integer, Boolean>();
+			_arenaStatus = new HashMap<>();
 			_arenaStatus.put(0, false);
 			_arenaStatus.put(1, false);
 			_arenaStatus.put(2, false);
@@ -103,12 +103,8 @@ public final class HandysBlockCheckerManager
 		}
 	}
 	
-	/**
-	 * Returns the players holder
-	 * @param arena
-	 * @return ArenaParticipantsHolder
-	 */
-	public ArenaParticipantsHolder getHolder(int arena)
+	 
+	public static ArenaParticipantsHolder getHolder(int arena)
 	{
 		return _arenaPlayers[arena];
 	}
@@ -125,13 +121,8 @@ public final class HandysBlockCheckerManager
 			_arenaPlayers[i] = new ArenaParticipantsHolder(i);
 		}
 	}
-	
-	/**
-	 * Add the player to the specified arena (throught the specified arena manager) and send the needed server -> client packets
-	 * @param player
-	 * @param arenaId
-	 */
-	public boolean addPlayerToArena(Player player, int arenaId)
+ 
+	public static boolean addPlayerToArena(Player player, int arenaId)
 	{
 		ArenaParticipantsHolder holder = _arenaPlayers[arenaId];
 		
@@ -181,11 +172,7 @@ public final class HandysBlockCheckerManager
 		}
 	}
 	
-	/**
-	 * Will remove the specified player from the specified team and arena and will send the needed packet to all his team mates / enemy team mates
-	 * @param player
-	 * @param arenaId
-	 */
+ 
 	public void removePlayer(Player player, int arenaId, int team)
 	{
 		ArenaParticipantsHolder holder = _arenaPlayers[arenaId];
@@ -212,13 +199,8 @@ public final class HandysBlockCheckerManager
 		}
 	}
 	
-	/**
-	 * Will change the player from one team to other (if possible) and will send the needed packets
-	 * @param player
-	 * @param arena
-	 * @param team
-	 */
-	public void changePlayerToTeam(Player player, int arena, int team)
+ 
+	public static void changePlayerToTeam(Player player, int arena, int team)
 	{
 		ArenaParticipantsHolder holder = _arenaPlayers[arena];
 		
@@ -268,12 +250,8 @@ public final class HandysBlockCheckerManager
 		return false;
 	}
 	
-	/**
-	 * Returns true if arena is holding an event at this momment
-	 * @param arenaId
-	 * @return Boolean
-	 */
-	public boolean arenaIsBeingUsed(int arenaId)
+ 
+	public static boolean arenaIsBeingUsed(int arenaId)
 	{
 		if (arenaId < 0 || arenaId > 3)
 		{
@@ -282,20 +260,14 @@ public final class HandysBlockCheckerManager
 		return _arenaStatus.get(arenaId);
 	}
 	
-	/**
-	 * Set the specified arena as being used
-	 * @param arenaId
-	 */
-	public void setArenaBeingUsed(int arenaId)
+ 
+	public static void setArenaBeingUsed(int arenaId)
 	{
 		_arenaStatus.put(arenaId, true);
 	}
 	
-	/**
-	 * Set as free the specified arena for future events
-	 * @param arenaId
-	 */
-	public void setArenaFree(int arenaId)
+ 
+	public static void setArenaFree(int arenaId)
 	{
 		_arenaStatus.put(arenaId, false);
 	}
@@ -320,8 +292,8 @@ public final class HandysBlockCheckerManager
 		public ArenaParticipantsHolder(int arena)
 		{
 			_arena = arena;
-			_redPlayers = new ArrayList<Player>(6);
-			_bluePlayers = new ArrayList<Player>(6);
+			_redPlayers = new ArrayList<>(6);
+			_bluePlayers = new ArrayList<>(6);
 			_engine = new BlockCheckerEngine(this, _arena);
 		}
 		
@@ -337,7 +309,7 @@ public final class HandysBlockCheckerManager
 		
 		public ArrayList<Player> getAllPlayers()
 		{
-			ArrayList<Player> all = new ArrayList<Player>(12);
+			ArrayList<Player> all = new ArrayList<>(12);
 			all.addAll(_redPlayers);
 			all.addAll(_bluePlayers);
 			return all;
@@ -395,7 +367,7 @@ public final class HandysBlockCheckerManager
 		
 		public void broadCastPacketToTeam(L2GameServerPacket packet)
 		{
-			ArrayList<Player> team = new ArrayList<Player>(12);
+			ArrayList<Player> team = new ArrayList<>(12);
 			team.addAll(_redPlayers);
 			team.addAll(_bluePlayers);
 			
@@ -471,7 +443,7 @@ public final class HandysBlockCheckerManager
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			_registrationPenalty.remove(objectId);
 		}

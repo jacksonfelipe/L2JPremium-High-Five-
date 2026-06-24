@@ -20,8 +20,7 @@ import premium.gameserver.utils.Strings;
 public class BypassManager
 {
 	private static final Pattern PATTERN_NO_H = Pattern.compile("\"(bypass +)(.+?)\"");
-	private static final Pattern PATTERN_H = Pattern.compile("\"(bypass +-h +)(.+?)\"");
-	private static final Map<Integer, String> lastHTMLs = new ConcurrentHashMap<Integer, String>();
+	private static final Map<Integer, String> lastHTMLs = new ConcurrentHashMap<>();
 	
 	public static enum EncodingType
 	{

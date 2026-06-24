@@ -6,8 +6,8 @@ import java.util.List;
 public class MultiSellEntry
 {
 	private int _entryId;
-	private List<MultiSellIngredient> _ingredients = new ArrayList<MultiSellIngredient>();
-	private List<MultiSellIngredient> _production = new ArrayList<MultiSellIngredient>();
+	private List<MultiSellIngredient> _ingredients = new ArrayList<>();
+	private List<MultiSellIngredient> _production = new ArrayList<>();
 	private long _tax;
 	
 	public MultiSellEntry()
@@ -41,9 +41,7 @@ public class MultiSellEntry
 		return _entryId;
 	}
 	
-	/**
-	 * @param ingredients The ingredients to set.
-	 */
+ 
 	public void addIngredient(MultiSellIngredient ingredient)
 	{
 		if (ingredient.getItemCount() > 0)
@@ -60,9 +58,7 @@ public class MultiSellEntry
 		return _ingredients;
 	}
 	
-	/**
-	 * @param ingredients The ingredients to set.
-	 */
+ 
 	public void addProduct(MultiSellIngredient ingredient)
 	{
 		_production.add(ingredient);

@@ -20,7 +20,7 @@ public class GameEventManager
 	
 	public GameEventManager()
 	{
-		_events = new HashMap<String, GameEvent>();
+		_events = new HashMap<>();
 		event_sched = null;
 		event = null;
 	}

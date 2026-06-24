@@ -1,17 +1,18 @@
 package premium.gameserver.inertiax.model.panels;
 
-import java.util.StringTokenizer;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.HashSet;
+import java.util.StringTokenizer;
+
 import gnu.trove.set.hash.TIntHashSet;
+import premium.gameserver.data.xml.holder.NpcHolder;
 import premium.gameserver.inertiax.model.Inertia;
 import premium.gameserver.inertiax.model.InertiaPanel;
 import premium.gameserver.model.Player;
 import premium.gameserver.model.World;
 import premium.gameserver.model.instances.NpcInstance;
 import premium.gameserver.network.serverpackets.NpcHtmlMessage;
-import premium.gameserver.data.xml.holder.NpcHolder;
 import premium.gameserver.templates.npc.NpcTemplate;
 
 public class TargetFiltering extends InertiaPanel
@@ -138,10 +139,7 @@ public class TargetFiltering extends InertiaPanel
 			_filteredIds.remove(id);
 			return false;
 		}
-		else
-		{
-			_filteredIds.add(id);
-			return true;
-		}
+		_filteredIds.add(id);
+		return true;
 	}
 }

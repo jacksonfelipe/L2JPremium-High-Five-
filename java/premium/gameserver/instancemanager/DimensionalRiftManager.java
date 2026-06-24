@@ -38,7 +38,7 @@ public class DimensionalRiftManager
 {
 	private static final Logger LOG = LoggerFactory.getLogger(DimensionalRiftManager.class);
 	private static DimensionalRiftManager _instance;
-	private Map<Integer, Map<Integer, DimensionalRiftRoom>> _rooms = new ConcurrentHashMap<Integer, Map<Integer, DimensionalRiftRoom>>();
+	private Map<Integer, Map<Integer, DimensionalRiftRoom>> _rooms = new ConcurrentHashMap<>();
 	private final static int DIMENSIONAL_FRAGMENT_ITEM_ID = 7079;
 	
 	public static DimensionalRiftManager getInstance()
@@ -140,7 +140,7 @@ public class DimensionalRiftManager
 									
 									if (!_rooms.containsKey(type))
 									{
-										_rooms.put(type, new ConcurrentHashMap<Integer, DimensionalRiftRoom>());
+										_rooms.put(type, new ConcurrentHashMap<>());
 									}
 									
 									_rooms.get(type).put(roomId, new DimensionalRiftRoom(territory, tele, isBossRoom));
@@ -324,7 +324,7 @@ public class DimensionalRiftManager
 			_territory = territory;
 			_teleportCoords = tele;
 			_isBossRoom = isBossRoom;
-			_roomSpawns = new ArrayList<SimpleSpawner>();
+			_roomSpawns = new ArrayList<>();
 		}
 		
 		public Location getTeleportCoords()
@@ -353,7 +353,7 @@ public class DimensionalRiftManager
 		}
 	}
 	
-	private long getNeededItems(int type)
+	public long getNeededItems(int type)
 	{
 		switch (type)
 		{

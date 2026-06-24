@@ -90,7 +90,7 @@ public class SummonInstance extends Summon
 	class Lifetime extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			Player owner = getPlayer();
 			if (owner == null)

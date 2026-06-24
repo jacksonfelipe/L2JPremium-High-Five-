@@ -42,7 +42,7 @@ public class RaidBossSpawnManager
 	
 	private static RaidBossSpawnManager _instance;
 	
-	protected static Map<Integer, Spawner> _spawntable = new ConcurrentHashMap<Integer, Spawner>();
+	protected static Map<Integer, Spawner> _spawntable = new ConcurrentHashMap<>();
 	protected static Map<Integer, StatsSet> _storedInfo;
 	protected static Map<Integer, Map<Integer, Integer>> _points;
 	
@@ -78,9 +78,9 @@ public class RaidBossSpawnManager
 		return _instance;
 	}
 	
-	private void loadStatus()
+	public void loadStatus()
 	{
-		_storedInfo = new ConcurrentHashMap<Integer, StatsSet>();
+		_storedInfo = new ConcurrentHashMap<>();
 		
 		try (Connection con = DatabaseFactory.getInstance().getConnection(); ResultSet rset = con.createStatement().executeQuery("SELECT * FROM `raidboss_status`"))
 		{
@@ -126,7 +126,7 @@ public class RaidBossSpawnManager
 		info.set("current_hp", 0);
 		info.set("current_mp", 0);
 		info.set("respawn_delay", spawner.getRespawnTime());
-		info.set("date_of_death", (long) (System.currentTimeMillis() / 1000L));
+		info.set("date_of_death", System.currentTimeMillis() / 1000L);
 		info.set("last_killer", killer);
 		
 		try (Connection con = DatabaseFactory.getInstance().getConnection(); PreparedStatement statement = con.prepareStatement("REPLACE INTO `raidboss_status` (id, current_hp, current_mp, respawn_delay, date_of_death, last_killer) VALUES (?,?,?,?,?,?)"))
@@ -145,7 +145,7 @@ public class RaidBossSpawnManager
 		}
 	}
 	
-	private void setRaidBossAlive(int id)
+	public void setRaidBossAlive(int id)
 	{
 		Spawner spawner = _spawntable.get(id);
 		if (spawner == null)
@@ -306,26 +306,26 @@ public class RaidBossSpawnManager
 	
 	// ----------- Points & Ranking -----------
 	
-	public static final Integer KEY_RANK = new Integer(-1);
-	public static final Integer KEY_TOTAL_POINTS = new Integer(0);
+	public static final Integer KEY_RANK = -1;
+	public static final Integer KEY_TOTAL_POINTS = 0;
 	
 	private Lock pointsLock = new ReentrantLock();
 	
 	private void restorePointsTable()
 	{
 		pointsLock.lock();
-		_points = new ConcurrentHashMap<Integer, Map<Integer, Integer>>();
+		_points = new ConcurrentHashMap<>();
 		
 		try (Connection con = DatabaseFactory.getInstance().getConnection(); PreparedStatement statement = con.prepareStatement("SELECT owner_id, boss_id, points FROM `raidboss_points` ORDER BY owner_id ASC"); ResultSet rset = statement.executeQuery())
 		{
 			int currentOwner = 0;
-			Map<Integer, Integer> score = null;
+			Map<Integer, Integer> score = new HashMap<>();
 			while (rset.next())
 			{
 				if (currentOwner != rset.getInt("owner_id"))
 				{
 					currentOwner = rset.getInt("owner_id");
-					score = new HashMap<Integer, Integer>();
+					
 					_points.put(currentOwner, score);
 				}
 				
@@ -412,7 +412,7 @@ public class RaidBossSpawnManager
 		// ?? ?????? ?????????
 		if (pointsTable == null)
 		{
-			pointsTable = new HashMap<Integer, Integer>();
+			pointsTable = new HashMap<>();
 			_points.put(ownerId, pointsTable);
 		}
 		
@@ -433,7 +433,7 @@ public class RaidBossSpawnManager
 	public TreeMap<Integer, Integer> calculateRanking()
 	{
 		// ??????? PlayerId - Rank ??? ??????????? ???????????
-		TreeMap<Integer, Integer> tmpRanking = new TreeMap<Integer, Integer>();
+		TreeMap<Integer, Integer> tmpRanking = new TreeMap<>();
 		
 		pointsLock.lock();
 		

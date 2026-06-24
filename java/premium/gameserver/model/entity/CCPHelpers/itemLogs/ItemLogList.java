@@ -120,7 +120,7 @@ public class ItemLogList
 				deleteStatement.executeUpdate();
 			}
 			ItemLogHandler.getInstance().loadLastActionId(con);
-			final Map<Integer, ItemActionLog> logsById = new HashMap<Integer, ItemActionLog>();
+			final Map<Integer, ItemActionLog> logsById = new HashMap<>();
 			try (PreparedStatement statement2 = con.prepareStatement("SELECT * FROM logs"); final ResultSet rset2 = statement2.executeQuery())
 			{
 				while (rset2.next())
@@ -132,7 +132,7 @@ public class ItemLogList
 					List<ItemActionLog> logs = _logLists.get(playerObjectId);
 					if (logs == null)
 					{
-						logs = new CopyOnWriteArrayList<ItemActionLog>();
+						logs = new CopyOnWriteArrayList<>();
 						_logLists.put(playerObjectId, logs);
 					}
 					final ItemActionLog log = new ItemActionLog(logId, playerObjectId, actionType, time, ItemLogList.EMPTY_ITEM_LOGS, ItemLogList.EMPTY_ITEM_LOGS, true);
@@ -209,7 +209,7 @@ public class ItemLogList
 						{
 							final boolean isLostItem = i == 1;
 							final SingleItemLog[] array;
-							final SingleItemLog[] items = array = isLostItem ? log.getItemsLost() : log.getItemsReceived();
+							array = isLostItem ? log.getItemsLost() : log.getItemsReceived();
 							for (SingleItemLog item : array)
 							{
 								statement.setInt(1, log.getActionId());

@@ -105,7 +105,7 @@ public class Spawn extends Skill
 				ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 				{
 					@Override
-					public void runImpl() throws Exception
+					public void runImpl()
 					{
 						if (_spawnNpc == null)
 						{

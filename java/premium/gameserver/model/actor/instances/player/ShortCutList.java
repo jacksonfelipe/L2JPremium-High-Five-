@@ -23,7 +23,7 @@ public class ShortCutList
 	private static final Logger _log = LoggerFactory.getLogger(ShortCutList.class);
 	
 	private final Player player;
-	private Map<Integer, ShortCut> _shortCuts = new ConcurrentHashMap<Integer, ShortCut>();
+	private Map<Integer, ShortCut> _shortCuts = new ConcurrentHashMap<>();
 	
 	public ShortCutList(Player owner)
 	{
@@ -40,7 +40,7 @@ public class ShortCutList
 		// Проверка ярлыков
 		for (ShortCut sc : _shortCuts.values())
 		{
-			// Удаляем ярлыки на предметы, которых нету в инвентаре
+			 
 			if (sc.getType() == ShortCut.TYPE_ITEM)
 			{
 				if (player.getInventory().getItemByObjectId(sc.getId()) == null)

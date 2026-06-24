@@ -27,7 +27,7 @@ public class LazyPrecisionTaskManager extends SteppingRunnableQueueManager
 		ThreadPoolManager.getInstance().scheduleAtFixedRate(new RunnableImpl()
 		{
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl()
 			{
 				LazyPrecisionTaskManager.this.purge();
 			}
@@ -43,7 +43,7 @@ public class LazyPrecisionTaskManager extends SteppingRunnableQueueManager
 		{
 			
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl()
 			{
 				if (player.isInOfflineMode() || player.getLevel() < Config.ALT_PCBANG_POINTS_MIN_LVL)
 				{
@@ -64,7 +64,7 @@ public class LazyPrecisionTaskManager extends SteppingRunnableQueueManager
 		{
 			
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl()
 			{
 				if (player.isInOfflineMode() || !player.isInPeaceZone())
 				{
@@ -85,7 +85,7 @@ public class LazyPrecisionTaskManager extends SteppingRunnableQueueManager
 		{
 			
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl()
 			{
 				PremiumEnd.getInstance().stopBonuses(player);
 			}
@@ -99,7 +99,7 @@ public class LazyPrecisionTaskManager extends SteppingRunnableQueueManager
 		{
 			
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl()
 			{
 				if (npc.isVisible() && !npc.isActionsDisabled() && !npc.isMoving && !npc.isInCombat())
 				{

@@ -53,9 +53,7 @@ public class Request extends MultiValueSet<String>
 	private long _timeout;
 	private Future<?> _timeoutTask;
 	
-	/**
-	 * Создает запрос
-	 */
+	
 	public Request(L2RequestType type, Player requestor, Player reciever)
 	{
 		_id = _nextId.incrementAndGet();
@@ -80,7 +78,7 @@ public class Request extends MultiValueSet<String>
 		_timeoutTask = ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 		{
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl()
 			{
 				timeout();
 			}
@@ -178,9 +176,7 @@ public class Request extends MultiValueSet<String>
 		return _reciever.get();
 	}
 	
-	/**
-	 * Проверяет не просрочен ли запрос.
-	 */
+ 
 	public boolean isInProgress()
 	{
 		if (_isCancelled || _isDone)
@@ -194,17 +190,13 @@ public class Request extends MultiValueSet<String>
 		return false;
 	}
 	
-	/**
-	 * Проверяет тип запроса.
-	 */
+
 	public boolean isTypeOf(L2RequestType type)
 	{
 		return _type == type;
 	}
 	
-	/**
-	 * Помечает участника как согласившегося.
-	 */
+
 	public void confirm(Player player)
 	{
 		if (player == getRequestor())
@@ -217,9 +209,7 @@ public class Request extends MultiValueSet<String>
 		}
 	}
 	
-	/**
-	 * Проверяет согласился ли игрок с запросом.
-	 */
+
 	public boolean isConfirmed(Player player)
 	{
 		if (player == getRequestor())

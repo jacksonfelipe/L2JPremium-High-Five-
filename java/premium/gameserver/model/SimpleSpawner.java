@@ -15,7 +15,7 @@ import premium.gameserver.templates.spawn.SpawnRange;
 import premium.gameserver.utils.Location;
 
 @SuppressWarnings("serial")
-public class SimpleSpawner extends Spawner implements Cloneable
+public class SimpleSpawner extends Spawner
 {
 	@SuppressWarnings("unused")
 	private static final Logger _log = LoggerFactory.getLogger(SimpleSpawner.class);
@@ -33,7 +33,7 @@ public class SimpleSpawner extends Spawner implements Cloneable
 		}
 		
 		_npcTemplate = mobTemplate;
-		_spawned = new ArrayList<NpcInstance>(1);
+		_spawned = new ArrayList<>(1);
 	}
 	
 	public SimpleSpawner(int npcId)
@@ -45,76 +45,49 @@ public class SimpleSpawner extends Spawner implements Cloneable
 		}
 		
 		_npcTemplate = mobTemplate;
-		_spawned = new ArrayList<NpcInstance>(1);
+		_spawned = new ArrayList<>(1);
 	}
 	
-	/**
-	 * Return the maximum number of L2NpcInstance that this L2Spawn can manage.<BR>
-	 * <BR>
-	 */
+
 	public int getAmount()
 	{
 		return _maximumCount;
 	}
 	
-	/**
-	 * Return the number of L2NpcInstance that this L2Spawn spawned.<BR>
-	 * <BR>
-	 */
+
 	public int getSpawnedCount()
 	{
 		return _currentCount;
 	}
 	
-	/**
-	 * Return the number of L2NpcInstance that this L2Spawn sheduled.<BR>
-	 * <BR>
-	 */
+	
 	public int getSheduledCount()
 	{
 		return _scheduledCount;
 	}
 	
-	/**
-	 * Return the Identifier of the location area where L2NpcInstance can be spwaned.<BR>
-	 * <BR>
-	 */
+
 	public Territory getTerritory()
 	{
 		return _territory;
 	}
 	
-	/**
-	 * Return the position of the spawn point.<BR>
-	 * <BR>
-	 */
+	
 	public Location getLoc()
 	{
 		return new Location(_locx, _locy, _locz);
 	}
-	
-	/**
-	 * Return the X position of the spawn point.<BR>
-	 * <BR>
-	 */
+
 	public int getLocx()
 	{
 		return _locx;
 	}
 	
-	/**
-	 * Return the Y position of the spawn point.<BR>
-	 * <BR>
-	 */
+ 
 	public int getLocy()
 	{
 		return _locy;
 	}
-	
-	/**
-	 * Return the Z position of the spawn point.<BR>
-	 * <BR>
-	 */
 	public int getLocz()
 	{
 		return _locz;
@@ -140,27 +113,19 @@ public class SimpleSpawner extends Spawner implements Cloneable
 		return getLoc();
 	}
 	
-	/**
-	 * Return the heading of L2NpcInstance when they are spawned.<BR>
-	 * <BR>
-	 */
+	 
 	public int getHeading()
 	{
 		return _heading;
 	}
 	
-	/**
-	 * Восстанавливает измененное количество
-	 */
+	 
 	public void restoreAmount()
 	{
 		_maximumCount = _referenceCount;
 	}
 	
-	/**
-	 * Set the Identifier of the location area where L2NpcInstance can be spawned.<BR>
-	 * <BR>
-	 */
+ 
 	public void setTerritory(Territory territory)
 	{
 		_territory = territory;
@@ -178,37 +143,25 @@ public class SimpleSpawner extends Spawner implements Cloneable
 		_heading = loc.h;
 	}
 	
-	/**
-	 * Set the X position of the spawn point.<BR>
-	 * <BR>
-	 */
+	 
 	public void setLocx(int locx)
 	{
 		_locx = locx;
 	}
 	
-	/**
-	 * Set the Y position of the spawn point.<BR>
-	 * <BR>
-	 */
+ 
 	public void setLocy(int locy)
 	{
 		_locy = locy;
 	}
 	
-	/**
-	 * Set the Z position of the spawn point.<BR>
-	 * <BR>
-	 */
+ 
 	public void setLocz(int locz)
 	{
 		_locz = locz;
 	}
 	
-	/**
-	 * Set the heading of L2NpcInstance when they are spawned.<BR>
-	 * <BR>
-	 */
+ 
 	public void setHeading(int heading)
 	{
 		_heading = heading;

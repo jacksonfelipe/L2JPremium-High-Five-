@@ -22,7 +22,7 @@ import premium.gameserver.model.Player;
 public class MiniGameScoreManager
 {
 	private static final Logger _log = LoggerFactory.getLogger(MiniGameScoreManager.class);
-	private IntObjectMap<Set<String>> _scores = new CTreeIntObjectMap<Set<String>>(new IntComparator()
+	private IntObjectMap<Set<String>> _scores = new CTreeIntObjectMap<>(new IntComparator()
 	{
 		@Override
 		public int compare(int o1, int o2)
@@ -104,7 +104,7 @@ public class MiniGameScoreManager
 		Set<String> set = _scores.get(score);
 		if (set == null)
 		{
-			_scores.put(score, (set = new CopyOnWriteArraySet<String>()));
+			_scores.put(score, (set = new CopyOnWriteArraySet<>()));
 		}
 		
 		return set.add(name);

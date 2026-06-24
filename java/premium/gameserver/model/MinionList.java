@@ -23,16 +23,13 @@ public class MinionList
 	public MinionList(MonsterInstance master)
 	{
 		_master = master;
-		_minions = new HashSet<MinionInstance>();
-		_minionData = new HashSet<MinionData>();
+		_minions = new HashSet<>();
+		_minionData = new HashSet<>();
 		_minionData.addAll(_master.getTemplate().getMinionData());
 		lock = new ReentrantLock();
 	}
 	
-	/**
-	 * Добавить шаблон для миниона
-	 * @param m
-	 */
+ 
 	public boolean addMinion(MinionData m)
 	{
 		lock.lock();
@@ -98,7 +95,7 @@ public class MinionList
 	 */
 	public List<MinionInstance> getAliveMinions()
 	{
-		List<MinionInstance> result = new ArrayList<MinionInstance>(_minions.size());
+		List<MinionInstance> result = new ArrayList<>(_minions.size());
 		lock.lock();
 		try
 		{

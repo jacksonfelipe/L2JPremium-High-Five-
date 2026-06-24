@@ -65,7 +65,7 @@ public abstract class IdFactory
 		cleanUpDB();
 	}
 	
-	private void resetOnlineStatus()
+	public void resetOnlineStatus()
 	{
 		Connection con = null;
 		Statement st = null;
@@ -86,7 +86,7 @@ public abstract class IdFactory
 		}
 	}
 	
-	private void cleanUpDB()
+	public void cleanUpDB()
 	{
 		Connection con = null;
 		Statement st = null;

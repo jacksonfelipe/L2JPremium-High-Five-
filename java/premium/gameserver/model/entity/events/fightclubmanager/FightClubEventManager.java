@@ -334,12 +334,8 @@ public class FightClubEventManager
 			room.getGame().prepareEvent(room);
 		}
 	}
-	
-	/**
-	 * Equilizing players count in All rooms in List
-	 * @param eventRooms rooms to equalize
-	 */
-	private void equalizeRooms(Collection<FightClubGameRoom> eventRooms)
+ 
+	private static void equalizeRooms(Collection<FightClubGameRoom> eventRooms)
 	{
 		// getting all players count
 		double players = 0.0;
@@ -451,10 +447,8 @@ public class FightClubEventManager
 		return _nextEvent;
 	}
 	
-	/*
-	 * Other
-	 */
-	private void sendErrorMessageToPlayer(Player player, String msg)
+ 
+	private static void sendErrorMessageToPlayer(Player player, String msg)
 	{
 		player.sendPacket(new Say2(player.getObjectId(), ChatType.COMMANDCHANNEL_ALL, "Error", msg));
 		player.sendMessage(msg);
@@ -517,13 +511,8 @@ public class FightClubEventManager
 		
 		_nextEvent = closestEvent;
 	}
-	
-	/**
-	 * Choosing closest Hour and Minute from Array and converting it to Calendar
-	 * @param dates {{hour, minute}, {hour, minute}} - of event start
-	 * @return Calendar of closest date
-	 */
-	private Calendar getClosestEventDate(int[][] dates)
+ 
+	private static Calendar getClosestEventDate(int[][] dates)
 	{
 		Calendar tempCalendar = Calendar.getInstance();
 		tempCalendar.set(Calendar.SECOND, 0);
@@ -575,7 +564,7 @@ public class FightClubEventManager
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl() throws InterruptedException
 		{
 			startEventCountdown(_event, true);
 			
@@ -847,7 +836,7 @@ public class FightClubEventManager
 		player.sendPacket(new TutorialShowQuestionMark(100));
 	}
 	
-	private void leaveEvent(Player player)
+	private static void leaveEvent(Player player)
 	{
 		AbstractFightClub event = player.getFightClubEvent();
 		if (event == null)

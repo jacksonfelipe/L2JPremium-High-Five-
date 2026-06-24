@@ -56,7 +56,7 @@ public class CursedWeaponsManager
 	
 	public CursedWeaponsManager()
 	{
-		_cursedWeaponsMap = new TIntObjectHashMap<CursedWeapon>();
+		_cursedWeaponsMap = new TIntObjectHashMap<>();
 		_cursedWeapons = new CursedWeapon[0];
 		
 		if (!Config.ALLOW_CURSED_WEAPONS)
@@ -370,7 +370,7 @@ public class CursedWeaponsManager
 	private class RemoveTask extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()  
 		{
 			for (CursedWeapon cw : _cursedWeapons)
 			{
@@ -694,6 +694,7 @@ public class CursedWeaponsManager
 		}
 	}
 	
+	@SuppressWarnings("deprecation")
 	public void showUsageTime(Player player, CursedWeapon cw)
 	{
 		SystemMessage sm = new SystemMessage(SystemMessage.S2_MINUTE_OF_USAGE_TIME_ARE_LEFT_FOR_S1);

@@ -365,7 +365,7 @@ public class World
 		int oid = object.getObjectId();
 		int rid = object.getReflectionId();
 		
-		List<GameObject> result = new ArrayList<GameObject>(128);
+		List<GameObject> result = new ArrayList<>(128);
 		
 		for (int x = validX(currentRegion.getX() - 1); x <= validX(currentRegion.getX() + 1); x++)
 		{
@@ -404,7 +404,7 @@ public class World
 		int oz = object.getZ();
 		int sqrad = radius * radius;
 		
-		List<GameObject> result = new ArrayList<GameObject>(128);
+		List<GameObject> result = new ArrayList<>(128);
 		
 		for (int x = validX(currentRegion.getX() - 1); x <= validX(currentRegion.getX() + 1); x++)
 		{
@@ -449,7 +449,7 @@ public class World
 		int oid = object.getObjectId();
 		int rid = object.getReflectionId();
 		
-		List<Creature> result = new ArrayList<Creature>(64);
+		List<Creature> result = new ArrayList<>(64);
 		
 		for (int x = validX(currentRegion.getX() - 1); x <= validX(currentRegion.getX() + 1); x++)
 		{
@@ -488,7 +488,7 @@ public class World
 		int oz = object.getZ();
 		int sqrad = radius * radius;
 		
-		List<Creature> result = new ArrayList<Creature>(64);
+		List<Creature> result = new ArrayList<>(64);
 		
 		for (int x = validX(currentRegion.getX() - 1); x <= validX(currentRegion.getX() + 1); x++)
 		{
@@ -530,7 +530,7 @@ public class World
 		}
 		
 		int sqrad = radius * radius;
-		List<Creature> result = new ArrayList<Creature>(64);
+		List<Creature> result = new ArrayList<>(64);
 		
 		for (int x = validX(currentRegion.getX() - 1); x <= validX(currentRegion.getX() + 1); x++)
 		{
@@ -574,7 +574,7 @@ public class World
 		int oid = object.getObjectId();
 		int rid = object.getReflectionId();
 		
-		List<NpcInstance> result = new ArrayList<NpcInstance>(64);
+		List<NpcInstance> result = new ArrayList<>(64);
 		
 		for (int x = validX(currentRegion.getX() - 1); x <= validX(currentRegion.getX() + 1); x++)
 		{
@@ -612,7 +612,7 @@ public class World
 		int oz = object.getZ();
 		int sqrad = radius * radius;
 		
-		List<NpcInstance> result = new ArrayList<NpcInstance>(64);
+		List<NpcInstance> result = new ArrayList<>(64);
 		
 		for (int x = validX(currentRegion.getX() - 1); x <= validX(currentRegion.getX() + 1); x++)
 		{
@@ -656,7 +656,7 @@ public class World
 		int oid = object.getObjectId();
 		int rid = object.getReflectionId();
 		
-		List<Playable> result = new ArrayList<Playable>(64);
+		List<Playable> result = new ArrayList<>(64);
 		
 		for (int x = validX(currentRegion.getX() - 1); x <= validX(currentRegion.getX() + 1); x++)
 		{
@@ -694,7 +694,7 @@ public class World
 		int oz = object.getZ();
 		int sqrad = radius * radius;
 		
-		List<Playable> result = new ArrayList<Playable>(64);
+		List<Playable> result = new ArrayList<>(64);
 		
 		for (int x = validX(currentRegion.getX() - 1); x <= validX(currentRegion.getX() + 1); x++)
 		{
@@ -738,7 +738,7 @@ public class World
 		int oid = object.getObjectId();
 		int rid = object.getReflectionId();
 		
-		List<Player> result = new ArrayList<Player>(64);
+		List<Player> result = new ArrayList<>(64);
 		
 		for (int x = validX(currentRegion.getX() - 1); x <= validX(currentRegion.getX() + 1); x++)
 		{
@@ -776,7 +776,7 @@ public class World
 		int oz = object.getZ();
 		int sqrad = radius * radius;
 		
-		List<Player> result = new ArrayList<Player>(64);
+		List<Player> result = new ArrayList<>(64);
 		
 		for (int x = validX(currentRegion.getX() - 1); x <= validX(currentRegion.getX() + 1); x++)
 		{
@@ -809,10 +809,7 @@ public class World
 		return result;
 	}
 	
-	/**
-	 * Проверить, пустые ли соседние регионы от игроков, включая текущий
-	 * @return
-	 */
+ 
 	public static boolean isNeighborsEmpty(WorldRegion region)
 	{
 		for (int x = validX(region.getX() - 1); x <= validX(region.getX() + 1); x++)
@@ -862,9 +859,7 @@ public class World
 		}
 	}
 	
-	/**
-	 * Показывает игроку все видимые обьекты в текущем регионе и соседних
-	 */
+ 
 	public static void showObjectsToPlayer(Player player)
 	{
 		WorldRegion currentRegion = player.isInObserverMode() ? player.getObserverRegion() : player.getCurrentRegion();
@@ -895,10 +890,7 @@ public class World
 			}
 		}
 	}
-	
-	/**
-	 * Убирает у игрока все видимые обьекты в текущем регионе и соседних
-	 */
+ 
 	public static void removeObjectsFromPlayer(Player player)
 	{
 		WorldRegion currentRegion = player.isInObserverMode() ? player.getObserverRegion() : player.getCurrentRegion();
@@ -929,10 +921,7 @@ public class World
 			}
 		}
 	}
-	
-	/**
-	 * Убирает обьект у всех игроков в регионе
-	 */
+ 
 	public static void removeObjectFromPlayers(GameObject object)
 	{
 		WorldRegion currentRegion = object.getCurrentRegion();
@@ -1032,9 +1021,7 @@ public class World
 		}
 	}
 	
-	/**
-	 * Создает и возвращает список территорий для точек x, y, z
-	 */
+ 
 	public static void getZones(List<Zone> inside, Location loc, Reflection reflection)
 	{
 		WorldRegion region = getRegion(loc);

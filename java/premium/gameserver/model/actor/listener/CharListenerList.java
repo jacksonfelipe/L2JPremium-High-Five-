@@ -22,7 +22,7 @@ import premium.gameserver.model.Zone;
 
 public class CharListenerList extends ListenerList<Creature>
 {
-	final static ListenerList<Creature> global = new ListenerList<Creature>();
+	final static ListenerList<Creature> global = new ListenerList<>();
 	
 	protected final Creature actor;
 	

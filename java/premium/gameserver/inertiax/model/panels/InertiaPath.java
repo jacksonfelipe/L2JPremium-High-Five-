@@ -4,11 +4,11 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
-import premium.gameserver.ai.CtrlIntention;
+
 import premium.gameserver.model.Player;
-import premium.gameserver.utils.Location;
 import premium.gameserver.network.serverpackets.ExServerPrimitive;
 import premium.gameserver.network.serverpackets.NpcHtmlMessage;
+import premium.gameserver.utils.Location;
 
 public class InertiaPath
 {
@@ -18,18 +18,18 @@ public class InertiaPath
 	private boolean _designMode = false;
 	private int _currentWaypointIndex = 0;
 	private boolean _forward = true;
-
+	
 	public int getCurrentWaypointIndex()
 	{
 		return _currentWaypointIndex;
 	}
-
+	
 	public void setCurrentWaypointIndex(int index)
 	{
 		this._currentWaypointIndex = index;
 		this._forward = true;
 	}
-
+	
 	public void nextWaypoint()
 	{
 		if (_points.isEmpty())
@@ -65,42 +65,42 @@ public class InertiaPath
 			}
 		}
 	}
-
+	
 	public InertiaPath(String name, Player player)
 	{
 		this._name = name;
 	}
-
+	
 	public String getName()
 	{
 		return _name;
 	}
-
+	
 	public List<Location> getPoints()
 	{
 		return _points;
 	}
-
+	
 	public boolean isDesignMode()
 	{
 		return _designMode;
 	}
-
+	
 	public void setDesignMode(boolean val)
 	{
 		this._designMode = val;
 	}
-
+	
 	public void toggleRender()
 	{
 		this._render = !this._render;
 	}
-
+	
 	public boolean isRender()
 	{
 		return _render;
 	}
-
+	
 	public void addPoint(Location loc)
 	{
 		if (_points.size() < 10)
@@ -108,7 +108,7 @@ public class InertiaPath
 			_points.add(loc);
 		}
 	}
-
+	
 	public void removePoint(int index)
 	{
 		if (index >= 0 && index < _points.size())
@@ -116,7 +116,7 @@ public class InertiaPath
 			_points.remove(index);
 		}
 	}
-
+	
 	public void renderPath(Player player)
 	{
 		if (!_render || _points.isEmpty())
@@ -124,19 +124,19 @@ public class InertiaPath
 			hide(player);
 			return;
 		}
-
+		
 		ExServerPrimitive prim = new ExServerPrimitive("Path_" + _name, player.getX(), player.getY(), player.getZ());
 		Color color = Color.GREEN;
-
+		
 		for (int i = 0; i < _points.size(); i++)
 		{
 			Location loc = _points.get(i);
-
+			
 			if (i > 0)
 			{
 				Location prev = _points.get(i - 1);
 				prim.addLine(color, prev.x, prev.y, prev.z, loc.x, loc.y, loc.z);
-
+				
 				// Draw direction arrow/triangle in the middle of the segment
 				double dx = loc.x - prev.x;
 				double dy = loc.y - prev.y;
@@ -169,46 +169,45 @@ public class InertiaPath
 				}
 			}
 		}
-
+		
 		player.sendPacket(prim);
 	}
-
+	
 	public void hide(Player player)
 	{
 		ExServerPrimitive prim = new ExServerPrimitive("Path_" + _name, player.getX(), player.getY(), player.getZ());
 		player.sendPacket(prim);
 	}
-
+	
 	public void delete(Player player)
 	{
 		hide(player);
 		_points.clear();
 	}
-
+	
 	public void renderPage(Player player)
 	{
 		NpcHtmlMessage html = new NpcHtmlMessage(1002);
 		html.setFile("mods/autofarm/panels/patheditor/path.htm");
 		html.replace("%id%", String.valueOf(player.getObjectId()));
 		html.replace("%path%", _name);
-
+		
 		String tog;
 		if (_designMode)
 		{
-			tog = "<td align=right><button value=\"Add Point\" action=\"bypass inertia_panel_path_editor " + player.getObjectId() + " path " + _name + " add\" width=70 height=20 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td>" +
-			      "<td align=right><button value=\"Stop\" action=\"bypass inertia_panel_path_editor " + player.getObjectId() + " path " + _name + " stop\" width=70 height=20 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td>";
+			tog = "<td align=right><button value=\"Add Point\" action=\"bypass inertia_panel_path_editor " + player.getObjectId() + " path " + _name + " add\" width=70 height=20 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td>" + "<td align=right><button value=\"Stop\" action=\"bypass inertia_panel_path_editor " + player.getObjectId() + " path " + _name + " stop\" width=70 height=20 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td>";
 		}
 		else
 		{
 			tog = "<td align=right><button value=\"Start\" action=\"bypass inertia_panel_path_editor " + player.getObjectId() + " path " + _name + " start\" width=70 height=20 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td>";
 		}
 		html.replace("%tog%", tog);
-
+		
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < _points.size(); i++)
 		{
 			Location loc = _points.get(i);
-			String name = String.valueOf((char)('A' + i));
+			String name = String.valueOf((char) ('A' + i));
 			sb.append("<tr>");
 			sb.append("<td><font color=LEVEL>").append(name).append("</font> - X:").append(loc.x).append(" Y:").append(loc.y).append("</td>");
 			sb.append("<td><button value=\"Remove\" action=\"bypass inertia_panel_path_editor ").append(player.getObjectId()).append(" path ").append(_name).append(" remove ").append(i).append("\" width=60 height=18 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td>");
@@ -217,10 +216,10 @@ public class InertiaPath
 		}
 		html.replace("%paths%", sb.toString());
 		html.replace("%hid%", _render ? "Hide" : "Show");
-
+		
 		player.sendPacket(html);
 	}
-
+	
 	public boolean onBypass(Player actor, String cmd, StringTokenizer st)
 	{
 		if (cmd.equals("start"))
@@ -245,7 +244,7 @@ public class InertiaPath
 			{
 				addPoint(actor.getLoc());
 				renderPath(actor);
-				actor.sendMessage("Added waypoint " + (char)('A' + _points.size() - 1));
+				actor.sendMessage("Added waypoint " + (char) ('A' + _points.size() - 1));
 			}
 			renderPage(actor);
 			return true;
@@ -270,7 +269,7 @@ public class InertiaPath
 				{
 					Location loc = _points.get(idx);
 					actor.moveToLocation(loc, 0, true);
-					actor.sendMessage("Moving to waypoint " + (char)('A' + idx));
+					actor.sendMessage("Moving to waypoint " + (char) ('A' + idx));
 				}
 			}
 			return true;
@@ -284,7 +283,7 @@ public class InertiaPath
 		}
 		return false;
 	}
-
+	
 	public void sim(Player player)
 	{
 		if (_points.isEmpty())

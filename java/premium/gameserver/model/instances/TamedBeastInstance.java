@@ -180,7 +180,7 @@ public final class TamedBeastInstance extends FeedableBeastInstance
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			if (_actor != null)
 			{
@@ -258,7 +258,7 @@ public final class TamedBeastInstance extends FeedableBeastInstance
 		ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 		{
 			@Override
-			public void runImpl() throws Exception
+			public void runImpl()
 			{
 				doDespawn();
 			}
@@ -301,7 +301,7 @@ public final class TamedBeastInstance extends FeedableBeastInstance
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			Player owner = _tamedBeast.getPlayer();
 			

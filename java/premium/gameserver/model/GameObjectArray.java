@@ -37,7 +37,7 @@ public class GameObjectArray<E extends GameObject> implements Iterable<E>
 			throw new IllegalArgumentException("Illegal resize step (" + name + "): " + resizeStep);
 		}
 		
-		freeIndexes = new ArrayList<Integer>(resizeStep);
+		freeIndexes = new ArrayList<>(resizeStep);
 		elementData = (E[]) new GameObject[initialCapacity];
 	}
 	
@@ -157,7 +157,7 @@ public class GameObjectArray<E extends GameObject> implements Iterable<E>
 			return null;
 		}
 		
-		List<E> result = new ArrayList<E>();
+		List<E> result = new ArrayList<>();
 		E o;
 		for (int i = 0; i < size; i++)
 		{
@@ -172,7 +172,7 @@ public class GameObjectArray<E extends GameObject> implements Iterable<E>
 	
 	public List<E> getAll()
 	{
-		return getAll(new ArrayList<E>(size));
+		return getAll(new ArrayList<>(size));
 	}
 	
 	public List<E> getAll(List<E> list)

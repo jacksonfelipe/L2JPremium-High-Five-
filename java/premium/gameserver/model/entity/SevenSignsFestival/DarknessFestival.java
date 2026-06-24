@@ -98,7 +98,7 @@ public class DarknessFestival extends Reflection
 				_spawnTimerTask = ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 				{
 					@Override
-					public void runImpl() throws Exception
+					public void runImpl()
 					{
 						spawnFestivalMonsters(FestivalSpawn.FESTIVAL_DEFAULT_RESPAWN, 0);
 						sendMessageToParticipants("Go!");
@@ -112,7 +112,7 @@ public class DarknessFestival extends Reflection
 				_spawnTimerTask = ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 				{
 					@Override
-					public void runImpl() throws Exception
+					public void runImpl()
 					{
 						spawnFestivalMonsters(FestivalSpawn.FESTIVAL_DEFAULT_RESPAWN, 2);
 						sendMessageToParticipants("Next wave arrived!");
@@ -126,7 +126,7 @@ public class DarknessFestival extends Reflection
 				_spawnTimerTask = ThreadPoolManager.getInstance().schedule(new RunnableImpl()
 				{
 					@Override
-					public void runImpl() throws Exception
+					public void runImpl()
 					{
 						spawnFestivalMonsters(FestivalSpawn.FESTIVAL_DEFAULT_RESPAWN, 3);
 						sendMessageToParticipants("The chests have spawned! Be quick, the festival will end soon.");

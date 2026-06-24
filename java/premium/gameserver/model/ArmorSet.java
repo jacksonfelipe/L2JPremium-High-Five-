@@ -12,12 +12,12 @@ import premium.gameserver.model.items.ItemInstance;
 public final class ArmorSet
 {
 	private final int _set_id;
-	private final List<Integer> _chest = new ArrayList<Integer>(1);
-	private final List<Integer> _legs = new ArrayList<Integer>(1);
-	private final List<Integer> _head = new ArrayList<Integer>(1);
-	private final List<Integer> _gloves = new ArrayList<Integer>(1);
-	private final List<Integer> _feet = new ArrayList<Integer>(1);
-	private final List<Integer> _shield = new ArrayList<Integer>(1);
+	private final List<Integer> _chest = new ArrayList<>(1);
+	private final List<Integer> _legs = new ArrayList<>(1);
+	private final List<Integer> _head = new ArrayList<>(1);
+	private final List<Integer> _gloves = new ArrayList<>(1);
+	private final List<Integer> _feet = new ArrayList<>(1);
+	private final List<Integer> _shield = new ArrayList<>(1);
 	private final Map<Integer, Integer> _skills = new HashMap<>(1);
 	private final Map<Integer, Integer> _shieldSkills = new HashMap<>(1);
 	private final Map<Integer, Integer> _enchant6skills = new HashMap<>(1);

@@ -27,12 +27,12 @@ public class MapRegionManager extends AbstractHolder
 	{
 	}
 	
-	private int regionX(int x)
+	public int regionX(int x)
 	{
 		return (x - World.MAP_MIN_X >> 15);
 	}
 	
-	private int regionY(int y)
+	public int regionY(int y)
 	{
 		return (y - World.MAP_MIN_Y >> 15);
 	}

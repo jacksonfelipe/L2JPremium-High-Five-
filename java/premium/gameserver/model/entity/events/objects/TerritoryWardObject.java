@@ -292,7 +292,7 @@ public class TerritoryWardObject implements SpawnableObject, FlagItemAttachment
 		}
 		
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			onLogout(_player);
 		}

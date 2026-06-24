@@ -154,10 +154,10 @@ public class SevenSigns
 	{
 		GameServer.getInstance().addListener(new OnStartListenerImpl());
 		
-		_signsPlayerData = new ConcurrentHashMap<Integer, StatsSet>();
-		_signsSealOwners = new ConcurrentHashMap<Integer, Integer>();
-		_signsDuskSealTotals = new ConcurrentHashMap<Integer, Integer>();
-		_signsDawnSealTotals = new ConcurrentHashMap<Integer, Integer>();
+		_signsPlayerData = new ConcurrentHashMap<>();
+		_signsSealOwners = new ConcurrentHashMap<>();
+		_signsDuskSealTotals = new ConcurrentHashMap<>();
+		_signsDawnSealTotals = new ConcurrentHashMap<>();
 		
 		try
 		{
@@ -450,12 +450,7 @@ public class SevenSigns
 		return sealName;
 	}
 	
-	/**
-	 * Used to capitalize the first letter of every "word" in a string.<br>
-	 * (Ported from the idea in Perl and PHP)
-	 * @param String str
-	 * @return String containing the modified string.
-	 */
+ 
 	public static String capitalizeWords(String str)
 	{
 		char[] charArray = str.toCharArray();
@@ -972,25 +967,13 @@ public class SevenSigns
 		}
 		// A database update should soon follow this!
 	}
-	
-	/**
-	 * Tests whether the specified player has joined a cabal in the past.
-	 * @param player
-	 * @return boolean hasRegistered
-	 */
+	 
 	private boolean hasRegisteredBefore(int charObjId)
 	{
 		return _signsPlayerData.containsKey(charObjId);
 	}
 	
-	/**
-	 * Used to specify cabal-related details for the specified player. This method checks to see if the player has registered before and will update the database if necessary. <BR>
-	 * Returns the cabal ID the player has joined.
-	 * @param player
-	 * @param chosenCabal
-	 * @param chosenSeal
-	 * @return int cabal
-	 */
+ 
 	public int setPlayerInfo(int charObjId, int chosenCabal, int chosenSeal)
 	{
 		StatsSet currPlayer = null;
@@ -1471,7 +1454,7 @@ public class SevenSigns
 	public class SevenSignsAnnounce extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			for (Player player : GameObjectsStorage.getAllPlayersForIterate())
 			{
@@ -1487,7 +1470,7 @@ public class SevenSigns
 	public class SevenSignsPeriodChange extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			_log.info("SevenSignsPeriodChange: old=" + _activePeriod);
 			int periodEnded = _activePeriod;

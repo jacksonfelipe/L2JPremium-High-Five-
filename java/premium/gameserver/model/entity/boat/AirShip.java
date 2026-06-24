@@ -15,6 +15,8 @@ import premium.gameserver.utils.Location;
 
 public class AirShip extends Boat
 {
+	private static final long serialVersionUID = 1L;
+
 	public AirShip(int objectId, CharTemplate template)
 	{
 		super(objectId, template);

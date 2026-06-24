@@ -48,7 +48,7 @@ public class FortressSiegeEvent extends SiegeEvent<Fortress, SiegeClanObject>
 	private class EnvoyDespawn extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			despawnEnvoy();
 		}
@@ -57,7 +57,7 @@ public class FortressSiegeEvent extends SiegeEvent<Fortress, SiegeClanObject>
 	private class MerchantSpawnTask extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			setRegistrationOver(false);
 			spawnAction(MERCHANT, true);
@@ -68,7 +68,7 @@ public class FortressSiegeEvent extends SiegeEvent<Fortress, SiegeClanObject>
 	private class SpawnCommanderTask extends RunnableImpl
 	{
 		@Override
-		public void runImpl() throws Exception
+		public void runImpl()
 		{
 			/*
 			 * SpawnExObject spawnExObject = getFirstObject(FortressSiegeEvent.SIEGE_COMMANDERS); List<Spawner> spawnerList = spawnExObject.getSpawns(); for(int i = 0; i < spawnerList.size(); i++) { if(i == 3) // main machine не востанавливается continue; Spawner spawner = spawnerList.get(i); //

@@ -109,8 +109,8 @@ public class AggroList
 	}
 	
 	private final NpcInstance npc;
-	private final TIntObjectHashMap<AggroInfo> hateList = new TIntObjectHashMap<AggroInfo>();
-	/** Блокировка для чтения/записи объектов списка */
+	private final TIntObjectHashMap<AggroInfo> hateList = new TIntObjectHashMap<>();
+ 
 	private final ReadWriteLock lock = new ReentrantReadWriteLock();
 	private final Lock readLock = lock.readLock();
 	private final Lock writeLock = lock.writeLock();
@@ -264,7 +264,7 @@ public class AggroList
 			return Collections.emptyList();
 		}
 		
-		List<Creature> hateList = new ArrayList<Creature>();
+		List<Creature> hateList = new ArrayList<>();
 		List<Creature> chars = World.getAroundCharacters(npc);
 		AggroInfo ai;
 		for (AggroInfo element : hated)
@@ -467,7 +467,7 @@ public class AggroList
 			}
 			
 			// Now sort the map to know which party did the most damage
-			final Map<Long, Integer> orderedMap = new TreeMap<Long, Integer>(new PartyDamageComparator(parties));
+			final Map<Long, Integer> orderedMap = new TreeMap<>(new PartyDamageComparator(parties));
 			orderedMap.putAll(parties);
 			
 			// Now choose player that did most damage in the party that did the most of the damage
@@ -545,7 +545,7 @@ public class AggroList
 			return Collections.emptyMap();
 		}
 		
-		Map<Creature, HateInfo> aggroMap = new HashMap<Creature, HateInfo>();
+		Map<Creature, HateInfo> aggroMap = new HashMap<>();
 		List<Creature> chars = World.getAroundCharacters(npc);
 		readLock.lock();
 		try
@@ -584,7 +584,7 @@ public class AggroList
 			return Collections.emptyMap();
 		}
 		
-		Map<Playable, HateInfo> aggroMap = new HashMap<Playable, HateInfo>();
+		Map<Playable, HateInfo> aggroMap = new HashMap<>();
 		List<Playable> chars = World.getAroundPlayables(npc);
 		readLock.lock();
 		try

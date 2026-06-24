@@ -191,7 +191,7 @@ public class AuctionManager
 		}
 	}
 	
-	private void deleteAuctionFromDatabase(Auction auction)
+	public void deleteAuctionFromDatabase(Auction auction)
 	{
 		try (Connection con = DatabaseFactory.getInstance().getConnection(); PreparedStatement statement = con.prepareStatement("DELETE FROM auctions WHERE auction_id = ?"))
 		{
@@ -378,7 +378,7 @@ public class AuctionManager
 			return;
 		}
 		
-		final Collection<ItemActionLog> logs = new ArrayList<ItemActionLog>(4);
+		final Collection<ItemActionLog> logs = new ArrayList<>(4);
 		final long totalAdenaCost = auction.getPricePerItem() * quantity;
 		logs.add(new ItemActionLog(ItemStateLog.EXCHANGE_LOSE, "AuctionHouse", buyer, buyer.getInventory().getItemByItemId(57), totalAdenaCost));
 		buyer.getInventory().reduceAdena(totalAdenaCost, null);
@@ -499,7 +499,7 @@ public class AuctionManager
 		player.sendMessage(message);
 	}
 	
-	private ItemInstance copyItem(ItemInstance oldItem, long quantity)
+	public ItemInstance copyItem(ItemInstance oldItem, long quantity)
 	{
 		ItemInstance item = new ItemInstance(IdFactory.getInstance().getNextId(), oldItem.getItemId());
 		item.setOwnerId(oldItem.getOwnerId());
@@ -833,10 +833,7 @@ public class AuctionManager
 			{
 				return ArmorItemType.Sigil;
 			}
-			else
-			{
-				return ArmorItemType.Shield;
-			}
+			return ArmorItemType.Shield;
 		}
 		
 		return SuppliesItemType.Miscellaneous;
@@ -869,7 +866,7 @@ public class AuctionManager
 		10516
 	};
 	
-	private boolean isBabyFoodOrShot(int id)
+	public boolean isBabyFoodOrShot(int id)
 	{
 		for (int i : PET_FOOD_OR_SHOT)
 		{

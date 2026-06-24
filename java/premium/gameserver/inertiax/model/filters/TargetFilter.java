@@ -7,7 +7,6 @@ import premium.gameserver.inertiax.model.Inertia;
 import premium.gameserver.inertiax.model.panels.TargetFiltering;
 import premium.gameserver.model.Creature;
 import premium.gameserver.model.Player;
-import premium.gameserver.model.instances.RaidBossInstance;
 import premium.gameserver.utils.Location;
 
 public class TargetFilter extends InertiaFilter<Creature>
@@ -61,7 +60,7 @@ public class TargetFilter extends InertiaFilter<Creature>
 		}
 		
 		final Location loc = _inertia.getSearchLocation();
-		final var searchType = _inertia.getSearchType();
+	 
 		if (loc != null && !target.isInRange(loc, _inertia.getSearchRange()))
 			return false;
 		

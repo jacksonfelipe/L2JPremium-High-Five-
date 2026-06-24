@@ -166,10 +166,7 @@ public class CharacterControlPanel
 			{
 				return null;
 			}
-			else
-			{
-				return "char.htm";
-			}
+			return "char.htm";
 		}
 		else if (param[0].startsWith("poll") || param[0].startsWith("Poll"))
 		{
@@ -194,11 +191,8 @@ public class CharacterControlPanel
 			{
 				return "cfgUnlockHwid.htm";
 			}
-			else
-			{
-				return "cfgLockHwid.htm";
-				// }
-			}
+			return "cfgLockHwid.htm";
+			// }
 		}
 		else if (param[0].equals("lockHwid"))
 		{
@@ -217,10 +211,7 @@ public class CharacterControlPanel
 			}
 			// }
 		}
-		/*
-		 * else if (param[0].equalsIgnoreCase("setupPRecover")) { CCPPasswordRecover.startPasswordRecover(activeChar); return null; } else if (param[0].startsWith("setupPRecover")) { CCPPasswordRecover.setup(activeChar, text); return null; } else if (param[0].startsWith("cfgSPPassword") ||
-		 * param[0].startsWith("cfgSPRecover")) { CCPPasswordRecover.reset(activeChar, text); return null; }
-		 */
+		 
 		else if (param[0].startsWith("secondaryPass"))
 		{
 			CCPSecondaryPassword.startSecondaryPasswordSetup(activeChar, text);
@@ -244,10 +235,7 @@ public class CharacterControlPanel
 			{
 				return null;
 			}
-			else
-			{
-				return "cfgPassword.htm";
-			}
+			return "cfgPassword.htm";
 		}
 		else if (param[0].equalsIgnoreCase("showRepair"))
 		{
@@ -265,10 +253,7 @@ public class CharacterControlPanel
 				String args = param[1] + (param.length > 2 ? " " + param[2] : "");
 				return CCPCWHPrivilages.clanMain(activeChar, args);
 			}
-			else
-			{
-				return "cfgClan.htm";
-			}
+			return "cfgClan.htm";
 		}
 		else if (param[0].equals("delevel"))
 		{
@@ -338,16 +323,13 @@ public class CharacterControlPanel
 		return currentPage;
 	}
 	
-	private String getEnabledDisabled(boolean enabled)
+	public String getEnabledDisabled(boolean enabled)
 	{
 		if (enabled)
 		{
 			return "Enabled";
 		}
-		else
-		{
-			return "Disabled";
-		}
+		return "Disabled";
 	}
 	
 	public void setAutoLoot(Player player)

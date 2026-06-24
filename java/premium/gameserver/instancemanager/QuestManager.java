@@ -19,8 +19,8 @@ public class QuestManager
 	private static final Logger LOGGER = LoggerFactory.getLogger(QuestManager.class);
 	public static final int TUTORIAL_QUEST_ID = 255;
 	
-	private static Map<String, Quest> _questsByName = new ConcurrentHashMap<String, Quest>();
-	private static Map<Integer, Quest> _questsById = new ConcurrentHashMap<Integer, Quest>();
+	private static Map<String, Quest> _questsByName = new ConcurrentHashMap<>();
+	private static Map<Integer, Quest> _questsById = new ConcurrentHashMap<>();
 	
 	public static Quest getQuest(String name)
 	{

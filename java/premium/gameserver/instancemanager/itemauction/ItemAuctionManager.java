@@ -51,7 +51,7 @@ public class ItemAuctionManager
 		return _instance;
 	}
 	
-	private final TIntObjectHashMap<ItemAuctionInstance> _managerInstances = new TIntObjectHashMap<ItemAuctionInstance>();
+	private final TIntObjectHashMap<ItemAuctionInstance> _managerInstances = new TIntObjectHashMap<>();
 	private final AtomicInteger _nextId = new AtomicInteger();
 	
 	private ItemAuctionManager()
@@ -116,7 +116,7 @@ public class ItemAuctionManager
 							
 							SchedulingPattern dateTime = new SchedulingPattern(nab.getNamedItem("schedule").getNodeValue());
 							
-							List<AuctionItem> items = new ArrayList<AuctionItem>();
+							List<AuctionItem> items = new ArrayList<>();
 							
 							for (Node nc = nb.getFirstChild(); nc != null; nc = nc.getNextSibling())
 							{

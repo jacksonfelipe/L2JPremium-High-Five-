@@ -892,9 +892,7 @@ public final class EnchantSkillLearn
 		}, // 30, цифра неточная
 	};
 	
-	/**
-	 * Шанс успешной заточки
-	 */
+ 
 	public int getRate(Player ply)
 	{
 		int level = _level % 100;

@@ -20,11 +20,11 @@ package premium.gameserver.model.actor.recorder;
 		/*	*/
 		/* 17 */ if ((_changes & 0x2) == 2)
 		{
-			/* 18 */ ((Summon) _activeChar).sendPetInfo();
+			/* 18 */ _activeChar.sendPetInfo();
 		}
 		else if ((_changes & 0x1) == 1)
 		{
-			/* 20 */ ((Summon) _activeChar).broadcastCharInfo();
+			/* 20 */ _activeChar.broadcastCharInfo();
 			/*	*/
 		}
 	}

@@ -508,24 +508,8 @@ public class RankPvpSystem
 		return H + ":" + M + ":" + S;
 	}
 	
-	/**
-	 * Calculate Rank Points awarded for Killer<br>
-	 * [0] - Sum of Rank Points and Bonus Points. <br>
-	 * [1] - Bonus points for War.<br>
-	 * [2] - Bonus points for Area.<br>
-	 * [3] - Bonus points for Combo.
-	 * @param pvp
-	 * @param killerPvpSummary
-	 * @param victimPvpSummary
-	 * @param killer
-	 * @param victim
-	 * @return Returns table of Rank Points awarded for Killer<br>
-	 *         [0] - Sum of Rank Points and Bonus Points. <br>
-	 *         [1] - Bonus points for War.<br>
-	 *         [2] - Bonus points for Area.<br>
-	 *         [3] - Bonus points for Combo.
-	 */
-	private int[] getPointsForKill(Pvp pvp, PvpSummary killerPvpSummary, PvpSummary victimPvpSummary, Player killer, Player victim)
+ 
+	public int[] getPointsForKill(Pvp pvp, PvpSummary killerPvpSummary, PvpSummary victimPvpSummary, Player killer, Player victim)
 	{
 		
 		int points = 0;
@@ -630,15 +614,8 @@ public class RankPvpSystem
 		
 		return false;
 	}
-	
-	/**
-	 * Check Basic conditions for RPS, it's mean check if can I add +1 into kills and kills_today.<br>
-	 * Basic mean: if killer is: in olympiad, in event, in restricted zone, etc.
-	 * @param killer
-	 * @param victim
-	 * @return TRUE if conditions are correct.
-	 */
-	private boolean checkBasicConditions(Player killer, Player victim)
+ 
+	public boolean checkBasicConditions(Player killer, Player victim)
 	{
 		
 		if (killer == null || victim == null || killer.isDead() || killer.isAlikeDead())

@@ -6,6 +6,7 @@ import java.util.concurrent.CopyOnWriteArraySet;
 
 public abstract class EventOwner implements Serializable
 {
+	private static final long serialVersionUID = 1L;
 	private Set<GlobalEvent> events = new CopyOnWriteArraySet<>();
 	
 	@SuppressWarnings("unchecked")

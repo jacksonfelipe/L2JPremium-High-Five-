@@ -16,11 +16,8 @@ public class CCPPoll
 		
 		Poll activePoll = PollEngine.getInstance().getActivePoll();
 		
-		if (activePoll == null)
-		{
-			fileName = "pollEmpty.htm";
-		}
-		else if (vars[0].equals("poll_vote"))
+	
+		if (vars[0].equals("poll_vote"))
 		{
 			int answerId = Integer.parseInt(second.trim());
 			activePoll.addVote(activeChar, answerId);

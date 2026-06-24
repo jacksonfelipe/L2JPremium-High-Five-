@@ -24,7 +24,7 @@ public class MatchingRoomManager
 	{
 		private int _id = 1;
 		
-		private IntObjectMap<MatchingRoom> _rooms = new CHashIntObjectMap<MatchingRoom>();
+		private IntObjectMap<MatchingRoom> _rooms = new CHashIntObjectMap<>();
 		
 		public int addRoom(MatchingRoom r)
 		{
@@ -42,7 +42,7 @@ public class MatchingRoomManager
 	}
 	
 	private RoomsHolder[] _holder = new RoomsHolder[2];
-	private Set<Player> _players = new CopyOnWriteArraySet<Player>();
+	private Set<Player> _players = new CopyOnWriteArraySet<>();
 	
 	public MatchingRoomManager()
 	{
@@ -62,7 +62,7 @@ public class MatchingRoomManager
 	
 	public List<Player> getWaitingList(int minLevel, int maxLevel, int[] classes)
 	{
-		List<Player> res = new ArrayList<Player>();
+		List<Player> res = new ArrayList<>();
 		for (Player $member : _players)
 		{
 			if ($member.getLevel() >= minLevel && $member.getLevel() <= maxLevel)
@@ -79,7 +79,7 @@ public class MatchingRoomManager
 	
 	public List<MatchingRoom> getMatchingRooms(int type, int region, boolean allLevels, Player activeChar)
 	{
-		List<MatchingRoom> res = new ArrayList<MatchingRoom>();
+		List<MatchingRoom> res = new ArrayList<>();
 		for (MatchingRoom room : _holder[type]._rooms.values())
 		{
 			if ((region > 0 && room.getLocationId() != region) || (region == -2 && room.getLocationId() != MatchingRoomManager.getInstance().getLocation(activeChar)))

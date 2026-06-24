@@ -35,9 +35,7 @@ public class CharSelectInfoPackage
 	private int _x = 0, _y = 0, _z = 0;
 	private int _vitalityPoints = 20000;
 	
-	/**
-	 * @param int1
-	 */
+ 
 	public CharSelectInfoPackage(int objectId, String name)
 	{
 		setObjectId(objectId);

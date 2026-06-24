@@ -15,7 +15,7 @@ public class EventWrapper extends ActionWrapper
 	}
 	
 	@Override
-	public void runImpl0() throws Exception
+	public void runImpl0() 
 	{
 		_event.timeActions(_time);
 	}

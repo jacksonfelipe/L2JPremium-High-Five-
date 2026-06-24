@@ -60,7 +60,6 @@ public class CursedWeapon
 		_nbKills = 0;
 	}
 	
-	/** Выпадение оружия из монстра */
 	public void create(NpcInstance attackable, Player killer)
 	{
 		_item = ItemFunctions.createItem(_itemId);
@@ -88,9 +87,6 @@ public class CursedWeapon
 		}
 	}
 	
-	/**
-	 * Выпадение оружия из владельца, или исчезновение с определенной вероятностью. Вызывается при смерти игрока.
-	 */
 	public boolean dropIt(NpcInstance attackable, Player killer, Player owner)
 	{
 		if (Rnd.chance(_disapearChance))
@@ -169,7 +165,7 @@ public class CursedWeapon
 		}
 		
 		Skill skill = SkillTable.getInstance().getInfo(_skillId, level);
-		List<Skill> ret = new ArrayList<Skill>();
+		List<Skill> ret = new ArrayList<>();
 		ret.add(skill);
 		for (AddedSkill s : skill.getAddedSkills())
 		{
@@ -178,7 +174,6 @@ public class CursedWeapon
 		return ret;
 	}
 	
-	/** вызывается при загрузке оружия */
 	public boolean reActivate()
 	{
 		if (getTimeLeft() <= 0)
