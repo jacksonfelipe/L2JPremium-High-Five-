@@ -9,7 +9,7 @@ import premium.gameserver.utils.AdminFunctions;
 
 public class TelnetBan implements TelnetCommandHolder
 {
-	private Set<TelnetCommand> _commands = new LinkedHashSet<TelnetCommand>();
+	private Set<TelnetCommand> _commands = new LinkedHashSet<>();
 	
 	public TelnetBan()
 	{
@@ -33,10 +33,7 @@ public class TelnetBan implements TelnetCommandHolder
 				{
 					return "Player kicked.\n";
 				}
-				else
-				{
-					return "Player not found.\n";
-				}
+				return "Player not found.\n";
 			}
 		});
 	}

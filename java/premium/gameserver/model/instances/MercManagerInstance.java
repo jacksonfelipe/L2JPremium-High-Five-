@@ -10,6 +10,7 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public final class MercManagerInstance extends MerchantInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static int COND_ALL_FALSE = 0;
 	private static int COND_BUSY_BECAUSE_OF_SIEGE = 1;
 	private static int COND_OWNER = 2;

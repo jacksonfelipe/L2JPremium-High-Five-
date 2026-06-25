@@ -14,6 +14,8 @@ import premium.gameserver.utils.Location;
 
 public final class ObservationInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public ObservationInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);
@@ -33,7 +35,7 @@ public final class ObservationInstance extends NpcInstance
 			StringTokenizer st = new StringTokenizer(val);
 			st.nextToken(); // Bypass cost
 			
-			List<Zone> zones = new ArrayList<Zone>();
+			List<Zone> zones = new ArrayList<>();
 			World.getZones(zones, new Location(Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())), ReflectionManager.DEFAULT);
 			for (Zone z : zones)
 			{
@@ -72,7 +74,7 @@ public final class ObservationInstance extends NpcInstance
 		return "observation/" + pom + ".htm";
 	}
 	
-	private void doObserve(Player player, String val)
+	public static void doObserve(Player player, String val)
 	{
 		StringTokenizer st = new StringTokenizer(val);
 		int cost = Integer.parseInt(st.nextToken());

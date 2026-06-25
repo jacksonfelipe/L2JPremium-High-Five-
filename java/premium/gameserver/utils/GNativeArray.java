@@ -10,10 +10,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * пример конструктора: new GNativeArray<String>(){}
- */
-
 public abstract class GNativeArray<E> extends GArray<E>
 {
 	@SuppressWarnings("unchecked")
@@ -31,9 +27,6 @@ public abstract class GNativeArray<E> extends GArray<E>
 		this(10);
 	}
 	
-	/**
-	 * использовать аккуратно!
-	 */
 	public E[] getDirectArray()
 	{
 		return elementData;
@@ -70,15 +63,9 @@ public abstract class GNativeArray<E> extends GArray<E>
 		return null;
 	}
 	
-	/**
-	 * Get the actual type arguments a child class has used to extend a generic base class.
-	 * @param baseClass<?> the base class
-	 * @param childClass<?> the child class
-	 * @return a list of the raw classes for the actual type arguments.
-	 */
 	public static <T> List<Class<?>> _getTypeArguments(Class<T> baseClass, Class<? extends T> childClass)
 	{
-		Map<Type, Type> resolvedTypes = new HashMap<Type, Type>();
+		Map<Type, Type> resolvedTypes = new HashMap<>();
 		Type type = childClass;
 		// start walking up the inheritance hierarchy until we hit baseClass
 		while (!_getClass(type).equals(baseClass))
@@ -110,7 +97,7 @@ public abstract class GNativeArray<E> extends GArray<E>
 		// finally, for each actual type argument provided to baseClass, determine (if possible)
 		// the raw class for that type argument.
 		Type[] actualTypeArguments = type instanceof Class<?> ? ((Class<?>) type).getTypeParameters() : ((ParameterizedType) type).getActualTypeArguments();
-		List<Class<?>> typeArgumentsAsClasses = new ArrayList<Class<?>>();
+		List<Class<?>> typeArgumentsAsClasses = new ArrayList<>();
 		// resolve types by chasing down type variables.
 		for (Type baseType : actualTypeArguments)
 		{

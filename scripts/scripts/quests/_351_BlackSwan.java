@@ -131,7 +131,7 @@ public class _351_BlackSwan extends Quest implements ScriptFile
 	@Override
 	public String onKill(NpcInstance npc, QuestState st)
 	{
-		double mod = Experience.penaltyModifier(st.calculateLevelDiffForDrop(npc.getLevel(), st.getPlayer().getLevel()), 9);
+		double mod = Experience.penaltyModifier(QuestState.calculateLevelDiffForDrop(npc.getLevel(), st.getPlayer().getLevel()), 9);
 		st.rollAndGive(LIZARD_FANG, 1, CHANCE * mod);
 		st.rollAndGive(BARREL_OF_LEAGUE, 1, CHANCE2 * mod);
 		return null;

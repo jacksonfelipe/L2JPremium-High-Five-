@@ -63,7 +63,7 @@ public class OlympiadGame
 	private final OlympiadTeam _team1;
 	private final OlympiadTeam _team2;
 	
-	private final List<Player> _spectators = new CopyOnWriteArrayList<Player>();
+	private final List<Player> _spectators = new CopyOnWriteArrayList<>();
 	
 	private long _startTime;
 	
@@ -323,7 +323,7 @@ public class OlympiadGame
 			player.sendChanges();
 		}
 		
-		List<Player> teamsPlayers = new ArrayList<Player>();
+		List<Player> teamsPlayers = new ArrayList<>();
 		teamsPlayers.addAll(winnerTeam.getPlayers());
 		teamsPlayers.addAll(looseTeam.getPlayers());
 		for (Player player : teamsPlayers)
@@ -628,7 +628,7 @@ public class OlympiadGame
 	
 	public List<Player> getAllPlayers()
 	{
-		List<Player> result = new ArrayList<Player>();
+		List<Player> result = new ArrayList<>();
 		for (Player player : _team1.getPlayers())
 		{
 			result.add(player);

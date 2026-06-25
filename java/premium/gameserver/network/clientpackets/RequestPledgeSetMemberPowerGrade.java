@@ -45,7 +45,7 @@ public class RequestPledgeSetMemberPowerGrade extends L2GameClientPacket
 				}
 				if (this._powerGrade > 5)
 				{
-					member.setPowerGrade(clan.getAffiliationRank(member.getPledgeType()));
+					member.setPowerGrade(Clan.getAffiliationRank(member.getPledgeType()));
 				}
 				else
 				{

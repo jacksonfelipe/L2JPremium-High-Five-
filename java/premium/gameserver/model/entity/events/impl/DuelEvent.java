@@ -271,7 +271,7 @@ public abstract class DuelEvent extends GlobalEvent implements Iterable<DuelSnap
 	{
 		final List<DuelSnapshotObject> blue = getObjects(BLUE_TEAM);
 		final List<DuelSnapshotObject> red = getObjects(RED_TEAM);
-		return new JoinedIterator<DuelSnapshotObject>(blue.iterator(), red.iterator());
+		return new JoinedIterator<>(blue.iterator(), red.iterator());
 	}
 	
 	@Override

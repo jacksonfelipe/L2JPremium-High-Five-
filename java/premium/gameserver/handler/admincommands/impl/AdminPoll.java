@@ -32,7 +32,7 @@ public class AdminPoll implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		Commands command = (Commands) comm;
 		
@@ -97,7 +97,7 @@ public class AdminPoll implements IAdminCommandHandler
 				
 				StringTokenizer st = new StringTokenizer(fullString.substring("admin_poll_set_answers".length()), "|");
 				int firstStCount = st.countTokens();
-				List<PollAnswer> answers = new ArrayList<PollAnswer>();
+				List<PollAnswer> answers = new ArrayList<>();
 				
 				for (int i = 0; i < firstStCount; i++)
 				{
@@ -246,7 +246,7 @@ public class AdminPoll implements IAdminCommandHandler
 		return true;
 	}
 	
-	private String correctQuestion(String question)
+	public String correctQuestion(String question)
 	{
 		question = "<font color=9a3f33>" + question + "</font>";
 		question = question.replaceAll("<b>", "<font name=\"hs12\" color=9a3f33>");
@@ -254,9 +254,7 @@ public class AdminPoll implements IAdminCommandHandler
 		return question;
 	}
 	
-	/**
-	 * Use file name like: admin_new_poll.htm
-	 */
+ 
 	private static String getPageHtml(String fileName, Player activeChar)
 	{
 		return HtmCache.getInstance().getNotNull(MAIN_FOLDER + fileName, activeChar);
@@ -267,6 +265,7 @@ public class AdminPoll implements IAdminCommandHandler
 		return "<button value=\"" + buttonText + "\" action=\"bypass -h " + bypass + "\" width=" + (buttonText.length() > 18 ? 170 : 120) + " height=30 back=\"L2UI_CT1.Button_DF_Down\" fore=\"L2UI_CT1.Button_DF\">";
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{

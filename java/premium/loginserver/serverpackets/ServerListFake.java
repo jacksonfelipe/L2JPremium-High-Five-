@@ -15,7 +15,7 @@ import premium.loginserver.gameservercon.GameServer;
 
 public final class ServerListFake extends L2LoginServerPacket
 {
-	private List<ServerData> _servers = new ArrayList<ServerData>();
+	private List<ServerData> _servers = new ArrayList<>();
 	@SuppressWarnings("unused")
 	private int _lastServer;
 	

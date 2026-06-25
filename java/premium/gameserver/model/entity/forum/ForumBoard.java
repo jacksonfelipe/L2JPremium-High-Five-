@@ -25,7 +25,7 @@ public class ForumBoard
 	private static final Logger LOG = LoggerFactory.getLogger(ForumBoard.class);
 	
 	private final ForumBoardType type;
-	private List<ForumTopic> topics = new CopyOnWriteArrayList<ForumTopic>();
+	private List<ForumTopic> topics = new CopyOnWriteArrayList<>();
 	private ForumPost lastSavedLastPost;
 	
 	public ForumBoard(ForumBoardType type)
@@ -52,6 +52,7 @@ public class ForumBoard
 		return topics.get(0).getLastPost();
 	}
 	
+	@SuppressWarnings("null")
 	public ForumPost getLastPost()
 	{
 		ForumTopic firstSticky = null;
@@ -72,22 +73,12 @@ public class ForumBoard
 				continue;
 			}
 		}
-		if (firstSticky == null && firstNonSticky == null)
-		{
-			return null;
-		}
-		if (firstSticky == null)
-		{
-			return firstNonSticky.getLastPost();
-		}
-		if (firstNonSticky == null)
-		{
-			return firstSticky.getLastPost();
-		}
+		
 		if (firstNonSticky.getLastPost().getPostId() > firstSticky.getLastPost().getPostId())
 		{
 			return firstNonSticky.getLastPost();
 		}
+		
 		return firstSticky.getLastPost();
 	}
 	
@@ -126,7 +117,7 @@ public class ForumBoard
 	public void synchronizeBoard(Connection con)
 	{
 		final ForumHandler forumHandler = ForumHandler.getInstance();
-		final Collection<Integer> savedTopicIds = new HashSet<Integer>();
+		final Collection<Integer> savedTopicIds = new HashSet<>();
 		try (PreparedStatement statement = con.prepareStatement("SELECT id_topic, is_sticky, num_views, locked FROM smf_topics WHERE id_board = ?"))
 		{
 			statement.setInt(1, type.getBoardDatabaseId());
@@ -267,6 +258,6 @@ public class ForumBoard
 		final ForumTopic[] topicsArray = new ForumTopic[topics.size()];
 		topics.toArray(topicsArray);
 		Arrays.sort(topicsArray);
-		topics = new CopyOnWriteArrayList<ForumTopic>(topicsArray);
+		topics = new CopyOnWriteArrayList<>(topicsArray);
 	}
 }

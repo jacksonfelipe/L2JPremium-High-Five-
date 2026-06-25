@@ -98,7 +98,7 @@ public class PetDataTable
 	public final static int MAGUEN_ID = 16071;
 	public final static int ELITE_MAGUEN_ID = 16072;
 	
-	private final TIntObjectHashMap<PetData> _pets = new TIntObjectHashMap<PetData>();
+	private final TIntObjectHashMap<PetData> _pets = new TIntObjectHashMap<>();
 	
 	private PetDataTable()
 	{

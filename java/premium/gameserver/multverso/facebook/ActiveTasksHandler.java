@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.ScheduledFuture;
 
 import premium.commons.threading.RunnableImpl;
 import premium.gameserver.ConfigHolder;
@@ -25,13 +24,11 @@ import premium.gameserver.utils.Log;
 public final class ActiveTasksHandler
 {
 	private final CopyOnWriteArrayList<ActiveTask> _activeTasks;
-	private final ScheduledFuture<?> _expiredTimeThread;
-	
 	private ActiveTasksHandler()
 	{
-		_activeTasks = new CopyOnWriteArrayList<ActiveTask>();
+		_activeTasks = new CopyOnWriteArrayList<>();
 		final long delay = ConfigHolder.getLong("FacebookTimeLimitThreadDelay");
-		_expiredTimeThread = ThreadPoolManager.getInstance().scheduleAtFixedDelay(new TimeExpiredThread(), delay, delay);
+		ThreadPoolManager.getInstance().scheduleAtFixedDelay(new TimeExpiredThread(), delay, delay);
 	}
 	
 	public ActiveTask createActiveTask(Player player, FacebookIdentityType identityType, String identityValue, FacebookActionType actionType) throws TaskNoAvailableException
@@ -366,7 +363,7 @@ public final class ActiveTasksHandler
 	
 	public List<ActiveTask> getActiveTasksCopy(boolean concurrent)
 	{
-		return (concurrent ? new ArrayList<ActiveTask>(_activeTasks) : new CopyOnWriteArrayList<ActiveTask>(_activeTasks));
+		return (concurrent ? new ArrayList<>(_activeTasks) : new CopyOnWriteArrayList<>(_activeTasks));
 	}
 	
 	public ActiveTask getActiveTaskByPlayer(Player player)
@@ -414,14 +411,11 @@ public final class ActiveTasksHandler
 				}
 				continue;
 			}
-			else
+			if (task.getIdentityType() == FacebookIdentityType.NAME && task.getIdentityValue().toLowerCase().replace(" ", "").equals(identityToCompare))
 			{
-				if (task.getIdentityType() == FacebookIdentityType.NAME && task.getIdentityValue().toLowerCase().replace(" ", "").equals(identityToCompare))
-				{
-					return task;
-				}
-				continue;
+				return task;
 			}
+			continue;
 		}
 		return null;
 	}

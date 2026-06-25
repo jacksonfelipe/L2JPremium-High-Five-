@@ -322,7 +322,7 @@ public class FortressSiegeEvent extends SiegeEvent<Fortress, SiegeClanObject>
 		final long diff = endTime - System.currentTimeMillis();
 		if (diff > 0 && getResidence().getContractState() == Fortress.NOT_DECIDED)
 		{
-			// FIXME [VISTALL] debug
+	 
 			final SpawnExObject exObject = getFirstObject(ENVOY);
 			if (exObject.isSpawned())
 			{
@@ -424,7 +424,7 @@ public class FortressSiegeEvent extends SiegeEvent<Fortress, SiegeClanObject>
 		{
 			if (_oldOwner != null)
 			{
-				// TODO: Infern0 if there is bug with taking for while defender kill all guards, disable this...
+			 
 				final SpawnExObject spawn = getFirstObject(FortressSiegeEvent.MERCENARY);
 				final NpcInstance npc = spawn.getFirstSpawned();
 				if (npc == null || npc.isDead())
@@ -685,11 +685,8 @@ public class FortressSiegeEvent extends SiegeEvent<Fortress, SiegeClanObject>
 		{
 			return true;
 		}
-		else
-		{
-			resurrectPlayer.sendPacket(SystemMsg.INVALID_TARGET);
-			return false;
-		}
+		resurrectPlayer.sendPacket(SystemMsg.INVALID_TARGET);
+		return false;
 	}
 	
 	public void startCommanderSpawnTask()

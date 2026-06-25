@@ -33,7 +33,7 @@ public class RequestExMpccPartymasterList extends L2GameClientPacket
 			return;
 		}
 		
-		Set<String> set = new HashSet<String>();
+		Set<String> set = new HashSet<>();
 		for (Player $member : room.getPlayers())
 		{
 			if ($member.getParty() != null)

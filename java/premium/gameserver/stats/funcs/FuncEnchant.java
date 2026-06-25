@@ -18,7 +18,7 @@ public class FuncEnchant extends Func
 	@Override
 	public void calc(Env env)
 	{
-		env.value += (double) valueToAdd(stat, (ItemInstance) owner);
+		env.value += valueToAdd(stat, (ItemInstance) owner);
 	}
 	
 	public static int valueToAdd(Stats stat, ItemInstance item)
@@ -110,10 +110,7 @@ public class FuncEnchant extends Func
 						{
 							return 4 * (enchant + overEnchant);
 						}
-						else
-						{
-							return 2 * (enchant + overEnchant);
-						}
+						return 2 * (enchant + overEnchant);
 				}
 			}
 		}

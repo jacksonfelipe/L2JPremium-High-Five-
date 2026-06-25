@@ -16,9 +16,9 @@ public final class OfficialPostsHolder
 	
 	private OfficialPostsHolder()
 	{
-		recentOfficialPosts = new ArrayList<OfficialPost>();
-		activePostsPerActionType = new EnumMap<FacebookActionType, ArrayList<OfficialPost>>(FacebookActionType.class);
-		activePosts = new ArrayList<OfficialPost>(ConfigHolder.getInt("FacebookValidPostsCount"));
+		recentOfficialPosts = new ArrayList<>();
+		activePostsPerActionType = new EnumMap<>(FacebookActionType.class);
+		activePosts = new ArrayList<>(ConfigHolder.getInt("FacebookValidPostsCount"));
 	}
 	
 	public ArrayList<OfficialPost> getActivePostsForIterate(FacebookActionType type)
@@ -38,7 +38,7 @@ public final class OfficialPostsHolder
 		{
 			posts = calculatePostsPerActionType(type);
 		}
-		return new ArrayList<OfficialPost>(posts);
+		return new ArrayList<>(posts);
 	}
 	
 	public List<OfficialPost> getRecentOfficialPostsForIterate()
@@ -91,6 +91,7 @@ public final class OfficialPostsHolder
 		}
 	}
 	
+	@SuppressWarnings("unused")
 	public void addNewRewardedAction(OfficialPost post, FacebookActionType actionType)
 	{
 		if (!post.isActionTypeRewarded(actionType))
@@ -141,7 +142,7 @@ public final class OfficialPostsHolder
 	
 	private ArrayList<OfficialPost> calculatePostsPerActionType(FacebookActionType type)
 	{
-		final ArrayList<OfficialPost> posts = new ArrayList<OfficialPost>(activePosts.size());
+		final ArrayList<OfficialPost> posts = new ArrayList<>(activePosts.size());
 		for (OfficialPost post : activePosts)
 		{
 			if (post.isActionTypeRewarded(type))

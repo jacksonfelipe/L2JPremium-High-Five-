@@ -15,7 +15,7 @@ public class RewardGroup implements Cloneable
 	private double _chance;
 	private boolean _isAdena = false; // Шанс фиксирован, растет только количество
 	private boolean _notRate = false; // Рейты вообще не применяются
-	private final List<RewardData> _items = new ArrayList<RewardData>();
+	private final List<RewardData> _items = new ArrayList<>();
 	private double _chanceSum;
 	
 	public RewardGroup(double chance)
@@ -69,9 +69,7 @@ public class RewardGroup implements Cloneable
 		_items.add(item);
 	}
 	
-	/**
-	 * Возвращает список вещей
-	 */
+	 
 	public List<RewardData> getItems()
 	{
 		return _items;
@@ -90,10 +88,7 @@ public class RewardGroup implements Cloneable
 		}
 		return ret;
 	}
-	
-	/**
-	 * Функция используется в основном механизме расчета дропа, выбирает одну/несколько вещей из группы, в зависимости от рейтов
-	 */
+	 
 	public List<RewardItem> roll(RewardType type, Player player, double mod, boolean isRaid, boolean isSiegeGuard)
 	{
 		switch (type)
@@ -151,7 +146,7 @@ public class RewardGroup implements Cloneable
 		
 		double mult = Math.ceil(rate);
 		
-		List<RewardItem> ret = new ArrayList<RewardItem>((int) (mult * _items.size()));
+		List<RewardItem> ret = new ArrayList<>((int) (mult * _items.size()));
 		for (long n = 0; n < mult; n++)
 		{
 			if (Rnd.get(1, RewardList.MAX_CHANCE) <= _chance * Math.min(rate - n, 1.0))
@@ -178,7 +173,7 @@ public class RewardGroup implements Cloneable
 		
 		double rate = baseRate * playerRate * mod;
 		
-		List<RewardItem> ret = new ArrayList<RewardItem>(_items.size());
+		List<RewardItem> ret = new ArrayList<>(_items.size());
 		rollFinal(_items, ret, rate, Math.max(_chanceSum, RewardList.MAX_CHANCE));
 		for (RewardItem i : ret)
 		{
@@ -188,7 +183,7 @@ public class RewardGroup implements Cloneable
 		return ret;
 	}
 	
-	private void rollFinal(List<RewardData> items, List<RewardItem> ret, double mult, double chanceSum)
+	private static void rollFinal(List<RewardData> items, List<RewardItem> ret, double mult, double chanceSum)
 	{
 		// перебираем все вещи в группе и проверяем шанс
 		int chance = Rnd.get(0, (int) chanceSum);

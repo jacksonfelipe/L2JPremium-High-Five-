@@ -72,14 +72,12 @@ public class Quest
 	public static final int PARTY_ALL = 2;
 	
 	// карта с приостановленными квестовыми таймерами для каждого игрока
-	private final Map<Integer, Map<String, QuestTimer>> _pausedQuestTimers = new ConcurrentHashMap<Integer, Map<String, QuestTimer>>();
+	private final Map<Integer, Map<String, QuestTimer>> _pausedQuestTimers = new ConcurrentHashMap<>();
 	
 	private final TIntHashSet _questItems = new TIntHashSet();
 	private TIntObjectHashMap<List<QuestNpcLogInfo>> _npcLogList = TroveUtils.emptyIntObjectMap();
 	
-	/**
-	 * Этот метод для регистрации квестовых вещей, которые будут удалены при прекращении квеста, независимо от того, был он закончен или прерван. <strong>Добавлять сюда награды нельзя</strong>.
-	 */
+ 
 	public void addQuestItem(int... ids)
 	{
 		for (int id : ids)
@@ -187,13 +185,7 @@ public class Quest
 		}
 	}
 	
-	/**
-	 * Add quests to the L2Player.<BR>
-	 * <BR>
-	 * <U><I>Action : </U></I><BR>
-	 * Add state of quests, drops and variables for quests in the HashMap _quest of L2Player
-	 * @param player : Player who is entering the world
-	 */
+ 
 	public static void restoreQuestStates(Player player, Connection con)
 	{
 		try (PreparedStatement invalidQuestData = con.prepareStatement("DELETE FROM character_quests WHERE char_id=? and name=?"); PreparedStatement statement = con.prepareStatement("SELECT name,value FROM character_quests WHERE char_id=? AND var=?"))
@@ -324,17 +316,12 @@ public class Quest
 		QuestManager.addQuest(this);
 	}
 	
-	/**
-	 * Deprecated.
-	 */
+ 
 	public Quest(boolean party)
 	{
 		this(party ? 1 : 0);
 	}
-	
-	/**
-	 * 0 - по ластхиту, 1 - случайно по пати, 2 - всей пати.
-	 */
+ 
 	public Quest(int party)
 	{
 		_name = getClass().getSimpleName();
@@ -386,12 +373,7 @@ public class Quest
 		}
 	}
 	
-	/**
-	 * Add this quest to the list of quests that the passed mob will respond to for Kill Events.<BR>
-	 * <BR>
-	 * @param killIds
-	 * @return int : killId
-	 */
+ 
 	public void addKillId(int... killIds)
 	{
 		for (int killid : killIds)
@@ -400,12 +382,7 @@ public class Quest
 		}
 	}
 	
-	/**
-	 * Добавляет нпц масив для слушателя при их убийстве, и обновлении пакетом {@link premium.gameserver.network.serverpackets.ExQuestNpcLogList}
-	 * @param cond
-	 * @param varName
-	 * @param killIds
-	 */
+	 
 	public void addKillNpcWithLog(int cond, String varName, int max, int... killIds)
 	{
 		if (killIds.length == 0)
@@ -416,13 +393,13 @@ public class Quest
 		addKillId(killIds);
 		if (_npcLogList.isEmpty())
 		{
-			_npcLogList = new TIntObjectHashMap<List<QuestNpcLogInfo>>(5);
+			_npcLogList = new TIntObjectHashMap<>(5);
 		}
 		
 		List<QuestNpcLogInfo> vars = _npcLogList.get(cond);
 		if (vars == null)
 		{
-			_npcLogList.put(cond, (vars = new ArrayList<QuestNpcLogInfo>(5)));
+			_npcLogList.put(cond, (vars = new ArrayList<>(5)));
 		}
 		
 		vars.add(new QuestNpcLogInfo(killIds, varName, max));
@@ -502,11 +479,7 @@ public class Quest
 		return addEventId(npcId, QuestEventType.QUEST_START);
 	}
 	
-	/**
-	 * Add the quest to the NPC's first-talk (default action dialog)
-	 * @param npcIds
-	 * @return L2NpcTemplate : Start NPC
-	 */
+	 
 	public void addFirstTalkId(int... npcIds)
 	{
 		for (int npcId : npcIds)
@@ -515,12 +488,7 @@ public class Quest
 		}
 	}
 	
-	/**
-	 * Add this quest to the list of quests that the passed npc will respond to for Talk Events.<BR>
-	 * <BR>
-	 * @param talkIds : ID of the NPC
-	 * @return int : ID of the NPC
-	 */
+ 
 	public void addTalkId(int... talkIds)
 	{
 		for (int talkId : talkIds)
@@ -537,9 +505,7 @@ public class Quest
 		}
 	}
 	
-	/**
-	 * Возвращает название квеста (Берется с npcstring-*.dat) state 1 = "" state 2 = "In Progress" state 3 = "Done"
-	 */
+	 
 	public String getDescr(Player player)
 	{
 		if (!isVisible())
@@ -687,9 +653,7 @@ public class Quest
 		showResult(null, qs.getPlayer(), res);
 	}
 	
-	/**
-	 * Override the default NPC dialogs when a quest defines this for the given NPC
-	 */
+ 
 	public final boolean notifyFirstTalk(NpcInstance npc, Player player)
 	{
 		String res = null;
@@ -859,20 +823,7 @@ public class Quest
 		player.sendPacket(npcReply);
 	}
 	
-	/**
-	 * Show a message to player.<BR>
-	 * <BR>
-	 * <U><I>Concept : </I></U><BR>
-	 * 3 cases are managed according to the value of the parameter "res" :<BR>
-	 * <LI><U>"res" ends with string ".html" :</U> an HTML is opened in order to be shown in a dialog box</LI>
-	 * <LI><U>"res" starts with tag "html" :</U> the message hold in "res" is shown in a dialog box</LI>
-	 * <LI><U>"res" is null :</U> do not show any message</LI>
-	 * <LI><U>"res" is empty string :</U> show default message</LI>
-	 * <LI><U>otherwise :</U> the message hold in "res" is shown in chat box</LI>
-	 * @param npc
-	 * @param player
-	 * @param res : String pointing out the message to show at the player
-	 */
+	 
 	private boolean showResult(NpcInstance npc, Player player, String res)
 	{
 		return showResult(npc, player, res, false);
@@ -1011,9 +962,7 @@ public class Quest
 		return result;
 	}
 	
-	/**
-	 * Добавляет спаун с числовым значением разброса - от 50 до randomOffset. Если randomOffset указан мене 50, то координаты не меняются.
-	 */
+ 
 	public static NpcInstance addSpawnToInstance(int npcId, int x, int y, int z, int heading, int randomOffset, int refId)
 	{
 		return addSpawnToInstance(npcId, new Location(x, y, z, heading), randomOffset, refId);

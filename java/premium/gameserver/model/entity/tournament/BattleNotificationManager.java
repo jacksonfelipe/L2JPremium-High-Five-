@@ -99,13 +99,13 @@ public class BattleNotificationManager extends RunnableImpl
 	
 	private void sendMailNotifications(BattleRecord record, long battleDate)
 	{
-		final Map<Language, String> titlesPerLang = new EnumMap<Language, String>(Language.class);
+		final Map<Language, String> titlesPerLang = new EnumMap<>(Language.class);
 		for (Language lang : Language.values())
 		{
 			titlesPerLang.put(lang, StringHolder.getNotNull(lang, "Tournament.Notifications.MailAboutMatchDateTopic", new Object[0]));
 		}
 		final String battleDateString = MAIL_BATTLE_DATE_FORMAT.format(new Date(battleDate));
-		final Map<Integer, Long> emptyAttachments = new HashMap<Integer, Long>(0);
+		final Map<Integer, Long> emptyAttachments = new HashMap<>(0);
 		for (Team team : record.getTeams())
 		{
 			if (team != null)
@@ -168,12 +168,12 @@ public class BattleNotificationManager extends RunnableImpl
 	
 	public static void onNextRoundStarted(Iterable<BattleRecord> round)
 	{
-		final Map<Language, String> topics = new EnumMap<Language, String>(Language.class);
+		final Map<Language, String> topics = new EnumMap<>(Language.class);
 		for (Language lang : Language.values())
 		{
 			topics.put(lang, StringHolder.getNotNull(lang, "Tournament.Notifications.MailAboutMatchDateTopic", new Object[0]));
 		}
-		final Map<Integer, Long> emptyAttachments = new HashMap<Integer, Long>(0);
+		final Map<Integer, Long> emptyAttachments = new HashMap<>(0);
 		final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm dd.MM.yyyy");
 		for (BattleRecord battle : round)
 		{
@@ -200,12 +200,12 @@ public class BattleNotificationManager extends RunnableImpl
 	
 	public static void onChangedBattleDate(BattleRecord battle)
 	{
-		final Map<Language, String> topics = new EnumMap<Language, String>(Language.class);
+		final Map<Language, String> topics = new EnumMap<>(Language.class);
 		for (Language lang : Language.values())
 		{
 			topics.put(lang, StringHolder.getNotNull(lang, "Tournament.Notifications.MailAboutMatchDateTopic", new Object[0]));
 		}
-		final Map<Integer, Long> emptyAttachments = new HashMap<Integer, Long>(0);
+		final Map<Integer, Long> emptyAttachments = new HashMap<>(0);
 		final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm dd.MM.yyyy");
 		final String dateString = dateFormat.format(new Date(battle.getBattleDate()));
 		for (Team team : battle.getTeams())
@@ -226,7 +226,7 @@ public class BattleNotificationManager extends RunnableImpl
 	
 	private static Map<Language, IStaticPacket> getPMPacketPerLang(long millisToEvent)
 	{
-		final Map<Language, IStaticPacket> messagePerLang = new EnumMap<Language, IStaticPacket>(Language.class);
+		final Map<Language, IStaticPacket> messagePerLang = new EnumMap<>(Language.class);
 		for (Language lang : Language.values())
 		{
 			final String sender = StringHolder.getNotNull(lang, "Tournament.Notifications.PMAboutMatchDateSender", new Object[0]);
@@ -257,22 +257,19 @@ public class BattleNotificationManager extends RunnableImpl
 				}
 				return StringHolder.getNotNull(lang, "Tournament.Notifications.PMAboutMatchDateHsMs", hours, minutes);
 			}
-			else
+			if (minutes != 1L)
 			{
-				if (minutes != 1L)
-				{
-					return StringHolder.getNotNull(lang, "Tournament.Notifications.PMAboutMatchDateHs", hours);
-				}
-				if (seconds > 1L)
-				{
-					return StringHolder.getNotNull(lang, "Tournament.Notifications.PMAboutMatchDateHsMSs", hours, 1L, seconds);
-				}
-				if (seconds == 1L)
-				{
-					return StringHolder.getNotNull(lang, "Tournament.Notifications.PMAboutMatchDateHsMS", hours, 1L, 1L);
-				}
-				return StringHolder.getNotNull(lang, "Tournament.Notifications.PMAboutMatchDateHsM", hours, 1L);
+				return StringHolder.getNotNull(lang, "Tournament.Notifications.PMAboutMatchDateHs", hours);
 			}
+			if (seconds > 1L)
+			{
+				return StringHolder.getNotNull(lang, "Tournament.Notifications.PMAboutMatchDateHsMSs", hours, 1L, seconds);
+			}
+			if (seconds == 1L)
+			{
+				return StringHolder.getNotNull(lang, "Tournament.Notifications.PMAboutMatchDateHsMS", hours, 1L, 1L);
+			}
+			return StringHolder.getNotNull(lang, "Tournament.Notifications.PMAboutMatchDateHsM", hours, 1L);
 		}
 		else if (hours == 1L)
 		{
@@ -288,22 +285,19 @@ public class BattleNotificationManager extends RunnableImpl
 				}
 				return StringHolder.getNotNull(lang, "Tournament.Notifications.PMAboutMatchDateHMs", 1L, minutes);
 			}
-			else
+			if (minutes != 1L)
 			{
-				if (minutes != 1L)
-				{
-					return StringHolder.getNotNull(lang, "Tournament.Notifications.PMAboutMatchDateH", 1L);
-				}
-				if (seconds > 1L)
-				{
-					return StringHolder.getNotNull(lang, "Tournament.Notifications.PMAboutMatchDateHMSs", 1L, 1L, seconds);
-				}
-				if (seconds == 1L)
-				{
-					return StringHolder.getNotNull(lang, "Tournament.Notifications.PMAboutMatchDateHMS", 1L, 1L, 1L);
-				}
-				return StringHolder.getNotNull(lang, "Tournament.Notifications.PMAboutMatchDateHM", 1L, 1L);
+				return StringHolder.getNotNull(lang, "Tournament.Notifications.PMAboutMatchDateH", 1L);
 			}
+			if (seconds > 1L)
+			{
+				return StringHolder.getNotNull(lang, "Tournament.Notifications.PMAboutMatchDateHMSs", 1L, 1L, seconds);
+			}
+			if (seconds == 1L)
+			{
+				return StringHolder.getNotNull(lang, "Tournament.Notifications.PMAboutMatchDateHMS", 1L, 1L, 1L);
+			}
+			return StringHolder.getNotNull(lang, "Tournament.Notifications.PMAboutMatchDateHM", 1L, 1L);
 		}
 		else if (minutes > 1L)
 		{
@@ -341,7 +335,7 @@ public class BattleNotificationManager extends RunnableImpl
 	
 	private static Map<Language, IStaticPacket> getGlobalPacketPerLang(long millisToEvent)
 	{
-		final Map<Language, IStaticPacket> messagePerLang = new EnumMap<Language, IStaticPacket>(Language.class);
+		final Map<Language, IStaticPacket> messagePerLang = new EnumMap<>(Language.class);
 		final ChatType chatType = ConfigHolder.getChatType("TournamentGlobalNotificationChat");
 		for (Language lang : Language.values())
 		{
@@ -373,22 +367,19 @@ public class BattleNotificationManager extends RunnableImpl
 				}
 				return StringHolder.getNotNull(lang, "Tournament.GlobalNotification.MatchDateHsMs", hours, minutes);
 			}
-			else
+			if (minutes != 1L)
 			{
-				if (minutes != 1L)
-				{
-					return StringHolder.getNotNull(lang, "Tournament.GlobalNotification.MatchDateHs", hours);
-				}
-				if (seconds > 1L)
-				{
-					return StringHolder.getNotNull(lang, "Tournament.GlobalNotification.MatchDateHsMSs", hours, 1L, seconds);
-				}
-				if (seconds == 1L)
-				{
-					return StringHolder.getNotNull(lang, "Tournament.GlobalNotification.MatchDateHsMS", hours, 1L, 1L);
-				}
-				return StringHolder.getNotNull(lang, "Tournament.GlobalNotification.MatchDateHsM", hours, 1L);
+				return StringHolder.getNotNull(lang, "Tournament.GlobalNotification.MatchDateHs", hours);
 			}
+			if (seconds > 1L)
+			{
+				return StringHolder.getNotNull(lang, "Tournament.GlobalNotification.MatchDateHsMSs", hours, 1L, seconds);
+			}
+			if (seconds == 1L)
+			{
+				return StringHolder.getNotNull(lang, "Tournament.GlobalNotification.MatchDateHsMS", hours, 1L, 1L);
+			}
+			return StringHolder.getNotNull(lang, "Tournament.GlobalNotification.MatchDateHsM", hours, 1L);
 		}
 		else if (hours == 1L)
 		{
@@ -404,22 +395,19 @@ public class BattleNotificationManager extends RunnableImpl
 				}
 				return StringHolder.getNotNull(lang, "Tournament.GlobalNotification.MatchDateHMs", 1L, minutes);
 			}
-			else
+			if (minutes != 1L)
 			{
-				if (minutes != 1L)
-				{
-					return StringHolder.getNotNull(lang, "Tournament.GlobalNotification.MatchDateH", 1L);
-				}
-				if (seconds > 1L)
-				{
-					return StringHolder.getNotNull(lang, "Tournament.GlobalNotification.MatchDateHMSs", 1L, 1L, seconds);
-				}
-				if (seconds == 1L)
-				{
-					return StringHolder.getNotNull(lang, "Tournament.GlobalNotification.MatchDateHMS", 1L, 1L, 1L);
-				}
-				return StringHolder.getNotNull(lang, "Tournament.GlobalNotification.MatchDateHM", 1L, 1L);
+				return StringHolder.getNotNull(lang, "Tournament.GlobalNotification.MatchDateH", 1L);
 			}
+			if (seconds > 1L)
+			{
+				return StringHolder.getNotNull(lang, "Tournament.GlobalNotification.MatchDateHMSs", 1L, 1L, seconds);
+			}
+			if (seconds == 1L)
+			{
+				return StringHolder.getNotNull(lang, "Tournament.GlobalNotification.MatchDateHMS", 1L, 1L, 1L);
+			}
+			return StringHolder.getNotNull(lang, "Tournament.GlobalNotification.MatchDateHM", 1L, 1L);
 		}
 		else if (minutes > 1L)
 		{
@@ -484,7 +472,7 @@ public class BattleNotificationManager extends RunnableImpl
 	{
 		if (playerNames.length == 0)
 		{
-			return Collections.EMPTY_MAP;
+			return Collections.emptyMap();
 		}
 		String address = null;
 		switch (position)
@@ -514,7 +502,7 @@ public class BattleNotificationManager extends RunnableImpl
 				throw new StringNotFoundException("Could not find Strings for Winning " + position + " position in Tournament!");
 			}
 		}
-		final Map<Language, IStaticPacket> packetsToSend = new EnumMap<Language, IStaticPacket>(Language.class);
+		final Map<Language, IStaticPacket> packetsToSend = new EnumMap<>(Language.class);
 		final ChatType chatType = ConfigHolder.getChatType("TournamentGlobalNotificationChat");
 		for (Language lang : Language.values())
 		{

@@ -17,6 +17,7 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class WeddingManagerInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private int WEDDING_RING_MALE = 21159;
 	private int WEDDING_RING_FEMALE = 21160;
 	private int SALVATION_BOW = 9140;

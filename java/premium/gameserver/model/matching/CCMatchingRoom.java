@@ -39,10 +39,7 @@ public class CCMatchingRoom extends MatchingRoom
 		{
 			return kick ? SystemMsg.YOU_WERE_EXPELLED_FROM_THE_COMMAND_CHANNEL_MATCHING_ROOM : SystemMsg.YOU_EXITED_FROM_THE_COMMAND_CHANNEL_MATCHING_ROOM;
 		}
-		else
-		{
-			return null;
-		}
+		return null;
 	}
 	
 	@Override

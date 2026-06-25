@@ -13,15 +13,15 @@ public final class ActionsAwaitingOwner
 	
 	private ActionsAwaitingOwner()
 	{
-		_actionsAwaitingOwner = new HashMap<FacebookAction, EnumMap<FacebookActionType, CopyOnWriteArrayList<FacebookAction>>>();
+		_actionsAwaitingOwner = new HashMap<>();
 	}
 	
 	public void addNewFather(OfficialPost father)
 	{
-		final EnumMap<FacebookActionType, CopyOnWriteArrayList<FacebookAction>> rewardedTypes = new EnumMap<FacebookActionType, CopyOnWriteArrayList<FacebookAction>>(FacebookActionType.class);
+		final EnumMap<FacebookActionType, CopyOnWriteArrayList<FacebookAction>> rewardedTypes = new EnumMap<>(FacebookActionType.class);
 		for (FacebookActionType rewardedType : father.getRewardedActionsForIterate())
 		{
-			rewardedTypes.put(rewardedType, new CopyOnWriteArrayList<FacebookAction>());
+			rewardedTypes.put(rewardedType, new CopyOnWriteArrayList<>());
 		}
 		_actionsAwaitingOwner.put(father, rewardedTypes);
 	}
@@ -47,7 +47,7 @@ public final class ActionsAwaitingOwner
 	
 	public ArrayList<FacebookAction> getActionsCopy(@Nullable final FacebookAction father, FacebookActionType type)
 	{
-		return new ArrayList<FacebookAction>(_actionsAwaitingOwner.get(father).get(type));
+		return new ArrayList<>(_actionsAwaitingOwner.get(father).get(type));
 	}
 	
 	public static ActionsAwaitingOwner getInstance()

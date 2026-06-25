@@ -1,8 +1,5 @@
 package premium.gameserver.network.clientpackets;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import premium.gameserver.database.mysql;
 import premium.gameserver.model.pledge.Clan;
 import premium.gameserver.network.GameClient;
@@ -12,8 +9,7 @@ import premium.gameserver.network.serverpackets.CharacterSelectionInfo;
 
 public class CharacterDelete extends L2GameClientPacket
 {
-	private static final Logger _log = LoggerFactory.getLogger(CharacterDelete.class);
-	
+	 
 	// cd
 	private int _charSlot;
 	

@@ -15,6 +15,8 @@ import premium.gameserver.utils.Location;
 
 public class KrateisCubePlayerObject implements Serializable, Comparable<KrateisCubePlayerObject>
 {
+	private static final long serialVersionUID = 1L;
+
 	private class RessurectTask extends RunnableImpl
 	{
 		private int _seconds = 10;

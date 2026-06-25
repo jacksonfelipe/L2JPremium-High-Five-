@@ -222,7 +222,6 @@ public class LastManStandingEvent extends AbstractFightClub implements OnCurrent
 	private void killOnePlayer()
 	{
 		double playerToKillHp = Double.MAX_VALUE;
-		Player playerToKill = null;
 		for (FightClubPlayer fPlayer : getPlayers(FIGHTING_PLAYERS))
 		{
 			if (fPlayer != null && fPlayer.getPlayer() != null && !fPlayer.getPlayer().isDead())
@@ -230,11 +229,9 @@ public class LastManStandingEvent extends AbstractFightClub implements OnCurrent
 				if (fPlayer.isAfk())
 				{
 					playerToKillHp = -1.0;
-					playerToKill = fPlayer.getPlayer();
 				}
 				else if (damagePerPlayer.getOrDefault(fPlayer, Double.valueOf(0.0D)) < playerToKillHp)
 				{
-					playerToKill = fPlayer.getPlayer();
 					playerToKillHp = damagePerPlayer.getOrDefault(fPlayer, Double.valueOf(0.0D)).doubleValue();
 				}
 			}

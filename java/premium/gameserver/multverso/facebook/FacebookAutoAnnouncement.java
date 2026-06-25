@@ -1,6 +1,5 @@
 package premium.gameserver.multverso.facebook;
 
-import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
 import premium.commons.threading.RunnableImpl;
@@ -23,8 +22,6 @@ public final class FacebookAutoAnnouncement extends RunnableImpl
 	private long _lastNotConnectedMsgDate;
 	private long _lastConnectedMsgDate;
 	private long _lastNegativePointsMsgDate;
-	private static ScheduledFuture<?> _runningThread;
-	
 	private FacebookAutoAnnouncement()
 	{
 		_lastNotConnectedMsgDate = 0L;
@@ -59,7 +56,7 @@ public final class FacebookAutoAnnouncement extends RunnableImpl
 				announceNegativePointsMsg();
 			}
 		}
-		FacebookAutoAnnouncement._runningThread = ThreadPoolManager.getInstance().schedule(this, getNextDelay(currentDate));
+		ThreadPoolManager.getInstance().schedule(this, getNextDelay(currentDate));
 	}
 	
 	private static void announceNotConnectedMsg()

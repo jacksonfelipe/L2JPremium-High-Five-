@@ -55,7 +55,7 @@ public class AdminSkill implements IAdminCommandHandler
 	private static Skill[] adminSkills;
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		Commands command = (Commands) comm;
 		
@@ -162,7 +162,7 @@ public class AdminSkill implements IAdminCommandHandler
 		return true;
 	}
 	
-	private void giveAllClanSkills(Player activeChar)
+	public void giveAllClanSkills(Player activeChar)
 	{
 		Player target = null;
 		if (activeChar.getTarget() != null)
@@ -213,7 +213,7 @@ public class AdminSkill implements IAdminCommandHandler
 		activeChar.sendMessage("Clan " + clan.getName() + " sucessfully received all clan skills.");
 	}
 	
-	private void debug_stats(Player activeChar)
+	public void debug_stats(Player activeChar)
 	{
 		GameObject target_obj = activeChar.getTarget();
 		if (!target_obj.isCreature())
@@ -256,12 +256,8 @@ public class AdminSkill implements IAdminCommandHandler
 		
 		Log.add(log_str, "debug_stats");
 	}
-	
-	/**
-	 * This function will give all the skills that the gm target can have at its level to the traget
-	 * @param activeChar
-	 */
-	private void adminGiveAllSkills(Player activeChar)
+ 
+	public void adminGiveAllSkills(Player activeChar)
 	{
 		GameObject target = activeChar.getTarget();
 		Player player = null;
@@ -302,13 +298,14 @@ public class AdminSkill implements IAdminCommandHandler
 		activeChar.sendMessage("You gave " + skillCounter + " skills to " + player.getName());
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{
 		return Commands.values();
 	}
 	
-	private void removeSkillsPage(Player activeChar)
+	public void removeSkillsPage(Player activeChar)
 	{
 		GameObject target = activeChar.getTarget();
 		Player player;
@@ -355,7 +352,7 @@ public class AdminSkill implements IAdminCommandHandler
 		activeChar.sendPacket(adminReply);
 	}
 	
-	private void showSkillsPage(Player activeChar)
+	public void showSkillsPage(Player activeChar)
 	{
 		GameObject target = activeChar.getTarget();
 		Player player;
@@ -411,7 +408,7 @@ public class AdminSkill implements IAdminCommandHandler
 		activeChar.sendPacket(adminReply);
 	}
 	
-	private void showEffects(Player activeChar)
+	public void showEffects(Player activeChar)
 	{
 		GameObject target = activeChar.getTarget();
 		Player player;

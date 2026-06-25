@@ -24,7 +24,7 @@ public class Alliance
 	private String _allyName;
 	private int _allyId;
 	private Clan _leader = null;
-	private Map<Integer, Clan> _members = new ConcurrentHashMap<Integer, Clan>();
+	private Map<Integer, Clan> _members = new ConcurrentHashMap<>();
 	
 	private int _allyCrestId;
 	
@@ -250,7 +250,7 @@ public class Alliance
 		}
 	}
 	
-	private void removeMemberInDatabase(Clan member)
+	public void removeMemberInDatabase(Clan member)
 	{
 		Connection con = null;
 		PreparedStatement statement = null;

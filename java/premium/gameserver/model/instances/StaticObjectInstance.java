@@ -21,6 +21,7 @@ import premium.gameserver.utils.Location;
 
 public class StaticObjectInstance extends GameObject
 {
+	private static final long serialVersionUID = 1L;
 	private final HardReference<StaticObjectInstance> reference;
 	private final StaticObjectTemplate _template;
 	private int _meshIndex;
@@ -30,7 +31,7 @@ public class StaticObjectInstance extends GameObject
 		super(objectId);
 		
 		_template = template;
-		reference = new L2Reference<StaticObjectInstance>(this);
+		reference = new L2Reference<>(this);
 	}
 	
 	@Override

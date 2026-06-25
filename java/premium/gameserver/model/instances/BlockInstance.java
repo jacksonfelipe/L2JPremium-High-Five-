@@ -5,6 +5,7 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class BlockInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private boolean _isRed;
 	
 	public BlockInstance(int objectId, NpcTemplate template)

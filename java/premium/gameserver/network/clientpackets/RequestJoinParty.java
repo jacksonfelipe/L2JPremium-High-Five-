@@ -146,17 +146,14 @@ public class RequestJoinParty extends L2GameClientPacket
 				target.joinParty(activeChar.getParty());
 				return;
 			}
-			else
+			Party GMParty = new Party(activeChar, Party.ITEM_LOOTER);
+			activeChar.setParty(GMParty);
+			if (target.isInParty())
 			{
-				Party GMParty = new Party(activeChar, Party.ITEM_LOOTER);
-				activeChar.setParty(GMParty);
-				if (target.isInParty())
-				{
-					target.leaveParty();
-				}
-				target.joinParty(activeChar.getParty());
-				return;
+				target.leaveParty();
 			}
+			target.joinParty(activeChar.getParty());
+			return;
 		}
 		
 		if (activeChar.isInParty())

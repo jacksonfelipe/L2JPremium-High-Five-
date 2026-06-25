@@ -7,7 +7,7 @@ import premium.gameserver.network.serverpackets.ExGetPremiumItemList;
 import premium.gameserver.network.serverpackets.SystemMessage2;
 import premium.gameserver.network.serverpackets.components.SystemMsg;
 
-//FIXME item-API
+ 
 public final class RequestWithDrawPremiumItem extends L2GameClientPacket
 {
 	private int _itemNum;
@@ -57,12 +57,12 @@ public final class RequestWithDrawPremiumItem extends L2GameClientPacket
 		{
 			for (int i = 0; i < this._itemcount; i++)
 			{
-				this.addItem(activeChar, _item.getItemId(), 1);
+				RequestWithDrawPremiumItem.addItem(activeChar, _item.getItemId(), 1);
 			}
 		}
 		else
 		{
-			this.addItem(activeChar, _item.getItemId(), this._itemcount);
+			RequestWithDrawPremiumItem.addItem(activeChar, _item.getItemId(), this._itemcount);
 		}
 		if (this._itemcount < _item.getCount())
 		{
@@ -85,7 +85,7 @@ public final class RequestWithDrawPremiumItem extends L2GameClientPacket
 		}
 	}
 	
-	private void addItem(Player player, int itemId, long count)
+	private static void addItem(Player player, int itemId, long count)
 	{
 		player.getInventory().addItem(itemId, count, "RequestWithDrawPremiumItem");
 		player.sendPacket(SystemMessage2.obtainItems(itemId, count, 0));

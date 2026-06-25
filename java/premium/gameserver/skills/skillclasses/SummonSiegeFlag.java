@@ -59,6 +59,7 @@ public class SummonSiegeFlag extends Skill
 		{
 			case DESTROY:
 			{
+				@SuppressWarnings("rawtypes")
 				SiegeEvent siegeEvent = activeChar.getEvent(SiegeEvent.class);
 				if (siegeEvent == null)
 				{
@@ -97,7 +98,7 @@ public class SummonSiegeFlag extends Skill
 					return false;
 				}
 				
-				SiegeEvent siegeEvent = activeChar.getEvent(SiegeEvent.class);
+				@SuppressWarnings("rawtypes") SiegeEvent siegeEvent = activeChar.getEvent(SiegeEvent.class);
 				if (siegeEvent == null)
 				{
 					player.sendPacket(SystemMsg.YOU_CANNOT_SET_UP_A_BASE_HERE, new SystemMessage2(SystemMsg.S1_CANNOT_BE_USED_DUE_TO_UNSUITABLE_TERMS).addSkillName(this));
@@ -137,6 +138,7 @@ public class SummonSiegeFlag extends Skill
 		return true;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void useSkill(Creature activeChar, List<Creature> targets)
 	{

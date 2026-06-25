@@ -62,13 +62,14 @@ public class AdminShop implements IAdminCommandHandler
 		return true;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{
 		return Commands.values();
 	}
 	
-	private void handleBuyRequest(Player activeChar, String command)
+	public void handleBuyRequest(Player activeChar, String command)
 	{
 		int val = -1;
 		

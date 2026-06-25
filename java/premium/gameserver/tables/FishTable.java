@@ -42,8 +42,8 @@ public class FishTable
 	
 	private void load()
 	{
-		_fishes = new TIntObjectHashMap<List<FishTemplate>>();
-		_fishRewards = new TIntObjectHashMap<List<RewardData>>();
+		_fishes = new TIntObjectHashMap<>();
+		_fishRewards = new TIntObjectHashMap<>();
 		
 		int count = 0;
 		Connection con = null;
@@ -74,7 +74,7 @@ public class FishTable
 				fish = new FishTemplate(id, lvl, name, hp, hpreg, type, group, fish_guts, guts_check_time, wait_time, combat_time);
 				if ((fishes = _fishes.get(group)) == null)
 				{
-					_fishes.put(group, fishes = new ArrayList<FishTemplate>());
+					_fishes.put(group, fishes = new ArrayList<>());
 				}
 				fishes.add(fish);
 				count++;
@@ -102,7 +102,7 @@ public class FishTable
 				reward = new RewardData(rewardid, mindrop, maxdrop, chance * 10000.);
 				if ((rewards = _fishRewards.get(fishid)) == null)
 				{
-					_fishRewards.put(fishid, rewards = new ArrayList<RewardData>());
+					_fishRewards.put(fishid, rewards = new ArrayList<>());
 				}
 				
 				rewards.add(reward);
@@ -128,7 +128,7 @@ public class FishTable
 	
 	public List<FishTemplate> getFish(int group, int type, int lvl)
 	{
-		List<FishTemplate> result = new ArrayList<FishTemplate>();
+		List<FishTemplate> result = new ArrayList<>();
 		
 		List<FishTemplate> fishs = _fishes.get(group);
 		if (fishs == null)

@@ -49,6 +49,7 @@ import premium.gameserver.utils.Util;
 
 public final class VillageMasterInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final Logger LOG = LoggerFactory.getLogger(VillageMasterInstance.class);
 	
 	public VillageMasterInstance(int objectId, NpcTemplate template)
@@ -547,7 +548,7 @@ public final class VillageMasterInstance extends NpcInstance
 		clan.broadcastClanStatus(true, true, false);
 	}
 	
-	public void createSubPledge(Player player, String clanName, int pledgeType, int minClanLvl, String leaderName)
+	public static void createSubPledge(Player player, String clanName, int pledgeType, int minClanLvl, String leaderName)
 	{
 		UnitMember subLeader = null;
 		
@@ -646,7 +647,7 @@ public final class VillageMasterInstance extends NpcInstance
 		}
 	}
 	
-	public void assignSubPledgeLeader(Player player, String clanName, String leaderName)
+	public static void assignSubPledgeLeader(Player player, String clanName, String leaderName)
 	{
 		Clan clan = player.getClan();
 		
@@ -707,7 +708,7 @@ public final class VillageMasterInstance extends NpcInstance
 		player.sendMessage(new CustomMessage("premium.gameserver.model.instances.L2VillageMasterInstance.NewSubUnitLeaderHasBeenAssigned", player));
 	}
 	
-	private void dissolveClan(Player player)
+	private static void dissolveClan(Player player)
 	{
 		if (player == null || player.getClan() == null)
 		{
@@ -762,7 +763,7 @@ public final class VillageMasterInstance extends NpcInstance
 		player.sendMessage("Your clan has been scheduled for disband!");
 	}
 	
-	public void recoverClan(Player player)
+	public static void recoverClan(Player player)
 	{
 		if (!player.isClanLeader())
 		{
@@ -1005,27 +1006,9 @@ public final class VillageMasterInstance extends NpcInstance
 		}
 	}
 	
-	public void createAlly(Player player, String allyName)
+	public static void createAlly(Player player, String allyName)
 	{
-		// D5 You may not ally with clan you are battle with.
-		// D6 Only the clan leader may apply for withdraw from alliance.
-		// DD No response. Invitation to join an
-		// D7 Alliance leaders cannot withdraw.
-		// D9 Different Alliance
-		// EB alliance information
-		// Ec alliance name $s1
-		// ee alliance leader: $s2 of $s1
-		// ef affilated clans: total $s1 clan(s)
-		// f6 you have already joined an alliance
-		// f9 you cannot new alliance 10 days
-		// fd cannot accept. clan ally is register as enemy during siege battle.
-		// fe you have invited someone to your alliance.
-		// 100 do you wish to withdraw from the alliance
-		// 102 enter the name of the clan you wish to expel.
-		// 202 do you realy wish to dissolve the alliance
-		// 502 you have accepted alliance
-		// 602 you have failed to invite a clan into the alliance
-		// 702 you have withdraw
+		 
 		
 		if (!player.isClanLeader())
 		{
@@ -1078,7 +1061,7 @@ public final class VillageMasterInstance extends NpcInstance
 		player.sendMessage("Alliance " + allyName + " has been created.");
 	}
 	
-	private void dissolveAlly(Player player)
+	private static void dissolveAlly(Player player)
 	{
 		if (player == null || player.getAlliance() == null)
 		{

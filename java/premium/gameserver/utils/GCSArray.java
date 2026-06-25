@@ -5,16 +5,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-/**
- * Аналог ArrayList, но намного быстрее удаляет. <br />
- * Вместо сдвига всего массива перемещает последний элемент списка на место удаленного. <br />
- * Побочный эффект - размер массива при удалении элемента не меняется, но можно использовать clear. <br />
- * Конкуррентнобезопасная синхронизированная версия, для итерации создается копия списка. <br />
- * Метод remove для итератора не работает и возвращает IllegalStateException.
- * @see l2f.util.GArray - базовая версия
- * @see l2f.util.GCArray - конкуррентнобезопасная версия
- * @see l2f.util.GSArray - синхронизированная версия
- */
+ 
 public class GCSArray<E> implements Collection<E>
 {
 	private transient E[] elementData;

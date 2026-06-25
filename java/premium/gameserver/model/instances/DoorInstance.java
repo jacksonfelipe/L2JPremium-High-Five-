@@ -116,9 +116,7 @@ public final class DoorInstance extends Creature implements GeoCollision
 		return true;
 	}
 	
-	/**
-	 * Schedule the opening / closing doors @ Param open - open / close @ Param actionDelay - time to open / close
-	 */
+	 
 	public void scheduleAutoAction(boolean open, long actionDelay)
 	{
 		if (_autoActionTask != null)
@@ -142,6 +140,7 @@ public final class DoorInstance extends Creature implements GeoCollision
 		return isAttackable(attacker);
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public boolean isAttackable(Creature attacker)
 	{
@@ -493,10 +492,7 @@ public final class DoorInstance extends Creature implements GeoCollision
 		}
 	}
 	
-	/**
-	 * Ð”Ð²ÐµÑ€Ð¸ Ð½Ð° Ð¾Ñ�Ð°Ð´Ð°Ñ… ÑƒÑ�Ð·Ð²Ð¸Ð¼Ñ‹ Ð²Ð¾ Ð²Ñ€ÐµÐ¼Ñ� Ð¾Ñ�Ð°Ð´Ñ‹. ÐžÑ�Ñ‚Ð°Ð»ÑŒÐ½Ñ‹Ðµ Ð´Ð²ÐµÑ€Ð¸ Ð½Ðµ ÑƒÑ�Ð·Ð²Ð¸Ð¼Ñ‹ Ð²Ð¾Ð¾Ð±Ñ‰Ðµ.
-	 * @return Ð¸Ð½Ð²ÑƒÐ»ÑŒÐ½Ð°Ñ� Ð»Ð¸ Ð´Ð²ÐµÑ€ÑŒ.
-	 */
+	 
 	@Override
 	public boolean isInvul()
 	{
@@ -504,22 +500,16 @@ public final class DoorInstance extends Creature implements GeoCollision
 		{
 			return true;
 		}
-		else
+		SiegeEvent<?, ?> siegeEvent = getEvent(SiegeEvent.class);
+		if (siegeEvent != null && siegeEvent.isInProgress())
 		{
-			SiegeEvent<?, ?> siegeEvent = getEvent(SiegeEvent.class);
-			if (siegeEvent != null && siegeEvent.isInProgress())
-			{
-				return false;
-			}
-			
-			return super.isInvul();
+			return false;
 		}
+		
+		return super.isInvul();
 	}
 	
-	/**
-	 * Ð£Ñ�Ñ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÐµÑ‚ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð·Ð°ÐºÑ€Ñ‹Ñ‚Ð¾Ñ�Ñ‚Ð¸\Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ð¾Ñ�Ñ‚Ð¸ Ð² Ð³ÐµÐ¾Ð´Ð°Ñ‚Ðµ<br>
-	 * @param open Ð½Ð¾Ð²Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ
-	 */
+	 
 	public boolean setGeoOpen(boolean open)
 	{
 		if (_geoOpen == open)

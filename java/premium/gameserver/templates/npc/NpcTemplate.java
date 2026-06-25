@@ -267,7 +267,7 @@ public final class NpcTemplate extends CharTemplate
 	{
 		if (_teachInfo.isEmpty())
 		{
-			_teachInfo = new ArrayList<ClassId>(1);
+			_teachInfo = new ArrayList<>(1);
 		}
 		_teachInfo.add(classId);
 	}
@@ -286,7 +286,7 @@ public final class NpcTemplate extends CharTemplate
 	{
 		if (_teleportList.isEmpty())
 		{
-			_teleportList = new TIntObjectHashMap<TeleportLocation[]>(1);
+			_teleportList = new TIntObjectHashMap<>(1);
 		}
 		
 		_teleportList.put(id, list);
@@ -306,7 +306,7 @@ public final class NpcTemplate extends CharTemplate
 	{
 		if (_rewards.isEmpty())
 		{
-			_rewards = new HashMap<RewardType, RewardList>(RewardType.values().length);
+			_rewards = new HashMap<>(RewardType.values().length);
 		}
 		_rewards.put(rewardType, list);
 	}
@@ -325,7 +325,7 @@ public final class NpcTemplate extends CharTemplate
 	{
 		if (_absorbInfo.isEmpty())
 		{
-			_absorbInfo = new ArrayList<AbsorbInfo>(1);
+			_absorbInfo = new ArrayList<>(1);
 		}
 		
 		_absorbInfo.add(absorbInfo);
@@ -335,7 +335,7 @@ public final class NpcTemplate extends CharTemplate
 	{
 		if (_minions.isEmpty())
 		{
-			_minions = new ArrayList<MinionData>(1);
+			_minions = new ArrayList<>(1);
 		}
 		
 		_minions.add(minion);
@@ -355,7 +355,7 @@ public final class NpcTemplate extends CharTemplate
 	{
 		if (_skills.isEmpty())
 		{
-			_skills = new TIntObjectHashMap<Skill>();
+			_skills = new TIntObjectHashMap<>();
 		}
 		
 		_skills.put(skill.getId(), skill);
@@ -481,7 +481,7 @@ public final class NpcTemplate extends CharTemplate
 	{
 		if (_questEvents.isEmpty())
 		{
-			_questEvents = new HashMap<QuestEventType, Quest[]>();
+			_questEvents = new HashMap<>();
 		}
 		
 		if (_questEvents.get(EventType) == null)

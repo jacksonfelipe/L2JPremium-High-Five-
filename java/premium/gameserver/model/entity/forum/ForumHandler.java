@@ -15,7 +15,7 @@ public class ForumHandler
 		"quote"
 	};
 	
-	private final Map<Integer, ForumBoard> boards = new HashMap<Integer, ForumBoard>();
+	private final Map<Integer, ForumBoard> boards = new HashMap<>();
 	private int lastTopicId = 0;
 	private int lastPostId = 0;
 	

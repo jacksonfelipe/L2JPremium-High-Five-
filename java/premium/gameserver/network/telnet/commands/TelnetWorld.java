@@ -14,7 +14,7 @@ import premium.gameserver.tables.GmListTable;
 
 public class TelnetWorld implements TelnetCommandHolder
 {
-	private Set<TelnetCommand> _commands = new LinkedHashSet<TelnetCommand>();
+	private Set<TelnetCommand> _commands = new LinkedHashSet<>();
 	
 	public TelnetWorld()
 	{

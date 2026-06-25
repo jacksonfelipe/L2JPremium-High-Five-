@@ -18,12 +18,7 @@ public class Files
 {
 	private static final Logger LOG = LoggerFactory.getLogger(Files.class);
 	
-	/**
-	 * Saves the string to a file in UTF-8. <br>
-	 * If the file exists, overwrite it.
-	 * @param Path path to the file
-	 * @param String to store the string
-	 */
+ 
 	public static void writeFile(String path, String string)
 	{
 		try
@@ -85,13 +80,7 @@ public class Files
 		
 		return content;
 	}
-	
-	/**
-	 * Saves the string to a file in UTF-8. <br>
-	 * If the file exists, overwrite it.
-	 * @param Path path to the file
-	 * @param String to store the string
-	 */
+ 
 	public static void writeFile1(String path, String string)
 	{
 		if (string == null || string.length() == 0)
@@ -135,7 +124,7 @@ public class Files
 		{
 			return "";
 		}
-		return read(name, player.getLang());
+		return read(name, Player.getLang());
 	}
 	
 	public static String read(String name, String lang)

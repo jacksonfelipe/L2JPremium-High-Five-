@@ -11,6 +11,7 @@ public class PetitionSubGroup extends PetitionGroup
 	private static final Logger LOG = LoggerFactory.getLogger(PetitionSubGroup.class);
 	private final IPetitionHandler _handler;
 	
+	@SuppressWarnings("deprecation")
 	public PetitionSubGroup(int id, String handler)
 	{
 		super(id);

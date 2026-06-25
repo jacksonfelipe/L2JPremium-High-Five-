@@ -545,19 +545,19 @@ public class _503_PursuitClanAmbition extends Quest implements ScriptFile
 		{
 			st.setCond(9);
 			
-			NpcInstance n = st.findTemplate(Cleo);
+			NpcInstance n = QuestState.findTemplate(Cleo);
 			if (n != null)
 			{
 				Functions.npcSay(n, "Blood and Honour");
 			}
 			
-			n = st.findTemplate(Kalis);
+			n = QuestState.findTemplate(Kalis);
 			if (n != null)
 			{
 				Functions.npcSay(n, "Ambition and Power");
 			}
 			
-			n = st.findTemplate(Athrea);
+			n = QuestState.findTemplate(Athrea);
 			if (n != null)
 			{
 				Functions.npcSay(n, "War and Death");

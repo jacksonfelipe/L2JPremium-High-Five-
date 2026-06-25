@@ -1009,7 +1009,7 @@ public abstract class ItemTemplate extends StatTemplate
 	{
 		if (_enchantOptions.isEmpty())
 		{
-			_enchantOptions = new HashIntObjectMap<int[]>();
+			_enchantOptions = new HashIntObjectMap<>();
 		}
 		
 		_enchantOptions.put(level, options);
@@ -1090,7 +1090,7 @@ public abstract class ItemTemplate extends StatTemplate
 	{
 		if (_augmentationInfos.isEmpty())
 		{
-			_augmentationInfos = new HashIntObjectMap<AugmentationInfo>();
+			_augmentationInfos = new HashIntObjectMap<>();
 		}
 		_augmentationInfos.put(augmentationInfo.getMineralId(), augmentationInfo);
 	}

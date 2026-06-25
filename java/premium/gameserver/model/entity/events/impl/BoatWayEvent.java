@@ -137,7 +137,7 @@ public class BoatWayEvent extends GlobalEvent
 	{
 		if (range <= 0)
 		{
-			List<Player> list = new ArrayList<Player>();
+			List<Player> list = new ArrayList<>();
 			
 			int rx = MapUtils.regionX(_boat.getX());
 			int ry = MapUtils.regionY(_boat.getY());
@@ -161,10 +161,7 @@ public class BoatWayEvent extends GlobalEvent
 			
 			return list;
 		}
-		else
-		{
-			return World.getAroundPlayers(_boat, range, Math.max(range / 2, 200));
-		}
+		return World.getAroundPlayers(_boat, range, Math.max(range / 2, 200));
 	}
 	
 	@Override

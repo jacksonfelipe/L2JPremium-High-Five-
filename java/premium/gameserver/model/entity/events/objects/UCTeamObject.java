@@ -13,6 +13,8 @@ import premium.gameserver.model.Player;
  */
 public class UCTeamObject implements Serializable, Iterable<UCMemberObject>
 {
+	private static final long serialVersionUID = 1L;
+
 	private class ArrayIterator<E> implements Iterator<E>
 	{
 		final E[] objects;
@@ -51,7 +53,11 @@ public class UCTeamObject implements Serializable, Iterable<UCMemberObject>
 	
 	private UCMemberObject[] _members = new UCMemberObject[9];
 	
-	@SuppressWarnings("unchecked")
+ 
+	@SuppressWarnings({
+		"rawtypes",
+		"unchecked"
+	})
 	public UCTeamObject(Player leader, Listener listener)
 	{
 		_leader = leader;
@@ -110,6 +116,6 @@ public class UCTeamObject implements Serializable, Iterable<UCMemberObject>
 	@Override
 	public Iterator<UCMemberObject> iterator()
 	{
-		return new ArrayIterator<UCMemberObject>(_members);
+		return new ArrayIterator<>(_members);
 	}
 }

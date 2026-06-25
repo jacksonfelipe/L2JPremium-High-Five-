@@ -102,7 +102,7 @@ public class FakePlayerTemplate
 		agathion = 0;
 		cubics = new int[0];
 		team = player.getTeam();
-		inventory = new HashMap<Integer, Integer>(26);
+		inventory = new HashMap<>(26);
 		for (int slot : Inventory.PAPERDOLL_ORDER)
 		{
 			final ItemInstance item = player.getInventory().getPaperdollItem(slot);

@@ -2,9 +2,6 @@ package premium.gameserver.model.instances;
 
 import java.util.StringTokenizer;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import premium.gameserver.model.Player;
 import premium.gameserver.model.entity.SevenSigns;
 import premium.gameserver.model.entity.residence.Residence;
@@ -14,8 +11,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public final class WyvernManagerInstance extends NpcInstance
 {
-	private static final Logger _log = LoggerFactory.getLogger(WyvernManagerInstance.class);
-	
+	private static final long serialVersionUID = 1L;
+ 
 	public WyvernManagerInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

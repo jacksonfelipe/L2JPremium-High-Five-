@@ -47,14 +47,11 @@ public class RestoreOfflineTraders extends RunnableImpl
 			try (PreparedStatement statement = con.prepareStatement("SELECT obj_id, value FROM character_variables WHERE name = 'offline'"); ResultSet rset = statement.executeQuery())
 			{
 				int objectId;
-				int expireTimeSecs;
 				Player p;
 				
 				while (rset.next())
 				{
 					objectId = rset.getInt("obj_id");
-					expireTimeSecs = rset.getInt("value");
-					
 					p = Player.restore(objectId);
 					if (p == null)
 					{

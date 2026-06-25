@@ -25,6 +25,7 @@ import premium.gameserver.utils.ItemFunctions;
 
 public class SignsPriestInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final Logger _log = LoggerFactory.getLogger(SignsPriestInstance.class);
 	
 	public SignsPriestInstance(int objectId, NpcTemplate template)
@@ -40,7 +41,7 @@ public class SignsPriestInstance extends NpcInstance
 		showChatWindow(player, filename);
 	}
 	
-	private boolean getPlayerAllyHasCastle(Player player)
+	public boolean getPlayerAllyHasCastle(Player player)
 	{
 		Clan playerClan = player.getClan();
 		
@@ -340,7 +341,7 @@ public class SignsPriestInstance extends NpcInstance
 						}
 						if (blueContribCount > 0)
 						{
-							ItemInstance temp = player.getInventory().getItemByItemId(SevenSigns.SEAL_STONE_BLUE_ID);
+							player.getInventory().getItemByItemId(SevenSigns.SEAL_STONE_BLUE_ID);
 							if (player.getInventory().destroyItemByItemId(SevenSigns.SEAL_STONE_BLUE_ID, blueContribCount, "AA Convert"))
 							{
 								stonesFound = true;

@@ -27,8 +27,8 @@ public class ForumMembersHolder
 {
 	private static final Logger LOG = LoggerFactory.getLogger(ForumMembersHolder.class);
 	
-	private final Map<Integer, ForumMember> forumMembers = new ConcurrentHashMap<Integer, ForumMember>();
-	private final List<ForumMember> membersToSave = new CopyOnWriteArrayList<ForumMember>();
+	private final Map<Integer, ForumMember> forumMembers = new ConcurrentHashMap<>();
+	private final List<ForumMember> membersToSave = new CopyOnWriteArrayList<>();
 	private int lastLoadedMemberId = -1;
 	private int biggestMemberId = 1;
 	private final ForumMember deletedMember = new ForumMember(-1, "Account Deleted", "", ForumMemberGroup.DELETED, "", 0);
@@ -92,7 +92,7 @@ public class ForumMembersHolder
 	
 	public void synchronizeMembers(Connection con)
 	{
-		final Collection<Integer> allMembersIds = new HashSet<Integer>();
+		final Collection<Integer> allMembersIds = new HashSet<>();
 		try (PreparedStatement statement = con.prepareStatement("SELECT id_member, real_name, passwd, email_address, id_group, posts, warning FROM smf_members WHERE posts > 0"); ResultSet rset = statement.executeQuery())
 		{
 			while (rset.next())
@@ -241,7 +241,7 @@ public class ForumMembersHolder
 			LOG.error("Error while Saving smf_members online status!", e);
 		}
 		
-		final List<Integer> idMembersViewingRealForum = new ArrayList<Integer>();
+		final List<Integer> idMembersViewingRealForum = new ArrayList<>();
 		try (PreparedStatement statement2 = con.prepareStatement("SELECT id_member FROM smf_log_online WHERE session != id_member AND id_member > 0"); ResultSet rset = statement2.executeQuery())
 		{
 			while (rset.next())
@@ -254,7 +254,7 @@ public class ForumMembersHolder
 			LOG.error("Error while getting smf_log_online!", e2);
 		}
 		
-		final List<Integer> possibleDuplicateIds = new ArrayList<Integer>(idMembersViewingRealForum.size());
+		final List<Integer> possibleDuplicateIds = new ArrayList<>(idMembersViewingRealForum.size());
 		try (PreparedStatement statement3 = BatchStatement.createPreparedStatement(con, "REPLACE INTO smf_log_online(session, log_time, id_member, id_spider, ip, url) VALUES(?,?,?,?,?,?)"))
 		{
 			for (Player player2 : GameObjectsStorage.getAllPlayersForIterate())
@@ -339,7 +339,7 @@ public class ForumMembersHolder
 		return passwordHash.equals(forumMember.getPasswordHash());
 	}
 	
-	private int getNewMemberId()
+	public int getNewMemberId()
 	{
 		if (lastLoadedMemberId == biggestMemberId)
 		{

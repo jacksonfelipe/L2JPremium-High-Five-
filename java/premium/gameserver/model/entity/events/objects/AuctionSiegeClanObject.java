@@ -4,6 +4,7 @@ import premium.gameserver.model.pledge.Clan;
 
 public class AuctionSiegeClanObject extends SiegeClanObject
 {
+	private static final long serialVersionUID = 1L;
 	private long _bid;
 	
 	public AuctionSiegeClanObject(String type, Clan clan, long param)

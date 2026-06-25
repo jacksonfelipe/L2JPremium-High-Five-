@@ -21,11 +21,6 @@ import premium.gameserver.model.instances.PetInstance;
 import premium.gameserver.model.items.ItemInstance.ItemLocation;
 import premium.gameserver.utils.ItemFunctions;
 
-/**
- * A simple DTO for items; contains item ID and count.<br>
- * Extended by {@link ItemChanceHolder}, {@link QuestItemHolder}, {@link UniqueItemHolder}.
- * @author UnAfraid
- */
 public class ItemHold
 {
 	private final int _id;

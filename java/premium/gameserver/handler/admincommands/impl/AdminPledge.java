@@ -31,7 +31,7 @@ public class AdminPledge implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		@SuppressWarnings("unused")
 		Commands command = (Commands) comm;
@@ -86,11 +86,8 @@ public class AdminPledge implements IAdminCommandHandler
 						target.sendUserInfo(true);
 						return true;
 					}
-					else
-					{
-						activeChar.sendPacket(SystemMsg.THIS_NAME_ALREADY_EXISTS);
-						return false;
-					}
+					activeChar.sendPacket(SystemMsg.THIS_NAME_ALREADY_EXISTS);
+					return false;
 				}
 				catch (Exception e)
 				{
@@ -258,6 +255,7 @@ public class AdminPledge implements IAdminCommandHandler
 		return false;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{

@@ -5,6 +5,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public final class ArtefactInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public ArtefactInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

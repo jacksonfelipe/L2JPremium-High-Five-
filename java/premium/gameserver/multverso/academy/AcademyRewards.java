@@ -12,7 +12,7 @@ import premium.gameserver.templates.item.ItemTemplate;
  */
 public class AcademyRewards
 {
-	private static ArrayList<AcademyReward> _academyRewards = new ArrayList<AcademyReward>();
+	private static ArrayList<AcademyReward> _academyRewards = new ArrayList<>();
 	
 	public void load()
 	{

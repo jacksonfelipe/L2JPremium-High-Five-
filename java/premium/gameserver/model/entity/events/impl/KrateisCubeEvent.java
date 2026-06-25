@@ -239,7 +239,7 @@ public class KrateisCubeEvent extends GlobalEvent
 		}
 	}
 	
-	private void giveEffects(Player player)
+	public void giveEffects(Player player)
 	{
 		player.setCurrentHpMp(player.getMaxHp(), player.getMaxMp());
 		player.setCurrentCp(player.getMaxCp());

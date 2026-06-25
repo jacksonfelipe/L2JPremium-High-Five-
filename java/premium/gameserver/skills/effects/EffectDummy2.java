@@ -25,6 +25,7 @@ public final class EffectDummy2 extends Effect
 		super(effect);
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public boolean checkCondition()
 	{

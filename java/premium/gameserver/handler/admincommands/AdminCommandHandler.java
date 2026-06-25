@@ -64,7 +64,6 @@ import premium.gameserver.handler.admincommands.impl.AdminRepairChar;
 import premium.gameserver.handler.admincommands.impl.AdminRes;
 import premium.gameserver.handler.admincommands.impl.AdminRide;
 import premium.gameserver.handler.admincommands.impl.AdminSS;
-import premium.gameserver.handler.admincommands.impl.AdminScripts;
 import premium.gameserver.handler.admincommands.impl.AdminServer;
 import premium.gameserver.handler.admincommands.impl.AdminShop;
 import premium.gameserver.handler.admincommands.impl.AdminShutdown;
@@ -142,7 +141,7 @@ public class AdminCommandHandler extends AbstractHolder
 		registerAdminCommandHandler(new AdminShop());
 		registerAdminCommandHandler(new AdminShutdown());
 		registerAdminCommandHandler(new AdminSkill());
-		registerAdminCommandHandler(new AdminScripts());
+ 
 		registerAdminCommandHandler(new AdminSpawn());
 		registerAdminCommandHandler(new AdminSS());
 		registerAdminCommandHandler(new AdminTarget());

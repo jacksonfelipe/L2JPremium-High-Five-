@@ -28,7 +28,7 @@ public class SkillTreeTable
 	
 	private static SkillTreeTable _instance;
 	
-	public static Map<Integer, List<EnchantSkillLearn>> _enchant = new ConcurrentHashMap<Integer, List<EnchantSkillLearn>>();
+	public static Map<Integer, List<EnchantSkillLearn>> _enchant = new ConcurrentHashMap<>();
 	
 	public static SkillTreeTable getInstance()
 	{
@@ -83,7 +83,7 @@ public class SkillTreeTable
 	
 	public static List<EnchantSkillLearn> getFirstEnchantsForSkill(int skillid)
 	{
-		List<EnchantSkillLearn> result = new ArrayList<EnchantSkillLearn>();
+		List<EnchantSkillLearn> result = new ArrayList<>();
 		
 		List<EnchantSkillLearn> enchants = _enchant.get(skillid);
 		if (enchants == null)
@@ -123,7 +123,7 @@ public class SkillTreeTable
 	
 	public static List<EnchantSkillLearn> getEnchantsForChange(int skillid, int level)
 	{
-		List<EnchantSkillLearn> result = new ArrayList<EnchantSkillLearn>();
+		List<EnchantSkillLearn> result = new ArrayList<>();
 		
 		List<EnchantSkillLearn> enchants = _enchant.get(skillid);
 		if (enchants == null)

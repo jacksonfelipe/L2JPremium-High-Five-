@@ -1507,7 +1507,7 @@ public class NpcInstance extends Creature
 	public void showQuestWindow(Player player)
 	{
 		// collect awaiting quests and start points
-		List<Quest> options = new ArrayList<Quest>();
+		List<Quest> options = new ArrayList<>();
 		
 		List<QuestState> awaits = player.getQuestsForEvent(this, QuestEventType.QUEST_TALK);
 		Quest[] starts = getTemplate().getEventQuests(QuestEventType.QUEST_START);
@@ -1952,7 +1952,7 @@ public class NpcInstance extends Creature
 			return;
 		}
 		
-		Set<SkillLearn> learns = new TreeSet<SkillLearn>();
+		Set<SkillLearn> learns = new TreeSet<>();
 		for (SubUnit sub : player.getClan().getAllSubUnits())
 		{
 			learns.addAll(SkillAcquireHolder.getInstance().getAvailableSkills(player, AcquireType.SUB_UNIT, sub));
@@ -1978,9 +1978,7 @@ public class NpcInstance extends Creature
 		player.sendActionFailed();
 	}
 	
-	/**
-	 * Нужно для отображения анимации спауна, используется в пакете NpcInfo: 0=false, 1=true, 2=summoned (only works if model has a summon animation)
-	 **/
+ 
 	public int getSpawnAnimation()
 	{
 		return _spawnAnimation;
@@ -2122,7 +2120,7 @@ public class NpcInstance extends Creature
 	@Override
 	public List<L2GameServerPacket> addPacketList(Player forPlayer, Creature dropper)
 	{
-		List<L2GameServerPacket> list = new ArrayList<L2GameServerPacket>(3);
+		List<L2GameServerPacket> list = new ArrayList<>(3);
 		list.add(new NpcInfo(this, forPlayer));
 		
 		if (isInCombat())
@@ -2240,7 +2238,7 @@ public class NpcInstance extends Creature
 		
 		if (_parameters == StatsSet.EMPTY)
 		{
-			_parameters = new MultiValueSet<String>(set.size());
+			_parameters = new MultiValueSet<>(set.size());
 		}
 		
 		_parameters.putAll(set);

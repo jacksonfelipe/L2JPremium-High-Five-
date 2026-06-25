@@ -26,7 +26,7 @@ public class GameServerConnection
 	private static final Logger _log = LoggerFactory.getLogger(GameServerConnection.class);
 	
 	final ByteBuffer readBuffer = ByteBuffer.allocate(64 * 1024).order(ByteOrder.LITTLE_ENDIAN);
-	final Queue<SendablePacket> sendQueue = new ArrayDeque<SendablePacket>();
+	final Queue<SendablePacket> sendQueue = new ArrayDeque<>();
 	final Lock sendLock = new ReentrantLock();
 	
 	final AtomicBoolean isPengingWrite = new AtomicBoolean();

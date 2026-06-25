@@ -45,7 +45,7 @@ public class VotingRewardCache
 	// Cache
 	private static final Map<UserScope, ScopeContainer> VOTTERS_CACHE = new EnumMap<>(UserScope.class);
 	
-	public final void load()
+	public void load()
 	{
 		VOTTERS_CACHE.clear();
 		// Initialize the cache

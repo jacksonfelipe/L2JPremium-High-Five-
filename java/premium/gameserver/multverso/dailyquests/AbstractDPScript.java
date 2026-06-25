@@ -73,11 +73,7 @@ public abstract class AbstractDPScript extends Quest
 		return _properties;
 	}
 	
-	/**
-	 * This method is called when using parseFile, parseDirectory methods.<br>
-	 * Containing XML {@link Document} with all the data from specified file/folder.
-	 * @param doc
-	 */
+ 
 	protected void parseDocument()
 	{
 	}
@@ -184,13 +180,7 @@ public abstract class AbstractDPScript extends Quest
 		}
 		_parser.parseDatapackFile(path);
 	}
-	
-	/**
-	 * Parses a single XML file.<br>
-	 * If the file was successfully parsed, call {@link #parseXMLDocument(Document)} for the parsed document.<br>
-	 * <b>Validation is enforced.</b>
-	 * @param f the XML file to parse.
-	 */
+ 
 	protected final void parseFile(File f)
 	{
 		if (_parser == null)
@@ -200,12 +190,7 @@ public abstract class AbstractDPScript extends Quest
 		_parser.parseFile(f);
 	}
 	
-	/**
-	 * Parses a single XML file.<br>
-	 * If the file was successfully parsed, call {@link #parseXMLDocument(Document)} for the parsed document.<br>
-	 * <b>Validation is enforced.</b>
-	 * @param f the XML file to parse.
-	 */
+ 
 	protected final void parseFile(String file)
 	{
 		if (_parser == null)
@@ -416,12 +401,7 @@ public abstract class AbstractDPScript extends Quest
 		return node != null ? Integer.parseInt(node.getNodeValue()) : defaultValue;
 	}
 	
-	/**
-	 * Parses an int value.
-	 * @param node the node to parse
-	 * @param defaultValue the default value
-	 * @return if the node is not null, the value of the parsed node, otherwise the default value
-	 */
+ 
 	protected int parseInt(Node node)
 	{
 		return parseInt(node, -1);
@@ -439,13 +419,7 @@ public abstract class AbstractDPScript extends Quest
 		return parseInt(attrs.getNamedItem(name), defaultValue);
 	}
 	
-	/**
-	 * Parses a int value.
-	 * @param attrs the attributes
-	 * @param name the name of the attribute to parse
-	 * @param defaultValue the default value
-	 * @return if the node is not null, the value of the parsed node, otherwise the default value
-	 */
+ 
 	protected int parseInt(NamedNodeMap attrs, String name)
 	{
 		return parseInt(attrs.getNamedItem(name), -1);
@@ -885,35 +859,20 @@ public abstract class AbstractDPScript extends Quest
 				{
 					item.createItem();
 					item.giveItem(player, true);
-					// TODO: Protect support?
-					/*
-					 * final L2ItemInstance itemInstance = player.addItem(item); if (protect) { final ItemVariables vars = itemInstance.getVariables(); vars.set(ItemVariables.SELLABLE, false); vars.set(ItemVariables.TRADABLE, false); vars.set(ItemVariables.DROPABLE, false);
-					 * vars.set(ItemVariables.FREIGHTABLE, false); }
-					 */
+ 
 					break;
 				}
 			}
 		}
 	}
 	
-	/**
-	 * Get a random integer from 0 (inclusive) to {@code max} (exclusive).<br>
-	 * Use this method instead of importing {@link com.l2jserver.util.Rnd} utility.
-	 * @param max the maximum value for randomization
-	 * @return a random integer number from 0 to {@code max - 1}
-	 */
+ 
 	public static int getRandom(int max)
 	{
 		return Rnd.get(max);
 	}
 	
-	/**
-	 * Get a random integer from {@code min} (inclusive) to {@code max} (inclusive).<br>
-	 * Use this method instead of importing {@link com.l2jserver.util.Rnd} utility.
-	 * @param min the minimum value for randomization
-	 * @param max the maximum value for randomization
-	 * @return a random integer number from {@code min} to {@code max}
-	 */
+	 
 	public static int getRandom(int min, int max)
 	{
 		return Rnd.get(min, max);

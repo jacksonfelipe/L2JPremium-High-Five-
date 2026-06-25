@@ -16,7 +16,7 @@ public class ChatUtil
 {
 	public static void sendGlobalEventString(AbstractFightClub event, String stringName, Object... replacements)
 	{
-		final Map<Language, IStaticPacket> packetPerLanguage = new EnumMap<Language, IStaticPacket>(Language.class);
+		final Map<Language, IStaticPacket> packetPerLanguage = new EnumMap<>(Language.class);
 		for (Language language : Language.values())
 		{
 			final String msg = StringHolder.getNotNull(language, stringName, replacements);
@@ -30,7 +30,7 @@ public class ChatUtil
 	
 	public static void sendGlobalEventString(String senderName, String stringName, Object... replacements)
 	{
-		final Map<Language, IStaticPacket> packetPerLanguage = new EnumMap<Language, IStaticPacket>(Language.class);
+		final Map<Language, IStaticPacket> packetPerLanguage = new EnumMap<>(Language.class);
 		for (Language language : Language.values())
 		{
 			final String msg = StringHolder.getNotNull(language, stringName, replacements);
@@ -44,7 +44,7 @@ public class ChatUtil
 	
 	public static void sendGlobalEventString(Map<Language, String> senderName, String stringName, Object... replacements)
 	{
-		final Map<Language, IStaticPacket> packetPerLanguage = new EnumMap<Language, IStaticPacket>(Language.class);
+		final Map<Language, IStaticPacket> packetPerLanguage = new EnumMap<>(Language.class);
 		for (Language language : Language.values())
 		{
 			final String msg = StringHolder.getNotNull(language, stringName, replacements);
@@ -58,7 +58,7 @@ public class ChatUtil
 	
 	public static void sendGlobalEventString(AbstractFightClub event, Map<Language, String> msg)
 	{
-		final Map<Language, IStaticPacket> packetPerLanguage = new EnumMap<Language, IStaticPacket>(Language.class);
+		final Map<Language, IStaticPacket> packetPerLanguage = new EnumMap<>(Language.class);
 		for (Language language : Language.values())
 		{
 			packetPerLanguage.put(language, new Say2(0, ChatType.CRITICAL_ANNOUNCE, event.getName(), msg.get(language)));
@@ -71,7 +71,7 @@ public class ChatUtil
 	
 	public static void sendGlobalEventString(Map<Language, String> senderName, Map<Language, String> msg)
 	{
-		final Map<Language, IStaticPacket> packetPerLanguage = new EnumMap<Language, IStaticPacket>(Language.class);
+		final Map<Language, IStaticPacket> packetPerLanguage = new EnumMap<>(Language.class);
 		for (Language language : Language.values())
 		{
 			packetPerLanguage.put(language, new Say2(0, ChatType.CRITICAL_ANNOUNCE, senderName.get(language), msg.get(language)));
@@ -84,7 +84,7 @@ public class ChatUtil
 	
 	public static void sendStringToAll(Map<Language, String> senderName, Map<Language, String> msg, ChatType chatType)
 	{
-		final Map<Language, IStaticPacket> packetPerLanguage = new EnumMap<Language, IStaticPacket>(Language.class);
+		final Map<Language, IStaticPacket> packetPerLanguage = new EnumMap<>(Language.class);
 		for (Language language : Language.values())
 		{
 			packetPerLanguage.put(language, new Say2(0, chatType, senderName.get(language), msg.get(language)));
@@ -97,7 +97,7 @@ public class ChatUtil
 	
 	public static Map<Language, String> getMessagePerLang(String address, Object... replacements)
 	{
-		final Map<Language, String> messagePerLang = new EnumMap<Language, String>(Language.class);
+		final Map<Language, String> messagePerLang = new EnumMap<>(Language.class);
 		for (Language lang : Language.values())
 		{
 			messagePerLang.put(lang, StringHolder.getNotNull(lang, address, replacements));
@@ -107,7 +107,7 @@ public class ChatUtil
 	
 	public static void broadcastToWorldSystemMsg(Map<Language, String> messages)
 	{
-		final Map<Language, SystemMessage> msgPerLang = new EnumMap<Language, SystemMessage>(Language.class);
+		final Map<Language, SystemMessage> msgPerLang = new EnumMap<>(Language.class);
 		for (Map.Entry<Language, String> entry : messages.entrySet())
 		{
 			msgPerLang.put(entry.getKey(), new SystemMessage(entry.getValue()));

@@ -50,8 +50,8 @@ import premium.gameserver.utils.Location;
 
 public class MonsterInstance extends NpcInstance
 {
-	private static final int MONSTER_MAINTENANCE_INTERVAL = 1000;
-	
+	private static final long serialVersionUID = 1L;
+	 
 	protected static final class RewardInfo
 	{
 		protected Creature _attacker;
@@ -423,7 +423,7 @@ public class MonsterInstance extends NpcInstance
 			List<Player> players = null; // массив с игроками, которые могут быть заинтересованы в квестах
 			if (isRaid() && Config.ALT_NO_LASTHIT) // Для альта на ластхит берем всех игроков вокруг
 			{
-				players = new ArrayList<Player>();
+				players = new ArrayList<>();
 				for (Playable pl : aggroMap.keySet())
 				{
 					if (!pl.isDead() && (isInRangeZ(pl, Config.ALT_PARTY_DISTRIBUTION_RANGE) || killer.isInRangeZ(pl, Config.ALT_PARTY_DISTRIBUTION_RANGE)))
@@ -437,7 +437,7 @@ public class MonsterInstance extends NpcInstance
 			}
 			else if (killer.getParty() != null) // если пати то собираем всех кто подходит
 			{
-				players = new ArrayList<Player>(killer.getParty().size());
+				players = new ArrayList<>(killer.getParty().size());
 				for (Player pl : killer.getParty().getMembers())
 				{
 					if (!pl.isDead() && (isInRangeZ(pl, Config.ALT_PARTY_DISTRIBUTION_RANGE) || killer.isInRangeZ(pl, Config.ALT_PARTY_DISTRIBUTION_RANGE)))
@@ -466,7 +466,7 @@ public class MonsterInstance extends NpcInstance
 					}
 					else
 					{ // иначе выбираем одного
-						List<Player> interested = new ArrayList<Player>(players.size());
+						List<Player> interested = new ArrayList<>(players.size());
 						for (Player pl : players)
 						{
 							QuestState qs = pl.getQuestState(quest.getName());
@@ -500,7 +500,7 @@ public class MonsterInstance extends NpcInstance
 			}
 		}
 		
-		Map<Player, RewardInfo> rewards = new HashMap<Player, RewardInfo>();
+		Map<Player, RewardInfo> rewards = new HashMap<>();
 		for (HateInfo info : aggroMap.values())
 		{
 			if (info.damage <= 1)
@@ -563,7 +563,7 @@ public class MonsterInstance extends NpcInstance
 			{
 				int partyDmg = 0;
 				int partylevel = 1;
-				List<Player> rewardedMembers = new ArrayList<Player>();
+				List<Player> rewardedMembers = new ArrayList<>();
 				for (Player partyMember : party.getMembers())
 				{
 					RewardInfo ai = rewards.remove(partyMember);
@@ -780,10 +780,7 @@ public class MonsterInstance extends NpcInstance
 		{
 			return true;
 		}
-		else
-		{
-			return false;
-		}
+		return false;
 	}
 	
 	/**

@@ -12,7 +12,8 @@ import premium.gameserver.model.pledge.Clan;
 
 public class CTBSiegeClanObject extends SiegeClanObject
 {
-	private final List<Integer> _players = new ArrayList<Integer>();
+	private static final long serialVersionUID = 1L;
+	private final List<Integer> _players = new ArrayList<>();
 	private long _npcId;
 	
 	public CTBSiegeClanObject(String type, Clan clan, long param, long date)
@@ -28,7 +29,7 @@ public class CTBSiegeClanObject extends SiegeClanObject
 	
 	public void select(Residence r)
 	{
-		_players.addAll(SiegePlayerDAO.getInstance().select(r, getObjectId()));
+		_players.addAll(SiegePlayerDAO.select(r, getObjectId()));
 	}
 	
 	public List<Integer> getPlayers()
@@ -37,7 +38,7 @@ public class CTBSiegeClanObject extends SiegeClanObject
 	}
 	
 	@Override
-	public void setEvent(boolean start, SiegeEvent event)
+	public void setEvent(boolean start, @SuppressWarnings("rawtypes") SiegeEvent event)
 	{
 		for (int i : getPlayers())
 		{

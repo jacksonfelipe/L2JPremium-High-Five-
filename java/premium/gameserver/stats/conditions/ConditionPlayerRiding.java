@@ -26,11 +26,11 @@ public class ConditionPlayerRiding extends Condition
 		{
 			return false;
 		}
-		if ((_riding == CheckPlayerRiding.STRIDER && ((Player) env.character).isRiding()) || (_riding == CheckPlayerRiding.WYVERN && ((Player) env.character).isFlying()))
+		if ((_riding == CheckPlayerRiding.STRIDER && ((Player) env.character).isRiding()) || (_riding == CheckPlayerRiding.WYVERN && env.character.isFlying()))
 		{
 			return true;
 		}
-		if (_riding == CheckPlayerRiding.NONE && !((Player) env.character).isRiding() && !((Player) env.character).isFlying())
+		if (_riding == CheckPlayerRiding.NONE && !((Player) env.character).isRiding() && !env.character.isFlying())
 		{
 			return true;
 		}

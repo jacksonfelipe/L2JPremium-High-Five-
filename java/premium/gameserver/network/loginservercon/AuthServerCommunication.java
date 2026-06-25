@@ -39,8 +39,8 @@ public class AuthServerCommunication extends Thread
 		return instance;
 	}
 	
-	private final Map<String, GameClient> waitingClients = new HashMap<String, GameClient>();
-	private final Map<String, GameClient> authedClients = new HashMap<String, GameClient>();
+	private final Map<String, GameClient> waitingClients = new HashMap<>();
+	private final Map<String, GameClient> authedClients = new HashMap<>();
 	
 	private final ReadWriteLock lock = new ReentrantReadWriteLock();
 	private final Lock readLock = this.lock.readLock();
@@ -49,7 +49,7 @@ public class AuthServerCommunication extends Thread
 	private final ByteBuffer readBuffer = ByteBuffer.allocate(64 * 1024).order(ByteOrder.LITTLE_ENDIAN);
 	private final ByteBuffer writeBuffer = ByteBuffer.allocate(64 * 1024).order(ByteOrder.LITTLE_ENDIAN);
 	
-	private final Queue<SendablePacket> sendQueue = new ArrayDeque<SendablePacket>();
+	private final Queue<SendablePacket> sendQueue = new ArrayDeque<>();
 	private final Lock sendLock = new ReentrantLock();
 	
 	private final AtomicBoolean isPengingWrite = new AtomicBoolean();
@@ -274,7 +274,7 @@ public class AuthServerCommunication extends Thread
 		}
 	}
 	
-	private boolean tryReadPacket(SelectionKey key, ByteBuffer buf) throws IOException
+	public boolean tryReadPacket(SelectionKey key, ByteBuffer buf) throws IOException
 	{
 		int pos = buf.position();
 		// проверяем, хватает ли нам байт для чтения заголовка и не пустого тела пакета
@@ -530,6 +530,7 @@ public class AuthServerCommunication extends Thread
 		}
 	}
 	
+	@SuppressWarnings("unlikely-arg-type")
 	public GameClient removeClient(GameClient client)
 	{
 		this.writeLock.lock();
@@ -539,10 +540,7 @@ public class AuthServerCommunication extends Thread
 			{
 				return this.authedClients.remove(client.getLogin());
 			}
-			else
-			{
-				return this.waitingClients.remove(client.getSessionKey());
-			}
+			return this.waitingClients.remove(client.getSessionKey());
 		}
 		finally
 		{

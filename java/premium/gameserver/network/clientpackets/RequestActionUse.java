@@ -417,20 +417,19 @@ public class RequestActionUse extends L2GameClientPacket
 				return;
 			}
 			
-			// TODO transfer these skills in terms of
-			if (action.id == 1000 && target != null && !target.isDoor()) // Siege Golem - Siege Hammer
+			 
+			if (action.id == 1000 && !target.isDoor()) // Siege Golem - Siege Hammer
 			{
 				activeChar.sendActionFailed();
 				return;
 			}
-			if (target != null)
+			
+			if ((action.id == 1039 || action.id == 1040) && (target.isDoor() || target instanceof SiegeFlagInstance)) // Swoop Cannon (can not attack the door and flags)
 			{
-				if ((action.id == 1039 || action.id == 1040) && (target.isDoor() || target instanceof SiegeFlagInstance)) // Swoop Cannon (can not attack the door and flags)
-				{
-					activeChar.sendActionFailed();
-					return;
-				}
+				activeChar.sendActionFailed();
+				return;
 			}
+			
 			this.UseSkill(action.value);
 			return;
 		}

@@ -8,16 +8,7 @@ import java.util.NoSuchElementException;
 
 import premium.commons.util.Rnd;
 
-/**
- * Полный аналог ArrayList, но намного быстрее удаляет. <br />
- * Вместо сдвига всего массива перемещает последний элемент списка на место удаленного. <br />
- * Побочный эффект - размер массива при удалении элемента не меняется, но можно использовать clear. <br />
- * <br />
- * Базовая версия.
- * @see l2f.util.GCArray - конкуррентнобезопасная версия
- * @see l2f.util.GSArray - синхронизированная версия
- * @see l2f.util.GCSArray - конкуррентнобезопасная синхронизированная версия
- */
+ 
 public class GArray<E> implements Collection<E>
 {
 	protected transient E[] elementData;

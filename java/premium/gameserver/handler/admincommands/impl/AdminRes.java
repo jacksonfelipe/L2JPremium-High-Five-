@@ -18,7 +18,7 @@ public class AdminRes implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		Commands command = (Commands) comm;
 		
@@ -39,6 +39,7 @@ public class AdminRes implements IAdminCommandHandler
 		return true;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{
@@ -95,7 +96,7 @@ public class AdminRes implements IAdminCommandHandler
 		}
 	}
 	
-	private void handleRes(Creature target)
+	public void handleRes(Creature target)
 	{
 		if (!target.isDead())
 		{

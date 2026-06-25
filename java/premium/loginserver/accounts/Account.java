@@ -38,7 +38,7 @@ public class Account
 	private int lastAccess;
 	private int lastServer;
 	
-	private final IntObjectMap<Pair<Integer, int[]>> _serversInfo = new HashIntObjectMap<Pair<Integer, int[]>>(2);
+	private final IntObjectMap<Pair<Integer, int[]>> _serversInfo = new HashIntObjectMap<>(2);
 	
 	public Account(String login)
 	{
@@ -173,7 +173,7 @@ public class Account
 	
 	public void addAccountInfo(int serverId, int size, int[] deleteChars)
 	{
-		_serversInfo.put(serverId, new ImmutablePair<Integer, int[]>(size, deleteChars));
+		_serversInfo.put(serverId, new ImmutablePair<>(size, deleteChars));
 	}
 	
 	public Pair<Integer, int[]> getAccountInfo(int serverId)

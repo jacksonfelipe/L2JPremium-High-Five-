@@ -20,7 +20,7 @@ public abstract class ItemContainer
 {
 	protected static final ItemsDAO _itemsDAO = ItemsDAO.getInstance();
 	
-	protected final List<ItemInstance> _items = new ArrayList<ItemInstance>();
+	protected final List<ItemInstance> _items = new ArrayList<>();
 	/** Блокировка для чтения/записи вещей из списка и внешних операций */
 	protected final ReadWriteLock lock = new ReentrantReadWriteLock();
 	protected final Lock readLock = lock.readLock();
@@ -145,7 +145,7 @@ public abstract class ItemContainer
 	 */
 	public List<ItemInstance> getItemsByItemId(int itemId)
 	{
-		List<ItemInstance> result = new ArrayList<ItemInstance>();
+		List<ItemInstance> result = new ArrayList<>();
 		
 		readLock();
 		try
@@ -191,12 +191,7 @@ public abstract class ItemContainer
 		return count;
 	}
 	
-	/**
-	 * Создать вещь и добавить в список, либо увеличить количество вещи в инвентаре
-	 * @param itemId - идентификатор itemId вещи
-	 * @param count - количество для создания, либо увеличения
-	 * @return созданная вещь
-	 */
+ 
 	public ItemInstance addItem(int itemId, long count, String owner, String log)
 	{
 		if (count < 1)
@@ -257,14 +252,7 @@ public abstract class ItemContainer
 		
 		return item;
 	}
-	
-	/**
-	 * Добавить вещь в список.<br>
-	 * При добавлении нескольких вещей подряд, список должен быть заблокирован с writeLock() и разблокирован после добавления с writeUnlock()<br>
-	 * <br>
-	 * <b><font color="red">Должно выполнятся в блоке synchronized(item)</font></b>
-	 * @return вещь, полученая в результате добавления, null если не найдена
-	 */
+ 
 	public ItemInstance addItem(ItemInstance item, String owner, String log)
 	{
 		if ((item == null) || (item.getCount() < 1))
@@ -321,12 +309,7 @@ public abstract class ItemContainer
 		return result;
 	}
 	
-	/**
-	 * Удаляет вещь из списка, либо уменьшает количество вещи по objectId
-	 * @param objectId - идентификатор objectId вещи
-	 * @param count - на какое количество уменьшить, если количество равно количество вещи, то вещь удаляется из списка
-	 * @return вещь, полученая в результате удаления, null если не найдена
-	 */
+ 
 	public ItemInstance removeItemByObjectId(int objectId, long count, String owner, String log)
 	{
 		if (count < 1)
@@ -358,12 +341,7 @@ public abstract class ItemContainer
 		return result;
 	}
 	
-	/**
-	 * Удаляет вещь из списка, либо уменьшает количество первой найденной вещи по itemId
-	 * @param itemId - идентификатор itemId
-	 * @param count - на какое количество уменьшить, если количество равно количество вещи, то вещь удаляется из списка
-	 * @return вещь, полученая в результате удаления, null если не найдена
-	 */
+ 
 	public ItemInstance removeItemByItemId(int itemId, long count, String owner, String log)
 	{
 		if (count < 1)
@@ -394,16 +372,7 @@ public abstract class ItemContainer
 		
 		return result;
 	}
-	
-	/**
-	 * Удаляет вещь из списка, либо уменьшает количество вещи.<br>
-	 * При удалении нескольких вещей подряд, список должен быть заблокирован с writeLock() и разблокирован после добавления с writeUnlock()<br>
-	 * <br>
-	 * <b><font color="red">Должно выполнятся в блоке synchronized(item)</font></b>
-	 * @param item - вещь для удаления
-	 * @param count - на какое количество уменьшить, если количество равно количество вещи, то вещь удаляется из списка
-	 * @return вещь, полученая в результате удаления
-	 */
+ 
 	public ItemInstance removeItem(ItemInstance item, long count, String owner, String log)
 	{
 		if ((item == null) || (count < 1) || (item.getCount() < count))
@@ -434,25 +403,14 @@ public abstract class ItemContainer
 				
 				return newItem;
 			}
-			else
-			{
-				return removeItem(item, owner, log);
-			}
+			return removeItem(item, owner, log);
 		}
 		finally
 		{
 			writeUnlock();
 		}
 	}
-	
-	/**
-	 * Удаляет вещь из списка.<br>
-	 * При удалении нескольких вещей подряд, список должен быть заблокирован с writeLock() и разблокирован после добавления с writeUnlock()<br>
-	 * <br>
-	 * <b><font color="red">Должно выполнятся в блоке synchronized(item)</font></b>
-	 * @param item - вещь для удаления
-	 * @return вещь, полученая в результате удаления
-	 */
+ 
 	public ItemInstance removeItem(ItemInstance item, String owner, String log)
 	{
 		if (item == null)
@@ -482,13 +440,7 @@ public abstract class ItemContainer
 			writeUnlock();
 		}
 	}
-	
-	/**
-	 * Уничтожить вещь из списка, либо снизить количество по идентификатору objectId
-	 * @param objectId
-	 * @param count - количество для удаления
-	 * @return true, если количество было снижено или вещь была уничтожена
-	 */
+ 
 	public boolean destroyItemByObjectId(int objectId, long count, String owner, String log)
 	{
 		writeLock();
@@ -511,12 +463,7 @@ public abstract class ItemContainer
 		}
 	}
 	
-	/**
-	 * Уничтожить вещь из списка, либо снизить количество по идентификатору itemId
-	 * @param itemId
-	 * @param count - количество для удаления
-	 * @return true, если количество было снижено или вещь была уничтожена
-	 */
+ 
 	public boolean destroyItemByItemId(int itemId, long count, String owner, String log)
 	{
 		writeLock();
@@ -539,13 +486,7 @@ public abstract class ItemContainer
 		}
 	}
 	
-	/**
-	 * Уничтожить вещь из списка, либо снизить количество<br>
-	 * <br>
-	 * <b><font color="red">Должно выполнятся в блоке synchronized(item)</font></b>
-	 * @param count - количество для удаления
-	 * @return true, если количество было снижено или вещь была уничтожена
-	 */
+ 
 	public boolean destroyItem(ItemInstance item, long count, String owner, String log)
 	{
 		if ((item == null) || (count < 1) || (item.getCount() < count))
@@ -573,10 +514,7 @@ public abstract class ItemContainer
 				
 				return true;
 			}
-			else
-			{
-				return destroyItem(item, owner, log);
-			}
+			return destroyItem(item, owner, log);
 		}
 		finally
 		{
@@ -584,13 +522,7 @@ public abstract class ItemContainer
 		}
 	}
 	
-	/**
-	 * Удаляет вещь из списка.<br>
-	 * <br>
-	 * <b><font color="red">Должно выполнятся в блоке synchronized(item)</font></b>
-	 * @param item - вещь для удаления
-	 * @return вещь, полученая в результате удаления
-	 */
+ 
 	public boolean destroyItem(ItemInstance item, String owner, String log)
 	{
 		if (item == null)

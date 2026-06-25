@@ -13,12 +13,10 @@ import premium.gameserver.model.items.Warehouse.WarehouseType;
 import premium.gameserver.network.serverpackets.components.SystemMsg;
 import premium.gameserver.templates.item.ItemTemplate;
 
-/**
- * Format: cdb, b - array of (dd)
- */
+ 
 public class SendWareHouseDepositList extends L2GameClientPacket
 {
-	private static final long _WAREHOUSE_FEE = 30; // TODO [G1ta0] hardcode price
+	private static final long _WAREHOUSE_FEE = 30;  
 	
 	private int _count;
 	private int[] _items;
@@ -196,7 +194,7 @@ public class SendWareHouseDepositList extends L2GameClientPacket
 		activeChar.sendPacket(SystemMsg.THE_TRANSACTION_IS_COMPLETE);
 	}
 	
-	private void checkAuctionAdd(Player activeChar, int[] _items, long[] _itemQ)
+	public void checkAuctionAdd(Player activeChar, int[] _items, long[] _itemQ)
 	{
 		if (_items.length != 1 || _itemQ[0] != 1)
 		{

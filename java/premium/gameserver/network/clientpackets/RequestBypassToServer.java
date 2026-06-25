@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 
 import premium.gameserver.Config;
 import premium.gameserver.data.xml.holder.MultiSellHolder;
-import premium.gameserver.multverso.managers.OfflineBufferManager;
 import premium.gameserver.handler.admincommands.AdminCommandHandler;
 import premium.gameserver.handler.bypass.BypassHandler;
 import premium.gameserver.handler.voicecommands.IVoicedCommandHandler;
@@ -28,6 +27,7 @@ import premium.gameserver.model.entity.olympiad.Olympiad;
 import premium.gameserver.model.instances.NpcInstance;
 import premium.gameserver.model.instances.OlympiadManagerInstance;
 import premium.gameserver.model.quest.Quest;
+import premium.gameserver.multverso.managers.OfflineBufferManager;
 import premium.gameserver.network.GameClient;
 import premium.gameserver.network.serverpackets.NpcHtmlMessage;
 import premium.gameserver.network.serverpackets.SystemMessage;
@@ -51,6 +51,10 @@ public class RequestBypassToServer extends L2GameClientPacket
 		}
 	}
 	
+	@SuppressWarnings({
+		"unused",
+		"unlikely-arg-type"
+	})
 	@Override
 	protected void runImpl()
 	{
@@ -118,7 +122,7 @@ public class RequestBypassToServer extends L2GameClientPacket
 				Map<String, Object> variables = null;
 				if (npc != null)
 				{
-					variables = new HashMap<String, Object>(1);
+					variables = new HashMap<>(1);
 					variables.put("npc", npc.getRef());
 				}
 				

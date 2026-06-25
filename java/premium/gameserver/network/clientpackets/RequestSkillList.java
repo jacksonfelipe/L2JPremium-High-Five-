@@ -20,10 +20,8 @@ public final class RequestSkillList extends L2GameClientPacket
 		
 		cha.isntAfk();
 		
-		if (cha != null)
-		{
-			cha.sendPacket(new SkillList(cha));
-		}
+		cha.sendPacket(new SkillList(cha));
+		
 	}
 	
 	@Override

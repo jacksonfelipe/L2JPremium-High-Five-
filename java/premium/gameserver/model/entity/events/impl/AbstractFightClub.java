@@ -1304,11 +1304,17 @@ public abstract class AbstractFightClub extends GlobalEvent
 		
 		if (!draw)
 		{
-			Say2 packet = new Say2(0, ChatType.COMMANDCHANNEL_ALL, bestTeam.getName() + " Team", "We won " + (wholeEvent ? getName() : " Round") + "!");
-			for (FightClubPlayer iFPlayer : getPlayers(FIGHTING_PLAYERS))
+			if (bestTeam != null)
 			{
-				iFPlayer.getPlayer().sendPacket(packet);
+				Say2 packet = new Say2(0, ChatType.COMMANDCHANNEL_ALL, bestTeam.getName() + " Team", "We won " + (wholeEvent ? getName() : " Round") + "!");
+			
+				for (FightClubPlayer iFPlayer : getPlayers(FIGHTING_PLAYERS))
+				{
+					iFPlayer.getPlayer().sendPacket(packet);
+				}
 			}
+			
+			
 		}
 		
 		updateScreenScores();
@@ -2176,16 +2182,13 @@ public abstract class AbstractFightClub extends GlobalEvent
 			List<FightClubPlayer> fPlayers = getObjects(groups[0]);
 			return fPlayers;
 		}
-		else
+		List<FightClubPlayer> newList = new ArrayList<>();
+		for (String group : groups)
 		{
-			List<FightClubPlayer> newList = new ArrayList<>();
-			for (String group : groups)
-			{
-				List<FightClubPlayer> fPlayers = getObjects(group);
-				newList.addAll(fPlayers);
-			}
-			return newList;
+			List<FightClubPlayer> fPlayers = getObjects(group);
+			newList.addAll(fPlayers);
 		}
+		return newList;
 	}
 	
 	public List<Player> getAllFightingPlayers()
@@ -2313,7 +2316,7 @@ public abstract class AbstractFightClub extends GlobalEvent
 		Map<CLASSES, List<Player>> classesMap = new FastMap<>();
 		for (CLASSES clazz : CLASSES.values())
 		{
-			classesMap.put(clazz, new ArrayList<Player>());
+			classesMap.put(clazz, new ArrayList<>());
 		}
 		
 		// Adding players to map
@@ -2331,7 +2334,7 @@ public abstract class AbstractFightClub extends GlobalEvent
 		List<List<Player>> partys = new ArrayList<>();
 		for (int i = 0; i < partyCount; i++)
 		{
-			partys.add(new ArrayList<Player>());
+			partys.add(new ArrayList<>());
 		}
 		
 		if (partyCount == 0)
@@ -2445,66 +2448,63 @@ public abstract class AbstractFightClub extends GlobalEvent
 		{
 			return Rnd.get(spawnLocs);
 		}
+		List<Player> playersToCheck = new ArrayList<>();
+		if (fPlayer.getParty() != null)
+		{
+			playersToCheck = fPlayer.getParty().getMembers();
+		}
 		else
 		{
-			List<Player> playersToCheck = new ArrayList<>();
-			if (fPlayer.getParty() != null)
+			for (FightClubPlayer iFPlayer : team.getPlayers())
 			{
-				playersToCheck = fPlayer.getParty().getMembers();
+				playersToCheck.add(iFPlayer.getPlayer());
 			}
-			else
-			{
-				for (FightClubPlayer iFPlayer : team.getPlayers())
-				{
-					playersToCheck.add(iFPlayer.getPlayer());
-				}
-			}
-			
-			Map<Location, Integer> spawnLocations = new FastMap<>(spawnLocs.length);
-			for (Location loc : spawnLocs)
-			{
-				spawnLocations.put(loc, 0);
-			}
-			
-			for (Player player : playersToCheck)
-			{
-				if (player != null && player.isOnline() && !player.isDead())
-				{
-					Location winner = null;
-					double winnerDist = -1;
-					for (Location loc : spawnLocs)
-					{
-						if (winnerDist <= 0 || winnerDist < player.getDistance(loc))
-						{
-							winner = loc;
-							winnerDist = player.getDistance(loc);
-						}
-					}
-					
-					if (winner != null)
-					{
-						spawnLocations.put(winner, spawnLocations.get(winner) + 1);
-					}
-				}
-			}
-			
-			Location winner = null;
-			double points = -1;
-			for (Entry<Location, Integer> spawn : spawnLocations.entrySet())
-			{
-				if (points < spawn.getValue())
-				{
-					winner = spawn.getKey();
-					points = spawn.getValue();
-				}
-			}
-			
-			if (points <= 0)
-			{
-				return Rnd.get(spawnLocs);
-			}
-			return winner;
 		}
+		
+		Map<Location, Integer> spawnLocations = new FastMap<>(spawnLocs.length);
+		for (Location loc : spawnLocs)
+		{
+			spawnLocations.put(loc, 0);
+		}
+		
+		for (Player player : playersToCheck)
+		{
+			if (player != null && player.isOnline() && !player.isDead())
+			{
+				Location winner = null;
+				double winnerDist = -1;
+				for (Location loc : spawnLocs)
+				{
+					if (winnerDist <= 0 || winnerDist < player.getDistance(loc))
+					{
+						winner = loc;
+						winnerDist = player.getDistance(loc);
+					}
+				}
+				
+				if (winner != null)
+				{
+					spawnLocations.put(winner, spawnLocations.get(winner) + 1);
+				}
+			}
+		}
+		
+		Location winner = null;
+		double points = -1;
+		for (Entry<Location, Integer> spawn : spawnLocations.entrySet())
+		{
+			if (points < spawn.getValue())
+			{
+				winner = spawn.getKey();
+				points = spawn.getValue();
+			}
+		}
+		
+		if (points <= 0)
+		{
+			return Rnd.get(spawnLocs);
+		}
+		return winner;
 	}
 	
 	protected boolean isPlayerActive(Player player)
@@ -2568,7 +2568,7 @@ public abstract class AbstractFightClub extends GlobalEvent
 			return _bestScores;
 		}
 		
-		List<Integer> points = new ArrayList<Integer>(_scores.values());
+		List<Integer> points = new ArrayList<>(_scores.values());
 		Collections.sort(points);
 		Collections.reverse(points);
 		
@@ -2651,7 +2651,7 @@ public abstract class AbstractFightClub extends GlobalEvent
 		StringBuilder builder = new StringBuilder();
 		if (_teamed && teamPointsNotInvidual)
 		{
-			final List<FightClubTeam> teams = new ArrayList<FightClubTeam>(_teams);
+			final List<FightClubTeam> teams = new ArrayList<>(_teams);
 			Collections.sort(teams, new BestTeamComparator(showScoreNotKills));
 			for (FightClubTeam team : teams)
 			{
@@ -2709,10 +2709,7 @@ public abstract class AbstractFightClub extends GlobalEvent
 		{
 			return (int) _badgeWin;
 		}
-		else
-		{
-			return 0;
-		}
+		return 0;
 	}
 	
 	/**
@@ -2742,31 +2739,23 @@ public abstract class AbstractFightClub extends GlobalEvent
 			checkIfRegisteredPlayerMeetCriteria(iFPlayer);
 		}
 	}
-	
-	/**
-	 * If he doesn't, unregistering player
-	 * @param fPlayer
-	 * @return player meets criteria
-	 */
-	private boolean checkIfRegisteredPlayerMeetCriteria(FightClubPlayer fPlayer)
+ 
+	public boolean checkIfRegisteredPlayerMeetCriteria(FightClubPlayer fPlayer)
 	{
 		if (!FightClubEventManager.getInstance().canPlayerParticipate(fPlayer.getPlayer(), true, true))
 		{
 			return false;
 		}
-		else
-		{
-			return true;
-		}
+		return true;
 	}
 	
 	/**
 	 * Removing all debuffs
 	 * @param playable
 	 */
-	private void cancelNegativeEffects(Playable playable)
+	public void cancelNegativeEffects(Playable playable)
 	{
-		List<Effect> _buffList = new ArrayList<Effect>();
+		List<Effect> _buffList = new ArrayList<>();
 		
 		for (Effect e : playable.getEffectList().getAllEffects())
 		{
@@ -2786,7 +2775,7 @@ public abstract class AbstractFightClub extends GlobalEvent
 	 * @param classes like TANKS;DAMAGE_DEALERS
 	 * @return array of CLASS_TYPES
 	 */
-	private CLASSES[] parseExcludedClasses(String classes)
+	public CLASSES[] parseExcludedClasses(String classes)
 	{
 		if (classes.equals(""))
 		{
@@ -2852,7 +2841,7 @@ public abstract class AbstractFightClub extends GlobalEvent
 		return list;
 	}
 	
-	private int[][] parseAutoStartTimes(String times)
+	public int[][] parseAutoStartTimes(String times)
 	{
 		if (times == null || times.isEmpty())
 		{
@@ -2876,7 +2865,7 @@ public abstract class AbstractFightClub extends GlobalEvent
 		return realTimes;
 	}
 	
-	private int[][] parseBuffs(String buffs)
+	public int[][] parseBuffs(String buffs)
 	{
 		if (buffs == null || buffs.isEmpty())
 		{
@@ -2900,12 +2889,8 @@ public abstract class AbstractFightClub extends GlobalEvent
 		return realBuffs;
 	}
 	
-	/**
-	 * Stops: {5, 15, 30, 60, 300, 600, 900}
-	 * @param totalLeftTimeInSeconds
-	 * @return
-	 */
-	private int getTimeToWait(int totalLeftTimeInSeconds)
+ 
+	public int getTimeToWait(int totalLeftTimeInSeconds)
 	{
 		int toWait = 1;
 		
@@ -3082,10 +3067,7 @@ public abstract class AbstractFightClub extends GlobalEvent
 			{
 				return Integer.compare(o2.getScore(), o1.getScore());
 			}
-			else
-			{
-				return Integer.compare(getTeamTotalKills(o2), getTeamTotalKills(o1));
-			}
+			return Integer.compare(getTeamTotalKills(o2), getTeamTotalKills(o1));
 		}
 	}
 	
@@ -3106,10 +3088,7 @@ public abstract class AbstractFightClub extends GlobalEvent
 			{
 				return Integer.compare(arg1.getScore(), arg0.getScore());
 			}
-			else
-			{
-				return Integer.compare(arg1.getKills(true), arg0.getKills(true));
-			}
+			return Integer.compare(arg1.getKills(true), arg0.getKills(true));
 		}
 	}
 	
@@ -3501,7 +3480,7 @@ public abstract class AbstractFightClub extends GlobalEvent
 		// Este comparador funciona como un comparador encadenado, donde si es igual se sigue al proximo y asi hasta lograr un resultado
 		public static Comparator<Player> getComparator(PlayerComparator... multipleOptions)
 		{
-			return new Comparator<Player>()
+			return new Comparator<>()
 			{
 				@Override
 				public int compare(Player o1, Player o2)

@@ -25,6 +25,8 @@ import premium.gameserver.utils.Location;
 
 public class FakePcInstance extends NpcInstance implements IFakePlayer
 {
+	private static final long serialVersionUID = 1L;
+
 	private static final Logger LOG = LoggerFactory.getLogger(FakePcInstance.class);
 	
 	private static final Location NO_FISH_LOCATION = new Location(0, 0, 0);
@@ -46,7 +48,7 @@ public class FakePcInstance extends NpcInstance implements IFakePlayer
 		{
 			return Collections.emptyList();
 		}
-		final List<L2GameServerPacket> list = new ArrayList<L2GameServerPacket>(3);
+		final List<L2GameServerPacket> list = new ArrayList<>(3);
 		list.add(new CharInfo(this));
 		if (isInCombat())
 		{

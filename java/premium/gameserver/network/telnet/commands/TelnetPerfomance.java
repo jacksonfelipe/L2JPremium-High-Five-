@@ -3,12 +3,14 @@ package premium.gameserver.network.telnet.commands;
 import java.io.File;
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 import javax.management.MBeanServer;
+
+import net.sf.ehcache.Cache;
+import net.sf.ehcache.statistics.LiveCacheStatistics;
 
 import org.apache.commons.io.FileUtils;
 
@@ -20,15 +22,12 @@ import premium.gameserver.Config;
 import premium.gameserver.ThreadPoolManager;
 import premium.gameserver.dao.ItemsDAO;
 import premium.gameserver.dao.MailDAO;
-import premium.gameserver.database.DatabaseFactory;
 import premium.gameserver.geodata.PathFindBuffers;
 import premium.gameserver.network.telnet.TelnetCommand;
 import premium.gameserver.network.telnet.TelnetCommandHolder;
 import premium.gameserver.taskmanager.AiTaskManager;
 import premium.gameserver.taskmanager.EffectTaskManager;
 import premium.gameserver.utils.GameStats;
-import net.sf.ehcache.Cache;
-import net.sf.ehcache.statistics.LiveCacheStatistics;
 
 public class TelnetPerfomance implements TelnetCommandHolder
 {
@@ -112,24 +111,21 @@ public class TelnetPerfomance implements TelnetCommandHolder
 				{
 					return null;
 				}
-				else
+				try
 				{
-					try
-					{
-						boolean live = (args.length == 2) && !args[1].isEmpty() && (args[1].equals("live") || args[1].equals("l"));
-						new File("dumps").mkdir();
-						@SuppressWarnings("unused")
-						String filename = "dumps/HeapDump" + (live ? "Live" : "") + "-" + new SimpleDateFormat("MMddHHmmss").format(System.currentTimeMillis()) + ".hprof";
-						
-						@SuppressWarnings("unused")
-						MBeanServer server = ManagementFactory.getPlatformMBeanServer();
-						
-						sb.append("Heap dumped.\n");
-					}
-					catch (Exception e)
-					{
-						sb.append("Exception: " + e.getMessage() + "!\n");
-					}
+					boolean live = (args.length == 2) && !args[1].isEmpty() && (args[1].equals("live") || args[1].equals("l"));
+					new File("dumps").mkdir();
+					@SuppressWarnings("unused")
+					String filename = "dumps/HeapDump" + (live ? "Live" : "") + "-" + new SimpleDateFormat("MMddHHmmss").format(System.currentTimeMillis()) + ".hprof";
+					
+					@SuppressWarnings("unused")
+					MBeanServer server = ManagementFactory.getPlatformMBeanServer();
+					
+					sb.append("Heap dumped.\n");
+				}
+				catch (Exception e)
+				{
+					sb.append("Exception: " + e.getMessage() + "!\n");
 				}
 				
 				return sb.toString();

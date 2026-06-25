@@ -51,7 +51,7 @@ public class MailManager
 		
 		if (!_mailsSent.containsKey(player.getObjectId()))
 		{
-			_mailsSent.put(player.getObjectId(), new ArrayList<Long>());
+			_mailsSent.put(player.getObjectId(), new ArrayList<>());
 		}
 		
 		// Penalty normal de 2 minutos para enviar otro mail

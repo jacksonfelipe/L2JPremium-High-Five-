@@ -25,7 +25,7 @@ public class NegateStats extends Skill
 		super(set);
 		
 		String[] negateStats = set.getString("negateStats", "").split(" ");
-		_negateStats = new ArrayList<Stats>(negateStats.length);
+		_negateStats = new ArrayList<>(negateStats.length);
 		for (String stat : negateStats)
 		{
 			if (!stat.isEmpty())
@@ -87,7 +87,7 @@ public class NegateStats extends Skill
 		}
 	}
 	
-	private boolean containsStat(Effect e, Stats stat)
+	public boolean containsStat(Effect e, Stats stat)
 	{
 		for (FuncTemplate ft : e.getTemplate().getAttachedFuncs())
 		{

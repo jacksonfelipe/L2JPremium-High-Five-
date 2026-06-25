@@ -40,7 +40,7 @@ public class SpawnTable
 		}
 	}
 	
-	private void fillCustomSpawnTable()
+	public void fillCustomSpawnTable()
 	{
 		try (Connection con = DatabaseFactory.getInstance().getConnection(); PreparedStatement statement = con.prepareStatement("SELECT * FROM add_spawnlist ORDER by npc_templateid"); ResultSet rset = statement.executeQuery())
 		{

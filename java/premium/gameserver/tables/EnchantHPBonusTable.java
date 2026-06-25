@@ -24,7 +24,7 @@ public class EnchantHPBonusTable
 {
 	private static Logger _log = LoggerFactory.getLogger(EnchantHPBonusTable.class);
 	
-	private final TIntObjectHashMap<Integer[]> _armorHPBonus = new TIntObjectHashMap<Integer[]>();
+	private final TIntObjectHashMap<Integer[]> _armorHPBonus = new TIntObjectHashMap<>();
 	
 	private int _onepieceFactor = 100;
 	

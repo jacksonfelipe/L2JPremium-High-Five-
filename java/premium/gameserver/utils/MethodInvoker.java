@@ -102,21 +102,7 @@ public class MethodInvoker
 		return invokeMethod(method.getClassToInvoke(), method.getMethodName(), method.getClassObject(), method.getParameters());
 	}
 	
-	/**
-	 * Invoking the method by the Class, Method Name, Class object and parameters.
-	 * <ul>
-	 * <li>Method needs to be public.</li>
-	 * <li>ClassObject can be null, but then Method needs to be Static</li>
-	 * <li>Parameters can be empty</li>
-	 * <li>If Method Parameter is extended primitive(like Integer), primitive type can be used as parameter value</li>
-	 * </ul>
-	 * @param classToInvoke Class which contains the Method. Needs to be Public
-	 * @param methodName Name of the Method to Invoke
-	 * @param classObject Object of the Class which will run the method
-	 * @param parameters Parameters that method is accepting.
-	 * @return Return value of the Method
-	 */
-	@SuppressWarnings("OverloadedVarargsMethod")
+	 
 	public static Object invokeMethod(Class<?> classToInvoke, String methodName, @Nullable Object classObject, Object... parameters)
 	{
 		Class<?>[] parameterClasses = new Class[parameters.length];
@@ -130,10 +116,7 @@ public class MethodInvoker
 			{
 				return MethodUtils.invokeStaticMethod(classToInvoke, methodName, parameters, parameterClasses);
 			}
-			else
-			{
-				return MethodUtils.invokeMethod(classObject, methodName, parameters, parameterClasses);
-			}
+			return MethodUtils.invokeMethod(classObject, methodName, parameters, parameterClasses);
 		}
 		catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e)
 		{

@@ -10,6 +10,7 @@ import premium.gameserver.model.Player;
  */
 public class UCMemberObject implements Serializable
 {
+	private static final long serialVersionUID = 1L;
 	private final Player _player;
 	private final String _name;
 	private int _kills;

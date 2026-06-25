@@ -6,6 +6,7 @@ import premium.gameserver.model.instances.StaticObjectInstance;
 
 public class StaticObjectObject implements SpawnableObject
 {
+	private static final long serialVersionUID = 1L;
 	private final int _uid;
 	private StaticObjectInstance _instance;
 	

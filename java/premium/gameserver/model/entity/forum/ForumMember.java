@@ -119,7 +119,7 @@ public class ForumMember
 	
 	public List<Player> getOnlineOwners()
 	{
-		final List<Player> owners = new ArrayList<Player>();
+		final List<Player> owners = new ArrayList<>();
 		for (Player player : GameObjectsStorage.getAllPlayersForIterate())
 		{
 			if (player.getForumMember() != null && player.getForumMember().memberId == memberId)

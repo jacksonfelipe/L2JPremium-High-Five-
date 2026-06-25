@@ -24,7 +24,7 @@ public class TelnetPipelineFactory implements ChannelPipelineFactory
 	}
 	
 	@Override
-	public ChannelPipeline getPipeline() throws Exception
+	public ChannelPipeline getPipeline()  
 	{
 		// Create a default pipeline implementation.
 		ChannelPipeline pipeline = pipeline();

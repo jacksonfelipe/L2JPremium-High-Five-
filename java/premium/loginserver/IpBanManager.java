@@ -28,7 +28,7 @@ public class IpBanManager
 		public long banExpire;
 	}
 	
-	protected final Map<String, IpSession> ips = new HashMap<String, IpSession>();
+	protected final Map<String, IpSession> ips = new HashMap<>();
 	protected final ReadWriteLock lock = new ReentrantReadWriteLock();
 	protected final Lock readLock = lock.readLock();
 	protected final Lock writeLock = lock.writeLock();

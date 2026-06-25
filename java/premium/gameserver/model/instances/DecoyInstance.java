@@ -5,9 +5,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ScheduledFuture;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import premium.commons.lang.reference.HardReference;
 import premium.commons.threading.RunnableImpl;
 import premium.gameserver.ThreadPoolManager;
@@ -24,8 +21,9 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class DecoyInstance extends NpcInstance
 {
-	private static final Logger _log = LoggerFactory.getLogger(DecoyInstance.class);
-	
+	private static final long serialVersionUID = 1L;
+
+	 
 	private HardReference<Player> _playerRef;
 	private int _lifeTime, _timeRemaining;
 	private ScheduledFuture<?> _decoyLifeTask, _hateSpam;
@@ -212,13 +210,10 @@ public class DecoyInstance extends NpcInstance
 		{
 			return Collections.<L2GameServerPacket> singletonList(new CharInfo(this, forPlayer));
 		}
-		else
-		{
-			List<L2GameServerPacket> list = new ArrayList<L2GameServerPacket>(2);
-			list.add(new CharInfo(this, forPlayer));
-			list.add(new AutoAttackStart(objectId));
-			return list;
-		}
+		List<L2GameServerPacket> list = new ArrayList<>(2);
+		list.add(new CharInfo(this, forPlayer));
+		list.add(new AutoAttackStart(objectId));
+		return list;
 	}
 	
 	@Override

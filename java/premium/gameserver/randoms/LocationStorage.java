@@ -9,7 +9,7 @@ import premium.gameserver.utils.Location;
 
 public class LocationStorage
 {
-	private static Map<Integer, List<Location>> _storage = new HashMap<Integer, List<Location>>();
+	private static Map<Integer, List<Location>> _storage = new HashMap<>();
 	
 	public static boolean addLocation(int objId, Location loc, int delayBeforeMove)
 	{

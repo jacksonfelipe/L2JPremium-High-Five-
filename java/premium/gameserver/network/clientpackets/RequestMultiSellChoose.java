@@ -162,7 +162,7 @@ public class RequestMultiSellChoose extends L2GameClientPacket
 		
 		final boolean keepenchant = list1.isKeepEnchant();
 		final boolean notax = list1.isNoTax();
-		final List<ItemData> items = new ArrayList<ItemData>();
+		final List<ItemData> items = new ArrayList<>();
 		
 		PcInventory inventory = activeChar.getInventory();
 		

@@ -18,6 +18,8 @@ import premium.gameserver.utils.Log;
 
 public class LotteryManagerInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public LotteryManagerInstance(int objectID, NpcTemplate template)
 	{
 		super(objectID, template);
@@ -285,7 +287,7 @@ public class LotteryManagerInstance extends NpcInstance
 						int adena = check[1];
 						if (adena > 0)
 						{
-							player.addAdena((long) adena, "LotteryManager");
+							player.addAdena(adena, "LotteryManager");
 						}
 					}
 					

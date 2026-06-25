@@ -25,9 +25,9 @@ public class DeleteExpiredVarsTask extends AutomaticTask
 	}
 	
 	@Override
-	public void doTask() throws Exception
+	public void doTask()  
 	{
-		Map<Integer, String> varMap = new HashMap<Integer, String>();
+		Map<Integer, String> varMap = new HashMap<>();
 		
 		try (Connection con = DatabaseFactory.getInstance().getConnection(); PreparedStatement query = con.prepareStatement("SELECT obj_id, name FROM character_variables WHERE expire_time > 0 AND expire_time < ?"))
 		{

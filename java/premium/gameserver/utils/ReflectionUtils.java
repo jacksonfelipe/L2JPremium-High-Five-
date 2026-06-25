@@ -36,7 +36,7 @@ public class ReflectionUtils
 			return Collections.emptyList();
 		}
 		
-		List<Zone> zones2 = new ArrayList<Zone>(5);
+		List<Zone> zones2 = new ArrayList<>(5);
 		for (Zone z : zones)
 		{
 			if (z.getType() == zoneType)

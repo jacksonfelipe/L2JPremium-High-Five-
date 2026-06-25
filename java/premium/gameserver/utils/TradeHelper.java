@@ -170,7 +170,7 @@ public final class TradeHelper
 			return;
 		}
 		
-		List<TradeItem> buyList = new ArrayList<TradeItem>();
+		List<TradeItem> buyList = new ArrayList<>();
 		
 		long totalCost = 0;
 		int slots = 0;
@@ -264,7 +264,7 @@ public final class TradeHelper
 					return;
 				}
 				
-				final List<ItemActionLog> logs = new ArrayList<ItemActionLog>(buyList.size() * 2 + 2);
+				final List<ItemActionLog> logs = new ArrayList<>(buyList.size() * 2 + 2);
 				final ItemInstance adenaToRemoveFull = buyer.getInventory().getItemByItemId(57);
 				logs.add(new ItemActionLog(ItemStateLog.EXCHANGE_LOSE, "PrivateStore", buyer, adenaToRemoveFull, totalCost));
 				if (!buyer.reduceAdena(totalCost, null))

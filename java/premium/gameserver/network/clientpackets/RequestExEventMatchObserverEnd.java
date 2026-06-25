@@ -2,7 +2,7 @@ package premium.gameserver.network.clientpackets;
 
 public class RequestExEventMatchObserverEnd extends L2GameClientPacket
 {
-	private int unk, unk2;
+	public int unk, unk2;
 	
 	/**
 	 * format: dd

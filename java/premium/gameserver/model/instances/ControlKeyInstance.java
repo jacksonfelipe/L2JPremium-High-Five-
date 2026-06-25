@@ -9,12 +9,13 @@ import premium.gameserver.network.serverpackets.MyTargetSelected;
 
 public class ControlKeyInstance extends GameObject
 {
+	private static final long serialVersionUID = 1L;
 	protected HardReference<ControlKeyInstance> reference;
 	
 	public ControlKeyInstance()
 	{
 		super(IdFactory.getInstance().getNextId());
-		reference = new L2Reference<ControlKeyInstance>(this);
+		reference = new L2Reference<>(this);
 	}
 	
 	@Override

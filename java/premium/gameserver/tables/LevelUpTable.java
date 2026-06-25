@@ -47,7 +47,7 @@ public class LevelUpTable
 	
 	private LevelUpTable()
 	{
-		_lvltable = new HashMap<Integer, LvlupData>();
+		_lvltable = new HashMap<>();
 		
 		Connection con = null;
 		PreparedStatement statement = null;
@@ -89,10 +89,7 @@ public class LevelUpTable
 		}
 	}
 	
-	/**
-	 * @param template id
-	 * @return
-	 */
+ 
 	public LvlupData getTemplate(int classId)
 	{
 		return _lvltable.get(classId);

@@ -22,6 +22,7 @@ import premium.gameserver.utils.Location;
 
 public class FortressCombatFlagObject implements SpawnableObject, FlagItemAttachment
 {
+	private static final long serialVersionUID = 1L;
 	private static final Logger _log = LoggerFactory.getLogger(FortressCombatFlagObject.class);
 	private ItemInstance _item;
 	private final Location _location;
@@ -160,10 +161,7 @@ public class FortressCombatFlagObject implements SpawnableObject, FlagItemAttach
 			player.sendPacket(SystemMsg.THAT_WEAPON_CANNOT_USE_ANY_OTHER_SKILL_EXCEPT_THE_WEAPONS_SKILL);
 			return false;
 		}
-		else
-		{
-			return true;
-		}
+		return true;
 	}
 	
 	@Override

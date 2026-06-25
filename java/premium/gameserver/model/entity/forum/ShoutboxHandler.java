@@ -28,8 +28,8 @@ public class ShoutboxHandler
 {
 	private static final Logger LOG = LoggerFactory.getLogger(ShoutboxHandler.class);
 	
-	private final Set<Long> shoutIdsShownInGame = new CopyOnWriteArraySet<Long>();
-	private final List<ForumShout> shoutsToStore = new CopyOnWriteArrayList<ForumShout>();
+	private final Set<Long> shoutIdsShownInGame = new CopyOnWriteArraySet<>();
+	private final List<ForumShout> shoutsToStore = new CopyOnWriteArrayList<>();
 	private long lastRestoredShoutId = -1L;
 	private long biggestShoutId;
 	
@@ -88,7 +88,7 @@ public class ShoutboxHandler
 		if (ConfigHolder.getBool("AllowShoutboxFromForum"))
 		{
 			final long restoringSinceShoutId = lastRestoredShoutId;
-			final List<L2GameServerPacket> shoutsToAnnounce = new ArrayList<L2GameServerPacket>();
+			final List<L2GameServerPacket> shoutsToAnnounce = new ArrayList<>();
 			try (PreparedStatement statement = con.prepareStatement("SELECT ID_SHOUT, realName, message FROM smf_shoutbox WHERE ID_SHOUT > ?"))
 			{
 				statement.setLong(1, lastRestoredShoutId);

@@ -36,7 +36,7 @@ public class EffectCubic extends Effect
 				return;
 			}
 			
-			Player player = _effected != null && _effected.isPlayer() ? (Player) _effected : null;
+			Player player = getEffected() != null && getEffected().isPlayer() ? (Player) getEffected() : null;
 			if (player == null)
 			{
 				return;
@@ -238,7 +238,7 @@ public class EffectCubic extends Effect
 			@Override
 			public void runImpl()
 			{
-				final List<Creature> targets = new ArrayList<Creature>(1);
+				final List<Creature> targets = new ArrayList<>(1);
 				targets.add(aimTarget);
 				player.broadcastPacket(new MagicSkillLaunched(player.getObjectId(), skill.getDisplayId(), skill.getDisplayLevel(), Collections.unmodifiableList(targets)));
 				player.callSkill(skill, targets, false);
@@ -273,13 +273,13 @@ public class EffectCubic extends Effect
 			@Override
 			public void runImpl()
 			{
-				final List<Creature> targets = new ArrayList<Creature>(1);
+				final List<Creature> targets = new ArrayList<>(1);
 				targets.add(aimTarget);
 				
 				player.broadcastPacket(new MagicSkillLaunched(player.getObjectId(), skill.getDisplayId(), skill.getDisplayLevel(), Collections.unmodifiableList(targets)));
 				player.callSkill(skill, targets, false);
 				
-				if (aimTarget.isNpc())
+				if (aimTarget != null && aimTarget.isNpc())
 				{
 					if (aimTarget.paralizeOnAttack(player))
 					{
@@ -325,7 +325,7 @@ public class EffectCubic extends Effect
 			@Override
 			public void runImpl()
 			{
-				final List<Creature> targets = new ArrayList<Creature>(1);
+				final List<Creature> targets = new ArrayList<>(1);
 				targets.add(aimTarget);
 				player.broadcastPacket(new MagicSkillLaunched(player.getObjectId(), skill.getDisplayId(), skill.getDisplayLevel(), Collections.unmodifiableList(targets)));
 				final boolean succ = Formulas.calcSkillSuccess(player, aimTarget, skill, info.getChance());
@@ -334,7 +334,7 @@ public class EffectCubic extends Effect
 					player.callSkill(skill, targets, false);
 				}
 				
-				if (aimTarget.isNpc())
+				if (aimTarget != null && aimTarget.isNpc())
 				{
 					if (aimTarget.paralizeOnAttack(player))
 					{
@@ -382,7 +382,7 @@ public class EffectCubic extends Effect
 			@Override
 			public void runImpl()
 			{
-				final List<Creature> targets = new ArrayList<Creature>(1);
+				final List<Creature> targets = new ArrayList<>(1);
 				targets.add(player);
 				player.broadcastPacket(new MagicSkillLaunched(player.getObjectId(), skill.getDisplayId(), skill.getDisplayLevel(), Collections.unmodifiableList(targets)));
 				player.callSkill(skill, targets, false);

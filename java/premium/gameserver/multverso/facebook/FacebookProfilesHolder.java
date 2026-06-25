@@ -10,7 +10,7 @@ public class FacebookProfilesHolder
 	
 	private FacebookProfilesHolder()
 	{
-		_profiles = new CopyOnWriteArrayList<FacebookProfile>(FacebookDatabaseHandler.loadFacebookProfiles());
+		_profiles = new CopyOnWriteArrayList<>(FacebookDatabaseHandler.loadFacebookProfiles());
 	}
 	
 	public FacebookProfile loadOrCreateProfile(String facebookId, String facebookName)

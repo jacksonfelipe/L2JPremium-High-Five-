@@ -3,7 +3,7 @@ package premium.gameserver.network.clientpackets;
 public class RequestCreatePledge extends L2GameClientPacket
 {
 	// Format: cS
-	private String _pledgename;
+	public String _pledgename;
 	
 	@Override
 	protected void readImpl()

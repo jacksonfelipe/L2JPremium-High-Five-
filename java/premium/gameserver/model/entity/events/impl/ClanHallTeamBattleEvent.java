@@ -114,12 +114,15 @@ public class ClanHallTeamBattleEvent extends SiegeEvent<ClanHall, CTBSiegeClanOb
 			return;
 		}
 		
-		SiegeClanObject clan = winnerTeam.getSiegeClan();
-		if (clan != null)
-		{
-			getResidence().changeOwner(clan.getClan());
-		}
+		if (winnerTeam != null)
 		
+		{
+			SiegeClanObject clan = winnerTeam.getSiegeClan();
+			if (clan != null)
+			{
+				getResidence().changeOwner(clan.getClan());
+			}
+		}
 		stopEvent(true);
 	}
 	
@@ -164,7 +167,7 @@ public class ClanHallTeamBattleEvent extends SiegeEvent<ClanHall, CTBSiegeClanOb
 		
 		updateParticles(false, ATTACKERS, DEFENDERS);
 		SiegeClanDAO.getInstance().delete(getResidence());
-		SiegePlayerDAO.getInstance().delete(getResidence());
+		SiegePlayerDAO.delete(getResidence());
 		removeObjects(DEFENDERS);
 		removeObjects(ATTACKERS);
 		

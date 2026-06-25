@@ -196,7 +196,7 @@ public final class TaskManager
 		}
 	}
 	
-	private boolean launchTask(ExecutedTask task)
+	private static boolean launchTask(ExecutedTask task)
 	{
 		final ThreadPoolManager scheduler = ThreadPoolManager.getInstance();
 		final TaskTypes type = task.getType();

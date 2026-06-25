@@ -71,7 +71,7 @@ public class SetPrivateStoreSellList extends L2GameClientPacket
 		}
 		
 		TradeItem temp;
-		List<TradeItem> sellList = new CopyOnWriteArrayList<TradeItem>();
+		List<TradeItem> sellList = new CopyOnWriteArrayList<>();
 		
 		seller.getInventory().writeLock();
 		try

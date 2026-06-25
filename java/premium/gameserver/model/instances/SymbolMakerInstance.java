@@ -7,6 +7,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class SymbolMakerInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public SymbolMakerInstance(int objectID, NpcTemplate template)
 	{
 		super(objectID, template);

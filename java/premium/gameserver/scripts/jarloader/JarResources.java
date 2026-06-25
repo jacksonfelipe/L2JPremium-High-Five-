@@ -17,8 +17,8 @@ public final class JarResources
 	public boolean debugOn = false;
 	
 	// jar resource mapping tables
-	private Hashtable<String, Integer> htSizes = new Hashtable<String, Integer>();
-	private Hashtable<String, byte[]> htJarContents = new Hashtable<String, byte[]>();
+	private Hashtable<String, Integer> htSizes = new Hashtable<>();
+	private Hashtable<String, byte[]> htJarContents = new Hashtable<>();
 	
 	// a jar file
 	private String jarFileName;
@@ -33,10 +33,7 @@ public final class JarResources
 		init();
 	}
 	
-	/**
-	 * Extracts a jar resource as a blob.
-	 * @param name a resource name.
-	 */
+	 
 	public byte[] getResource(String name)
 	{
 		return htJarContents.get(name);
@@ -110,12 +107,8 @@ public final class JarResources
 			e.printStackTrace();
 		}
 	}
-	
-	/**
-	 * Dumps a zip entry into a string.
-	 * @param ze a ZipEntry
-	 */
-	private String dumpZipEntry(ZipEntry ze)
+ 
+	public static String dumpZipEntry(ZipEntry ze)
 	{
 		StringBuffer sb = new StringBuffer();
 		if (ze.isDirectory())

@@ -69,7 +69,7 @@ public class RequestExRemoveItemAttribute extends L2GameClientPacket
 		}
 		
 		boolean equipped = false;
-		if (equipped = itemToUnnchant.isEquipped())
+		if (itemToUnnchant.isEquipped())
 		{
 			activeChar.getInventory().unEquipItem(itemToUnnchant);
 		}

@@ -233,7 +233,7 @@ public class TimeUtils
 	
 	public static Map<TimeUnit, Long> getDelayTillTimeUnits(long millisToEvent, boolean decreaseByUnit, boolean allowZeroValues)
 	{
-		final Map<TimeUnit, Long> result = new EnumMap<TimeUnit, Long>(TimeUnit.class);
+		final Map<TimeUnit, Long> result = new EnumMap<>(TimeUnit.class);
 		for (TimeUnit timeUnit : TIME_UNITS_DESCENDING)
 		{
 			if (millisToEvent >= timeUnit.toMillis(1L))

@@ -68,7 +68,7 @@ public final class RequestRefineCancel extends L2GameClientPacket
 		}
 		
 		boolean equipped = false;
-		if (equipped = targetItem.isEquipped())
+		if (targetItem.isEquipped())
 		{
 			activeChar.getInventory().unEquipItem(targetItem);
 		}
@@ -123,10 +123,7 @@ public final class RequestRefineCancel extends L2GameClientPacket
 				{
 					return 240000;
 				}
-				else
-				{
-					return 270000;
-				}
+				return 270000;
 			case ItemTemplate.CRYSTAL_A:
 				if (item.getCrystalCount() < 2160)
 				{

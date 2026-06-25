@@ -40,16 +40,14 @@ public class ClanTable
 	
 	private static final long CLAN_WAR_STORE_DELAY = TimeUnit.MILLISECONDS.convert(1, TimeUnit.HOURS);
 	
-	private static final String REFRESH_CLAN_ATTENDANCE_INFO_VAR = "clan_refresh_date";
-	
 	private static ClanTable _instance;
 	
-	private final Map<Integer, Clan> _clans = new ConcurrentHashMap<Integer, Clan>();
-	private final Map<Integer, Alliance> _alliances = new ConcurrentHashMap<Integer, Alliance>();
+	private final Map<Integer, Clan> _clans = new ConcurrentHashMap<>();
+	private final Map<Integer, Alliance> _alliances = new ConcurrentHashMap<>();
 	
-	private final IntObjectMap<ClanChangeLeaderRequest> _changeRequests = new CHashIntObjectMap<ClanChangeLeaderRequest>();
+	private final IntObjectMap<ClanChangeLeaderRequest> _changeRequests = new CHashIntObjectMap<>();
 	
-	private final List<ClanWar> _clanWarUpdateCache = new ArrayList<ClanWar>();
+	private final List<ClanWar> _clanWarUpdateCache = new ArrayList<>();
 	
 	public static ClanTable getInstance()
 	{
@@ -137,12 +135,12 @@ public class ClanTable
 	{
 		Player player = GameObjectsStorage.getPlayer(charId);
 		Clan charClan = player != null ? player.getClan() : getClanByCharId(charId);
-		return new SimpleEntry<Clan, Alliance>(charClan, charClan == null ? null : charClan.getAlliance());
+		return new SimpleEntry<>(charClan, charClan == null ? null : charClan.getAlliance());
 	}
 	
 	public void restoreClans()
 	{
-		List<Integer> clanIds = new ArrayList<Integer>();
+		List<Integer> clanIds = new ArrayList<>();
 		
 		Connection con = null;
 		PreparedStatement statement = null;
@@ -197,7 +195,7 @@ public class ClanTable
 	
 	public void restoreAllies()
 	{
-		List<Integer> allyIds = new ArrayList<Integer>();
+		List<Integer> allyIds = new ArrayList<>();
 		
 		Connection con = null;
 		PreparedStatement statement = null;
@@ -308,10 +306,7 @@ public class ClanTable
 			
 			return clan;
 		}
-		else
-		{
-			return null;
-		}
+		return null;
 	}
 	
 	public void dissolveClan(Clan clan)

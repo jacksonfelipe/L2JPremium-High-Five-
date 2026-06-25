@@ -26,6 +26,7 @@ public class TakeCastle extends Skill
 		super(set);
 	}
 	
+	@SuppressWarnings("null")
 	@Override
 	public boolean checkCondition(Creature activeChar, Creature target, boolean forceUse, boolean dontMove, boolean first)
 	{

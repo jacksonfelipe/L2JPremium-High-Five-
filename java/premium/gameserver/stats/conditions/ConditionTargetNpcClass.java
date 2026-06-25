@@ -25,10 +25,7 @@ public class ConditionTargetNpcClass extends Condition
 		{
 			throw new IllegalArgumentException("Not found type class for type: " + name + ".");
 		}
-		else
-		{
-			_npcClass = classType;
-		}
+		_npcClass = classType;
 	}
 	
 	@Override

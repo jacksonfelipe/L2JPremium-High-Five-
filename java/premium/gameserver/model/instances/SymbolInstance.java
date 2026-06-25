@@ -17,6 +17,7 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class SymbolInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private final Creature _owner;
 	private final Skill _skill;
 	private ScheduledFuture<?> _targetTask;
@@ -55,7 +56,7 @@ public class SymbolInstance extends NpcInstance
 				{
 					if (_skill.checkTarget(_owner, target, null, false, false) == null)
 					{
-						List<Creature> targets = new ArrayList<Creature>();
+						List<Creature> targets = new ArrayList<>();
 						
 						if (!_skill.isAoE())
 						{

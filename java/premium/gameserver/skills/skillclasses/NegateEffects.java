@@ -16,8 +16,8 @@ import premium.gameserver.templates.StatsSet;
 
 public class NegateEffects extends Skill
 {
-	private Map<EffectType, Integer> _negateEffects = new HashMap<EffectType, Integer>();
-	private Map<String, Integer> _negateStackType = new HashMap<String, Integer>();
+	private Map<EffectType, Integer> _negateEffects = new HashMap<>();
+	private Map<String, Integer> _negateStackType = new HashMap<>();
 	private final boolean _onlyPhysical;
 	private final boolean _negateDebuffs;
 	

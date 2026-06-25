@@ -54,7 +54,7 @@ public class SpawnTaskManager
 			{
 				try
 				{
-					List<NpcInstance> works = new ArrayList<NpcInstance>();
+					List<NpcInstance> works = new ArrayList<>();
 					
 					synchronized (spawnTasks_lock)
 					{

@@ -38,6 +38,8 @@ import premium.gameserver.utils.ReflectionUtils;
 @SuppressWarnings("rawtypes")
 public abstract class Residence implements JdbcEntity
 {
+	private static final long serialVersionUID = 1L;
+
 	public class ResidenceCycleTask extends RunnableImpl
 	{
 		@Override
@@ -57,8 +59,8 @@ public abstract class Residence implements JdbcEntity
 	protected Clan _owner;
 	protected Zone _zone;
 	
-	protected List<ResidenceFunction> _functions = new ArrayList<ResidenceFunction>();
-	protected List<Skill> _skills = new ArrayList<Skill>();
+	protected List<ResidenceFunction> _functions = new ArrayList<>();
+	protected List<Skill> _skills = new ArrayList<>();
 	
 	protected SiegeEvent<?, ?> _siegeEvent;
 	
@@ -75,10 +77,10 @@ public abstract class Residence implements JdbcEntity
 	protected JdbcEntityState _jdbcEntityState = JdbcEntityState.CREATED;
 	
 	// points
-	protected List<Location> _banishPoints = new ArrayList<Location>();
-	protected List<Location> _ownerRestartPoints = new ArrayList<Location>();
-	protected List<Location> _otherRestartPoints = new ArrayList<Location>();
-	protected List<Location> _chaosRestartPoints = new ArrayList<Location>();
+	protected List<Location> _banishPoints = new ArrayList<>();
+	protected List<Location> _ownerRestartPoints = new ArrayList<>();
+	protected List<Location> _otherRestartPoints = new ArrayList<>();
+	protected List<Location> _chaosRestartPoints = new ArrayList<>();
 	
 	public Residence(StatsSet set)
 	{

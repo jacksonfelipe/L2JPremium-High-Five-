@@ -13,6 +13,8 @@ import premium.gameserver.utils.ItemFunctions;
 
 public class WeaverInstance extends MerchantInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public WeaverInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

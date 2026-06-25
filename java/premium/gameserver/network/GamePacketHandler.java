@@ -3,9 +3,6 @@ package premium.gameserver.network;
 import java.nio.BufferUnderflowException;
 import java.nio.ByteBuffer;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import premium.commons.net.nio.impl.IClientFactory;
 import premium.commons.net.nio.impl.IMMOExecutor;
 import premium.commons.net.nio.impl.IPacketHandler;
@@ -17,7 +14,6 @@ import premium.gameserver.network.clientpackets.*;
 
 public final class GamePacketHandler implements IPacketHandler<GameClient>, IClientFactory<GameClient>, IMMOExecutor<GameClient>
 {
-	private static final Logger _log = LoggerFactory.getLogger(GamePacketHandler.class);
 	
 	@Override
 	public ReceivablePacket<GameClient> handlePacket(ByteBuffer buf, GameClient client)
@@ -28,7 +24,7 @@ public final class GamePacketHandler implements IPacketHandler<GameClient>, ICli
 		
 		try
 		{
-			int id2 = 0;
+			
 			parada:
 			switch (client.getState())
 			{

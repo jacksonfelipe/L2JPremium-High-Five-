@@ -31,14 +31,14 @@ public final class DocumentSkill extends DocumentBase
 		public String name;
 		public StatsSet[] sets;
 		public int currentLevel;
-		public List<premium.gameserver.model.Skill> skills = new ArrayList<premium.gameserver.model.Skill>();
-		public List<premium.gameserver.model.Skill> currentSkills = new ArrayList<premium.gameserver.model.Skill>();
+		public List<premium.gameserver.model.Skill> skills = new ArrayList<>();
+		public List<premium.gameserver.model.Skill> currentSkills = new ArrayList<>();
 	}
 	
 	private final int skillToParse;
 	private DocSkill currentSkill;
-	private Set<String> usedTables = new HashSet<String>();
-	private List<premium.gameserver.model.Skill> skillsInFile = new LinkedList<premium.gameserver.model.Skill>();
+	private Set<String> usedTables = new HashSet<>();
+	private List<premium.gameserver.model.Skill> skillsInFile = new LinkedList<>();
 	
 	DocumentSkill(File file, int... skillToParse)
 	{
@@ -165,11 +165,11 @@ public final class DocumentSkill extends DocumentBase
 		
 		try
 		{
-			Map<Integer, Integer> displayLevels = new HashMap<Integer, Integer>();
+			Map<Integer, Integer> displayLevels = new HashMap<>();
 			
 			// iterate enchants
 			Node enchant = null;
-			Map<String, Object[]> etables = new HashMap<String, Object[]>();
+			Map<String, Object[]> etables = new HashMap<>();
 			int count = 0;
 			int eLevels = 0;
 			Node d = n.cloneNode(true);
@@ -200,7 +200,7 @@ public final class DocumentSkill extends DocumentBase
 					List<EnchantSkillLearn> t = SkillTreeTable._enchant.get(skillId);
 					if (t == null)
 					{
-						t = new ArrayList<EnchantSkillLearn>();
+						t = new ArrayList<>();
 					}
 					t.add(e);
 					SkillTreeTable._enchant.put(skillId, t);
@@ -332,7 +332,7 @@ public final class DocumentSkill extends DocumentBase
 		}
 	}
 	
-	private Object[] fillTableToSize(Object[] table, int size)
+	public static Object[] fillTableToSize(Object[] table, int size)
 	{
 		if (table.length < size)
 		{
@@ -352,7 +352,7 @@ public final class DocumentSkill extends DocumentBase
 	
 	private void makeSkills()
 	{
-		currentSkill.currentSkills = new ArrayList<premium.gameserver.model.Skill>(currentSkill.sets.length);
+		currentSkill.currentSkills = new ArrayList<>(currentSkill.sets.length);
 		// _log.info.println(sets.length);
 		for (int i = 0; i < currentSkill.sets.length; i++)
 		{

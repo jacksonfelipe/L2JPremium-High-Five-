@@ -66,7 +66,7 @@ public class AdminPhantoms implements IAdminCommandHandler
 	String title = "";
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		Commands command = (Commands) comm;
 		Location loc = null;
@@ -519,7 +519,7 @@ public class AdminPhantoms implements IAdminCommandHandler
 									clanPhantom.setLvlJoinedAcademy(clanPhantom.getLevel());
 								}
 								
-								member.setPowerGrade(clan2.getAffiliationRank(clanPhantom.getPledgeType()));
+								member.setPowerGrade(Clan.getAffiliationRank(clanPhantom.getPledgeType()));
 								
 								clan2.broadcastToOtherOnlineMembers(new PledgeShowMemberListAdd(member), clanPhantom);
 								clan2.broadcastToOnlineMembers(new SystemMessage2(SystemMsg.S1_HAS_JOINED_THE_CLAN).addString(clanPhantom.getName()), new PledgeShowInfoUpdate(clan2));
@@ -683,6 +683,7 @@ public class AdminPhantoms implements IAdminCommandHandler
 		return true;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{

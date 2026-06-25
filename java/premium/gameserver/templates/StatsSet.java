@@ -5,7 +5,7 @@ import premium.commons.collections.MultiValueSet;
 public class StatsSet extends MultiValueSet<String>
 {
 	private static final long serialVersionUID = -2209589233655930756L;
-	@SuppressWarnings("serial")
+ 
 	public static final StatsSet EMPTY = new StatsSet()
 	{
 		@Override

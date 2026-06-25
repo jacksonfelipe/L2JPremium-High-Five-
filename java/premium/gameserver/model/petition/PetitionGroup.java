@@ -7,8 +7,8 @@ import premium.gameserver.utils.Language;
 
 public abstract class PetitionGroup
 {
-	private final Map<Language, String> _name = new HashMap<Language, String>(Language.VALUES.length);
-	private final Map<Language, String> _description = new HashMap<Language, String>(Language.VALUES.length);
+	private final Map<Language, String> _name = new HashMap<>(Language.VALUES.length);
+	private final Map<Language, String> _description = new HashMap<>(Language.VALUES.length);
 	
 	private final int _id;
 	

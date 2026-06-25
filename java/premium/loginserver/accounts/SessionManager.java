@@ -50,7 +50,7 @@ public class SessionManager
 	}
 	
 	/** Карта текущих сессий **/
-	private final Map<SessionKey, Session> sessions = new HashMap<SessionKey, Session>();
+	private final Map<SessionKey, Session> sessions = new HashMap<>();
 	private final Lock lock = new ReentrantLock();
 	
 	private SessionManager()

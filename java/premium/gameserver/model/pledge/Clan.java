@@ -96,12 +96,12 @@ public class Clan implements Iterable<UnitMember>
 	private String _notice = null;
 	// private String _description = null;
 	
-	private final List<Clan> _atWarWith = new ArrayList<Clan>();
-	private final List<Clan> _underAttackFrom = new ArrayList<Clan>();
+	private final List<Clan> _atWarWith = new ArrayList<>();
+	private final List<Clan> _underAttackFrom = new ArrayList<>();
 	
-	protected IntObjectMap<Skill> _skills = new CTreeIntObjectMap<Skill>();
-	protected IntObjectMap<RankPrivs> _privs = new CTreeIntObjectMap<RankPrivs>();
-	protected IntObjectMap<SubUnit> _subUnits = new CTreeIntObjectMap<SubUnit>();
+	protected IntObjectMap<Skill> _skills = new CTreeIntObjectMap<>();
+	protected IntObjectMap<RankPrivs> _privs = new CTreeIntObjectMap<>();
+	protected IntObjectMap<SubUnit> _subUnits = new CTreeIntObjectMap<>();
 	
 	private int _reputation = 0;
 	
@@ -157,7 +157,7 @@ public class Clan implements Iterable<UnitMember>
 	public static final int SUBUNIT_KNIGHT2 = 1002;
 	public static final int SUBUNIT_KNIGHT3 = 2001;
 	public static final int SUBUNIT_KNIGHT4 = 2002;
-	private final List<ClanWar> _clanWars = new ArrayList<ClanWar>();
+	private final List<ClanWar> _clanWars = new ArrayList<>();
 	private final TIntSet _atWarAttackers = new TIntHashSet();
 	
 	private final static ClanReputationComparator REPUTATION_COMPARATOR = new ClanReputationComparator();
@@ -397,7 +397,7 @@ public class Clan implements Iterable<UnitMember>
 		{
 			size += unit.size();
 		}
-		List<UnitMember> members = new ArrayList<UnitMember>(size);
+		List<UnitMember> members = new ArrayList<>(size);
 		
 		for (SubUnit unit : units)
 		{
@@ -410,9 +410,9 @@ public class Clan implements Iterable<UnitMember>
 	{
 		if (getAllSize() == 0)
 		{
-			return new ArrayList<Player>();
+			return new ArrayList<>();
 		}
-		final List<Player> result = new ArrayList<Player>(getAllSize() - 1);
+		final List<Player> result = new ArrayList<>(getAllSize() - 1);
 		
 		for (UnitMember temp : this)
 		{
@@ -427,7 +427,7 @@ public class Clan implements Iterable<UnitMember>
 	
 	public List<Player> getOnlineMembers()
 	{
-		final List<Player> result = new ArrayList<Player>();
+		final List<Player> result = new ArrayList<>();
 		
 		for (UnitMember temp : this)
 		{
@@ -444,7 +444,7 @@ public class Clan implements Iterable<UnitMember>
 	{
 		if (getAllSize() == 0)
 		{
-			return new ArrayList<Player>();
+			return new ArrayList<>();
 		}
 		
 		final List<Player> result = new ArrayList<>();
@@ -892,7 +892,7 @@ public class Clan implements Iterable<UnitMember>
 	
 	public List<Clan> getWarClans()
 	{
-		final List<Clan> warClans = new ArrayList<Clan>(_atWarWith.size());
+		final List<Clan> warClans = new ArrayList<>(_atWarWith.size());
 		for (Clan war : _atWarWith)
 		{
 			if (war.isAtWarWith(_clanId))
@@ -1144,7 +1144,7 @@ public class Clan implements Iterable<UnitMember>
 	
 	public List<Skill> getUnitTopSkills()
 	{
-		final List<Skill> topSkills = new ArrayList<Skill>();
+		final List<Skill> topSkills = new ArrayList<>();
 		for (SubUnit unit : _subUnits.values())
 		{
 			for (Skill skill : unit.getSkills())
@@ -2131,7 +2131,7 @@ public class Clan implements Iterable<UnitMember>
 	
 	public List<L2GameServerPacket> listAll()
 	{
-		List<L2GameServerPacket> p = new ArrayList<L2GameServerPacket>(_subUnits.size());
+		List<L2GameServerPacket> p = new ArrayList<>(_subUnits.size());
 		for (SubUnit unit : getAllSubUnits())
 		{
 			p.add(new PledgeShowMemberListAll(this, unit));
@@ -2194,12 +2194,12 @@ public class Clan implements Iterable<UnitMember>
 	@Override
 	public Iterator<UnitMember> iterator()
 	{
-		List<Iterator<UnitMember>> iterators = new ArrayList<Iterator<UnitMember>>(_subUnits.size());
+		List<Iterator<UnitMember>> iterators = new ArrayList<>(_subUnits.size());
 		for (SubUnit subUnit : _subUnits.values())
 		{
 			iterators.add(subUnit.getUnitMembers().iterator());
 		}
-		return new JoinedIterator<UnitMember>(iterators);
+		return new JoinedIterator<>(iterators);
 	}
 	
 	public boolean isFull()

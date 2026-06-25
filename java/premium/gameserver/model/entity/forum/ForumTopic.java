@@ -29,7 +29,7 @@ public class ForumTopic implements Comparable<ForumTopic>
 	private boolean isSaved;
 	private int views;
 	private boolean isLastPostSavedInDb = true;
-	private List<ForumPost> posts = new CopyOnWriteArrayList<ForumPost>();
+	private List<ForumPost> posts = new CopyOnWriteArrayList<>();
 	
 	public ForumTopic(int topicId, ForumBoard board, boolean isSticky, boolean isLocked, boolean isSaved, int views)
 	{
@@ -182,8 +182,8 @@ public class ForumTopic implements Comparable<ForumTopic>
 	
 	public static void synchronizeTopics(Connection con, ForumBoard board)
 	{
-		final Collection<Integer> savedPostIds = new HashSet<Integer>();
-		final Collection<Integer> modifiedTopics = new HashSet<Integer>();
+		final Collection<Integer> savedPostIds = new HashSet<>();
+		final Collection<Integer> modifiedTopics = new HashSet<>();
 		try (PreparedStatement statement = con.prepareStatement("SELECT id_msg, id_topic, poster_time, id_member, subject, modified_time, modified_name, body FROM smf_messages WHERE id_board = ?"))
 		{
 			statement.setInt(1, board.getType().getBoardDatabaseId());
@@ -310,7 +310,7 @@ public class ForumTopic implements Comparable<ForumTopic>
 		final ForumPost[] postsArray = new ForumPost[posts.size()];
 		posts.toArray(postsArray);
 		Arrays.sort(postsArray);
-		topic.posts = new CopyOnWriteArrayList<ForumPost>(posts);
+		topic.posts = new CopyOnWriteArrayList<>(posts);
 	}
 	
 	@Override

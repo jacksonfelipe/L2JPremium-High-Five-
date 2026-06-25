@@ -15,7 +15,7 @@ import premium.gameserver.network.telnet.TelnetCommandHolder;
 
 public class TelnetServer implements TelnetCommandHolder
 {
-	private Set<TelnetCommand> _commands = new LinkedHashSet<TelnetCommand>();
+	private Set<TelnetCommand> _commands = new LinkedHashSet<>();
 	
 	public TelnetServer()
 	{
@@ -57,6 +57,7 @@ public class TelnetServer implements TelnetCommandHolder
 				return "restart <seconds>|now>";
 			}
 			
+			@SuppressWarnings("deprecation")
 			@Override
 			public String handle(String[] args)
 			{
@@ -113,6 +114,7 @@ public class TelnetServer implements TelnetCommandHolder
 				return "shutdown <seconds>|now|<hh:mm>";
 			}
 			
+			@SuppressWarnings("deprecation")
 			@Override
 			public String handle(String[] args)
 			{

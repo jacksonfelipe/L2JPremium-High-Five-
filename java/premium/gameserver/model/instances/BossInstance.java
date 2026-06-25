@@ -8,6 +8,7 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class BossInstance extends RaidBossInstance
 {
+	private static final long serialVersionUID = 1L;
 	private boolean _teleportedToNest;
 	
 	public BossInstance(int objectId, NpcTemplate template)

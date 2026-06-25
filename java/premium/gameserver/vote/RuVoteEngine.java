@@ -78,7 +78,7 @@ public class RuVoteEngine extends RunnableImpl
 	
 	private static List<RuVote> getNewVotes()
 	{
-		final List<RuVote> newVotes = new ArrayList<RuVote>();
+		final List<RuVote> newVotes = new ArrayList<>();
 		long lastVoteId = ServerVariables.getLong(LAST_REWARDED_VOTE_ID, 0L);
 		boolean siteIsEmpty = true;
 		try
@@ -128,7 +128,7 @@ public class RuVoteEngine extends RunnableImpl
 	
 	private static void rewardNewVotes(List<RuVote> correctVotes)
 	{
-		final Map<Integer, List<VoteRewardEntry>> rewardsToDatabase = new HashMap<Integer, List<VoteRewardEntry>>();
+		final Map<Integer, List<VoteRewardEntry>> rewardsToDatabase = new HashMap<>();
 		final Say2 successPacket = new Say2(0, ChatType.TELL, "L2Tales", getVoteSuccessMsg());
 		for (RuVote vote : correctVotes)
 		{
@@ -171,7 +171,7 @@ public class RuVoteEngine extends RunnableImpl
 	protected static List<VoteRewardEntry> getRewards(int voteType)
 	{
 		final String config = voteType == 2 ? "RuVoteSmsRewardGroup" : "RuVoteRewardGroup";
-		final List<VoteRewardEntry> rewards = new ArrayList<VoteRewardEntry>();
+		final List<VoteRewardEntry> rewards = new ArrayList<>();
 		for (int i = 1; i < 100; ++i)
 		{
 			if (!ConfigHolder.getInstance().checkExists(config + i, double[][].class))

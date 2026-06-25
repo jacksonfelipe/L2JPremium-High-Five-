@@ -208,7 +208,7 @@ public class PollEngine
 	private void loadPoll()
 	{
 		String question = null;
-		List<PollAnswer> answers = new ArrayList<PollAnswer>();
+		List<PollAnswer> answers = new ArrayList<>();
 		long endTime = 0;
 		
 		ResultSet rset = null;
@@ -283,7 +283,7 @@ public class PollEngine
 		}
 	}
 	
-	private void deleteAllPlayerVotes()
+	public void deleteAllPlayerVotes()
 	{
 		try (Connection con = DatabaseFactory.getInstance().getConnection())
 		{

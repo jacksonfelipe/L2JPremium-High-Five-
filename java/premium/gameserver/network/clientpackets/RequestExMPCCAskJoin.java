@@ -111,7 +111,7 @@ public class RequestExMPCCAskJoin extends L2GameClientPacket
 		}
 	}
 	
-	private void sendInvite(Player requestor, Player target)
+	public void sendInvite(Player requestor, Player target)
 	{
 		new Request(L2RequestType.CHANNEL, requestor, target).setTimeout(10000L);
 		target.sendPacket(new ExAskJoinMPCC(requestor.getName()));

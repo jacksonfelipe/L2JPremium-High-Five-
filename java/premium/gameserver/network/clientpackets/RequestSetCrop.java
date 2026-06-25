@@ -67,7 +67,7 @@ public class RequestSetCrop extends L2GameClientPacket
 			return;
 		}
 		
-		List<CropProcure> crops = new ArrayList<CropProcure>(this._count);
+		List<CropProcure> crops = new ArrayList<>(this._count);
 		for (int i = 0; i < this._count; i++)
 		{
 			int id = (int) this._items[i * 4 + 0];

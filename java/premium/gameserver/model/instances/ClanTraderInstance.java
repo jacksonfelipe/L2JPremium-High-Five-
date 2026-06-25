@@ -8,6 +8,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public final class ClanTraderInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public ClanTraderInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

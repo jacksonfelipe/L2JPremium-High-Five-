@@ -137,7 +137,7 @@ public final class ActiveBattleManager
 			List<Player> playersMeetingCriteria;
 			if (checkTeleportCriteria)
 			{
-				playersMeetingCriteria = new ArrayList<Player>(onlinePlayers.size());
+				playersMeetingCriteria = new ArrayList<>(onlinePlayers.size());
 				for (Player player : onlinePlayers)
 				{
 					if (getCriteriaErrorMessage(player) == null)
@@ -412,7 +412,7 @@ public final class ActiveBattleManager
 	public static Reflection createReflection(TournamentMap map)
 	{
 		final InstantZone iz = InstantZoneHolder.getInstance().getInstantZone(INSTANT_ZONE_ID);
-		final Map<String, ZoneTemplate> zones = new HashMap<String, ZoneTemplate>(0);
+		final Map<String, ZoneTemplate> zones = new HashMap<>(0);
 		zones.put(map.getZoneTemplate().getName(), map.getZoneTemplate());
 		final Reflection reflection = new Reflection();
 		reflection.init(iz);
@@ -1285,7 +1285,7 @@ public final class ActiveBattleManager
 	
 	public static void showScreenMsgAll(BattleInstance battle, Map<Language, String> msgToShow)
 	{
-		final Map<Language, ExShowScreenMessage> screenPackets = new EnumMap<Language, ExShowScreenMessage>(Language.class);
+		final Map<Language, ExShowScreenMessage> screenPackets = new EnumMap<>(Language.class);
 		for (Map.Entry<Language, String> msg : msgToShow.entrySet())
 		{
 			screenPackets.put(msg.getKey(), new ExShowScreenMessage(msg.getValue(), 3000, ExShowScreenMessage.ScreenMessageAlign.TOP_CENTER, true));
@@ -1309,7 +1309,7 @@ public final class ActiveBattleManager
 	
 	public static void showSystemMsgAll(BattleInstance battle, Map<Language, String> msgToShow)
 	{
-		final Map<Language, SystemMessage> screenPackets = new EnumMap<Language, SystemMessage>(Language.class);
+		final Map<Language, SystemMessage> screenPackets = new EnumMap<>(Language.class);
 		for (Map.Entry<Language, String> msg : msgToShow.entrySet())
 		{
 			screenPackets.put(msg.getKey(), new SystemMessage(msg.getValue()));
@@ -1326,7 +1326,7 @@ public final class ActiveBattleManager
 	
 	public static void showGlobalNotification(@Nullable final BattleInstance battle, String address, String... parameters)
 	{
-		final Map<Language, IStaticPacket> packetPerLang = new EnumMap<Language, IStaticPacket>(Language.class);
+		final Map<Language, IStaticPacket> packetPerLang = new EnumMap<>(Language.class);
 		for (Language lang : Language.values())
 		{
 			packetPerLang.put(lang, new Say2(0, ConfigHolder.getChatType("TournamentGlobalNotificationChat"), StringHolder.getNotNull(lang, "Tournament.GlobalNotification.SenderName", new Object[0]), StringHolder.getNotNull(lang, address, (Object[]) parameters)));
@@ -1349,7 +1349,7 @@ public final class ActiveBattleManager
 	
 	public static void showGlobalNotification(@Nullable final BattleInstance battle, Map<Language, String> message)
 	{
-		final Map<Language, IStaticPacket> packetPerLang = new EnumMap<Language, IStaticPacket>(Language.class);
+		final Map<Language, IStaticPacket> packetPerLang = new EnumMap<>(Language.class);
 		for (Language lang : Language.values())
 		{
 			packetPerLang.put(lang, new Say2(0, ConfigHolder.getChatType("TournamentGlobalNotificationChat"), StringHolder.getNotNull(lang, "Tournament.GlobalNotification.SenderName", new Object[0]), message.get(lang)));

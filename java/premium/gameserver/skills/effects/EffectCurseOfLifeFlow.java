@@ -15,7 +15,7 @@ public final class EffectCurseOfLifeFlow extends Effect
 {
 	private CurseOfLifeFlowListener _listener;
 	
-	private TObjectIntHashMap<HardReference<? extends Creature>> _damageList = new TObjectIntHashMap<HardReference<? extends Creature>>();
+	private TObjectIntHashMap<HardReference<? extends Creature>> _damageList = new TObjectIntHashMap<>();
 	
 	public EffectCurseOfLifeFlow(Env env, EffectTemplate template)
 	{
@@ -84,7 +84,7 @@ public final class EffectCurseOfLifeFlow extends Effect
 		@Override
 		public void onCurrentHpDamage(Creature actor, double damage, Creature attacker, Skill skill)
 		{
-			if (attacker == actor || attacker == _effected)
+			if (attacker == actor || attacker == getEffected())
 			{
 				return;
 			}

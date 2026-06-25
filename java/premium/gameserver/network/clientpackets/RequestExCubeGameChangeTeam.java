@@ -25,7 +25,7 @@ public final class RequestExCubeGameChangeTeam extends L2GameClientPacket
 	@Override
 	protected void runImpl()
 	{
-		if (HandysBlockCheckerManager.getInstance().arenaIsBeingUsed(this._arena))
+		if (HandysBlockCheckerManager.arenaIsBeingUsed(this._arena))
 		{
 			return;
 		}
@@ -40,11 +40,11 @@ public final class RequestExCubeGameChangeTeam extends L2GameClientPacket
 			case 0:
 			case 1:
 				// Change Player Team
-				HandysBlockCheckerManager.getInstance().changePlayerToTeam(activeChar, this._arena, this._team);
+				HandysBlockCheckerManager.changePlayerToTeam(activeChar, this._arena, this._team);
 				break;
 			case -1:
 			{
-				int team = HandysBlockCheckerManager.getInstance().getHolder(this._arena).getPlayerTeam(activeChar);
+				int team = HandysBlockCheckerManager.getHolder(this._arena).getPlayerTeam(activeChar);
 				// client sends two times this packet if click on exit
 				// client did not send this packet on restart
 				if (team > -1)

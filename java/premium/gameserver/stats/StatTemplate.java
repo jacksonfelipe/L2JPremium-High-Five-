@@ -23,7 +23,7 @@ public class StatTemplate
 	{
 		if (_triggerList.isEmpty())
 		{
-			_triggerList = new ArrayList<TriggerInfo>(4);
+			_triggerList = new ArrayList<>(4);
 		}
 		_triggerList.add(f);
 	}

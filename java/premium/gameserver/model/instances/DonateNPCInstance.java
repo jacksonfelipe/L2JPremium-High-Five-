@@ -27,7 +27,7 @@ public final class DonateNPCInstance extends NpcInstance
 		super(objectId, template);
 	}
 	
-	public void becomeNoble(Player player)
+	public static void becomeNoble(Player player)
 	{
 		if ((player == null) || player.isNoble())
 		{

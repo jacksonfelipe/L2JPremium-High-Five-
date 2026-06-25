@@ -68,10 +68,10 @@ public class DominionSiegeRunnerEvent extends GlobalEvent
 	private boolean _isInProgress;
 	private boolean _isRegistrationOver;
 	
-	private final Map<ClassId, Quest> _classQuests = new HashMap<ClassId, Quest>();
-	private final List<Quest> _breakQuests = new ArrayList<Quest>();
+	private final Map<ClassId, Quest> _classQuests = new HashMap<>();
+	private final List<Quest> _breakQuests = new ArrayList<>();
 	
-	private final List<Dominion> _registeredDominions = new ArrayList<Dominion>(9);
+	private final List<Dominion> _registeredDominions = new ArrayList<>(9);
 	
 	public DominionSiegeRunnerEvent(MultiValueSet<String> set)
 	{

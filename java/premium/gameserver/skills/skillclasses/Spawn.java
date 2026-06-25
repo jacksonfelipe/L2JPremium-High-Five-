@@ -11,6 +11,7 @@ import premium.gameserver.ThreadPoolManager;
 import premium.gameserver.data.xml.holder.NpcHolder;
 import premium.gameserver.instancemanager.ReflectionManager;
 import premium.gameserver.model.Creature;
+import premium.gameserver.model.Player;
 import premium.gameserver.model.SimpleSpawner;
 import premium.gameserver.model.Skill;
 import premium.gameserver.model.Zone;
@@ -23,9 +24,9 @@ public class Spawn extends Skill
 	private static final Logger _log = LoggerFactory.getLogger(Spawn.class);
 	private final int _npcId;
 	private final int _despawnDelay;
-	private final boolean _summonSpawn;
+	public final boolean _summonSpawn;
 	private final boolean _randomOffset;
-	private final int _skillToCast;
+	public final int _skillToCast;
 	private NpcInstance _spawnNpc;
 	
 	public Spawn(StatsSet set)
@@ -47,13 +48,15 @@ public class Spawn extends Skill
 		}
 		if (activeChar.isInZone(Zone.ZoneType.peace_zone) || activeChar.isInZone(Zone.ZoneType.water) || activeChar.isInZone(Zone.ZoneType.epic) || activeChar.isInZone(Zone.ZoneType.SIEGE) || activeChar.isInOlympiadMode())
 		{
-			activeChar.sendMessage(activeChar.getPlayer().isLangRus() ? "In this zone, the action is disabled" : "In this zone, the action is disabled");
+			activeChar.getPlayer();
+			activeChar.sendMessage(Player.isLangRus() ? "In this zone, the action is disabled" : "In this zone, the action is disabled");
 			return false;
 		}
 		
 		if (activeChar.isFlying())
 		{
-			activeChar.sendMessage(activeChar.getPlayer().isLangRus() ? "In this zone, the action is disabled" : "In this state, the action is disabled");
+			activeChar.getPlayer();
+			activeChar.sendMessage(Player.isLangRus() ? "In this zone, the action is disabled" : "In this state, the action is disabled");
 			return false;
 		}
 		return true;

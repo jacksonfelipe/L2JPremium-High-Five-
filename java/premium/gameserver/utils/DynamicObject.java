@@ -102,20 +102,17 @@ public class DynamicObject
 			}
 			return pattern;
 		}
-		else
+		if (!(object instanceof String))
 		{
-			if (!(object instanceof String))
-			{
-				onError("Pattern");
-				throw new AssertionError();
-			}
-			final Pattern compile = Pattern.compile((String) object);
-			if (compile == null)
-			{
-				throw new IllegalStateException(String.format("@NotNull method %s.%s must not return null", "l2f/gameserver/utils/DynamicObject", "getPattern"));
-			}
-			return compile;
+			onError("Pattern");
+			throw new AssertionError();
 		}
+		final Pattern compile = Pattern.compile((String) object);
+		if (compile == null)
+		{
+			throw new IllegalStateException(String.format("@NotNull method %s.%s must not return null", "l2f/gameserver/utils/DynamicObject", "getPattern"));
+		}
+		return compile;
 	}
 	
 	public Location getLocation()
@@ -140,6 +137,7 @@ public class DynamicObject
 		throw new AssertionError();
 	}
 	
+	@SuppressWarnings("unchecked")
 	public <E> E getClassType(Class<E> eClass)
 	{
 		if (eClass.isAssignableFrom(object.getClass()))

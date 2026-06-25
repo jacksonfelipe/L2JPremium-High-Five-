@@ -16,7 +16,7 @@ import premium.gameserver.network.serverpackets.components.SystemMsg;
  */
 public class RequestSellItem extends L2GameClientPacket
 {
-	private int _listId;
+	public int _listId;
 	private int _count;
 	private int[] _items; // object id
 	private long[] _itemQ; // count

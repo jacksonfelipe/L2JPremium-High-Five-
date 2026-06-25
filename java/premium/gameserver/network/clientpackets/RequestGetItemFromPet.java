@@ -1,8 +1,5 @@
 package premium.gameserver.network.clientpackets;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import premium.gameserver.model.Player;
 import premium.gameserver.model.instances.PetInstance;
 import premium.gameserver.model.items.ItemInstance;
@@ -12,8 +9,7 @@ import premium.gameserver.network.serverpackets.components.SystemMsg;
 
 public class RequestGetItemFromPet extends L2GameClientPacket
 {
-	private static final Logger _log = LoggerFactory.getLogger(RequestGetItemFromPet.class);
-	
+ 
 	private int _objectId;
 	private long _amount;
 	@SuppressWarnings("unused")

@@ -15,13 +15,13 @@ public final class CompletedTasksHistory
 	private CompletedTasksHistory()
 	{
 		final ArrayList<CompletedTask> loadedCompletedTasks = FacebookDatabaseHandler.loadCompletedTasks();
-		_completedTasks = new ConcurrentHashMap<FacebookProfile, ArrayList<CompletedTask>>();
+		_completedTasks = new ConcurrentHashMap<>();
 		for (CompletedTask task : loadedCompletedTasks)
 		{
 			ArrayList<CompletedTask> tasksPerProfile = _completedTasks.get(task.getExecutor());
 			if (tasksPerProfile == null)
 			{
-				tasksPerProfile = new ArrayList<CompletedTask>();
+				tasksPerProfile = new ArrayList<>();
 				tasksPerProfile.add(task);
 				_completedTasks.put(task.getExecutor(), tasksPerProfile);
 			}
@@ -42,7 +42,7 @@ public final class CompletedTasksHistory
 		}
 		else
 		{
-			final ArrayList<CompletedTask> newTasksList = new ArrayList<CompletedTask>(3);
+			final ArrayList<CompletedTask> newTasksList = new ArrayList<>(3);
 			newTasksList.add(completedTask);
 			_completedTasks.put(action.getExecutor(), newTasksList);
 		}
@@ -84,7 +84,7 @@ public final class CompletedTasksHistory
 		final ArrayList<CompletedTask> tasks = _completedTasks.get(facebookProfile);
 		if (tasks == null)
 		{
-			return new ArrayList<CompletedTask>(0);
+			return new ArrayList<>(0);
 		}
 		return tasks;
 	}
@@ -94,9 +94,9 @@ public final class CompletedTasksHistory
 		final ArrayList<CompletedTask> tasks = _completedTasks.get(facebookProfile);
 		if (tasks == null)
 		{
-			return new ArrayList<CompletedTask>(0);
+			return new ArrayList<>(0);
 		}
-		return new ArrayList<CompletedTask>(tasks);
+		return new ArrayList<>(tasks);
 	}
 	
 	public CompletedTask getCompletedTask(FacebookAction action)
@@ -133,7 +133,7 @@ public final class CompletedTasksHistory
 	
 	public ArrayList<FacebookAction> getCompletedTasks(OfficialPost post, FacebookActionType actionType)
 	{
-		final ArrayList<FacebookAction> results = new ArrayList<FacebookAction>();
+		final ArrayList<FacebookAction> results = new ArrayList<>();
 		if (post == null)
 		{
 			for (ArrayList<CompletedTask> actionsPerProfile : _completedTasks.values())
@@ -165,7 +165,7 @@ public final class CompletedTasksHistory
 	
 	public ArrayList<CompletedTask> getTasksThatNeedsApproval()
 	{
-		final ArrayList<CompletedTask> result = new ArrayList<CompletedTask>(10);
+		final ArrayList<CompletedTask> result = new ArrayList<>(10);
 		for (ArrayList<CompletedTask> taskList : _completedTasks.values())
 		{
 			for (CompletedTask task : taskList)
@@ -210,7 +210,7 @@ public final class CompletedTasksHistory
 		}
 	}
 	
-	public EnumSet<FacebookActionType> getAvailableNegativeBalanceTypes(FacebookProfile facebookProfile)
+	public static EnumSet<FacebookActionType> getAvailableNegativeBalanceTypes(FacebookProfile facebookProfile)
 	{
 		final EnumSet<FacebookActionType> result = EnumSet.noneOf(FacebookActionType.class);
 		for (FacebookActionType type : facebookProfile.getNegativePointTypesForIterate())

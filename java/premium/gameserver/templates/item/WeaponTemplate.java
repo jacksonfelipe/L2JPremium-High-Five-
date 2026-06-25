@@ -188,9 +188,7 @@ public final class WeaponTemplate extends ItemTemplate
 		return _mpConsume;
 	}
 	
-	/**
-	 * Возвращает разницу между длиной этого оружия и стандартной, то есть x-40
-	 */
+ 
 	public int getAttackRange()
 	{
 		switch (getItemType())

@@ -7,7 +7,6 @@ import premium.gameserver.model.GameObject;
 import premium.gameserver.model.Player;
 import premium.gameserver.model.Request;
 import premium.gameserver.model.Request.L2RequestType;
-import premium.gameserver.model.items.TradeItem;
 import premium.gameserver.network.serverpackets.SendTradeRequest;
 import premium.gameserver.network.serverpackets.SystemMessage2;
 import premium.gameserver.network.serverpackets.TradeStart;
@@ -153,9 +152,9 @@ public class TradeRequest extends L2GameClientPacket
 		if (activeChar.isGM() && activeChar.isInvisible())// Automatically starting trade if activeChar is GM in invisible mode
 		{
 			new Request(L2RequestType.TRADE, activeChar, reciever);
-			reciever.setTradeList(new CopyOnWriteArrayList<TradeItem>());
+			reciever.setTradeList(new CopyOnWriteArrayList<>());
 			reciever.sendPacket(new SystemMessage2(SystemMsg.YOU_BEGIN_TRADING_WITH_C1).addString(activeChar.getName()), new TradeStart(reciever, activeChar));
-			activeChar.setTradeList(new CopyOnWriteArrayList<TradeItem>());
+			activeChar.setTradeList(new CopyOnWriteArrayList<>());
 			activeChar.sendPacket(new SystemMessage2(SystemMsg.YOU_BEGIN_TRADING_WITH_C1).addString(reciever.getName()), new TradeStart(activeChar, reciever));
 		}
 		else

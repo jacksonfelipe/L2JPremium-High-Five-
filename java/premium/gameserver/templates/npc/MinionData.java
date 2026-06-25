@@ -14,20 +14,13 @@ public class MinionData
 		_minionId = minionId;
 		_minionAmount = minionAmount;
 	}
-	
-	/**
-	 * Return the Identifier of the Minion to spawn.<BR>
-	 * <BR>
-	 */
+ 
 	public int getMinionId()
 	{
 		return _minionId;
 	}
 	
-	/**
-	 * Return the amount of this Minion type to spawn.<BR>
-	 * <BR>
-	 */
+ 
 	public int getAmount()
 	{
 		return _minionAmount;

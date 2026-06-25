@@ -32,6 +32,7 @@ import premium.gameserver.utils.Location;
 
 public class TerritoryWardObject implements SpawnableObject, FlagItemAttachment
 {
+	private static final long serialVersionUID = 1L;
 	private final int _itemId;
 	private final NpcTemplate _template;
 	private final Location _location;

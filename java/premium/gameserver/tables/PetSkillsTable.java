@@ -19,7 +19,7 @@ import premium.gameserver.model.Summon;
 public class PetSkillsTable
 {
 	private static final Logger _log = LoggerFactory.getLogger(PetSkillsTable.class);
-	private TIntObjectHashMap<List<SkillLearn>> _skillTrees = new TIntObjectHashMap<List<SkillLearn>>();
+	private TIntObjectHashMap<List<SkillLearn>> _skillTrees = new TIntObjectHashMap<>();
 	
 	private static PetSkillsTable _instance = new PetSkillsTable();
 	
@@ -65,7 +65,7 @@ public class PetSkillsTable
 				List<SkillLearn> list = _skillTrees.get(npcId);
 				if (list == null)
 				{
-					_skillTrees.put(npcId, (list = new ArrayList<SkillLearn>()));
+					_skillTrees.put(npcId, (list = new ArrayList<>()));
 				}
 				
 				SkillLearn skillLearn = new SkillLearn(id, lvl, minLvl, 0, 0, 0, false);

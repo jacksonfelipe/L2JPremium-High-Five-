@@ -25,7 +25,7 @@ public class KrateisCubeRunnerEvent extends GlobalEvent
 	private boolean _isInProgress;
 	private boolean _isRegistrationOver;
 	
-	private List<KrateisCubeEvent> _cubes = new ArrayList<KrateisCubeEvent>(3);
+	private List<KrateisCubeEvent> _cubes = new ArrayList<>(3);
 	private Calendar _calendar = Calendar.getInstance();
 	
 	public KrateisCubeRunnerEvent(MultiValueSet<String> set)

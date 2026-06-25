@@ -61,7 +61,7 @@ public class FakeGameClient extends GameClient
 		}).start();
 	}
 	
-	private ByteBuffer createPacket(byte packetId)
+	public ByteBuffer createPacket(byte packetId)
 	{
 		ByteBuffer buffer = ByteBuffer.allocate(65536);
 		buffer.put(packetId);

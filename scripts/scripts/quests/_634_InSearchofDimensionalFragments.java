@@ -88,7 +88,7 @@ public class _634_InSearchofDimensionalFragments extends Quest implements Script
 	@Override
 	public String onKill(NpcInstance npc, QuestState st)
 	{
-		st.rollAndGive(DIMENSION_FRAGMENT_ID, 2, 60 * Experience.penaltyModifier(st.calculateLevelDiffForDrop(npc.getLevel(), st.getPlayer().getLevel()), 9) * npc.getTemplate().rateHp / 4);
+		st.rollAndGive(DIMENSION_FRAGMENT_ID, 2, 60 * Experience.penaltyModifier(QuestState.calculateLevelDiffForDrop(npc.getLevel(), st.getPlayer().getLevel()), 9) * npc.getTemplate().rateHp / 4);
 		return null;
 	}
 }

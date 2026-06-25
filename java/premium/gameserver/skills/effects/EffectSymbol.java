@@ -141,7 +141,7 @@ public final class EffectSymbol extends Effect
 				{
 					continue;
 				}
-				List<Creature> targets = new ArrayList<Creature>(1);
+				List<Creature> targets = new ArrayList<>(1);
 				targets.add(cha);
 				effector.callSkill(skill, targets, true);
 				effector.broadcastPacket(new MagicSkillLaunched(symbol.getObjectId(), getSkill().getDisplayId(), getSkill().getDisplayLevel(), cha));

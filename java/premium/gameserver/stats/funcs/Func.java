@@ -31,9 +31,7 @@ public abstract class Func implements Comparable<Func>
 		this.cond = cond;
 	}
 	
-	/**
-	 * Для отладки
-	 */
+ 
 	public Condition getCondition()
 	{
 		return cond;

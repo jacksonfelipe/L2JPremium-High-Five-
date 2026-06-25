@@ -61,7 +61,7 @@ public class RequestRecipeShopListSet extends L2GameClientPacket
 			return;
 		}
 		
-		List<ManufactureItem> createList = new CopyOnWriteArrayList<ManufactureItem>();
+		List<ManufactureItem> createList = new CopyOnWriteArrayList<>();
 		for (int i = 0; i < this._count; i++)
 		{
 			int recipeId = this._recipes[i];

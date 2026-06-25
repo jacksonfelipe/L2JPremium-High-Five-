@@ -23,6 +23,7 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class OlympiadManagerInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final Logger _log = LoggerFactory.getLogger(OlympiadManagerInstance.class);
 	
 	public OlympiadManagerInstance(int objectId, NpcTemplate template)

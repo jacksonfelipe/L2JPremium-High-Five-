@@ -317,7 +317,7 @@ public abstract class SagasSuperclass extends Quest
 			player.setBaseClass(getClassId(player));
 		}
 		player.broadcastCharInfo();
-		Cast(st.findTemplate(NPC[0]), player, 4339, 1);
+		Cast(QuestState.findTemplate(NPC[0]), player, 4339, 1);
 	}
 	
 	public SagasSuperclass(boolean party)
@@ -724,7 +724,7 @@ public abstract class SagasSuperclass extends Quest
 		{
 			st.setCond(6);
 			st.takeItems(Items[4], 1);
-			Cast(st.findTemplate(NPC[5]), player, 4546, 1);
+			Cast(QuestState.findTemplate(NPC[5]), player, 4546, 1);
 			st.playSound(SOUND_MIDDLE);
 			htmltext = "5-02.htm";
 		}
@@ -732,7 +732,7 @@ public abstract class SagasSuperclass extends Quest
 		{
 			st.setCond(8);
 			st.takeItems(Items[5], 1);
-			Cast(st.findTemplate(NPC[6]), player, 4546, 1);
+			Cast(QuestState.findTemplate(NPC[6]), player, 4546, 1);
 			st.playSound(SOUND_MIDDLE);
 			htmltext = "6-03.htm";
 		}
@@ -755,7 +755,7 @@ public abstract class SagasSuperclass extends Quest
 		{
 			st.setCond(10);
 			st.takeItems(Items[6], 1);
-			Cast(st.findTemplate(NPC[7]), player, 4546, 1);
+			Cast(QuestState.findTemplate(NPC[7]), player, 4546, 1);
 			st.playSound(SOUND_MIDDLE);
 			htmltext = "7-06.htm";
 		}
@@ -763,7 +763,7 @@ public abstract class SagasSuperclass extends Quest
 		{
 			st.setCond(14);
 			st.takeItems(Items[7], 1);
-			Cast(st.findTemplate(NPC[8]), player, 4546, 1);
+			Cast(QuestState.findTemplate(NPC[8]), player, 4546, 1);
 			st.playSound(SOUND_MIDDLE);
 			htmltext = "8-02.htm";
 		}
@@ -771,7 +771,7 @@ public abstract class SagasSuperclass extends Quest
 		{
 			st.setCond(17);
 			st.takeItems(Items[8], 1);
-			Cast(st.findTemplate(NPC[9]), player, 4546, 1);
+			Cast(QuestState.findTemplate(NPC[9]), player, 4546, 1);
 			st.playSound(SOUND_MIDDLE);
 			htmltext = "9-03.htm";
 		}
@@ -817,7 +817,7 @@ public abstract class SagasSuperclass extends Quest
 		{
 			st.setCond(19);
 			st.takeItems(Items[9], 1);
-			Cast(st.findTemplate(NPC[10]), player, 4546, 1);
+			Cast(QuestState.findTemplate(NPC[10]), player, 4546, 1);
 			st.playSound(SOUND_MIDDLE);
 			htmltext = "10-06.htm";
 		}

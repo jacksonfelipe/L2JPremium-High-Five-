@@ -91,7 +91,7 @@ public class CaptchaImage implements OnDeathListener
 	private static ScheduledFuture<?> _startTaskPunishment;
 	private static TIntLongHashMap _captchaPlayers = new TIntLongHashMap(); // 1 bit for captchaWrong, 25 bits for 5 chars, 5 bits for captchaTries, 5 bits for captchaRequests, 28 bits
 																			// for mobsKilled
-	private static Map<Integer, Location> _lastKillLocations = new HashMap<Integer, Location>();
+	private static Map<Integer, Location> _lastKillLocations = new HashMap<>();
 	
 	public CaptchaImage()
 	{

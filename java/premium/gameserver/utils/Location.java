@@ -34,9 +34,7 @@ public class Location extends Point3D implements SpawnRange, Serializable
 	{
 	}
 	
-	/**
-	 * Позиция (x, y, z, heading)
-	 */
+ 
 	public Location(int x, int y, int z, int heading)
 	{
 		super(x, y, z);
@@ -201,10 +199,7 @@ public class Location extends Point3D implements SpawnRange, Serializable
 	{
 		return x + " " + y + " " + z;
 	}
-	
-	/**
-	 * Парсит Location из строки, где координаты разделены пробелами или запятыми
-	 */
+ 
 	public static Location parseLoc(String s) throws IllegalArgumentException
 	{
 		if (s == null)
@@ -233,16 +228,7 @@ public class Location extends Point3D implements SpawnRange, Serializable
 		return new Location(x, y, z, h);
 	}
 	
-	/**
-	 * Найти стабильную точку перед объектом obj1 для спавна объекта obj2, с учетом heading
-	 * @param x
-	 * @param y
-	 * @param z
-	 * @param radiusmin
-	 * @param radiusmax
-	 * @param geoIndex
-	 * @return
-	 */
+ 
 	public static Location findFrontPosition(GameObject obj, GameObject obj2, int radiusmin, int radiusmax)
 	{
 		if (radiusmax == 0 || radiusmax < radiusmin)
@@ -469,11 +455,7 @@ public class Location extends Point3D implements SpawnRange, Serializable
 		}
 		return loc;
 	}
-	
-	/**
-	 * =============================================================================================== = Teleporting = ===============================================================================================
-	 */
-	
+ 
 	public static Location getRestartLocation(Player player, RestartType restartType)
 	{
 		return getRestartLocation(player, player.getLoc(), restartType);
@@ -576,10 +558,7 @@ public class Location extends Point3D implements SpawnRange, Serializable
 		return TargetDirection.SIDE;
 	}
 	
-	/**
-	 * Those are altered formulas for blow lands Return True if the target is IN FRONT of the L2Character.<BR>
-	 * <BR>
-	 */
+ 
 	public static boolean isInFrontOf(Creature target, Creature attacker)
 	{
 		if (target == null)
@@ -606,19 +585,14 @@ public class Location extends Point3D implements SpawnRange, Serializable
 		return false;
 	}
 	
-	/**
-	 * Return True if the target is front L2Character and can be seen. degrees = 0..180, front->sides->back
-	 */
+	 
 	public static boolean isInFront(Creature target, Creature attacker, int degrees)
 	{
 		int head = getHeadingTo(target, attacker, false);
 		return head <= 32768 * degrees / 180 || head >= 65536 - 32768 * degrees / 180;
 	}
 	
-	/**
-	 * Those are altered formulas for blow lands Return True if the L2Character is behind the target and can't be seen.<BR>
-	 * <BR>
-	 */
+ 
 	public static boolean isBehind(Creature target, Creature attacker)
 	{
 		if (target == null)
@@ -645,7 +619,7 @@ public class Location extends Point3D implements SpawnRange, Serializable
 		return false;
 	}
 	
-	/** Returns true if target is in front of L2Character (shield def etc) */
+ 
 	public static boolean isFacing(Creature attacker, GameObject target, int maxAngle)
 	{
 		double angleChar, angleTarget, angleDiff, maxAngleDiff;

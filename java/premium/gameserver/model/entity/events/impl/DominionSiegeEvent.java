@@ -68,7 +68,7 @@ public class DominionSiegeEvent extends SiegeEvent<Dominion, SiegeClanObject>
 	private DominionSiegeRunnerEvent _runnerEvent;
 	private Quest _forSakeQuest;
 	
-	private final IntObjectMap<int[]> _playersRewards = new CHashIntObjectMap<int[]>();
+	private final IntObjectMap<int[]> _playersRewards = new CHashIntObjectMap<>();
 	
 	public class DoorDeathListener implements OnDeathListener
 	{
@@ -156,6 +156,7 @@ public class DominionSiegeEvent extends SiegeEvent<Dominion, SiegeClanObject>
 		_doorDeathListener = new DoorDeathListener();
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public void initEvent()
 	{
@@ -190,7 +191,7 @@ public class DominionSiegeEvent extends SiegeEvent<Dominion, SiegeClanObject>
 		}
 		
 		List<Dominion> registeredDominions = _runnerEvent.getRegisteredDominions();
-		List<DominionSiegeEvent> dominions = new ArrayList<DominionSiegeEvent>(9);
+		List<DominionSiegeEvent> dominions = new ArrayList<>(9);
 		for (Dominion d : registeredDominions)
 		{
 			if (d.getSiegeDate().getTimeInMillis() != 0 && d != getResidence())
@@ -647,7 +648,7 @@ public class DominionSiegeEvent extends SiegeEvent<Dominion, SiegeClanObject>
 	public List<Player> itemObtainPlayers()
 	{
 		final List<Player> playersInZone = getPlayersInZone();
-		final List<Player> list = new ArrayList<Player>(playersInZone.size());
+		final List<Player> list = new ArrayList<>(playersInZone.size());
 		for (Player player : getPlayersInZone())
 		{
 			if (player.getEvent(DominionSiegeEvent.class) != null)
@@ -683,10 +684,7 @@ public class DominionSiegeEvent extends SiegeEvent<Dominion, SiegeClanObject>
 			{
 				return Location.findPointToStay(defenderClan.getFlag(), 50, 75);
 			}
-			else
-			{
-				player.sendPacket(SystemMsg.IF_A_BASE_CAMP_DOES_NOT_EXIST_RESURRECTION_IS_NOT_POSSIBLE);
-			}
+			player.sendPacket(SystemMsg.IF_A_BASE_CAMP_DOES_NOT_EXIST_RESURRECTION_IS_NOT_POSSIBLE);
 			
 			return null;
 		}
@@ -783,11 +781,8 @@ public class DominionSiegeEvent extends SiegeEvent<Dominion, SiegeClanObject>
 		{
 			return true;
 		}
-		else
-		{
-			resurrectPlayer.sendPacket(SystemMsg.INVALID_TARGET);
-			return false;
-		}
+		resurrectPlayer.sendPacket(SystemMsg.INVALID_TARGET);
+		return false;
 	}
 	
 	// ========================================================================================================================================================================
@@ -820,10 +815,7 @@ public class DominionSiegeEvent extends SiegeEvent<Dominion, SiegeClanObject>
 		{
 			return 0;
 		}
-		else
-		{
-			return val[type];
-		}
+		return val[type];
 	}
 	
 	public void clearReward(int objectId)
@@ -888,7 +880,7 @@ public class DominionSiegeEvent extends SiegeEvent<Dominion, SiegeClanObject>
 	
 	public List<Player> getOnlinePlayers()
 	{
-		final List<Player> players = new ArrayList<Player>(50);
+		final List<Player> players = new ArrayList<>(50);
 		final List<SiegeClanObject> siegeClans = getObjects(DEFENDERS);
 		for (SiegeClanObject s : siegeClans)
 		{

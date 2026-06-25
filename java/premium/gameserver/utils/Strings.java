@@ -152,13 +152,7 @@ public class Strings
 		return s;
 	}
 	
-	/***
-	 * Склеивалка для строк
-	 * @param glueStr - строка разделитель, может быть пустой строкой или null
-	 * @param strings - массив из строк которые надо склеить
-	 * @param startIdx - начальный индекс, если указать отрицательный то он отнимется от количества строк
-	 * @param maxCount - мескимум элементов, если 0 - вернутся пустая строка, если отрицательный то учитыватся не будет
-	 */
+	 
 	public static String joinStrings(String glueStr, String[] strings, int startIdx, int maxCount)
 	{
 		String result = "";
@@ -182,22 +176,13 @@ public class Strings
 		return result;
 	}
 	
-	/***
-	 * Склеивалка для строк
-	 * @param glueStr - строка разделитель, может быть пустой строкой или null
-	 * @param strings - массив из строк которые надо склеить
-	 * @param startIdx - начальный индекс, если указать отрицательный то он отнимется от количества строк
-	 */
+	 
 	public static String joinStrings(String glueStr, String[] strings, int startIdx)
 	{
 		return joinStrings(glueStr, strings, startIdx, -1);
 	}
 	
-	/***
-	 * Склеивалка для строк
-	 * @param glueStr - строка разделитель, может быть пустой строкой или null
-	 * @param strings - массив из строк которые надо склеить
-	 */
+ 
 	public static String joinStrings(String glueStr, String[] strings)
 	{
 		return joinStrings(glueStr, strings, 0);

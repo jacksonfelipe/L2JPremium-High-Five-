@@ -127,10 +127,7 @@ public class RequestAquireSkill extends L2GameClientPacket
 				break;
 		}
 	}
-	
-	/**
-	 * Изучение следующего возможного уровня скилла
-	 */
+ 
 	private static void learnSimpleNextLevel(Player player, SkillLearn skillLearn, Skill skill)
 	{
 		final int skillLevel = player.getSkillLevel(skillLearn.getId(), 0);

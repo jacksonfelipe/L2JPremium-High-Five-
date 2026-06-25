@@ -20,7 +20,7 @@ public class ThreadPoolManager
 	}
 	
 	protected final ScheduledThreadPoolExecutor scheduledExecutor = new ScheduledThreadPoolExecutor(1);
-	protected final ThreadPoolExecutor executor = new ThreadPoolExecutor(1, 1, 5L, TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>());
+	protected final ThreadPoolExecutor executor = new ThreadPoolExecutor(1, 1, 5L, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
 	
 	private ThreadPoolManager()
 	{
@@ -35,7 +35,7 @@ public class ThreadPoolManager
 		}, 600000L, 600000L);
 	}
 	
-	private final long validate(long delay)
+	public long validate(long delay)
 	{
 		return Math.max(0, Math.min(MAX_DELAY, delay));
 	}

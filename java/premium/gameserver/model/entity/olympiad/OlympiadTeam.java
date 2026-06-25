@@ -29,7 +29,7 @@ public class OlympiadTeam
 	{
 		_game = game;
 		_side = side;
-		_members = new CHashIntObjectMap<TeamMember>();
+		_members = new CHashIntObjectMap<>();
 	}
 	
 	public void addMember(int obj_id)
@@ -127,7 +127,7 @@ public class OlympiadTeam
 			return;
 		}
 		
-		List<Player> list = new ArrayList<Player>();
+		List<Player> list = new ArrayList<>();
 		for (TeamMember member : _members.values())
 		{
 			Player player = member.getPlayer();
@@ -212,7 +212,7 @@ public class OlympiadTeam
 	
 	public List<Player> getPlayers()
 	{
-		List<Player> players = new ArrayList<Player>(_members.size());
+		List<Player> players = new ArrayList<>(_members.size());
 		for (TeamMember member : _members.values())
 		{
 			Player player = member.getPlayer();

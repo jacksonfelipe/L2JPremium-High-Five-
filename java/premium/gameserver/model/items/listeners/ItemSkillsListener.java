@@ -20,6 +20,7 @@ public final class ItemSkillsListener implements OnEquipListener
 		return _instance;
 	}
 	
+	@SuppressWarnings("null")
 	@Override
 	public void onUnequip(int slot, ItemInstance item, Playable actor)
 	{

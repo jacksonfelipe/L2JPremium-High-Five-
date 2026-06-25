@@ -103,7 +103,7 @@ public class CommunityFacebook implements ScriptFile, ICommunityBoardHandler
 						{
 							if (player.getFacebookProfile().hasNegativePoints())
 							{
-								if (CompletedTasksHistory.getInstance().getAvailableNegativeBalanceTypes(player.getFacebookProfile()).isEmpty())
+								if (CompletedTasksHistory.getAvailableNegativeBalanceTypes(player.getFacebookProfile()).isEmpty())
 								{
 									useFacebookBypass(player, "noTasksToTake");
 								}
@@ -266,7 +266,7 @@ public class CommunityFacebook implements ScriptFile, ICommunityBoardHandler
 			actions.append("</tr>");
 			actions.append("</table>");
 			
-			for (FacebookActionType negativePointsType : CompletedTasksHistory.getInstance().getAvailableNegativeBalanceTypes(player.getFacebookProfile()))
+			for (FacebookActionType negativePointsType : CompletedTasksHistory.getAvailableNegativeBalanceTypes(player.getFacebookProfile()))
 			{
 				makeActionTypeTable(actions, negativePointsType, nextColor, false);
 				nextColor = !nextColor;

@@ -5,6 +5,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public final class TrainerInstance extends NpcInstance // deprecated?
 {
+	private static final long serialVersionUID = 1L;
+
 	public TrainerInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

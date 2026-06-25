@@ -39,7 +39,7 @@ public class Mail implements JdbcEntity, Comparable<Mail>
 	private long price;
 	private SenderType _type = SenderType.NORMAL;
 	private boolean isUnread;
-	private final Set<ItemInstance> attachments = new HashSet<ItemInstance>();
+	private final Set<ItemInstance> attachments = new HashSet<>();
 	
 	private JdbcEntityState _state = JdbcEntityState.CREATED;
 	

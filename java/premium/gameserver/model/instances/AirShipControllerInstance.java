@@ -10,6 +10,8 @@ import premium.gameserver.utils.Location;
 
 public class AirShipControllerInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public AirShipControllerInstance(int objectID, NpcTemplate template)
 	{
 		super(objectID, template);

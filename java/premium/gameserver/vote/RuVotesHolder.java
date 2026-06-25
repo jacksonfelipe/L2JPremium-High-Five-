@@ -31,7 +31,7 @@ public class RuVotesHolder
 	private static final String LAST_RU_WIPE_VAR_NAME = "LastRUVotesWipeDate";
 	private static final Pattern ALLOWED_CHARS_PATTERN = Pattern.compile("[0-9A-Za-z=.*\\]\\[]{1,16}");
 	
-	private final Map<RuVoteProtectionType, List<String>> votes = new EnumMap<RuVoteProtectionType, List<String>>(RuVoteProtectionType.class);
+	private final Map<RuVoteProtectionType, List<String>> votes = new EnumMap<>(RuVoteProtectionType.class);
 	
 	private RuVotesHolder()
 	{
@@ -42,7 +42,7 @@ public class RuVotesHolder
 		
 		for (RuVoteProtectionType type : RuVoteProtectionType.values())
 		{
-			votes.put(type, new ArrayList<String>());
+			votes.put(type, new ArrayList<>());
 		}
 		loadVotes();
 		checkForMissedWipe();
@@ -78,7 +78,7 @@ public class RuVotesHolder
 	
 	public List<RuVote> getJustCorrectVotes(List<RuVote> newVotes)
 	{
-		final List<RuVote> finalVotes = new ArrayList<RuVote>(newVotes.size());
+		final List<RuVote> finalVotes = new ArrayList<>(newVotes.size());
 		for (RuVote vote : newVotes)
 		{
 			if (isVoteDataCorrect(vote, finalVotes))

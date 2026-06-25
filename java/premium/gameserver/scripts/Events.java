@@ -34,22 +34,19 @@ public final class Events
 				obj
 			}));
 		}
-		else
+		ScriptClassAndMethod handler = Scripts.onAction.get(obj.getL2ClassShortName());
+		if ((handler == null) && obj.isDoor())
 		{
-			ScriptClassAndMethod handler = Scripts.onAction.get(obj.getL2ClassShortName());
-			if ((handler == null) && obj.isDoor())
-			{
-				handler = Scripts.onAction.get("DoorInstance");
-			}
-			if (handler == null)
-			{
-				return false;
-			}
-			return Strings.parseBoolean(Scripts.getInstance().callScripts(player, handler.className, handler.methodName, new Object[]
-			{
-				player,
-				obj
-			}));
+			handler = Scripts.onAction.get("DoorInstance");
 		}
+		if (handler == null)
+		{
+			return false;
+		}
+		return Strings.parseBoolean(Scripts.getInstance().callScripts(player, handler.className, handler.methodName, new Object[]
+		{
+			player,
+			obj
+		}));
 	}
 }

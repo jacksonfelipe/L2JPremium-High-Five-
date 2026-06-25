@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang3.ArrayUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import premium.commons.math.SafeMath;
 import premium.gameserver.Config;
@@ -24,8 +22,7 @@ import premium.gameserver.utils.TradeHelper;
  */
 public class RequestPrivateStoreBuySellList extends L2GameClientPacket
 {
-	private static final Logger _log = LoggerFactory.getLogger(RequestPrivateStoreBuySellList.class);
-	
+ 
 	private int _buyerId, _count;
 	private int[] _items; // object id
 	private long[] _itemQ; // count
@@ -119,7 +116,7 @@ public class RequestPrivateStoreBuySellList extends L2GameClientPacket
 			return;
 		}
 		
-		List<TradeItem> sellList = new ArrayList<TradeItem>();
+		List<TradeItem> sellList = new ArrayList<>();
 		
 		long totalCost = 0;
 		int slots = 0;

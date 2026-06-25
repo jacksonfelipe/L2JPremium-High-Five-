@@ -71,7 +71,7 @@ public class EffectDispelEffects extends Effect
 		}
 		
 		int currentCancelChance = cancelRate; // Synerge - Now the first buff has 100% of chances
-		final LinkedList<Effect> cancelledEffects = new LinkedList<Effect>();
+		final LinkedList<Effect> cancelledEffects = new LinkedList<>();
 		
 		effectList = effectList.subList(0, Math.min(effectList.size(), negateMax * 2));
 		

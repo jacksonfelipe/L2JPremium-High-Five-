@@ -22,6 +22,8 @@ import premium.gameserver.templates.item.ItemTemplate;
 
 public class Fortress extends Residence
 {
+	private static final long serialVersionUID = 1L;
+
 	private static final Logger _log = LoggerFactory.getLogger(Fortress.class);
 	
 	private static final long REMOVE_CYCLE = 7 * 24; // 7 Fort days may belong owneru
@@ -51,7 +53,7 @@ public class Fortress extends Residence
 	private int _supplyCount;
 	private long _supplySpawn;
 	
-	private final List<Castle> _relatedCastles = new ArrayList<Castle>(5);
+	private final List<Castle> _relatedCastles = new ArrayList<>(5);
 	
 	public Fortress(StatsSet set)
 	{

@@ -13,10 +13,6 @@ import premium.gameserver.dao.ClanHallDAO;
 import premium.gameserver.data.xml.holder.DoorHolder;
 import premium.gameserver.database.DatabaseFactory;
 import premium.gameserver.instancemanager.PlayerMessageStack;
-import premium.gameserver.listener.zone.OnZoneEnterLeaveListener;
-import premium.gameserver.model.Creature;
-import premium.gameserver.model.Player;
-import premium.gameserver.model.Zone;
 import premium.gameserver.model.entity.events.impl.ClanHallAuctionEvent;
 import premium.gameserver.model.pledge.Clan;
 import premium.gameserver.model.pledge.UnitMember;
@@ -27,6 +23,8 @@ import premium.gameserver.templates.item.ItemTemplate;
 
 public class ClanHall extends Residence
 {
+	private static final long serialVersionUID = 1L;
+
 	private static final Logger _log = LoggerFactory.getLogger(ClanHall.class);
 	
 	private static final int REWARD_CYCLE = 168; // 1 week - 7 days - 168 hours
@@ -234,11 +232,8 @@ public class ClanHall extends Residence
 		}
 	}
 	
-	/**
-	 * Synerge
-	 * @return Returns true if all clan hall doors are closed
-	 */
-	private final boolean isDoorsClosed()
+ 
+	public final boolean isDoorsClosed()
 	{
 		for (DoorTemplate door : DoorHolder.getInstance().getDoors().values())
 		{
@@ -249,40 +244,5 @@ public class ClanHall extends Residence
 		}
 		
 		return true;
-	}
-	
-	// Synerge - Listener to control players that enter the clan hall, when doors are closed
-	private class ZoneListener implements OnZoneEnterLeaveListener
-	{
-		@Override
-		public void onZoneEnter(Zone zone, Creature actor)
-		{
-			// No gms
-			if (!actor.isPlayer() || (actor.getAccessLevel() > 0))
-			{
-				return;
-			}
-			
-			Player player = actor.getPlayer();
-			
-			// Clan Hall owner
-			// Doors opened
-			if ((player.getClanId() == getOwnerId()) || !isDoorsClosed())
-			{
-				return;
-			}
-			
-			player.teleToLocation(getBanishPoint());
-		}
-		
-		@Override
-		public void onZoneLeave(Zone zone, Creature actor)
-		{
-		}
-		
-		@Override
-		public void onEquipChanged(Zone zone, Creature actor)
-		{
-		}
 	}
 }

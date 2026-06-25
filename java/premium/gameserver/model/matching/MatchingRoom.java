@@ -55,7 +55,7 @@ public abstract class MatchingRoom implements PlayerGroup
 	
 	private final PartyListenerImpl _listener = new PartyListenerImpl();
 	protected Player _leader;
-	protected List<Player> _members = new CopyOnWriteArrayList<Player>();
+	protected List<Player> _members = new CopyOnWriteArrayList<>();
 	
 	public MatchingRoom(Player leader, int minLevel, int maxLevel, int maxMemberSize, int lootType, String topic)
 	{
@@ -334,7 +334,7 @@ public abstract class MatchingRoom implements PlayerGroup
 	{
 		if (excluded != null && excluded.length > 0)
 		{
-			List<Player> members = new ArrayList<Player>();
+			List<Player> members = new ArrayList<>();
 			for (Player member : _members)
 			{
 				if (!Util.arrayContains(excluded, member))

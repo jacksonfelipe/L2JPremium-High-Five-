@@ -7,6 +7,7 @@ import premium.gameserver.utils.NpcUtils;
 
 public class SpawnSimpleObject implements SpawnableObject
 {
+	private static final long serialVersionUID = 1L;
 	private final int _npcId;
 	private final Location _loc;
 	private NpcInstance _npc;

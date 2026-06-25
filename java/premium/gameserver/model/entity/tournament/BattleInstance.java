@@ -70,8 +70,8 @@ public class BattleInstance
 	private int team2Wins = 0;
 	private volatile Double team1DoneDamage = 0.0;
 	private volatile Double team2DoneDamage = 0.0;
-	private final List<Player> observers = new CopyOnWriteArrayList<Player>();
-	private final List<Player> pastObservers = new CopyOnWriteArrayList<Player>();
+	private final List<Player> observers = new CopyOnWriteArrayList<>();
+	private final List<Player> pastObservers = new CopyOnWriteArrayList<>();
 	
 	protected BattleInstance(BattleRecord battleRecord)
 	{
@@ -79,14 +79,14 @@ public class BattleInstance
 		map = TournamentMapHolder.getInstance().getRandomMap();
 		reflection = ActiveBattleManager.createReflection(map);
 		final Team[] teams = battleRecord.getTeams();
-		fightersPerTeam = new HashMap<Team, List<Player>>(teams.length);
+		fightersPerTeam = new HashMap<>(teams.length);
 		for (Team team : teams)
 		{
-			fightersPerTeam.put(team, new ArrayList<Player>(team.getPlayerIdsForIterate().length));
+			fightersPerTeam.put(team, new ArrayList<>(team.getPlayerIdsForIterate().length));
 		}
 		final int maxFighters = teams.length * ConfigHolder.getInt("TournamentPlayersInTeam");
-		allFighters = new ArrayList<Player>(maxFighters);
-		receivedItems = new ConcurrentHashMap<Player, List<ItemInstance>>(maxFighters);
+		allFighters = new ArrayList<>(maxFighters);
+		receivedItems = new ConcurrentHashMap<>(maxFighters);
 		exitListener = new TournamentExitListener(this);
 		zoneListener = new TournamentLeaveZoneListener(this);
 		deathListener = new TournamentDeathListener(this);
@@ -145,7 +145,7 @@ public class BattleInstance
 	{
 		fightersPerTeam.get(team).add(player);
 		allFighters.add(player);
-		receivedItems.put(player, new ArrayList<ItemInstance>());
+		receivedItems.put(player, new ArrayList<>());
 	}
 	
 	public List<Player> getFightersForIterate(Team team)
@@ -160,7 +160,7 @@ public class BattleInstance
 	
 	public List<Player> getAllFightersCopy()
 	{
-		return new ArrayList<Player>(allFighters);
+		return new ArrayList<>(allFighters);
 	}
 	
 	public boolean isFighter(Player player)
@@ -211,7 +211,7 @@ public class BattleInstance
 	
 	public List<ItemInstance> getReceivedItemsCopy(Player player)
 	{
-		return new ArrayList<ItemInstance>(receivedItems.getOrDefault(player, Collections.emptyList()));
+		return new ArrayList<>(receivedItems.getOrDefault(player, Collections.emptyList()));
 	}
 	
 	public void clearReceivedItems(Player player)
@@ -424,9 +424,9 @@ public class BattleInstance
 	{
 		if (concurrent)
 		{
-			return new CopyOnWriteArrayList<Player>(observers);
+			return new CopyOnWriteArrayList<>(observers);
 		}
-		return new ArrayList<Player>(observers);
+		return new ArrayList<>(observers);
 	}
 	
 	public void addPastObserver(Player player)

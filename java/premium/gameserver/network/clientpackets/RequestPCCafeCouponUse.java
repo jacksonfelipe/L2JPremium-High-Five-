@@ -6,7 +6,7 @@ package premium.gameserver.network.clientpackets;
 public class RequestPCCafeCouponUse extends L2GameClientPacket
 {
 	// format: (ch)S
-	private String _unknown;
+	public String _unknown;
 	
 	@Override
 	protected void readImpl()

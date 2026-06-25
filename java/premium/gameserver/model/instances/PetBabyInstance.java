@@ -197,9 +197,7 @@ public final class PetBabyInstance extends PetInstance
 		return null;
 	}
 	
-	/**
-	 * Returns true if the effect is to already have the skill and re-apply it is not necessary
-	 */
+ 
 	private boolean checkEffect(Effect ef, Skill skill)
 	{
 		if (ef == null || !ef.isInUse() || !EffectList.checkStackType(ef.getTemplate(), skill.getEffectTemplates()[0]) || (ef.getStackOrder() < skill.getEffectTemplates()[0]._stackOrder)) // old

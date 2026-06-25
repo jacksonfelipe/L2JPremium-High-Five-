@@ -17,6 +17,7 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public final class FestivalGuideInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	protected int _festivalType;
 	protected int _festivalOracle;
 	
@@ -371,7 +372,7 @@ public final class FestivalGuideInstance extends NpcInstance
 		player.sendPacket(new NpcHtmlMessage(player, this, filename, val));
 	}
 	
-	private String getStatsTable()
+	public static String getStatsTable()
 	{
 		StringBuilder tableHtml = new StringBuilder();
 		
@@ -398,7 +399,7 @@ public final class FestivalGuideInstance extends NpcInstance
 		return tableHtml.toString();
 	}
 	
-	private String getBonusTable()
+	public static String getBonusTable()
 	{
 		StringBuilder tableHtml = new StringBuilder();
 		
@@ -414,7 +415,7 @@ public final class FestivalGuideInstance extends NpcInstance
 		return tableHtml.toString();
 	}
 	
-	private String calculateDate(String milliFromEpoch)
+	public static String calculateDate(String milliFromEpoch)
 	{
 		long numMillis = Long.valueOf(milliFromEpoch);
 		Calendar calCalc = Calendar.getInstance();

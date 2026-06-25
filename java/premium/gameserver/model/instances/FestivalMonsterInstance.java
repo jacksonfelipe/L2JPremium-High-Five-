@@ -20,6 +20,7 @@ import premium.gameserver.utils.ItemFunctions;
 
 public class FestivalMonsterInstance extends MonsterInstance
 {
+	private static final long serialVersionUID = 1L;
 	protected int _bonusMultiplier = 1;
 	
 	public FestivalMonsterInstance(int objectId, NpcTemplate template)
@@ -44,7 +45,7 @@ public class FestivalMonsterInstance extends MonsterInstance
 		{
 			return;
 		}
-		List<Player> alive = new ArrayList<Player>(9);
+		List<Player> alive = new ArrayList<>(9);
 		for (Player p : pl)
 		{
 			if (!p.isDead())

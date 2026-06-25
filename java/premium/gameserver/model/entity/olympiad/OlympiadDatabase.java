@@ -32,8 +32,8 @@ public class OlympiadDatabase
 	
 	public static synchronized void loadNoblesRank()
 	{
-		Olympiad._noblesRank = new ConcurrentHashMap<Integer, Integer>();
-		Map<Integer, Integer> tmpPlace = new HashMap<Integer, Integer>();
+		Olympiad._noblesRank = new ConcurrentHashMap<>();
+		Map<Integer, Integer> tmpPlace = new HashMap<>();
 		
 		Connection con = null;
 		PreparedStatement statement = null;
@@ -153,7 +153,7 @@ public class OlympiadDatabase
 	
 	public static List<String> getClassLeaderBoard(int classId)
 	{
-		List<String> names = new ArrayList<String>();
+		List<String> names = new ArrayList<>();
 		
 		try (Connection con = DatabaseFactory.getInstance().getConnection(); PreparedStatement statement = con.prepareStatement(classId == 132 ? OlympiadNobleDAO.GET_EACH_PAST_CLASS_LEADER_SOULHOUND : OlympiadNobleDAO.GET_EACH_PAST_CLASS_LEADER))
 		{
@@ -212,7 +212,7 @@ public class OlympiadDatabase
 			return;
 		}
 		
-		Olympiad._heroesToBe = new ArrayList<StatsSet>();
+		Olympiad._heroesToBe = new ArrayList<>();
 		
 		Connection con = null;
 		PreparedStatement statement = null;

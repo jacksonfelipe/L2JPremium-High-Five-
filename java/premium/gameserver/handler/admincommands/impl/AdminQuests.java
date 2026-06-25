@@ -21,7 +21,7 @@ public class AdminQuests implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		Commands command = (Commands) comm;
 		
@@ -275,7 +275,7 @@ public class AdminQuests implements IAdminCommandHandler
 		return ShowQuestState(qs, activeChar);
 	}
 	
-	private Player getTargetChar(String[] wordList, int wordListIndex, Player activeChar)
+	public Player getTargetChar(String[] wordList, int wordListIndex, Player activeChar)
 	{
 		// цель задана аргументом
 		if (wordListIndex >= 0 && wordList.length > wordListIndex)
@@ -297,6 +297,7 @@ public class AdminQuests implements IAdminCommandHandler
 		return activeChar;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{

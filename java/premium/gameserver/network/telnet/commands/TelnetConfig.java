@@ -9,7 +9,7 @@ import premium.gameserver.network.telnet.TelnetCommandHolder;
 
 public class TelnetConfig implements TelnetCommandHolder
 {
-	private Set<TelnetCommand> _commands = new LinkedHashSet<TelnetCommand>();
+	private Set<TelnetCommand> _commands = new LinkedHashSet<>();
 	
 	public TelnetConfig()
 	{
@@ -41,10 +41,7 @@ public class TelnetConfig implements TelnetCommandHolder
 				{
 					return "Done.\n";
 				}
-				else
-				{
-					return "Error!\n";
-				}
+				return "Error!\n";
 			}
 		});
 	}

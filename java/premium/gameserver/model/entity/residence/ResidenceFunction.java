@@ -37,10 +37,10 @@ public class ResidenceFunction
 	private boolean _inDebt;
 	private boolean _active;
 	
-	private Map<Integer, Integer> _leases = new ConcurrentSkipListMap<Integer, Integer>();
-	private Map<Integer, TeleportLocation[]> _teleports = new ConcurrentSkipListMap<Integer, TeleportLocation[]>();
-	private Map<Integer, int[]> _buylists = new ConcurrentSkipListMap<Integer, int[]>();
-	private Map<Integer, Object[][]> _buffs = new ConcurrentSkipListMap<Integer, Object[][]>();
+	private Map<Integer, Integer> _leases = new ConcurrentSkipListMap<>();
+	private Map<Integer, TeleportLocation[]> _teleports = new ConcurrentSkipListMap<>();
+	private Map<Integer, int[]> _buylists = new ConcurrentSkipListMap<>();
+	private Map<Integer, Object[][]> _buffs = new ConcurrentSkipListMap<>();
 	
 	public ResidenceFunction(int id, int type)
 	{

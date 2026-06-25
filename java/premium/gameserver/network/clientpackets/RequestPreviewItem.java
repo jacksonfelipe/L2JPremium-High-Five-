@@ -3,9 +3,6 @@ package premium.gameserver.network.clientpackets;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import premium.commons.threading.RunnableImpl;
 import premium.gameserver.Config;
 import premium.gameserver.ThreadPoolManager;
@@ -26,9 +23,7 @@ import premium.gameserver.templates.item.WeaponTemplate.WeaponType;
 
 public class RequestPreviewItem extends L2GameClientPacket
 {
-	// format: cdddb
-	private static final Logger _log = LoggerFactory.getLogger(RequestPreviewItem.class);
-	
+ 
 	@SuppressWarnings("unused")
 	private int _unknow;
 	private int _listId;
@@ -91,15 +86,15 @@ public class RequestPreviewItem extends L2GameClientPacket
 		NpcTradeList list = BuyListHolder.getInstance().getBuyList(this._listId);
 		if (list == null)
 		{
-			// TODO audit
+		 
 			activeChar.sendActionFailed();
 			return;
 		}
 		
-		int slots = 0;
+		 
 		long totalPrice = 0; // Цена на примерку каждого итема 10 Adena.
 		
-		Map<Integer, Integer> itemList = new HashMap<Integer, Integer>();
+		Map<Integer, Integer> itemList = new HashMap<>();
 		try
 		{
 			for (int i = 0; i < this._count; i++)
@@ -140,10 +135,7 @@ public class RequestPreviewItem extends L2GameClientPacket
 					activeChar.sendPacket(SystemMsg.YOU_CAN_NOT_TRY_THOSE_ITEMS_ON_AT_THE_SAME_TIME);
 					return;
 				}
-				else
-				{
-					itemList.put(paperdoll, itemId);
-				}
+				itemList.put(paperdoll, itemId);
 				
 				totalPrice += ShopPreviewList.getWearPrice(template);
 			}

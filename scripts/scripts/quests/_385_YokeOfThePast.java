@@ -83,7 +83,7 @@ public class _385_YokeOfThePast extends Quest implements ScriptFile
 	@Override
 	public String onKill(NpcInstance npc, QuestState st)
 	{
-		double rand = 60 * Experience.penaltyModifier(st.calculateLevelDiffForDrop(npc.getLevel(), st.getPlayer().getLevel()), 9) * npc.getTemplate().rateHp / 4;
+		double rand = 60 * Experience.penaltyModifier(QuestState.calculateLevelDiffForDrop(npc.getLevel(), st.getPlayer().getLevel()), 9) * npc.getTemplate().rateHp / 4;
 		
 		st.rollAndGive(ANCIENT_SCROLL, 1, rand);
 		return null;

@@ -13,7 +13,6 @@ import premium.gameserver.dao.MailDAO;
 import premium.gameserver.data.StringHolder;
 import premium.gameserver.data.htm.HtmCache;
 import premium.gameserver.data.xml.holder.ResidenceHolder;
-import premium.gameserver.multverso.datatables.OfflineBuffersTable;
 import premium.gameserver.hwid.HwidEngine;
 import premium.gameserver.hwid.HwidGamer;
 import premium.gameserver.instancemanager.AutoHuntingManager;
@@ -46,6 +45,7 @@ import premium.gameserver.model.pledge.Clan;
 import premium.gameserver.model.pledge.SubUnit;
 import premium.gameserver.model.pledge.UnitMember;
 import premium.gameserver.model.quest.Quest;
+import premium.gameserver.multverso.datatables.OfflineBuffersTable;
 import premium.gameserver.network.GameClient;
 import premium.gameserver.network.GameClient.GameClientState;
 import premium.gameserver.network.serverpackets.ChangeWaitType;
@@ -156,7 +156,7 @@ public class EnterWorld extends L2GameClientPacket
 			}
 		}
 		
-		if (client != null && Config.ALLOW_HWID_ENGINE)
+		if (Config.ALLOW_HWID_ENGINE)
 		{
 			// Checking hwid lock
 			if (activeChar.getHwidLock() != null && !client.getHWID().equals(activeChar.getHwidLock()))

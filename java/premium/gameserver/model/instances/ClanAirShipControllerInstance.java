@@ -16,6 +16,7 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class ClanAirShipControllerInstance extends AirShipControllerInstance
 {
+	private static final long serialVersionUID = 1L;
 	protected static final int ENERGY_STAR_STONE = 13277;
 	protected static final int AIRSHIP_SUMMON_LICENSE = 13559;
 	
@@ -139,10 +140,7 @@ public class ClanAirShipControllerInstance extends AirShipControllerInstance
 		{
 			return ship;
 		}
-		else
-		{
-			return null;
-		}
+		return null;
 	}
 	
 	@SuppressWarnings("unchecked")

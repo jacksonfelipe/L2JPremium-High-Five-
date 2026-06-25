@@ -2,7 +2,7 @@ package premium.gameserver.network.clientpackets;
 
 public class RequestChangeBookMarkSlot extends L2GameClientPacket
 {
-	private int slot_old, slot_new;
+	public int slot_old, slot_new;
 	
 	@Override
 	protected void readImpl()

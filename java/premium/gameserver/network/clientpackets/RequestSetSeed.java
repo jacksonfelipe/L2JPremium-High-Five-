@@ -66,7 +66,7 @@ public class RequestSetSeed extends L2GameClientPacket
 			return;
 		}
 		
-		List<SeedProduction> seeds = new ArrayList<SeedProduction>(this._count);
+		List<SeedProduction> seeds = new ArrayList<>(this._count);
 		for (int i = 0; i < this._count; i++)
 		{
 			int id = (int) this._items[i * 3 + 0];

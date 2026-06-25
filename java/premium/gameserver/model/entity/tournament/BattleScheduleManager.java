@@ -52,7 +52,7 @@ public class BattleScheduleManager
 	public static final int NOT_LOST_ANY_ROUND_INDEX = Integer.MAX_VALUE;
 	public static final int NOT_DETERMINED_FINAL_POSITION = -1;
 	
-	private final Map<Integer, List<BattleRecord>> _battlesPerRound = new HashMap<Integer, List<BattleRecord>>(8);
+	private final Map<Integer, List<BattleRecord>> _battlesPerRound = new HashMap<>(8);
 	private int _lastBattleObjectId = -1;
 	private long _lastBattleDate = -1L;
 	private final ScriptEngine _javaScriptEngine;
@@ -274,7 +274,7 @@ public class BattleScheduleManager
 	
 	public List<BattleRecord> getBattlesSortedByDate(int roundIndex)
 	{
-		final List<BattleRecord> dates = new ArrayList<BattleRecord>(_battlesPerRound.get(roundIndex));
+		final List<BattleRecord> dates = new ArrayList<>(_battlesPerRound.get(roundIndex));
 		Collections.sort(dates, BattleDateComparator.INSTANCE);
 		return dates;
 	}
@@ -368,7 +368,7 @@ public class BattleScheduleManager
 	private void initializeNextRoundByPastRecords(Collection<BattleRecord> pastRound, int newRoundIndex)
 	{
 		initializeLostBattlesRecords(pastRound, newRoundIndex - 1);
-		final List<Team> teamsFoughtInRound = new ArrayList<Team>(pastRound.size() / 2);
+		final List<Team> teamsFoughtInRound = new ArrayList<>(pastRound.size() / 2);
 		for (BattleRecord record : pastRound)
 		{
 			for (Team team : record.getTeams())
@@ -391,7 +391,7 @@ public class BattleScheduleManager
 		final int winnersBattlesCount = (int) teamsFoughtInRound.stream().filter(o -> !o.lostAnyRound()).count() / 2;
 		final int lastRoundIndex = calculateLastRoundIndex(winnersBattlesCount, newRoundIndex);
 		final long currentDate = System.currentTimeMillis();
-		final List<BattleRecord> allNewRoundRecords = new ArrayList<BattleRecord>(teamsFoughtInRound.size() / 2);
+		final List<BattleRecord> allNewRoundRecords = new ArrayList<>(teamsFoughtInRound.size() / 2);
 		final Map<Integer, List<Team>> teamsByLostInRound = sortTeamsByLostInRound(teamsFoughtInRound, newRoundIndex - 1);
 		for (Map.Entry<Integer, List<Team>> teamsLostInRounds : teamsByLostInRound.entrySet())
 		{
@@ -536,12 +536,12 @@ public class BattleScheduleManager
 	
 	private static Map<Integer, List<Team>> sortTeamsByLostInRound(Collection<Team> teamsFoughtInRound, int biggestRoundIndex)
 	{
-		final Map<Integer, List<Team>> map = new LinkedHashMap<Integer, List<Team>>(biggestRoundIndex + 2);
+		final Map<Integer, List<Team>> map = new LinkedHashMap<>(biggestRoundIndex + 2);
 		for (int i = 0; i <= biggestRoundIndex; ++i)
 		{
-			map.put(i, new ArrayList<Team>(0));
+			map.put(i, new ArrayList<>(0));
 		}
-		map.put(Integer.MAX_VALUE, new ArrayList<Team>(teamsFoughtInRound.size() / 2));
+		map.put(Integer.MAX_VALUE, new ArrayList<>(teamsFoughtInRound.size() / 2));
 		for (Team team : teamsFoughtInRound)
 		{
 			map.get(team.getOldestLostRoundIndex()).add(team);
@@ -728,7 +728,7 @@ public class BattleScheduleManager
 				}
 				else
 				{
-					final List<BattleRecord> records = new ArrayList<BattleRecord>();
+					final List<BattleRecord> records = new ArrayList<>();
 					records.add(record);
 					_battlesPerRound.put(round, records);
 				}

@@ -20,7 +20,7 @@ public final class ServerList extends L2LoginServerPacket
 {
 	private static final Logger LOG = LoggerFactory.getLogger(ServerList.class);
 	
-	private final List<ServerData> _servers = new ArrayList<ServerData>();
+	private final List<ServerData> _servers = new ArrayList<>();
 	private final int _lastServer;
 	
 	public ServerList(L2LoginClient client, Map<Integer, String> proxies)

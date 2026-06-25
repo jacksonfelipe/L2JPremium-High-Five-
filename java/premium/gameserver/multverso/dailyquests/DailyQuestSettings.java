@@ -17,10 +17,7 @@ public class DailyQuestSettings
 	private final Droplist _rewards = new Droplist();
 	private final StatsSet _parameters = new StatsSet();
 	private boolean _isProtectingReward;
-	
-	/********************************************/
-	// Name
-	/********************************************/
+ 
 	public void setName(String name)
 	{
 		_name = name;
@@ -31,9 +28,7 @@ public class DailyQuestSettings
 		return _name;
 	}
 	
-	/********************************************/
-	// Description
-	/********************************************/
+ 
 	public void setDescription(String descr)
 	{
 		_descr = descr;
@@ -44,9 +39,7 @@ public class DailyQuestSettings
 		return _descr;
 	}
 	
-	/********************************************/
-	// Min Level
-	/********************************************/
+ 
 	public void setMinLevel(int level)
 	{
 		_minLevel = level;
@@ -57,9 +50,7 @@ public class DailyQuestSettings
 		return _minLevel;
 	}
 	
-	/********************************************/
-	// Max Level
-	/********************************************/
+ 
 	public void setMaxLevel(int level)
 	{
 		_maxLevel = level;
@@ -69,10 +60,7 @@ public class DailyQuestSettings
 	{
 		return _maxLevel;
 	}
-	
-	/********************************************/
-	// Enabled
-	/********************************************/
+ 
 	public void setEnabled(boolean enabled)
 	{
 		_enabled = enabled;
@@ -82,11 +70,7 @@ public class DailyQuestSettings
 	{
 		return _enabled;
 	}
-	
-	/********************************************/
-	// Rewards
-	/********************************************/
-	
+ 
 	public void addRewardGroup(DroplistGroup group)
 	{
 		_rewards.addGroup(group);
@@ -96,11 +80,7 @@ public class DailyQuestSettings
 	{
 		return _rewards;
 	}
-	
-	/********************************************/
-	// Parameters
-	/********************************************/
-	
+	 
 	public void setParameters(StatsSet set)
 	{
 		_parameters.add(set);

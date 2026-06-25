@@ -4,7 +4,7 @@ import premium.commons.math.random.RndSelector;
 
 public class OptionGroup
 {
-	private RndSelector<Integer> _options = new RndSelector<Integer>();
+	private RndSelector<Integer> _options = new RndSelector<>();
 	
 	public void addOptionWithChance(int option, int chance)
 	{

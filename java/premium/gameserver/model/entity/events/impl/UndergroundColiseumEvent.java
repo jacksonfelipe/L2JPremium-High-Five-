@@ -151,7 +151,7 @@ public class UndergroundColiseumEvent extends GlobalEvent
 		
 		if (winner == null)
 		{
-			winner = new MutablePair<String, Integer>(name, 1);
+			winner = new MutablePair<>(name, 1);
 			addObject(UndergroundColiseumEvent.HISTORY, winner);
 			
 			UndergroundColiseumHistoryDAO.getInstance().insert(getId(), winner);

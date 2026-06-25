@@ -15,7 +15,7 @@ public class MultiValueIntegerMap
 	
 	public MultiValueIntegerMap()
 	{
-		map = new ConcurrentHashMap<Integer, List<Integer>>();
+		map = new ConcurrentHashMap<>();
 	}
 	
 	public Set<Integer> keySet()
@@ -30,7 +30,7 @@ public class MultiValueIntegerMap
 	
 	public List<Integer> allValues()
 	{
-		List<Integer> result = new ArrayList<Integer>();
+		List<Integer> result = new ArrayList<>();
 		for (Map.Entry<Integer, List<Integer>> entry : map.entrySet())
 		{
 			result.addAll(entry.getValue());
@@ -94,7 +94,7 @@ public class MultiValueIntegerMap
 	
 	public Integer removeValue(Integer value)
 	{
-		List<Integer> toRemove = new ArrayList<Integer>(1);
+		List<Integer> toRemove = new ArrayList<>(1);
 		for (Map.Entry<Integer, List<Integer>> entry : map.entrySet())
 		{
 			entry.getValue().remove(value);
@@ -115,7 +115,7 @@ public class MultiValueIntegerMap
 		List<Integer> coll = map.get(key);
 		if (coll == null)
 		{
-			coll = new CopyOnWriteArrayList<Integer>();
+			coll = new CopyOnWriteArrayList<>();
 			map.put(key, coll);
 		}
 		coll.add(value);
@@ -164,7 +164,7 @@ public class MultiValueIntegerMap
 		List<Integer> coll = map.get(key);
 		if (coll == null)
 		{
-			coll = new CopyOnWriteArrayList<Integer>();
+			coll = new CopyOnWriteArrayList<>();
 			coll.addAll(values);
 			if (coll.size() > 0)
 			{

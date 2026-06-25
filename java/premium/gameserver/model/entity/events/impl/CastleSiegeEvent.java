@@ -552,7 +552,7 @@ public class CastleSiegeEvent extends SiegeEvent<Castle, SiegeClanObject>
 	private void initControlTowers()
 	{
 		final List<SpawnExObject> objects = getObjects(GUARDS);
-		final List<Spawner> spawns = new ArrayList<Spawner>();
+		final List<Spawner> spawns = new ArrayList<>();
 		for (SpawnExObject o : objects)
 		{
 			spawns.addAll(o.getSpawns());

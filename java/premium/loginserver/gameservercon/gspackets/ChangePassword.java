@@ -16,7 +16,7 @@ public class ChangePassword extends ReceivablePacket
 	private String accname;
 	private String oldPass;
 	private String newPass;
-	private String hwid;
+	public String hwid;
 	
 	@Override
 	protected void readImpl()

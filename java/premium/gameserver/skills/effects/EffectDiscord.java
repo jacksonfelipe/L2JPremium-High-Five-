@@ -101,7 +101,7 @@ public class EffectDiscord extends Effect
 	@Override
 	public boolean onActionTime()
 	{
-		List<Creature> targetList = new ArrayList<Creature>();
+		List<Creature> targetList = new ArrayList<>();
 		
 		for (Creature character : _effected.getAroundCharacters(900, 200))
 		{

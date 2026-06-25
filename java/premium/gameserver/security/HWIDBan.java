@@ -14,7 +14,7 @@ import premium.gameserver.database.DatabaseFactory;
 public class HWIDBan
 {
 	private static final Logger _log = LoggerFactory.getLogger(HWIDBan.class);
-	private static ArrayList<String> _l = new ArrayList<String>();
+	private static ArrayList<String> _l = new ArrayList<>();
 	
 	public static void LoadAllHWID()
 	{

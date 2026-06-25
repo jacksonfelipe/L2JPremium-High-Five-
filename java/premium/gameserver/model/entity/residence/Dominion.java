@@ -20,6 +20,7 @@ import premium.gameserver.templates.StatsSet;
 
 public class Dominion extends Residence
 {
+	private static final long serialVersionUID = 1L;
 	private final IntSet _flags = new TreeIntSet();
 	private Castle _castle;
 	private int _lordObjectId;

@@ -21,7 +21,6 @@ import premium.gameserver.Config;
 import premium.gameserver.ThreadPoolManager;
 import premium.gameserver.data.htm.HtmCache;
 import premium.gameserver.database.DatabaseFactory;
-import premium.gameserver.multverso.datatables.EnchantNamesTable;
 import premium.gameserver.instancemanager.ReflectionManager;
 import premium.gameserver.listener.actor.player.OnAnswerListener;
 import premium.gameserver.model.Creature;
@@ -33,6 +32,7 @@ import premium.gameserver.model.Zone.ZoneType;
 import premium.gameserver.model.entity.events.impl.AbstractFightClub;
 import premium.gameserver.model.entity.olympiad.Olympiad;
 import premium.gameserver.model.entity.tournament.ActiveBattleManager;
+import premium.gameserver.multverso.datatables.EnchantNamesTable;
 import premium.gameserver.network.serverpackets.ConfirmDlg;
 import premium.gameserver.network.serverpackets.MagicSkillLaunched;
 import premium.gameserver.network.serverpackets.MagicSkillUse;
@@ -411,12 +411,9 @@ public class SchemeBufferInstance extends NpcInstance
 		{
 			return true;
 		}
-		else
-		{
-			sendErrorMessageToPlayer(player, msg);
-			showCommunity(player, main(player));
-			return false;
-		}
+		sendErrorMessageToPlayer(player, msg);
+		showCommunity(player, main(player));
+		return false;
 	}
 	
 	private static String main(Player player)
@@ -1321,7 +1318,7 @@ public class SchemeBufferInstance extends NpcInstance
 	
 	private static String viewAllBuffs(String type, String typeName, String page)
 	{
-		final List<SingleBuff> buffList = new ArrayList<SingleBuff>();
+		final List<SingleBuff> buffList = new ArrayList<>();
 		StringBuilder builder = new StringBuilder();
 		builder.append("<html><head><title>").append(TITLE_NAME).append("</title></head><body><br><center><img src=\"L2UI_CH3.herotower_deco\" width=256 height=32><br>");
 		
@@ -1845,7 +1842,7 @@ public class SchemeBufferInstance extends NpcInstance
 					return;
 				}
 			}
-			final List<int[]> buff_sets = new ArrayList<int[]>();
+			final List<int[]> buff_sets = new ArrayList<>();
 			final int player_class;
 			if (player.isMageClass())
 			{

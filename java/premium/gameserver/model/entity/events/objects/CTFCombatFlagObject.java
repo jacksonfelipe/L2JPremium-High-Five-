@@ -17,6 +17,8 @@ import premium.gameserver.utils.ItemFunctions;
 
 public class CTFCombatFlagObject implements SpawnableObject, FlagItemAttachment
 {
+	private static final long serialVersionUID = 1L;
+
 	private static final Logger _log = LoggerFactory.getLogger(CTFCombatFlagObject.class);
 	
 	public static final int FLAG_ITEM_ID = 9819;
@@ -107,10 +109,7 @@ public class CTFCombatFlagObject implements SpawnableObject, FlagItemAttachment
 			player.sendPacket(SystemMsg.THAT_WEAPON_CANNOT_USE_ANY_OTHER_SKILL_EXCEPT_THE_WEAPONS_SKILL);
 			return false;
 		}
-		else
-		{
-			return true;
-		}
+		return true;
 	}
 	
 	@Override

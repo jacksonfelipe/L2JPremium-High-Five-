@@ -5,7 +5,7 @@ import premium.gameserver.network.serverpackets.HennaUnequipList;
 
 public class RequestHennaUnequipList extends L2GameClientPacket
 {
-	private int _symbolId;
+	public int _symbolId;
 	
 	/**
 	 * format: d

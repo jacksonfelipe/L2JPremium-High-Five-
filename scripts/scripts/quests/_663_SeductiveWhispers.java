@@ -247,7 +247,7 @@ public class _663_SeductiveWhispers extends Quest implements ScriptFile
 	{
 		if (qs.getState() == STARTED)
 		{
-			double rand = drop_chance * Experience.penaltyModifier(qs.calculateLevelDiffForDrop(npc.getLevel(), qs.getPlayer().getLevel()), 9) * npc.getTemplate().rateHp;
+			double rand = drop_chance * Experience.penaltyModifier(QuestState.calculateLevelDiffForDrop(npc.getLevel(), qs.getPlayer().getLevel()), 9) * npc.getTemplate().rateHp;
 			qs.rollAndGive(Spirit_Bead, 1, rand);
 		}
 		return null;

@@ -76,7 +76,7 @@ public class RequestPledgeReorganizeMember extends L2GameClientPacket
 			return;
 		}
 		
-		if (clan.isAcademy(this._targetUnit))
+		if (Clan.isAcademy(this._targetUnit))
 		{
 			activeChar.sendMessage(new CustomMessage("premium.gameserver.clientpackets.RequestPledgeReorganizeMember.AcademyViaInvitation", activeChar));
 			activeChar.sendActionFailed();
@@ -85,7 +85,7 @@ public class RequestPledgeReorganizeMember extends L2GameClientPacket
 		/*
 		 * unsure for next check, but anyway as workaround before academy refactoring (needs LvlJoinedAcademy to be put on UnitMember if so, to be able relocate from academy correctly)
 		 */
-		if (clan.isAcademy(subject.getPledgeType()))
+		if (Clan.isAcademy(subject.getPledgeType()))
 		{
 			activeChar.sendMessage(new CustomMessage("premium.gameserver.clientpackets.RequestPledgeReorganizeMember.CantMoveAcademyMember", activeChar));
 			activeChar.sendActionFailed();

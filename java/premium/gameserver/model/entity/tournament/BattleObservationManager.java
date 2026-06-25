@@ -2,7 +2,6 @@ package premium.gameserver.model.entity.tournament;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ScheduledFuture;
 
 import premium.commons.threading.RunnableImpl;
 import premium.gameserver.ConfigHolder;
@@ -29,18 +28,15 @@ import premium.gameserver.utils.Location;
 
 public final class BattleObservationManager
 {
-	private final ScheduledFuture<?> showScoreThread;
-	
 	private BattleObservationManager()
 	{
 		if (ConfigHolder.getBool("TournamentObserversShowScore"))
 		{
 			final long delay = ConfigHolder.getLong("TournamentObserversScorePacketDelay");
-			showScoreThread = ThreadPoolManager.getInstance().scheduleAtFixedDelay(new ShowScoresThread(), delay, delay);
+			ThreadPoolManager.getInstance().scheduleAtFixedDelay(new ShowScoresThread(), delay, delay);
 		}
 		else
 		{
-			showScoreThread = null;
 		}
 	}
 	
@@ -257,13 +253,13 @@ public final class BattleObservationManager
 	
 	private static void showFightersStatus(BattleInstance battle, Player toPlayer)
 	{
-		final List<PartySmallWindowAll.PartySmallWindowMemberInfo> list = new ArrayList<PartySmallWindowAll.PartySmallWindowMemberInfo>(4);
+		final List<PartySmallWindowAll.PartySmallWindowMemberInfo> list = new ArrayList<>(4);
 		list.add(new PartySmallWindowAll.PartySmallWindowMemberInfo("Team 1: ", 100, 0, 0, 0, false));
 		list.add(new PartySmallWindowAll.PartySmallWindowMemberInfo("Vampir", 100, 0, 0, 0, true));
 		list.add(new PartySmallWindowAll.PartySmallWindowMemberInfo("Team 2: ", 100, 0, 0, 0, false));
 		list.add(new PartySmallWindowAll.PartySmallWindowMemberInfo("Tester", 100, 0, 0, 0, true));
 		final Team[] teams = battle.getBattleRecord().getTeams();
-		final List<PartySmallWindowAll.PartySmallWindowMemberInfo> members = new ArrayList<PartySmallWindowAll.PartySmallWindowMemberInfo>(teams.length + teams.length * ConfigHolder.getInt("TournamentPlayersInTeam"));
+		final List<PartySmallWindowAll.PartySmallWindowMemberInfo> members = new ArrayList<>(teams.length + teams.length * ConfigHolder.getInt("TournamentPlayersInTeam"));
 		for (Team team : teams)
 		{
 			final int teamIndex = battle.getBattleRecord().getTeamIndex(team);
@@ -323,12 +319,12 @@ public final class BattleObservationManager
 		}
 	}
 	
-	private static void addFightersToEndScore(BattleInstance battleInstance)
+	public static void addFightersToEndScore(BattleInstance battleInstance)
 	{
 		final BattleRecord record = battleInstance.getBattleRecord();
 		final List<Player> redTeamFighters = battleInstance.getFightersForIterate(record.getTeam1());
 		final List<Player> blueTeamFighters = battleInstance.getFightersForIterate(record.getTeam2());
-		final List<IStaticPacket> playersInEndScorePackets = new ArrayList<IStaticPacket>(redTeamFighters.size() + blueTeamFighters.size());
+		final List<IStaticPacket> playersInEndScorePackets = new ArrayList<>(redTeamFighters.size() + blueTeamFighters.size());
 		for (Player redTeamFighter : redTeamFighters)
 		{
 			playersInEndScorePackets.add(new ExCubeGameAddPlayer(redTeamFighter, true));

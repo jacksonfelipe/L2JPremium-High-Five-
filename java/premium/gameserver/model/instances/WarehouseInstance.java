@@ -8,6 +8,8 @@ import premium.gameserver.utils.WarehouseFunctions;
 
 public class WarehouseInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public WarehouseInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);
@@ -29,10 +31,7 @@ public class WarehouseInstance extends NpcInstance
 		{
 			return getTemplate().getHtmRoot() + pom + ".htm";
 		}
-		else
-		{
-			return "warehouse/" + pom + ".htm";
-		}
+		return "warehouse/" + pom + ".htm";
 	}
 	
 	@Override

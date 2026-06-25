@@ -2,7 +2,7 @@ package premium.gameserver.network.clientpackets;
 
 public class RequestTeleport extends L2GameClientPacket
 {
-	private int unk, _type, unk2, unk3, unk4;
+	public int unk, _type, unk2, unk3, unk4;
 	
 	@Override
 	protected void readImpl()

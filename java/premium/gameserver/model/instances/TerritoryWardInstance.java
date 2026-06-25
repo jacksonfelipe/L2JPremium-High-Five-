@@ -9,6 +9,7 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class TerritoryWardInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private final TerritoryWardObject _territoryWard;
 	
 	public TerritoryWardInstance(int objectId, NpcTemplate template, TerritoryWardObject territoryWardObject)

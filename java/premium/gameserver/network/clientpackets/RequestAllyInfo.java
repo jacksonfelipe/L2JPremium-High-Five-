@@ -47,7 +47,7 @@ public class RequestAllyInfo extends L2GameClientPacket
 			count[0] += count[i + 1];
 		}
 		
-		List<L2GameServerPacket> packets = new ArrayList<L2GameServerPacket>(7 + 5 * clancount);
+		List<L2GameServerPacket> packets = new ArrayList<>(7 + 5 * clancount);
 		packets.add(new SystemMessage2(SystemMsg.ALLIANCE_INFORMATION));
 		packets.add(new SystemMessage2(SystemMsg.ALLIANCE_NAME_S1).addString(player.getClan().getAlliance().getAllyName()));
 		packets.add(new SystemMessage2(SystemMsg.CONNECTION_S1__TOTAL_S2).addInteger(online[0]).addInteger(count[0])); // Connection

@@ -25,7 +25,7 @@ public class PlayerAuthResponse extends ReceivablePacket
 	private double bonus;
 	private int bonusExpire;
 	private int _serverId;
-	private String hwid;
+	public String hwid;
 	
 	@Override
 	public void readImpl()

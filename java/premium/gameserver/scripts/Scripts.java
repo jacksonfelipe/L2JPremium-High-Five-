@@ -116,6 +116,7 @@ public class Scripts
 	/**
 	 * Creating new Instance of every Class<?> from _classes
 	 */
+	@SuppressWarnings("deprecation")
 	public void init()
 	{
 		// if ((!Config.EXTERNAL_HOSTNAME.equalsIgnoreCase("127.0.0.1")) && (!Config.EXTERNAL_HOSTNAME.equalsIgnoreCase("178.33.90.147")))
@@ -159,6 +160,7 @@ public class Scripts
 	/**
 	 * Shutting down every class instance in _classes
 	 */
+	@SuppressWarnings("deprecation")
 	public void shutdown()
 	{
 		for (Class<?> clazz : _classes.values())
@@ -316,6 +318,7 @@ public class Scripts
 	 * @param variables Additional arguments that may be called in Script file
 	 * @return Object returned from method
 	 */
+	@SuppressWarnings("deprecation")
 	public Object callScripts(Player caller, String className, String methodName, Object[] args, Map<String, Object> variables)
 	{
 		Object o;

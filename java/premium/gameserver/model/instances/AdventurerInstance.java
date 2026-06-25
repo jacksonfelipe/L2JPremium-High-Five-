@@ -14,6 +14,7 @@ import premium.gameserver.utils.Location;
 
 public class AdventurerInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final Logger _log = LoggerFactory.getLogger(AdventurerInstance.class);
 	
 	public AdventurerInstance(int objectId, NpcTemplate template)

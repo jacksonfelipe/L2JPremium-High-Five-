@@ -361,7 +361,7 @@ public class AchievementsInstance extends NpcInstance
 		player.sendPacket(msg);
 	}
 	
-	private String getStatusString(int achievementID, Player player)
+	public String getStatusString(int achievementID, Player player)
 	{
 		if (player.getCompletedAchievements().contains(achievementID))
 		{
@@ -375,7 +375,7 @@ public class AchievementsInstance extends NpcInstance
 		
 	}
 	
-	private String getTableColor(int i)
+	public String getTableColor(int i)
 	{
 		if ((i % 2) == 0)
 		{

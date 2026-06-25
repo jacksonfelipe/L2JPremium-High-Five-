@@ -24,8 +24,8 @@ public class SubUnit
 {
 	private static final Logger _log = LoggerFactory.getLogger(SubUnit.class);
 	
-	private IntObjectMap<Skill> _skills = new CTreeIntObjectMap<Skill>();
-	private IntObjectMap<UnitMember> _members = new CHashIntObjectMap<UnitMember>();
+	private IntObjectMap<Skill> _skills = new CTreeIntObjectMap<>();
+	private IntObjectMap<UnitMember> _members = new CHashIntObjectMap<>();
 	
 	private int _type;
 	
@@ -144,7 +144,7 @@ public class SubUnit
 		
 		if (m.getPowerGrade() > 5)
 		{
-			m.setPowerGrade(_clan.getAffiliationRank(m.getPledgeType()));
+			m.setPowerGrade(Clan.getAffiliationRank(m.getPledgeType()));
 		}
 	}
 	

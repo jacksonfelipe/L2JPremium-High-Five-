@@ -2,7 +2,7 @@ package premium.gameserver.network.clientpackets;
 
 public class RequestPrivateStoreList extends L2GameClientPacket
 {
-	private int unk;
+	public int unk;
 	
 	/**
 	 * format: d

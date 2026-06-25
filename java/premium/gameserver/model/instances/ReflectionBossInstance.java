@@ -5,6 +5,7 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class ReflectionBossInstance extends RaidBossInstance
 {
+	private static final long serialVersionUID = 1L;
 	private final static int COLLAPSE_AFTER_DEATH_TIME = 5; // 5 мин
 	
 	public ReflectionBossInstance(int objectId, NpcTemplate template)

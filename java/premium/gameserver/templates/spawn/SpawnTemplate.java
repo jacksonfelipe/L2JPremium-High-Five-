@@ -10,8 +10,8 @@ public class SpawnTemplate
 	private final int _respawn;
 	private final int _respawnRandom;
 	
-	private final List<SpawnNpcInfo> _npcList = new ArrayList<SpawnNpcInfo>(1);
-	private final List<SpawnRange> _spawnRangeList = new ArrayList<SpawnRange>(1);
+	private final List<SpawnNpcInfo> _npcList = new ArrayList<>(1);
+	private final List<SpawnRange> _spawnRangeList = new ArrayList<>(1);
 	
 	public SpawnTemplate(PeriodOfDay periodOfDay, int count, int respawn, int respawnRandom)
 	{

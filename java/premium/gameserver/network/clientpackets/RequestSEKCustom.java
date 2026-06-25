@@ -2,7 +2,7 @@ package premium.gameserver.network.clientpackets;
 
 public class RequestSEKCustom extends L2GameClientPacket
 {
-	private int SlotNum, Direction;
+	public int SlotNum, Direction;
 	
 	/**
 	 * format: dd

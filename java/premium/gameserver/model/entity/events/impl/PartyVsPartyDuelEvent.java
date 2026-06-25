@@ -146,7 +146,7 @@ public class PartyVsPartyDuelEvent extends DuelEvent
 			return false;
 		}
 		
-		Iterator<Player> iterator = new JoinedIterator<Player>(party1.iterator(), party2.iterator());
+		Iterator<Player> iterator = new JoinedIterator<>(party1.iterator(), party2.iterator());
 		while (iterator.hasNext())
 		{
 			Player $member = iterator.next();

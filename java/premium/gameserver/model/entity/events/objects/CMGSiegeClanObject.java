@@ -10,6 +10,7 @@ import premium.gameserver.model.pledge.Clan;
 
 public class CMGSiegeClanObject extends SiegeClanObject
 {
+	private static final long serialVersionUID = 1L;
 	private final IntSet _players = new HashIntSet();
 	private long _param;
 	
@@ -43,7 +44,7 @@ public class CMGSiegeClanObject extends SiegeClanObject
 	}
 	
 	@Override
-	public void setEvent(boolean start, SiegeEvent event)
+	public void setEvent(boolean start, @SuppressWarnings("rawtypes") SiegeEvent event)
 	{
 		for (int i : _players.toArray())
 		{

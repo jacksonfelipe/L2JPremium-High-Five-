@@ -8,6 +8,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class SiegeInformerInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public SiegeInformerInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

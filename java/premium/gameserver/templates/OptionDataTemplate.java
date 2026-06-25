@@ -8,7 +8,7 @@ import premium.gameserver.stats.StatTemplate;
 
 public class OptionDataTemplate extends StatTemplate
 {
-	private final List<Skill> _skills = new ArrayList<Skill>(0);
+	private final List<Skill> _skills = new ArrayList<>(0);
 	private final int _id;
 	
 	public OptionDataTemplate(int id)

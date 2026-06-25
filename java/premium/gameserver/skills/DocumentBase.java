@@ -1,11 +1,6 @@
 package premium.gameserver.skills;
 
-import java.io.ByteArrayInputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,7 +8,6 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +15,6 @@ import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
-import org.xml.sax.SAXException;
 
 //import premium.commons.crypt.CryptUtil;
 import premium.gameserver.model.Skill;
@@ -100,7 +93,7 @@ abstract class DocumentBase
 	DocumentBase(File file)
 	{
 		this.file = file;
-		tables = new HashMap<String, Object[]>();
+		tables = new HashMap<>();
 	}
 	
 	Document parse()
@@ -181,7 +174,7 @@ abstract class DocumentBase
 	
 	protected void resetTable()
 	{
-		tables = new HashMap<String, Object[]>();
+		tables = new HashMap<>();
 	}
 	
 	protected void setTable(String name, Object[] table)
@@ -905,7 +898,7 @@ abstract class DocumentBase
 			throw new IllegalArgumentException("Table name must start with #");
 		}
 		StringTokenizer data = new StringTokenizer(n.getFirstChild().getNodeValue());
-		List<String> array = new ArrayList<String>();
+		List<String> array = new ArrayList<>();
 		while (data.hasMoreTokens())
 		{
 			array.add(data.nextToken());

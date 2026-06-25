@@ -17,7 +17,7 @@ public class PremiumRemoveItems
 		return _instance;
 	}
 	
-	private List<PremiumGift> _list = new ArrayList<PremiumGift>();
+	private List<PremiumGift> _list = new ArrayList<>();
 	
 	protected void remove(Player player)
 	{

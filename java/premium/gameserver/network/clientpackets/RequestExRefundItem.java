@@ -14,7 +14,7 @@ import premium.gameserver.network.serverpackets.components.SystemMsg;
 
 public class RequestExRefundItem extends L2GameClientPacket
 {
-	private int _listId;
+	public int _listId;
 	private int _count;
 	private int[] _items;
 	
@@ -86,7 +86,7 @@ public class RequestExRefundItem extends L2GameClientPacket
 			long weight = 0;
 			long totalPrice = 0;
 			
-			List<ItemInstance> refundList = new ArrayList<ItemInstance>();
+			List<ItemInstance> refundList = new ArrayList<>();
 			for (int objId : this._items)
 			{
 				ItemInstance item = activeChar.getRefund().getItemByObjectId(objId);

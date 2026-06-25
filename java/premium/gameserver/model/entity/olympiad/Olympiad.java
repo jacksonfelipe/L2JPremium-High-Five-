@@ -40,7 +40,7 @@ public class Olympiad
 	public static Map<Integer, StatsSet> _nobles;
 	public static Map<Integer, Integer> _noblesRank;
 	public static List<StatsSet> _heroesToBe;
-	public static List<Integer> _nonClassBasedRegisters = new CopyOnWriteArrayList<Integer>();
+	public static List<Integer> _nonClassBasedRegisters = new CopyOnWriteArrayList<>();
 	public static MultiValueIntegerMap _classBasedRegisters = new MultiValueIntegerMap();
 	public static MultiValueIntegerMap _teamBasedRegisters = new MultiValueIntegerMap();
 	
@@ -78,13 +78,13 @@ public class Olympiad
 	public static ScheduledFuture<?> _scheduledWeeklyTask;
 	public static ScheduledFuture<?> _scheduledValdationTask;
 	
-	public static List<String> _playersIp = new ArrayList<String>();
-	public static List<String> _playersHWID = new ArrayList<String>();
+	public static List<String> _playersIp = new ArrayList<>();
+	public static List<String> _playersHWID = new ArrayList<>();
 	
 	public static final Stadia[] STADIUMS = new Stadia[Config.OLYMPIAD_STADIAS_COUNT];
 	
 	public static OlympiadManager _manager;
-	private static List<NpcInstance> _npcs = new ArrayList<NpcInstance>();
+	private static List<NpcInstance> _npcs = new ArrayList<>();
 	
 	public static void load()
 	{
@@ -481,7 +481,7 @@ public class Olympiad
 	public static synchronized void logoutPlayer(Player player)
 	{
 		_classBasedRegisters.removeValue(player.getObjectId());
-		_nonClassBasedRegisters.remove(new Integer(player.getObjectId()));
+		_nonClassBasedRegisters.remove(player.getObjectId());
 		_teamBasedRegisters.removeValue(player.getObjectId());
 		
 		OlympiadGame game = player.getOlympiadGame();
@@ -520,9 +520,6 @@ public class Olympiad
 		{
 			if (game.getStatus() == BattleStatus.Begin_Countdown)
 			{
-				// TODO: System Message
-				// TODO [VISTALL] узнать ли прерывается бой и если так ли это та мессага
-				// SystemMsg.YOUR_OPPONENT_MADE_HASTE_WITH_THEIR_TAIL_BETWEEN_THEIR_LEGS_THE_MATCH_HAS_BEEN_CANCELLED
 				noble.sendMessage("Now you can't cancel participation in the Grand Olympiad.");
 				return false;
 			}
@@ -540,7 +537,7 @@ public class Olympiad
 			}
 		}
 		_classBasedRegisters.removeValue(noble.getObjectId());
-		_nonClassBasedRegisters.remove(new Integer(noble.getObjectId()));
+		_nonClassBasedRegisters.remove(noble.getObjectId());
 		_teamBasedRegisters.removeValue(noble.getObjectId());
 		
 		noble.sendPacket(SystemMsg.YOU_HAVE_BEEN_REMOVED_FROM_THE_GRAND_OLYMPIAD_WAITING_LIST);

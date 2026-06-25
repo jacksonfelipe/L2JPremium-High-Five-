@@ -147,7 +147,7 @@ public abstract class SiegeEvent<R extends Residence, S extends SiegeClanObject>
 	protected ScheduledFuture<?> _siegeStartTask;
 	protected OnKillListener _killListener = new KillListener();
 	protected OnDeathListener _doorDeathListener = new DoorDeathListener();
-	protected List<HardReference<SummonInstance>> _siegeSummons = new ArrayList<HardReference<SummonInstance>>();
+	protected List<HardReference<SummonInstance>> _siegeSummons = new ArrayList<>();
 	
 	public SiegeEvent(MultiValueSet<String> set)
 	{
@@ -241,7 +241,7 @@ public abstract class SiegeEvent<R extends Residence, S extends SiegeClanObject>
 	@Override
 	public void teleportPlayers(String t)
 	{
-		List<Player> players = new ArrayList<Player>();
+		List<Player> players = new ArrayList<>();
 		final Clan ownerClan = getResidence().getOwner();
 		if (t.equalsIgnoreCase(OWNER))
 		{
@@ -322,7 +322,7 @@ public abstract class SiegeEvent<R extends Residence, S extends SiegeClanObject>
 	public List<Player> getPlayersInZone()
 	{
 		final List<ZoneObject> zones = getObjects(SIEGE_ZONES);
-		final List<Player> result = new ArrayList<Player>();
+		final List<Player> result = new ArrayList<>();
 		for (ZoneObject zone : zones)
 		{
 			result.addAll(zone.getInsidePlayers());
@@ -609,11 +609,12 @@ public abstract class SiegeEvent<R extends Residence, S extends SiegeClanObject>
 		return null;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public SystemMsg checkForAttack(Creature target, Creature attacker, Skill skill, boolean force)
 	{
 		final SiegeEvent siegeEvent = target.getEvent(SiegeEvent.class);
-		// или вообще не учасник, или учасники разных осад
+ 
 		if ((this != siegeEvent) || !checkIfInZone(target) || !checkIfInZone(attacker))
 		{
 			return null;
@@ -709,7 +710,7 @@ public abstract class SiegeEvent<R extends Residence, S extends SiegeClanObject>
 	public List<Player> itemObtainPlayers()
 	{
 		final List<Player> playersInZone = getPlayersInZone();
-		final List<Player> list = new ArrayList<Player>(playersInZone.size());
+		final List<Player> list = new ArrayList<>(playersInZone.size());
 		for (Player player : getPlayersInZone())
 		{
 			if (player.getEvent(getClass()) == this)
@@ -729,15 +730,9 @@ public abstract class SiegeEvent<R extends Residence, S extends SiegeClanObject>
 			{
 				return Location.findAroundPosition(siegeClan.getFlag(), 50, 75);
 			}
-			else
-			{
-				return getResidence().getNotOwnerRestartPoint(player);
-			}
+			return getResidence().getNotOwnerRestartPoint(player);
 		}
-		else
-		{
-			return getResidence().getOwnerRestartPoint();
-		}
+		return getResidence().getOwnerRestartPoint();
 	}
 	
 	// ========================================================================================================================================================================
@@ -823,6 +818,8 @@ public abstract class SiegeEvent<R extends Residence, S extends SiegeClanObject>
 	
 	protected static class ClanKillsComparator implements Comparator<Clan>, Serializable
 	{
+		private static final long serialVersionUID = 1L;
+
 		@Override
 		public int compare(Clan o1, Clan o2)
 		{

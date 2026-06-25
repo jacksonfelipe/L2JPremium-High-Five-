@@ -32,30 +32,20 @@ public final class Calculator
 		_character = character;
 		_functions = Func.EMPTY_FUNC_ARRAY;
 	}
-	
-	/**
-	 * Return the number of Funcs in the Calculator.<BR>
-	 * <BR>
-	 */
+ 
 	public int size()
 	{
 		return _functions.length;
 	}
 	
-	/**
-	 * Add a Func to the Calculator.<BR>
-	 * <BR>
-	 */
+	 
 	public void addFunc(Func f)
 	{
 		_functions = ArrayUtils.add(_functions, f);
 		ArrayUtils.eqSort(_functions);
 	}
 	
-	/**
-	 * Remove a Func from the Calculator.<BR>
-	 * <BR>
-	 */
+ 
 	public void removeFunc(Func f)
 	{
 		_functions = ArrayUtils.remove(_functions, f);
@@ -69,10 +59,7 @@ public final class Calculator
 		}
 	}
 	
-	/**
-	 * Remove each Func with the specified owner of the Calculator.<BR>
-	 * <BR>
-	 */
+ 
 	public void removeOwner(Object owner)
 	{
 		Func[] tmp = _functions;
@@ -85,10 +72,7 @@ public final class Calculator
 		}
 	}
 	
-	/**
-	 * Run each Func of the Calculator.<BR>
-	 * <BR>
-	 */
+ 
 	public void calc(Env env)
 	{
 		Func[] funcs = _functions;
@@ -130,9 +114,7 @@ public final class Calculator
 		}
 	}
 	
-	/**
-	 * for debugging
-	 */
+	 
 	public Func[] getFunctions()
 	{
 		return _functions;

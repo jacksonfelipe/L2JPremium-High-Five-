@@ -35,7 +35,7 @@ public class RequestGetBossRecord extends L2GameClientPacket
 			return;
 		}
 		
-		List<BossRecordInfo> list = new ArrayList<BossRecordInfo>();
+		List<BossRecordInfo> list = new ArrayList<>();
 		Map<Integer, Integer> points = RaidBossSpawnManager.getInstance().getPointsForOwnerId(activeChar.getObjectId());
 		if (points != null && !points.isEmpty())
 		{

@@ -58,7 +58,7 @@ public final class FacebookDatabaseHandler
 	
 	public static ArrayList<CompletedTask> loadCompletedTasks()
 	{
-		final ArrayList<CompletedTask> tasks = new ArrayList<CompletedTask>();
+		final ArrayList<CompletedTask> tasks = new ArrayList<>();
 		try (Connection con = DatabaseFactory.getInstance().getConnection(); PreparedStatement statement = con.prepareStatement("SELECT * FROM facebook_completed_tasks"); ResultSet rset = statement.executeQuery())
 		{
 			while (rset.next())
@@ -108,7 +108,7 @@ public final class FacebookDatabaseHandler
 	
 	public static ArrayList<FacebookProfile> loadFacebookProfiles()
 	{
-		final ArrayList<FacebookProfile> profiles = new ArrayList<FacebookProfile>();
+		final ArrayList<FacebookProfile> profiles = new ArrayList<>();
 		try (Connection con = DatabaseFactory.getInstance().getConnection(); PreparedStatement statement = con.prepareStatement("SELECT * FROM facebook_profiles"); ResultSet rset = statement.executeQuery())
 		{
 			while (rset.next())

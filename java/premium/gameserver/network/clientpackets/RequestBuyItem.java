@@ -3,9 +3,6 @@ package premium.gameserver.network.clientpackets;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import premium.commons.math.SafeMath;
 import premium.gameserver.Config;
 import premium.gameserver.data.xml.holder.BuyListHolder;
@@ -24,8 +21,6 @@ import premium.gameserver.network.serverpackets.components.SystemMsg;
  */
 public class RequestBuyItem extends L2GameClientPacket
 {
-	private static final Logger _log = LoggerFactory.getLogger(RequestBuyItem.class);
-	
 	private int _listId;
 	private int _count;
 	private int[] _items;
@@ -130,7 +125,7 @@ public class RequestBuyItem extends L2GameClientPacket
 			}
 		}
 		
-		List<TradeItem> buyList = new ArrayList<TradeItem>(this._count);
+		List<TradeItem> buyList = new ArrayList<>(this._count);
 		List<TradeItem> tradeList = list.getItems();
 		try
 		{

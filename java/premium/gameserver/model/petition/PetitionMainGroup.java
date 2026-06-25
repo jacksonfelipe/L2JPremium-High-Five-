@@ -7,7 +7,7 @@ import org.napile.primitive.maps.impl.HashIntObjectMap;
 
 public class PetitionMainGroup extends PetitionGroup
 {
-	private final IntObjectMap<PetitionSubGroup> _subGroups = new HashIntObjectMap<PetitionSubGroup>();
+	private final IntObjectMap<PetitionSubGroup> _subGroups = new HashIntObjectMap<>();
 	
 	public PetitionMainGroup(int id)
 	{

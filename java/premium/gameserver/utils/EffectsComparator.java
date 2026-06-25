@@ -32,10 +32,7 @@ public class EffectsComparator implements Comparator<Effect>, Serializable
 			{
 				return 1;
 			}
-			else
-			{
-				return -1;
-			}
+			return -1;
 		}
 		
 		boolean music1 = o1.getSkill().isMusic();
@@ -52,10 +49,7 @@ public class EffectsComparator implements Comparator<Effect>, Serializable
 			{
 				return 1;
 			}
-			else
-			{
-				return -1;
-			}
+			return -1;
 		}
 		
 		boolean offensive1 = o1.isOffensive();
@@ -72,10 +66,7 @@ public class EffectsComparator implements Comparator<Effect>, Serializable
 			{
 				return 1;
 			}
-			else
-			{
-				return -1;
-			}
+			return -1;
 		}
 		
 		boolean trigger1 = o1.getSkill().isTrigger();
@@ -92,10 +83,7 @@ public class EffectsComparator implements Comparator<Effect>, Serializable
 			{
 				return 1;
 			}
-			else
-			{
-				return -1;
-			}
+			return -1;
 		}
 		
 		return compareStartTime(o1, o2);

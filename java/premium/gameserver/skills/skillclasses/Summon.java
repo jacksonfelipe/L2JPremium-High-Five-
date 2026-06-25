@@ -185,6 +185,7 @@ public class Summon extends Skill
 				
 				if (_summonType == SummonType.SIEGE_SUMMON)
 				{
+					@SuppressWarnings("rawtypes")
 					SiegeEvent siegeEvent = activeChar.getEvent(SiegeEvent.class);
 					siegeEvent.addSiegeSummon(summon);
 				}

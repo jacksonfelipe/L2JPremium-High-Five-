@@ -20,6 +20,7 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class SummonInstance extends Summon
 {
+	private static final long serialVersionUID = 1L;
 	public final int CYCLE = 5000; // in millis
 	private int _summonSkillId;
 	private double _expPenalty = 0;

@@ -65,7 +65,7 @@ public class CubicTemplate
 	private final int _level;
 	private final int _delay;
 	
-	private List<Map.Entry<Integer, List<SkillInfo>>> _skills = new ArrayList<Map.Entry<Integer, List<SkillInfo>>>(3);
+	private List<Map.Entry<Integer, List<SkillInfo>>> _skills = new ArrayList<>(3);
 	
 	public CubicTemplate(int id, int level, int delay)
 	{
@@ -76,7 +76,7 @@ public class CubicTemplate
 	
 	public void putSkills(int chance, List<SkillInfo> skill)
 	{
-		_skills.add(new AbstractMap.SimpleImmutableEntry<Integer, List<SkillInfo>>(chance, skill));
+		_skills.add(new AbstractMap.SimpleImmutableEntry<>(chance, skill));
 	}
 	
 	public Iterable<Map.Entry<Integer, List<SkillInfo>>> getSkills()

@@ -39,7 +39,7 @@ public class RewardList extends ArrayList<RewardGroup>
 	
 	public List<RewardItem> roll(Player player, double mod, boolean isRaid, boolean isSiegeGuard)
 	{
-		List<RewardItem> temp = new ArrayList<RewardItem>(size());
+		List<RewardItem> temp = new ArrayList<>(size());
 		for (RewardGroup g : this)
 		{
 			List<RewardItem> tdl = g.roll(_type, player, mod, isRaid, isSiegeGuard);

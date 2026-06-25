@@ -58,7 +58,7 @@ public class StealBuff extends Skill
 				continue;
 			}
 			
-			final LinkedList<Effect> cancelledEffects = new LinkedList<Effect>();
+			final LinkedList<Effect> cancelledEffects = new LinkedList<>();
 			effectList = effectList.subList(0, Math.min(effectList.size(), stealCount * 2));
 			
 			int count = 0;

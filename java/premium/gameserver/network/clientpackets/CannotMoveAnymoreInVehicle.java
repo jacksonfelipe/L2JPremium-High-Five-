@@ -4,7 +4,6 @@ package premium.gameserver.network.clientpackets;
 /*	*/
 /*	*/ import premium.gameserver.model.Player;
 /*	*/ import premium.gameserver.model.entity.boat.Boat;
-/*	*/ import premium.gameserver.network.GameClient;
 /*	*/ import premium.gameserver.network.serverpackets.L2GameServerPacket;
 /*	*/ import premium.gameserver.utils.Location;
 
@@ -35,7 +34,7 @@ package premium.gameserver.network.clientpackets;
 	/*	*/ @Override
 	protected void runImpl()
 	/*	*/ {
-		/* 26 */ Player player = ((GameClient) this.getClient()).getActiveChar();
+		/* 26 */ Player player = this.getClient().getActiveChar();
 		/* 27 */ if (player == null)
 		{
 			/* 28 */ return;

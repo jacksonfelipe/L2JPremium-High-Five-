@@ -23,7 +23,7 @@ public class EffectRestorationRandom extends Effect
 	{
 		super(env, template);
 		String[] groups = getTemplate().getParam().getString("Items").split(";");
-		items = new ArrayList<List<Item>>(groups.length);
+		items = new ArrayList<>(groups.length);
 		chances = new double[groups.length];
 		
 		double prevChance = 0;
@@ -34,7 +34,7 @@ public class EffectRestorationRandom extends Effect
 			if (m.find())
 			{
 				String its = m.group(1);
-				List<Item> list = new ArrayList<Item>(its.split(";").length);
+				List<Item> list = new ArrayList<>(its.split(";").length);
 				
 				for (String item : its.split(";"))
 				{
@@ -58,7 +58,7 @@ public class EffectRestorationRandom extends Effect
 	{
 		super(effect);
 		final String[] groups = getTemplate().getParam().getString("Items").split(";");
-		items = new ArrayList<List<Item>>(groups.length);
+		items = new ArrayList<>(groups.length);
 		chances = new double[groups.length];
 		double prevChance = 0.0;
 		for (int i = 0; i < groups.length; ++i)
@@ -68,7 +68,7 @@ public class EffectRestorationRandom extends Effect
 			if (m.find())
 			{
 				final String its = m.group(1);
-				final List<Item> list = new ArrayList<Item>(its.split(";").length);
+				final List<Item> list = new ArrayList<>(its.split(";").length);
 				for (String item : its.split(";"))
 				{
 					final String id = item.split(":")[0];

@@ -30,7 +30,7 @@ public class UseItem extends L2GameClientPacket
 		
 	private int _objectId;
 	private boolean _ctrlPressed;
-	private long _timeSent;
+	public long _timeSent;
 	
 	@Override
 	protected void readImpl()

@@ -50,7 +50,7 @@ import premium.gameserver.utils.Util;
 public class AcademyList
 {
 	private static final Logger _log = LoggerFactory.getLogger(AcademyList.class);
-	private static List<Player> _academyList = new ArrayList<Player>();
+	private static List<Player> _academyList = new ArrayList<>();
 	
 	public static void addToAcademy(Player player)
 	{
@@ -434,11 +434,7 @@ public class AcademyList
 						@Override
 						public void runImpl()
 						{
-							if (clan == null)
-							{
-								_log.error("AcademyList: Clan was null for charID " + charId);
-								return;
-							}
+							 
 							final String charName = CharacterDAO.getNameByObjectId(charId);
 							final UnitMember member = clan.getAnyMember(charName);
 							if (member == null)

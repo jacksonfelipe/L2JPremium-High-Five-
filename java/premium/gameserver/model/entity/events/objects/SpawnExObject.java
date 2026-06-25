@@ -14,6 +14,8 @@ import premium.gameserver.model.instances.NpcInstance;
 
 public class SpawnExObject implements SpawnableObject
 {
+	private static final long serialVersionUID = 1L;
+
 	private static final Logger _log = LoggerFactory.getLogger(SpawnExObject.class);
 	
 	private final List<Spawner> _spawns;
@@ -95,7 +97,7 @@ public class SpawnExObject implements SpawnableObject
 	
 	public List<NpcInstance> getAllSpawned()
 	{
-		final List<NpcInstance> npcs = new ArrayList<NpcInstance>();
+		final List<NpcInstance> npcs = new ArrayList<>();
 		for (Spawner spawn : _spawns)
 		{
 			npcs.addAll(spawn.getAllSpawned());

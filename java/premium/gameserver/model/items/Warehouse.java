@@ -75,7 +75,7 @@ public abstract class Warehouse extends ItemContainer
 	
 	public ItemInstance[] getItems(ItemClass itemClass)
 	{
-		List<ItemInstance> result = new ArrayList<ItemInstance>();
+		List<ItemInstance> result = new ArrayList<>();
 		
 		readLock();
 		try

@@ -25,6 +25,7 @@ import premium.gameserver.utils.Location;
 
 public class MerchantInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final Logger _log = LoggerFactory.getLogger(MerchantInstance.class);
 	
 	public MerchantInstance(int objectId, NpcTemplate template)
@@ -71,7 +72,7 @@ public class MerchantInstance extends NpcInstance
 		return "default/" + pom + ".htm";
 	}
 	
-	private void showWearWindow(Player player, int val)
+	public void showWearWindow(Player player, int val)
 	{
 		if (!player.getPlayerAccess().UseShop)
 		{

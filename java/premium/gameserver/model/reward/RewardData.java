@@ -162,7 +162,7 @@ public class RewardData implements Cloneable
 	{
 		double mult = Math.ceil(rate);
 		
-		List<RewardItem> ret = new ArrayList<RewardItem>(1);
+		List<RewardItem> ret = new ArrayList<>(1);
 		RewardItem t = null;
 		long count;
 		for (int n = 0; n < mult; n++)

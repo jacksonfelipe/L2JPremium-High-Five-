@@ -9,7 +9,6 @@ import java.awt.RenderingHints;
 import java.awt.Shape;
 import java.awt.geom.Arc2D;
 import java.awt.geom.Path2D;
-import java.awt.geom.RoundRectangle2D;
 
 import javax.swing.Icon;
 

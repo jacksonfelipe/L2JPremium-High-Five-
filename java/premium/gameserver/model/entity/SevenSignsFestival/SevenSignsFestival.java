@@ -73,9 +73,9 @@ public class SevenSignsFestival
 	public SevenSignsFestival()
 	{
 		_accumulatedBonuses = new long[FESTIVAL_COUNT];
-		_dawnFestivalScores = new ConcurrentHashMap<Integer, Long>();
-		_duskFestivalScores = new ConcurrentHashMap<Integer, Long>();
-		_festivalData = new ConcurrentHashMap<Integer, Map<Integer, StatsSet>>();
+		_dawnFestivalScores = new ConcurrentHashMap<>();
+		_duskFestivalScores = new ConcurrentHashMap<>();
+		_festivalData = new ConcurrentHashMap<>();
 		restoreFestivalData();
 	}
 	
@@ -87,12 +87,7 @@ public class SevenSignsFestival
 		}
 		return _instance;
 	}
-	
-	/**
-	 * Returns the associated name (level range) to a given festival ID.
-	 * @param int festivalID
-	 * @return String festivalName
-	 */
+ 
 	public static String getFestivalName(int festivalID)
 	{
 		switch (festivalID)
@@ -261,7 +256,7 @@ public class SevenSignsFestival
 				Map<Integer, StatsSet> tempData = _festivalData.get(cycle);
 				if (tempData == null)
 				{
-					tempData = new TreeMap<Integer, StatsSet>();
+					tempData = new TreeMap<>();
 				}
 				tempData.put(festivalId, festivalDat);
 				_festivalData.put(cycle, tempData);
@@ -296,11 +291,7 @@ public class SevenSignsFestival
 		}
 	}
 	
-	/**
-	 * Stores current festival data, basic settings to the properties file and past high score data to the database.
-	 * @param updateSettings
-	 * @throws Exception
-	 */
+	 
 	public synchronized void saveFestivalData(boolean updateSettings)
 	{
 		Connection con = null;
@@ -381,7 +372,7 @@ public class SevenSignsFestival
 		}
 	}
 	
-	private void addReputationPointsForPartyMemberClan(String playerId)
+	public void addReputationPointsForPartyMemberClan(String playerId)
 	{
 		Player player = GameObjectsStorage.getPlayer(Integer.parseInt(playerId));
 		if (player != null)
@@ -435,9 +426,7 @@ public class SevenSignsFestival
 		}
 	}
 	
-	/**
-	 * Раздает призы за текущий период и очищает всю информацию для нового.
-	 */
+	 
 	public void resetFestivalData(boolean updateSettings)
 	{
 		// Set all accumulated bonuses back to 0.
@@ -448,7 +437,7 @@ public class SevenSignsFestival
 		_dawnFestivalScores.clear();
 		_duskFestivalScores.clear();
 		// Set up a new data set for the current cycle of festivals
-		Map<Integer, StatsSet> newData = new TreeMap<Integer, StatsSet>();
+		Map<Integer, StatsSet> newData = new TreeMap<>();
 		for (int i = 0; i < FESTIVAL_COUNT * 2; i++)
 		{
 			int festivalId = i;
@@ -573,14 +562,7 @@ public class SevenSignsFestival
 		return result;
 	}
 	
-	/**
-	 * Set the final score details for the last participants of the specified festival data. Returns <b>true</b> if the score is higher than that previously recorded <b>this cycle</b>.
-	 * @param player
-	 * @param oracle
-	 * @param festivalId
-	 * @param offeringScore
-	 * @return boolean isHighestScore
-	 */
+	 
 	public boolean setFinalScore(Party party, int oracle, int festivalId, long offeringScore)
 	{
 		List<Integer> partyMemberIds = party.getMembersObjIds();
@@ -647,11 +629,7 @@ public class SevenSignsFestival
 		_accumulatedBonuses[festivalId] += stoneAmount * eachStoneBonus;
 	}
 	
-	/**
-	 * Calculate and return the proportion of the accumulated bonus for the festival where the player was in the winning party, if the winning party's cabal won the event. The accumulated bonus is then updated, with the player's share deducted.
-	 * @param player
-	 * @return playerBonus (the share of the bonus for the party)
-	 */
+	 
 	public void distribAccumulatedBonus()
 	{
 		long[][] result = new long[FESTIVAL_COUNT][];

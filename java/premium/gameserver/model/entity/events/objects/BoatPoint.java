@@ -6,6 +6,7 @@ import premium.gameserver.utils.Location;
 
 public class BoatPoint extends Location
 {
+	private static final long serialVersionUID = 1L;
 	private int _speed1;
 	private int _speed2;
 	private final int _fuel;

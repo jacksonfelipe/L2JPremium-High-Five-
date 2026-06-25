@@ -18,6 +18,7 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class OlympiadBufferInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private TIntHashSet buffs = new TIntHashSet();
 	
 	public OlympiadBufferInstance(int objectId, NpcTemplate template)
@@ -83,7 +84,7 @@ public class OlympiadBufferInstance extends NpcInstance
 			id = Integer.parseInt(st.nextToken());
 			lvl = Integer.parseInt(st.nextToken());
 			Skill skill = SkillTable.getInstance().getInfo(id, lvl);
-			List<Creature> target = new ArrayList<Creature>();
+			List<Creature> target = new ArrayList<>();
 			target.add(player);
 			broadcastPacket(new MagicSkillUse(this, player, id, lvl, 0, 0));
 			callSkill(skill, target, true);

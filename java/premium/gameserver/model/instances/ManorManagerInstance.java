@@ -28,6 +28,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class ManorManagerInstance extends MerchantInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public ManorManagerInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

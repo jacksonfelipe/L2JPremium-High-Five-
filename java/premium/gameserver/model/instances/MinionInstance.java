@@ -6,6 +6,7 @@ import premium.gameserver.utils.Location;
 
 public class MinionInstance extends MonsterInstance
 {
+	private static final long serialVersionUID = 1L;
 	private MonsterInstance _master;
 	
 	public MinionInstance(int objectId, NpcTemplate template)

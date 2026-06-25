@@ -18,7 +18,7 @@ public class OlympiadManager extends RunnableImpl
 {
 	private static final Logger _log = LoggerFactory.getLogger(OlympiadManager.class);
 	
-	private final Map<Integer, OlympiadGame> _olympiadInstances = new ConcurrentHashMap<Integer, OlympiadGame>();
+	private final Map<Integer, OlympiadGame> _olympiadInstances = new ConcurrentHashMap<>();
 	
 	public void sleep(long time)
 	{
@@ -109,7 +109,7 @@ public class OlympiadManager extends RunnableImpl
 	private void prepareBattles(CompType type, List<Integer> list)
 	{
 		boolean firstGameLaunched = false;
-		NobleSelector<Integer> selector = new NobleSelector<Integer>(list.size());
+		NobleSelector<Integer> selector = new NobleSelector<>(list.size());
 		for (Integer noble : list)
 		{
 			if (noble != null)
@@ -204,7 +204,7 @@ public class OlympiadManager extends RunnableImpl
 	
 	private List<Integer> nextOpponents(NobleSelector<Integer> selector, CompType type)
 	{
-		List<Integer> opponents = new ArrayList<Integer>();
+		List<Integer> opponents = new ArrayList<>();
 		Integer noble;
 		
 		selector.reset();
@@ -228,8 +228,8 @@ public class OlympiadManager extends RunnableImpl
 		{
 			return null;
 		}
-		List<Integer> opponents = new CopyOnWriteArrayList<Integer>();
-		List<List<Integer>> a = new ArrayList<List<Integer>>();
+		List<Integer> opponents = new CopyOnWriteArrayList<>();
+		List<List<Integer>> a = new ArrayList<>();
 		a.addAll(list);
 		
 		for (int i = 0; i < type.getMinSize(); i++)
@@ -262,7 +262,7 @@ public class OlympiadManager extends RunnableImpl
 		return opponents;
 	}
 	
-	private void removeOpponent(Integer noble)
+	public void removeOpponent(Integer noble)
 	{
 		Olympiad._classBasedRegisters.removeValue(noble);
 		Olympiad._nonClassBasedRegisters.remove(noble);

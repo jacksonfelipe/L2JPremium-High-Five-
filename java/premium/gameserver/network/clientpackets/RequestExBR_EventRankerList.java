@@ -2,7 +2,7 @@ package premium.gameserver.network.clientpackets;
 
 public class RequestExBR_EventRankerList extends L2GameClientPacket
 {
-	private int unk, unk2, unk3;
+	public int unk, unk2, unk3;
 	
 	/**
 	 * format: ddd

@@ -29,7 +29,7 @@ public class BeastFeed extends Skill
 				{
 					if (target instanceof FeedableBeastInstance)
 					{
-						((FeedableBeastInstance) target).onSkillUse((Player) activeChar, _id);
+						((FeedableBeastInstance) target).onSkillUse((Player) activeChar, getId());
 					}
 				}
 			});

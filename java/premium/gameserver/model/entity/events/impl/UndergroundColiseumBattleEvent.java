@@ -261,7 +261,7 @@ public class UndergroundColiseumBattleEvent extends GlobalEvent implements Itera
 		
 	}
 	
-	private Map<TeamType, IntObjectMap<Future<?>>> _deadList = new ConcurrentHashMap<TeamType, IntObjectMap<Future<?>>>();
+	private Map<TeamType, IntObjectMap<Future<?>>> _deadList = new ConcurrentHashMap<>();
 	private IntList _reviveList = new CArrayIntList();
 	private UndergroundColiseumEvent _runnerEvent;
 	private boolean _isInProgress;
@@ -292,7 +292,7 @@ public class UndergroundColiseumBattleEvent extends GlobalEvent implements Itera
 		
 		for (int i = 0; i < leaders.length; i++)
 		{
-			_deadList.put(TeamType.VALUES[i], new CHashIntObjectMap<Future<?>>());
+			_deadList.put(TeamType.VALUES[i], new CHashIntObjectMap<>());
 			addObject(TeamType.VALUES[i].name(), new UCTeamObject(leaders[i], _listeners));
 		}
 	}
@@ -350,21 +350,18 @@ public class UndergroundColiseumBattleEvent extends GlobalEvent implements Itera
 				{
 					throw new UnsupportedOperationException();
 				}
-				else
+				player.setStablePoint(player.getLoc());
+				
+				player.teleToLocation(locList.get(index));
+				if (player.isDead())
 				{
-					player.setStablePoint(player.getLoc());
-					
-					player.teleToLocation(locList.get(index));
-					if (player.isDead())
-					{
-						player.doRevive();
-					}
-					
-					Summon servitor = player.getPet();
-					if (servitor != null)
-					{
-						servitor.teleToLocation(locList.get(index));
-					}
+					player.doRevive();
+				}
+				
+				Summon servitor = player.getPet();
+				if (servitor != null)
+				{
+					servitor.teleToLocation(locList.get(index));
 				}
 			}
 		}
@@ -584,7 +581,7 @@ public class UndergroundColiseumBattleEvent extends GlobalEvent implements Itera
 	{
 		UCTeamObject blue = getFirstObject(TeamType.BLUE.name());
 		UCTeamObject red = getFirstObject(TeamType.RED.name());
-		return new JoinedIterator<UCMemberObject>(blue.iterator(), red.iterator());
+		return new JoinedIterator<>(blue.iterator(), red.iterator());
 	}
 	
 	@Override

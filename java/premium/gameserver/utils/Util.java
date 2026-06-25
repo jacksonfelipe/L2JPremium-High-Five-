@@ -23,9 +23,6 @@ import premium.commons.annotations.Nullable;
 import premium.commons.util.Rnd;
 import premium.gameserver.Config;
 import premium.gameserver.data.xml.holder.ItemHolder;
-import premium.gameserver.multverso.dailyquests.drops.Droplist;
-import premium.gameserver.multverso.dailyquests.drops.DroplistGroup;
-import premium.gameserver.multverso.dailyquests.drops.DroplistItem;
 import premium.gameserver.handler.bbs.CommunityBoardManager;
 import premium.gameserver.handler.bbs.ICommunityBoardHandler;
 import premium.gameserver.model.Creature;
@@ -37,6 +34,9 @@ import premium.gameserver.model.entity.events.impl.AbstractFightClub;
 import premium.gameserver.model.items.Inventory;
 import premium.gameserver.model.items.ItemInstance;
 import premium.gameserver.model.reward.RewardList;
+import premium.gameserver.multverso.dailyquests.drops.Droplist;
+import premium.gameserver.multverso.dailyquests.drops.DroplistGroup;
+import premium.gameserver.multverso.dailyquests.drops.DroplistItem;
 import premium.gameserver.network.serverpackets.ExShowScreenMessage;
 import premium.gameserver.stats.Env;
 import premium.gameserver.templates.item.ItemTemplate;
@@ -449,7 +449,7 @@ public class Util
 		Class<?> cls = o.getClass();
 		String val, type, result = "[" + (simpleTypes ? cls.getSimpleName() : cls.getName()) + "\n";
 		Object fldObj;
-		List<Field> fields = new ArrayList<Field>();
+		List<Field> fields = new ArrayList<>();
 		while (cls != null)
 		{
 			for (Field fld : cls.getDeclaredFields())
@@ -504,7 +504,7 @@ public class Util
 	public static HashMap<Integer, String> parseTemplate(String html)
 	{
 		Matcher m = _pattern.matcher(html);
-		HashMap<Integer, String> tpls = new HashMap<Integer, String>();
+		HashMap<Integer, String> tpls = new HashMap<>();
 		while (m.find())
 		{
 			tpls.put(Integer.parseInt(m.group(1)), m.group(2));
@@ -1143,10 +1143,7 @@ public class Util
 		{
 			return formatAdena(count) + " " + getItemName(item);
 		}
-		else
-		{
-			return "Free";
-		}
+		return "Free";
 	}
 	
 	public static String declension(long count, DeclensionKey word)
@@ -1227,16 +1224,14 @@ public class Util
 	 * @param index
 	 * @return Value at the given index or null if AIOOBE should be thrown.
 	 */
+	@SuppressWarnings("null")
 	public static int safeGet(int[] arr, int index)
 	{
 		return (index >= 0 && arr.length > index) ? arr[index] : null;
 	}
 	
-	/**
-	 * @param arr
-	 * @param index
-	 * @return Value at the given index or null if AIOOBE should be thrown.
-	 */
+ 
+	@SuppressWarnings("null")
 	public static double safeGet(double[] arr, int index)
 	{
 		return (index >= 0 && arr.length > index) ? arr[index] : null;
@@ -1247,6 +1242,7 @@ public class Util
 	 * @param index
 	 * @return Value at the given index or null if AIOOBE should be thrown.
 	 */
+	@SuppressWarnings("null")
 	public static float safeGet(float[] arr, int index)
 	{
 		return (index >= 0 && arr.length > index) ? arr[index] : null;
@@ -1257,6 +1253,7 @@ public class Util
 	 * @param index
 	 * @return Value at the given index or null if AIOOBE should be thrown.
 	 */
+	@SuppressWarnings("null")
 	public static long safeGet(long[] arr, int index)
 	{
 		return (index >= 0 && arr.length > index) ? arr[index] : null;
@@ -1267,6 +1264,7 @@ public class Util
 	 * @param index
 	 * @return Value at the given index or null if AIOOBE should be thrown.
 	 */
+	@SuppressWarnings("null")
 	public static boolean safeGet(boolean[] arr, int index)
 	{
 		return (index >= 0 && arr.length > index) ? arr[index] : null;

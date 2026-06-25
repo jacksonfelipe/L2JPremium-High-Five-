@@ -108,6 +108,7 @@ public final class ArmorSetListener implements OnEquipListener
 		}
 	}
 	
+	@SuppressWarnings("null")
 	@Override
 	public void onUnequip(int slot, ItemInstance item, Playable actor)
 	{

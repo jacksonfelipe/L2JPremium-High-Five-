@@ -20,7 +20,7 @@ public class ProxyWaitingList
 	
 	private ProxyWaitingList()
 	{
-		proxyPerAccount = new ConcurrentHashMap<L2LoginClient, Map<Integer, String>>(10);
+		proxyPerAccount = new ConcurrentHashMap<>(10);
 	}
 	
 	public void receiveProxy(int gameServerId, String accountName, String proxy)
@@ -43,7 +43,7 @@ public class ProxyWaitingList
 		final InetAddress ip = client.getConnection().getSocket().getInetAddress();
 		final GameServerProxyRequest requestProxy = new GameServerProxyRequest(client.getLogin(), ip.getHostAddress());
 		final GameServer[] gameServers = GameServerManager.getInstance().getGameServers();
-		final Map<Integer, String> proxies = new ConcurrentHashMap<Integer, String>(gameServers.length);
+		final Map<Integer, String> proxies = new ConcurrentHashMap<>(gameServers.length);
 		final String specialProxy = getSpecialProxy(client);
 		for (GameServer gs : GameServerManager.getInstance().getGameServers())
 		{

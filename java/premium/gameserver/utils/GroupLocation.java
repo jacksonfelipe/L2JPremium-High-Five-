@@ -4,6 +4,7 @@ import premium.gameserver.model.GameObject;
 
 public class GroupLocation extends Location
 {
+	private static final long serialVersionUID = 1L;
 	private final String groupName;
 	
 	public GroupLocation(String groupName, int x, int y, int z, int heading)

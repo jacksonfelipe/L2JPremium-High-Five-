@@ -88,7 +88,7 @@ public final class QuestState
 					}
 					else
 					{
-						players = new ArrayList<Player>(actorPlayer.getParty().size());
+						players = new ArrayList<>(actorPlayer.getParty().size());
 						for (Player $member : actorPlayer.getParty().getMembers())
 						{
 							if ($member.isInRange(actorPlayer, Creature.INTERACTION_DISTANCE))
@@ -132,8 +132,8 @@ public final class QuestState
 	private final Quest _quest;
 	private int _state;
 	private Integer _cond = null;
-	private final Map<String, String> _vars = new ConcurrentHashMap<String, String>();
-	private final Map<String, QuestTimer> _timers = new ConcurrentHashMap<String, QuestTimer>();
+	private final Map<String, String> _vars = new ConcurrentHashMap<>();
+	private final Map<String, QuestTimer> _timers = new ConcurrentHashMap<>();
 	private OnKillListener _onKillListener = null;
 	
 	/**
@@ -161,11 +161,7 @@ public final class QuestState
 		quest.notifyCreate(this);
 	}
 	
-	/**
-	 * Add XP and SP as quest reward <br>
-	 * <br>
-	 * Метод учитывает рейты! 3-ий параметр true/false показывает является ли квест на профессию и рейты учитываются в завимисомти от параметра RateQuestsRewardOccupationChange
-	 */
+	 
 	public void addExpAndSp(long exp, long sp)
 	{
 		Player player = getPlayer();
@@ -183,10 +179,7 @@ public final class QuestState
 		}
 	}
 	
-	/**
-	 * Add player to get notification of characters death
-	 * @param player : L2Character of the character to get notification of death
-	 */
+ 
 	public void addNotifyOfDeath(Player player, boolean withPet)
 	{
 		OnDeathListenerImpl listener = new OnDeathListenerImpl();
@@ -238,9 +231,7 @@ public final class QuestState
 		}
 	}
 	
-	/**
-	 * Используется для однодневных квестов
-	 */
+ 
 	public void exitCurrentQuest(Quest quest)
 	{
 		Player player = getPlayer();
@@ -363,10 +354,7 @@ public final class QuestState
 		return varint;
 	}
 	
-	/**
-	 * Return item number which is equipped in selected slot
-	 * @return int
-	 */
+ 
 	public int getItemEquipped(int loc)
 	{
 		return getPlayer().getInventory().getPaperdollItemId(loc);
@@ -708,16 +696,7 @@ public final class QuestState
 		}
 	}
 	
-	/**
-	 * Этот метод рассчитывает количество дропнутых вещей в зависимости от рейтов и дает их, а так же проигрывает звук получения вещи. <br>
-	 * <br>
-	 * Следует учесть, что контроль за верхним пределом вещей в квестах, в которых нужно набить определенное количество предметов не осуществляется. <br>
-	 * <br>
-	 * Ни один из передаваемых параметров не должен быть равен 0
-	 * @param itemId id вещи
-	 * @param count количество при рейтах 1х
-	 * @param calcChance
-	 */
+	 
 	public boolean rollAndGive(int itemId, int count, double calcChance)
 	{
 		if (calcChance <= 0 || count <= 0 || itemId <= 0)
@@ -983,26 +962,13 @@ public final class QuestState
 		}
 	}
 	
-	/**
-	 * Start a timer for quest.<BR>
-	 * <BR>
-	 * @param name<BR>
-	 *            The name of the timer. Will also be the value for event of onEvent
-	 * @param time<BR>
-	 *            The milisecond value the timer will elapse
-	 */
+	 
 	public void startQuestTimer(String name, long time)
 	{
 		startQuestTimer(name, time, null);
 	}
 	
-	/**
-	 * Add a timer to the quest.<BR>
-	 * <BR>
-	 * @param name: name of the timer (also passed back as "event" in notifyEvent)
-	 * @param time: time in ms for when to fire the timer
-	 * @param npc: npc associated with this timer (can be null)
-	 */
+ 
 	public void startQuestTimer(String name, long time, NpcInstance npc)
 	{
 		QuestTimer timer = new QuestTimer(name, time, npc);
@@ -1162,7 +1128,7 @@ public final class QuestState
 	
 	public List<Player> getPartyMembers(int state, int maxrange, GameObject rangefrom)
 	{
-		List<Player> result = new ArrayList<Player>();
+		List<Player> result = new ArrayList<>();
 		Party party = getPlayer().getParty();
 		if (party == null)
 		{
@@ -1199,9 +1165,7 @@ public final class QuestState
 		return list.get(Rnd.get(list.size()));
 	}
 	
-	/**
-	 * Add spawn for player instance Return object id of newly spawned npc
-	 */
+	 
 	public NpcInstance addSpawn(int npcId)
 	{
 		return addSpawn(npcId, getPlayer().getX(), getPlayer().getY(), getPlayer().getZ(), 0, 0, 0);
@@ -1216,24 +1180,19 @@ public final class QuestState
 	{
 		return addSpawn(npcId, x, y, z, 0, 0, 0);
 	}
-	
-	/**
-	 * Add spawn for player instance Will despawn after the spawn length expires Return object id of newly spawned npc
-	 */
+ 
 	public NpcInstance addSpawn(int npcId, int x, int y, int z, int despawnDelay)
 	{
 		return addSpawn(npcId, x, y, z, 0, 0, despawnDelay);
 	}
 	
-	/**
-	 * Add spawn for player instance Return object id of newly spawned npc
-	 */
+ 
 	public NpcInstance addSpawn(int npcId, int x, int y, int z, int heading, int randomOffset, int despawnDelay)
 	{
 		return getQuest().addSpawn(npcId, x, y, z, heading, randomOffset, despawnDelay);
 	}
 	
-	public NpcInstance findTemplate(int npcId)
+	public static NpcInstance findTemplate(int npcId)
 	{
 		for (Spawner spawn : SpawnManager.getInstance().getSpawners(PeriodOfDay.NONE.name()))
 		{
@@ -1245,7 +1204,7 @@ public final class QuestState
 		return null;
 	}
 	
-	public int calculateLevelDiffForDrop(int mobLevel, int player)
+	public static int calculateLevelDiffForDrop(int mobLevel, int player)
 	{
 		if (!Config.DEEPBLUE_DROP_RULES)
 		{

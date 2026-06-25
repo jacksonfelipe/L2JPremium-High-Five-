@@ -22,7 +22,7 @@ import premium.gameserver.utils.Util;
 
 public class TelnetStatus implements TelnetCommandHolder
 {
-	private Set<TelnetCommand> _commands = new LinkedHashSet<TelnetCommand>();
+	private Set<TelnetCommand> _commands = new LinkedHashSet<>();
 	
 	public TelnetStatus()
 	{

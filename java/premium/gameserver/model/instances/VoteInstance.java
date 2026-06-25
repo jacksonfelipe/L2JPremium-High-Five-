@@ -36,6 +36,8 @@ import premium.gameserver.utils.ItemFunctions;
  */
 public final class VoteInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public VoteInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

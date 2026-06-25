@@ -27,17 +27,17 @@ public class NobleSelector<E>
 	
 	public NobleSelector()
 	{
-		_nodes = new ArrayList<Node<E>>();
+		_nodes = new ArrayList<>();
 	}
 	
 	public NobleSelector(int initialCapacity)
 	{
-		_nodes = new ArrayList<Node<E>>(initialCapacity);
+		_nodes = new ArrayList<>(initialCapacity);
 	}
 	
 	public final void add(E value, int points)
 	{
-		_nodes.add(new Node<E>(value, points));
+		_nodes.add(new Node<>(value, points));
 	}
 	
 	public final int size()
@@ -81,10 +81,7 @@ public class NobleSelector<E>
 				{
 					throw new ConcurrentModificationException();
 				}
-				else
-				{
-					return n;
-				}
+				return n;
 			}
 		}
 		return null;

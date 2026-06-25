@@ -31,6 +31,7 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class RaidBossInstance extends MonsterInstance
 {
+	private static final long serialVersionUID = 1L;
 	private ScheduledFuture<?> minionMaintainTask;
 	private String _killer;
 	
@@ -194,15 +195,13 @@ public class RaidBossInstance extends MonsterInstance
 		super.onDeath(killer);
 	}
 	
-	// FIXME [G1ta0] разобрать этот хлам
 	@SuppressWarnings("unchecked")
 	private void calcRaidPointsReward(int totalPoints)
 	{
-		// Object groupkey (L2Party/L2CommandChannel/L2Player) | [List<L2Player> group, Long GroupDdamage]
-		Map<Object, Object[]> participants = new HashMap<Object, Object[]>();
+		
+		Map<Object, Object[]> participants = new HashMap<>();
 		double totalHp = getMaxHp();
 		
-		// Разбиваем игроков по группам. По возможности используем наибольшую из доступных групп: Command Channel → Party → StandAlone (сам плюс пет :)
 		for (HateInfo ai : getAggroList().getPlayableMap().values())
 		{
 			Player player = ai.attacker.getPlayer();
@@ -213,13 +212,11 @@ public class RaidBossInstance extends MonsterInstance
 				info = new Object[]
 				{
 					new HashSet<Player>(),
-					new Long(0)
+				
 				};
 				participants.put(key, info);
 			}
 			
-			// если это пати или командный канал то берем оттуда весь список участвующих, даже тех кто не в аггролисте
-			// дубликаты не страшны - это хашсет
 			if (key instanceof CommandChannel)
 			{
 				for (Player p : ((CommandChannel) key))

@@ -83,7 +83,7 @@ public class SetPrivateStoreBuyList extends L2GameClientPacket
 			return;
 		}
 		
-		List<TradeItem> buyList = new CopyOnWriteArrayList<TradeItem>();
+		List<TradeItem> buyList = new CopyOnWriteArrayList<>();
 		long totalCost = 0;
 		try
 		{

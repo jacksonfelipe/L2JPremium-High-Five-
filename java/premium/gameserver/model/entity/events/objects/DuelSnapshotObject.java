@@ -16,6 +16,7 @@ import premium.gameserver.utils.Location;
 
 public class DuelSnapshotObject implements Serializable
 {
+	private static final long serialVersionUID = 1L;
 	private final TeamType _team;
 	private final Player _player;
 	private final List<Effect> _effects;
@@ -37,7 +38,7 @@ public class DuelSnapshotObject implements Serializable
 		_currentMp = player.getCurrentMp();
 		
 		List<Effect> effectList = player.getEffectList().getAllEffects();
-		_effects = new ArrayList<Effect>(effectList.size());
+		_effects = new ArrayList<>(effectList.size());
 		for (Effect $effect : effectList)
 		{
 			if (($effect == null) || $effect.getSkill().isToggle() || $effect.getSkill().getTargetType() == Skill.SkillTargetType.TARGET_SELF)

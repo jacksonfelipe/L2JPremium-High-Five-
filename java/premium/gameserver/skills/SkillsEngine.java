@@ -49,10 +49,7 @@ public class SkillsEngine
 		{
 			return null;
 		}
-		else
-		{
-			return parsedSkills.get(0);
-		}
+		return parsedSkills.get(0);
 	}
 	
 	public Map<Integer, Skill> loadAllSkills()
@@ -65,7 +62,7 @@ public class SkillsEngine
 		}
 		
 		Collection<File> files = FileUtils.listFiles(dir, FileFilterUtils.suffixFileFilter(".xml"), FileFilterUtils.directoryFileFilter());
-		Map<Integer, Skill> result = new HashMap<Integer, Skill>();
+		Map<Integer, Skill> result = new HashMap<>();
 		int maxId = 0;
 		int maxLvl = 0;
 		

@@ -21,7 +21,7 @@ import premium.gameserver.network.telnet.TelnetCommandHolder;
 
 public class TelnetDebug implements TelnetCommandHolder
 {
-	private Set<TelnetCommand> _commands = new LinkedHashSet<TelnetCommand>();
+	private Set<TelnetCommand> _commands = new LinkedHashSet<>();
 	
 	public TelnetDebug()
 	{
@@ -41,7 +41,7 @@ public class TelnetDebug implements TelnetCommandHolder
 				int total = 0;
 				int maxId = 0, maxCount = 0;
 				
-				TIntObjectHashMap<List<NpcInstance>> npcStats = new TIntObjectHashMap<List<NpcInstance>>();
+				TIntObjectHashMap<List<NpcInstance>> npcStats = new TIntObjectHashMap<>();
 				
 				for (GameObject obj : GameObjectsStorage.getAllObjects())
 				{
@@ -55,7 +55,7 @@ public class TelnetDebug implements TelnetCommandHolder
 							
 							if ((list = npcStats.get(id)) == null)
 							{
-								npcStats.put(id, list = new ArrayList<NpcInstance>());
+								npcStats.put(id, list = new ArrayList<>());
 							}
 							
 							list.add(npc);

@@ -36,7 +36,7 @@ public class TelnetServerHandler extends SimpleChannelUpstreamHandler implements
 	// The following regex splits a line into its parts, separated by spaces, unless there are quotes, in which case the quotes take precedence.
 	private static final Pattern COMMAND_ARGS_PATTERN = Pattern.compile("\"([^\"]*)\"|([^\\s]+)");
 	
-	private Set<TelnetCommand> _commands = new LinkedHashSet<TelnetCommand>();
+	private Set<TelnetCommand> _commands = new LinkedHashSet<>();
 	
 	public TelnetServerHandler()
 	{
@@ -62,16 +62,13 @@ public class TelnetServerHandler extends SimpleChannelUpstreamHandler implements
 					
 					return sb.toString();
 				}
-				else
+				TelnetCommand cmd = TelnetServerHandler.this.getCommand(args[0]);
+				if (cmd == null)
 				{
-					TelnetCommand cmd = TelnetServerHandler.this.getCommand(args[0]);
-					if (cmd == null)
-					{
-						return "Unknown command.\n";
-					}
-					
-					return "usage:\n" + cmd.getUsage() + "\n";
+					return "Unknown command.\n";
 				}
+				
+				return "usage:\n" + cmd.getUsage() + "\n";
 			}
 		});
 		
@@ -131,7 +128,7 @@ public class TelnetServerHandler extends SimpleChannelUpstreamHandler implements
 	}
 	
 	@Override
-	public void channelConnected(ChannelHandlerContext ctx, ChannelStateEvent e) throws Exception
+	public void channelConnected(ChannelHandlerContext ctx, ChannelStateEvent e)  
 	{
 		// Send greeting for a new connection.
 		e.getChannel().write("Welcome to L2 GameServer telnet console.\n");
@@ -192,7 +189,7 @@ public class TelnetServerHandler extends SimpleChannelUpstreamHandler implements
 				m.find();
 				String command = m.group();
 				
-				List<String> args = new ArrayList<String>();
+				List<String> args = new ArrayList<>();
 				String arg;
 				while (m.find())
 				{

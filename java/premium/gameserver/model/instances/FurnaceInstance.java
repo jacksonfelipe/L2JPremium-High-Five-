@@ -17,6 +17,7 @@ import premium.gameserver.utils.Location;
 
 public class FurnaceInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final Logger _log = LoggerFactory.getLogger(FurnaceInstance.class);
 	private static int[][] locs =
 	{

@@ -7,6 +7,7 @@ import premium.gameserver.model.instances.DoorInstance;
 
 public class DoorObject implements SpawnableObject, InitableObject
 {
+	private static final long serialVersionUID = 1L;
 	private final int _id;
 	private DoorInstance _door;
 	

@@ -45,7 +45,7 @@ public class OnWrongAccountPassword extends ReceivablePacket
 				if (onlineGM != null)
 				{
 					final IStaticPacket packet = new Say2(0, OnWrongAccountPassword.CHAT_TYPE_FOR_GM, "WARNING", "Someone is trying to enter your Account and wrote Wrong Password(" + this.passwordWrote + ")!");
-					final List<IStaticPacket> spamList = new ArrayList<IStaticPacket>(10);
+					final List<IStaticPacket> spamList = new ArrayList<>(10);
 					for (int i = 0; i < SPAM_MSG_COUNT_TO_GM; ++i)
 					{
 						spamList.add(packet);

@@ -22,7 +22,7 @@ public class TournamentTeamsManager
 {
 	private static final Logger LOG = LoggerFactory.getLogger(TournamentTeamsManager.class);
 	
-	private final List<Team> _teams = new CopyOnWriteArrayList<Team>();
+	private final List<Team> _teams = new CopyOnWriteArrayList<>();
 	private final AtomicInteger _lastObjectId = new AtomicInteger(-1);
 	
 	private TournamentTeamsManager()
@@ -57,7 +57,7 @@ public class TournamentTeamsManager
 	
 	public List<Team> getTeamsCopy()
 	{
-		return new ArrayList<Team>(_teams);
+		return new ArrayList<>(_teams);
 	}
 	
 	public int getTeamsCount()

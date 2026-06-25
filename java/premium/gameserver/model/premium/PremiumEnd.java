@@ -83,7 +83,7 @@ public class PremiumEnd
 		}
 	}
 	
-	private void off(String account)
+	public void off(String account)
 	{
 		if (Config.PREMIUM_ACCOUNT_TYPE == 2)
 		{

@@ -1,13 +1,13 @@
 package premium.gameserver.network;
 
+import com.lameguard.session.LameClientV195;
+
 import java.nio.ByteBuffer;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.lameguard.session.LameClientV195;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -64,7 +64,7 @@ public class GameClient extends MMOClient<MMOConnection<GameClient>> implements 
 	private boolean _gameGuardOk = false;
 	// private SecondaryPasswordAuth _secondaryAuth;
 	
-	private final List<Integer> _charSlotMapping = new ArrayList<Integer>();
+	private final List<Integer> _charSlotMapping = new ArrayList<>();
 	
 	public GameClient(MMOConnection<GameClient> con)
 	{
@@ -191,19 +191,16 @@ public class GameClient extends MMOClient<MMOConnection<GameClient>> implements 
 				oldPlayer.kick();// Kicking Offline Shop Player
 				return null;
 			}
-			else
+			oldPlayer.sendPacket(SystemMsg.ANOTHER_PERSON_HAS_LOGGED_IN_WITH_THE_SAME_ACCOUNT);
+			// Kicking real player that was on the char
+			GameClient oldClient = oldPlayer.getNetConnection();
+			if (oldClient != null)
 			{
-				oldPlayer.sendPacket(SystemMsg.ANOTHER_PERSON_HAS_LOGGED_IN_WITH_THE_SAME_ACCOUNT);
-				// Kicking real player that was on the char
-				GameClient oldClient = oldPlayer.getNetConnection();
-				if (oldClient != null)
-				{
-					oldClient.setActiveChar(null);
-					oldClient.closeNow(false);
-				}
-				oldPlayer.setNetConnection(this);
-				character = oldPlayer;
+				oldClient.setActiveChar(null);
+				oldClient.closeNow(false);
 			}
+			oldPlayer.setNetConnection(this);
+			character = oldPlayer;
 		}
 		
 		if (character == null)

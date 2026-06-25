@@ -155,7 +155,7 @@ public class RequestEnchantItem extends L2GameClientPacket
 			
 			boolean equipped = false;
 			
-			if (equipped = item.isEquipped())
+			if (item.isEquipped())
 			{
 				inventory.unEquipItem(item);
 			}
@@ -632,7 +632,7 @@ public class RequestEnchantItem extends L2GameClientPacket
 		
 		boolean equipped = false;
 		
-		if (equipped = item.isEquipped())
+		if (item.isEquipped())
 		{
 			inventory.unEquipItem(item);
 		}

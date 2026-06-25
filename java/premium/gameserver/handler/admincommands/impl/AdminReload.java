@@ -70,7 +70,7 @@ public class AdminReload implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		Commands command = (Commands) comm;
 		
@@ -123,7 +123,7 @@ public class AdminReload implements IAdminCommandHandler
 						}
 						else
 						{
-							player.setPlayerAccess(Config.gmlist.get(new Integer(0)));
+							player.setPlayerAccess(Config.gmlist.get(0));
 						}
 					}
 				}
@@ -287,7 +287,7 @@ public class AdminReload implements IAdminCommandHandler
 		return true;
 	}
 	
-	private void reloadQuestStates(Player p)
+	public void reloadQuestStates(Player p)
 	{
 		for (QuestState qs : p.getAllQuestsStates())
 		{
@@ -303,6 +303,7 @@ public class AdminReload implements IAdminCommandHandler
 		}
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{

@@ -302,7 +302,7 @@ public final class RequestRefine extends L2GameClientPacket
 		int augmentation = AugmentationData.getInstance().generateRandomAugmentation(lifeStoneLevel, lifeStoneGrade, targetItem.getTemplate().getBodyPart());
 		
 		boolean equipped = false;
-		if (equipped = targetItem.isEquipped())
+		if (targetItem.isEquipped())
 		{
 			player.getInventory().unEquipItem(targetItem);
 		}

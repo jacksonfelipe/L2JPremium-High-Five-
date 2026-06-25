@@ -12,7 +12,7 @@ import premium.gameserver.templates.StatsSet;
 
 public class ManaHeal extends Skill
 {
-	private final boolean _ignoreMpEff;
+	public final boolean _ignoreMpEff;
 	
 	public ManaHeal(StatsSet set)
 	{

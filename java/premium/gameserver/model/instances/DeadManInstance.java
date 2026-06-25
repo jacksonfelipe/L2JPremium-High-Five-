@@ -8,6 +8,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class DeadManInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public DeadManInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

@@ -147,7 +147,7 @@ public class BattleRecord
 	{
 		for (Team team : getTeams())
 		{
-			if (team == null && firstTeam != null || team.getId() != firstTeam.getId())
+			if (team.getId() != firstTeam.getId())
 			{
 				return team;
 			}

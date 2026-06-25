@@ -4,6 +4,7 @@ import premium.gameserver.model.GameObject;
 
 public class NpcGroupLocation extends GroupLocation
 {
+	private static final long serialVersionUID = 1L;
 	private final int npcId;
 	
 	public NpcGroupLocation(String groupName, int npcId, int x, int y, int z, int heading)

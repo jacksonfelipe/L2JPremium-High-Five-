@@ -17,12 +17,11 @@ public class CaptureTheFlagEvent extends AbstractFightClub// TODO sprawdzic czy 
 	private static final int FLAG_HOLDER_ID = 53005;
 	
 	private CaptureFlagTeam[] _flagTeams;
-	private final int _badgesCaptureFlag;
 	
 	public CaptureTheFlagEvent(MultiValueSet<String> set)
 	{
 		super(set);
-		_badgesCaptureFlag = set.getInteger("badgesCaptureFlag");
+		set.getInteger("badgesCaptureFlag");
 	}
 	
 	@Override
@@ -184,15 +183,15 @@ public class CaptureTheFlagEvent extends AbstractFightClub// TODO sprawdzic czy 
 				}
 			}
 			
-			if (fPlayer.getTeam().equals(flagTeam._team))// player talked with his flag
+			if (flagTeam != null)
 			{
-				giveFlagBack(fPlayer, flagTeam);
-				return false;
+				if (fPlayer.getTeam().equals(flagTeam._team))// player talked with his flag
+				{
+					giveFlagBack(fPlayer, flagTeam);
+					return false;
+				}
 			}
-			else// player talked with enemy flag
-			{
-				return getEnemyFlag(fPlayer, flagTeam);
-			}
+			return getEnemyFlag(fPlayer, flagTeam);
 		}
 		catch (Exception e)
 		{
@@ -220,17 +219,20 @@ public class CaptureTheFlagEvent extends AbstractFightClub// TODO sprawdzic czy 
 				}
 			}
 			
-			if (fPlayer.getTeam().equals(flagTeam._team))// player talked with his holder
+			if (flagTeam != null)
 			{
-				giveFlagBack(fPlayer, flagTeam);
-			}
-			else// player talked with enemy holder
-			{
-				boolean shouldFlagDissaper = getEnemyFlag(fPlayer, flagTeam);
-				if (shouldFlagDissaper)
+				if (fPlayer.getTeam().equals(flagTeam._team))// player talked with his holder
 				{
-					// flagTeam._flag.deleteMe(); TODO
-					// flagTeam._flag = null;
+					giveFlagBack(fPlayer, flagTeam);
+				}
+				else// player talked with enemy holder
+				{
+					boolean shouldFlagDissaper = getEnemyFlag(fPlayer, flagTeam);
+					if (shouldFlagDissaper)
+					{
+						// flagTeam._flag.deleteMe(); TODO
+						// flagTeam._flag = null;
+					}
 				}
 			}
 		}

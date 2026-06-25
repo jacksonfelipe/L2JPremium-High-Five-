@@ -16,6 +16,8 @@ import premium.gameserver.utils.WarehouseFunctions;
 
 public final class NpcFriendInstance extends MerchantInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public NpcFriendInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

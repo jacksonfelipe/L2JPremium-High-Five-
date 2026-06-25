@@ -76,7 +76,7 @@ public class ClanHallMiniGameEvent extends SiegeEvent<ClanHall, CMGSiegeClanObje
 		
 		CMGSiegeClanObject[] clans = siegeClans.toArray(new CMGSiegeClanObject[siegeClans.size()]);
 		Arrays.sort(clans, SiegeClanObject.SiegeClanComparatorImpl.getInstance());
-		final List<CMGSiegeClanObject> temp = new ArrayList<CMGSiegeClanObject>(4);
+		final List<CMGSiegeClanObject> temp = new ArrayList<>(4);
 		for (CMGSiegeClanObject siegeClan : clans)
 		{
 			SiegeClanDAO.getInstance().delete(getResidence(), siegeClan);

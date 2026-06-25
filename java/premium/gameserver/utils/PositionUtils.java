@@ -35,10 +35,7 @@ public class PositionUtils
 		return TargetDirection.SIDE;
 	}
 	
-	/**
-	 * Those are altered formulas for blow lands Return True if the target is IN FRONT of the L2Character.<BR>
-	 * <BR>
-	 */
+	 
 	public static boolean isInFrontOf(Creature target, Creature attacker)
 	{
 		if (target == null)
@@ -65,10 +62,7 @@ public class PositionUtils
 		return false;
 	}
 	
-	/**
-	 * Those are altered formulas for blow lands Return True if the L2Character is behind the target and can't be seen.<BR>
-	 * <BR>
-	 */
+ 
 	public static boolean isBehind(Creature target, Creature attacker)
 	{
 		if (target == null)
@@ -94,8 +88,7 @@ public class PositionUtils
 		}
 		return false;
 	}
-	
-	/** Returns true if target is in front of L2Character (shield def etc) */
+ 
 	public static boolean isFacing(Creature attacker, GameObject target, int maxAngle)
 	{
 		double angleChar, angleTarget, angleDiff, maxAngleDiff;

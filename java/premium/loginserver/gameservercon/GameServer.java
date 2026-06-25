@@ -30,7 +30,7 @@ public class GameServer
 	private GameServerConnection _conn;
 	private boolean _isAuthed;
 	private int _port;
-	private final Set<String> _accounts = new CopyOnWriteArraySet<String>();
+	private final Set<String> _accounts = new CopyOnWriteArraySet<>();
 	
 	public GameServer(GameServerConnection conn)
 	{

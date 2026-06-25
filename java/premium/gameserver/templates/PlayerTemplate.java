@@ -49,7 +49,7 @@ public class PlayerTemplate extends CharTemplate
 		lvlMpAdd = set.getDouble("lvlMpAdd");
 		lvlMpMod = set.getDouble("lvlMpMod");
 		
-		_items = new ArrayList<CreateItem>();
+		_items = new ArrayList<>();
 		_items.addAll(items);
 	}
 	

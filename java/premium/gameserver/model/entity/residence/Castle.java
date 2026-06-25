@@ -58,8 +58,8 @@ public class Castle extends Residence
 	private static final String CASTLE_UPDATE_CROP = "UPDATE castle_manor_procure SET can_buy=? WHERE crop_id=? AND castle_id=? AND period=?";
 	private static final String CASTLE_UPDATE_SEED = "UPDATE castle_manor_production SET can_produce=? WHERE seed_id=? AND castle_id=? AND period=?";
 	
-	private final IntObjectMap<MerchantGuard> _merchantGuards = new HashIntObjectMap<MerchantGuard>();
-	private final IntObjectMap<List> _relatedFortresses = new CTreeIntObjectMap<List>();
+	private final IntObjectMap<MerchantGuard> _merchantGuards = new HashIntObjectMap<>();
+	private final IntObjectMap<List> _relatedFortresses = new CTreeIntObjectMap<>();
 	private Dominion _dominion;
 	
 	private List<CropProcure> _procure;
@@ -76,7 +76,7 @@ public class Castle extends Residence
 	
 	private final NpcString _npcStringName;
 	
-	private final Set<ItemInstance> _spawnMerchantTickets = new CopyOnWriteArraySet<ItemInstance>();
+	private final Set<ItemInstance> _spawnMerchantTickets = new CopyOnWriteArraySet<>();
 	
 	public Castle(StatsSet set)
 	{
@@ -95,7 +95,7 @@ public class Castle extends Residence
 			_relatedFortresses.remove(entry.getKey());
 			
 			List<Integer> list = entry.getValue();
-			List<Fortress> list2 = new ArrayList<Fortress>(list.size());
+			List<Fortress> list2 = new ArrayList<>(list.size());
 			for (int i : list)
 			{
 				final Fortress fortress = ResidenceHolder.getInstance().getResidence(Fortress.class, i);
@@ -208,10 +208,10 @@ public class Castle extends Residence
 		_TaxPercent = 0;
 		_TaxRate = 0;
 		_treasury = 0;
-		_procure = new ArrayList<CropProcure>();
-		_production = new ArrayList<SeedProduction>();
-		_procureNext = new ArrayList<CropProcure>();
-		_productionNext = new ArrayList<SeedProduction>();
+		_procure = new ArrayList<>();
+		_production = new ArrayList<>();
+		_procureNext = new ArrayList<>();
+		_productionNext = new ArrayList<>();
 		_isNextPeriodApproved = false;
 		
 		_owner = ClanDataDAO.getInstance().getOwner(this);
@@ -299,8 +299,7 @@ public class Castle extends Residence
 		_collectedSeed = value;
 	}
 	
-	// This method add to the treasury
-	/** Add amount to castle instance's treasury (warehouse). */
+ 
 	public void addToTreasury(long amount, boolean shop, boolean seed)
 	{
 		if ((getOwnerId() <= 0) || (amount == 0))
@@ -333,8 +332,7 @@ public class Castle extends Residence
 		
 		addToTreasuryNoTax(amount, shop, seed);
 	}
-	
-	/** Add amount to castle instance's treasury (warehouse), no tax paying. */
+ 
 	public void addToTreasuryNoTax(long amount, boolean shop, boolean seed)
 	{
 		if ((getOwnerId() <= 0) || (amount == 0))
@@ -808,7 +806,7 @@ public class Castle extends Residence
 		List<Integer> fortresses = _relatedFortresses.get(type);
 		if (fortresses == null)
 		{
-			_relatedFortresses.put(type, fortresses = new ArrayList<Integer>());
+			_relatedFortresses.put(type, fortresses = new ArrayList<>());
 		}
 		
 		fortresses.add(fortress);

@@ -43,6 +43,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class PetInstance extends Summon
 {
+	private static final long serialVersionUID = 1L;
+
 	private static final Logger _log = LoggerFactory.getLogger(PetInstance.class);
 	
 	private static final int DELUXE_FOOD_FOR_STRIDER = 5169;
@@ -144,17 +146,13 @@ public class PetInstance extends Summon
 		return pet;
 	}
 	
-	/**
-	 * Create a new pet
-	 */
+	 
 	public PetInstance(int objectId, NpcTemplate template, Player owner, ItemInstance control)
 	{
 		this(objectId, template, owner, control, 0, 0);
 	}
 	
-	/**
-	 * Loading an existing pet
-	 */
+	 
 	public PetInstance(int objectId, NpcTemplate template, Player owner, ItemInstance control, int currentLevel, long exp)
 	{
 		super(objectId, template, owner);

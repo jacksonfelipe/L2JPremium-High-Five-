@@ -6,7 +6,6 @@ import premium.gameserver.model.Creature;
 import premium.gameserver.model.Player;
 import premium.gameserver.model.Request;
 import premium.gameserver.model.Request.L2RequestType;
-import premium.gameserver.model.items.TradeItem;
 import premium.gameserver.network.serverpackets.SystemMessage2;
 import premium.gameserver.network.serverpackets.TradeStart;
 import premium.gameserver.network.serverpackets.components.SystemMsg;
@@ -86,9 +85,9 @@ public class AnswerTradeRequest extends L2GameClientPacket
 		try
 		{
 			new Request(L2RequestType.TRADE, activeChar, requestor);
-			requestor.setTradeList(new CopyOnWriteArrayList<TradeItem>());
+			requestor.setTradeList(new CopyOnWriteArrayList<>());
 			requestor.sendPacket(new SystemMessage2(SystemMsg.YOU_BEGIN_TRADING_WITH_C1).addString(activeChar.getName()), new TradeStart(requestor, activeChar));
-			activeChar.setTradeList(new CopyOnWriteArrayList<TradeItem>());
+			activeChar.setTradeList(new CopyOnWriteArrayList<>());
 			activeChar.sendPacket(new SystemMessage2(SystemMsg.YOU_BEGIN_TRADING_WITH_C1).addString(requestor.getName()), new TradeStart(activeChar, requestor));
 		}
 		finally

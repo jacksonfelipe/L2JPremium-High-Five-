@@ -13,6 +13,8 @@ import premium.gameserver.network.serverpackets.components.IStaticPacket;
 
 public class SiegeClanObject implements Serializable
 {
+	private static final long serialVersionUID = 1L;
+
 	public static class SiegeClanComparatorImpl implements Comparator<SiegeClanObject>
 	{
 		private static final SiegeClanComparatorImpl _instance = new SiegeClanComparatorImpl();
@@ -95,7 +97,7 @@ public class SiegeClanObject implements Serializable
 		getClan().broadcastToOnlineMembers(packet);
 	}
 	
-	public void setEvent(boolean start, SiegeEvent event)
+	public void setEvent(boolean start, @SuppressWarnings("rawtypes") SiegeEvent event)
 	{
 		if (start)
 		{

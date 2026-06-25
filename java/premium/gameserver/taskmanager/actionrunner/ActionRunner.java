@@ -19,7 +19,7 @@ public class ActionRunner extends LoggerObject
 {
 	private static ActionRunner _instance = new ActionRunner();
 	
-	private Map<String, List<ActionWrapper>> _futures = new HashMap<String, List<ActionWrapper>>();
+	private Map<String, List<ActionWrapper>> _futures = new HashMap<>();
 	private final Lock _lock = new ReentrantLock();
 	
 	public static ActionRunner getInstance()
@@ -69,7 +69,7 @@ public class ActionRunner extends LoggerObject
 			List<ActionWrapper> wrapperList = _futures.get(lower);
 			if (wrapperList == null)
 			{
-				_futures.put(lower, (wrapperList = new ArrayList<ActionWrapper>()));
+				_futures.put(lower, (wrapperList = new ArrayList<>()));
 			}
 			
 			r.schedule(diff);

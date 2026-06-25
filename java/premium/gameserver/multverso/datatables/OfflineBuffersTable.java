@@ -15,10 +15,6 @@ import premium.gameserver.model.Skill;
 import premium.gameserver.multverso.managers.OfflineBufferManager;
 import premium.gameserver.multverso.managers.OfflineBufferManager.BufferData;
 
-/**
- * Tabla para manejar todos los buffers offline y los buffs que cada uno tiene vendiendo
- * @author MultVerso
- */
 public class OfflineBuffersTable
 {
 	private static final Logger _log = LoggerFactory.getLogger(OfflineBuffersTable.class);
@@ -186,11 +182,8 @@ public class OfflineBuffersTable
 		}
 	}
 	
-	/**
-	 * @param skills
-	 * @return Une toda la lista de buffs para que este toda en un string separados por ,
-	 */
-	private final String joinAllSkillsToString(Collection<Skill> skills)
+ 
+	private final static String joinAllSkillsToString(Collection<Skill> skills)
 	{
 		if (skills.isEmpty())
 		{

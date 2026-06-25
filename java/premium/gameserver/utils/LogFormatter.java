@@ -25,7 +25,7 @@ public class LogFormatter extends SimpleFormatter
 		return text;
 	}
 	
-	private String getDate(Calendar c, int i)
+	public String getDate(Calendar c, int i)
 	{
 		int intResult = c.get(i);
 		if (i == Calendar.MONTH)

@@ -24,6 +24,7 @@ import premium.gameserver.utils.Location;
 
 public class FeedableBeastInstance extends MonsterInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final Logger _log = LoggerFactory.getLogger(NpcInstance.class);
 	
 	private static class growthInfo
@@ -44,7 +45,7 @@ public class FeedableBeastInstance extends MonsterInstance
 		}
 	}
 	
-	public static final TIntObjectHashMap<growthInfo> growthCapableMobs = new TIntObjectHashMap<growthInfo>();
+	public static final TIntObjectHashMap<growthInfo> growthCapableMobs = new TIntObjectHashMap<>();
 	public static final TIntArrayList tamedBeasts = new TIntArrayList();
 	public static final TIntArrayList feedableBeasts = new TIntArrayList();
 	
@@ -352,14 +353,14 @@ public class FeedableBeastInstance extends MonsterInstance
 		}
 	}
 	
-	public static Map<Integer, Integer> feedInfo = new ConcurrentHashMap<Integer, Integer>();
+	public static Map<Integer, Integer> feedInfo = new ConcurrentHashMap<>();
 	
-	private boolean isGoldenSpice(int skillId)
+	public boolean isGoldenSpice(int skillId)
 	{
 		return skillId == 9049 || skillId == 9051 || skillId == 9053;
 	}
 	
-	private boolean isCrystalSpice(int skillId)
+	public boolean isCrystalSpice(int skillId)
 	{
 		return skillId == 9050 || skillId == 9052 || skillId == 9054;
 	}
@@ -380,10 +381,7 @@ public class FeedableBeastInstance extends MonsterInstance
 		{
 			return 9049;
 		}
-		else
-		{
-			return 9050;
-		}
+		return 9050;
 	}
 	
 	public int getItemIdBySkillId(int skillId)

@@ -13,7 +13,7 @@ public class GmListTable
 {
 	public static List<Player> getAllGMs()
 	{
-		List<Player> gmList = new ArrayList<Player>();
+		List<Player> gmList = new ArrayList<>();
 		for (Player player : GameObjectsStorage.getAllPlayersForIterate())
 		{
 			if (player.isGM())
@@ -27,7 +27,7 @@ public class GmListTable
 	
 	public static List<Player> getAllVisibleGMs()
 	{
-		List<Player> gmList = new ArrayList<Player>();
+		List<Player> gmList = new ArrayList<>();
 		for (Player player : GameObjectsStorage.getAllPlayersForIterate())
 		{
 			if (player.isGM() && player.getVarInt("gmOnList", 1) == 1)

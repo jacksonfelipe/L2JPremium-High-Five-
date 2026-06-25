@@ -19,7 +19,7 @@ public class MinimumCharMessages implements ProxyRequirement
 {
 	private static final Logger LOG = LoggerFactory.getLogger(MinimumCharMessages.class);
 	
-	private final Map<ChatType, Integer> requirements = new HashMap<ChatType, Integer>(8);
+	private final Map<ChatType, Integer> requirements = new HashMap<>(8);
 	
 	public MinimumCharMessages(int all, int shout, int pm, int trade, int party, int clan, int ally, int hero)
 	{

@@ -17,7 +17,7 @@ import premium.gameserver.utils.Language;
 
 public class RuVoteAnnounceTask
 {
-	private final Map<Integer, Long> lastPanelOpenDates = new ConcurrentHashMap<Integer, Long>();
+	private final Map<Integer, Long> lastPanelOpenDates = new ConcurrentHashMap<>();
 	
 	private RuVoteAnnounceTask()
 	{
@@ -89,7 +89,7 @@ public class RuVoteAnnounceTask
 				return;
 			}
 			
-			final Map<Language, Say2> msgPerLanguage = new EnumMap<Language, Say2>(Language.class);
+			final Map<Language, Say2> msgPerLanguage = new EnumMap<>(Language.class);
 			for (Language lang : Language.values())
 			{
 				msgPerLanguage.put(lang, new Say2(0, ChatType.ANNOUNCEMENT, "", StringHolder.getNotNull(lang, "RussianVote.NotVotedAnnounce", ConfigHolder.getString("RuVoteLinkToVote"), ConfigHolder.getString("RuVoteLinkToGuide"))));

@@ -23,7 +23,7 @@ public class ActionsExtractingManager implements OnConfigsReloaded
 	
 	private ActionsExtractingManager()
 	{
-		_extractors = new ArrayList<ActionsExtractor>(FacebookActionType.values().length + 1);
+		_extractors = new ArrayList<>(FacebookActionType.values().length + 1);
 	}
 	
 	public void load()
@@ -84,7 +84,7 @@ public class ActionsExtractingManager implements OnConfigsReloaded
 		}
 	}
 	
-	private void extractSpecific(ActionsExtractor extractor)
+	private static void extractSpecific(ActionsExtractor extractor)
 	{
 		try
 		{

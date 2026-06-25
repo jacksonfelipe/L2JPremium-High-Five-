@@ -23,6 +23,8 @@ import premium.gameserver.utils.Location;
 
 public final class TrapInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	private static class CastTask extends RunnableImpl
 	{
 		private HardReference<NpcInstance> _trapRef;
@@ -54,7 +56,7 @@ public final class TrapInstance extends NpcInstance
 				{
 					if (trap._skill.checkTarget(owner, target, null, false, false) == null)
 					{
-						List<Creature> targets = new ArrayList<Creature>();
+						List<Creature> targets = new ArrayList<>();
 						if (trap._skill.getTargetType() != SkillTargetType.TARGET_AREA)
 						{
 							targets.add(target);

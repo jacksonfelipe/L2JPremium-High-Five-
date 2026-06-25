@@ -19,9 +19,9 @@ public class AddonsConfig
 {
 	private static final Logger log = LoggerFactory.getLogger(AddonsConfig.class);
 	private static final String dir = Config.DATAPACK_ROOT + "/config/Addons";
-	private static ConcurrentHashMap<String, String> properties = new ConcurrentHashMap<String, String>();
-	private static ConcurrentHashMap<Integer, Double> questRewardRates = new ConcurrentHashMap<Integer, Double>();
-	private static ConcurrentHashMap<Integer, Double> questDropRates = new ConcurrentHashMap<Integer, Double>();
+	private static ConcurrentHashMap<String, String> properties = new ConcurrentHashMap<>();
+	private static ConcurrentHashMap<Integer, Double> questRewardRates = new ConcurrentHashMap<>();
+	private static ConcurrentHashMap<Integer, Double> questDropRates = new ConcurrentHashMap<>();
 	
 	public static void load()
 	{
@@ -47,9 +47,9 @@ public class AddonsConfig
 			{
 				synchronized (questDropRates)
 				{
-					properties = new ConcurrentHashMap<String, String>();
-					questRewardRates = new ConcurrentHashMap<Integer, Double>();
-					questDropRates = new ConcurrentHashMap<Integer, Double>();
+					properties = new ConcurrentHashMap<>();
+					questRewardRates = new ConcurrentHashMap<>();
+					questDropRates = new ConcurrentHashMap<>();
 					load();
 				}
 			}
@@ -296,10 +296,7 @@ public class AddonsConfig
 		{
 			return Integer.decode("0x" + get(name, String.valueOf(def)));
 		}
-		else
-		{
-			return Integer.decode(get(name, String.valueOf(def)));
-		}
+		return Integer.decode(get(name, String.valueOf(def)));
 	}
 	
 	public static byte getByte(String name, byte def)

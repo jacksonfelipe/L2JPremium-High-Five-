@@ -77,12 +77,6 @@ public class PcInventory extends Inventory
 		return _adena.getCount();
 	}
 	
-	/**
-	 * Добавляет адену игроку.<BR>
-	 * <BR>
-	 * @param amount - сколько адены дать
-	 * @return L2ItemInstance - новое количество адены
-	 */
 	public ItemInstance addAdena(long amount, String log)
 	{
 		return addItem(ItemTemplate.ITEM_ID_ADENA, amount, log);
@@ -282,9 +276,7 @@ public class PcInventory extends Inventory
 		isRefresh = false;
 	}
 	
-	/**
-	 * Вызывается из RequestSaveInventoryOrder
-	 */
+	 
 	public void sort(int[][] order)
 	{
 		boolean needSort = false;
@@ -683,7 +675,7 @@ public class PcInventory extends Inventory
 		}
 		return item;
 	}
-
+	
 	@Override
 	public ItemInstance addItem(ItemInstance item, String owner, String log)
 	{

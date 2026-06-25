@@ -13,7 +13,7 @@ import premium.gameserver.network.telnet.TelnetCommandHolder;
 
 public class TelnetSay implements TelnetCommandHolder
 {
-	private Set<TelnetCommand> _commands = new LinkedHashSet<TelnetCommand>();
+	private Set<TelnetCommand> _commands = new LinkedHashSet<>();
 	
 	public TelnetSay()
 	{

@@ -53,10 +53,7 @@ public class CalculateRewardChances
 			{
 				return droplistsCountCache.get(itemId)[0].intValue();
 			}
-			else
-			{
-				return droplistsCountCache.get(itemId)[1].intValue();
-			}
+			return droplistsCountCache.get(itemId)[1].intValue();
 		}
 		
 		int dropCount = 0;
@@ -98,10 +95,7 @@ public class CalculateRewardChances
 		{
 			return dropCount;
 		}
-		else
-		{
-			return spoilCount;
-		}
+		return spoilCount;
 	}
 	
 	private static boolean templateExists(NpcTemplate template)
@@ -277,7 +271,7 @@ public class CalculateRewardChances
 			return "0";
 		}
 		
-		double mod = Experience.penaltyModifier((long) NpcInstance.calculateLevelDiffForDrop(npc.level, player.getLevel(), false), 9.0);
+		double mod = Experience.penaltyModifier(NpcInstance.calculateLevelDiffForDrop(npc.level, player.getLevel(), false), 9.0);
 		double baseRate = 1.0;
 		double playerRate = 1.0;
 		if (info.type == RewardType.SWEEP)
@@ -312,13 +306,13 @@ public class CalculateRewardChances
 		double groupChance = info.group.getChance();
 		if (mod > 10)
 		{
-			groupChance = (double) RewardList.MAX_CHANCE;
+			groupChance = RewardList.MAX_CHANCE;
 		}
 		
 		double itemChance = info.data.getChance();
 		
-		groupChance /= (double) RewardList.MAX_CHANCE;
-		itemChance /= (double) RewardList.MAX_CHANCE;
+		groupChance /= RewardList.MAX_CHANCE;
+		itemChance /= RewardList.MAX_CHANCE;
 		double finalChance = groupChance * itemChance;
 		return String.valueOf(finalChance * 100);
 	}
@@ -347,8 +341,8 @@ public class CalculateRewardChances
 		{
 			BigDecimal groupChance = BigDecimal.valueOf(info.group.getChance() * Math.min(rate - n, 1.0));
 			BigDecimal itemChance = BigDecimal.valueOf(info.data.getChance());
-			groupChance = groupChance.divide(BigDecimal.valueOf((long) RewardList.MAX_CHANCE));
-			itemChance = itemChance.divide(BigDecimal.valueOf((long) RewardList.MAX_CHANCE));
+			groupChance = groupChance.divide(BigDecimal.valueOf(RewardList.MAX_CHANCE));
+			itemChance = itemChance.divide(BigDecimal.valueOf(RewardList.MAX_CHANCE));
 			totalChance = totalChance.add(groupChance.multiply(itemChance));
 		}
 		String totalChanceString = totalChance.multiply(BigDecimal.valueOf(100.0)).toString();
@@ -417,7 +411,7 @@ public class CalculateRewardChances
 			};
 		}
 		
-		double mod = Experience.penaltyModifier((long) NpcInstance.calculateLevelDiffForDrop(npc.level, player.getLevel(), false), 9.0);
+		double mod = Experience.penaltyModifier(NpcInstance.calculateLevelDiffForDrop(npc.level, player.getLevel(), false), 9.0);
 		double baseRate = 1.0;
 		double playerRate = 1.0;
 		if (info.type == RewardType.SWEEP)
@@ -453,7 +447,7 @@ public class CalculateRewardChances
 		{
 			minDrop *= (long) imult;
 		}
-		long maxDrop = (long) ((double) info.data.getMaxDrop() * Math.ceil(imult));
+		long maxDrop = (long) (info.data.getMaxDrop() * Math.ceil(imult));
 		return new long[]
 		{
 			minDrop,

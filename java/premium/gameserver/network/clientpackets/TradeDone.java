@@ -166,7 +166,7 @@ public class TradeDone extends L2GameClientPacket
 				return;
 			}
 			
-			final List<ItemActionLog> actionLogs = new ArrayList<ItemActionLog>((tradeList1.size() + tradeList2.size()) * 2);
+			final List<ItemActionLog> actionLogs = new ArrayList<>((tradeList1.size() + tradeList2.size()) * 2);
 			for (TradeItem ti2 : tradeList1)
 			{
 				final ItemInstance oldFullItem = parthner1.getInventory().getItemByObjectId(ti2.getObjectId());

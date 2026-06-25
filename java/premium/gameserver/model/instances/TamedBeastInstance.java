@@ -25,6 +25,7 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public final class TamedBeastInstance extends FeedableBeastInstance
 {
+	private static final long serialVersionUID = 1L;
 	private static final int MAX_DISTANCE_FROM_OWNER = 2000;
 	private static final int MAX_DISTANCE_FOR_BUFF = 200;
 	private static final int MAX_DURATION = 1200000; // 20 minutes
@@ -35,37 +36,37 @@ public final class TamedBeastInstance extends FeedableBeastInstance
 	private int _foodSkillId, _remainingTime = MAX_DURATION;
 	private Future<?> _durationCheckTask = null;
 	
-	private final List<Skill> _skills = new ArrayList<Skill>();
+	private final List<Skill> _skills = new ArrayList<>();
 	
 	@SuppressWarnings("unchecked")
 	private static final Map.Entry<NpcString, int[]>[] TAMED_DATA = new Map.Entry[6];
 	static
 	{
-		TAMED_DATA[0] = new AbstractMap.SimpleImmutableEntry<NpcString, int[]>(NpcString.RECKLESS_S1, new int[]
+		TAMED_DATA[0] = new AbstractMap.SimpleImmutableEntry<>(NpcString.RECKLESS_S1, new int[]
 		{
 			6671
 		});
-		TAMED_DATA[1] = new AbstractMap.SimpleImmutableEntry<NpcString, int[]>(NpcString.S1_OF_BALANCE, new int[]
+		TAMED_DATA[1] = new AbstractMap.SimpleImmutableEntry<>(NpcString.S1_OF_BALANCE, new int[]
 		{
 			6431,
 			6666
 		});
-		TAMED_DATA[2] = new AbstractMap.SimpleImmutableEntry<NpcString, int[]>(NpcString.SHARP_S1, new int[]
+		TAMED_DATA[2] = new AbstractMap.SimpleImmutableEntry<>(NpcString.SHARP_S1, new int[]
 		{
 			6432,
 			6668
 		});
-		TAMED_DATA[3] = new AbstractMap.SimpleImmutableEntry<NpcString, int[]>(NpcString.USEFUL_S1, new int[]
+		TAMED_DATA[3] = new AbstractMap.SimpleImmutableEntry<>(NpcString.USEFUL_S1, new int[]
 		{
 			6433,
 			6670
 		});
-		TAMED_DATA[4] = new AbstractMap.SimpleImmutableEntry<NpcString, int[]>(NpcString.S1_OF_BLESSING, new int[]
+		TAMED_DATA[4] = new AbstractMap.SimpleImmutableEntry<>(NpcString.S1_OF_BLESSING, new int[]
 		{
 			6669,
 			6672
 		});
-		TAMED_DATA[5] = new AbstractMap.SimpleImmutableEntry<NpcString, int[]>(NpcString.SWIFT_S1, new int[]
+		TAMED_DATA[5] = new AbstractMap.SimpleImmutableEntry<>(NpcString.SWIFT_S1, new int[]
 		{
 			6434,
 			6667

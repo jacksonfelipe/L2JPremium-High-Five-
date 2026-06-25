@@ -24,6 +24,7 @@ import premium.gameserver.utils.Location;
 
 public class RaceManagerInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
 	public static final int LANES = 8;
 	public static final int WINDOW_START = 0;
 	
@@ -82,8 +83,8 @@ public class RaceManagerInstance extends NpcInstance
 			notInitialized = false;
 			
 			_raceNumber = ServerVariables.getInt("monster_race", 1);
-			history = new ArrayList<Race>();
-			managers = new CopyOnWriteArraySet<RaceManagerInstance>();
+			history = new ArrayList<>();
+			managers = new CopyOnWriteArraySet<>();
 			
 			ThreadPoolManager s = ThreadPoolManager.getInstance();
 			s.scheduleAtFixedRate(new Announcement(SystemMessage.TICKETS_ARE_NOW_AVAILABLE_FOR_THE_S1TH_MONSTER_RACE), 0, 10 * MINUTE);

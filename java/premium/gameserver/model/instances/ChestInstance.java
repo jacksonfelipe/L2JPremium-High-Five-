@@ -7,6 +7,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class ChestInstance extends MonsterInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public ChestInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

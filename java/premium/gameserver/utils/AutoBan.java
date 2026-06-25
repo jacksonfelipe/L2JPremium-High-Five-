@@ -566,29 +566,26 @@ public final class AutoBan
 			
 			return true;
 		}
-		else
+		int objId = CharacterDAO.getInstance().getObjectIdByName(actor);
+		if (objId == 0)
 		{
-			int objId = CharacterDAO.getInstance().getObjectIdByName(actor);
-			if (objId == 0)
-			{
-				_log.warn("Char not found");
-				return false;
-			}
-			
-			String jailed = CharacterDAO.getInstance().getUserVar(objId, "jailed");
-			if (jailed == null)
-			{
-				_log.warn("Trying to unjail a non-jailed character.");
-				return false;
-			}
-			
-			CharacterDAO.getInstance().deleteUserVar(objId, "jailed");
-			
-			String[] re = CharacterDAO.getInstance().getUserVar(objId, "jailedFrom").split(";");
-			CharacterDAO.getInstance().setDbLocatio(objId, Integer.parseInt(re[0]), Integer.parseInt(re[1]), Integer.parseInt(re[2]));
-			
-			return true;
+			_log.warn("Char not found");
+			return false;
 		}
+		
+		String jailed = CharacterDAO.getInstance().getUserVar(objId, "jailed");
+		if (jailed == null)
+		{
+			_log.warn("Trying to unjail a non-jailed character.");
+			return false;
+		}
+		
+		CharacterDAO.getInstance().deleteUserVar(objId, "jailed");
+		
+		String[] re = CharacterDAO.getInstance().getUserVar(objId, "jailedFrom").split(";");
+		CharacterDAO.getInstance().setDbLocatio(objId, Integer.parseInt(re[0]), Integer.parseInt(re[1]), Integer.parseInt(re[2]));
+		
+		return true;
 	}
 	
 	/**
@@ -628,43 +625,31 @@ public final class AutoBan
 			
 			return true;
 		}
-		else
+		int objId = CharacterDAO.getInstance().getObjectIdByName(actor);
+		if (objId == 0)
 		{
-			int objId = CharacterDAO.getInstance().getObjectIdByName(actor);
-			if (objId == 0)
+			if (GM != null)
 			{
-				if (GM != null)
-				{
-					GM.sendMessage("Char not found");
-				}
-				return false;
+				GM.sendMessage("Char not found");
 			}
-			
-			Location loc = CharacterDAO.getInstance().getLocation(objId);
-			if (loc == null)
-			{
-				if (GM != null)
-				{
-					GM.sendMessage("Char location was not loaded");
-				}
-				return false;
-			}
-			
-			if (period > 0)
-			{
-				String per = TimeUtils.minutesToFullString(period);
-				// Announcements.getInstance().announceToAll("Player " + actor + " jailed for " + per);
-			}
-			else
-			{
-				// Announcements.getInstance().announceToAll("Player " + actor + " jailed indefinitely!");
-			}
-			
-			mysql.set("REPLACE INTO character_variables (obj_id, type, name, value, expire_time) VALUES (?,'user-var',?,?,?)", objId, "jailedFrom", loc.getX() + ";" + loc.getY() + ";" + loc.getZ() + ";0", -1);
-			mysql.set("REPLACE INTO character_variables (obj_id, type, name, value, expire_time) VALUES (?,'user-var',?,?,?)", objId, "jailed", "1", (period <= 0 ? -1 : System.currentTimeMillis() + (period * 60000)));
-			
-			return true;
+			return false;
 		}
+		
+		Location loc = CharacterDAO.getInstance().getLocation(objId);
+		if (loc == null)
+		{
+			if (GM != null)
+			{
+				GM.sendMessage("Char location was not loaded");
+			}
+			return false;
+		}
+		
+	 
+		mysql.set("REPLACE INTO character_variables (obj_id, type, name, value, expire_time) VALUES (?,'user-var',?,?,?)", objId, "jailedFrom", loc.getX() + ";" + loc.getY() + ";" + loc.getZ() + ";0", -1);
+		mysql.set("REPLACE INTO character_variables (obj_id, type, name, value, expire_time) VALUES (?,'user-var',?,?,?)", objId, "jailed", "1", (period <= 0 ? -1 : System.currentTimeMillis() + (period * 60000)));
+		
+		return true;
 	}
 	
 	public static void doJailPlayer(String playerName, long period, boolean msg)

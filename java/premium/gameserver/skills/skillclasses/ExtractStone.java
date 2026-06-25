@@ -9,7 +9,6 @@ import premium.gameserver.Config;
 import premium.gameserver.model.Creature;
 import premium.gameserver.model.Player;
 import premium.gameserver.model.Skill;
-import premium.gameserver.model.items.ItemInstance;
 import premium.gameserver.model.quest.Quest;
 import premium.gameserver.network.serverpackets.PlaySound;
 import premium.gameserver.network.serverpackets.SystemMessage2;
@@ -53,7 +52,7 @@ public class ExtractStone extends Skill
 	private final static int SeedDarkness = 18683;
 	private final static int SeedDivinity = 18682;
 	
-	private List<Integer> _npcIds = new ArrayList<Integer>();
+	private List<Integer> _npcIds = new ArrayList<>();
 	
 	public ExtractStone(StatsSet set)
 	{
@@ -74,7 +73,7 @@ public class ExtractStone extends Skill
 			return false;
 		}
 		
-		if (!_npcIds.isEmpty() && !_npcIds.contains(new Integer(target.getNpcId())))
+		if (!_npcIds.isEmpty() && !_npcIds.contains(target.getNpcId()))
 		{
 			activeChar.sendPacket(SystemMsg.INVALID_TARGET);
 			return false;
@@ -83,10 +82,6 @@ public class ExtractStone extends Skill
 		return super.checkCondition(activeChar, target, forceUse, dontMove, first);
 	}
 	
-	/**
-	 * Возвращает ID предмета получаемого из npcId.
-	 * @return
-	 */
 	private int getItemId(int npcId)
 	{
 		switch (npcId)
@@ -151,7 +146,7 @@ public class ExtractStone extends Skill
 				
 				if (count > 0)
 				{
-					ItemInstance createdItem = player.getInventory().addItem(itemId, count, "ExtractStone");
+					player.getInventory().addItem(itemId, count, "ExtractStone");
 					player.sendPacket(new PlaySound(Quest.SOUND_ITEMGET));
 					player.sendPacket(SystemMessage2.obtainItems(itemId, count, 0));
 					player.sendChanges();

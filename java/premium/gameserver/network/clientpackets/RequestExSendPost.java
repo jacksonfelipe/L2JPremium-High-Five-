@@ -14,7 +14,6 @@ import premium.commons.dao.JdbcEntityState;
 import premium.gameserver.Config;
 import premium.gameserver.dao.CharacterDAO;
 import premium.gameserver.database.mysql;
-import premium.gameserver.multverso.managers.MailManager;
 import premium.gameserver.handler.admincommands.impl.AdminMail;
 import premium.gameserver.model.GameObjectsStorage;
 import premium.gameserver.model.Player;
@@ -24,6 +23,7 @@ import premium.gameserver.model.entity.CCPHelpers.itemLogs.ItemLogHandler;
 import premium.gameserver.model.items.ItemInstance;
 import premium.gameserver.model.items.ItemInstance.ItemLocation;
 import premium.gameserver.model.mail.Mail;
+import premium.gameserver.multverso.managers.MailManager;
 import premium.gameserver.network.serverpackets.ExNoticePostArrived;
 import premium.gameserver.network.serverpackets.ExReplyWritePost;
 import premium.gameserver.network.serverpackets.SystemMessage2;
@@ -111,7 +111,7 @@ public class RequestExSendPost extends L2GameClientPacket
 		// Custom
 		if (activeChar.isGM() && this._recieverName.equalsIgnoreCase(AdminMail.MAIL_ALL_TEXT))
 		{
-			Map<Integer, Long> map = new HashMap<Integer, Long>();
+			Map<Integer, Long> map = new HashMap<>();
 			if (this._items != null && this._items.length > 0)
 			{
 				for (int i = 0; i < this._items.length; i++)
@@ -313,7 +313,7 @@ public class RequestExSendPost extends L2GameClientPacket
 		
 		long serviceCost = 100 + this._count * 1000; // TODO [G1ta0] hardcoding price for mail
 		
-		List<ItemInstance> attachments = new ArrayList<ItemInstance>();
+		List<ItemInstance> attachments = new ArrayList<>();
 		
 		activeChar.getInventory().writeLock();
 		try

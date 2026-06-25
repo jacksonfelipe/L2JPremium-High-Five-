@@ -367,14 +367,8 @@ public class OfflineBufferManager
 		}
 	}
 	
-	/**
-	 * Sends the to the player the buffer store window with all the buffs and info
-	 * @param player
-	 * @param buffer
-	 * @param isForPlayer
-	 * @param page
-	 */
-	private void showStoreWindow(Player player, BufferData buffer, boolean isForPlayer, int page)
+	 
+	private static void showStoreWindow(Player player, BufferData buffer, boolean isForPlayer, int page)
 	{
 		final NpcHtmlMessage html = new NpcHtmlMessage(0);
 		html.setFile("command/buffstore/buff_store_buffer.htm");

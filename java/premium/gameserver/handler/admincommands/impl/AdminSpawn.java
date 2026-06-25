@@ -47,7 +47,7 @@ public class AdminSpawn implements IAdminCommandHandler
 	}
 	
 	@Override
-	public boolean useAdminCommand(Enum comm, String[] wordList, String fullString, Player activeChar)
+	public boolean useAdminCommand(@SuppressWarnings("rawtypes") Enum comm, String[] wordList, String fullString, Player activeChar)
 	{
 		Commands command = (Commands) comm;
 		
@@ -331,13 +331,14 @@ public class AdminSpawn implements IAdminCommandHandler
 		return true;
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Enum[] getAdminCommandEnum()
 	{
 		return Commands.values();
 	}
 	
-	private void spawnMonster(Player activeChar, String monsterId, int respawnTime, int mobCount)
+	public void spawnMonster(Player activeChar, String monsterId, int respawnTime, int mobCount)
 	{
 		GameObject target = activeChar.getTarget();
 		if (target == null)

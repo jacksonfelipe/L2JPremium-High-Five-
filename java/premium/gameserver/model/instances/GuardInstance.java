@@ -7,6 +7,8 @@ import premium.gameserver.templates.npc.NpcTemplate;
 
 public class GuardInstance extends NpcInstance
 {
+	private static final long serialVersionUID = 1L;
+
 	public GuardInstance(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);

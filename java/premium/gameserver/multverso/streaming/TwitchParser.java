@@ -45,11 +45,8 @@ public class TwitchParser
 	
 	private static class CheckTwitch extends RunnableImpl
 	{
-		private final long _delayBetweenChecks;
-		
 		private CheckTwitch(long delayBetweenChecks)
 		{
-			_delayBetweenChecks = delayBetweenChecks;
 		}
 		
 		@Override
@@ -63,14 +60,14 @@ public class TwitchParser
 			parseTwitch();
 		}
 		
-		private void parseTwitch()
+		private static void parseTwitch()
 		{
 			try
 			{
 				final JSONObject data = getAllActiveChannels();
 				final JSONArray streams = data.getJSONArray("streams");
 				Log.logStream("Starting to parse " + data.getInt("_total") + " active streams!");
-				final long currentDate = System.currentTimeMillis();
+				System.currentTimeMillis();
 				for (int streamIndex = 0; streamIndex < streams.length(); ++streamIndex)
 				{
 					final JSONObject stream = streams.getJSONObject(streamIndex);
@@ -78,14 +75,13 @@ public class TwitchParser
 					{
 						try
 						{
-							final String gameName = stream.getString("game");
-							final int viewersCount = stream.getInt("viewers");
+							stream.getString("game");
+							stream.getInt("viewers");
 							final JSONObject channel = stream.getJSONObject("channel");
 							if (channel.get("status") != null && !channel.isNull("status"))
 							{
-								final String channelName = channel.getString("display_name");
-								final String streamTitle = channel.getString("status");
-								// StreamsHolder.getInstance().onStreamActive(channelName, gameName, streamTitle, viewersCount, currentDate, _delayBetweenChecks);
+								channel.getString("display_name");
+								channel.getString("status");
 							}
 						}
 						catch (JSONException e)

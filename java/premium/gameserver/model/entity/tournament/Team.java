@@ -54,7 +54,7 @@ public class Team
 	
 	public List<Player> getOnlinePlayers()
 	{
-		final List<Player> list = new ArrayList<Player>(_playerIds.length);
+		final List<Player> list = new ArrayList<>(_playerIds.length);
 		for (int playerId : _playerIds)
 		{
 			final Player player = GameObjectsStorage.getPlayer(playerId);
@@ -68,7 +68,7 @@ public class Team
 	
 	public List<String> getPlayerNames(boolean justOnline)
 	{
-		final List<String> names = new ArrayList<String>(_playerIds.length);
+		final List<String> names = new ArrayList<>(_playerIds.length);
 		for (int playerId : _playerIds)
 		{
 			final Player player = GameObjectsStorage.getPlayer(playerId);

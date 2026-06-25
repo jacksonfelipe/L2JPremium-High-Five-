@@ -22,7 +22,7 @@ public class Stream
 	private String _attachedPlayerServer = "";
 	private long _notRewardedSeconds = 0L;
 	private long _totalRewardedSecondsToday = 0L;
-	private final List<Integer> _idsToApprove = new ArrayList<Integer>();
+	private final List<Integer> _idsToApprove = new ArrayList<>();
 	private long _punishedUntilDate = -1L;
 	
 	public Stream(String channelName, String streamGameName, boolean isStreamGameNameCorrect, String streamTitle, boolean isTitleCorrect, int viewersCount, long lastActiveDate)
@@ -187,7 +187,7 @@ public class Stream
 	
 	public List<Integer> getIdsToApproveCopy()
 	{
-		return new ArrayList<Integer>(_idsToApprove);
+		return new ArrayList<>(_idsToApprove);
 	}
 	
 	public void setPunishedUntilDate(long date)
