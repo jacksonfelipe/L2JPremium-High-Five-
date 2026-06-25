@@ -11,10 +11,7 @@ import premium.loginserver.accounts.SessionManager;
 import premium.loginserver.accounts.SessionManager.Session;
 import premium.loginserver.crypt.PasswordHash;
 import premium.loginserver.gameservercon.GameServer;
-import premium.loginserver.gameservercon.SendablePacket;
 import premium.loginserver.gameservercon.lspackets.GetAccountInfo;
-import premium.loginserver.gameservercon.lspackets.OnWrongAccountPassword;
-import premium.loginserver.serverpackets.LoginFail;
 import premium.loginserver.serverpackets.LoginFail.LoginFailReason;
 import premium.loginserver.serverpackets.LoginOk;
 
@@ -90,22 +87,30 @@ public class RequestAuthLogin extends L2LoginClientPacket
 			return;
 		}
 		
-		// if (Config.ENABLE_MERGE)
-		// {
-		// final Account mergeAccount = AccountMerge.getInstance().tryMergeAccount(user);
-		// if (mergeAccount != null)
-		// {
-		// afterConnection(mergeAccount, passwordHash, password, client, user);
-		// return;
-		// }
-		// }
+ 
 		
 		if (Config.AUTO_CREATE_ACCOUNTS && user.matches(Config.ANAME_TEMPLATE) && password.matches(Config.APASSWD_TEMPLATE) && !user.equalsIgnoreCase(password))
 		{
 			account.setAllowedIP("");
 			account.setAllowedHwid("");
-			account.setPasswordHash(password);
+
+			// Importante: salvar a senha já criptografada, igual a base espera no login.
+			account.setPasswordHash(passwordHash);
+
+			account.setLastAccess(currentTime);
+			account.setLastIP(client.getIpAddress());
+
 			account.save();
+ 
+			account.restore();
+
+			if (account.getPasswordHash() == null)
+			{
+				_log.warn("Falha ao criar nova conta no banco de dados: " + user + ". Verifique se Account.save() faz INSERT e não apenas UPDATE.");
+				client.close(LoginFailReason.REASON_USER_OR_PASS_WRONG);
+				return;
+			}
+
 			afterConnection(account, passwordHash, password, client, user);
 			return;
 		}
@@ -144,17 +149,16 @@ public class RequestAuthLogin extends L2LoginClientPacket
 		
 		if (!passwordCorrect)
 		{
-			_log.warn("IP: " + client.getConnection().getSocket().getInetAddress() + " wrote Wrong Password(Written: " + password + ", Current: " + account.getPasswordHash() + ") Password to Account: " + account.getLogin());
-			final SendablePacket wrongPasswordPacket = new OnWrongAccountPassword(account.getLogin(), password);
-			for (GameServer gs : GameServerManager.getInstance().getGameServers())
+			// check if the password is not encrypted by one of the older but supported algorithms
+			for (PasswordHash c : Config.LEGACY_CRYPT)
 			{
-				if (gs.getProtocol() >= 2 && gs.isAuthed())
+				if (c.compare(password, account.getPasswordHash()))
 				{
-					gs.sendPacket(wrongPasswordPacket);
+					passwordCorrect = true;
+					account.setPasswordHash(passwordHash);
+					break;
 				}
 			}
-			client.close(LoginFail.LoginFailReason.REASON_USER_OR_PASS_WRONG);
-			return;
 		}
 		
 		if ((account.getAccessLevel() < 0) || (account.getBanExpire() > currentTime))
@@ -179,8 +183,12 @@ public class RequestAuthLogin extends L2LoginClientPacket
 		
 		account.setLastAccess(currentTime);
 		account.setLastIP(client.getIpAddress());
-		
+
+	 
+		account.save();
+
 		Session session = SessionManager.getInstance().openSession(account);
+ 
 		
 		client.setAuthed(true);
 		client.setLogin(user);
