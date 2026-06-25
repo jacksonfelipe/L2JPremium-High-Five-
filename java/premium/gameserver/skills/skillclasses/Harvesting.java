@@ -100,7 +100,7 @@ public class Harvesting extends Skill
 					continue;
 				}
 				
-				 player.getInventory().addItem(item.itemId, item.count, "Harvesting");
+				player.getInventory().addItem(item.itemId, item.count, "Harvesting");
 				
 				player.getCounters().manorSeedsSow++;
 				

@@ -11,7 +11,7 @@ shell.CurrentDirectory = baseDir
 javaExe = "javaw"
 javaOpts = "--add-opens=java.xml/com.sun.org.apache.xerces.internal.parsers=ALL-UNNAMED"
 classPath = "config;..\libs\*"
-mainClass = "l2mv.loginserver.panel.AuthGuiLauncher"
+mainClass = "premium.loginserver.panel.AuthGuiLauncher"
 
 Do
 	cmd = """" & javaExe & """ " & javaOpts & " -Xmx128m -cp """ & classPath & """ " & mainClass

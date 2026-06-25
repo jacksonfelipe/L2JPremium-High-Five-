@@ -12,7 +12,7 @@ javaExe = "javaw"
 
 javaOpts = "--add-opens=java.xml/com.sun.org.apache.xerces.internal.parsers=ALL-UNNAMED"
 classPath = "config;..\libs\*"
-mainClass = "l2mv.gameserver.GameGuiLauncher"
+mainClass = "premium.gameserver.GameGuiLauncher"
 
 Do
 	cmd = """" & javaExe & """ " & javaOpts & " -Xms512m -Xmx4096m -cp """ & classPath & """ " & mainClass
