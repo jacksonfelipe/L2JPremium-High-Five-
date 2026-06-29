@@ -16,8 +16,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import gov.nasa.worldwind.formats.dds.DDSConverter;
-import javolution.util.FastMap;
-import javolution.util.FastTable;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 import premium.commons.dbutils.DbUtils;
 import premium.gameserver.Config;
 import premium.gameserver.ThreadPoolManager;
@@ -44,11 +46,11 @@ public class AutoHuntingManager
 {
 	private static final Logger _log = LoggerFactory.getLogger(AutoHuntingManager.class);
 	private static AutoHuntingManager _instance;
-	private static FastMap<Integer, String[]> _unread;
+	private static Map<Integer, String[]> _unread = new ConcurrentHashMap<>();
 	// Number of reportes made over each player
-	private static FastMap<Integer, FastTable<Player>> _reportedCount = new FastMap<>();
+	private static Map<Integer, List<Player>> _reportedCount = new ConcurrentHashMap<>();
 	// Reporters blocked by time
-	private static FastMap<Integer, Long> _lockedReporters = new FastMap<>();
+	private static Map<Integer, Long> _lockedReporters = new ConcurrentHashMap<>();
 	// Blocked ips
 	private static Set<String> _lockedIps = new HashSet<>();
 	// Blocked accounts
@@ -184,20 +186,20 @@ public class AutoHuntingManager
 		ResultSet rset = null;
 		try
 		{
-			if (!_reportedCount.containsKey(reported))
+			if (!_reportedCount.containsKey(reporter.getObjectId()))
 			{
-				final FastTable<Player> p = new FastTable<>();
+				final List<Player> p = new CopyOnWriteArrayList<>();
 				p.add(reported);
 				_reportedCount.put(reporter.getObjectId(), p);
 			}
 			else
 			{
-				if (_reportedCount.get(reporter).contains(reported.getObjectId()))
+				if (_reportedCount.get(reporter.getObjectId()).contains(reported))
 				{
 					reporter.sendMessage(new CustomMessage("premium.gameserver.instancemanager.autohuntingmanager.message2", reporter));
 					return;
 				}
-				_reportedCount.get(reporter).add(reported);
+				_reportedCount.get(reporter.getObjectId()).add(reported);
 			}
 			con = DatabaseFactory.getInstance().getConnection();
 			statement = con.prepareStatement("INSERT INTO `bot_report`(`reported_name`, `reported_objectId`, `reporter_name`, `reporter_objectId`, `date`, `reportType`, `info`) VALUES (?,?,?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
@@ -305,7 +307,7 @@ public class AutoHuntingManager
  
 	public void loadUnread()
 	{
-		_unread = new FastMap<>();
+		_unread = new java.util.concurrent.ConcurrentHashMap<>();
 		Connection con = null;
 		PreparedStatement statement = null;
 		ResultSet rset = null;
@@ -342,7 +344,7 @@ public class AutoHuntingManager
 	 * Return a FastMap holding all the reports data to be viewed by any GM
 	 * @return _unread
 	 */
-	public FastMap<Integer, String[]> getUnread()
+	public java.util.Map<Integer, String[]> getUnread()
 	{
 		return _unread;
 	}

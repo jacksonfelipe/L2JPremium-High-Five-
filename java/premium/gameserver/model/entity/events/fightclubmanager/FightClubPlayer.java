@@ -3,7 +3,7 @@ package premium.gameserver.model.entity.events.fightclubmanager;
 import java.io.Serializable;
 import java.util.Map;
 
-import javolution.util.FastMap;
+import java.util.concurrent.ConcurrentHashMap;
 import premium.gameserver.model.Party;
 import premium.gameserver.model.Player;
 
@@ -17,7 +17,7 @@ public class FightClubPlayer implements Serializable
 	private int _score;
 	private int _playerKills;
 	private int _petKills;
-	private final Map<String, Integer> _otherCreaturesScores = new FastMap<>();
+	private final Map<String, Integer> _otherCreaturesScores = new ConcurrentHashMap<>();
 	private int _deaths;
 	private double _damage;
 	private long _lastDamageTime;

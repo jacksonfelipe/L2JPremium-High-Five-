@@ -7,7 +7,7 @@ import java.util.Map.Entry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javolution.util.FastMap;
+import java.util.concurrent.ConcurrentHashMap;
 import premium.gameserver.ThreadPoolManager;
 import premium.gameserver.model.Creature;
 import premium.gameserver.model.instances.NpcInstance;
@@ -20,7 +20,7 @@ public class DecayTaskManager
 {
 	protected static final Logger _log = LoggerFactory.getLogger(NpcInstance.class);
 	
-	protected final Map<Creature, Long> _decayTasks = new FastMap<Creature, Long>().shared();
+	protected final Map<Creature, Long> _decayTasks = new ConcurrentHashMap<>();
 	
 	protected DecayTaskManager()
 	{

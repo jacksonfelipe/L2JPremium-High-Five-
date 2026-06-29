@@ -13,7 +13,7 @@ import java.util.Map.Entry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javolution.util.FastMap;
+import java.util.concurrent.ConcurrentHashMap;
 import premium.gameserver.Config;
 import premium.gameserver.dao.ItemsDAO;
 import premium.gameserver.data.xml.holder.HennaHolder;
@@ -45,9 +45,9 @@ public class AuctionManager
 	
 	private static final int MAX_AUCTIONS_PER_PLAYER = 1;
 	
-	private final Map<Integer, Auction> _auctions = new FastMap<>();
+	private final Map<Integer, Auction> _auctions = new ConcurrentHashMap<>();
 	private final List<Integer> _deadAuctions = new ArrayList<>();
-	private final Map<Integer, Long> _lastMadeAuction = new FastMap<>();
+	private final Map<Integer, Long> _lastMadeAuction = new ConcurrentHashMap<>();
 	private int _lastId = -1;
 	
 	private AuctionManager()

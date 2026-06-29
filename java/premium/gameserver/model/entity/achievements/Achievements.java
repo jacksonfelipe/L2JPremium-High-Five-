@@ -7,27 +7,28 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
-import org.w3c.dom.Node;
 
-import javolution.util.FastMap;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.Map;
 import premium.gameserver.Config;
 import premium.gameserver.data.htm.HtmCache;
 import premium.gameserver.model.Player;
 import premium.gameserver.network.serverpackets.TutorialCloseHtml;
 import premium.gameserver.network.serverpackets.TutorialShowHtml;
 
+import premium.gameserver.templates.StatsSet;
+import premium.gameserver.utils.DocumentParser;
+
 /**
  * @author Nik (total rework)
  */
-public class Achievements
+public class Achievements extends DocumentParser
 {
 	// id-max
-	private final FastMap<Integer, Integer> _achievementMaxLevels = new FastMap<>();
+	private final Map<Integer, Integer> _achievementMaxLevels = new ConcurrentHashMap<>();
 	private final List<AchievementCategory> _achievementCategories = new LinkedList<>();
 	private static Achievements _instance;
 	
@@ -227,89 +228,83 @@ public class Achievements
 		return player.getAchievements(categoryId).values().stream().mapToInt(level -> level).sum();
 	}
 	
+	@Override
 	public void load()
 	{
 		_achievementMaxLevels.clear();
 		_achievementCategories.clear();
-		try
-		{
-			File file = Config.findNonCustomResource("config/mod/achievements.xml");
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			factory.setValidating(false);
-			factory.setIgnoringComments(true);
-			Document doc = factory.newDocumentBuilder().parse(file);
-			
-			for (Node g = doc.getFirstChild(); g != null; g = g.getNextSibling())
-			{
-				for (Node z = g.getFirstChild(); z != null; z = z.getNextSibling())
-				{
-					if (z.getNodeName().equals("categories"))
-					{
-						for (Node i = z.getFirstChild(); i != null; i = i.getNextSibling())
-						{
-							if ("cat".equalsIgnoreCase(i.getNodeName()))
-							{
-								int categoryId = Integer.valueOf(i.getAttributes().getNamedItem("id").getNodeValue());
-								String categoryName = String.valueOf(i.getAttributes().getNamedItem("name").getNodeValue());
-								String categoryIcon = String.valueOf(i.getAttributes().getNamedItem("icon").getNodeValue());
-								String categoryDesc = String.valueOf(i.getAttributes().getNamedItem("desc").getNodeValue());
-								_achievementCategories.add(new AchievementCategory(categoryId, categoryName, categoryIcon, categoryDesc));
-							}
-						}
-					}
-					else if (z.getNodeName().equals("achievement"))
-					{
-						int achievementId = Integer.valueOf(z.getAttributes().getNamedItem("id").getNodeValue());
-						int achievementCategory = Integer.valueOf(z.getAttributes().getNamedItem("cat").getNodeValue());
-						String desc = String.valueOf(z.getAttributes().getNamedItem("desc").getNodeValue());
-						String fieldType = String.valueOf(z.getAttributes().getNamedItem("type").getNodeValue());
-						int achievementMaxLevel = 0;
-						
-						for (Node i = z.getFirstChild(); i != null; i = i.getNextSibling())
-						{
-							if ("level".equalsIgnoreCase(i.getNodeName()))
-							{
-								int level = Integer.valueOf(i.getAttributes().getNamedItem("id").getNodeValue());
-								long pointsToComplete = Long.parseLong(i.getAttributes().getNamedItem("need").getNodeValue());
-								int fame = Integer.valueOf(i.getAttributes().getNamedItem("fame").getNodeValue());
-								String name = String.valueOf(i.getAttributes().getNamedItem("name").getNodeValue());
-								String icon = String.valueOf(i.getAttributes().getNamedItem("icon").getNodeValue());
-								Achievement achievement = new Achievement(achievementId, level, name, achievementCategory, icon, desc, pointsToComplete, fieldType, fame);
-								
-								if (achievementMaxLevel < level)
-								{
-									achievementMaxLevel = level;
-								}
-								
-								for (Node o = i.getFirstChild(); o != null; o = o.getNextSibling())
-								{
-									if ("reward".equalsIgnoreCase(o.getNodeName()))
-									{
-										int Itemid = Integer.valueOf(o.getAttributes().getNamedItem("id").getNodeValue());
-										long Itemcount = Long.parseLong(o.getAttributes().getNamedItem("count").getNodeValue());
-										achievement.addReward(Itemid, Itemcount);
-									}
-								}
-								
-								AchievementCategory lastCategory = _achievementCategories.stream().filter(ctg -> ctg.getCategoryId() == achievementCategory).findAny().orElse(null);
-								if (lastCategory != null)
-								{
-									lastCategory.getAchievements().add(achievement);
-								}
-							}
-						}
-						
-						_achievementMaxLevels.put(achievementId, achievementMaxLevel);
-					}
-				}
-			}
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
+		
+		parseFile(Config.findNonCustomResource("config/mod/achievements.xml"));
 		
 		_log.info("Achievement System: Loaded " + _achievementCategories.size() + " achievement categories and " + _achievementMaxLevels.size() + " achievements.");
+	}
+	
+	@Override
+	protected void parseDocument()
+	{
+		// Not used without document
+	}
+	
+	@Override
+	protected void parseDocument(Document doc)
+	{
+		forEach(doc, "list", listNode ->
+		{
+			forEach(listNode, "categories", categoriesNode ->
+			{
+				forEach(categoriesNode, "cat", catNode ->
+				{
+					StatsSet set = parseAttributes(catNode);
+					int categoryId = set.getInteger("id");
+					String categoryName = set.getString("name");
+					String categoryIcon = set.getString("icon");
+					String categoryDesc = set.getString("desc");
+					_achievementCategories.add(new AchievementCategory(categoryId, categoryName, categoryIcon, categoryDesc));
+				});
+			});
+			
+			forEach(listNode, "achievement", achievementNode ->
+			{
+				StatsSet set = parseAttributes(achievementNode);
+				int achievementId = set.getInteger("id");
+				int achievementCategory = set.getInteger("cat");
+				String desc = set.getString("desc");
+				String fieldType = set.getString("type");
+				int[] achievementMaxLevel = { 0 };
+				
+				forEach(achievementNode, "level", levelNode ->
+				{
+					StatsSet levelSet = parseAttributes(levelNode);
+					int level = levelSet.getInteger("id");
+					long pointsToComplete = levelSet.getLong("need");
+					int fame = levelSet.getInteger("fame");
+					String name = levelSet.getString("name");
+					String icon = levelSet.getString("icon");
+					Achievement achievement = new Achievement(achievementId, level, name, achievementCategory, icon, desc, pointsToComplete, fieldType, fame);
+					
+					if (achievementMaxLevel[0] < level)
+					{
+						achievementMaxLevel[0] = level;
+					}
+					
+					forEach(levelNode, "reward", rewardNode ->
+					{
+						StatsSet rewardSet = parseAttributes(rewardNode);
+						int Itemid = rewardSet.getInteger("id");
+						long Itemcount = rewardSet.getLong("count");
+						achievement.addReward(Itemid, Itemcount);
+					});
+					
+					AchievementCategory lastCategory = _achievementCategories.stream().filter(ctg -> ctg.getCategoryId() == achievementCategory).findAny().orElse(null);
+					if (lastCategory != null)
+					{
+						lastCategory.getAchievements().add(achievement);
+					}
+				});
+				
+				_achievementMaxLevels.put(achievementId, achievementMaxLevel[0]);
+			});
+		});
 	}
 	
 	public static Achievements getInstance()

@@ -5,51 +5,56 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.logging.Logger;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-
 import org.w3c.dom.Document;
-import org.w3c.dom.Node;
 
-import javolution.util.FastMap;
-import premium.gameserver.Config;
+import java.util.concurrent.ConcurrentHashMap;
+import premium.gameserver.templates.StatsSet;
+import premium.gameserver.utils.DocumentParser;
 
-public class EmotionsTable
+public class EmotionsTable extends DocumentParser
 {
 	private static final Logger _log = Logger.getLogger(EmotionsTable.class.getName());
-	private static Map<String, Integer> _emotions = new FastMap<>();
+	private static Map<String, Integer> _emotions = new ConcurrentHashMap<>();
+	
+	private static EmotionsTable _instance;
+	
+	public static EmotionsTable getInstance()
+	{
+		if (_instance == null)
+		{
+			_instance = new EmotionsTable();
+		}
+		return _instance;
+	}
 	
 	public static void init()
 	{
-		try
+		getInstance().load();
+	}
+	
+	@Override
+	public void load()
+	{
+		_emotions.clear();
+		parseDatapackFile("data/emotions.xml");
+	}
+	
+	@Override
+	protected void parseDocument()
+	{
+	}
+	
+	@Override
+	protected void parseDocument(Document doc)
+	{
+		forEach(doc, "list", listNode ->
 		{
-			_emotions.clear();
-			
-			File file = Config.findResource("/data/emotions.xml");
-			DocumentBuilderFactory factory1 = DocumentBuilderFactory.newInstance();
-			factory1.setValidating(false);
-			factory1.setIgnoringComments(true);
-			Document doc1 = factory1.newDocumentBuilder().parse(file);
-			for (Node n1 = doc1.getFirstChild(); n1 != null; n1 = n1.getNextSibling())
+			forEach(listNode, "emo", d1 ->
 			{
-				if ("list".equalsIgnoreCase(n1.getNodeName()))
-				{
-					for (Node d1 = n1.getFirstChild(); d1 != null; d1 = d1.getNextSibling())
-					{
-						if ("emo".equalsIgnoreCase(d1.getNodeName()))
-						{
-							String text = d1.getAttributes().getNamedItem("text").getNodeValue();
-							int emotion = Integer.parseInt(d1.getAttributes().getNamedItem("emotionId").getNodeValue());
-							_emotions.put(text, emotion);
-						}
-					}
-				}
-			}
-		}
-		catch (Exception e)
-		{
-			_log.warning("Emoticons: Could not pharse the xml...");
-			e.printStackTrace();
-		}
+				StatsSet set = parseAttributes(d1);
+				_emotions.put(set.getString("text"), set.getInteger("emotionId"));
+			});
+		});
 	}
 	
 	public static Map<String, Integer> getEmoticons()

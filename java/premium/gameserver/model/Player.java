@@ -47,8 +47,8 @@ import org.napile.primitive.maps.impl.CHashIntObjectMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javolution.util.FastList;
-import javolution.util.FastMap;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.ConcurrentHashMap;
 import premium.commons.annotations.Nullable;
 import premium.commons.dao.JdbcEntityState;
 import premium.commons.dbutils.DbUtils;
@@ -13950,7 +13950,7 @@ public final class Player extends Playable implements PlayerGroup
 	}
 	
 	/** ----------------Start Achievement System ------------------- */
-	private final List<Integer> _completedAchievements = new FastList<>();
+	private final List<Integer> _completedAchievements = new CopyOnWriteArrayList<>();
 	
 	public List<Integer> getCompletedAchievements()
 	{
@@ -14194,13 +14194,13 @@ public final class Player extends Playable implements PlayerGroup
 		return false;
 	}
 	
-	private final Map<Integer, Integer> _achievementLevels = new FastMap<>();
+	private final Map<Integer, Integer> _achievementLevels = new ConcurrentHashMap<>();
 	
 	public boolean achievement_nf_open;
 	
 	public Map<Integer, Integer> getAchievements(int category)
 	{
-		Map<Integer, Integer> result = new FastMap<>();
+		Map<Integer, Integer> result = new HashMap<>();
 		for (Entry<Integer, Integer> entry : _achievementLevels.entrySet())
 		{
 			int achievementId = entry.getKey();

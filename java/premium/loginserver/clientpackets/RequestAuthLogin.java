@@ -185,7 +185,7 @@ public class RequestAuthLogin extends L2LoginClientPacket
 		account.setLastIP(client.getIpAddress());
 
 	 
-		account.save();
+		account.update();
 
 		Session session = SessionManager.getInstance().openSession(account);
  

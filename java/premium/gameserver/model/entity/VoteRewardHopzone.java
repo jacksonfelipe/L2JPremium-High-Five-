@@ -8,7 +8,8 @@ import java.net.URLConnection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javolution.util.FastMap;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.Map;
 import premium.gameserver.Announcements;
 import premium.gameserver.Config;
 import premium.gameserver.ThreadPoolManager;
@@ -29,7 +30,7 @@ public class VoteRewardHopzone
 	
 	// Don't-touch variables.
 	private static int lastVotes = 0;
-	private static FastMap<String, Integer> playerIps = new FastMap<>();
+	private static Map<String, Integer> playerIps = new ConcurrentHashMap<>();
 	
 	public static void updateConfigurations()
 	{

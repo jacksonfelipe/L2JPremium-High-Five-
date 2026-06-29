@@ -4,7 +4,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
-import javolution.util.FastMap;
+import java.util.HashMap;
 import premium.commons.collections.MultiValueSet;
 import premium.commons.lang.ArrayUtils;
 import premium.commons.time.cron.SchedulingPattern;
@@ -313,7 +313,7 @@ public class KrateisCubeEvent extends GlobalEvent
 		
 		particlePlayer.setShowRank(true);
 		
-		Map<String, Integer> scores = new FastMap<>();
+		Map<String, Integer> scores = new HashMap<>();
 		for (KrateisCubePlayerObject p : getSortedPlayers())
 		{
 			scores.put(p.getName(), p.getPoints());
@@ -337,7 +337,7 @@ public class KrateisCubeEvent extends GlobalEvent
 	{
 		k.getPlayer().sendPacket(new ExPVPMatchCCMyRecord(k));
 		
-		Map<String, Integer> scores = new FastMap<>();
+		Map<String, Integer> scores = new HashMap<>();
 		for (KrateisCubePlayerObject p : getSortedPlayers())
 		{
 			scores.put(p.getName(), p.getPoints());

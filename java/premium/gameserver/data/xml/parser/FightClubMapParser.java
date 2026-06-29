@@ -11,7 +11,7 @@ import java.util.Map;
 
 import org.dom4j.Element;
 
-import javolution.util.FastMap;
+import java.util.HashMap;
 import premium.commons.collections.MultiValueSet;
 import premium.commons.data.xml.AbstractDirParser;
 import premium.gameserver.Config;
@@ -103,7 +103,7 @@ public final class FightClubMapParser extends AbstractDirParser<FightClubMapHold
 				{
 					if (territories == null)
 					{
-						territories = new FastMap<>();
+						territories = new HashMap<>();
 					}
 					territories.putAll(parseTerritory(objectElement));
 				}

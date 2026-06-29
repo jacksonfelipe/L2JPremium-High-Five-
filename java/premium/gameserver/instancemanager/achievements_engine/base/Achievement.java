@@ -2,8 +2,9 @@ package premium.gameserver.instancemanager.achievements_engine.base;
 
 import java.util.logging.Logger;
 
-import javolution.util.FastList;
-import javolution.util.FastMap;
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 import premium.gameserver.model.Player;
 
 public class Achievement
@@ -15,12 +16,12 @@ public class Achievement
 	private String _description = "No Description!";
 	private final boolean _repeatable;
 	
-	private final FastMap<Integer, Long> _rewardList;
-	private final FastList<Condition> _conditions;
+	private final Map<Integer, Long> _rewardList;
+	private final List<Condition> _conditions;
 	
-	public Achievement(int id, String name, String description, String reward, boolean repeatable, FastList<Condition> conditions)
+	public Achievement(int id, String name, String description, String reward, boolean repeatable, List<Condition> conditions)
 	{
-		_rewardList = new FastMap<>();
+		_rewardList = new HashMap<>();
 		_id = id;
 		_name = name;
 		_description = description;
@@ -94,12 +95,12 @@ public class Achievement
 		return _repeatable;
 	}
 	
-	public FastMap<Integer, Long> getRewardList()
+	public Map<Integer, Long> getRewardList()
 	{
 		return _rewardList;
 	}
 	
-	public FastList<Condition> getConditions()
+	public List<Condition> getConditions()
 	{
 		return _conditions;
 	}

@@ -7,17 +7,9 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 
 import premium.gameserver.Config;
 import premium.gameserver.data.htm.HtmCache;
@@ -26,7 +18,10 @@ import premium.gameserver.hwid.HwidGamer;
 import premium.gameserver.model.Player;
 import premium.gameserver.utils.Language;
 
-public class ChangeLogManager
+import premium.gameserver.templates.StatsSet;
+import premium.gameserver.utils.DocumentParser;
+
+public class ChangeLogManager extends DocumentParser
 {
 	private static final Logger LOG = LoggerFactory.getLogger(ChangeLogManager.class);
 	private final List<Change> changeList;
@@ -41,7 +36,7 @@ public class ChangeLogManager
 	public ChangeLogManager()
 	{
 		changeList = new LinkedList<>();
-		loadChangeLog();
+		load();
 	}
 	
 	public int getNotSeenChangeLog(Player player)
@@ -173,68 +168,45 @@ public class ChangeLogManager
 	
 	public void reloadChangeLog()
 	{
-		changeList.clear();
-		loadChangeLog();
+		load();
 	}
 	
-	private void loadChangeLog()
+	@Override
+	public void load()
 	{
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		factory.setValidating(false);
-		factory.setIgnoringComments(true);
-		Document doc;
-		try
-		{
-			doc = factory.newDocumentBuilder().parse(new File(Config.DATAPACK_ROOT, "data/changeLog.xml"));
-			
-			NodeList list = doc.getElementsByTagName("change");
-			for (int i = 0; i < list.getLength(); i++)
-			{
-				Element element = (Element) list.item(i);
-				Change newChange = parseNewChange(i, element);
-				
-				changeList.add(newChange);
-			}
-		}
-		catch (DOMException | IOException | IllegalArgumentException | ParserConfigurationException | SAXException e)
-		{
-			LOG.error("Error while loading ChangeLog ", e);
-		}
+		changeList.clear();
+		parseDatapackFile("data/changeLog.xml");
 		Collections.reverse(changeList);
 	}
 	
-	private static Change parseNewChange(int index, Element element)
+	@Override
+	protected void parseDocument()
 	{
-		String date = element.getAttribute("date");
-		
-		Change change = new Change(index, date);
-		NodeList firstNodeElementList = element.getElementsByTagName("fix");
-		boolean ended = false;
-		int line = 0;
-		while (!ended)
-		{
-			try
-			{
-				Fix newFix = parseFix(line, firstNodeElementList);
-				change.addFix(newFix);
-				line++;
-			}
-			catch (NullPointerException e)
-			{
-				ended = true;
-			}
-		}
-		return change;
+		// Not used without document
 	}
 	
-	private static Fix parseFix(int line, NodeList firstNodeElementList)
+	@Override
+	protected void parseDocument(Document doc)
 	{
-		Node element1 = firstNodeElementList.item(line);
-		NodeList firstNodeList = element1.getChildNodes();
-		String type = ((Node) firstNodeList).getAttributes().item(1).getNodeValue();
-		String desc = ((Node) firstNodeList).getAttributes().item(0).getNodeValue();
-		FixType realType = FixType.valueOf(type);
-		return new Fix(realType, desc);
+		int[] index = { 0 };
+		forEach(doc, "list", listNode ->
+		{
+			forEach(listNode, "change", changeNode ->
+			{
+				StatsSet changeSet = parseAttributes(changeNode);
+				Change change = new Change(index[0]++, changeSet.getString("date"));
+				
+				forEach(changeNode, "fix", fixNode ->
+				{
+					StatsSet fixSet = parseAttributes(fixNode);
+					FixType realType = FixType.valueOf(fixSet.getString("type"));
+					String desc = fixSet.getString("desc");
+					change.addFix(new Fix(realType, desc));
+				});
+				
+				changeList.add(change);
+			});
+		});
 	}
 	
 	public static ChangeLogManager getInstance()

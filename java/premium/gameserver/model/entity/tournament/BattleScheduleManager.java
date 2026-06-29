@@ -61,6 +61,7 @@ public class BattleScheduleManager
 	
 	private BattleScheduleManager()
 	{
+		System.setProperty("nashorn.args", "--no-deprecation-warning");
 		final ScriptEngineManager mgr = new ScriptEngineManager();
 		_javaScriptEngine = mgr.getEngineByName("JavaScript");
 		

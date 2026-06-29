@@ -105,7 +105,7 @@ public abstract class AbstractDPScript extends Quest
 		}
 		
 		@Override
-		protected void parseFile(File f)
+		public void parseFile(File f)
 		{
 			super.parseFile(f);
 		}

@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import javolution.util.FastMap;
+import java.util.concurrent.ConcurrentHashMap;
 import premium.commons.collections.MultiValueSet;
 import premium.commons.util.Rnd;
 import premium.gameserver.ThreadPoolManager;
@@ -32,7 +32,7 @@ public class RussianRouletteEvent extends AbstractFightClub
 {
 	// Npc Simon
 	private static final int RUSSIAN_NPC = 90310;
-	private final Map<Integer, NpcInstance> _russianNpcs = new FastMap<Integer, NpcInstance>().shared();
+	private final Map<Integer, NpcInstance> _russianNpcs = new ConcurrentHashMap<>();
 	
 	// Skill de explosion
 	// private static final Skill EXPLOSION_SKILL = SkillTable.getInstance().getInfo(30054, 1);
@@ -43,7 +43,7 @@ public class RussianRouletteEvent extends AbstractFightClub
 	private int _isLastSingleRound = 0;
 	
 	// Concursantes validos
-	private final Map<Integer, FightClubPlayer> _participatingPlayers = new FastMap<Integer, FightClubPlayer>().shared();
+	private final Map<Integer, FightClubPlayer> _participatingPlayers = new ConcurrentHashMap<>();
 	
 	public RussianRouletteEvent(MultiValueSet<String> set)
 	{

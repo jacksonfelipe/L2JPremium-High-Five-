@@ -4,23 +4,25 @@ import java.io.File;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
+import java.util.StringTokenizer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
-import org.xml.sax.SAXException;
+
+import gnu.trove.map.hash.TIntObjectHashMap;
+import premium.gameserver.Config;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.templates.StatsSet;
+import premium.gameserver.templates.item.ItemTemplate;
+import premium.gameserver.utils.DocumentParser;
 
 import gnu.trove.map.hash.TIntObjectHashMap;
 import premium.gameserver.Config;
 import premium.gameserver.model.items.ItemInstance;
 import premium.gameserver.templates.item.ItemTemplate;
 
-public class EnchantHPBonusTable
+public class EnchantHPBonusTable extends DocumentParser
 {
 	private static Logger _log = LoggerFactory.getLogger(EnchantHPBonusTable.class);
 	
@@ -46,74 +48,63 @@ public class EnchantHPBonusTable
 	
 	private EnchantHPBonusTable()
 	{
-		try
+		load();
+	}
+	
+	@Override
+	public void load()
+	{
+		_armorHPBonus.clear();
+		parseDatapackFile("data/enchant_bonus.xml");
+		_log.info("EnchantHPBonusTable: Loaded bonuses for " + _armorHPBonus.size() + " grades.");
+	}
+	
+	@Override
+	protected void parseDocument()
+	{
+		// Not used without document
+	}
+	
+	@Override
+	protected void parseDocument(Document doc)
+	{
+		forEach(doc, "list", listNode ->
 		{
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			factory.setValidating(false);
-			factory.setIgnoringComments(true);
-			File file = new File(Config.DATAPACK_ROOT, "data/enchant_bonus.xml");
-			Document doc = factory.newDocumentBuilder().parse(file);
-			
-			for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
+			forEach(listNode, d ->
 			{
-				if ("list".equalsIgnoreCase(n.getNodeName()))
+				StatsSet set = parseAttributes(d);
+				if ("options".equalsIgnoreCase(d.getNodeName()))
 				{
-					for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
+					_onepieceFactor = set.getInteger("onepiece_factor", _onepieceFactor);
+				}
+				else if ("enchant_bonus".equalsIgnoreCase(d.getNodeName()))
+				{
+					if (!set.isSet("grade") || !set.isSet("values"))
 					{
-						NamedNodeMap attrs = d.getAttributes();
-						Node att;
-						if ("options".equalsIgnoreCase(d.getNodeName()))
+						_log.info("EnchantHPBonusTable: Missing grade or values, skipping");
+						return;
+					}
+					
+					int grade = set.getInteger("grade");
+					StringTokenizer st = new StringTokenizer(set.getString("values"), ",");
+					int tokenCount = st.countTokens();
+					Integer[] bonus = new Integer[tokenCount];
+					for (int i = 0; i < tokenCount; i++)
+					{
+						try
 						{
-							att = attrs.getNamedItem("onepiece_factor");
-							if (att == null)
-							{
-								_log.info("EnchantHPBonusTable: Missing onepiece_factor, skipping");
-								continue;
-							}
-							_onepieceFactor = Integer.parseInt(att.getNodeValue());
+							bonus[i] = Integer.decode(st.nextToken().trim());
 						}
-						else if ("enchant_bonus".equalsIgnoreCase(d.getNodeName()))
+						catch (NumberFormatException e)
 						{
-							Integer grade;
-							
-							att = attrs.getNamedItem("grade");
-							if (att == null)
-							{
-								_log.info("EnchantHPBonusTable: Missing grade, skipping");
-								continue;
-							}
-							grade = Integer.parseInt(att.getNodeValue());
-							
-							att = attrs.getNamedItem("values");
-							if (att == null)
-							{
-								_log.info("EnchantHPBonusTable: Missing bonus id: " + grade + ", skipping");
-								continue;
-							}
-							StringTokenizer st = new StringTokenizer(att.getNodeValue(), ",");
-							int tokenCount = st.countTokens();
-							Integer[] bonus = new Integer[tokenCount];
-							for (int i = 0; i < tokenCount; i++)
-							{
-								Integer value = Integer.decode(st.nextToken().trim());
-								if (value == null)
-								{
-									_log.info("EnchantHPBonusTable: Bad Hp value!! grade: " + grade + " token: " + i);
-									value = 0;
-								}
-								bonus[i] = value;
-							}
-							_armorHPBonus.put(grade, bonus);
+							_log.info("EnchantHPBonusTable: Bad Hp value!! grade: " + grade + " token: " + i);
+							bonus[i] = 0;
 						}
 					}
+					_armorHPBonus.put(grade, bonus);
 				}
-			}
-			_log.info("EnchantHPBonusTable: Loaded bonuses for " + _armorHPBonus.size() + " grades.");
-		}
-		catch (DOMException | SAXException | ParserConfigurationException | NumberFormatException | IOException e)
-		{
-			_log.warn("EnchantHPBonusTable: Lists could not be initialized.", e);
-		}
+			});
+		});
 	}
 	
 	public final int getHPBonus(ItemInstance item)

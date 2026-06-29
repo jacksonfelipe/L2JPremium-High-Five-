@@ -375,6 +375,7 @@ public class EffectList
 			// Проверяем на лимиты бафов/дебафов
 			checkSlotLimit(effect);
 			
+			add = _effects.add(effect);
 			effect.setInUse(true);
 			
 		}

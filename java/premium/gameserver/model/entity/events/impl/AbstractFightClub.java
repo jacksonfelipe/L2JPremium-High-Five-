@@ -22,7 +22,6 @@ import org.napile.primitive.maps.impl.HashIntObjectMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javolution.util.FastMap;
 import premium.commons.annotations.Nullable;
 import premium.commons.collections.MultiValueSet;
 import premium.commons.lang.ArrayUtils;
@@ -2313,7 +2312,7 @@ public abstract class AbstractFightClub extends GlobalEvent
 	protected List<List<Player>> spreadTeamInPartys(FightClubTeam team)
 	{
 		// Creating Map<Class, List of Players>
-		Map<CLASSES, List<Player>> classesMap = new FastMap<>();
+		Map<CLASSES, List<Player>> classesMap = new HashMap<>();
 		for (CLASSES clazz : CLASSES.values())
 		{
 			classesMap.put(clazz, new ArrayList<>());
@@ -2461,7 +2460,7 @@ public abstract class AbstractFightClub extends GlobalEvent
 			}
 		}
 		
-		Map<Location, Integer> spawnLocations = new FastMap<>(spawnLocs.length);
+		Map<Location, Integer> spawnLocations = new HashMap<>(spawnLocs.length);
 		for (Location loc : spawnLocs)
 		{
 			spawnLocations.put(loc, 0);

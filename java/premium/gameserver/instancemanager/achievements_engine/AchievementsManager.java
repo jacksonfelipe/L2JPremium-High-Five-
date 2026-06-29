@@ -1,8 +1,7 @@
 package premium.gameserver.instancemanager.achievements_engine;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,15 +10,13 @@ import java.sql.Statement;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
-import org.xml.sax.InputSource;
 
-import javolution.util.FastList;
-import javolution.util.FastMap;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.List;
 import premium.gameserver.Config;
 import premium.gameserver.database.DatabaseFactory;
 import premium.gameserver.instancemanager.achievements_engine.base.Achievement;
@@ -53,68 +50,64 @@ import premium.gameserver.instancemanager.achievements_engine.conditions.events;
 import premium.gameserver.model.Player;
 import premium.gameserver.utils.ItemFunctions;
 
-public class AchievementsManager
+import premium.gameserver.templates.StatsSet;
+import premium.gameserver.utils.DocumentParser;
+
+public class AchievementsManager extends DocumentParser
 {
-	private final Map<Integer, Achievement> _achievementList = new FastMap<>();
+	private final Map<Integer, Achievement> _achievementList = new ConcurrentHashMap<>();
 	
-	private final FastList<String> _binded = new FastList<>();
+	private final List<String> _binded = new CopyOnWriteArrayList<>();
 	
 	private static Logger _log = Logger.getLogger(AchievementsManager.class.getName());
 	
 	public AchievementsManager()
 	{
-		loadAchievements();
+		load();
 	}
 	
-	private void loadAchievements()
+	@Override
+	public void load()
 	{
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		factory.setValidating(false);
-		factory.setIgnoringComments(true);
-		
+		_achievementList.clear();
 		File file = new File(Config.DATAPACK_ROOT, "data/Achievements.xml");
 		
 		if (!file.exists())
 		{
 			_log.warning("AchievementsEngine: Error achievements xml file does not exist, check directory!");
+			return;
 		}
-		try
+		
+		parseFile(file);
+	}
+	
+	@Override
+	protected void parseDocument()
+	{
+		// Not used without document
+	}
+	
+	@Override
+	protected void parseDocument(Document doc)
+	{
+		forEach(doc, "list", listNode ->
 		{
-			InputSource in = new InputSource(new InputStreamReader(new FileInputStream(file), "UTF-8"));
-			in.setEncoding("UTF-8");
-			Document doc = factory.newDocumentBuilder().parse(in);
-			
-			for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
+			forEach(listNode, "achievement", d ->
 			{
-				if (n.getNodeName().equalsIgnoreCase("list"))
-				{
-					for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
-					{
-						if (d.getNodeName().equalsIgnoreCase("achievement"))
-						{
-							int id = checkInt(d, "id");
-							
-							String name = String.valueOf(d.getAttributes().getNamedItem("name").getNodeValue());
-							String description = String.valueOf(d.getAttributes().getNamedItem("description").getNodeValue());
-							String reward = String.valueOf(d.getAttributes().getNamedItem("reward").getNodeValue());
-							boolean repeat = checkBoolean(d, "repeatable");
-							
-							FastList<Condition> conditions = conditionList(d.getAttributes());
-							
-							_achievementList.put(id, new Achievement(id, name, description, reward, repeat, conditions));
-							alterTable(id);
-						}
-					}
-				}
-			}
-			
-			// _log.info("AchievementsEngine: loaded " + getAchievementList().size() + " achievements from xml!");
-		}
-		catch (Exception e)
-		{
-			_log.warning("AchievementsEngine: Error " + e);
-			e.printStackTrace();
-		}
+				StatsSet set = parseAttributes(d);
+				int id = set.getInteger("id", 0);
+				
+				String name = set.getString("name");
+				String description = set.getString("description");
+				String reward = set.getString("reward");
+				boolean repeat = set.getBool("repeatable", false);
+				
+				List<Condition> conditions = conditionList(d.getAttributes());
+				
+				_achievementList.put(id, new Achievement(id, name, description, reward, repeat, conditions));
+				alterTable(id);
+			});
+		});
 	}
 	
 	public void rewardForAchievement(int achievementID, Player player)
@@ -183,9 +176,9 @@ public class AchievementsManager
 		 */
 	}
 	
-	public FastList<Condition> conditionList(NamedNodeMap attributesList)
+	public List<Condition> conditionList(NamedNodeMap attributesList)
 	{
-		FastList<Condition> conditions = new FastList<>();
+		List<Condition> conditions = new java.util.ArrayList<>();
 		
 		for (int j = 0; j < attributesList.getLength(); j++)
 		{
@@ -200,7 +193,7 @@ public class AchievementsManager
 		return _achievementList;
 	}
 	
-	public FastList<String> getBinded()
+	public List<String> getBinded()
 	{
 		return _binded;
 	}
@@ -228,7 +221,7 @@ public class AchievementsManager
 		protected static final AchievementsManager _instance = new AchievementsManager();
 	}
 	
-	private static void addToConditionList(String nodeName, Object value, FastList<Condition> conditions)
+	private static void addToConditionList(String nodeName, Object value, List<Condition> conditions)
 	{
 		if (nodeName.equals("minLevel"))
 		{

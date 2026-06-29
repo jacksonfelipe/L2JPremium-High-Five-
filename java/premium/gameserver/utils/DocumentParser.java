@@ -16,6 +16,7 @@ package premium.gameserver.utils;
 
 import java.io.File;
 import java.io.FileFilter;
+import java.util.function.Consumer;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -29,6 +30,7 @@ import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXParseException;
 
 import premium.gameserver.Config;
+import premium.gameserver.templates.StatsSet;
 
 /**
  * Abstract class for XML parsers.
@@ -77,7 +79,7 @@ public abstract class DocumentParser
 	 * <b>Validation is enforced.</b>
 	 * @param f the XML file to parse.
 	 */
-	protected void parseFile(File f)
+	public void parseFile(File f)
 	{
 		if (!getCurrentFileFilter().accept(f))
 		{
@@ -88,14 +90,36 @@ public abstract class DocumentParser
 		final DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 		dbf.setNamespaceAware(true);
 		dbf.setValidating(true);
+		try
+		{
+			dbf.setFeature("http://apache.org/xml/features/validation/dynamic", true);
+		}
+		catch (Exception e)
+		{
+			_log.warn("Failed setting dynamic validation feature: " + e.getMessage());
+		}
 		dbf.setIgnoringComments(true);
 		_currentDocument = null;
 		_currentFile = f;
 		try
 		{
-			dbf.setAttribute(JAXP_SCHEMA_LANGUAGE, W3C_XML_SCHEMA);
 			final DocumentBuilder db = dbf.newDocumentBuilder();
 			db.setErrorHandler(new XMLErrorHandler());
+			db.setEntityResolver((publicId, systemId) ->
+			{
+				if (systemId != null)
+				{
+					if (systemId.endsWith("config.dtd"))
+					{
+						return new org.xml.sax.InputSource(new File(Config.DATAPACK_ROOT, "config/config.dtd").toURI().toString());
+					}
+					if (systemId.endsWith("skills.dtd"))
+					{
+						return new org.xml.sax.InputSource(new File(Config.DATAPACK_ROOT, "data/stats/skills/skills.dtd").toURI().toString());
+					}
+				}
+				return null;
+			});
 			_currentDocument = db.parse(f);
 		}
 		catch (SAXParseException e)
@@ -215,6 +239,59 @@ public abstract class DocumentParser
 	 * Is expected to be call from {@link #parseFile(File)}.
 	 */
 	protected abstract void parseDocument();
+	
+	/**
+	 * Parses all attributes of a Node into a StatsSet.
+	 * @param node the node to parse
+	 * @return a StatsSet containing all attributes
+	 */
+	protected StatsSet parseAttributes(Node node)
+	{
+		StatsSet set = new StatsSet();
+		NamedNodeMap attrs = node.getAttributes();
+		if (attrs != null)
+		{
+			for (int i = 0; i < attrs.getLength(); i++)
+			{
+				Node attr = attrs.item(i);
+				set.set(attr.getNodeName(), attr.getNodeValue());
+			}
+		}
+		return set;
+	}
+	
+	/**
+	 * Iterates over child nodes of a given node and executes an action.
+	 * @param node the parent node
+	 * @param action the action to execute for each child node
+	 */
+	protected void forEach(Node node, Consumer<Node> action)
+	{
+		for (Node n = node.getFirstChild(); n != null; n = n.getNextSibling())
+		{
+			if (n.getNodeType() == Node.ELEMENT_NODE)
+			{
+				action.accept(n);
+			}
+		}
+	}
+	
+	/**
+	 * Iterates over child nodes of a given node that match the specified nodeName and executes an action.
+	 * @param node the parent node
+	 * @param nodeName the node name to match (case-insensitive)
+	 * @param action the action to execute for each matching child node
+	 */
+	protected void forEach(Node node, String nodeName, Consumer<Node> action)
+	{
+		for (Node n = node.getFirstChild(); n != null; n = n.getNextSibling())
+		{
+			if (n.getNodeType() == Node.ELEMENT_NODE && nodeName.equalsIgnoreCase(n.getNodeName()))
+			{
+				action.accept(n);
+			}
+		}
+	}
 	
 	/**
 	 * Parses a boolean value.

@@ -16,8 +16,6 @@ import java.util.Random;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.math.NumberUtils;
@@ -38,9 +36,13 @@ import premium.gameserver.model.base.Experience;
 import premium.gameserver.model.base.PlayerAccess;
 import premium.gameserver.network.loginservercon.ServerType;
 import premium.gameserver.network.serverpackets.components.ChatType;
+import premium.gameserver.templates.item.WeaponTemplate.WeaponType;
+import premium.gameserver.templates.StatsSet;
 import premium.gameserver.utils.AddonsConfig;
+import premium.gameserver.utils.DocumentParser;
 import premium.gameserver.utils.GArray;
 import premium.gameserver.utils.Location;
+import premium.gameserver.utils.Util;
 
 public class Config
 {
@@ -5403,78 +5405,81 @@ public class Config
 	
 	public static void loadGMAccess(File file)
 	{
-		try
+		new DocumentParser()
 		{
-			Field fld;
-			// File file = new File(filename);
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			factory.setValidating(false);
-			factory.setIgnoringComments(true);
-			Document doc = factory.newDocumentBuilder().parse(file);
-			
-			for (Node z = doc.getFirstChild(); z != null; z = z.getNextSibling())
+			@Override
+			public void load()
 			{
-				for (Node n = z.getFirstChild(); n != null; n = n.getNextSibling())
-				{
-					if (!n.getNodeName().equalsIgnoreCase("char"))
-					{
-						continue;
-					}
-					
-					PlayerAccess pa = new PlayerAccess();
-					for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
-					{
-						Class<?> cls = pa.getClass();
-						String node = d.getNodeName();
-						
-						if (node.equalsIgnoreCase("#text"))
-						{
-							continue;
-						}
-						
-						// Synerge - Support to allow only the commands listed here
-						if (node.equalsIgnoreCase("AllowedCommands"))
-						{
-							final String[] commands = d.getAttributes().getNamedItem("set").getNodeValue().split(";");
-							for (String command : commands)
-							{
-								if (command.trim().isEmpty())
-								{
-									continue;
-								}
-								
-								pa.AllowedCommands.add(command.trim());
-							}
-							continue;
-						}
-						
-						try
-						{
-							fld = cls.getField(node);
-						}
-						catch (NoSuchFieldException e)
-						{
-							_log.info("Not found desclarate ACCESS name: " + node + " in XML Player access Object");
-							continue;
-						}
-						
-						if (fld.getType().getName().equalsIgnoreCase("boolean"))
-						{
-							fld.setBoolean(pa, Boolean.parseBoolean(d.getAttributes().getNamedItem("set").getNodeValue()));
-						}
-						else if (fld.getType().getName().equalsIgnoreCase("int"))
-						{
-							fld.setInt(pa, Integer.valueOf(d.getAttributes().getNamedItem("set").getNodeValue()));
-						}
-					}
-					gmlist.put(pa.PlayerID, pa);
-				}
+				parseFile(file);
 			}
-		}
-		catch (Exception e)
-		{
-			e.printStackTrace();
-		}
+			
+			@Override
+			protected void parseDocument()
+			{
+				// Not used without document
+			}
+			
+			@Override
+			protected void parseDocument(Document doc)
+			{
+				forEach(doc, "list", listNode ->
+				{
+					forEach(listNode, "char", n ->
+					{
+						PlayerAccess pa = new PlayerAccess();
+						forEach(n, d ->
+						{
+							Class<?> cls = pa.getClass();
+							String node = d.getNodeName();
+							
+							// Synerge - Support to allow only the commands listed here
+							if (node.equalsIgnoreCase("AllowedCommands"))
+							{
+								final String[] commands = parseAttributes(d).getString("set").split(";");
+								for (String command : commands)
+								{
+									if (command.trim().isEmpty())
+									{
+										continue;
+									}
+									
+									pa.AllowedCommands.add(command.trim());
+								}
+								return; // like continue
+							}
+							
+							Field fld;
+							try
+							{
+								fld = cls.getField(node);
+							}
+							catch (NoSuchFieldException e)
+							{
+								_log.info("Not found desclarate ACCESS name: " + node + " in XML Player access Object");
+								return; // like continue
+							}
+							
+							try
+							{
+								if (fld.getType().getName().equalsIgnoreCase("boolean"))
+								{
+									fld.setBoolean(pa, parseAttributes(d).getBool("set"));
+								}
+								else if (fld.getType().getName().equalsIgnoreCase("int"))
+								{
+									fld.setInt(pa, parseAttributes(d).getInteger("set"));
+								}
+							}
+							catch (Exception e)
+							{
+								e.printStackTrace();
+							}
+						});
+						gmlist.put(pa.PlayerID, pa);
+					});
+				});
+			}
+		}.load();
 	}
 	
 	public static String getField(String fieldName)

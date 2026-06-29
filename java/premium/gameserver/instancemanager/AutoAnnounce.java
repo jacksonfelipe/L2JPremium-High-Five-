@@ -5,22 +5,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
-import org.xml.sax.SAXException;
 
 import premium.gameserver.Announcements;
 import premium.gameserver.Config;
 import premium.gameserver.model.AutoAnnounces;
 
-public class AutoAnnounce implements Runnable
+import premium.gameserver.templates.StatsSet;
+import premium.gameserver.utils.DocumentParser;
+
+public class AutoAnnounce extends DocumentParser implements Runnable
 {
 	private static final Logger LOG = LoggerFactory.getLogger(AutoAnnounce.class);
 	private static AutoAnnounce _instance;
@@ -49,60 +45,51 @@ public class AutoAnnounce implements Runnable
 		LOG.info("AutoAnnounce: Loaded " + _lists.size() + " announce.");
 	}
 	
+	@Override
 	public void load()
 	{
-		try
+		_lists.clear();
+		File file = new File(Config.DATAPACK_ROOT, "/config/autoannounce.xml");
+		if (!file.exists())
 		{
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			factory.setValidating(false);
-			factory.setIgnoringComments(true);
-			
-			File file = new File(Config.DATAPACK_ROOT, "/config/autoannounce.xml");
-			if (!file.exists())
+			LOG.warn("AutoAnnounce: NO FILE (./config/autoannounce.xml)");
+			return;
+		}
+		
+		parseFile(file);
+		LOG.info("AutoAnnounce: Load OK");
+	}
+	
+	@Override
+	protected void parseDocument()
+	{
+		// Not used without document
+	}
+	
+	@Override
+	protected void parseDocument(Document doc)
+	{
+		int[] counterAnnounce = { 0 };
+		forEach(doc, "list", listNode ->
+		{
+			forEach(listNode, "announce", d ->
 			{
-				LOG.warn("AutoAnnounce: NO FILE (./config/autoannounce.xml)");
-				return;
-			}
-			
-			Document doc = factory.newDocumentBuilder().parse(file);
-			int counterAnnounce = 0;
-			for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
-			{
-				if ("list".equalsIgnoreCase(n.getNodeName()))
+				StatsSet attrs = parseAttributes(d);
+				int delay = attrs.getInteger("delay");
+				int repeat = attrs.getInteger("repeat");
+				AutoAnnounces aa = new AutoAnnounces(counterAnnounce[0]);
+				
+				ArrayList<String> msg = new ArrayList<>();
+				forEach(d, "message", cd ->
 				{
-					for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
-					{
-						if ("announce".equalsIgnoreCase(d.getNodeName()))
-						{
-							ArrayList<String> msg = new ArrayList<>();
-							NamedNodeMap attrs = d.getAttributes();
-							int delay = Integer.parseInt(attrs.getNamedItem("delay").getNodeValue());
-							int repeat = Integer.parseInt(attrs.getNamedItem("repeat").getNodeValue());
-							AutoAnnounces aa = new AutoAnnounces(counterAnnounce);
-							for (Node cd = d.getFirstChild(); cd != null; cd = cd.getNextSibling())
-							{
-								if ("message".equalsIgnoreCase(cd.getNodeName()))
-								{
-									msg.add(String.valueOf(cd.getAttributes().getNamedItem("text").getNodeValue()));
-								}
-							}
-							aa.setAnnounce(delay, repeat, msg);
-							_lists.put(counterAnnounce, aa);
-							counterAnnounce++;
-						}
-					}
-				}
-			}
-			LOG.info("AutoAnnounce: Load OK");
-		}
-		catch (DOMException | NumberFormatException | ParserConfigurationException | SAXException e)
-		{
-			LOG.warn("AutoAnnounce: Error parsing autoannounce.xml file. ", e);
-		}
-		catch (IOException e)
-		{
-			LOG.warn("AutoAnnounce: IOException parsing autoannounce.xml file. ", e);
-		}
+					msg.add(parseAttributes(cd).getString("text"));
+				});
+				
+				aa.setAnnounce(delay, repeat, msg);
+				_lists.put(counterAnnounce[0], aa);
+				counterAnnounce[0]++;
+			});
+		});
 	}
 	
 	@Override

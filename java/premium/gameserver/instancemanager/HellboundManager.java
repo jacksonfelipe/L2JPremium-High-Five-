@@ -6,16 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
 import org.apache.commons.lang3.ArrayUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.xml.sax.SAXException;
 
 import premium.commons.geometry.Polygon;
 import premium.commons.threading.RunnableImpl;
@@ -30,12 +24,15 @@ import premium.gameserver.templates.npc.NpcTemplate;
 import premium.gameserver.utils.Location;
 import premium.gameserver.utils.ReflectionUtils;
 
+import premium.gameserver.templates.StatsSet;
+import premium.gameserver.utils.DocumentParser;
+
 /**
  * Manages 11 stages of Hellbound Island and all it's events
  * @author pchayka
  */
 
-public class HellboundManager
+public class HellboundManager extends DocumentParser
 {
 	private static final Logger _log = LoggerFactory.getLogger(HellboundManager.class);
 	private static ArrayList<HellboundSpawn> _list;
@@ -56,7 +53,7 @@ public class HellboundManager
 	
 	public HellboundManager()
 	{
-		getHellboundSpawn();
+		load();
 		spawnHellbound();
 		doorHandler();
 		_initialStage = getHellboundLevel();
@@ -335,113 +332,78 @@ public class HellboundManager
 		_log.info("HellboundManager: Spawned " + _spawnList.size() + " mobs and NPCs according to the current Hellbound stage");
 	}
 	
-	private void getHellboundSpawn()
+	@Override
+	public void load()
 	{
 		_list = new ArrayList<>();
 		_spawnList = new ArrayList<>();
 		
-		try
+		parseDatapackFile("data/hellbound_spawnlist.xml");
+		
+		_log.info("HellboundManager: Loaded " + _list.size() + " spawn entries.");
+	}
+	
+	@Override
+	protected void parseDocument()
+	{
+		// Not used without document
+	}
+	
+	@Override
+	protected void parseDocument(Document doc)
+	{
+		forEach(doc, "list", listNode ->
 		{
-			File file = new File(Config.DATAPACK_ROOT + "/data/hellbound_spawnlist.xml");
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			factory.setValidating(false);
-			factory.setIgnoringComments(true);
-			Document doc1 = factory.newDocumentBuilder().parse(file);
-			
-			int counter = 0;
-			for (Node n1 = doc1.getFirstChild(); n1 != null; n1 = n1.getNextSibling())
+			forEach(listNode, "data", d1 ->
 			{
-				if ("list".equalsIgnoreCase(n1.getNodeName()))
+				StatsSet set = parseAttributes(d1);
+				int npcId = set.getInteger("npc_id");
+				Location spawnLoc = set.isSet("loc") ? Location.parseLoc(set.getString("loc")) : null;
+				int count = set.getInteger("count", 1);
+				int respawn = set.getInteger("respawn", 60);
+				int respawnRnd = set.getInteger("respawn_rnd", 0);
+				
+				StringTokenizer st = new StringTokenizer(set.getString("stage"), ";");
+				int tokenCount = st.countTokens();
+				int[] stages = new int[tokenCount];
+				for (int i = 0; i < tokenCount; i++)
 				{
-					for (Node d1 = n1.getFirstChild(); d1 != null; d1 = d1.getNextSibling())
-					{
-						if ("data".equalsIgnoreCase(d1.getNodeName()))
-						{
-							counter++;
-							int npcId = Integer.parseInt(d1.getAttributes().getNamedItem("npc_id").getNodeValue());
-							Location spawnLoc = null;
-							if (d1.getAttributes().getNamedItem("loc") != null)
-							{
-								spawnLoc = Location.parseLoc(d1.getAttributes().getNamedItem("loc").getNodeValue());
-							}
-							int count = 1;
-							if (d1.getAttributes().getNamedItem("count") != null)
-							{
-								count = Integer.parseInt(d1.getAttributes().getNamedItem("count").getNodeValue());
-							}
-							int respawn = 60;
-							if (d1.getAttributes().getNamedItem("respawn") != null)
-							{
-								respawn = Integer.parseInt(d1.getAttributes().getNamedItem("respawn").getNodeValue());
-							}
-							int respawnRnd = 0;
-							if (d1.getAttributes().getNamedItem("respawn_rnd") != null)
-							{
-								respawnRnd = Integer.parseInt(d1.getAttributes().getNamedItem("respawn_rnd").getNodeValue());
-							}
-							
-							Node att = d1.getAttributes().getNamedItem("stage");
-							StringTokenizer st = new StringTokenizer(att.getNodeValue(), ";");
-							int tokenCount = st.countTokens();
-							int[] stages = new int[tokenCount];
-							for (int i = 0; i < tokenCount; i++)
-							{
-								Integer value = Integer.decode(st.nextToken().trim());
-								stages[i] = value;
-							}
-							
-							Territory territory = null;
-							for (Node s1 = d1.getFirstChild(); s1 != null; s1 = s1.getNextSibling())
-							{
-								if ("territory".equalsIgnoreCase(s1.getNodeName()))
-								{
-									
-									Polygon poly = new Polygon();
-									for (Node s2 = s1.getFirstChild(); s2 != null; s2 = s2.getNextSibling())
-									{
-										if ("add".equalsIgnoreCase(s2.getNodeName()))
-										{
-											int x = Integer.parseInt(s2.getAttributes().getNamedItem("x").getNodeValue());
-											int y = Integer.parseInt(s2.getAttributes().getNamedItem("y").getNodeValue());
-											int minZ = Integer.parseInt(s2.getAttributes().getNamedItem("zmin").getNodeValue());
-											int maxZ = Integer.parseInt(s2.getAttributes().getNamedItem("zmax").getNodeValue());
-											poly.add(x, y).setZmin(minZ).setZmax(maxZ);
-										}
-									}
-									
-									territory = new Territory().add(poly);
-									
-									if (!poly.validate())
-									{
-										_log.error("HellboundManager: Invalid spawn territory : " + poly + '!');
-										continue;
-									}
-								}
-							}
-							
-							if (spawnLoc == null && territory == null)
-							{
-								_log.error("HellboundManager: no spawn data for npc id : " + npcId + '!');
-								continue;
-							}
-							
-							HellboundSpawn hbs = new HellboundSpawn(npcId, spawnLoc, count, territory, respawn, respawnRnd, stages);
-							_list.add(hbs);
-						}
-					}
+					stages[i] = Integer.decode(st.nextToken().trim());
 				}
-			}
-			
-			_log.info("HellboundManager: Loaded " + counter + " spawn entries.");
-		}
-		catch (NumberFormatException | DOMException | ParserConfigurationException | SAXException e)
-		{
-			_log.warn("HellboundManager: Spawn table could not be initialized.", e);
-		}
-		catch (IOException | IllegalArgumentException e)
-		{
-			_log.warn("HellboundManager: IOException or IllegalArgumentException.", e);
-		}
+				
+				final Territory[] territory = { null };
+				forEach(d1, "territory", s1 ->
+				{
+					Polygon poly = new Polygon();
+					forEach(s1, "add", s2 ->
+					{
+						StatsSet s2Set = parseAttributes(s2);
+						int x = s2Set.getInteger("x");
+						int y = s2Set.getInteger("y");
+						int minZ = s2Set.getInteger("zmin");
+						int maxZ = s2Set.getInteger("zmax");
+						poly.add(x, y).setZmin(minZ).setZmax(maxZ);
+					});
+					
+					territory[0] = new Territory().add(poly);
+					
+					if (!poly.validate())
+					{
+						_log.error("HellboundManager: Invalid spawn territory : " + poly + '!');
+						territory[0] = null;
+					}
+				});
+				
+				if (spawnLoc == null && territory[0] == null)
+				{
+					_log.error("HellboundManager: no spawn data for npc id : " + npcId + '!');
+					return;
+				}
+				
+				HellboundSpawn hbs = new HellboundSpawn(npcId, spawnLoc, count, territory[0], respawn, respawnRnd, stages);
+				_list.add(hbs);
+			});
+		});
 	}
 	
 	public void despawnHellbound()

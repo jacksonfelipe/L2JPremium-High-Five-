@@ -1,28 +1,28 @@
 package premium.gameserver.data.xml.holder;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-import org.xml.sax.SAXException;
+
+import premium.gameserver.Config;
+import premium.gameserver.model.items.TradeItem;
+import premium.gameserver.templates.StatsSet;
+import premium.gameserver.templates.item.ItemTemplate;
+import premium.gameserver.utils.DocumentParser;
 
 //import premium.commons.crypt.CryptUtil;
 import premium.gameserver.Config;
 import premium.gameserver.model.items.TradeItem;
 import premium.gameserver.templates.item.ItemTemplate;
 
-public class BuyListHolder
+public class BuyListHolder extends DocumentParser
 {
 	private static final Logger _log = LoggerFactory.getLogger(BuyListHolder.class);
 	private static BuyListHolder _instance;
@@ -46,127 +46,113 @@ public class BuyListHolder
 	private BuyListHolder()
 	{
 		_lists = new HashMap<>();
+		load();
+	}
+	
+	@Override
+	public void load()
+	{
+		_lists.clear();
+		parseDatapackFile("data/merchant_filelists.xml");
+		_log.info("TradeController: Loaded " + _lists.size() + " Buylists.");
+	}
+	
+	@Override
+	protected void parseDocument()
+	{
+		// Not used without document
+	}
 		
-		try
+	@Override
+	protected void parseDocument(Document doc)
+	{
+		if (getCurrentFile().getName().equals("merchant_filelists.xml"))
 		{
-			File filelists = new File(Config.DATAPACK_ROOT, "data/merchant_filelists.xml");
-			DocumentBuilderFactory factory1 = DocumentBuilderFactory.newInstance();
-			factory1.setValidating(false);
-			factory1.setIgnoringComments(true);
-			Document doc1 = factory1.newDocumentBuilder().parse((filelists));
-			// Document doc1 = factory1.newDocumentBuilder().parse(CryptUtil.decryptOnDemand(filelists));
-			
-			int counterFiles = 0;
-			int counterItems = 0;
-			for (Node n1 = doc1.getFirstChild(); n1 != null; n1 = n1.getNextSibling())
+			forEach(doc, "list", listNode ->
 			{
-				if ("list".equalsIgnoreCase(n1.getNodeName()))
+				forEach(listNode, "file", fileNode ->
 				{
-					for (Node d1 = n1.getFirstChild(); d1 != null; d1 = d1.getNextSibling())
+					StatsSet set = parseAttributes(fileNode);
+					parseDatapackFile("data/" + set.getString("name"));
+				});
+			});
+			return;
+		}
+		
+		forEach(doc, "list", listNode ->
+		{
+			forEach(listNode, "tradelist", d2 ->
+			{
+				StatsSet tlSet = parseAttributes(d2);
+				String[] npcs = tlSet.getString("npc").split(";");
+				String[] shopIds = tlSet.getString("shop").split(";");
+				
+				String[] markups = new String[0];
+				boolean haveMarkups = false;
+				if (tlSet.isSet("markup"))
+				{
+					markups = tlSet.getString("markup").split(";");
+					haveMarkups = true;
+				}
+				
+				int size = npcs.length;
+				if (!haveMarkups)
+				{
+					markups = new String[size];
+					for (int i = 0; i < size; i++)
 					{
-						if ("file".equalsIgnoreCase(d1.getNodeName()))
-						{
-							final String filename = d1.getAttributes().getNamedItem("name").getNodeValue();
-							
-							File file = new File(Config.DATAPACK_ROOT, "data/" + filename);
-							DocumentBuilderFactory factory2 = DocumentBuilderFactory.newInstance();
-							factory2.setValidating(false);
-							factory2.setIgnoringComments(true);
-							// Document doc2 = factory2.newDocumentBuilder().parse(CryptUtil.decryptOnDemand(file));
-							Document doc2 = factory2.newDocumentBuilder().parse(file);
-							counterFiles++;
-							
-							for (Node n2 = doc2.getFirstChild(); n2 != null; n2 = n2.getNextSibling())
-							{
-								if ("list".equalsIgnoreCase(n2.getNodeName()))
-								{
-									for (Node d2 = n2.getFirstChild(); d2 != null; d2 = d2.getNextSibling())
-									{
-										if ("tradelist".equalsIgnoreCase(d2.getNodeName()))
-										{
-											String[] npcs = d2.getAttributes().getNamedItem("npc").getNodeValue().split(";");
-											String[] shopIds = d2.getAttributes().getNamedItem("shop").getNodeValue().split(";");
-											String[] markups = new String[0];
-											boolean haveMarkups = false;
-											if (d2.getAttributes().getNamedItem("markup") != null)
-											{
-												markups = d2.getAttributes().getNamedItem("markup").getNodeValue().split(";");
-												haveMarkups = true;
-											}
-											
-											int size = npcs.length;
-											if (!haveMarkups)
-											{
-												markups = new String[size];
-												for (int i = 0; i < size; i++)
-												{
-													markups[i] = "0";
-												}
-											}
-											
-											if (shopIds.length != size || markups.length != size)
-											{
-												_log.warn("Do not correspond to the size of arrays");
-												continue;
-											}
-											
-											for (int n = 0; n < size; n++)
-											{
-												final int npc_id = Integer.parseInt(npcs[n]);
-												final int shop_id = Integer.parseInt(shopIds[n]);
-												final double markup = npc_id > 0 ? 1. + Double.parseDouble(markups[n]) / 100. : 0.;
-												NpcTradeList tl = new NpcTradeList(shop_id);
-												tl.setNpcId(npc_id);
-												for (Node i = d2.getFirstChild(); i != null; i = i.getNextSibling())
-												{
-													if ("item".equalsIgnoreCase(i.getNodeName()))
-													{
-														final int itemId = Integer.parseInt(i.getAttributes().getNamedItem("id").getNodeValue());
-														final ItemTemplate template = ItemHolder.getInstance().getTemplate(itemId);
-														if (template == null)
-														{
-															_log.warn("Template not found for itemId: " + itemId + " for shop " + shop_id);
-															continue;
-														}
-														if (!checkItem(template))
-														{
-															continue;
-														}
-														counterItems++;
-														
-														long price = i.getAttributes().getNamedItem("price") != null ? Long.parseLong(i.getAttributes().getNamedItem("price").getNodeValue()) : Math.round(template.getReferencePrice() * markup);
-														TradeItem item = new TradeItem();
-														item.setItemId(itemId);
-														final int itemCount = i.getAttributes().getNamedItem("count") != null ? Integer.parseInt(i.getAttributes().getNamedItem("count").getNodeValue()) : 0;
-														// Время респауна задается минутах
-														final int itemRechargeTime = i.getAttributes().getNamedItem("time") != null ? Integer.parseInt(i.getAttributes().getNamedItem("time").getNodeValue()) : 0;
-														item.setOwnersPrice(price);
-														item.setCount(itemCount);
-														item.setCurrentValue(itemCount);
-														item.setLastRechargeTime((int) (System.currentTimeMillis() / 60000));
-														item.setRechargeTime(itemRechargeTime);
-														tl.addItem(item);
-													}
-												}
-												_lists.put(shop_id, tl);
-											}
-										}
-									}
-								}
-							}
-						}
+						markups[i] = "0";
 					}
 				}
-			}
-			
-			_log.info("TradeController: Loaded " + counterFiles + " file(s).");
-			_log.info("TradeController: Loaded " + counterItems + " Items.");
-			_log.info("TradeController: Loaded " + _lists.size() + " Buylists.");
-		}
-		catch (DOMException | IOException | NumberFormatException | ParserConfigurationException | SAXException e)
-		{
-			_log.warn("TradeController: Buy lists could not be initialized.", e);
-		}
+				
+				if (shopIds.length != size || markups.length != size)
+				{
+					_log.warn("Do not correspond to the size of arrays in " + getCurrentFile().getName());
+					return;
+				}
+				
+				for (int n = 0; n < size; n++)
+				{
+					final int npc_id = Integer.parseInt(npcs[n]);
+					final int shop_id = Integer.parseInt(shopIds[n]);
+					final double markup = npc_id > 0 ? 1. + Double.parseDouble(markups[n]) / 100. : 0.;
+					NpcTradeList tl = new NpcTradeList(shop_id);
+					tl.setNpcId(npc_id);
+					
+					forEach(d2, "item", i ->
+					{
+						StatsSet itemSet = parseAttributes(i);
+						final int itemId = itemSet.getInteger("id");
+						final ItemTemplate template = ItemHolder.getInstance().getTemplate(itemId);
+						if (template == null)
+						{
+							_log.warn("Template not found for itemId: " + itemId + " for shop " + shop_id);
+							return;
+						}
+						if (!checkItem(template))
+						{
+							return;
+						}
+						
+						long price = itemSet.isSet("price") ? itemSet.getLong("price") : Math.round(template.getReferencePrice() * markup);
+						TradeItem item = new TradeItem();
+						item.setItemId(itemId);
+						
+						final int itemCount = itemSet.getInteger("count", 0);
+						// Время респауна задается минутах
+						final int itemRechargeTime = itemSet.getInteger("time", 0);
+						
+						item.setOwnersPrice(price);
+						item.setCount(itemCount);
+						item.setCurrentValue(itemCount);
+						item.setLastRechargeTime((int) (System.currentTimeMillis() / 60000));
+						item.setRechargeTime(itemRechargeTime);
+						tl.addItem(item);
+					});
+					_lists.put(shop_id, tl);
+				}
+			});
+		});
 	}
 	
 	public boolean checkItem(ItemTemplate template)

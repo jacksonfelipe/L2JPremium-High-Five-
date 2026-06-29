@@ -8,17 +8,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.concurrent.ScheduledFuture;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
 import org.apache.commons.lang3.ArrayUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
-import org.xml.sax.SAXException;
 
 import gnu.trove.map.hash.TIntObjectHashMap;
 import premium.commons.dbutils.DbUtils;
@@ -37,7 +30,10 @@ import premium.gameserver.network.serverpackets.SystemMessage;
 import premium.gameserver.tables.SkillTable;
 import premium.gameserver.utils.Location;
 
-public class CursedWeaponsManager
+import premium.gameserver.templates.StatsSet;
+import premium.gameserver.utils.DocumentParser;
+
+public class CursedWeaponsManager extends DocumentParser
 {
 	private static final Logger LOG = LoggerFactory.getLogger(CursedWeaponsManager.class);
 	
@@ -80,104 +76,94 @@ public class CursedWeaponsManager
 		
 	}
 	
-	private void load()
+	@Override
+	public void load()
 	{
-		try
+		File file = new File(Config.DATAPACK_ROOT, "data/cursed_weapons.xml");
+		if (!file.exists())
 		{
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			factory.setValidating(false);
-			factory.setIgnoringComments(true);
-			
-			File file = new File(Config.DATAPACK_ROOT, "data/cursed_weapons.xml");
-			if (!file.exists())
+			return;
+		}
+		
+		parseDatapackFile("data/cursed_weapons.xml");
+		_cursedWeapons = _cursedWeaponsMap.values(new CursedWeapon[_cursedWeaponsMap.size()]);
+	}
+	
+	@Override
+	protected void parseDocument()
+	{
+		// Not used without document
+	}
+	
+	@Override
+	protected void parseDocument(Document doc)
+	{
+		forEach(doc, "list", listNode ->
+		{
+			forEach(listNode, "item", d ->
 			{
-				return;
-			}
-			
-			Document doc = factory.newDocumentBuilder().parse(file);
-			
-			for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
-			{
-				if ("list".equalsIgnoreCase(n.getNodeName()))
+				StatsSet attrs = parseAttributes(d);
+				int id = attrs.getInteger("id");
+				int skillId = attrs.getInteger("skillId");
+				String name = "Unknown cursed weapon";
+				if (attrs.isSet("name"))
 				{
-					for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
-					{
-						if ("item".equalsIgnoreCase(d.getNodeName()))
-						{
-							NamedNodeMap attrs = d.getAttributes();
-							int id = Integer.parseInt(attrs.getNamedItem("id").getNodeValue());
-							int skillId = Integer.parseInt(attrs.getNamedItem("skillId").getNodeValue());
-							String name = "Unknown cursed weapon";
-							if (attrs.getNamedItem("name") != null)
-							{
-								name = attrs.getNamedItem("name").getNodeValue();
-							}
-							else if (ItemHolder.getInstance().getTemplate(id) != null)
-							{
-								name = ItemHolder.getInstance().getTemplate(id).getName();
-							}
-							
-							if (id == 0)
-							{
-								continue;
-							}
-							
-							CursedWeapon cw = new CursedWeapon(id, skillId, name);
-							for (Node cd = d.getFirstChild(); cd != null; cd = cd.getNextSibling())
-							{
-								if ("dropRate".equalsIgnoreCase(cd.getNodeName()))
-								{
-									cw.setDropRate(Integer.parseInt(cd.getAttributes().getNamedItem("val").getNodeValue()));
-								}
-								else if ("duration".equalsIgnoreCase(cd.getNodeName()))
-								{
-									attrs = cd.getAttributes();
-									cw.setDurationMin(Integer.parseInt(attrs.getNamedItem("min").getNodeValue()));
-									cw.setDurationMax(Integer.parseInt(attrs.getNamedItem("max").getNodeValue()));
-								}
-								else if ("durationLost".equalsIgnoreCase(cd.getNodeName()))
-								{
-									cw.setDurationLost(Integer.parseInt(cd.getAttributes().getNamedItem("val").getNodeValue()));
-								}
-								else if ("disapearChance".equalsIgnoreCase(cd.getNodeName()))
-								{
-									cw.setDisapearChance(Integer.parseInt(cd.getAttributes().getNamedItem("val").getNodeValue()));
-								}
-								else if ("stageKills".equalsIgnoreCase(cd.getNodeName()))
-								{
-									cw.setStageKills(Integer.parseInt(cd.getAttributes().getNamedItem("val").getNodeValue()));
-								}
-								else if ("transformationId".equalsIgnoreCase(cd.getNodeName()))
-								{
-									cw.setTransformationId(Integer.parseInt(cd.getAttributes().getNamedItem("val").getNodeValue()));
-								}
-								else if ("transformationTemplateId".equalsIgnoreCase(cd.getNodeName()))
-								{
-									cw.setTransformationTemplateId(Integer.parseInt(cd.getAttributes().getNamedItem("val").getNodeValue()));
-								}
-								else if ("transformationName".equalsIgnoreCase(cd.getNodeName()))
-								{
-									cw.setTransformationName(cd.getAttributes().getNamedItem("val").getNodeValue());
-								}
-							}
-							
-							// Store cursed weapon
-							_cursedWeaponsMap.put(id, cw);
-						}
-					}
+					name = attrs.getString("name");
 				}
-			}
-			
-			_cursedWeapons = _cursedWeaponsMap.values(new CursedWeapon[_cursedWeaponsMap.size()]);
-		}
-		catch (DOMException | NumberFormatException | ParserConfigurationException | SAXException e)
-		{
-			LOG.error("CursedWeaponsManager: Error parsing cursed_weapons file. ", e);
-		}
-		catch (IOException e)
-		{
-			LOG.error("CursedWeaponsManager: IOException parsing cursed_weapons file. ", e);
-		}
+				else if (ItemHolder.getInstance().getTemplate(id) != null)
+				{
+					name = ItemHolder.getInstance().getTemplate(id).getName();
+				}
+				
+				if (id == 0)
+				{
+					return;
+				}
+				
+				CursedWeapon cw = new CursedWeapon(id, skillId, name);
+				
+				forEach(d, cd ->
+				{
+					StatsSet cdAttrs = parseAttributes(cd);
+					if ("dropRate".equalsIgnoreCase(cd.getNodeName()))
+					{
+						cw.setDropRate(cdAttrs.getInteger("val"));
+					}
+					else if ("duration".equalsIgnoreCase(cd.getNodeName()))
+					{
+						cw.setDurationMin(cdAttrs.getInteger("min"));
+						cw.setDurationMax(cdAttrs.getInteger("max"));
+					}
+					else if ("durationLost".equalsIgnoreCase(cd.getNodeName()))
+					{
+						cw.setDurationLost(cdAttrs.getInteger("val"));
+					}
+					else if ("disapearChance".equalsIgnoreCase(cd.getNodeName()))
+					{
+						cw.setDisapearChance(cdAttrs.getInteger("val"));
+					}
+					else if ("stageKills".equalsIgnoreCase(cd.getNodeName()))
+					{
+						cw.setStageKills(cdAttrs.getInteger("val"));
+					}
+					else if ("transformationId".equalsIgnoreCase(cd.getNodeName()))
+					{
+						cw.setTransformationId(cdAttrs.getInteger("val"));
+					}
+					else if ("transformationTemplateId".equalsIgnoreCase(cd.getNodeName()))
+					{
+						cw.setTransformationTemplateId(cdAttrs.getInteger("val"));
+					}
+					else if ("transformationName".equalsIgnoreCase(cd.getNodeName()))
+					{
+						cw.setTransformationName(cdAttrs.getString("val"));
+					}
+				});
+				
+				// Store cursed weapon
+				_cursedWeaponsMap.put(id, cw);
+			});
+		});
 	}
 	
 	private void restore()

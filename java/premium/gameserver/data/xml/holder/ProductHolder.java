@@ -11,21 +11,21 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.TreeMap;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.xml.sax.SAXException;
+
+import premium.gameserver.Config;
+import premium.gameserver.model.ProductItem;
+import premium.gameserver.model.ProductItemComponent;
+import premium.gameserver.templates.StatsSet;
+import premium.gameserver.utils.DocumentParser;
 
 import premium.gameserver.Config;
 import premium.gameserver.model.ProductItem;
 import premium.gameserver.model.ProductItemComponent;
 
-public class ProductHolder
+public class ProductHolder extends DocumentParser
 {
 	private static Logger _log = LoggerFactory.getLogger(ProductHolder.class.getName());
 	TreeMap<Integer, ProductItem> _itemsList;
@@ -49,85 +49,64 @@ public class ProductHolder
 	private ProductHolder()
 	{
 		_itemsList = new TreeMap<>();
-		
-		try
+		load();
+	}
+	
+	@Override
+	public void load()
+	{
+		_itemsList.clear();
+		parseDatapackFile("data/item-mall.xml");
+		_log.info(String.format("ProductItemTable: Loaded %d product item on sale.", _itemsList.size()));
+	}
+	
+	@Override
+	protected void parseDocument()
+	{
+		// Not used without document
+	}
+	
+	@Override
+	protected void parseDocument(Document doc)
+	{
+		forEach(doc, "list", listNode ->
 		{
-			File file = new File(Config.DATAPACK_ROOT, "data/item-mall.xml");
-			DocumentBuilderFactory factory1 = DocumentBuilderFactory.newInstance();
-			factory1.setValidating(false);
-			factory1.setIgnoringComments(true);
-			Document doc1 = factory1.newDocumentBuilder().parse(file);
-			
-			for (Node n1 = doc1.getFirstChild(); n1 != null; n1 = n1.getNextSibling())
+			forEach(listNode, "product", d1 ->
 			{
-				if ("list".equalsIgnoreCase(n1.getNodeName()))
+				StatsSet set = parseAttributes(d1);
+				if (!set.getBool("on_sale", false))
 				{
-					for (Node d1 = n1.getFirstChild(); d1 != null; d1 = d1.getNextSibling())
-					{
-						if ("product".equalsIgnoreCase(d1.getNodeName()))
-						{
-							Node onSaleNode = d1.getAttributes().getNamedItem("on_sale");
-							Boolean onSale = onSaleNode != null && Boolean.parseBoolean(onSaleNode.getNodeValue());
-							if (!onSale)
-							{
-								continue;
-							}
-							
-							int productId = Integer.parseInt(d1.getAttributes().getNamedItem("id").getNodeValue());
-							
-							Node categoryNode = d1.getAttributes().getNamedItem("category");
-							int category = categoryNode != null ? Integer.parseInt(categoryNode.getNodeValue()) : 5;
-							
-							Node priceNode = d1.getAttributes().getNamedItem("price");
-							int price = priceNode != null ? Integer.parseInt(priceNode.getNodeValue()) : 0;
-							
-							Node isEventNode = d1.getAttributes().getNamedItem("is_event");
-							Boolean isEvent = isEventNode != null && Boolean.parseBoolean(isEventNode.getNodeValue());
-							
-							Node isBestNode = d1.getAttributes().getNamedItem("is_best");
-							Boolean isBest = isBestNode != null && Boolean.parseBoolean(isBestNode.getNodeValue());
-							
-							Node isNewNode = d1.getAttributes().getNamedItem("is_new");
-							Boolean isNew = isNewNode != null && Boolean.parseBoolean(isNewNode.getNodeValue());
-							
-							int tabId = getProductTabId(isEvent, isBest, isNew);
-							
-							Node startTimeNode = d1.getAttributes().getNamedItem("sale_start_date");
-							long startTimeSale = startTimeNode != null ? getMillisecondsFromString(startTimeNode.getNodeValue()) : 0;
-							
-							Node endTimeNode = d1.getAttributes().getNamedItem("sale_end_date");
-							long endTimeSale = endTimeNode != null ? getMillisecondsFromString(endTimeNode.getNodeValue()) : 0;
-							
-							ArrayList<ProductItemComponent> components = new ArrayList<>();
-							ProductItem pr = new ProductItem(productId, category, price, tabId, startTimeSale, endTimeSale);
-							for (Node t1 = d1.getFirstChild(); t1 != null; t1 = t1.getNextSibling())
-							{
-								if ("component".equalsIgnoreCase(t1.getNodeName()))
-								{
-									int item_id = Integer.parseInt(t1.getAttributes().getNamedItem("item_id").getNodeValue());
-									int count = Integer.parseInt(t1.getAttributes().getNamedItem("count").getNodeValue());
-									ProductItemComponent component = new ProductItemComponent(item_id, count);
-									components.add(component);
-								}
-							}
-							
-							pr.setComponents(components);
-							_itemsList.put(productId, pr);
-						}
-					}
+					return;
 				}
-			}
-			
-			_log.info(String.format("ProductItemTable: Loaded %d product item on sale.", _itemsList.size()));
-		}
-		catch (DOMException | IOException | NumberFormatException | ParserConfigurationException e)
-		{
-			_log.warn("ProductItemTable: Lists could not be initialized.", e);
-		}
-		catch (SAXException e)
-		{
-			_log.warn("ProductItemTable: Lists could not be initialized. SAXException: ", e);
-		}
+				
+				int productId = set.getInteger("id");
+				int category = set.getInteger("category", 5);
+				int price = set.getInteger("price", 0);
+				
+				boolean isEvent = set.getBool("is_event", false);
+				boolean isBest = set.getBool("is_best", false);
+				boolean isNew = set.getBool("is_new", false);
+				
+				int tabId = getProductTabId(isEvent, isBest, isNew);
+				
+				long startTimeSale = set.isSet("sale_start_date") ? getMillisecondsFromString(set.getString("sale_start_date")) : 0;
+				long endTimeSale = set.isSet("sale_end_date") ? getMillisecondsFromString(set.getString("sale_end_date")) : 0;
+				
+				ArrayList<ProductItemComponent> components = new ArrayList<>();
+				ProductItem pr = new ProductItem(productId, category, price, tabId, startTimeSale, endTimeSale);
+				
+				forEach(d1, "component", t1 ->
+				{
+					StatsSet compSet = parseAttributes(t1);
+					int item_id = compSet.getInteger("item_id");
+					int count = compSet.getInteger("count");
+					components.add(new ProductItemComponent(item_id, count));
+				});
+				
+				pr.setComponents(components);
+				_itemsList.put(productId, pr);
+			});
+		});
 	}
 	
 	private static int getProductTabId(boolean isEvent, boolean isBest, boolean isNew)

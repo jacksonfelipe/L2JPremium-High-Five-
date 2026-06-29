@@ -1,6 +1,11 @@
 package premium.gameserver.skills;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -8,6 +13,7 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +21,7 @@ import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
+import org.xml.sax.SAXException;
 
 //import premium.commons.crypt.CryptUtil;
 import premium.gameserver.model.Skill;
@@ -86,16 +93,16 @@ import premium.gameserver.utils.PositionUtils;
 abstract class DocumentBase
 {
 	private static final Logger _log = LoggerFactory.getLogger(DocumentBase.class);
-	
+
 	private final File file;
 	protected Map<String, Object[]> tables;
-	
+
 	DocumentBase(File file)
 	{
 		this.file = file;
-		tables = new HashMap<>();
+		tables = new HashMap<String, Object[]>();
 	}
-	
+
 	Document parse()
 	{
 		Document doc;
@@ -122,66 +129,66 @@ abstract class DocumentBase
 		}
 		return doc;
 	}
-	// {
-	// Document doc;
-	// try
-	// {
-	// DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-	// factory.setValidating(false);
-	// factory.setIgnoringComments(true);
-	// FileInputStream stream = new FileInputStream(file);
-	// InputStream output;
-	// if ((byte) stream.read() == 0x00)
-	// {
-	// byte[] bytes = new byte[0];
-	// output = new ByteArrayInputStream(bytes);
-	// output = CryptUtil.decrypt(stream, output);
-	// }
-	// else
-	// {
-	// output = new FileInputStream(file);
-	// }
-	// doc = factory.newDocumentBuilder().parse(output);
-	// }
-	// catch (FileNotFoundException e)
-	// {
-	// _log.error("Didn't find " + file, e);
-	// return null;
-	// }
-	// catch (IOException | ParserConfigurationException | SAXException e)
-	// {
-	// _log.error("Error loading file " + file, e);
-	// return null;
-	// }
-	//
-	// try
-	// {
-	// parseDocument(doc);
-	// }
-	// catch (RuntimeException e)
-	// {
-	// _log.error("Error in file " + file, e);
-	// return null;
-	// }
-	// return doc;
-	// }
-	
+//	{
+//		Document doc;
+//		try
+//		{
+//			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+//			factory.setValidating(false);
+//			factory.setIgnoringComments(true);
+//			FileInputStream stream = new FileInputStream(file);
+//			InputStream output;
+//			if ((byte) stream.read() == 0x00)
+//			{
+//				byte[] bytes = new byte[0];
+//				output = new ByteArrayInputStream(bytes);
+//				output = CryptUtil.decrypt(stream, output);
+//			}
+//			else
+//			{
+//				output = new FileInputStream(file);
+//			}
+//			doc = factory.newDocumentBuilder().parse(output);
+//		}
+//		catch (FileNotFoundException e)
+//		{
+//			_log.error("Didn't find " + file, e);
+//			return null;
+//		}
+//		catch (IOException | ParserConfigurationException | SAXException e)
+//		{
+//			_log.error("Error loading file " + file, e);
+//			return null;
+//		}
+//
+//		try
+//		{
+//			parseDocument(doc);
+//		}
+//		catch (RuntimeException e)
+//		{
+//			_log.error("Error in file " + file, e);
+//			return null;
+//		}
+//		return doc;
+//	}
+
 	protected abstract void parseDocument(Document doc);
-	
+
 	protected abstract Object getTableValue(String name);
-	
+
 	protected abstract Object getTableValue(String name, int idx);
-	
+
 	protected void resetTable()
 	{
-		tables = new HashMap<>();
+		tables = new HashMap<String, Object[]>();
 	}
-	
+
 	protected void setTable(String name, Object[] table)
 	{
 		tables.put(name, table);
 	}
-	
+
 	protected void parseTemplate(Node n, StatTemplate template)
 	{
 		n = n.getFirstChild();
@@ -241,7 +248,7 @@ abstract class DocumentBase
 			}
 		}
 	}
-	
+
 	protected void parseTrigger(Node n, StatTemplate template)
 	{
 		for (n = n.getFirstChild(); n != null; n = n.getNextSibling())
@@ -249,14 +256,14 @@ abstract class DocumentBase
 			if ("trigger".equalsIgnoreCase(n.getNodeName()))
 			{
 				NamedNodeMap map = n.getAttributes();
-				
+
 				int id = parseNumber(map.getNamedItem("id").getNodeValue()).intValue();
 				int level = parseNumber(map.getNamedItem("level").getNodeValue()).intValue();
 				TriggerType t = TriggerType.valueOf(map.getNamedItem("type").getNodeValue());
 				double chance = parseNumber(map.getNamedItem("chance").getNodeValue()).doubleValue();
-				
+
 				TriggerInfo trigger = new TriggerInfo(id, level, t, chance);
-				
+
 				for (Node n2 = n.getFirstChild(); n2 != null; n2 = n2.getNextSibling())
 				{
 					Condition condition = parseCondition(n.getFirstChild());
@@ -265,12 +272,12 @@ abstract class DocumentBase
 						trigger.addCondition(condition);
 					}
 				}
-				
+
 				template.addTrigger(trigger);
 			}
 		}
 	}
-	
+
 	protected void attachFunc(Node n, StatTemplate template, String name)
 	{
 		Stats stat = Stats.valueOfXml(n.getAttributes().getNamedItem("stat").getNodeValue());
@@ -282,15 +289,15 @@ abstract class DocumentBase
 		{
 			val = parseNumber(n.getAttributes().getNamedItem("val").getNodeValue()).doubleValue();
 		}
-		
+
 		template.attachFunc(new FuncTemplate(applyCond, name, stat, ord, val));
 	}
-	
+
 	protected void attachEffect(Node n, Object template)
 	{
 		NamedNodeMap attrs = n.getAttributes();
 		StatsSet set = new StatsSet();
-		
+
 		set.set("name", attrs.getNamedItem("name").getNodeValue());
 		set.set("object", template);
 		if (attrs.getNamedItem("count") != null)
@@ -301,9 +308,9 @@ abstract class DocumentBase
 		{
 			set.set("time", parseNumber(attrs.getNamedItem("time").getNodeValue()).intValue());
 		}
-		
+
 		set.set("value", attrs.getNamedItem("val") != null ? parseNumber(attrs.getNamedItem("val").getNodeValue()).doubleValue() : 0.);
-		
+
 		set.set("abnormal", AbnormalEffect.NULL);
 		set.set("abnormal2", AbnormalEffect.NULL);
 		set.set("abnormal3", AbnormalEffect.NULL);
@@ -323,7 +330,7 @@ abstract class DocumentBase
 				set.set("abnormal", ae);
 			}
 		}
-		
+
 		if (attrs.getNamedItem("stackType") != null)
 		{
 			set.set("stackType", attrs.getNamedItem("stackType").getNodeValue());
@@ -336,7 +343,7 @@ abstract class DocumentBase
 		{
 			set.set("stackOrder", parseNumber(attrs.getNamedItem("stackOrder").getNodeValue()).intValue());
 		}
-		
+
 		if (attrs.getNamedItem("applyOnCaster") != null)
 		{
 			set.set("applyOnCaster", Boolean.valueOf(attrs.getNamedItem("applyOnCaster").getNodeValue()));
@@ -345,7 +352,7 @@ abstract class DocumentBase
 		{
 			set.set("applyOnSummon", Boolean.valueOf(attrs.getNamedItem("applyOnSummon").getNodeValue()));
 		}
-		
+
 		if (attrs.getNamedItem("displayId") != null)
 		{
 			set.set("displayId", parseNumber(attrs.getNamedItem("displayId").getNodeValue()).intValue());
@@ -370,9 +377,9 @@ abstract class DocumentBase
 		{
 			set.set("isReflectable", Boolean.valueOf(attrs.getNamedItem("isReflectable").getNodeValue()));
 		}
-		
+
 		EffectTemplate lt = new EffectTemplate(set);
-		
+
 		parseTemplate(n, lt);
 		for (Node n1 = n.getFirstChild(); n1 != null; n1 = n1.getNextSibling())
 		{
@@ -381,13 +388,13 @@ abstract class DocumentBase
 				parseTrigger(n1, lt);
 			}
 		}
-		
+
 		if (template instanceof Skill)
 		{
 			((Skill) template).attach(lt);
 		}
 	}
-	
+
 	protected Condition parseCondition(Node n)
 	{
 		while (n != null && n.getNodeType() != Node.ELEMENT_NODE)
@@ -436,7 +443,7 @@ abstract class DocumentBase
 		}
 		return null;
 	}
-	
+
 	protected Condition parseLogicAnd(Node n)
 	{
 		ConditionLogicAnd cond = new ConditionLogicAnd();
@@ -453,7 +460,7 @@ abstract class DocumentBase
 		}
 		return cond;
 	}
-	
+
 	protected Condition parseLogicOr(Node n)
 	{
 		ConditionLogicOr cond = new ConditionLogicOr();
@@ -470,7 +477,7 @@ abstract class DocumentBase
 		}
 		return cond;
 	}
-	
+
 	protected Condition parseLogicNot(Node n)
 	{
 		for (n = n.getFirstChild(); n != null; n = n.getNextSibling())
@@ -483,7 +490,7 @@ abstract class DocumentBase
 		_log.error("Empty <not> condition in " + file);
 		return null;
 	}
-	
+
 	protected Condition parsePlayerCondition(Node n)
 	{
 		Condition cond = null;
@@ -638,14 +645,14 @@ abstract class DocumentBase
 				cond = joinAnd(cond, new ConditionPlayerMinMaxDamage(Double.parseDouble(st[0]), Double.parseDouble(st[1])));
 			}
 		}
-		
+
 		if (cond == null)
 		{
 			_log.error("Unrecognized <player> condition in " + file);
 		}
 		return cond;
 	}
-	
+
 	protected Condition parseTargetCondition(Node n)
 	{
 		Condition cond = null;
@@ -752,7 +759,7 @@ abstract class DocumentBase
 		}
 		return cond;
 	}
-	
+
 	protected Condition parseUsingCondition(Node n)
 	{
 		Condition cond = null;
@@ -821,7 +828,7 @@ abstract class DocumentBase
 		}
 		return cond;
 	}
-	
+
 	protected Condition parseHasCondition(Node n)
 	{
 		Condition cond = null;
@@ -849,7 +856,7 @@ abstract class DocumentBase
 		}
 		return cond;
 	}
-	
+
 	protected Condition parseGameCondition(Node n)
 	{
 		Condition cond = null;
@@ -869,7 +876,7 @@ abstract class DocumentBase
 		}
 		return cond;
 	}
-	
+
 	protected Condition parseZoneCondition(Node n)
 	{
 		Condition cond = null;
@@ -888,7 +895,7 @@ abstract class DocumentBase
 		}
 		return cond;
 	}
-	
+
 	protected Object[] parseTable(Node n)
 	{
 		NamedNodeMap attrs = n.getAttributes();
@@ -898,7 +905,7 @@ abstract class DocumentBase
 			throw new IllegalArgumentException("Table name must start with #");
 		}
 		StringTokenizer data = new StringTokenizer(n.getFirstChild().getNodeValue());
-		List<String> array = new ArrayList<>();
+		List<String> array = new ArrayList<String>();
 		while (data.hasMoreTokens())
 		{
 			array.add(data.nextToken());
@@ -907,7 +914,7 @@ abstract class DocumentBase
 		setTable(name, res);
 		return res;
 	}
-	
+
 	protected void parseBeanSet(Node n, StatsSet set, int level)
 	{
 		try
@@ -945,7 +952,7 @@ abstract class DocumentBase
 			_log.warn(n.getAttributes().getNamedItem("name") + " " + set.get("skill_id"), e);
 		}
 	}
-	
+
 	protected Number parseNumber(String value)
 	{
 		if (value.charAt(0) == '#')
@@ -962,7 +969,7 @@ abstract class DocumentBase
 			{
 				return Double.NEGATIVE_INFINITY;
 			}
-			
+
 			if (value.indexOf('.') == -1)
 			{
 				int radix = 10;
@@ -980,7 +987,7 @@ abstract class DocumentBase
 			return null;
 		}
 	}
-	
+
 	protected Condition joinAnd(Condition cond, Condition c)
 	{
 		if (cond == null)

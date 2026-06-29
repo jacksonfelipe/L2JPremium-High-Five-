@@ -8,7 +8,7 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javolution.util.FastTable;
+import java.util.concurrent.CopyOnWriteArrayList;
 import premium.commons.threading.RunnableImpl;
 import premium.gameserver.ThreadPoolManager;
 import premium.gameserver.model.Player;
@@ -42,7 +42,7 @@ public final class NaiaTowerManager
 	private static int _currentEpidosIndex = 0;
 	private static boolean _isEpidosSpawned = false;
 	
-	private static FastTable<NpcInstance> _spores = new FastTable<>();
+	private static List<NpcInstance> _spores = new CopyOnWriteArrayList<>();
 	
 	public static enum Attribute
 	{

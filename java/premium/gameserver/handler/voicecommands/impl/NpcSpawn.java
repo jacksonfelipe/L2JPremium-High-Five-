@@ -3,7 +3,7 @@ package premium.gameserver.handler.voicecommands.impl;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import javolution.util.FastMap;
+import java.util.HashMap;
 import premium.gameserver.data.xml.holder.NpcHolder;
 import premium.gameserver.data.xml.holder.ResidenceHolder;
 import premium.gameserver.handler.voicecommands.IVoicedCommandHandler;
@@ -122,7 +122,7 @@ public class NpcSpawn extends Functions implements IVoicedCommandHandler
 		}
 		
 		// Add the clanhall NPCs in the list.
-		Map<Integer, Integer> _npcIdOid = new FastMap<>();
+		Map<Integer, Integer> _npcIdOid = new HashMap<>();
 		for (int npcId : CLANHALL_NPC_IDS)
 		{
 			if (!_npcIdOid.containsKey(npcId))

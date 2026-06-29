@@ -4,14 +4,14 @@ import java.io.File;
 import java.io.IOException;
 import java.util.NoSuchElementException;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.xml.sax.SAXException;
+
+import premium.gameserver.Config;
+import premium.gameserver.model.Creature;
+import premium.gameserver.templates.StatsSet;
+import premium.gameserver.utils.DocumentParser;
 
 import premium.gameserver.Config;
 import premium.gameserver.model.Creature;
@@ -159,110 +159,67 @@ public enum BaseStats
 	
 	static
 	{
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		factory.setValidating(false);
-		factory.setIgnoringComments(true);
-		File file = new File(Config.DATAPACK_ROOT, "data/attribute_bonus.xml");
-		Document doc = null;
-		
-		try
+		new DocumentParser()
 		{
-			doc = factory.newDocumentBuilder().parse(file);
-		}
-		catch (SAXException | IOException | ParserConfigurationException e)
-		{
-			_log.error("Error while loading attribute_bonus!", e);
-		}
-		
-		int i;
-		double val;
-		
-		if (doc != null)
-		{
-			for (Node z = doc.getFirstChild(); z != null; z = z.getNextSibling())
+			@Override
+			public void load()
 			{
-				for (Node n = z.getFirstChild(); n != null; n = n.getNextSibling())
-				{
-					if (n.getNodeName().equalsIgnoreCase("str_bonus"))
-					{
-						for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
-						{
-							String node = d.getNodeName();
-							if (node.equalsIgnoreCase("set"))
-							{
-								i = Integer.valueOf(d.getAttributes().getNamedItem("attribute").getNodeValue());
-								val = Integer.valueOf(d.getAttributes().getNamedItem("val").getNodeValue());
-								STRbonus[i] = (100 + val) / 100;
-							}
-						}
-					}
-					if (n.getNodeName().equalsIgnoreCase("int_bonus"))
-					{
-						for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
-						{
-							String node = d.getNodeName();
-							if (node.equalsIgnoreCase("set"))
-							{
-								i = Integer.valueOf(d.getAttributes().getNamedItem("attribute").getNodeValue());
-								val = Integer.valueOf(d.getAttributes().getNamedItem("val").getNodeValue());
-								INTbonus[i] = (100 + val) / 100;
-							}
-						}
-					}
-					if (n.getNodeName().equalsIgnoreCase("con_bonus"))
-					{
-						for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
-						{
-							String node = d.getNodeName();
-							if (node.equalsIgnoreCase("set"))
-							{
-								i = Integer.valueOf(d.getAttributes().getNamedItem("attribute").getNodeValue());
-								val = Integer.valueOf(d.getAttributes().getNamedItem("val").getNodeValue());
-								CONbonus[i] = (100 + val) / 100;
-							}
-						}
-					}
-					if (n.getNodeName().equalsIgnoreCase("men_bonus"))
-					{
-						for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
-						{
-							String node = d.getNodeName();
-							if (node.equalsIgnoreCase("set"))
-							{
-								i = Integer.valueOf(d.getAttributes().getNamedItem("attribute").getNodeValue());
-								val = Integer.valueOf(d.getAttributes().getNamedItem("val").getNodeValue());
-								MENbonus[i] = (100 + val) / 100;
-							}
-						}
-					}
-					if (n.getNodeName().equalsIgnoreCase("dex_bonus"))
-					{
-						for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
-						{
-							String node = d.getNodeName();
-							if (node.equalsIgnoreCase("set"))
-							{
-								i = Integer.valueOf(d.getAttributes().getNamedItem("attribute").getNodeValue());
-								val = Integer.valueOf(d.getAttributes().getNamedItem("val").getNodeValue());
-								DEXbonus[i] = (100 + val) / 100;
-							}
-						}
-					}
-					if (n.getNodeName().equalsIgnoreCase("wit_bonus"))
-					{
-						for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
-						{
-							String node = d.getNodeName();
-							if (node.equalsIgnoreCase("set"))
-							{
-								i = Integer.valueOf(d.getAttributes().getNamedItem("attribute").getNodeValue());
-								val = Integer.valueOf(d.getAttributes().getNamedItem("val").getNodeValue());
-								WITbonus[i] = (100 + val) / 100;
-							}
-						}
-					}
-				}
+				parseDatapackFile("data/attribute_bonus.xml");
 			}
-		}
+			
+			@Override
+			protected void parseDocument()
+			{
+			}
+			
+			@Override
+			protected void parseDocument(Document doc)
+			{
+				forEach(doc, "list", listNode ->
+				{
+					forEach(listNode, node ->
+					{
+						String nodeName = node.getNodeName();
+						double[] targetArray = null;
+						if (nodeName.equalsIgnoreCase("str_bonus"))
+						{
+							targetArray = STRbonus;
+						}
+						else if (nodeName.equalsIgnoreCase("int_bonus"))
+						{
+							targetArray = INTbonus;
+						}
+						else if (nodeName.equalsIgnoreCase("con_bonus"))
+						{
+							targetArray = CONbonus;
+						}
+						else if (nodeName.equalsIgnoreCase("men_bonus"))
+						{
+							targetArray = MENbonus;
+						}
+						else if (nodeName.equalsIgnoreCase("dex_bonus"))
+						{
+							targetArray = DEXbonus;
+						}
+						else if (nodeName.equalsIgnoreCase("wit_bonus"))
+						{
+							targetArray = WITbonus;
+						}
+						
+						if (targetArray != null)
+						{
+							final double[] target = targetArray;
+							forEach(node, "set", d ->
+							{
+								StatsSet set = parseAttributes(d);
+								int i = set.getInteger("attribute");
+								double val = set.getDouble("val");
+								target[i] = (100 + val) / 100;
+							});
+						}
+					});
+				});
+			}
+		}.load();
 	}
 }

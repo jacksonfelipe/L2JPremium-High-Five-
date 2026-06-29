@@ -9,16 +9,21 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
+import java.util.StringTokenizer;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
-import org.xml.sax.SAXException;
+
+import gnu.trove.list.array.TDoubleArrayList;
+import premium.commons.util.Rnd;
+import premium.gameserver.model.Options;
+import premium.gameserver.stats.Stats;
+import premium.gameserver.stats.triggers.TriggerInfo;
+import premium.gameserver.stats.triggers.TriggerType;
+import premium.gameserver.templates.StatsSet;
+import premium.gameserver.templates.item.ItemTemplate;
+import premium.gameserver.utils.DocumentParser;
 
 import gnu.trove.list.array.TDoubleArrayList;
 //import premium.commons.crypt.CryptUtil;
@@ -30,7 +35,7 @@ import premium.gameserver.stats.triggers.TriggerInfo;
 import premium.gameserver.stats.triggers.TriggerType;
 import premium.gameserver.templates.item.ItemTemplate;
 
-public class AugmentationData
+public class AugmentationData extends DocumentParser
 {
 	private static final Logger LOG = LoggerFactory.getLogger(AugmentationData.class);
 	
@@ -246,308 +251,180 @@ public class AugmentationData
 	}
 	
 	@SuppressWarnings("unchecked")
-	private final void load()
+	@Override
+	public void load()
 	{
-		// Load the skillmap
-		// Note: the skillmap data is only used when generating new augmentations
-		// the client expects a different id in order to display the skill in the
-		// items description...
-		try
+		for (int i = 0; i < 10; i++)
 		{
-			int badAugmantData = 0;
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			factory.setValidating(false);
-			factory.setIgnoringComments(true);
-			
-			File file = new File(Config.DATAPACK_ROOT, "data/stats/augmentation/augmentation_skillmap.xml");
-			// FileInputStream stream = new FileInputStream(file);
-			// InputStream output;
-			// if ((byte) stream.read() == 0x00)
-			// {
-			// byte[] bytes = new byte[0];
-			// output = new ByteArrayInputStream(bytes);
-			// output = CryptUtil.decrypt(stream, output);
-			// }
-			// else
-			// {
-			// output = new FileInputStream(file);
-			// }
-			// Document doc = factory.newDocumentBuilder().parse(output);
-			
-			Document doc = factory.newDocumentBuilder().parse(file);
-			for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
-			{
-				if ("list".equalsIgnoreCase(n.getNodeName()))
-				{
-					for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
-					{
-						if ("augmentation".equalsIgnoreCase(d.getNodeName()))
-						{
-							NamedNodeMap attrs = d.getAttributes();
-							int skillId = 0, augmentationId = Integer.parseInt(attrs.getNamedItem("id").getNodeValue());
-							int skillLvL = 0;
-							String type = "blue";
-							
-							TriggerType t = null;
-							double chance = 0;
-							for (Node cd = d.getFirstChild(); cd != null; cd = cd.getNextSibling())
-							{
-								attrs = cd.getAttributes();
-								if ("skillId".equalsIgnoreCase(cd.getNodeName()))
-								{
-									skillId = Integer.parseInt(attrs.getNamedItem("val").getNodeValue());
-								}
-								else if ("skillLevel".equalsIgnoreCase(cd.getNodeName()))
-								{
-									skillLvL = Integer.parseInt(attrs.getNamedItem("val").getNodeValue());
-								}
-								else if ("type".equalsIgnoreCase(cd.getNodeName()))
-								{
-									type = attrs.getNamedItem("val").getNodeValue();
-								}
-								else if ("trigger_type".equalsIgnoreCase(cd.getNodeName()))
-								{
-									t = TriggerType.valueOf(attrs.getNamedItem("val").getNodeValue());
-								}
-								else if ("trigger_chance".equalsIgnoreCase(cd.getNodeName()))
-								{
-									chance = Double.parseDouble(attrs.getNamedItem("val").getNodeValue());
-								}
-							}
-							
-							if ((skillId == 0) || (skillLvL == 0))
-							{
-								badAugmantData++;
-								continue;
-							}
-							
-							int k = (augmentationId - BLUE_START) / SKILLS_BLOCKSIZE;
-							if (type.equalsIgnoreCase("blue"))
-							{
-								((List<Integer>) _blueSkills[k]).add(augmentationId);
-							}
-							else if (type.equalsIgnoreCase("purple"))
-							{
-								((List<Integer>) _purpleSkills[k]).add(augmentationId);
-							}
-							else if (type.equalsIgnoreCase("red"))
-							{
-								((List<Integer>) _redSkills[k]).add(augmentationId);
-							}
-							
-							_allSkills.put(augmentationId, new Options(augmentationId, type, skillId, skillLvL, t, chance));
-						}
-					}
-				}
-			}
-			
-			if (badAugmantData != 0)
-			{
-				LOG.info("AugmentationData: " + badAugmantData + " bad skill(s) were skipped.");
-			}
+			_blueSkills[i].clear();
+			_purpleSkills[i].clear();
+			_redSkills[i].clear();
+			_yellowSkills[i].clear();
 		}
-		catch (FileNotFoundException e)
+		_allSkills.clear();
+		
+		for (int i = 0; i < 4; i++)
 		{
-			LOG.error("FileNotFoundException parsing augmentation_skillmap.xml.", e);
-			return;
-		}
-		catch (NumberFormatException e)
-		{
-			LOG.error("NumberFormatException parsing augmentation_skillmap.xml.", e);
-			return;
-		}
-		catch (DOMException e)
-		{
-			LOG.error("DOMException parsing augmentation_skillmap.xml.", e);
-			return;
-		}
-		catch (IllegalArgumentException e)
-		{
-			LOG.error("IllegalArgumentException parsing augmentation_skillmap.xml.", e);
-			return;
-		}
-		catch (IOException | ParserConfigurationException | SAXException | RuntimeException e)
-		{
-			LOG.error("Error parsing augmentation_skillmap.xml.", e);
-			return;
+			_augStats[i].clear();
+			_augAccStats[i].clear();
 		}
 		
-		// Load the stats from xml
+		parseDatapackFile("data/stats/augmentation/augmentation_skillmap.xml");
+		
 		for (int i = 1; i < 5; i++)
 		{
-			try
+			parseDatapackFile("data/stats/augmentation/augmentation_stats" + i + ".xml");
+			parseDatapackFile("data/stats/augmentation/augmentation_jewel_stats" + i + ".xml");
+		}
+	}
+	
+	@Override
+	protected void parseDocument()
+	{
+		// Not used without document
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	protected void parseDocument(Document doc)
+	{
+		String fileName = getCurrentFile().getName();
+		if (fileName.equals("augmentation_skillmap.xml"))
+		{
+			forEach(doc, "list", listNode ->
 			{
-				DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-				factory.setValidating(false);
-				factory.setIgnoringComments(true);
-				
-				File file = new File(Config.DATAPACK_ROOT, "data/stats/augmentation/augmentation_stats" + i + ".xml");
-				
-				Document doc = factory.newDocumentBuilder().parse(file);
-				// FileInputStream stream = new FileInputStream(file);
-				// InputStream output;
-				// if ((byte) stream.read() == 0x00)
-				// {
-				// byte[] bytes = new byte[0];
-				// output = new ByteArrayInputStream(bytes);
-				// output = CryptUtil.decrypt(stream, output);
-				// }
-				// else
-				// {
-				// output = new FileInputStream(file);
-				// }
-				// Document doc = factory.newDocumentBuilder().parse(output);
-				
-				for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
+				forEach(listNode, "augmentation", d ->
 				{
-					if ("list".equalsIgnoreCase(n.getNodeName()))
+					StatsSet set = parseAttributes(d);
+					int augmentationId = set.getInteger("id");
+					
+					int[] skillId = { 0 };
+					int[] skillLvL = { 0 };
+					String[] type = { "blue" };
+					TriggerType[] t = { null };
+					double[] chance = { 0 };
+					
+					forEach(d, cd ->
 					{
-						for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
+						StatsSet cdSet = parseAttributes(cd);
+						if ("skillId".equalsIgnoreCase(cd.getNodeName()))
 						{
-							if ("stat".equalsIgnoreCase(d.getNodeName()))
-							{
-								NamedNodeMap attrs = d.getAttributes();
-								String statName = attrs.getNamedItem("name").getNodeValue();
-								double soloValues[] = null, combinedValues[] = null;
-								
-								for (Node cd = d.getFirstChild(); cd != null; cd = cd.getNextSibling())
-								{
-									if ("table".equalsIgnoreCase(cd.getNodeName()))
-									{
-										attrs = cd.getAttributes();
-										String tableName = attrs.getNamedItem("name").getNodeValue();
-										
-										StringTokenizer data = new StringTokenizer(cd.getFirstChild().getNodeValue());
-										TDoubleArrayList array = new TDoubleArrayList();
-										while (data.hasMoreTokens())
-										{
-											array.add(Double.parseDouble(data.nextToken()));
-										}
-										
-										if (tableName.equalsIgnoreCase("#soloValues"))
-										{
-											soloValues = new double[array.size()];
-											int x = 0;
-											for (double value : array.toArray())
-											{
-												soloValues[x++] = value;
-											}
-										}
-										else
-										{
-											combinedValues = new double[array.size()];
-											int x = 0;
-											for (double value : array.toArray())
-											{
-												combinedValues[x++] = value;
-											}
-										}
-									}
-								}
-								
-								// store this stat
-								((List<augmentationStat>) _augStats[(i - 1)]).add(new augmentationStat(Stats.valueOfXml(statName), soloValues, combinedValues));
-							}
+							skillId[0] = cdSet.getInteger("val");
 						}
+						else if ("skillLevel".equalsIgnoreCase(cd.getNodeName()))
+						{
+							skillLvL[0] = cdSet.getInteger("val");
+						}
+						else if ("type".equalsIgnoreCase(cd.getNodeName()))
+						{
+							type[0] = cdSet.getString("val");
+						}
+						else if ("trigger_type".equalsIgnoreCase(cd.getNodeName()))
+						{
+							t[0] = TriggerType.valueOf(cdSet.getString("val"));
+						}
+						else if ("trigger_chance".equalsIgnoreCase(cd.getNodeName()))
+						{
+							chance[0] = cdSet.getDouble("val");
+						}
+					});
+					
+					if (skillId[0] == 0 || skillLvL[0] == 0)
+					{
+						return;
 					}
-				}
-			}
-			catch (DOMException | FileNotFoundException | NumberFormatException | ParserConfigurationException | SAXException e)
+					
+					int k = (augmentationId - BLUE_START) / SKILLS_BLOCKSIZE;
+					if (type[0].equalsIgnoreCase("blue"))
+					{
+						((List<Integer>) _blueSkills[k]).add(augmentationId);
+					}
+					else if (type[0].equalsIgnoreCase("purple"))
+					{
+						((List<Integer>) _purpleSkills[k]).add(augmentationId);
+					}
+					else if (type[0].equalsIgnoreCase("red"))
+					{
+						((List<Integer>) _redSkills[k]).add(augmentationId);
+					}
+					
+					_allSkills.put(augmentationId, new Options(augmentationId, type[0], skillId[0], skillLvL[0], t[0], chance[0]));
+				});
+			});
+		}
+		else if (fileName.startsWith("augmentation_stats"))
+		{
+			int i = Integer.parseInt(fileName.substring(18, 19));
+			forEach(doc, "list", listNode ->
 			{
-				LOG.error("Error parsing augmentation_stats" + i + ".xml.", e);
-				return;
-			}
-			catch (IOException e)
-			{
-				LOG.error("IOException while parsing augmentation_stats" + i + ".xml.", e);
-				return;
-			}
-			
-			try
-			{
-				DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-				factory.setValidating(false);
-				factory.setIgnoringComments(true);
-				
-				File file = new File(Config.DATAPACK_ROOT, "data/stats/augmentation/augmentation_jewel_stats" + i + ".xml");
-				// FileInputStream stream = new FileInputStream(file);
-				// InputStream output;
-				// if ((byte) stream.read() == 0x00)
-				// {
-				// byte[] bytes = new byte[0];
-				// output = new ByteArrayInputStream(bytes);
-				// output = CryptUtil.decrypt(stream, output);
-				// }
-				// else
-				// {
-				// output = new FileInputStream(file);
-				// }
-				// Document doc = factory.newDocumentBuilder().parse(output);
-				Document doc = factory.newDocumentBuilder().parse(file);
-				for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
+				forEach(listNode, "stat", d ->
 				{
-					if ("list".equalsIgnoreCase(n.getNodeName()))
+					StatsSet set = parseAttributes(d);
+					String statName = set.getString("name");
+					
+					double[][] values = new double[2][];
+					
+					forEach(d, "table", cd ->
 					{
-						for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
+						StatsSet cdSet = parseAttributes(cd);
+						String tableName = cdSet.getString("name");
+						StringTokenizer data = new StringTokenizer(cd.getFirstChild().getNodeValue());
+						TDoubleArrayList array = new TDoubleArrayList();
+						while (data.hasMoreTokens())
 						{
-							if ("stat".equalsIgnoreCase(d.getNodeName()))
-							{
-								NamedNodeMap attrs = d.getAttributes();
-								String statName = attrs.getNamedItem("name").getNodeValue();
-								double soloValues[] = null, combinedValues[] = null;
-								
-								for (Node cd = d.getFirstChild(); cd != null; cd = cd.getNextSibling())
-								{
-									if ("table".equalsIgnoreCase(cd.getNodeName()))
-									{
-										attrs = cd.getAttributes();
-										String tableName = attrs.getNamedItem("name").getNodeValue();
-										
-										StringTokenizer data = new StringTokenizer(cd.getFirstChild().getNodeValue());
-										TDoubleArrayList array = new TDoubleArrayList();
-										while (data.hasMoreTokens())
-										{
-											array.add(Double.parseDouble(data.nextToken()));
-										}
-										
-										if (tableName.equalsIgnoreCase("#soloValues"))
-										{
-											soloValues = new double[array.size()];
-											int x = 0;
-											for (double value : array.toArray())
-											{
-												soloValues[x++] = value;
-											}
-										}
-										else
-										{
-											combinedValues = new double[array.size()];
-											int x = 0;
-											for (double value : array.toArray())
-											{
-												combinedValues[x++] = value;
-											}
-										}
-									}
-								}
-								
-								// store this stat
-								((List<augmentationStat>) _augAccStats[(i - 1)]).add(new augmentationStat(Stats.valueOfXml(statName), soloValues, combinedValues));
-							}
+							array.add(Double.parseDouble(data.nextToken()));
 						}
-					}
-				}
-			}
-			catch (DOMException | FileNotFoundException | NumberFormatException | ParserConfigurationException | SAXException e)
+						
+						if (tableName.equalsIgnoreCase("#soloValues"))
+						{
+							values[0] = array.toArray();
+						}
+						else
+						{
+							values[1] = array.toArray();
+						}
+					});
+					
+					((List<augmentationStat>) _augStats[i - 1]).add(new augmentationStat(Stats.valueOfXml(statName), values[0], values[1]));
+				});
+			});
+		}
+		else if (fileName.startsWith("augmentation_jewel_stats"))
+		{
+			int i = Integer.parseInt(fileName.substring(24, 25));
+			forEach(doc, "list", listNode ->
 			{
-				LOG.error("Error parsing jewel augmentation_stats" + i + ".xml.", e);
-				return;
-			}
-			catch (IOException e)
-			{
-				LOG.error("IOException parsing jewel augmentation_stats" + i + ".xml.", e);
-				return;
-			}
+				forEach(listNode, "stat", d ->
+				{
+					StatsSet set = parseAttributes(d);
+					String statName = set.getString("name");
+					
+					double[][] values = new double[2][];
+					
+					forEach(d, "table", cd ->
+					{
+						StatsSet cdSet = parseAttributes(cd);
+						String tableName = cdSet.getString("name");
+						StringTokenizer data = new StringTokenizer(cd.getFirstChild().getNodeValue());
+						TDoubleArrayList array = new TDoubleArrayList();
+						while (data.hasMoreTokens())
+						{
+							array.add(Double.parseDouble(data.nextToken()));
+						}
+						
+						if (tableName.equalsIgnoreCase("#soloValues"))
+						{
+							values[0] = array.toArray();
+						}
+						else
+						{
+							values[1] = array.toArray();
+						}
+					});
+					
+					((List<augmentationStat>) _augAccStats[i - 1]).add(new augmentationStat(Stats.valueOfXml(statName), values[0], values[1]));
+				});
+			});
 		}
 	}
 	

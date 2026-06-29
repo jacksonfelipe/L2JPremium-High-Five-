@@ -5,14 +5,25 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-import org.xml.sax.SAXException;
+
+import gnu.trove.map.hash.TIntObjectHashMap;
+//import premium.commons.crypt.CryptUtil;
+import premium.gameserver.Config;
+import premium.gameserver.model.Player;
+import premium.gameserver.model.base.MultiSellEntry;
+import premium.gameserver.model.base.MultiSellIngredient;
+import premium.gameserver.model.items.ItemInstance;
+import premium.gameserver.network.serverpackets.MultiSellList;
+import premium.gameserver.network.serverpackets.components.CustomMessage;
+import premium.gameserver.scripts.Functions;
+import premium.gameserver.templates.StatsSet;
+import premium.gameserver.templates.item.ItemTemplate;
+import premium.gameserver.utils.DocumentParser;
+import premium.gameserver.utils.XMLUtil;
 
 import gnu.trove.map.hash.TIntObjectHashMap;
 //import premium.commons.crypt.CryptUtil;
@@ -30,7 +41,7 @@ import premium.gameserver.utils.XMLUtil;
 /**
  * Multisell list manager
  */
-public class MultiSellHolder
+public class MultiSellHolder extends DocumentParser
 {
 	private static final Logger _log = LoggerFactory.getLogger(MultiSellHolder.class);
 	
@@ -53,18 +64,25 @@ public class MultiSellHolder
 	
 	public MultiSellHolder()
 	{
-		parseData();
+		load();
 	}
 	
 	public void reload()
 	{
-		parseData();
+		load();
 	}
 	
-	private void parseData()
+	@Override
+	public void load()
 	{
 		entries.clear();
-		parse();
+		parseDirectory("data/multisell", true);
+	}
+	
+	@Override
+	protected void parseDocument()
+	{
+		// Not used without document
 	}
 	
 	public static class MultiSellListContainer
@@ -142,35 +160,8 @@ public class MultiSellHolder
 		}
 	}
 	
-	private void hashFiles(String dirname, List<File> hash)
-	{
-		File dir = new File(Config.DATAPACK_ROOT, "data/" + dirname);
-		if (!dir.exists())
-		{
-			_log.info("Dir " + dir.getAbsolutePath() + " not exists");
-			return;
-		}
-		File[] files = dir.listFiles();
-		for (File f : files)
-		{
-			if (f.getName().endsWith(".xml"))
-			{
-				hash.add(f);
-			}
-			else if (f.isDirectory() && !f.getName().equals(".svn"))
-			{
-				hashFiles(dirname + "/" + f.getName(), hash);
-			}
-		}
-	}
-	
 	public void addMultiSellListContainer(int id, MultiSellListContainer list)
 	{
-		if (entries.containsKey(id))
-		{
-			
-		}
-		
 		list.setListId(id);
 		entries.put(id, list);
 	}
@@ -190,184 +181,103 @@ public class MultiSellHolder
 		return entries.remove(id);
 	}
 	
-	public void parseFile(File f)
+	@Override
+	protected void parseDocument(Document doc)
 	{
 		int id = 0;
 		try
 		{
-			id = Integer.parseInt(f.getName().replaceAll(".xml", ""));
+			id = Integer.parseInt(getCurrentFile().getName().replaceAll(".xml", ""));
 		}
 		catch (NumberFormatException e)
 		{
-			_log.error("Error loading file " + f, e);
+			_log.error("Error loading file " + getCurrentFile(), e);
 			return;
 		}
-		Document doc = null;
-		try
-		{
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			factory.setValidating(false);
-			factory.setIgnoringComments(true);
-			doc = factory.newDocumentBuilder().parse(f);
-			// doc = factory.newDocumentBuilder().parse(CryptUtil.decryptOnDemand(f));
-		}
-		catch (IOException | ParserConfigurationException | SAXException e)
-		{
-			_log.error("Error loading file " + f, e);
-			return;
-		}
-		try
-		{
-			addMultiSellListContainer(id, parseDocument(doc, id));
-		}
-		catch (RuntimeException e)
-		{
-			_log.error("Error in file " + f, e);
-		}
-	}
-	
-	private void parse()
-	{
-		List<File> files = new ArrayList<>();
-		hashFiles("multisell", files);
-		for (File f : files)
-		{
-			parseFile(f);
-		}
-	}
-	
-	protected MultiSellListContainer parseDocument(Document doc, int id)
-	{
-		MultiSellListContainer list = new MultiSellListContainer();
-		int entId = 1;
 		
-		for (Node n = doc.getFirstChild(); n != null; n = n.getNextSibling())
+		MultiSellListContainer list = new MultiSellListContainer();
+		final int listId = id;
+		
+		forEach(doc, "list", listNode ->
 		{
-			if ("list".equalsIgnoreCase(n.getNodeName()))
+			int[] entId = { 1 };
+			forEach(listNode, node ->
 			{
-				for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
+				if ("item".equalsIgnoreCase(node.getNodeName()))
 				{
-					if ("item".equalsIgnoreCase(d.getNodeName()))
+					MultiSellEntry e = parseEntry(node, listId);
+					if (e != null)
 					{
-						MultiSellEntry e = parseEntry(d, id);
-						if (e != null)
-						{
-							e.setEntryId(entId++);
-							list.addEntry(e);
-						}
-					}
-					else if ("config".equalsIgnoreCase(d.getNodeName()))
-					{
-						list.setShowAll(XMLUtil.getAttributeBooleanValue(d, "showall", true));
-						list.setNoTax(XMLUtil.getAttributeBooleanValue(d, "notax", false));
-						list.setKeepEnchant(XMLUtil.getAttributeBooleanValue(d, "keepenchanted", false));
-						list.setNoKey(XMLUtil.getAttributeBooleanValue(d, "nokey", false));
+						e.setEntryId(entId[0]++);
+						list.addEntry(e);
 					}
 				}
-			}
-		}
+				else if ("config".equalsIgnoreCase(node.getNodeName()))
+				{
+					StatsSet set = parseAttributes(node);
+					list.setShowAll(set.getBool("showall", true));
+					list.setNoTax(set.getBool("notax", false));
+					list.setKeepEnchant(set.getBool("keepenchanted", false));
+					list.setNoKey(set.getBool("nokey", false));
+				}
+			});
+		});
 		
-		return list;
+		addMultiSellListContainer(id, list);
 	}
 	
 	protected MultiSellEntry parseEntry(Node n, int multiSellId)
 	{
 		MultiSellEntry entry = new MultiSellEntry();
 		
-		for (Node d = n.getFirstChild(); d != null; d = d.getNextSibling())
+		forEach(n, node ->
 		{
-			if (NODE_INGRIDIENT.equalsIgnoreCase(d.getNodeName()))
+			StatsSet set = parseAttributes(node);
+			if (NODE_INGRIDIENT.equalsIgnoreCase(node.getNodeName()))
 			{
-				int id = Integer.parseInt(d.getAttributes().getNamedItem("id").getNodeValue());
-				long count = Long.parseLong(d.getAttributes().getNamedItem("count").getNodeValue());
-				MultiSellIngredient mi = new MultiSellIngredient(id, count);
-				if (d.getAttributes().getNamedItem("enchant") != null)
-				{
-					mi.setItemEnchant(Integer.parseInt(d.getAttributes().getNamedItem("enchant").getNodeValue()));
-				}
-				if (d.getAttributes().getNamedItem("mantainIngredient") != null)
-				{
-					mi.setMantainIngredient(Boolean.parseBoolean(d.getAttributes().getNamedItem("mantainIngredient").getNodeValue()));
-				}
+				MultiSellIngredient mi = new MultiSellIngredient(set.getInteger("id"), set.getLong("count"));
+				mi.setItemEnchant(set.getInteger("enchant", 0));
+				mi.setMantainIngredient(set.getBool("mantainIngredient", false));
+				
 				// Elements
-				if (d.getAttributes().getNamedItem("fireAttr") != null)
-				{
-					mi.getItemAttributes().setFire(Integer.parseInt(d.getAttributes().getNamedItem("fireAttr").getNodeValue()));
-				}
-				if (d.getAttributes().getNamedItem("waterAttr") != null)
-				{
-					mi.getItemAttributes().setWater(Integer.parseInt(d.getAttributes().getNamedItem("waterAttr").getNodeValue()));
-				}
-				if (d.getAttributes().getNamedItem("earthAttr") != null)
-				{
-					mi.getItemAttributes().setEarth(Integer.parseInt(d.getAttributes().getNamedItem("earthAttr").getNodeValue()));
-				}
-				if (d.getAttributes().getNamedItem("windAttr") != null)
-				{
-					mi.getItemAttributes().setWind(Integer.parseInt(d.getAttributes().getNamedItem("windAttr").getNodeValue()));
-				}
-				if (d.getAttributes().getNamedItem("holyAttr") != null)
-				{
-					mi.getItemAttributes().setHoly(Integer.parseInt(d.getAttributes().getNamedItem("holyAttr").getNodeValue()));
-				}
-				if (d.getAttributes().getNamedItem("unholyAttr") != null)
-				{
-					mi.getItemAttributes().setUnholy(Integer.parseInt(d.getAttributes().getNamedItem("unholyAttr").getNodeValue()));
-				}
+				mi.getItemAttributes().setFire(set.getInteger("fireAttr", 0));
+				mi.getItemAttributes().setWater(set.getInteger("waterAttr", 0));
+				mi.getItemAttributes().setEarth(set.getInteger("earthAttr", 0));
+				mi.getItemAttributes().setWind(set.getInteger("windAttr", 0));
+				mi.getItemAttributes().setHoly(set.getInteger("holyAttr", 0));
+				mi.getItemAttributes().setUnholy(set.getInteger("unholyAttr", 0));
 				
 				entry.addIngredient(mi);
 			}
-			else if (NODE_PRODUCTION.equalsIgnoreCase(d.getNodeName()))
+			else if (NODE_PRODUCTION.equalsIgnoreCase(node.getNodeName()))
 			{
-				int id = Integer.parseInt(d.getAttributes().getNamedItem("id").getNodeValue());
-				long count = Long.parseLong(d.getAttributes().getNamedItem("count").getNodeValue());
-				MultiSellIngredient mi = new MultiSellIngredient(id, count);
-				if (d.getAttributes().getNamedItem("enchant") != null)
-				{
-					mi.setItemEnchant(Integer.parseInt(d.getAttributes().getNamedItem("enchant").getNodeValue()));
-				}
+				int id = set.getInteger("id");
+				MultiSellIngredient mi = new MultiSellIngredient(id, set.getLong("count"));
+				mi.setItemEnchant(set.getInteger("enchant", 0));
+				
 				// Elements
-				if (d.getAttributes().getNamedItem("fireAttr") != null)
-				{
-					mi.getItemAttributes().setFire(Integer.parseInt(d.getAttributes().getNamedItem("fireAttr").getNodeValue()));
-				}
-				if (d.getAttributes().getNamedItem("waterAttr") != null)
-				{
-					mi.getItemAttributes().setWater(Integer.parseInt(d.getAttributes().getNamedItem("waterAttr").getNodeValue()));
-				}
-				if (d.getAttributes().getNamedItem("earthAttr") != null)
-				{
-					mi.getItemAttributes().setEarth(Integer.parseInt(d.getAttributes().getNamedItem("earthAttr").getNodeValue()));
-				}
-				if (d.getAttributes().getNamedItem("windAttr") != null)
-				{
-					mi.getItemAttributes().setWind(Integer.parseInt(d.getAttributes().getNamedItem("windAttr").getNodeValue()));
-				}
-				if (d.getAttributes().getNamedItem("holyAttr") != null)
-				{
-					mi.getItemAttributes().setHoly(Integer.parseInt(d.getAttributes().getNamedItem("holyAttr").getNodeValue()));
-				}
-				if (d.getAttributes().getNamedItem("unholyAttr") != null)
-				{
-					mi.getItemAttributes().setUnholy(Integer.parseInt(d.getAttributes().getNamedItem("unholyAttr").getNodeValue()));
-				}
+				mi.getItemAttributes().setFire(set.getInteger("fireAttr", 0));
+				mi.getItemAttributes().setWater(set.getInteger("waterAttr", 0));
+				mi.getItemAttributes().setEarth(set.getInteger("earthAttr", 0));
+				mi.getItemAttributes().setWind(set.getInteger("windAttr", 0));
+				mi.getItemAttributes().setHoly(set.getInteger("holyAttr", 0));
+				mi.getItemAttributes().setUnholy(set.getInteger("unholyAttr", 0));
 				
 				if (!Config.ALT_ALLOW_SHADOW_WEAPONS && id > 0)
 				{
 					ItemTemplate item = ItemHolder.getInstance().getTemplate(id);
 					if (item != null && item.isShadowItem() && item.isWeapon() && !Config.ALT_ALLOW_SHADOW_WEAPONS)
 					{
-						return null;
+						return;
 					}
 				}
 				
 				entry.addProduct(mi);
 			}
-		}
+		});
 		
 		if (entry.getProduction().isEmpty())
 		{
-			
 			return null;
 		}
 		
@@ -376,7 +286,6 @@ public class MultiSellHolder
 			ItemTemplate item = ItemHolder.getInstance().getTemplate(entry.getProduction().get(0).getItemId());
 			if (item == null)
 			{
-				
 				return null;
 			}
 			if (multiSellId < 70000 || multiSellId > 70010) // FIXME hardcode. Все кроме GM Shop
