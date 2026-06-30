@@ -86,6 +86,8 @@ public class RequestSellItem extends L2GameClientPacket
 			return;
 		}
 		
+		long totalPrice = 0;
+		
 		activeChar.getInventory().writeLock();
 		try
 		{
@@ -107,15 +109,24 @@ public class RequestSellItem extends L2GameClientPacket
 				}
 				
 				ItemInstance refund = activeChar.getInventory().removeItemByObjectId(objectId, count, "Selling Item");
-				
-				activeChar.addAdena(price, "Selling Item");
-				activeChar.getRefund().addItem(refund, null, null);
-				if (activeChar.isBBSUse())
+				if (refund == null)
 				{
-					activeChar.setIsBBSUse(false);
+					continue;
 				}
 				
+				totalPrice = SafeMath.addAndCheck(totalPrice, price);
+				activeChar.getRefund().addItem(refund, null, null);
 				ItemLogHandler.getInstance().addLog(activeChar, item, count, ItemActionType.SOLD_TO_NPC);
+			}
+			
+			if (totalPrice > 0)
+			{
+				activeChar.addAdena(totalPrice, true, "Selling Item");
+			}
+			
+			if (activeChar.isBBSUse())
+			{
+				activeChar.setIsBBSUse(false);
 			}
 		}
 		catch (ArithmeticException ae)

@@ -229,6 +229,7 @@ public class CommunityBoard implements ScriptFile, ICommunityBoardHandler
 					handler.onBypassCommand(player, pBypass);
 				}
 			}
+			player.setIsBBSUse(true);
 			NpcTradeList list = BuyListHolder.getInstance().getBuyList(-1);
 			player.sendPacket(new ExBuySellList.BuyList(list, player, 0.), new ExBuySellList.SellRefundList(player, false));
 			return;

@@ -368,22 +368,32 @@ public class Util extends Functions
 	
 	public void CommunitySell()
 	{
-		if (!getSelf().isInZonePeace())
+		Player player = getSelf();
+		if (player == null)
 		{
-			getSelf().sendMessage("It can be used only in Peaceful zone!");
-			return;
-		}
-		if (getSelf().isJailed())
-		{
-			getSelf().sendMessage("You cannot do it in Jail!");
 			return;
 		}
 		
-		BuyListHolder.NpcTradeList list = BuyListHolder.getInstance().getBuyList(0);
-		if (list == null)
+		if (!Config.BBS_PVP_ALLOW_SELL)
 		{
-			getSelf().sendPacket(new ExBuySellList.BuyList(list, getSelf(), 0), new ExBuySellList.SellRefundList(getSelf(), false));
+			player.sendMessage("Community sell function disabled by an administrator.");
+			return;
 		}
+		
+		if (!player.isInZonePeace())
+		{
+			player.sendMessage("It can be used only in Peaceful zone!");
+			return;
+		}
+		if (player.isJailed())
+		{
+			player.sendMessage("You cannot do it in Jail!");
+			return;
+		}
+		
+		player.setIsBBSUse(true);
+		BuyListHolder.NpcTradeList list = BuyListHolder.getInstance().getBuyList(-1);
+		player.sendPacket(new ExBuySellList.BuyList(list, player, 0), new ExBuySellList.SellRefundList(player, false));
 	}
 	
 	public void CommunityAugment()
