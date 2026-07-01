@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -24,6 +25,7 @@ import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
 //import premium.commons.crypt.CryptUtil;
+import premium.gameserver.Config;
 import premium.gameserver.model.Skill;
 import premium.gameserver.skills.effects.EffectTemplate;
 import premium.gameserver.stats.StatTemplate;
@@ -111,7 +113,16 @@ abstract class DocumentBase
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			factory.setValidating(false);
 			factory.setIgnoringComments(true);
-			doc = factory.newDocumentBuilder().parse(file);
+			final DocumentBuilder builder = factory.newDocumentBuilder();
+			builder.setEntityResolver((publicId, systemId) ->
+			{
+				if (systemId != null && systemId.endsWith("skills.dtd"))
+				{
+					return new org.xml.sax.InputSource(new File(Config.DATAPACK_ROOT, "data/stats/skills/skills.dtd").toURI().toString());
+				}
+				return null;
+			});
+			doc = builder.parse(file);
 		}
 		catch (Exception e)
 		{

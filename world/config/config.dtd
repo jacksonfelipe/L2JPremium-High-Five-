@@ -1,0 +1,400 @@
+<!ELEMENT AllowedCommands ANY>
+<!ATTLIST AllowedCommands
+  set CDATA #IMPLIED
+>
+<!ELEMENT BanChatBonusCount ANY>
+<!ATTLIST BanChatBonusCount
+  set CDATA #IMPLIED
+>
+<!ELEMENT BanChatBonusId ANY>
+<!ATTLIST BanChatBonusId
+  set CDATA #IMPLIED
+>
+<!ELEMENT BanChatCountPerDay ANY>
+<!ATTLIST BanChatCountPerDay
+  set CDATA #IMPLIED
+>
+<!ELEMENT BanChatDelay ANY>
+<!ATTLIST BanChatDelay
+  set CDATA #IMPLIED
+>
+<!ELEMENT BanChatMaxValue ANY>
+<!ATTLIST BanChatMaxValue
+  set CDATA #IMPLIED
+>
+<!ELEMENT BlockInventory ANY>
+<!ATTLIST BlockInventory
+  set CDATA #IMPLIED
+>
+<!ELEMENT CanAnnounce ANY>
+<!ATTLIST CanAnnounce
+  set CDATA #IMPLIED
+>
+<!ELEMENT CanAttack ANY>
+<!ATTLIST CanAttack
+  set CDATA #IMPLIED
+>
+<!ELEMENT CanBan ANY>
+<!ATTLIST CanBan
+  set CDATA #IMPLIED
+>
+<!ELEMENT CanBanChat ANY>
+<!ATTLIST CanBanChat
+  set CDATA #IMPLIED
+>
+<!ELEMENT CanChangeClass ANY>
+<!ATTLIST CanChangeClass
+  set CDATA #IMPLIED
+>
+<!ELEMENT CanChatPenalty ANY>
+<!ATTLIST CanChatPenalty
+  set CDATA #IMPLIED
+>
+<!ELEMENT CanDelete ANY>
+<!ATTLIST CanDelete
+  set CDATA #IMPLIED
+>
+<!ELEMENT CanEditChar ANY>
+<!ATTLIST CanEditChar
+  set CDATA #IMPLIED
+>
+<!ELEMENT CanEditCharAll ANY>
+<!ATTLIST CanEditCharAll
+  set CDATA #IMPLIED
+>
+<!ELEMENT CanEditNPC ANY>
+<!ATTLIST CanEditNPC
+  set CDATA #IMPLIED
+>
+<!ELEMENT CanEditPledge ANY>
+<!ATTLIST CanEditPledge
+  set CDATA #IMPLIED
+>
+<!ELEMENT CanEvaluate ANY>
+<!ATTLIST CanEvaluate
+  set CDATA #IMPLIED
+>
+<!ELEMENT CanGmEdit ANY>
+<!ATTLIST CanGmEdit
+  set CDATA #IMPLIED
+>
+<!ELEMENT CanJail ANY>
+<!ATTLIST CanJail
+  set CDATA #IMPLIED
+>
+<!ELEMENT CanJoinClan ANY>
+<!ATTLIST CanJoinClan
+  set CDATA #IMPLIED
+>
+<!ELEMENT CanJoinParty ANY>
+<!ATTLIST CanJoinParty
+  set CDATA #IMPLIED
+>
+<!ELEMENT CanKick ANY>
+<!ATTLIST CanKick
+  set CDATA #IMPLIED
+>
+<!ELEMENT CanPolymorph ANY>
+<!ATTLIST CanPolymorph
+  set CDATA #IMPLIED
+>
+<!ELEMENT CanReload ANY>
+<!ATTLIST CanReload
+  set CDATA #IMPLIED
+>
+<!ELEMENT CanRename ANY>
+<!ATTLIST CanRename
+  set CDATA #IMPLIED
+>
+<!ELEMENT CanRestart ANY>
+<!ATTLIST CanRestart
+  set CDATA #IMPLIED
+>
+<!ELEMENT CanTeleport ANY>
+<!ATTLIST CanTeleport
+  set CDATA #IMPLIED
+>
+<!ELEMENT CanUnBanChat ANY>
+<!ATTLIST CanUnBanChat
+  set CDATA #IMPLIED
+>
+<!ELEMENT CanUseGMCommand ANY>
+<!ATTLIST CanUseGMCommand
+  set CDATA #IMPLIED
+>
+<!ELEMENT CanViewChar ANY>
+<!ATTLIST CanViewChar
+  set CDATA #IMPLIED
+>
+<!ELEMENT CanViewNPC ANY>
+<!ATTLIST CanViewNPC
+  set CDATA #IMPLIED
+>
+<!ELEMENT Door ANY>
+<!ATTLIST Door
+  set CDATA #IMPLIED
+>
+<!ELEMENT FastUnstuck ANY>
+<!ATTLIST FastUnstuck
+  set CDATA #IMPLIED
+>
+<!ELEMENT GodMode ANY>
+<!ATTLIST GodMode
+  set CDATA #IMPLIED
+>
+<!ELEMENT Heal ANY>
+<!ATTLIST Heal
+  set CDATA #IMPLIED
+>
+<!ELEMENT IsEventGm ANY>
+<!ATTLIST IsEventGm
+  set CDATA #IMPLIED
+>
+<!ELEMENT IsGM ANY>
+<!ATTLIST IsGM
+  set CDATA #IMPLIED
+>
+<!ELEMENT Menu ANY>
+<!ATTLIST Menu
+  set CDATA #IMPLIED
+>
+<!ELEMENT MonsterRace ANY>
+<!ATTLIST MonsterRace
+  set CDATA #IMPLIED
+>
+<!ELEMENT PeaceAttack ANY>
+<!ATTLIST PeaceAttack
+  set CDATA #IMPLIED
+>
+<!ELEMENT PlayerID ANY>
+<!ATTLIST PlayerID
+  set CDATA #IMPLIED
+>
+<!ELEMENT Res ANY>
+<!ATTLIST Res
+  set CDATA #IMPLIED
+>
+<!ELEMENT ResurectFixed ANY>
+<!ATTLIST ResurectFixed
+  set CDATA #IMPLIED
+>
+<!ELEMENT Rider ANY>
+<!ATTLIST Rider
+  set CDATA #IMPLIED
+>
+<!ELEMENT Unblock ANY>
+<!ATTLIST Unblock
+  set CDATA #IMPLIED
+>
+<!ELEMENT UseGMShop ANY>
+<!ATTLIST UseGMShop
+  set CDATA #IMPLIED
+>
+<!ELEMENT UseInventory ANY>
+<!ATTLIST UseInventory
+  set CDATA #IMPLIED
+>
+<!ELEMENT UseShop ANY>
+<!ATTLIST UseShop
+  set CDATA #IMPLIED
+>
+<!ELEMENT UseTrade ANY>
+<!ATTLIST UseTrade
+  set CDATA #IMPLIED
+>
+<!ELEMENT UseWarehouse ANY>
+<!ATTLIST UseWarehouse
+  set CDATA #IMPLIED
+>
+<!ELEMENT achievement ANY>
+<!ATTLIST achievement
+  cat CDATA #IMPLIED
+  desc CDATA #IMPLIED
+  id CDATA #IMPLIED
+  type CDATA #IMPLIED
+>
+<!ELEMENT api ANY>
+<!ATTLIST api
+  id CDATA #IMPLIED
+  key CDATA #IMPLIED
+  zone CDATA #IMPLIED
+>
+<!ELEMENT appender ANY>
+<!ATTLIST appender
+  class CDATA #IMPLIED
+  name CDATA #IMPLIED
+>
+<!ELEMENT appender-ref ANY>
+<!ATTLIST appender-ref
+  ref CDATA #IMPLIED
+>
+<!ELEMENT aug ANY>
+<!ATTLIST aug
+  desc CDATA #IMPLIED
+  id CDATA #IMPLIED
+  itemCount CDATA #IMPLIED
+  itemId CDATA #IMPLIED
+  skillId CDATA #IMPLIED
+  skillLvl CDATA #IMPLIED
+  statsId CDATA #IMPLIED
+  type CDATA #IMPLIED
+>
+<!ELEMENT cache ANY>
+<!ATTLIST cache
+  eternal CDATA #IMPLIED
+  maxElementsInMemory CDATA #IMPLIED
+  memoryStoreEvictionPolicy CDATA #IMPLIED
+  name CDATA #IMPLIED
+  overflowToDisk CDATA #IMPLIED
+  statistics CDATA #IMPLIED
+  timeToIdleSeconds CDATA #IMPLIED
+  timeToLiveSeconds CDATA #IMPLIED
+>
+<!ELEMENT cat ANY>
+<!ATTLIST cat
+  desc CDATA #IMPLIED
+  icon CDATA #IMPLIED
+  id CDATA #IMPLIED
+  name CDATA #IMPLIED
+>
+<!ELEMENT categories ANY>
+<!ELEMENT category ANY>
+<!ATTLIST category
+  chance CDATA #IMPLIED
+>
+<!ELEMENT char ANY>
+<!ELEMENT class ANY>
+<!ATTLIST class
+  id CDATA #IMPLIED
+  max CDATA #IMPLIED
+  min CDATA #IMPLIED
+  name CDATA #IMPLIED
+>
+<!ELEMENT classes ANY>
+<!ELEMENT config ANY>
+<!ATTLIST config
+  enableVoteReward CDATA #IMPLIED
+>
+<!ELEMENT defaultCache ANY>
+<!ATTLIST defaultCache
+  diskExpiryThreadIntervalSeconds CDATA #IMPLIED
+  diskPersistent CDATA #IMPLIED
+  eternal CDATA #IMPLIED
+  maxElementsInMemory CDATA #IMPLIED
+  overflowToDisk CDATA #IMPLIED
+  timeToIdleSeconds CDATA #IMPLIED
+  timeToLiveSeconds CDATA #IMPLIED
+>
+<!ELEMENT diskStore ANY>
+<!ATTLIST diskStore
+  path CDATA #IMPLIED
+>
+<!ELEMENT display ANY>
+<!ATTLIST display
+  description CDATA #IMPLIED
+  enabled CDATA #IMPLIED
+  name CDATA #IMPLIED
+>
+<!ELEMENT ehcache ANY>
+<!ATTLIST ehcache
+  monitoring CDATA #IMPLIED
+  updateCheck CDATA #IMPLIED
+  noNamespaceSchemaLocation CDATA #IMPLIED
+>
+<!ELEMENT group ANY>
+<!ATTLIST group
+  chance CDATA #IMPLIED
+>
+<!ELEMENT item ANY>
+<!ATTLIST item
+  chance CDATA #IMPLIED
+  id CDATA #IMPLIED
+  max CDATA #IMPLIED
+  min CDATA #IMPLIED
+>
+<!ELEMENT layout ANY>
+<!ATTLIST layout
+  class CDATA #IMPLIED
+>
+<!ELEMENT level ANY>
+<!ATTLIST level
+  fame CDATA #IMPLIED
+  icon CDATA #IMPLIED
+  id CDATA #IMPLIED
+  ip CDATA #IMPLIED
+  max CDATA #IMPLIED
+  min CDATA #IMPLIED
+  name CDATA #IMPLIED
+  need CDATA #IMPLIED
+  value CDATA #IMPLIED
+>
+<!ELEMENT levels ANY>
+<!ATTLIST levels
+  max CDATA #IMPLIED
+  min CDATA #IMPLIED
+>
+<!ELEMENT list ANY>
+<!ATTLIST list
+  noNamespaceSchemaLocation CDATA #IMPLIED
+>
+<!ELEMENT logger ANY>
+<!ATTLIST logger
+  additivity CDATA #IMPLIED
+  name CDATA #IMPLIED
+>
+<!ELEMENT mask ANY>
+<!ATTLIST mask
+  ip CDATA #IMPLIED
+  mask CDATA #IMPLIED
+>
+<!ELEMENT message ANY>
+<!ATTLIST message
+  type CDATA #IMPLIED
+>
+<!ELEMENT messages ANY>
+<!ELEMENT minChatMessages ANY>
+<!ATTLIST minChatMessages
+  all CDATA #IMPLIED
+  clan CDATA #IMPLIED
+  ip CDATA #IMPLIED
+  party CDATA #IMPLIED
+  pm CDATA #IMPLIED
+  shout CDATA #IMPLIED
+  trade CDATA #IMPLIED
+>
+<!ELEMENT nameColor ANY>
+<!ATTLIST nameColor
+  color CDATA #IMPLIED
+  enable CDATA #IMPLIED
+>
+<!ELEMENT param ANY>
+<!ATTLIST param
+  name CDATA #IMPLIED
+  val CDATA #IMPLIED
+  value CDATA #IMPLIED
+>
+<!ELEMENT params ANY>
+<!ELEMENT quest ANY>
+<!ATTLIST quest
+  name CDATA #IMPLIED
+>
+<!ELEMENT reward ANY>
+<!ATTLIST reward
+  count CDATA #IMPLIED
+  id CDATA #IMPLIED
+  name CDATA #IMPLIED
+>
+<!ELEMENT rewards ANY>
+<!ATTLIST rewards
+  protectReward CDATA #IMPLIED
+>
+<!ELEMENT root ANY>
+<!ELEMENT voting ANY>
+<!ATTLIST voting
+  command CDATA #IMPLIED
+  interval CDATA #IMPLIED
+>
+<!ELEMENT configuration ANY>
+<!ATTLIST configuration
+  debug CDATA #IMPLIED
+>

@@ -100,6 +100,11 @@ public class FishTable
 				int chance = resultSet.getInt("chance");
 				
 				reward = new RewardData(rewardid, mindrop, maxdrop, chance * 10000.);
+				if (!reward.isValid())
+				{
+					_log.warn("FishTable: Skipping reward item " + rewardid + " for fish " + fishid + " (item not found).");
+					continue;
+				}
 				if ((rewards = _fishRewards.get(fishid)) == null)
 				{
 					_fishRewards.put(fishid, rewards = new ArrayList<>());

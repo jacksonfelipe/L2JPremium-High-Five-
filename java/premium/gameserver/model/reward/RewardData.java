@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang3.ArrayUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import premium.commons.math.SafeMath;
 import premium.commons.util.Rnd;
@@ -14,6 +16,8 @@ import premium.gameserver.templates.item.ItemTemplate;
 
 public class RewardData implements Cloneable
 {
+	private static final Logger _log = LoggerFactory.getLogger(RewardData.class);
+	
 	private final ItemTemplate _item;
 	private boolean _notRate = false; // Рейты к вещи не применяются
 	
@@ -25,6 +29,11 @@ public class RewardData implements Cloneable
 	public RewardData(int itemId)
 	{
 		_item = ItemHolder.getInstance().getTemplate(itemId);
+		if (_item == null)
+		{
+			_log.warn("RewardData: Unknown item id " + itemId);
+			return;
+		}
 		if (_item.isArrow() // стрелы не рейтуются
 			|| (Config.NO_RATE_EQUIPMENT && _item.isEquipment()) // отключаемая рейтовка эквипа
 			|| (Config.NO_RATE_KEY_MATERIAL && _item.isKeyMatherial()) // отключаемая рейтовка ключевых материалов
@@ -47,6 +56,11 @@ public class RewardData implements Cloneable
 		_maxdrop = max;
 		_chance = chance;
 		_enchantLvl = enchanted;
+	}
+	
+	public boolean isValid()
+	{
+		return _item != null;
 	}
 	
 	public boolean notRate()
